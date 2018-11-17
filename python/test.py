@@ -30,9 +30,9 @@ def key(request):  # type: ignore
     return request.param
 
 
-def test(key):
+def test(benchmark, key):
     module = __import__("p{:04}".format(key))
-    assert module.main() == answers[key]
+    assert benchmark(module.main) == answers[key]
 
 
 def test_is_prime() -> None:
