@@ -39,7 +39,7 @@ def main() -> int:
                         print("{}/{}".format(num, denom))
                         answer *= frac
                         counter += 1
-    return answer.denominator, counter
+    return answer.denominator
 
 
 if __name__ == '__main__':
