@@ -25,6 +25,8 @@ from p0003 import prime_factors
 
 
 def is_prime(num: int) -> bool:
+    if num in (0, 1):
+        return False
     if num in prime_factors.cache:
         return True
     factors = iter(prime_factors(num))
