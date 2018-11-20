@@ -38,7 +38,7 @@ def fib_lim(lim: int) -> Iterator[int]:
 
 
 def main():
-    return sum(x for x in fib_lim(4_000_000) if x % 2 == 0)
+    return sum(x for x in fib_lim(4000000) if x % 2 == 0)
 
 
 if __name__ == '__main__':

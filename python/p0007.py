@@ -42,7 +42,7 @@ def primes() -> Iterator[int]:
 
 def main() -> int:
     for idx, num in enumerate(primes(), 1):
-        if idx == 10_001:
+        if idx == 10001:
             return num
     return -1
 
