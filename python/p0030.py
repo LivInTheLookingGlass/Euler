@@ -30,5 +30,6 @@ def main():
             ret += x
     return ret
 
+
 if __name__ == '__main__':
     print(main())
