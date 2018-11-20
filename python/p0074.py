@@ -64,7 +64,7 @@ def digits(x: int):
 def main() -> int:
     answer = 0
     seen = set()
-    for x in range(3, 1_000_000):
+    for x in range(3, 1000000):
         while x not in seen:
             seen.add(x)
             if x in paths:

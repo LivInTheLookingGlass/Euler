@@ -19,7 +19,7 @@ from p0020 import factorial
 
 def main() -> int:
     answer = 0
-    for x in range(10, 100_000):
+    for x in range(10, 100000):
         if sum(factorial(int(y)) for y in repr(x)) == x:
             print(x)
             answer += x

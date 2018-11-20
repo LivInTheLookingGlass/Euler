@@ -18,7 +18,7 @@ from p0007 import primes
 
 
 def main() -> int:
-    return sum(takewhile(lambda x: x < 2_000_000, primes()))
+    return sum(takewhile(lambda x: x < 2000000, primes()))
 
 
 if __name__ == '__main__':

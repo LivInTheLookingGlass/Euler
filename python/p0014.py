@@ -54,7 +54,7 @@ def collatz_seq(n: int) -> Iterator[int]:
                length=cython.ulonglong, new_length=cython.ulonglong)
 def main() -> int:
     result, length = 0, 0
-    for x in range(1, 1_000_000):
+    for x in range(1, 1000000):
         print(x)
         new_length = sum(1 for _ in collatz_seq(x))
         if new_length > length:

@@ -21,7 +21,7 @@ from itertools import permutations
 def main() -> int:
     for idx, x in enumerate(permutations(range(10))):
         print(idx)
-        if idx == 999_999:
+        if idx == 999999:
             return "".join(repr(i) for i in x)
 
 
