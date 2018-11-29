@@ -3,6 +3,10 @@ Project Euler Problem 8
 
 The biggest problem with this was remembering how to do groupwise()
 
+Revision 1:
+
+Correctly specify type on groupwise
+
 Problem:
 
 The four adjacent digits in the 1000-digit number that have the greatest
@@ -35,12 +39,12 @@ greatest product. What is the value of this product?
 from functools import reduce
 from itertools import tee
 from operator import mul
-from typing import Iterator, Iterable, TypeVar
+from typing import Iterator, Iterable, Tuple, TypeVar
 
 T = TypeVar("T")
 
 
-def groupwise(iterable: Iterable[T], size: int) -> Iterator[Iterable[T]]:
+def groupwise(iterable: Iterable[T], size: int) -> Iterator[Tuple[T, ...]]:
     iters = tee(iterable, size)
     for idx, x in enumerate(iters):
         for _ in range(idx):
