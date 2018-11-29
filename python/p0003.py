@@ -83,7 +83,7 @@ class prime_factors(object):
 
     @staticmethod
     @register
-    def cleanup():
+    def cleanup() -> None:
         with open(cache_filename, 'wb') as f:
             dump(tuple(prime_factors.cache), f)
 

@@ -17,7 +17,7 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 Evaluate the sum of all the amicable numbers under 10000.
 """
 from itertools import filterfalse
-from typing import Iterator
+from typing import Iterator, Set
 
 
 def proper_divisors(num: int) -> Iterator[int]:
@@ -38,7 +38,7 @@ def d(n: int) -> int:
 
 def main() -> int:
     ret = 0
-    skip = set()
+    skip: Set[int] = set()
     for a in filterfalse(skip.__contains__, range(10000)):
         b = d(a)
         if a != b and d(b) == a:
