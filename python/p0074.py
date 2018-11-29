@@ -33,7 +33,7 @@ non-repeating chain with a starting number below one million is sixty terms.
 How many chains, with a starting number below one million, contain exactly
 sixty non-repeating terms?
 """
-from itertools import filterfalse
+from typing import Iterator, Set
 
 from p0020 import factorial
 
@@ -55,7 +55,7 @@ paths = {
 }
 
 
-def digits(x: int):
+def digits(x: int) -> Iterator[int]:
     while x:
         x, y = divmod(x, 10)
         yield y
@@ -63,7 +63,7 @@ def digits(x: int):
 
 def main() -> int:
     answer = 0
-    seen = set()
+    seen: Set[int] = set()
     for x in range(3, 1000000):
         while x not in seen:
             seen.add(x)
