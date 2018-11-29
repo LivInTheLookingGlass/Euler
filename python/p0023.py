@@ -33,7 +33,6 @@ from p0021 import proper_divisors
 def abundants() -> Iterator[int]:
     for x in range(12, 28112):
         if sum(proper_divisors(x)) > x:
-            print(x)
             yield x
 
 

@@ -1,12 +1,14 @@
 """
 Project Euler Problem 31
 
-This one was tricky because the last number was significantly higher than I
-thought it would be.
+This took a while to get in a form that I was happy with. I wanted something
+more flexible than "let's take 8 for loops", so I did my best to make this as
+modular as I could think to do.
 
 Problem:
 
-In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
+In England the currency is made up of pound, £, and pence, p, and there are
+eight coins in general circulation:
 
 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).
 It is possible to make £2 in the following way:
@@ -16,34 +18,39 @@ How many different ways can £2 be made using any number of coins?
 """
 from itertools import count
 
-units = (200, 100, 50, 20, 10, 5, 2, 1)
+
+def calculate(counts, units):
+    return sum(a * b for a, b in zip(counts, units))
+
+
+def coin_combinations(amount, units, counts):
+    answer = total = 0
+    while total <= amount:
+        total = calculate(counts, units)
+        if total == amount:
+            # print(
+            #     ",  ".join(
+            #         "{:03}p * {{:03}}".format(unit) for unit in units
+            #     ).format(*counts)
+            # )
+            answer += 1
+        counts[-1] += 1
+        key = len(counts)
+        while total > amount:
+            key -= 1
+            counts[key] = 0
+            counts[key - 1] += 1
+            total = calculate(counts, units)
+            if key == 1:
+                break
+    return answer
 
 
 def main() -> int:
-    answer = 0
-    spans = [range(200 // unit + 1) for unit in units]
-    counts = [0 for _ in spans]
-    while counts[0] in spans[0]:
-        counts[-1] += 1
-        for x in range(-1, -len(counts), -1):
-            if counts[x] not in spans[x]:
-                counts[x] = 0
-                counts[x - 1] += 1
-                curr_total = sum(
-                    a * b for a, b in zip(counts[:x - 1], units[:x - 1])
-                )
-                spans[x] = range(200 - curr_total // units[x] + 1)
-                spans[x - 1] = range(200 - curr_total // units[x - 1] + 1)
-            else:
-                break
-        if sum(a * b for a, b in zip(counts, units)) == 200:
-            answer += 1
-            print(
-                ",  ".join(
-                    "{:03}p * {{:03}}".format(unit) for unit in units
-                ).format(*counts)
-            )
-    return answer
+    answer = called = total = 0
+    units = (200, 100, 50, 20, 10, 5, 2, 1)
+    counts = [0 for _ in units]
+    return coin_combinations(200, units, counts)
 
 
 if __name__ == '__main__':

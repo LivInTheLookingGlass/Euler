@@ -55,7 +55,6 @@ def collatz_seq(n: int) -> Iterator[int]:
 def main() -> int:
     result, length = 0, 0
     for x in range(1, 1000000):
-        print(x)
         new_length = sum(1 for _ in collatz_seq(x))
         if new_length > length:
             result, length = x, new_length
