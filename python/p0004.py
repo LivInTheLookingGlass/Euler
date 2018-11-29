@@ -5,6 +5,10 @@ I couldn't figure out how to do this as efficiently as I would have liked. I am
 SURE that there is a better way to check if a number is a palindrome, but I
 could not think of one.
 
+Revision 1:
+
+I changed is_palindrome to take in any repr function that you care to give it
+
 Problem:
 
 A palindromic number reads the same both ways. The largest palindrome made from
@@ -14,11 +18,12 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 """
 from itertools import combinations
+from typing import Callable
 
 
-def is_palindrome(n):
+def is_palindrome(n, rep_func: Callable[[int], str] = repr):
     """Checks if the string representation of an object is a palindrome"""
-    r = repr(n)
+    r = rep_func(n)
     return r == r[::-1]
 
 
