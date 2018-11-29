@@ -36,7 +36,6 @@ def main() -> int:
                     if any(Fraction(int(rnum[x]), int(rdenom[y])) == frac
                            for x, y in combinations(range(len(rnum)), 2)
                            if rdenom[y] != "0"):
-                        print("{}/{}".format(num, denom))
                         answer *= frac
                         counter += 1
     return answer.denominator

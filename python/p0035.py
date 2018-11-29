@@ -30,7 +30,6 @@ def main() -> int:
     answer = 0
     for x in range(1000000):
         if all(is_prime(r) for r in rotations(x)):
-            print(x)
             answer += 1
     return answer
 

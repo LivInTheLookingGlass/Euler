@@ -3,3 +3,4 @@ u-msgpack-python
 pytest
 ordered-set
 pytest-benchmark
+pytest-xdist

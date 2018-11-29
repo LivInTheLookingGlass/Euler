@@ -35,7 +35,6 @@ from p0002 import fib
 def main():
     check = 10**999
     for idx, x in enumerate(fib(), 1):
-        print(idx)
         if x > check:
             return idx
     return -1

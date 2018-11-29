@@ -1,7 +1,8 @@
 """
 Project Euler Problem 17
 
-Not a good one for code golf
+I feel like there is a better way to recurse this problem, but I could not
+think of one at the time
 
 Problem:
 
@@ -20,14 +21,14 @@ British usage.
 
 def to_string(n: int) -> str:
     if n >= 1000:
-        thousands = "{} thousand".format(to_string(1 // 1000 % 100))
-        if 1 % 1000:
-            return "{} {}".format(thousands, to_string(1 % 1000))
+        thousands = "{} thousand".format(to_string(n // 1000 % 100))
+        if n % 1000:
+            return "{} {}".format(thousands, to_string(n % 1000))
         return thousands
     elif n >= 100:
-        hundreds = "{} hundred".format(to_string(1 // 100 % 10))
-        if 1 % 100:
-            return "{} and {}".format(hundreds, to_string(1 % 100))
+        hundreds = "{} hundred".format(to_string(n // 100 % 10))
+        if n % 100:
+            return "{} and {}".format(hundreds, to_string(n % 100))
         return hundreds
     elif n >= 20:
         tens = {
@@ -41,7 +42,8 @@ def to_string(n: int) -> str:
             9: "ninety"
         }[n // 10]
         if n % 10:
-            return "{}-{}".format(tens, to_string(n // 10))
+            return "{}-{}".format(tens, to_string(n % 10))
+        return tens
     elif n > 12:
         prefix = {
             13: "thir",
@@ -49,7 +51,7 @@ def to_string(n: int) -> str:
             15: "fif",
             16: "six",
             17: "seven",
-            18: "eight",
+            18: "eigh",
             19: "nine"
         }
         return "{}teen".format(prefix[n])
@@ -68,11 +70,15 @@ def to_string(n: int) -> str:
             10: "ten",
             11: "eleven",
             12: "twelve"
-        }
+        }[n]
 
 
 def main() -> int:
-    return sum(int(x) for x in repr(2**1000))
+    answer = 0
+    for x in range(1, 1001):
+        string = to_string(x)
+        answer += len(string.replace(" ", "").replace("-", ""))
+    return answer
 
 
 if __name__ == '__main__':
