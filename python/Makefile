@@ -25,7 +25,7 @@ test_8:
 
 
 _test:
-	python3 -m pytest -v test.py --benchmark-sort=fullname $(pytest_args)
+	python3 -m pytest -v --benchmark-sort=fullname $(pytest_args)
 
 dependencies:
 	python3 -m pip install -r requirements.txt --user
