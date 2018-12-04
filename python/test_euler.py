@@ -1,6 +1,7 @@
 from pytest import fixture, mark
 from umsgpack import load
 from sys import argv
+from typing import Any
 
 from p0007 import is_prime, primes
 
@@ -24,6 +25,12 @@ answers = {
 
                                             71: 428570,
     73: 7295372,        74: 402,
+
+
+
+
+
+    97: 8739992577
 }
 
 prime_position = mark.first if "-c" in argv else mark.last
@@ -47,6 +54,6 @@ def test_is_prime() -> None:
         last = x
 
 
-def test_problem(benchmark, key):
+def test_problem(benchmark: Any, key: int) -> None:
     module = __import__("p{:04}".format(key))
     assert benchmark(module.main) == answers[key]
