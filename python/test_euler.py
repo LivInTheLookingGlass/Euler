@@ -28,8 +28,8 @@ answers = {
 
 
 
-
-                            74: 402,
+                            71: 428570,
+    73: 7295372,            74: 402,
 }
 
 prime_position = mark.first if "-c" in argv else mark.last
