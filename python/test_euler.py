@@ -30,7 +30,8 @@ answers = {
 
 
 
-    97: 8739992577
+    97: 8739992577,
+                        206: 1389019170
 }
 
 prime_position = mark.first if "-c" in argv else mark.last
