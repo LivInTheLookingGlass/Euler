@@ -26,7 +26,6 @@ from itertools import count
 from functools import lru_cache
 from typing import Tuple
 
-from p0003 import prime_factors
 from p0007 import is_prime
 from p0008 import groupwise
 
@@ -40,7 +39,6 @@ def main() -> int:
     for group in groupwise(count(2), 4):
         print(group[0])
         if all(cached_is_prime((x, 4, True)) for x in group):
-            # if all(len(set(prime_factors(x))) == 4 for x in group):
             return group[0]
     return -1
 
