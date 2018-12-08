@@ -18,7 +18,7 @@ from itertools import combinations
 from operator import mul
 
 
-def main():
+def main() -> int:
     group = range(1, 21)
     answer = float('inf')
     for x in group:
