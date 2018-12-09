@@ -19,17 +19,24 @@ can be written as a 1 through 9 pandigital.
 HINT: Some products can be obtained in more than one way so be sure to only
 include it once in your sum.
 """
+from itertools import chain
+
 from p0021 import proper_divisors
+from p0074 import digits
 
 
 def main() -> int:
     answer = 0
-    for product in range(10**7):
-        print(product)
+    list_of_digits = list(range(1, 10))
+    for product in range(1000, 10**4):
         for factor in proper_divisors(product):
             multiplicand = product // factor
-            total = "{}{}{}".format(multiplicand, product, factor)
-            if sorted(total) == ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+            covered_digits = tuple(
+                chain(digits(factor), digits(multiplicand), digits(product))
+            )
+            if len(covered_digits) != 9:
+                continue
+            elif sorted(covered_digits) == list_of_digits:
                 answer += product
                 break
     return answer
