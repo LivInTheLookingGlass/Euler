@@ -1,4 +1,4 @@
-from pytest import fixture, mark
+from pytest import fail, fixture, mark
 from umsgpack import load
 from sys import argv
 from typing import Any
@@ -27,10 +27,36 @@ answers = {
     73: 7295372,        74: 402,
 
 
-
+                                            87: 1097343,
                                                                 92: 8581146,
 
     97: 8739992577,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         206: 1389019170
 }
 
@@ -43,18 +69,25 @@ def key(request):  # type: ignore
 
 
 @prime_position
-def test_is_prime() -> None:
+def test_is_prime(benchmark) -> None:
+    def func(set_of_primes):
+        last = 2
+        for x, y in zip(primes(), set_of_primes):
+            assert is_prime(x)
+            assert x == y
+            for z in range(last + 1, x):
+                assert not is_prime(z)
+            last = x
+
     with open('primes.mpack', 'rb') as f:
         set_of_primes = load(f)
-    last = 2
-    for x, y in zip(primes(), set_of_primes):
-        assert is_prime(x)
-        assert x == y
-        for z in range(last + 1, x):
-            assert not is_prime(z)
-        last = x
+    benchmark.pedantic(func, args=(set_of_primes, ), iterations=1, rounds=1)
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 5 * 60:
+        fail("Exceeding 5min!")
 
 
 def test_problem(benchmark: Any, key: int) -> None:
     module = __import__("p{:04}".format(key))
     assert benchmark(module.main) == answers[key]
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
+        fail("Exceeding 60s!")
