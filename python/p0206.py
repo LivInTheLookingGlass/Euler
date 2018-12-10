@@ -1,8 +1,8 @@
 """
 Project Euler Problem 206
 
-I had to approach this by modifying the factors function from p0003, but it
-seemed to work fairly well.
+This one ended up being a regex problem. I am sure there is a more clever way
+to go about it, but this way works fairly quickly.
 
 Problem:
 

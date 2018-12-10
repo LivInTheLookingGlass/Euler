@@ -1,8 +1,7 @@
 """
 Project Euler Problem 32
 
-This one was tricky because the last number was significantly higher than I
-thought it would be.
+Once I found out where the end was, it seemed to be relatively easy
 
 Problem:
 
