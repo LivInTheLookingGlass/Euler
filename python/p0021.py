@@ -4,6 +4,11 @@ Project Euler Problem 21
 I had to approach this by modifying the factors function from p0003, but it
 seemed to work fairly well.
 
+Revision 1:
+
+Rewrote the proper_divisors function to be significantly faster by leveraging
+the prime_factors object.
+
 Problem:
 
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n
@@ -16,20 +21,25 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 
 Evaluate the sum of all the amicable numbers under 10000.
 """
-from itertools import filterfalse
+from functools import reduce
+from itertools import combinations, filterfalse
+from operator import mul
 from typing import Iterator, Set
+
+from p0007 import prime_factors
 
 
 def proper_divisors(num: int) -> Iterator[int]:
-    if num < 0:
-        yield -1
-        num = -num
-    if num == 0:
-        pass
-    else:
-        for divisor in range(1, num // 2 + 1):
-            if num % divisor == 0:
-                yield divisor
+    factors = tuple(prime_factors(num))
+    seen = set()
+    yield 1
+    for x in range(1, len(factors)):
+        for combo in combinations(factors, x):
+            ret = reduce(mul, combo, 1)
+            if ret not in seen:
+                yield ret
+                seen.add(ret)
+        seen.clear()
 
 
 def d(n: int) -> int:
