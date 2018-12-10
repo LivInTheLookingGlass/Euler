@@ -30,20 +30,14 @@ divisors?
 from itertools import count
 from typing import Iterator
 
-from p0003 import prime_factors
-
-
-def triangles() -> Iterator[int]:
-    ret = 0
-    for x in count(1):
-        ret += x
-        yield ret
+from p0021 import proper_divisors
 
 
 def main() -> int:
-    for num in triangles():
-        print(num)
-        if sum(1 for _ in prime_factors(num)) > 499:
+    num = 0
+    for x in count(1):
+        num += x
+        if sum(1 for _ in proper_divisors(num)) > 499:
             return num
     return -1
 
