@@ -36,8 +36,11 @@ from p0003 import prime_factors
 
 @cython.final
 @cython.ccall
-@cython.returns(cython.bint)
-def is_prime(num: cython.ulonglong, count: cython.ulonglong = 1) -> bool:
+def is_prime(
+    num: cython.ulonglong,
+    count: cython.ulonglong = 1,
+    distinct: cython.bint = False
+) -> cython.bint:
     """Detects if a number is prime or not.
 
     If a count other than 1 is given, it returns True only if the number has
@@ -53,8 +56,12 @@ def is_prime(num: cython.ulonglong, count: cython.ulonglong = 1) -> bool:
         next(factors)
         return next(factors, None) is None
     else:
-        seen: List[Optional[cython.ulonglong]] = []
-        seen_add = seen.append
+        if distinct:
+            seen: Set[Optional[cython.ulonglong]] = set()
+            seen_add = seen.add
+        else:
+            seen: List[Optional[cython.ulonglong]] = []
+            seen_add = seen.append
         while None not in seen and count != len(seen):
             seen_add(next(factors, None))
         return None not in seen and next(factors, None) is None
