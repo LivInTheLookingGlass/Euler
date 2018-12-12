@@ -57,7 +57,7 @@ answers = {
     206: 1389019170
 }
 
-known_slow = {134}
+known_slow = {}
 # this is the set of problems where I have the right answer but wrong solution
 
 prime_position = mark.first if "-c" in argv else mark.last
