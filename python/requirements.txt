@@ -1,6 +1,6 @@
 cython
 u-msgpack-python
 pytest
-ordered-set
+sortedcontainers
 pytest-benchmark
 pytest-xdist

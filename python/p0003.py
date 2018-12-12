@@ -25,26 +25,31 @@ What is the largest prime factor of the number 600851475143 ?
 from atexit import register
 from itertools import chain, count
 from umsgpack import load, dump
-from math import sqrt
+from math import ceil, sqrt
 from typing import Iterator
 
-from ordered_set import OrderedSet
+import cython
+from sortedcontainers import SortedSet
 
 cache_filename = 'p0003_cache.mpack'
 
 
+@cython.final
+@cython.cclass
 class prime_factors(object):
     __slots__ = ('num', )
+    cython.declare(num=cython.ulonglong, last_cached=cython.ulonglong)
     try:
-        with open(cache_filename, 'rb+') as f:
-            cache = OrderedSet(load(f))
-            last_cached = cache[-1]
+        with open(cache_filename, 'rb') as f:
+            cache = SortedSet(load(f))
     except (ImportError, IOError, FileNotFoundError):
-        cache = OrderedSet([
+        cache = SortedSet([
             2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
         ])
-        last_cached = 67
+    last_cached = cache[-1] + 2
 
+    @cython.ccall
+    @cython.inline
     def __init__(self, num: int) -> None:
         """
         Iterates over the prime factors of a number (and also 0, -1)
@@ -54,6 +59,11 @@ class prime_factors(object):
         """
         self.num = num
 
+    @cython.ccall
+    @cython.final
+    @cython.locals(
+        num=cython.ulonglong, root=cython.ulonglong, factor=cython.ulonglong
+    )
     def __iter__(self) -> Iterator[int]:
         num = self.num
         if num < 0:
@@ -62,7 +72,7 @@ class prime_factors(object):
         if num == 0:
             yield 0
         else:
-            root = int(sqrt(num)) + 1
+            root = ceil(sqrt(num))
             candidates = chain(
                 prime_factors.cache, count(prime_factors.last_cached, 2)
             )
@@ -71,7 +81,7 @@ class prime_factors(object):
                     while num % factor == 0:  # double-check to call sqrt once
                         yield factor
                         num //= factor
-                    root = int(sqrt(num)) + 1
+                    root = ceil(sqrt(num))
                     prime_factors.cache.add(factor)
                     if prime_factors.last_cached <= factor:
                         prime_factors.last_cached = factor + 2
