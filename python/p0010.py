@@ -12,22 +12,23 @@ I took the lambda that was previously being used and replaced it with a
 partial() of an operator. This had a mild speed boost, and avoided using gross
 lambdas.
 
+Revision 2:
+
+Now it just references the __gt__ function directly
+
 Problem:
 
 The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
 """
-from functools import partial
 from itertools import takewhile
-from operator import gt
 
 from p0007 import primes
 
 
 def main() -> int:
-    check = partial(gt, 2000000)
-    return sum(takewhile(check, primes()))
+    return sum(takewhile((2_000_000).__gt__, primes()))
 
 
 if __name__ == '__main__':
