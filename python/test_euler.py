@@ -60,6 +60,7 @@ answers = {
     71: 428570,
     73: 7295372,
     74: 402,
+    76: 190569291,
     87: 1097343,
     92: 8581146,
     97: 8739992577,
@@ -70,7 +71,7 @@ answers = {
     206: 1389019170
 }
 
-known_slow = {145, 187}
+known_slow = {76, 145, 187}
 # this is the set of problems where I have the right answer but wrong solution
 
 prime_position = mark.first if "-c" in argv else mark.last
