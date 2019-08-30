@@ -33,9 +33,8 @@ non-repeating chain with a starting number below one million is sixty terms.
 How many chains, with a starting number below one million, contain exactly
 sixty non-repeating terms?
 """
+from math import factorial
 from typing import Iterator, Set
-
-from p0020 import factorial
 
 cache = [factorial(x) for x in range(10)]
 paths = {
