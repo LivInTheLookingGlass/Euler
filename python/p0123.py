@@ -28,7 +28,10 @@ def main() -> int:
             continue
         elif n & 1 == 0:  # Seems to always produce remainder of 2?
             continue
-        elif ((p-1)**n + (p+1)**n) % p**2 > ten_ten:
+        base = ((p-1)**n + (p+1)**n)
+        if base < ten_ten:
+            continue
+        elif base % (p * p) > ten_ten:
             return n
 
 

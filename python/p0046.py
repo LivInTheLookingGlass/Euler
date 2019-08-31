@@ -23,12 +23,12 @@ from p0007 import is_prime
 
 
 def main():
-    for goal in count(9, 2):
+    for goal in count(35, 2):
         if is_prime(goal):
             continue
         for p in primes(goal):
             done = False
-            for x in range(1, goal - p):
+            for x in range(1, (goal - p) // 2):
                 if p + 2 * x * x == goal:
                     done = True
                     break
