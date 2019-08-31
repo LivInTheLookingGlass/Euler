@@ -18,7 +18,8 @@ What is the smallest odd composite that cannot be written as the sum of a prime 
 """
 from itertools import count
 
-from p0007 import is_prime, primes
+from p0003 import primes
+from p0007 import is_prime
 
 
 def main():

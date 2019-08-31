@@ -24,22 +24,18 @@ Find ∑ S for every pair of consecutive primes with 5 ≤ p1 ≤ 1000000.
 """
 from itertools import count
 
-import cython
-
-from p0007 import primes
+from p0003 import primes
 
 
-@cython.ccall
-@cython.returns(cython.ulonglong)
-def mul_inv(a: cython.ulonglong, b: cython.ulonglong):
+def mul_inv(a: int, b: int):
     """Multiplicative inverse for modulo numbers"""
     if b == 1:
         return 1
-    b0: cython.ulonglong = b
-    x0: cython.ulonglong = 0
-    x1: cython.ulonglong = 1
+    b0: int = b
+    x0: int = 0
+    x1: int = 1
     while a > 1:
-        q: cython.ulonglong = a // b
+        q: int = a // b
         a, b = b, a % b
         x0, x1 = x1 - q * x0, x0
     if x1 < 0:
@@ -47,16 +43,13 @@ def mul_inv(a: cython.ulonglong, b: cython.ulonglong):
     return x1
 
 
-@cython.ccall
-@cython.locals(p2=cython.ulonglong, n=cython.ulonglong)
-@cython.returns(cython.ulonglong)
 def main() -> int:
-    answer: cython.ulonglong = 0
-    pow_10: cython.ulong = 10
+    answer: int = 0
+    pow_10: int = 10
     iterator = primes(1000005)  # iterate over primes <1000005
     next(iterator)  # skip 2
     next(iterator)  # skip 3
-    p1: cython.ulonglong = next(iterator)  # p1 = 5
+    p1: int = next(iterator)  # p1 = 5
     for p2 in iterator:  # 7, 11, 13, 17, ...
         while pow_10 < p1:
             pow_10 *= 10

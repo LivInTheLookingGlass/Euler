@@ -1,4 +1,3 @@
-cython
 u-msgpack-python
 pytest
 sortedcontainers

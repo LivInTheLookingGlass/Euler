@@ -19,6 +19,14 @@ Revision 3:
 
 Add a stop parameter to primes()
 
+Revision 4:
+
+Switch to takewhile, use prime cache again
+
+Revision 5:
+
+Move primes() to p0003 in order to fix caching
+
 Problem:
 
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that
@@ -26,21 +34,17 @@ the 6th prime is 13.
 
 What is the 10 001st prime number?
 """
-from itertools import chain, count
-from typing import Iterator, List, Optional, Set
+from itertools import takewhile
+from typing import cast, Callable, Collection, Optional, Set
 
-import cython
-
-from p0003 import prime_factors
+from p0003 import cache, prime_factors, primes
 
 
-@cython.final
-@cython.ccall
 def is_prime(
-    num: cython.ulonglong,
-    count: cython.ulonglong = 1,
-    distinct: cython.bint = False
-) -> cython.bint:
+    num: int,
+    count: int = 1,
+    distinct: bool = False
+) -> bool:
     """Detects if a number is prime or not.
 
     If a count other than 1 is given, it returns True only if the number has
@@ -49,7 +53,7 @@ def is_prime(
         return False
     factors = iter(prime_factors(num))
     if count == 1:
-        if num in prime_factors.cache:  # always has 2
+        if num in cache:  # always has 2
             return True
         elif num % 2 == 0:
             return False
@@ -57,30 +61,14 @@ def is_prime(
         return next(factors, None) is None
     else:
         if distinct:
-            seen: Set[Optional[cython.ulonglong]] = set()
-            seen_add = seen.add
+            seen: Collection[Optional[int]] = set()
+            seen_add: Callable[[Optional[int]], None] = cast(Set[Optional[int]], seen).add
         else:
-            seen: List[Optional[cython.ulonglong]] = []
+            seen = []
             seen_add = seen.append
         while None not in seen and count != len(seen):
             seen_add(next(factors, None))
         return None not in seen and next(factors, None) is None
-
-
-@cython.final
-@cython.ccall
-@cython.locals(num=cython.ulonglong)
-def primes(stop=None) -> Iterator[int]:
-    if stop is None:
-        primary = prime_factors.cache
-    else:
-        primary = (x for x in prime_factors.cache if x < stop)
-    yield from primary
-    if stop is None:
-        secondary = count(prime_factors.last_cached, 2)
-    else:
-        secondary = range(prime_factors.last_cached, stop, 2)
-    yield from filter(is_prime, secondary)
 
 
 def main() -> int:
