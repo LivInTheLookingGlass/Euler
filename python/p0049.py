@@ -17,7 +17,7 @@ sequence?
 """
 from itertools import tee
 
-from p0007 import primes
+from p0003 import primes
 from p0074 import digits
 
 

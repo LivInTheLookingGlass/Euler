@@ -26,7 +26,7 @@ from itertools import combinations, filterfalse
 from operator import mul
 from typing import Iterator, Set
 
-from p0007 import prime_factors
+from p0003 import prime_factors
 
 
 def proper_divisors(num: int) -> Iterator[int]:

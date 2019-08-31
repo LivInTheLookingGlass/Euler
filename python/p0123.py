@@ -17,19 +17,9 @@ The least value of n for which the remainder first exceeds 10**9 is 7037.
 
 Find the least value of n for which the remainder first exceeds 10**10.
 """
-import cython
-
-from p0007 import primes
+from p0003 import primes
 
 
-@cython.cfunc
-@cython.locals(
-    ten_five=cython.ulonglong,
-    ten_ten=cython.ulonglong,
-    n=cython.ulonglong,
-    p=cython.ulonglong
-)
-@cython.returns(cython.ulonglong)
 def main() -> int:
     ten_five = 10**5
     ten_ten = 10**10

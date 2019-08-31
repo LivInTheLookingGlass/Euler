@@ -3,9 +3,8 @@ from umsgpack import load
 from sys import argv
 from typing import Any
 
-import cython
-
-from p0007 import is_prime, primes
+from p0003 import primes
+from p0007 import is_prime
 
 answers = {
     1: 233168,
@@ -78,21 +77,13 @@ known_slow = {76, 145, 187}
 prime_position = mark.first if "-c" in argv else mark.last
 
 
-@fixture(params=sorted(answers.keys()))
+@fixture(params=("{:04}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
 def key(request):  # type: ignore
     return request.param
 
 
 @prime_position
 def test_is_prime(benchmark) -> None:
-    @cython.ccall
-    @cython.locals(
-        last=cython.ulonglong,
-        x=cython.ulonglong,
-        y=cython.ulonglong,
-        z=cython.ulonglong
-    )
-    @cython.returns(None)
     def func(set_of_primes):
         last = 2
         for x, y in zip(primes(), set_of_primes):
@@ -105,18 +96,19 @@ def test_is_prime(benchmark) -> None:
     with open('primes.mpack', 'rb') as f:
         set_of_primes = load(f)  # set of first million primes
     benchmark.pedantic(func, args=(set_of_primes, ), iterations=1, rounds=1)
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (500 * 1_000_000 // 1_000_000):  # 500ns * primes
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (500 * 1_000_000 / 1_000_000):  # 500ns * primes
         fail("Exceeding 500ns average!")
 
 
-def test_problem(benchmark: Any, key: int) -> None:
-    module = __import__("p{:04}".format(key))
-    if key in known_slow:
+def test_problem(benchmark: Any, key: str) -> None:
+    key_i = int(key)
+    module = __import__("p{:04}".format(key_i))
+    if key_i in known_slow:
         return
-        assert answers[key] == benchmark.pedantic(
+        assert answers[key_i] == benchmark.pedantic(
             module.main, iterations=1, rounds=1
         )
     else:
-        assert answers[key] == benchmark(module.main)
+        assert answers[key_i] == benchmark(module.main)
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
         fail("Exceeding 60s!")

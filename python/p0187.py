@@ -18,28 +18,20 @@ How many composite integers, n < 10**8, have precisely two, not necessarily
 distinct, prime factors?
 """
 from itertools import combinations, takewhile
-import cython
 
-from p0007 import primes
-
-print("Initializing primes")
-_cached_primes = tuple(primes(10**8 // 2))
-print("Initialized")
+from p0003 import primes
 
 
-@cython.ccall
 def cached_primes(stop):
     return takewhile(stop.__lt__, _cached_primes)
 
 
-@cython.ccall
-@cython.returns(cython.ulonglong)
 def main() -> int:
-    ten_8: cython.ulongong = 10**8
+    ten_8: int = 10**8
     return sum(
         1
-        for y in cached_primes(ten_8 // 2)
-        for x in cached_primes(y + 1)
+        for y in (print(z) or z for z in primes(ten_8 // 2))
+        for x in primes(y + 1)
     )
 
 
