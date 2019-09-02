@@ -15,7 +15,7 @@ d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 """
 from functools import reduce
 from itertools import count
-from math import ceil, log10
+from math import log10
 from operator import mul
 
 

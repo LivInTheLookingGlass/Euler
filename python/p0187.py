@@ -22,7 +22,7 @@ distinct, prime factors: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26.
 How many composite integers, n < 10**8, have precisely two, not necessarily
 distinct, prime factors?
 """
-from itertools import combinations, takewhile
+from itertools import takewhile
 
 from p0003 import primes
 

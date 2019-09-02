@@ -13,9 +13,11 @@ Using words.txt (right click and 'Save Link/Target As...'), a 16K text file cont
 English words, how many are triangle words?
 """
 from pathlib import Path
+from typing import Set
+
 
 class Cache:
-    cache = set()
+    cache: Set[int] = set()
     max_cached = 0
     max_cached_idx = -1
 

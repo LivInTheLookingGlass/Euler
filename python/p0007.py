@@ -34,8 +34,7 @@ the 6th prime is 13.
 
 What is the 10 001st prime number?
 """
-from itertools import takewhile
-from typing import cast, Callable, Collection, Optional, Set
+from typing import Callable, Collection, Optional, Set, cast
 
 from p0003 import cache, prime_factors, primes
 

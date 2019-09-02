@@ -31,7 +31,7 @@ from p0003 import prime_factors
 
 def proper_divisors(num: int) -> Iterator[int]:
     factors = tuple(prime_factors(num))
-    seen = set()
+    seen: Set[int] = set()
     yield 1
     for x in range(1, len(factors)):
         for combo in combinations(factors, x):

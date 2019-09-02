@@ -24,7 +24,7 @@ def digits(n: int) -> List[int]:
         n, digit = divmod(n, 10)
         ret[idx] = digit
         idx -= 1
-    return ret[idx:]
+    return ret
 
 
 def main():

@@ -28,5 +28,6 @@ def main() -> int:
             answer += x
     return answer
 
+
 if __name__ == '__main__':
     print(main())

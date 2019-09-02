@@ -16,14 +16,14 @@ It is possible to make £2 in the following way:
 1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
 How many different ways can £2 be made using any number of coins?
 """
-from itertools import count
+from typing import Iterable, MutableSequence, Sequence
 
 
-def calculate(counts, units):
+def calculate(counts: Iterable[int], units: Iterable[int]) -> int:
     return sum(a * b for a, b in zip(counts, units))
 
 
-def coin_combinations(amount, units, counts):
+def coin_combinations(amount: int, units: Sequence[int], counts: MutableSequence[int]) -> int:
     answer = total = 0
     while total <= amount:
         total = calculate(counts, units)
@@ -47,7 +47,6 @@ def coin_combinations(amount, units, counts):
 
 
 def main() -> int:
-    answer = called = total = 0
     units = (200, 100, 50, 20, 10, 5, 2, 1)
     counts = [0 for _ in units]
     return coin_combinations(200, units, counts)
