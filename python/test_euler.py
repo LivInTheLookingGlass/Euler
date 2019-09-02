@@ -71,7 +71,7 @@ answers = {
     206: 1389019170
 }
 
-known_slow = {76, 145, 187}
+known_slow = {76, 145}
 # this is the set of problems where I have the right answer but wrong solution
 
 prime_position = mark.first if "-c" in argv else mark.last
@@ -104,7 +104,6 @@ def test_problem(benchmark: Any, key: str) -> None:
     key_i = int(key)
     module = __import__("p{:04}".format(key_i))
     if key_i in known_slow:
-        return
         assert answers[key_i] == benchmark.pedantic(
             module.main, iterations=1, rounds=1
         )
