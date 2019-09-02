@@ -21,23 +21,14 @@ fractions for d ≤ 12,000?
 """
 from fractions import Fraction
 
-import cython
 
-Fraction_ = cython.cclass(Fraction)
-
-
-@cython.cfunc
-@cython.returns(cython.ulonglong)
-@cython.locals(
-    seen=set, third=cython.double, x=cython.long, y=cython.long, f=Fraction_
-)
 def main() -> int:
     seen = set()
     third = 1 / 3
     for x in range(2, 12001):
         for y in range(1, x):
             if third < y / x < 0.5:
-                f = Fraction_(y, x)
+                f = Fraction(y, x)
                 seen.add((f.numerator, f.denominator))
     return len(seen)
 
