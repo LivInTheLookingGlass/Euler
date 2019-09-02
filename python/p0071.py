@@ -23,20 +23,12 @@ order of size, find the numerator of the fraction immediately to the left of
 """
 from fractions import Fraction
 
-import cython
 
-Fraction_ = cython.cclass(Fraction)
-
-
-@cython.cfunc
-@cython.returns(Fraction)
-@cython.locals(total=set, sort=list, x=cython.ulonglong, y=cython.ulonglong,
-               f=Fraction_, f5=Fraction_, f7=Fraction_)
 def main() -> int:
-    f5 = Fraction_(2, 5)
-    f7 = Fraction_(3, 7)
+    f5 = Fraction(2, 5)
+    f7 = Fraction(3, 7)
     total = {
-        Fraction_(x, y)
+        Fraction(x, y)
         for y in range(1, 1000000)
         for x in range((y - 1) * 3 // 7, y * 3 // 7 + 1)
     }

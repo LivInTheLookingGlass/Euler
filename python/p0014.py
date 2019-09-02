@@ -26,39 +26,25 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 from functools import lru_cache
 from typing import Iterator
 
-import cython
-
 
 @lru_cache(maxsize=10240)
-@cython.cfunc
-@cython.locals(n=cython.ulonglong)
-@cython.returns(cython.ulonglong)
-def collatz(n: cython.ulonglong) -> cython.ulonglong:
+def collatz(n: int) -> int:
     if n % 2 == 0:
         return n // 2
     else:
         return (3 * n + 1) // 2
 
 
-@cython.cfunc
-@cython.locals(n=cython.ulonglong)
 def collatz_seq(n: int) -> Iterator[int]:
     while n > 1:
         yield n
         n = collatz(n)
 
 
-@cython.cfunc
-@cython.returns(cython.ulonglong)
-@cython.locals(x=cython.ulonglong, result=cython.ulonglong,
-               length=cython.ulonglong, new_length=cython.ulonglong)
 def main() -> int:
-    result, length = 0, 0
-    for x in range(1, 1000000):
-        new_length = sum(1 for _ in collatz_seq(x))
-        if new_length > length:
-            result, length = x, new_length
-    return result
+    return max(
+        (sum(1 for _ in collatz_seq(x)), x) for x in range(1, 1000000)
+    )[1]
 
 
 if __name__ == '__main__':
