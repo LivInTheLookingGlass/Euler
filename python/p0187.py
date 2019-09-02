@@ -6,6 +6,11 @@ solution because of it, but it felt prettier this way.
 
 I was able to add a short-circuited fail case to the is_prime() method, though
 
+Revision 1:
+
+Switched to a set comprehension with caching. This means that I can remove it
+from the slow list.
+
 Problem:
 
 A composite is a number containing at least two prime factors. For example,
@@ -22,17 +27,15 @@ from itertools import combinations, takewhile
 from p0003 import primes
 
 
-def cached_primes(stop):
-    return takewhile(stop.__lt__, _cached_primes)
-
-
 def main() -> int:
-    ten_8: int = 10**8
-    return sum(
-        1
-        for y in (print(z) or z for z in primes(ten_8 // 2))
-        for x in primes(y + 1)
-    )
+    ten_8 = 10**8
+    cached_primes = tuple(primes(ten_8 // 2 + 1))
+    seen = {
+        x * y
+        for y in cached_primes
+        for x in takewhile((ten_8 // y).__ge__, cached_primes)
+    }
+    return len(seen)
 
 
 if __name__ == '__main__':
