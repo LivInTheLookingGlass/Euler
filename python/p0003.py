@@ -29,7 +29,7 @@ What is the largest prime factor of the number 600851475143 ?
 """
 from itertools import count, takewhile
 from math import ceil, sqrt
-from typing import Iterator, Optional
+from typing import Dict, Iterator, Optional
 
 from sortedcontainers import SortedSet
 from umsgpack import load

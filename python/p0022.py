@@ -19,6 +19,7 @@ obtain a score of 938 × 53 = 49714.
 What is the total of all the name scores in the file?
 """
 
+
 def score(name: str, idx: int) -> int:
     return sum(ord(x) & 0x3F for x in name) * idx
 

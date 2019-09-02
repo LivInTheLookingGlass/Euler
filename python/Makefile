@@ -1,4 +1,4 @@
-pytest_args?=
+pytest_args?= --mypy --mypy-ignore-missing-imports --flake8 --isort
 
 test: dependencies _test
 

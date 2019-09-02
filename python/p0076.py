@@ -1,5 +1,5 @@
 """
-Project Euler Problem 76
+Project Euler Problem 76 6206s
 
 I ended up having to do this with recursion, which I normally do not like to
 use that much. Small changes can have large effects on later results. Still,
@@ -20,13 +20,12 @@ How many different ways can one hundred be written as a sum of at least two
 positive integers?
 """
 from collections import defaultdict
+from typing import DefaultDict
 
 
 def main() -> int:
-    import time
-    start = time.clock()
     answer = 0
-    counts = defaultdict(int)
+    counts: DefaultDict[int, int] = defaultdict(int)
     while 100 not in counts:
         total = sum(key * val for key, val in counts.items())
         counts[1] += 1
@@ -38,7 +37,6 @@ def main() -> int:
                 counts[idx] += 1
         elif total == 100:
             answer += 1
-    print(time.clock() - start)
     return answer
 
 

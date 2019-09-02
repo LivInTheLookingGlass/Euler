@@ -27,8 +27,8 @@ Find the product of the coefficients, a and b, for the quadratic expression
 that produces the maximum number of primes for consecutive values of n,
 starting with n=0.
 """
-from itertools import count, takewhile
 from functools import partial
+from itertools import count, takewhile
 
 from p0007 import is_prime
 

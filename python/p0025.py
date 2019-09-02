@@ -32,12 +32,13 @@ digits?
 from p0002 import fib
 
 
-def main():
+def main() -> int:
     check = 10**999
     for idx, x in enumerate(fib(), 1):
         if x > check:
             return idx
     return -1
+
 
 if __name__ == '__main__':
     print(main())

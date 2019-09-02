@@ -44,6 +44,7 @@ def main() -> int:
                     break
                 elif set(digits(p1)) == set(digits(p2)) == set(digits(p3)):
                     return p1 * 10**8 + p2 * 10**4 + p3
+    return -1
 
 
 if __name__ == '__main__':

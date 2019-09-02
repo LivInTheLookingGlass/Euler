@@ -28,7 +28,6 @@ What is the value of the first triangle number to have over five hundred
 divisors?
 """
 from itertools import count
-from typing import Iterator
 
 from p0021 import proper_divisors
 

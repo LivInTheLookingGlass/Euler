@@ -46,7 +46,7 @@ from __future__ import generator_stop
 from functools import reduce
 from itertools import tee
 from operator import mul
-from typing import Iterator, Iterable, Tuple, TypeVar
+from typing import Iterable, Iterator, Tuple, TypeVar
 
 T = TypeVar("T")
 

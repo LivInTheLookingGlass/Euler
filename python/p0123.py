@@ -33,6 +33,7 @@ def main() -> int:
             continue
         elif base % (p * p) > ten_ten:
             return n
+    return -1
 
 
 if __name__ == '__main__':

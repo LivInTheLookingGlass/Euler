@@ -22,8 +22,6 @@ by p1 and n is divisible by p2. Let S be the smallest of these values of n.
 
 Find ∑ S for every pair of consecutive primes with 5 ≤ p1 ≤ 1000000.
 """
-from itertools import count
-
 from p0003 import primes
 
 

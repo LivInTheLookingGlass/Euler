@@ -1,7 +1,8 @@
-from pytest import fail, fixture, mark
-from umsgpack import load
 from sys import argv
 from typing import Any
+
+from pytest import fail, fixture, mark
+from umsgpack import load
 
 from p0003 import primes
 from p0007 import is_prime
