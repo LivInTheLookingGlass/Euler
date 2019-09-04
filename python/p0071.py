@@ -25,15 +25,11 @@ from fractions import Fraction
 
 
 def main() -> int:
-    f5 = Fraction(2, 5)
-    f7 = Fraction(3, 7)
-    total = {
+    return max(
         Fraction(x, y)
-        for y in range(1, 1000000)
-        for x in range((y - 1) * 3 // 7, y * 3 // 7 + 1)
-    }
-    sort = sorted(f for f in total if f5 < f <= f7)
-    return sort[sort.index(f7) - 1].numerator
+        for y in range(1, 1_000_000)
+        for x in range((y - 1) * 3 // 7, y * 3 // 7)
+    ).numerator
 
 
 if __name__ == '__main__':
