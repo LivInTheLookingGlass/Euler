@@ -1,3 +1,4 @@
+import gc
 from sys import argv
 from typing import Any
 
@@ -103,8 +104,8 @@ def test_is_prime(benchmark) -> None:
     with open('primes.mpack', 'rb') as f:
         set_of_primes = load(f)  # set of first million primes
     benchmark.pedantic(func, args=(set_of_primes, ), iterations=1, rounds=1)
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (500 * 1_000_000 / 1_000_000):  # 500ns * primes
-        fail("Exceeding 500ns average!")
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (200 * 1_000_000 / 1_000_000):  # 200ns * primes
+        fail("Exceeding 200ns average!")
 
 
 def test_problem(benchmark: Any, key: str) -> None:
@@ -116,5 +117,7 @@ def test_problem(benchmark: Any, key: str) -> None:
         )
     else:
         assert answers[key_i] == benchmark(module.main)
+    del module
+    gc.collect()
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
         fail("Exceeding 60s!")
