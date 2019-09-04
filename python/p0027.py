@@ -29,22 +29,30 @@ starting with n=0.
 """
 from functools import partial
 from itertools import count, takewhile
+from typing import Iterator
 
+from p0003 import primes
 from p0007 import is_prime
 
 
 def quadratic(n: int, a: int, b: int) -> int:
-    return n**2 + a*n + b
+    return (n + a) * n + b
+
+
+def primes_and_negatives(*args) -> Iterator[int]:
+    for p in primes(*args):
+        yield p
+        yield -p
 
 
 def main() -> int:
-    primes, answer = 0, 0
+    streak = answer = 0
     for a in range(-999, 1000):
-        for b in range(-1000, 1001):
+        for b in primes_and_negatives(1001):
             formula = partial(quadratic, a=a, b=b)
             test = sum(1 for _ in takewhile(is_prime, map(formula, count())))
-            if test > primes:
-                primes = test
+            if test > streak:
+                streak = test
                 answer = a * b
     return answer
 
