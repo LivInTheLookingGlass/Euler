@@ -24,26 +24,23 @@ Which starting number, under one million, produces the longest chain?
 NOTE: Once the chain starts the terms are allowed to go above one million.
 """
 from functools import lru_cache
-from typing import Iterator
+from typing import Tuple
 
 
-@lru_cache(maxsize=10240)
-def collatz(n: int) -> int:
-    if n % 2 == 0:
-        return n // 2
+@lru_cache(maxsize=1 << 18)
+def collatz_seq(n: int) -> Tuple[int, ...]:
+    if n == 1:
+        return ()
+    elif n & 1 == 0:
+        n = n // 2
     else:
-        return (3 * n + 1) // 2
-
-
-def collatz_seq(n: int) -> Iterator[int]:
-    while n > 1:
-        yield n
-        n = collatz(n)
+        n = (3 * n + 1) // 2
+    return (n, *collatz_seq(n))
 
 
 def main() -> int:
     return max(
-        (sum(1 for _ in collatz_seq(x)), x) for x in range(1, 1000000)
+        (len(collatz_seq(x)), x) for x in range(1, 1000000)
     )[1]
 
 
