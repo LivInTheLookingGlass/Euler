@@ -15,11 +15,11 @@ from re import compile
 def main() -> int:
     pattern = compile("1.2.3.4.5.6.7.8.9.0")
     minimum = 1010101010  # sqrt of minimum number matching pattern
-    maximum = 1389026624
+    maximum = 1389026624  # sqrt of maximum number matching pattern
     step = 10  # the square is a multiple of 10, which means it's a multiple of
     # 100, since 2 and 5 are both prime. Therefore we can step by at least 10
     for x in range(minimum, maximum, step):
-        if pattern.match(repr(x**2)):
+        if pattern.match(repr(x * x)):
             return x
     return -1
 
