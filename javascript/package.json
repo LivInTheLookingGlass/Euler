@@ -9,6 +9,7 @@
   "author": "Gabe Appleton",
   "license": "ISC",
   "dependencies": {
+    "benchmark": "^2.1.4",
     "mocha": "^6.2.0"
   }
 }
