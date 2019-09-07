@@ -4,6 +4,10 @@ Project Euler Question 1
 I decided I wanted to take a funcitonal approach on this one. It also uses only
 lazy functions, so it should take minimal memory usage.
 
+I know that this could be done faster with a traditional for loop, but I wanted
+to see if iterators were reasonably possible in C, since it makes the prime
+number infrastructure a lot easier to set up.
+
 Problem:
 
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we
