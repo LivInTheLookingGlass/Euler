@@ -1,6 +1,10 @@
 test: dependencies
 	npx mocha
 
+test_%: dependencies
+	echo "WARNING: multithreaded tests not supported on javascript"
+	npx mocha
+
 dependencies:
 	@if command -v npm ; then \
 		echo "No need to install nvm"; \
