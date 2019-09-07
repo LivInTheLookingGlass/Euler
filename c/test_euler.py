@@ -1,7 +1,8 @@
 from functools import partial
 from os import remove
+from os.path import expanduser
 from platform import processor
-from subprocess import check_call, check_output
+from subprocess import call, check_call, check_output
 
 from pytest import fail, fixture
 
@@ -23,9 +24,14 @@ def test_problem(benchmark, key):
     key_i = int(key)
     filename = "p{}.c".format(key)
     exename = "p{}.{}".format(key, processor() or 'exe')
+    if call(['which', 'termux-setup-storage']) == 0:
+        exename = "{}/{}".format(expanduser("~"), exename)
+        # Termux can't make executable files outside of $HOME
+    else:
+        exename = "./{}".format(exename)
     try:
         check_call(['gcc', '-Werror', '-std=c11', filename, '-o', exename])
-        run_test = partial(check_output, ["./{}".format(exename)])
+        run_test = partial(check_output, [exename])
 
         if key_i in known_slow:
             assert answers[key_i] == int(benchmark.pedantic(
