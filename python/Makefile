@@ -3,7 +3,7 @@ pytest_args?= --mypy --mypy-ignore-missing-imports --flake8 --isort
 test: dependencies _test
 
 test_%:
-	$(MAKE) test pytest_args="-n$*"
+	$(MAKE) test pytest_args="$(pytest_args) -n$*"
 
 _test:
 	python3 -m pytest -v --benchmark-sort=fullname $(pytest_args)
