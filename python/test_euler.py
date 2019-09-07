@@ -119,5 +119,6 @@ def test_problem(benchmark: Any, key: str) -> None:
         assert answers[key_i] == benchmark(module.main)
     del module
     gc.collect()
+    # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
         fail("Exceeding 60s!")

@@ -54,20 +54,20 @@ def is_prime(
     if count == 1:
         if num in cache:  # always has 2
             return True
-        elif num % 2 == 0:
+        if num % 2 == 0:
             return False
-        next(factors)
-        return next(factors, None) is None
+        return next(factors) == num
+    seen: Collection[Optional[int]]
+    seen_add: Callable[[Optional[int]], None]
+    if distinct:
+        seen = set()
+        seen_add = cast(Set[Optional[int]], seen).add
     else:
-        if distinct:
-            seen: Collection[Optional[int]] = set()
-            seen_add: Callable[[Optional[int]], None] = cast(Set[Optional[int]], seen).add
-        else:
-            seen = []
-            seen_add = seen.append
-        while None not in seen and count != len(seen):
-            seen_add(next(factors, None))
-        return None not in seen and next(factors, None) is None
+        seen = []
+        seen_add = seen.append
+    while None not in seen and count != len(seen):
+        seen_add(next(factors, None))
+    return None not in seen and next(factors, None) is None
 
 
 def main() -> int:
