@@ -1,5 +1,5 @@
 """
-Project Euler Problem 76 6206s
+Project Euler Problem 76
 
 I ended up having to do this with recursion, which I normally do not like to
 use that much. Small changes can have large effects on later results. Still,

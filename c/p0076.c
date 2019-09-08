@@ -1,5 +1,5 @@
 /*
-Project Euler Problem 76 6206s
+Project Euler Problem 76
 
 I ended up having to do this with recursion, which I normally do not like to
 use that much. Small changes can have large effects on later results. Still,
@@ -23,7 +23,7 @@ positive integers?
 
 
 int main(int argc, char const *argv[])  {
-    unsigned long answer = 0;
+    unsigned int answer = 0;
     unsigned char idx, i, sum, counts[101] = {0};
     counts[1] = 100;
     while (!counts[100]) {
@@ -48,6 +48,6 @@ int main(int argc, char const *argv[])  {
             answer++;
         }
     }
-    printf("%lu", answer);
+    printf("%u", answer);
     return 0;
 }
