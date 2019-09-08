@@ -28,24 +28,24 @@ int main(int argc, char const *argv[])  {
     counts[1] = 100;
     while (!counts[100]) {
         sum = counts[1];
-        for (i = 2; i < 100; ++i) {
+        for (i = 2; i < 100; i++) {
             sum += counts[i] * i;
         }
-        ++counts[1];
+        counts[1]++;
         if (sum > 100)  {
             idx = 1;
             do {
                 counts[idx] = 0;
-                ++counts[++idx];
+                counts[++idx]++;
                 sum = counts[1];
-                for (i = 2; i < 100; ++i) {
+                for (i = 2; i < 100; i++) {
                     sum += counts[i] * i;
                 }
             } while (sum > 100);
             counts[1] = 100 - sum;
         }
         else if (sum == 100)    {
-            ++answer;
+            answer++;
         }
     }
     printf("%lu", answer);
