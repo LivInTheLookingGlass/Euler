@@ -7,10 +7,11 @@ from subprocess import call, check_call, check_output
 from pytest import fail, fixture
 
 answers = {
-    1: 233168
+    1: 233168,
+    76: 190569291,
 }
 
-known_slow = {}
+known_slow = {76}
 # this is the set of problems where I have the right answer but wrong solution
 
 
@@ -30,7 +31,15 @@ def test_problem(benchmark, key):
     else:
         exename = "./{}".format(exename)
     try:
-        check_call(['gcc', '-Werror', '-std=c11', filename, '-o', exename])
+        check_call([
+            'gcc',
+            '-fms-extensions',
+            '-Werror',
+            '-std=c11',
+            filename,
+            '-o',
+            exename
+        ])
         run_test = partial(check_output, [exename])
 
         if key_i in known_slow:
