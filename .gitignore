@@ -1,6 +1,7 @@
 **.pyc
-.pytest_cache/**
-.mypy_cache/**
+**/.pytest_cache/**
+**/.mypy_cache/**
 javascript/node_modules/**
 .vscode/**
 **log*.txt
+c/a.out

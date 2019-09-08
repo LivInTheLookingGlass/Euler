@@ -1,4 +1,5 @@
 **.pyc
-.pytest_cache/**
-.mypy_cache/**
+**/.pytest_cache/**
+**/.mypy_cache/**
 javascript/node_modules/**
+c/a.out
