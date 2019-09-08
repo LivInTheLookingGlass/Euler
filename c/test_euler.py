@@ -11,7 +11,7 @@ answers = {
     76: 190569291,
 }
 
-known_slow = {76}
+known_slow = {}
 # this is the set of problems where I have the right answer but wrong solution
 
 
@@ -24,8 +24,15 @@ def key(request):  # type: ignore
 def test_problem(benchmark, key):
     key_i = int(key)
     filename = "p{}.c".format(key)
-    exename = "p{}.{}".format(key, processor() or 'exe')
-    if call(['which', 'termux-setup-storage']) == 0:
+    in_termux = not call(['command', '-v', 'termux-setup-storage'], shell=True)
+    if processor():
+        exename = "p{}.{}".format(key, processor())
+    elif in_termux:
+        exename = "p{}.{}".format(key, check_output('lscpu').split()[1])
+        # processor() doesn't seem to work on Termux
+    else:
+        exename = "p{}.exe".format(key)
+    if in_termux:
         exename = "{}/{}".format(expanduser("~"), exename)
         # Termux can't make executable files outside of $HOME
     else:
@@ -33,6 +40,7 @@ def test_problem(benchmark, key):
     try:
         check_call([
             'gcc',
+            '-O',
             '-fms-extensions',
             '-Werror',
             '-std=c11',
