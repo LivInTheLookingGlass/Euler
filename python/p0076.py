@@ -19,22 +19,24 @@ It is possible to write five as a sum in exactly six different ways:
 How many different ways can one hundred be written as a sum of at least two
 positive integers?
 """
-from collections import defaultdict
-from typing import DefaultDict
+from typing import List
 
 
 def main() -> int:
     answer = 0
-    counts: DefaultDict[int, int] = defaultdict(int)
-    while 100 not in counts:
-        total = sum(key * val for key, val in counts.items())
+    counts: List[int] = [0] * 101
+    counts[1] = 100
+    while not counts[100]:
+        total = sum(counts)
         counts[1] += 1
         if total > 100:
             idx = 1
-            while sum(key * val for key, val in counts.items()) > 100:
+            while total > 100:
                 counts[idx] = 0
                 idx += 1
-                counts[idx] += 1
+                counts[idx] += idx
+                total = sum(counts)
+            counts[1] = 100 - total
         elif total == 100:
             answer += 1
     return answer
