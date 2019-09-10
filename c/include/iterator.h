@@ -14,7 +14,7 @@
      * @exhausted: An indicator that tells you if the iterator is exhausted
      * @started: An indicator that tells you if the interator has moved at all
      * @phase: An indicator that flips every time the iterator moves
-     * 
+     *
      * See counter for an example implementation
      */
 
@@ -24,15 +24,21 @@
     /**
      * The base macro for all iteration functions in this project
      * @it: The pointer to the iterator you are advancing
-     * 
+     *
      * See counter for an example implementation
      */
+
+#define IteratorInitHead(it, advance) \
+    it.iterator_function = (void * (*)(void *)) &advance; \
+    it.started = 0; \
+    it.phase = 0; \
+    it.exhausted = 0;
 
 #define next(state) (*(state.iterator_function))(&state)
     /**
      * The macro to advance generic iterators
      * @state: The iterator you wish to advance
-     * 
+     *
      * See counter for an example implementation
      */
 
@@ -41,10 +47,12 @@ typedef struct {
      * The reference struct for all iterators in this project
      * @iterator_function: The function to advance the iterator and return the next element
      * @exhausted: An indicator that tells you if the iterator is exhausted
+     * @started: An indicator that tells you if the interator has moved at all
+     * @phase: An indicator that flips every time the iterator moves
      * @idx: The current position of the counter
      * @stop: The point where the counter is exhausted
      * @step: The amount to step by each time you iterate the counter
-     * 
+     *
      * See IteratorHead
      */
     IteratorHead
@@ -57,7 +65,7 @@ unsigned long long iterate_counter(counter *i)  {
     /**
      * The function to advance a counter
      * @i the counter you want to advance
-     * 
+     *
      * Returns the next number in the iteration
      */
     IterationHead(i)
@@ -76,10 +84,15 @@ counter counter3(unsigned long long start, unsigned long long stop, long long st
      * @start: The beginning position of the counter
      * @stop: The point where the counter is exhausted
      * @step: The amount to step by each time you iterate the counter
-     * 
+     *
      * See counter
      */
-    return (counter) {(void * (*)(void *)) &iterate_counter, 0, 0, 0, start, stop, step};
+    counter ret;
+    IteratorInitHead(ret, iterate_counter);
+    ret.idx = start;
+    ret.stop = stop;
+    ret.step = step;
+    return ret;
 }
 
 counter counter2(unsigned long long start, unsigned long long stop)    {
@@ -87,7 +100,7 @@ counter counter2(unsigned long long start, unsigned long long stop)    {
      * The simpler constructor for the counter iterator
      * @start: The beginning position of the counter
      * @stop: The point where the counter is exhausted
-     * 
+     *
      * See counter
      */
     return counter3(start, stop, 1);
@@ -97,7 +110,7 @@ counter counter1(unsigned long long stop)  {
     /**
      * The simplest constructor for the counter iterator
      * @stop: The point where the counter is exhausted
-     * 
+     *
      * See counter
      */
     return counter2(0, stop);

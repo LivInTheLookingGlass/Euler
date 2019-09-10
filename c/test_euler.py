@@ -8,6 +8,7 @@ from pytest import fail, fixture
 
 answers = {
     1: 233168,
+    3: 6857,
     76: 190569291,
 }
 
@@ -41,6 +42,7 @@ def test_problem(benchmark, key):
         check_call([
             'gcc',
             '-O',
+            '-lm',
             '-fms-extensions',
             '-Werror',
             '-std=c11',
