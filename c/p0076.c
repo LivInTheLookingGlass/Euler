@@ -1,9 +1,8 @@
 /*
 Project Euler Problem 76
 
-I ended up having to do this with recursion, which I normally do not like to
-use that much. Small changes can have large effects on later results. Still,
-this seems to work for the moment.
+I ended up having to do this iteratively, which I'm not super happy with. I feel like there is almost certainly a
+closed-form solution to this, but I was unable to figure it out.
 
 Problem:
 
