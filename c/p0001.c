@@ -1,5 +1,5 @@
 /*
-Project Euler Question 1
+Project Euler Problem 1
 
 I decided I wanted to take a funcitonal approach on this one. It also uses only
 lazy functions, so it should take minimal memory usage.
