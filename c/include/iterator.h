@@ -3,13 +3,16 @@
 
 #include <stdbool.h>
 
-#define IteratorHead \
-    void * (*iterator_function)(void *it); \
+#define IteratorHead(return_type, struct_type) \
+    return_type (*iterator_function)(struct_type *it); \
     bool exhausted : 1; \
     bool started : 1; \
-    bool phase : 1;
+    bool phase : 1
     /**
      * The base struct for all iterators in this project
+     * @return_type: The type that your iterator will yield
+     * @struct_type: The type that your iterator state is stored in
+     * 
      * @iterator_function: The function to advance the iterator and return the next element
      * @exhausted: An indicator that tells you if the iterator is exhausted
      * @started: An indicator that tells you if the interator has moved at all
@@ -20,7 +23,7 @@
 
 #define IterationHead(it) \
     it->started = 1; \
-    it->phase = !(it->phase);
+    it->phase = !(it->phase)
     /**
      * The base macro for all iteration functions in this project
      * @it: The pointer to the iterator you are advancing
@@ -29,10 +32,17 @@
      */
 
 #define IteratorInitHead(it, advance) \
-    it.iterator_function = (void * (*)(void *)) &advance; \
+    it.iterator_function = &advance; \
     it.started = 0; \
     it.phase = 0; \
-    it.exhausted = 0;
+    it.exhausted = 0
+    /**
+     * The base macro for all iterator intialization functions in this project
+     * @it: The iterator you are initializing
+     * @advance: The function this iterator uses to advance
+     *
+     * See counter for an example implementation
+     */
 
 #define next(state) (*(state.iterator_function))(&state)
     /**
@@ -42,7 +52,8 @@
      * See counter for an example implementation
      */
 
-typedef struct {
+typedef struct counter counter;
+struct counter {
     /**
      * The reference struct for all iterators in this project
      * @iterator_function: The function to advance the iterator and return the next element
@@ -55,11 +66,11 @@ typedef struct {
      *
      * See IteratorHead
      */
-    IteratorHead
+    IteratorHead(unsigned long long, counter);
     unsigned long long idx;
     unsigned long long stop;
     long long step;
-} counter;
+};
 
 unsigned long long iterate_counter(counter *i)  {
     /**
@@ -68,7 +79,7 @@ unsigned long long iterate_counter(counter *i)  {
      *
      * Returns the next number in the iteration
      */
-    IterationHead(i)
+    IterationHead(i);
     unsigned long long ret = i->idx;
     long long step = i->step;
     i->idx += step;

@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])  {
     unsigned int answer, count = 0;
     prime_counter pc = prime_counter0();
     while (!pc.exhausted)   {
-        answer = (unsigned long long) next(pc);
+        answer = next(pc);
         if (++count == 10001)  {
             printf("%u", answer);
             break;
