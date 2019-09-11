@@ -23,6 +23,7 @@ typedef struct {
 } prime_counter;
 
 static unsigned long long *prime_cache;
+// note: If you let it, this will grow indefinitely. To not let it do so, #define PRIME_CACHE_SIZE_LIMIT
 static unsigned long long prime_cache_max = 0;
 static size_t prime_cache_size = 0;
 static size_t prime_cache_idx = 0;
@@ -74,11 +75,21 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
             }
         }
         if (!broken)    {  // is prime
+#ifdef PRIME_CACHE_SIZE_LIMIT
+            if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT)   {
+#else
             if (prime_cache_size == prime_cache_idx)    {
-                void *tmp = realloc(prime_cache, prime_cache_size * 2 * sizeof(unsigned long long));
+#endif
+                size_t new_size = prime_cache_size * 2;
+#ifdef PRIME_CACHE_SIZE_LIMIT
+                if (new_size > PRIME_CACHE_SIZE_LIMIT)  {
+                    new_size = PRIME_CACHE_SIZE_LIMIT;
+                }
+#endif
+                void *tmp = realloc(prime_cache, new_size * sizeof(unsigned long long));
                 if (tmp != NULL)    {
                     prime_cache = (unsigned long long *) tmp;
-                    prime_cache_size *= 2;
+                    prime_cache_size = new_size;
                     prime_cache[prime_cache_idx++] = prime_cache_max = p;
                 }
             } else  {
