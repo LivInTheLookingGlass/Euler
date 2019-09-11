@@ -41,12 +41,12 @@ def test_problem(benchmark, key):
     try:
         check_call([
             'gcc',
+            filename,
             '-O',
             '-lm',
             '-fms-extensions',
             '-Werror',
             '-std=c11',
-            filename,
             '-o',
             exename
         ])
