@@ -171,4 +171,28 @@ prime_factor_counter prime_factors(unsigned long long n)    {
     return ret;
 }
 
+unsigned long long is_composite(unsigned long long n)   {
+    /**
+     * Tells you if a number is composite, and if so, its smallest prime factor
+     * @n: The number you wish to test
+     *
+     * See prime_factor_counter
+     */
+    if (!n || n == 1)   {
+        return 0;
+    }
+    prime_factor_counter iter = prime_factors(n);
+    return (unsigned long long) next(iter);
+}
+
+bool is_prime(unsigned long long n) {
+    /**
+     * Tells you if a number is prime
+     * @n: The number you wish to test
+     *
+     * See prime_factor_counter
+     */
+    return n && n != 1 && !is_composite(n);
+}
+
 #endif
