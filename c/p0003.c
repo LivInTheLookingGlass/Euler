@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])  {
     unsigned long long answer = 0;
     prime_factor_counter pfc = prime_factors(600851475143);
     while (!pfc.exhausted)   {
-        answer = (unsigned long long) next(pfc);
+        answer = next(pfc);
     }
     printf("%llu\n", answer);
     return 0;

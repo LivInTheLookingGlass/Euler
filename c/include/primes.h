@@ -5,7 +5,8 @@
 #include <math.h>
 #include "iterator.h"
 
-typedef struct {
+typedef struct prime_counter prime_counter;
+struct prime_counter {
     /**
      * The reference struct for all iterators in this project
      * @iterator_function: The function to advance the iterator and return the next element
@@ -17,10 +18,10 @@ typedef struct {
      *
      * See IteratorHead
      */
-    IteratorHead
+    IteratorHead(unsigned long long, prime_counter);
     unsigned long long idx;
     unsigned long long stop;
-} prime_counter;
+};
 
 static unsigned long long *prime_cache;
 // note: If you let it, this will grow indefinitely. To not let it do so, #define PRIME_CACHE_SIZE_LIMIT
@@ -35,7 +36,7 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
      *
      * Returns the next number in the iteration
      */
-    IterationHead(pc)
+    IterationHead(pc);
     if (!prime_cache_size)  {  // if not already done, initialize the prime cache
         prime_cache = (unsigned long long *) malloc(sizeof(unsigned long long) * 4);
         prime_cache[0] = 2;
@@ -127,7 +128,8 @@ prime_counter prime_counter0()  {
     return prime_counter1(-1);
 }
 
-typedef struct {
+typedef struct prime_factor_counter prime_factor_counter;
+struct prime_factor_counter {
     /**
      * The iterator that allows you to prime factorize a number
      * @iterator_function: The function to advance the iterator and return the next element
@@ -140,11 +142,11 @@ typedef struct {
      *
      * See IteratorHead
      */
-    IteratorHead
+    IteratorHead(unsigned long long, prime_factor_counter);
     unsigned long long target;
     unsigned long long current;
     prime_counter pc;
-} prime_factor_counter;
+};
 
 unsigned long long advance_prime_factor_counter(prime_factor_counter *pfc)  {
     /**
@@ -154,7 +156,7 @@ unsigned long long advance_prime_factor_counter(prime_factor_counter *pfc)  {
      * Returns the next number in the iteration
      */
     while (pfc->target != 0 && pfc->target != 1 && !pfc->pc.exhausted) {
-        pfc->current = (unsigned long long) next(pfc->pc);
+        pfc->current = next(pfc->pc);
         if (pfc->target % pfc->current == 0)    {
             pfc->target /= pfc->current;
             pfc->exhausted = (pfc->target == 1);
@@ -193,7 +195,7 @@ unsigned long long is_composite(unsigned long long n)   {
         return 0;
     }
     prime_factor_counter iter = prime_factors(n);
-    return (unsigned long long) next(iter);
+    return next(iter);
 }
 
 bool is_prime(unsigned long long n) {

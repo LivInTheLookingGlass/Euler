@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])
     unsigned long long answer = 0;
     counter c = counter3(0, 1000, 3);
     while (!c.exhausted)    {
-        answer += (unsigned long long) next(c);
+        answer += next(c);
     }
     c = counter3(0, 1000, 5);
     while (!c.exhausted)    {
