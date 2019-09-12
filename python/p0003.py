@@ -55,9 +55,9 @@ def primes(stop: Optional[int] = None) -> Iterator[int]:
     if stop and last_cached - 2 > stop:
         return
     if stop is None:
-        secondary = psieve()
+        secondary = modified_eratosthenes()
     else:
-        secondary = takewhile(stop.__gt__, psieve())
+        secondary = takewhile(stop.__gt__, modified_eratosthenes())
     for p in secondary:
         if p in cache:
             continue
@@ -66,30 +66,30 @@ def primes(stop: Optional[int] = None) -> Iterator[int]:
         yield p
 
 
-def psieve() -> Iterator[int]:
-    # psieve taken, refactored from https://stackoverflow.com/a/19391111
+def modified_eratosthenes() -> Iterator[int]:
+    # modified_eratosthenes taken, refactored from https://stackoverflow.com/a/19391111
     yield from (2, 3, 5, 7)
     sieve: Dict[int, int] = {}
-    recurse = psieve()
+    recurse = primes()
     next(recurse)
     prime = next(recurse)
     if prime != 3:
         raise ValueError()
     prime_squared = prime * prime
     for candidate in count(9, 2):
-        if candidate in sieve:      # composite
+        if candidate in sieve:  # if c is a multiple of some base prime, or
             step = sieve.pop(candidate)
-        elif candidate < prime_squared:   # prime
+        elif candidate < prime_squared:  # prime, or
             yield candidate
             continue
-        else:           # composite, = p*p
+        else:  # the next base prime's square
             if candidate != prime_squared:
                 raise ValueError()
             step = prime * 2
             prime = next(recurse)
             prime_squared = prime * prime
-        candidate += step
-        while candidate in sieve:
+        candidate += step  # the next multiple
+        while candidate in sieve:  # make sure to not overwrite another sieve entry
             candidate += step
         sieve[candidate] = step
 
