@@ -132,6 +132,21 @@ prime_counter prime_counter0()  {
 }
 
 struct prime_sieve {
+    /**
+     * The iterator that implements a modified sieve of eratosthenes
+     * @iterator_function: The function to advance the iterator and return the next element
+     * @exhausted: An indicator that tells you if the iterator is exhausted
+     * @started: An indicator that tells you if the interator has moved at all
+     * @phase: An indicator that flips every time the iterator moves
+     * @sieve: The sieve state used to generate new primes
+     * @sieve_len: The length of the sieve state (divided by 2)
+     * @prime: The current reference prime
+     * @prime_squared: The reference prime squared
+     * @candidate: The current candidate prime number
+     * @source: The source of new reference prime numbers
+     *
+     * See IteratorHead
+     */
     IteratorHead(unsigned long long, prime_sieve);
     unsigned long long *sieve;
     size_t sieve_len;
@@ -142,6 +157,12 @@ struct prime_sieve {
 };
 
 unsigned long long advance_prime_sieve(prime_sieve *ps) {
+    /**
+     * The function to advance a prime sieve iterator
+     * @ps the sieve you want to advance
+     *
+     * Returns the next prime number in the iteration
+     */
     // modified sieve of eratosthenes adapted to C from Python p0003
     if (ps->candidate == 2) {
         ps->candidate = 3;
@@ -195,6 +216,11 @@ unsigned long long advance_prime_sieve(prime_sieve *ps) {
 }
 
 prime_sieve prime_sieve0()  {
+    /**
+     * The constructor for the prime number sieve
+     *
+     * See prime_sieve
+     */
     prime_sieve ret;
     IteratorInitHead(ret, advance_prime_sieve);
     ret.sieve = NULL;
