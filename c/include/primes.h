@@ -19,7 +19,7 @@ struct prime_counter {
      * See IteratorHead
      */
     IteratorHead(unsigned long long, prime_counter);
-    unsigned long long idx;
+    size_t idx;
     unsigned long long stop;
 };
 
@@ -46,21 +46,16 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
         prime_cache_size = 4;
         prime_cache_idx = 4;
     }
-    if (pc->idx < 2)    {  // special case this transition so loop is cleaner
-        pc->idx = 2;
-        return 2;
+    if (pc->idx < prime_cache_idx)  {
+        unsigned long long p = prime_cache[pc->idx++];
+        if (pc->exhausted = (p >= pc->stop))    {
+            return 0;
+        }
+        return p;
     }
-    if (pc->idx == 2)   {  // special case this transition so loop is cleaner
-        pc->idx = 3;
-        return 3;
-    }
-    for (unsigned long long p = pc->idx + 2; p < pc->stop; p += 2) {
+    for (unsigned long long p = prime_cache[pc->idx - 1] + 2; p < pc->stop; p += 2) {
         bool broken = false;
         for (size_t idx = 0; idx < prime_cache_idx; idx++)  {
-            if (p == prime_cache[idx])  {  // short-circuited is prime
-                pc->idx = p;
-                return p;
-            }
             if (p % prime_cache[idx] == 0)  {  // is not prime
                 broken = true;
                 break;
@@ -76,33 +71,37 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
             }
         }
         if (!broken)    {  // is prime
+            if (pc->idx == prime_cache_idx) {
 #ifdef PRIME_CACHE_SIZE_LIMIT
-            if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT)   {
+                if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT)   {
 #else
-            if (prime_cache_size == prime_cache_idx)    {
+                if (prime_cache_size == prime_cache_idx)    {
 #endif
-                size_t new_size = prime_cache_size * 2;
+                    size_t new_size = prime_cache_size * 2;
 #ifdef PRIME_CACHE_SIZE_LIMIT
-                if (new_size > PRIME_CACHE_SIZE_LIMIT)  {
-                    new_size = PRIME_CACHE_SIZE_LIMIT;
-                }
+                    if (new_size > PRIME_CACHE_SIZE_LIMIT)  {
+                        new_size = PRIME_CACHE_SIZE_LIMIT;
+                    }
 #endif
-                void *tmp = realloc(prime_cache, new_size * sizeof(unsigned long long));
-                if (tmp != NULL)    {
-                    prime_cache = (unsigned long long *) tmp;
-                    prime_cache_size = new_size;
-                    prime_cache[prime_cache_idx++] = prime_cache_max = p;
+                    void *tmp = realloc(prime_cache, new_size * sizeof(unsigned long long));
+                    if (tmp != NULL)    {
+                        prime_cache = (unsigned long long *) tmp;
+                        prime_cache_size = new_size;
+                        prime_cache[prime_cache_idx++] = prime_cache_max = p;
+                    }
+                } else  {
+                    prime_cache[prime_cache_idx++] = p;
                 }
-            } else  {
-                prime_cache[prime_cache_idx++] = p;
             }
-            pc->idx = p;
-            pc->exhausted = (p >= pc->stop);
+            pc->idx++;
+            if (pc->exhausted = (p >= pc->stop))    {
+                return 0;
+            }
             return p;
         }
     }
     pc->exhausted = true;  // shouldn't get here, but just in case
-    return -1;
+    return 0;
 }
 
 prime_counter prime_counter1(unsigned long long stop)  {
