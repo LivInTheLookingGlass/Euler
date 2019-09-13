@@ -5,6 +5,7 @@
 #include <math.h>
 #include "iterator.h"
 
+typedef struct prime_sieve prime_sieve;
 typedef struct prime_counter prime_counter;
 struct prime_counter {
     /**
@@ -21,6 +22,7 @@ struct prime_counter {
     IteratorHead(unsigned long long, prime_counter);
     size_t idx;
     unsigned long long stop;
+    prime_sieve *ps;
 };
 
 static unsigned long long *prime_cache;
@@ -28,6 +30,7 @@ static unsigned long long *prime_cache;
 static unsigned long long prime_cache_max = 0;
 static size_t prime_cache_size = 0;
 static size_t prime_cache_idx = 0;
+prime_sieve prime_sieve0();
 
 unsigned long long advance_prime_counter(prime_counter *pc) {
     /**
@@ -55,7 +58,7 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
     }
     for (unsigned long long p = prime_cache[pc->idx - 1] + 2; p < pc->stop; p += 2) {
         bool broken = false;
-        for (size_t idx = 0; idx < prime_cache_idx; idx++)  {
+        for (size_t idx = 1; idx < prime_cache_idx; idx++)  {
             if (p % prime_cache[idx] == 0)  {  // is not prime
                 broken = true;
                 break;
@@ -115,6 +118,7 @@ prime_counter prime_counter1(unsigned long long stop)  {
     IteratorInitHead(ret, advance_prime_counter);
     ret.idx = 0;
     ret.stop = stop;
+    ret.ps = NULL;
     return ret;
 }
 
@@ -125,6 +129,83 @@ prime_counter prime_counter0()  {
      * See prime_counter
      */
     return prime_counter1(-1);
+}
+
+struct prime_sieve {
+    IteratorHead(unsigned long long, prime_sieve);
+    unsigned long long *sieve;
+    size_t sieve_len;
+    unsigned long long prime;
+    unsigned long long prime_squared;
+    unsigned long long candidate;
+    prime_counter source;
+};
+
+unsigned long long advance_prime_sieve(prime_sieve *ps) {
+    // modified sieve of eratosthenes adapted to C from Python p0003
+    if (ps->candidate == 2) {
+        ps->candidate = 3;
+        return 2;
+    }
+    // if candidate in sieve
+    while (true)    {
+        unsigned long long step;
+        bool candidate_in_sieve = false;
+        size_t candidate_index = -1;
+        for (size_t i = 0; i < ps->sieve_len * 2; i += 2)   {
+            if (ps->sieve[i] == ps->candidate)  {
+                step = ps->sieve[i + 1];
+                candidate_in_sieve = true;
+                candidate_index = i;
+                break;
+            }
+        }
+        if (!candidate_in_sieve)    {
+            if (ps->candidate < ps->prime_squared)  {  // prime
+                unsigned long long ret = ps->candidate;
+                ps->candidate += 2;
+                return ret;
+            }
+            // == prime_squared
+            step = ps->prime * 2;
+            ps->prime = next(ps->source);
+            ps->prime_squared = ps->prime * ps->prime;
+        }
+        unsigned long long candidate = ps->candidate;
+        ps->candidate += 2;
+        do {
+            candidate += step;
+            candidate_in_sieve = false;
+            for (size_t i = 0; i < ps->sieve_len * 2; i += 2)   {
+                if (ps->sieve[i] == candidate)  {
+                    candidate_in_sieve = true;
+                    break;
+                }
+            }
+        } while (candidate_in_sieve);
+        if (candidate_index != -1)  {
+            ps->sieve[candidate_index] = candidate;
+        } else  {
+            ps->sieve_len++;
+            ps->sieve = (unsigned long long *) realloc(ps->sieve, ps->sieve_len * 2 * sizeof(unsigned long long));
+            ps->sieve[(ps->sieve_len - 1) * 2] = candidate;
+            ps->sieve[ps->sieve_len * 2 - 1] = step;
+        }
+    }
+}
+
+prime_sieve prime_sieve0()  {
+    prime_sieve ret;
+    IteratorInitHead(ret, advance_prime_sieve);
+    ret.sieve = NULL;
+    ret.sieve_len = 0;
+    ret.prime = 3;
+    ret.prime_squared = 9;
+    ret.candidate = 2;
+    ret.source = prime_counter0();
+    next(ret.source);
+    next(ret.source);
+    return ret;
 }
 
 typedef struct prime_factor_counter prime_factor_counter;
