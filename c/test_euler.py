@@ -8,6 +8,7 @@ from pytest import fail, fixture
 
 answers = {
     1: 233168,
+    2: 4613732,
     3: 6857,
     7: 104743,
     10: 142913828922,
