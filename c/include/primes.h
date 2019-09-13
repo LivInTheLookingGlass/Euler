@@ -301,7 +301,11 @@ unsigned long long is_composite(unsigned long long n)   {
         return 0;
     }
     prime_factor_counter iter = prime_factors(n);
-    return next(iter);
+    unsigned long long ret = next(iter);
+    if (ret == n)   {
+        return 0;
+    }
+    return ret;
 }
 
 bool is_prime(unsigned long long n) {
