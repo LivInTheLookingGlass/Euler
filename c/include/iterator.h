@@ -52,6 +52,14 @@
      * See counter for an example implementation
      */
 
+#define next_p(state) (*(state->iterator_function))(state)
+    /**
+     * The macro to advance generic iterator pointers
+     * @state: The pointer to the iterator you wish to advance
+     *
+     * See counter for an example implementation
+     */
+
 typedef struct counter counter;
 struct counter {
     /**
