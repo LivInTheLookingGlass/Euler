@@ -51,7 +51,7 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
     }
     if (pc->idx < prime_cache_idx)  {
         unsigned long long p = prime_cache[pc->idx++];
-        if (pc->exhausted = (p >= pc->stop))    {
+        if ((pc->exhausted = (p >= pc->stop)))  {
             return 0;
         }
         return p;
@@ -97,7 +97,7 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
                 }
             }
             pc->idx++;
-            if (pc->exhausted = (p >= pc->stop))    {
+            if ((pc->exhausted = (p >= pc->stop)))  {
                 return 0;
             }
             return p;
@@ -262,12 +262,12 @@ unsigned long long advance_prime_factor_counter(prime_factor_counter *pfc)  {
      * Returns the next number in the iteration
      */
     while (pfc->target != 0 && pfc->target != 1 && !pfc->pc.exhausted) {
-        pfc->current = next(pfc->pc);
         if (pfc->target % pfc->current == 0)    {
             pfc->target /= pfc->current;
             pfc->exhausted = (pfc->target == 1);
             return pfc->current;
         }
+        pfc->current = next(pfc->pc);
     }
     pfc->exhausted = true;
     return -1;
@@ -284,9 +284,10 @@ prime_factor_counter prime_factors(unsigned long long n)    {
      */
     prime_factor_counter ret;
     IteratorInitHead(ret, advance_prime_factor_counter);
-    ret.current = 0;
+    ret.current = 2;
     ret.target = n;
     ret.pc = prime_counter0();
+    next(ret.pc);
     return ret;
 }
 
