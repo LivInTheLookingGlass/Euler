@@ -14,7 +14,7 @@ their digits.
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 """
-from p0020 import factorial
+from math import factorial
 
 
 def main() -> int:
