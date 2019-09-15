@@ -1,8 +1,9 @@
 import gc
+from subprocess import call
 from sys import argv
 from typing import Any
 
-from pytest import fail, fixture, mark
+from pytest import fail, fixture, mark, skip
 from umsgpack import load
 
 from p0003 import primes
@@ -77,13 +78,15 @@ answers = {
     134: 18613426663617118,
     145: 608720,
     187: 17427258,
-    206: 1389019170
+    206: 1389019170,
 }
 
 known_slow = {76, 123, 145}
 # this is the set of problems where I have the right answer but wrong solution
 
 prime_position = mark.first if "-c" in argv else mark.last
+
+IN_TERMUX = not call(['command', '-v', 'termux-setup-storage'], shell=True)
 
 
 @fixture(params=("{:04}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
@@ -113,6 +116,8 @@ def test_problem(benchmark: Any, key: str) -> None:
     key_i = int(key)
     module = __import__("p{:04}".format(key_i))
     if key_i in known_slow:
+        if IN_TERMUX:
+            skip()
         assert answers[key_i] == benchmark.pedantic(
             module.main, iterations=1, rounds=1
         )
