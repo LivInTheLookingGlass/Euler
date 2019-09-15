@@ -4,7 +4,7 @@ from os.path import expanduser
 from platform import processor
 from subprocess import call, check_call, check_output
 
-from pytest import fail, fixture
+from pytest import fail, fixture, skip
 
 answers = {
     1: 233168,
@@ -21,6 +21,21 @@ answers = {
 known_slow = {}
 # this is the set of problems where I have the right answer but wrong solution
 
+IN_TERMUX = not call(['command', '-v', 'termux-setup-storage'], shell=True)
+
+if processor():
+    EXE_EXT = processor()
+elif IN_TERMUX:
+    # processor() doesn't seem to work on Termux
+    EXE_EXT = check_output('lscpu').split()[1]
+else:
+    EXE_EXT = "exe"
+
+if IN_TERMUX:
+    EXE_TEMPLATE = "{}/p{{}}.{}".format(expanduser("~"), EXE_EXT)
+    # Termux can't make executable files outside of $HOME
+else:
+    EXE_TEMPLATE = "./p{{}}.{}".format(EXE_EXT)
 
 # to make sure the benchmarks sort correctly
 @fixture(params=("{:04}".format(x) for x in sorted(answers)))
@@ -31,19 +46,7 @@ def key(request):  # type: ignore
 def test_problem(benchmark, key):
     key_i = int(key)
     filename = "p{}.c".format(key)
-    in_termux = not call(['command', '-v', 'termux-setup-storage'], shell=True)
-    if processor():
-        exename = "p{}.{}".format(key, processor())
-    elif in_termux:
-        exename = "p{}.{}".format(key, check_output('lscpu').split()[1])
-        # processor() doesn't seem to work on Termux
-    else:
-        exename = "p{}.exe".format(key)
-    if in_termux:
-        exename = "{}/{}".format(expanduser("~"), exename)
-        # Termux can't make executable files outside of $HOME
-    else:
-        exename = "./{}".format(exename)
+    exename = EXE_TEMPLATE.format(key)
     try:
         check_call([
             'gcc',
@@ -58,6 +61,8 @@ def test_problem(benchmark, key):
         run_test = partial(check_output, [exename])
 
         if key_i in known_slow:
+            if IN_TERMUX:
+                skip()
             assert answers[key_i] == int(benchmark.pedantic(
                 run_test, iterations=1, rounds=1
             ).strip())
