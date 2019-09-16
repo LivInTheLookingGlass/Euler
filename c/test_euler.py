@@ -44,10 +44,10 @@ else:
 
 SOURCE_TEMPLATE = "p{:04}.c"
 if IN_TERMUX:
-    EXE_TEMPLATE = "{}/p{{:04}}.{{}}.{}".format(expanduser("~"), EXE_EXT)
+    EXE_TEMPLATE = "{}/p{{:0>4}}.{{}}.{}".format(expanduser("~"), EXE_EXT)
     # Termux can't make executable files outside of $HOME
 else:
-    EXE_TEMPLATE = ".{}p{{:04}}.{{}}.{}".format(sep, EXE_EXT)
+    EXE_TEMPLATE = ".{}p{{:0>4}}.{{}}.{}".format(sep, EXE_EXT)
     # include sep in the recipe so that Windows won't complain
 
 # compiler variables section
@@ -82,7 +82,7 @@ if not compilers:
     raise RuntimeError("No compilers detected!")
 
 
-@fixture(params=compilers)
+@fixture(params=sorted(compilers))
 def compiler(request):  # type: ignore
     return request.param
 
