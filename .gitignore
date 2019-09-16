@@ -8,4 +8,4 @@ c/a.out
 c/*.x86*
 c/*.exe
 c/*.aarch64
-c/**.obj
+c/objs/**
