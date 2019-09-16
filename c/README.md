@@ -1,6 +1,6 @@
 # C Section
 
-All problems are solved in C11, though most if not all of it is C99-compatible. It is tested only on clang and gcc, but there is no reason to thing that it would not work on a Windows-based compiler.
+All problems are solved in C11, though most if not all of it is C99-compatible. It is tested on clang, gcc, and cl (the Visual Studios compiler).
 
 ## Organization
 
