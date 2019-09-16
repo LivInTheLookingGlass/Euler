@@ -1,5 +1,5 @@
 import gc
-from subprocess import call
+from shutil import which
 from sys import argv
 from typing import Any
 
@@ -86,12 +86,12 @@ known_slow = {76, 123, 145}
 
 prime_position = mark.first if "-c" in argv else mark.last
 
-IN_TERMUX = not call(['command', '-v', 'termux-setup-storage'], shell=True)
+IN_TERMUX = bool(which('termux-setup-storage'))
 
 
-@fixture(params=("{:04}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
+@fixture(params=("{:03}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
 def key(request):  # type: ignore
-    return request.param
+    return int(request.param)  # reduce processing burden on test
 
 
 @prime_position
@@ -113,16 +113,14 @@ def test_is_prime(benchmark) -> None:
 
 
 def test_problem(benchmark: Any, key: str) -> None:
-    key_i = int(key)
-    module = __import__("p{:04}".format(key_i))
-    if key_i in known_slow:
-        if IN_TERMUX:
-            skip()
-        assert answers[key_i] == benchmark.pedantic(
-            module.main, iterations=1, rounds=1
-        )
+    if IN_TERMUX and key in known_slow:
+        skip()
+    module = __import__("p{:04}".format(key))
+    if key in known_slow:
+        answer = benchmark.pedantic(module.main, iterations=1, rounds=1)
     else:
-        assert answers[key_i] == benchmark(module.main)
+        answer = benchmark(module.main)
+    assert answers[key] == answer
     del module
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
