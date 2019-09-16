@@ -19,6 +19,7 @@ int main(int argc, char const *argv[])  {
     while ((tmp = next(ps)) < 2000000)  {
         answer += tmp;
     }
+    free_prime_sieve(ps);
     printf("%llu", answer);  // this is because of a bug
     return 0;
 }

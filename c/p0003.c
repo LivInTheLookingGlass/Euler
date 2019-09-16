@@ -20,6 +20,7 @@ int main(int argc, char const *argv[])  {
     while (!pfc.exhausted)   {
         answer = next(pfc);
     }
+    free_prime_factor_counter(pfc);
     printf("%llu\n", answer);
     return 0;
 }

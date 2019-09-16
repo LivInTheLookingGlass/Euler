@@ -32,4 +32,10 @@ digit_counter digits(unsigned long long n)  {
     return ret;
 }
 
+void free_digit_counter(digit_counter dc)   {
+    if (dc.digits != NULL)  {
+        free(dc.digits);
+    }
+}
+
 #endif
