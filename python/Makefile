@@ -1,12 +1,13 @@
 pytest_args?= --mypy --mypy-ignore-missing-imports --flake8 --isort
+PY?=python3
 
 test: dependencies _test
 
 test_%:
-	$(MAKE) test pytest_args="$(pytest_args) -n$*"
+	$(MAKE) test pytest_args="$(pytest_args) -n$*" PY=$(PY)
 
 _test:
-	python3 -m pytest -v --benchmark-sort=fullname $(pytest_args)
+	$(PY) -m pytest -v --benchmark-sort=fullname $(pytest_args)
 
 dependencies:
-	python3 -m pip install -r requirements.txt --user
+	$(PY) -m pip install -r requirements.txt --user
