@@ -15,13 +15,14 @@ What is the 10 001st prime number?
 
 int main(int argc, char const *argv[])  {
     unsigned int answer, count = 0;
-    prime_counter pc = prime_counter0();
-    while (!pc.exhausted)   {
-        answer = next(pc);
+    prime_sieve ps = prime_sieve0();
+    while (!ps.exhausted)   {
+        answer = next(ps);
         if (++count == 10001)  {
             printf("%u", answer);
             break;
         }
     }
+    free_prime_sieve(ps);
     return 0;
 }

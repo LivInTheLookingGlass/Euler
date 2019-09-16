@@ -234,6 +234,21 @@ prime_sieve prime_sieve0()  {
     return ret;
 }
 
+void free_prime_counter(prime_counter pc);
+void free_prime_sieve(prime_sieve ps)   {
+    free_prime_counter(ps.source);
+    if (ps.sieve != NULL)   {
+        free(ps.sieve);
+    }
+}
+
+void free_prime_counter(prime_counter pc)   {
+    if (pc.ps != NULL)  {
+        free_prime_sieve(*pc.ps);
+        free(pc.ps);
+    }
+}
+
 typedef struct prime_factor_counter prime_factor_counter;
 struct prime_factor_counter {
     /**
@@ -290,6 +305,8 @@ prime_factor_counter prime_factors(unsigned long long n)    {
     next(ret.pc);
     return ret;
 }
+
+#define free_prime_factor_counter(pfc) free_prime_counter(pfc.pc)
 
 unsigned long long is_composite(unsigned long long n)   {
     /**

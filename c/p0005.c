@@ -19,8 +19,9 @@ What is the smallest positive number that is evenly divisible by all of the numb
 int main(int argc, char const *argv[])  {
     unsigned long long answer = 1;
     unsigned char factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
+    prime_factor_counter pfc;
     for (unsigned char i = 2; i < 21; i++)  {
-        prime_factor_counter pfc = prime_factors(i);
+        pfc = prime_factors(i);
         while (!pfc.exhausted)  {
             local_factor_tracker[next(pfc)]++;
         }
@@ -28,6 +29,7 @@ int main(int argc, char const *argv[])  {
             factor_tracker[i] = max(factor_tracker[i], local_factor_tracker[i]);
             local_factor_tracker[i] = 0;
         }
+        free_prime_factor_counter(pfc);
     }
     for (unsigned char i = 2; i < 20; i++)  {
         for (unsigned char j = 0; j < factor_tracker[i]; j++)   {
