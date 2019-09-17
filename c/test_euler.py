@@ -56,6 +56,7 @@ templates = {
     'GCC': "gcc {} -O2 -lm -Werror -std=c11 -o {}",
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
     'CL': "cl -Fe:{1} -Foobjs\\ -O2 -TC {0}",
+    'TCC': "tcc -lm -Werror -o {1} {0}",
 }
 
 if not IN_TERMUX and which('gcc'):  # Termux maps gcc->clang
@@ -75,7 +76,7 @@ if which('cl'):
 if which('pcc'):
     raise NotImplementedError()
 if which('tcc'):
-    raise NotImplementedError()
+    compilers.append('TCC')
 if which('icc'):
     raise NotImplementedError()
 if not compilers:
