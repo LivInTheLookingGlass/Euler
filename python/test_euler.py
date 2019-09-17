@@ -112,7 +112,7 @@ def test_is_prime(benchmark) -> None:
         fail("Exceeding 200ns average!")
 
 
-def test_problem(benchmark: Any, key: str) -> None:
+def test_problem(benchmark: Any, key: int) -> None:
     if IN_TERMUX and key in known_slow:
         skip()
     module = __import__("p{:04}".format(key))
