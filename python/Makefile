@@ -8,7 +8,7 @@ test_%:
 	$(MAKE) test pytest_args="$(pytest_args) -n$*" PY=$(PY) PROXY=$(PROXY)
 
 _test:
-	$(PY) -m pytest -v --benchmark-sort=fullname $(pytest_args))
+	$(PY) -m pytest -v --benchmark-sort=fullname $(pytest_args)
 
 dependencies:
 	$(PY) -m pip install -r requirements.txt --user $(PROXY)
