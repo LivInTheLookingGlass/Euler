@@ -3,35 +3,35 @@ matrix:
     - language: generic
       python: 3.4
       os: osx
-      env: Cov='true' pyver=3.4 pydist=macpython
+      env: pyver=3.4 pydist=macpython
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: 3.5
       os: osx
-      env: Cov='true' pyver=3.5 pydist=macpython
+      env: pyver=3.5 pydist=macpython
     - language: generic
       python: 3.6
       os: osx
-      env: Cov='true' pyver=3.6 pydist=macpython
+      env: pyver=3.6 pydist=macpython
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: 3.7
       os: osx
-      env: Cov='true' pyver=3.7 pydist=macpython
+      env: pyver=3.7 pydist=macpython
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: 3.8
       os: osx
-      env: Cov='true' pyver=3.8 pydist=macpython
+      env: pyver=3.8 pydist=macpython
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: pypy3
       os: osx
-      env: Cov='true' pyver=pypy3 pydist=homebrew
+      env: pyver=pypy3 pydist=homebrew
     - language: node_js
       node_js: "7"
       os: osx
