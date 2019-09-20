@@ -15,7 +15,7 @@ if [ $pyver ]; then
     $PIP_CMD install virtualenv;
     virtualenv -p $PYTHON_EXE venv;
     source venv/bin/activate;
-    if [ $lint ]; then
+    if [ $linter ]; then
         make pytest PY=python USER=
     else
         make pytest PY=python LINT=false USER=
