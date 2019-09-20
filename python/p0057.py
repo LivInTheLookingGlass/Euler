@@ -38,7 +38,7 @@ def root_two_expansion(n: int) -> Fraction:
 
 def main() -> int:
     answer = 0
-    for x in range(1000):
+    for x in range(1_000):
         frac = root_two_expansion(x)
         if len(digits(frac.numerator)) > len(digits(frac.denominator)):
             answer += 1

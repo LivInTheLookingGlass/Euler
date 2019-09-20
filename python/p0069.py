@@ -32,7 +32,7 @@ def main() -> int:
     answer = 1
     for p in primes():
         new = answer * p
-        if new <= 1000000:
+        if new <= 1_000_000:
             answer = new
         else:
             break

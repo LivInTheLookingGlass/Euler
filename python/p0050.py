@@ -28,7 +28,7 @@ from p0008 import groupwise
 def main() -> int:
     iter_primes = iter(primes())
     cached_primes: List[int] = []
-    while sum(cached_primes) < 1000000:
+    while sum(cached_primes) < 1_000_000:
         cached_primes.append(next(iter_primes))
     cached_primes.pop()
     for number in range(len(cached_primes), 21, -1):

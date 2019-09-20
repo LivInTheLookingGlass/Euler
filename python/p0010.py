@@ -28,7 +28,7 @@ from p0003 import primes
 
 
 def main() -> int:
-    return sum(takewhile((2000000).__gt__, primes()))
+    return sum(takewhile((2_000_000).__gt__, primes()))
 
 
 if __name__ == '__main__':

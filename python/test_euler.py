@@ -109,7 +109,7 @@ def test_is_prime(benchmark) -> None:
     with open('primes.mpack', 'rb') as f:
         set_of_primes = load(f)  # set of first million primes
     benchmark.pedantic(func, args=(set_of_primes, ), iterations=1, rounds=1)
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (200 * 1000000 / 1000000):  # 200ns * primes
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (200 * 1_000_000 / 1_000_000):  # 200ns * primes
         fail("Exceeding 200ns average!")
 
 
