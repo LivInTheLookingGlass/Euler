@@ -15,7 +15,7 @@ if [ $pyver ]; then
     $PIP_CMD install virtualenv;
     virtualenv -p $PYTHON_EXE venv;
     source venv/bin/activate;
-    make pytest PY=python PIP=$PIP_CMD USER=
+    make pytest PY=python USER=
 else
     make jstest
 fi
