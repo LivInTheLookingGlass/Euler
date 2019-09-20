@@ -27,7 +27,7 @@ from fractions import Fraction
 def main() -> int:
     return max(
         Fraction(x, y)
-        for y in range(1, 1_000_000)
+        for y in range(1, 1000000)
         for x in range((y - 1) * 3 // 7, y * 3 // 7)
     ).numerator
 

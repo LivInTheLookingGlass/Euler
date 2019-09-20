@@ -50,7 +50,7 @@ def prime_summations(n: int) -> int:
 
 def main() -> int:
     for x in count(11):
-        if prime_summations(x) > 5_000:
+        if prime_summations(x) > 5000:
             return x
     return -1
 
