@@ -65,7 +65,7 @@ def fib_by_3(start_index: int = 0) -> Iterator[int]:
 def main():
     f = fib_by_3()  # this works because every third value is even
     answer = val = 0
-    while val < 4_000_000:
+    while val < 4000000:
         answer += val
         val = next(f)
     return answer

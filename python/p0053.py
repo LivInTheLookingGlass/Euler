@@ -31,7 +31,7 @@ def main():
     answer = 0
     for n in range(101):
         for r in range(2, n-1):
-            if n_choose_r(n, r) > 1_000_000:
+            if n_choose_r(n, r) > 1000000:
                 answer += 1
     return answer
 
