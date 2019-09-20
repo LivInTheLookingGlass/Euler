@@ -20,7 +20,7 @@ from operator import mul
 
 def main() -> int:
     group = range(1, 21)
-    answer = 1000000000000
+    answer = 1_000_000_000_000
     for x in group:
         for multiples in combinations(group, x):
             num = reduce(mul, multiples, 1)

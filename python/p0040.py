@@ -21,7 +21,7 @@ from operator import mul
 
 def main():
     digits_seen = 1
-    interests = {1, 10, 100, 1000, 10000, 100000, 1000000}
+    interests = {1, 10, 100, 1_000, 10_000, 100_000, 1_000_000}
     queries = []
     for x in count(1):
         digits = int(log10(x)) + 1

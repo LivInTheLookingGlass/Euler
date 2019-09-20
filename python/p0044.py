@@ -31,8 +31,8 @@ def is_pentagonal(x: int) -> int:
 
 
 def main() -> int:
-    D = 1000000000000
-    pentagonals = [pentagonal(x) for x in range(1, 2500)]
+    D = 1_000_000_000_000
+    pentagonals = [pentagonal(x) for x in range(1, 2_500)]
     for idx, k in enumerate(pentagonals):
         for j in islice(pentagonals, idx):
             if is_pentagonal(j + k) and is_pentagonal(k - j):
