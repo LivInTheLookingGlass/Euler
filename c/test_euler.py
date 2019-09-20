@@ -1,6 +1,6 @@
 from atexit import register
 from functools import partial
-from os import makedirs, remove, sep
+from os import environ, makedirs, remove, sep
 from os.path import expanduser
 from platform import processor, machine, system
 from shutil import rmtree, which
@@ -59,26 +59,29 @@ templates = {
     'TCC': "tcc -lm -Werror -o {1} {0}",
 }
 
-if not IN_TERMUX and which('gcc'):  # Termux maps gcc->clang
-    compilers.append('GCC')
-if which('clang'):
-    compilers.append('CLANG')
-if which('cl'):
-    @register
-    def cleanup_objs():
-        try:
-            rmtree('objs')  # only present with cl compiler
-        except Exception:
-            pass  # if in multiprocess, this race-conditions
+if 'COMPILER_OVERRIDE' in environ:
+    compilers.extend(environ['COMPILER_OVERRIDE'].upper().split(','))
+else:
+    if not IN_TERMUX and which('gcc'):  # Termux maps gcc->clang
+        compilers.append('GCC')
+    if which('clang'):
+        compilers.append('CLANG')
+    if which('cl'):
+        @register
+        def cleanup_objs():
+            try:
+                rmtree('objs')  # only present with cl compiler
+            except Exception:
+                pass  # if in multiprocess, this race-conditions
 
-    makedirs('objs', exist_ok=True)
-    compilers.append('CL')
-if which('pcc'):
-    raise NotImplementedError()
-if which('tcc'):
-    compilers.append('TCC')
-if which('icc'):
-    raise NotImplementedError()
+        makedirs('objs', exist_ok=True)
+        compilers.append('CL')
+    if which('pcc'):
+        raise NotImplementedError()
+    if which('tcc'):
+        compilers.append('TCC')
+    if which('icc'):
+        raise NotImplementedError()
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
