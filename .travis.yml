@@ -1,0 +1,82 @@
+matrix:
+  include:
+    - language: generic
+      python: 3.3
+      os: osx
+      env: Cov='true' pyver=3.3 pydist=macpython
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: 3.4
+      os: osx
+      env: Cov='true' pyver=3.4 pydist=macpython
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: 3.5
+      os: osx
+      env: Cov='true' pyver=3.5 pydist=macpython
+    - language: generic
+      python: 3.6
+      os: osx
+      env: Cov='true' pyver=3.6 pydist=macpython
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: 3.7
+      os: osx
+      env: Cov='true' pyver=3.7 pydist=macpython
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: 3.8
+      os: osx
+      env: Cov='true' pyver=3.8 pydist=macpython
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: pypy3
+      os: osx
+      env: Cov='true' pyver=pypy3 pydist=homebrew
+    - language: node_js
+      node_js: "7"
+      os: osx
+      env: jsver=7
+    - language: node_js
+      node_js: "6"
+      os: osx
+      env: jsver=6
+    - language: node_js
+      node_js: "5"
+      os: osx
+      env: jsver=5
+    - language: node_js
+      node_js: "4"
+      os: osx
+      env: jsver=4
+    - language: c
+      os: osx
+      env: COMPILER_OVERRIDE=clang
+      script: make ctest PY=python
+      addons:
+        homebrew: clang
+    - language: c
+      os: osx
+      env: COMPILER_OVERRIDE=gcc
+      script: make ctest PY=python
+      addons:
+        homebrew: gcc
+    - language: c
+      os: osx
+      env: COMPILER_OVERRIDE=tcc
+      script: make ctest PY=python
+      addons:
+        homebrew: tcc
+
+script:
+  - sh ./.scripts/travis_script.sh
+
+addons:
+  artifacts:
+    paths:
+    - $(find . -iname *.whl -type f | tr "\n" ":")
