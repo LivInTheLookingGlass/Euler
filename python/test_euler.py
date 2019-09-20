@@ -3,7 +3,7 @@ from shutil import which
 from sys import argv
 from typing import Any
 
-from pytest import fail, fixture, mark, skip
+from pytest import fail, fixture, mark, skip, xfail
 from umsgpack import load
 
 from p0003 import primes
@@ -126,4 +126,7 @@ def test_problem(benchmark: Any, key: int) -> None:
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
-        fail("Exceeding 60s!")
+        if key in known_slow:
+            xfail("Exceeding 60s!")
+        else:
+            fail("Exceeding 60s!")
