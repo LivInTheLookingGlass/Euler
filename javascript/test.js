@@ -2,7 +2,8 @@ const benchmark = require('benchmark');
 const assert = require('assert');
 
 const answers = {
-    1: 233168
+    1: 233168,
+    2: 4613732,
 };
 const known_slow = [];
 let benchmark_report = '';
