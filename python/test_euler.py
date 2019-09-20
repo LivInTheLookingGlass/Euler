@@ -116,7 +116,7 @@ def test_is_prime(benchmark) -> None:
 
 
 def test_problem(benchmark: Any, key: int) -> None:
-    if IN_TERMUX and key in known_slow:
+    if NO_SLOW and key in known_slow:
         skip()
     module = __import__("p{:04}".format(key))
     if key in known_slow:
