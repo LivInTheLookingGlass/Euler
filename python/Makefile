@@ -1,8 +1,14 @@
-pytest_args?= --mypy --mypy-ignore-missing-imports --flake8 --isort --benchmark-min-time=0.05 --benchmark-sort=fullname
+LINT?=
 PY?=python3
 PROXY?=
 USER?=--user
 PIP?=$(PY) -m pip
+
+ifneq ($(LINT),false)
+pytest_args?= --mypy --mypy-ignore-missing-imports --flake8 --isort --benchmark-min-time=0.05 --benchmark-sort=fullname
+else
+pytest_args?= --benchmark-min-time=0.05 --benchmark-sort=fullname
+endif
 
 ifneq ($(PROXY), )
 PROXY_ARG="--proxy=$(PROXY)"
