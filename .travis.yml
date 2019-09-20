@@ -9,25 +9,25 @@ matrix:
     - language: generic
       python: 3.6
       os: osx
-      env: pyver=3.6 pydist=macpython
+      env: pyver=3.6 pydist=macpython NO_SLOW=true
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: 3.7
       os: osx
-      env: pyver=3.7 pydist=macpython
+      env: pyver=3.7 pydist=macpython NO_SLOW=true
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: 3.8
       os: osx
-      env: pyver=3.8 pydist=macpython
+      env: pyver=3.8 pydist=macpython NO_SLOW=true
 #          pydist=macports
 #          pydist=homebrew
     - language: generic
       python: pypy3
       os: osx
-      env: pyver=pypy3 pydist=homebrew
+      env: pyver=pypy3 pydist=homebrew NO_SLOW=true
     - language: node_js
       node_js: "7"
       os: osx
@@ -47,26 +47,15 @@ matrix:
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=clang
-      script: make ctest PY=python
-      addons:
-        homebrew: clang
+      script: brew install clang; make ctest PY=python
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=gcc
-      script: make ctest PY=python
-      addons:
-        homebrew: gcc
+      script: brew install gcc; make ctest PY=python
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=tcc
-      script: make ctest PY=python
-      addons:
-        homebrew: tcc
+      script: brew install tcc; make ctest PY=python
 
 script:
   - sh ./.scripts/travis_script.sh
-
-addons:
-  artifacts:
-    paths:
-    - $(find . -iname *.whl -type f | tr "\n" ":")
