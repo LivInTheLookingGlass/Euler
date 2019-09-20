@@ -1,6 +1,12 @@
 """
 Project Euler Problem 43
 
+This was pretty easy to do with zip()
+
+Revision 1:
+
+Roughly halve runtime by making a special case for 1, 2
+
 Problem:
 
 The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order,
@@ -18,7 +24,7 @@ Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, we note th
 
 Find the sum of all 0 to 9 pandigital numbers with this property.
 """
-from itertools import permutations
+from itertools import islice, permutations
 
 from p0008 import groupwise
 from p0055 import from_digits
@@ -26,16 +32,18 @@ from p0055 import from_digits
 
 def main():
     answer = 0
-    divisibility = (1, 2, 3, 5, 7, 11, 13, 17)
+    divisibility = (3, 5, 7, 11, 13, 17)
     for d in permutations(range(10), 10):
-        for group, divisor in zip(groupwise(d, 3), divisibility):
+        if d[3] % 2:
+            continue
+        for group, divisor in zip(islice(groupwise(d, 3), 2, 8), divisibility):
             a, b, c = group
             if (a * 100 + b * 10 + c) % divisor:
                 break
         else:
-            print(d)
             answer += from_digits(d)
     return answer
+
 
 if __name__ == '__main__':
     print(main())
