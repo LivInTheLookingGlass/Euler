@@ -6,7 +6,7 @@ from platform import processor, machine, system
 from shutil import rmtree, which
 from subprocess import check_call, check_output
 
-from pytest import fail, fixture, skip
+from pytest import fail, fixture, skip, xfail
 
 answers = {
     1: 233168,
@@ -110,7 +110,10 @@ def test_problem(benchmark, key, compiler):
         assert answers[key] == int(answer.strip())
         # sometimes benchmark disables itself, so check for .stats
         if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
-            fail("Exceeding 60s!")
+            if key in known_slow:
+                xfail("Exceeding 60s!")
+            else:
+                fail("Exceeding 60s!")
     finally:
         try:
             remove(exename)
