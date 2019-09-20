@@ -1,12 +1,6 @@
 matrix:
   include:
     - language: generic
-      python: 3.3
-      os: osx
-      env: Cov='true' pyver=3.3 pydist=macpython
-#          pydist=macports
-#          pydist=homebrew
-    - language: generic
       python: 3.4
       os: osx
       env: Cov='true' pyver=3.4 pydist=macpython
