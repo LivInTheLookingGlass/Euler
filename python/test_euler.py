@@ -1,4 +1,5 @@
 import gc
+from os import environ
 from shutil import which
 from sys import argv
 from typing import Any
@@ -88,6 +89,7 @@ known_slow = {76, 118, 123, 145}
 prime_position = mark.first if "-c" in argv else mark.last
 
 IN_TERMUX = bool(which('termux-setup-storage'))
+NO_SLOW = IN_TERMUX or 'NO_SLOW' in environ
 
 
 @fixture(params=("{:03}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
