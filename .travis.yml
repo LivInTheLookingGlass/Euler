@@ -30,10 +30,6 @@ matrix:
       os: osx
       env: COMPILER_OVERRIDE=gcc
       script: brew install gcc python3; make ctest
-    - language: c
-      os: osx
-      env: COMPILER_OVERRIDE=tcc
-      script: brew install tcc python3; make ctest
     - language: generic
       python: 3.6
       os: osx
