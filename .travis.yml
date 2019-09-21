@@ -7,21 +7,17 @@ matrix:
 #          pydist=macports
 #          pydist=homebrew
     - language: node_js
-      node_js: "7"
+      node_js: "10"
       os: osx
-      env: jsver=7
+      env: jsver=10
     - language: node_js
-      node_js: "6"
+      node_js: "9"
       os: osx
-      env: jsver=6
+      env: jsver=9
     - language: node_js
-      node_js: "5"
+      node_js: "8"
       os: osx
-      env: jsver=5
-    - language: node_js
-      node_js: "4"
-      os: osx
-      env: jsver=4
+      env: jsver=8
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=clang
