@@ -6,28 +6,6 @@ matrix:
       env: pyver=3.6 pydist=macpython linter=true
 #          pydist=macports
 #          pydist=homebrew
-    - language: generic
-      python: 3.6
-      os: osx
-      env: pyver=3.6 pydist=macpython NO_SLOW=true
-#          pydist=macports
-#          pydist=homebrew
-    - language: generic
-      python: 3.7
-      os: osx
-      env: pyver=3.7 pydist=macpython NO_SLOW=true
-#          pydist=macports
-#          pydist=homebrew
-    - language: generic
-      python: 3.8
-      os: osx
-      env: pyver=3.8 pydist=macpython NO_SLOW=true
-#          pydist=macports
-#          pydist=homebrew
-    - language: generic
-      python: pypy3
-      os: osx
-      env: pyver=pypy3 pydist=homebrew NO_SLOW=true
     - language: node_js
       node_js: "7"
       os: osx
@@ -56,6 +34,28 @@ matrix:
       os: osx
       env: COMPILER_OVERRIDE=tcc
       script: brew install tcc python3; make ctest
+    - language: generic
+      python: 3.6
+      os: osx
+      env: pyver=3.6 pydist=macpython NO_SLOW=true
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: 3.7
+      os: osx
+      env: pyver=3.7 pydist=macpython NO_SLOW=true
+#          pydist=macports
+#          pydist=homebrew
+    # - language: generic
+    #   python: 3.8
+    #   os: osx
+    #   env: pyver=3.8 pydist=macpython NO_SLOW=true
+#          pydist=macports
+#          pydist=homebrew
+    - language: generic
+      python: pypy3
+      os: osx
+      env: pyver=pypy3 pydist=homebrew NO_SLOW=true
 
 script:
   - sh ./.scripts/travis_script.sh
