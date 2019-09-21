@@ -21,8 +21,9 @@ if [ $pyver ]; then
     fi
 else
     if [ $linter ]; then
+        cd javascript;
         npm install eslint-config-google@latest eslint@>=5.16.0;
-        npx eslint;
+        npx eslint *.js
     else
         make jstest;
     fi
