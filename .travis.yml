@@ -47,15 +47,15 @@ matrix:
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=clang
-      script: brew install clang; make ctest PY=python
+      script: brew install clang python3; make ctest
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=gcc
-      script: brew install gcc; make ctest PY=python
+      script: brew install gcc python3; make ctest
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=tcc
-      script: brew install tcc; make ctest PY=python
+      script: brew install tcc python3; make ctest
 
 script:
   - sh ./.scripts/travis_script.sh
