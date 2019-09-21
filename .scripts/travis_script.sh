@@ -20,5 +20,10 @@ if [ $pyver ]; then
         make pytest PY=python LINT=false USER_FLAG=
     fi
 else
-    make jstest
+    if [ $linter ]; then
+        npm install eslint-config-google@latest eslint@>=5.16.0;
+        npx eslint;
+    else
+        make jstest;
+    fi
 fi

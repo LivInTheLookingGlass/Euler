@@ -11,16 +11,16 @@ get 3, 5, 6 and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
-exports.main = function()   {
+exports.main = function() {
     let answer = 0;
-    for (let i = 3; i < 1000; i += 3)    {
+    for (let i = 3; i < 1000; i += 3) {
         answer += i;
     }
-    for (let i = 5; i < 1000; i += 5)    {
+    for (let i = 5; i < 1000; i += 5) {
         answer += i;
     }
-    for (let i = 15; i < 1000; i += 15)    {
+    for (let i = 15; i < 1000; i += 15) {
         answer -= i;
     }
     return answer;
-}
+};
