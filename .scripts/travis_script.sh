@@ -12,7 +12,7 @@ if [ $pyver ]; then
         export PIP_CMD="$PYTHON_EXE -m pip";
     fi
     $PIP_CMD install virtualenv;
-    virtualenv -p $PYTHON_EXE venv;
+    $PYTHON_EXE -m virtualenv -p $PYTHON_EXE venv;
     source venv/bin/activate;
     if [ $linter ]; then
         make pytest PY=python LINT=true USER_FLAG=
