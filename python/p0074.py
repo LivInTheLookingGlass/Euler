@@ -37,21 +37,6 @@ from math import factorial
 from typing import Iterator, Set
 
 cache = [factorial(x) for x in range(10)]
-paths = {
-    69: 163600,
-    78: 45360,
-    145: 145,
-    169: 363601,
-    540: 145,
-    871: 45361,
-    872: 45362,
-    1454: 169,
-    45360: 871,
-    45361: 871,
-    45362: 872,
-    363601: 1454,
-    163600: 1454
-}
 
 
 def digits(x: int) -> Iterator[int]:
@@ -61,6 +46,21 @@ def digits(x: int) -> Iterator[int]:
 
 
 def main() -> int:
+    paths = {
+        69: 363600,
+        78: 45360,
+        145: 145,
+        169: 363601,
+        540: 145,
+        871: 45361,
+        872: 45362,
+        1454: 169,
+        45360: 871,
+        45361: 871,
+        45362: 872,
+        363601: 1454,
+        163600: 1454
+    }
     answer = 0
     seen: Set[int] = set()
     for x in range(3, 1000000):
