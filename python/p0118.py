@@ -13,7 +13,6 @@ How many distinct sets containing each of the digits one through nine exactly on
 """
 from itertools import takewhile
 from math import ceil, log10
-import time
 
 from p0003 import primes
 
@@ -38,7 +37,6 @@ def is_not_pandigital(*numbers: int) -> int:
 
 
 def main() -> int:
-    start = time.perf_counter()
     answer = 0
 
     def check(*numbers: int) -> bool:
@@ -76,7 +74,6 @@ def main() -> int:
                         for f in takewhile((10**(9 - e_digits)).__gt__, cached_primes):
                             if check(a, b, c, d, e, f):
                                 continue
-    print(time.perf_counter() - start)
     return answer
 
 
