@@ -5,6 +5,11 @@ test_%: dependencies
 	echo "WARNING: multithreaded tests not supported on javascript"
 	npx mocha
 
+ifeq ($(OS),Windows_NT)
+dependencies:
+	1>&2 echo "Windows not yet supported"
+	exit /b -1
+else
 dependencies:
 	if command -v npm ; then \
 		echo "No need to install nvm"; \
