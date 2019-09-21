@@ -28,7 +28,7 @@ dependencies:
 endif
 endif
 else  # has NPM
-dependencies: ;
+dependencies: _dependencies
 endif
 
 ifneq ($(NOT_TERMUX),0)
