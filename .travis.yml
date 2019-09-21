@@ -9,6 +9,10 @@ matrix:
     - language: node_js
       node_js: "10"
       os: osx
+      env: jsver=10 linter=true
+    - language: node_js
+      node_js: "10"
+      os: osx
       env: jsver=10
     - language: node_js
       node_js: "9"
