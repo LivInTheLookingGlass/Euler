@@ -1,7 +1,7 @@
 LINT?=
 PY?=python3
 PROXY?=
-USER?=--user
+USER_FLAG?=--user
 PIP?=$(PY) -m pip
 
 ifeq ($(LINT),false)
@@ -29,4 +29,4 @@ _test:
 	$(PY) -m pytest -v $(pytest_args)
 
 dependencies:
-	$(PIP) install -r requirements.txt $(USER) $(PROXY_ARG)
+	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)

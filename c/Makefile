@@ -1,7 +1,7 @@
 
 PY?=python3
 PROXY?=
-USER?=--user
+USER_FLAG?=--user
 PIP?=$(PY) -m pip
 
 ifneq ($(PROXY), )
@@ -17,4 +17,4 @@ test: dependencies
 	$(PY) -m pytest -v --benchmark-sort=fullname test_euler.py
 
 dependencies:
-	$(PIP) install -r requirements.txt $(USER) $(PROXY_ARG)
+	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
