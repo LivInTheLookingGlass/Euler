@@ -35,7 +35,7 @@ matrix:
       env: COMPILER_OVERRIDE=tcc
   allow_failures:
     - language: c
-      env: COMPIPER_OVERRIDE=tcc
+      env: COMPILER_OVERRIDE=tcc
 
 build:
   ci:
