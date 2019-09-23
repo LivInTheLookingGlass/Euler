@@ -1,6 +1,6 @@
 # gappleto97's Project Euler solutions
 
-Windows testing¹: [![Windows build status](https://ci.appveyor.com/api/projects/status/lqi44hqr7jgqjwpy?svg=true)](https://ci.appveyor.com/project/gappleto97/euler) Linux testing²: [![Linux build status](https://api.shippable.com/projects/5d7ab0a9686e0a0007cb5970/badge?branch=master)](https://app.shippable.com/github/gappleto97/Euler/dashboard) OSX testing³: [![OSX build status](https://travis-ci.org/gappleto97/Euler.svg?branch=master)](https://travis-ci.org/gappleto97/Euler)
+Windows testing[¹](#footnotes): [![Windows build status](https://ci.appveyor.com/api/projects/status/lqi44hqr7jgqjwpy?svg=true)](https://ci.appveyor.com/project/gappleto97/euler) Linux testing[²](#footnotes): [![Linux build status](https://api.shippable.com/projects/5d7ab0a9686e0a0007cb5970/badge?branch=master)](https://app.shippable.com/github/gappleto97/Euler/dashboard) OSX testing[³](#footnotes): [![OSX build status](https://travis-ci.org/gappleto97/Euler.svg?branch=master)](https://travis-ci.org/gappleto97/Euler)
 
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
@@ -15,6 +15,8 @@ The repo is divided into sections for each language. The top-level Makefile will
 - make c_____ will go to the c Makefile
 - make py______ will go to the python Makefile
 - make js______ will go to the javascript Makefile
+
+## Footnotes
 
 1: Windows testing is only enabled for Python and Javascript at the moment until I get configuration set up correctly for CL
 
