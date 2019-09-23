@@ -10,6 +10,10 @@ matrix:
       node_js: "10"
       os: osx
       env: jsver=10 linter=true
+    - language: c
+      os: osx
+      env: linter=true
+      script: brew install llvm; ln -s "/usr/local/opt/llvm/bin/clang-tidy" "/usr/local/bin/clang-tidy"; make clint
     - language: node_js
       node_js: "10"
       os: osx
@@ -28,8 +32,9 @@ matrix:
       script: brew install clang python3; make ctest
     - language: c
       os: osx
-      env: COMPILER_OVERRIDE=gcc
-      script: brew install gcc python3; make ctest
+      env: COMPILER_OVERRIDE=gcc GCC_OVERRIDE=gcc-9
+      osx_image: xcode10.1
+      script: brew install gcc; make ctest
     - language: generic
       python: 3.6
       os: osx

@@ -1,0 +1,42 @@
+language: python
+
+python:
+  - 3.7
+  - pypy3
+
+env:
+  - pyver: "true"
+    NO_SLOW: "true"
+
+matrix:
+  include:
+    - env: py36=true pyver=true NO_SLOW=true
+    - python: 3.7
+      env: pyver=true linter=true
+    - language: node_js
+      node_js: "10"
+      env: jsver=10 linter=true
+    - language: c
+      env: linter=true
+    - language: node_js
+      node_js: "10"
+      env: jsver=10
+    - language: node_js
+      node_js: "9"
+      env: jsver=9
+    - language: node_js
+      node_js: "8"
+      env: jsver=8
+    - language: c
+      env: COMPILER_OVERRIDE=clang
+    - language: c
+      env: COMPILER_OVERRIDE=gcc
+    - language: c
+      env: COMPILER_OVERRIDE=tcc
+  allow_failures:
+    - python: pypy3
+    - env: COMPIPER_OVERRIDE=tcc
+
+build:
+  ci:
+    - sh ./.scripts/shippable_script.sh

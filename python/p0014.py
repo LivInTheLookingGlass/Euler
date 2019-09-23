@@ -1,9 +1,12 @@
 """
 Project Euler Problem 14
 
-I couldn't figure out how to do this as efficiently as I would have liked. I am
-SURE that there is a better way to check if a number is a palindrome, but I
-could not think of one.
+I did a naive approach where I just built the whole sequence.
+
+Revision 1:
+
+I reformulated this to build a sequence length instead of the sequence. Should
+use less memory and take less time.
 
 Problem:
 
@@ -24,23 +27,20 @@ Which starting number, under one million, produces the longest chain?
 NOTE: Once the chain starts the terms are allowed to go above one million.
 """
 from functools import lru_cache
-from typing import Tuple
 
 
 @lru_cache(maxsize=1 << 18)
-def collatz_seq(n: int) -> Tuple[int, ...]:
+def collatz_len(n: int) -> int:
     if n == 1:
-        return ()
+        return 0
     elif n & 1 == 0:
-        n = n // 2
-    else:
-        n = (3 * n + 1) // 2
-    return (n, *collatz_seq(n))
+        return 1 + collatz_len(n // 2)
+    return 2 + collatz_len((3 * n + 1) // 2)
 
 
 def main() -> int:
     return max(
-        (len(collatz_seq(x)), x) for x in range(1, 1000000)
+        (collatz_len(x), x) for x in range(1, 1000000)
     )[1]
 
 

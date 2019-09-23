@@ -1,0 +1,49 @@
+environment:
+  matrix:
+    - NODE: "11"
+      LINT: "true"
+
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: "3.6"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+      LINT: "true"
+
+    - NODE: "8"
+    - NODE: "9"
+    - NODE: "10"
+    - NODE: "11"
+
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: "3.6"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "3.6"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+
+    - PYTHON: "C:\\Python37"
+      PYTHON_VERSION: "3.7"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "3.7"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+
+    - PYTHON_VERSION: "pypy3"
+      RUN: "%APPVEYOR_BUILD_FOLDER%\\pypy3.6-v7.1.1-win32\\pypy"
+      PIP: "%RUN% -m pip"
+      PYPY: "powershell.exe %APPVEYOR_BUILD_FOLDER%\\.scripts\\installpypy3.ps1"
+
+matrix:
+  allow_failures:
+    - PYTHON_VERSION: "pypy3"
+
+test: off
+
+build_script:
+  - .scripts\\appveyor_script.bat

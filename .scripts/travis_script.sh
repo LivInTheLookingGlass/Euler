@@ -17,13 +17,13 @@ if [ $pyver ]; then
     if [ $linter ]; then
         make pytest PY=python LINT=true USER_FLAG=
     else
-        make pytest PY=python LINT=false USER_FLAG=
+        make pytest PY=python LINT=false MYPY= USER_FLAG=
     fi
 else
     if [ $linter ]; then
         cd javascript;
         npm install eslint-config-google@latest eslint@>=5.16.0;
-        npx eslint *.js
+        npx eslint *.js && echo "Linting successful!"
     else
         make jstest;
     fi

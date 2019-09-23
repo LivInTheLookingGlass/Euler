@@ -1,5 +1,7 @@
 # gappleto97's Project Euler solutions
 
+Windows testing*: [![Windows build status](https://ci.appveyor.com/api/projects/status/lqi44hqr7jgqjwpy?svg=true)](https://ci.appveyor.com/project/gappleto97/euler) Linux testing**: [![Linux build status](https://api.shippable.com/projects/5d7ab0a9686e0a0007cb5970/badge?branch=master)](https://app.shippable.com/github/gappleto97/Euler/dashboard) OSX testing***: [![OSX build status](https://travis-ci.org/gappleto97/Euler.svg?branch=master)](https://travis-ci.org/gappleto97/Euler)
+
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
 This is useful because it has defined problems and answers such that you can compare answers with other people.
@@ -13,3 +15,9 @@ The repo is divided into sections for each language. The top-level Makefile will
 - make c_____ will go to the c Makefile
 - make py______ will go to the python Makefile
 - make js______ will go to the javascript Makefile
+
+\* Windows testing is only enabled for Python and Javascript at the moment until I get configuration set up correctly for CL
+
+\*\* Linux testing is done on Ubuntu 14.04 for C, Python, and Javascript. C compilers are gcc, clang, and tcc
+
+\*\*\* OSX testing is done on C, Python, and Javascript. C compilers are gcc and clang
