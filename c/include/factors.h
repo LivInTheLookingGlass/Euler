@@ -19,6 +19,7 @@ unsigned long long advance_factor_counter(factor_counter *fc)   {
             return fc->current;
         }
     }
+    return 0;
 }
 
 factor_counter proper_divisors(unsigned long long target)   {

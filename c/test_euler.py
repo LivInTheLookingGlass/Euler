@@ -53,7 +53,7 @@ else:
 # compiler variables section
 compilers = []
 templates = {
-    'GCC': "gcc {} -O2 -lm -Werror -std=c11 -o {}",
+    'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(environ.get('GCC_OVERRIDE', 'gcc')),
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
     'CL': "cl -Fe:{1} -Foobjs\\ -O2 -TC {0}",
     'TCC': "tcc -lm -Werror -o {1} {0}",

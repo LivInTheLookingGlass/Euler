@@ -7,3 +7,4 @@ c/*.x86*
 c/*.exe
 c/*.aarch64
 c/objs/**
+venv/**

@@ -18,3 +18,6 @@ test: dependencies
 
 dependencies:
 	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
+
+lint:
+	clang-tidy *.c # -warnings-as-errors=*
