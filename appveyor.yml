@@ -18,26 +18,31 @@ environment:
       PYTHON_VERSION: "3.6"
       RUN: "%PYTHON%\\python"
       PIP: "%PYTHON%\\Scripts\\pip"
+      NO_SLOW: "true"
 
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6"
       RUN: "%PYTHON%\\python"
       PIP: "%PYTHON%\\Scripts\\pip"
+      NO_SLOW: "true"
 
     - PYTHON: "C:\\Python37"
       PYTHON_VERSION: "3.7"
       RUN: "%PYTHON%\\python"
       PIP: "%PYTHON%\\Scripts\\pip"
+      NO_SLOW: "true"
 
     - PYTHON: "C:\\Python37-x64"
       PYTHON_VERSION: "3.7"
       RUN: "%PYTHON%\\python"
       PIP: "%PYTHON%\\Scripts\\pip"
+      NO_SLOW: "true"
 
     - PYTHON_VERSION: "pypy3"
       RUN: "%APPVEYOR_BUILD_FOLDER%\\pypy3.6-v7.1.1-win32\\pypy"
       PIP: "%RUN% -m pip"
       PYPY: "powershell.exe %APPVEYOR_BUILD_FOLDER%\\.scripts\\installpypy3.ps1"
+      NO_SLOW: "true"
 
 matrix:
   allow_failures:
