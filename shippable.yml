@@ -34,8 +34,8 @@ matrix:
     - language: c
       env: COMPILER_OVERRIDE=tcc
   allow_failures:
-    - python: pypy3
-    - env: COMPIPER_OVERRIDE=tcc
+    - language: c
+      env: COMPIPER_OVERRIDE=tcc
 
 build:
   ci:
