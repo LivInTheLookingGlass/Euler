@@ -21,7 +21,8 @@
 #else
     #define INTEL_COMPILER 0
 #endif
-#define TCC_COMPILER (!CL_COMPILER && !CLANG_COMPILER && !GCC_COMPILER && !INTEL_COMPILER)
+#define PCC_COMPILER 0
+#define TCC_COMPILER (!CL_COMPILER && !CLANG_COMPILER && !GCC_COMPILER && !INTEL_COMPILER && !PCC_COMPILER)
 
 #ifndef max
     #define max(a, b) (((a) > (b)) ? (a) : (b))
