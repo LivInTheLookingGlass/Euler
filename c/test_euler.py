@@ -140,11 +140,12 @@ def test_compiler_macros(compiler):
     try:
         check_call(templates[compiler].format(test_path, exename).split())
         buff = check_output([exename])
-        is_CL, is_CLANG, is_GCC, is_INTEL, is_TCC = (int(x) for x in buff.split())
+        is_CL, is_CLANG, is_GCC, is_INTEL, is_PCC, is_TCC = (int(x) for x in buff.split())
         assert bool(is_CL) == (compiler == "CL")
         assert bool(is_CLANG) == (compiler == "CLANG")
         assert bool(is_GCC) == (compiler == "GCC")
         assert bool(is_INTEL) == (compiler == "ICC")
+        assert bool(is_PCC) == (compiler == "PCC")
         assert bool(is_TCC) == (compiler == "TCC")
     finally:
         try:
