@@ -8,6 +8,7 @@ from shutil import rmtree, which
 from subprocess import check_call, check_output
 from sys import path
 from tempfile import TemporaryFile
+from warnings import warn
 
 from pytest import fail, fixture, skip, xfail
 
@@ -35,7 +36,30 @@ known_slow = {}
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
 IN_TERMUX = bool(which('termux-setup-storage'))
-NO_SLOW = IN_TERMUX or bool(environ.get('NO_SLOW'))
+
+_raw_NO_SLOW = environ.get('NO_SLOW')
+try:
+    _parsed_NO_SLOW = int(_raw_NO_SLOW)
+except Exception:
+    _parsed_NO_SLOW = _raw_NO_SLOW
+_raw_ONLY_SLOW = environ.get('ONLY_SLOW')
+try:
+    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)
+except Exception:
+    _parsed_ONLY_SLOW = _raw_ONLY_SLOW
+_raw_NO_OPTIONAL_TESTS = environ.get('NO_OPTIONAL_TESTS')
+try:
+    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)
+except Exception:
+    _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
+
+if _parsed_NO_SLOW and _parsed_ONLY_SLOW:
+    warn("Test suite told to ignore slow tests AND run only slow tests. Ignoring conflicing options")
+
+# if in Termux, default to NO_SLOW, but allow users to explicitly override that decision
+NO_SLOW = ((IN_TERMUX and _parsed_NO_SLOW is None) or _parsed_NO_SLOW) and not _parsed_ONLY_SLOW
+ONLY_SLOW = _parsed_ONLY_SLOW and not _parsed_NO_SLOW
+NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed_NO_OPTIONAL_TESTS
 
 # this part isn't necessary, but I like having the binaries include their compile architecture
 if not (IN_WINDOWS or IN_TERMUX) and processor() and ' ' not in processor():
@@ -49,6 +73,7 @@ elif IN_TERMUX:
     # processor() doesn't seem to work on Termux
     EXE_EXT = check_output('lscpu').split()[1].decode()
 else:
+    warn("Could not detect system architecture, defaulting to .exe")
     EXE_EXT = "exe"
 
 SOURCE_TEMPLATE = "p{:04}.c"
@@ -59,10 +84,12 @@ else:
     EXE_TEMPLATE = ".{}p{{:0>4}}.{{}}.{}".format(sep, EXE_EXT)
     # include sep in the recipe so that Windows won't complain
 
+GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
+
 # compiler variables section
 compilers = []
 templates = {
-    'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(environ.get('GCC_OVERRIDE', 'gcc')),
+    'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(GCC_BINARY),
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
     'CL': "cl -Fe:{1} -Foobjs\\ -O2 -TC {0}",
     'TCC': "tcc -lm -Werror -o {1} {0}",
@@ -72,10 +99,8 @@ templates = {
 if 'COMPILER_OVERRIDE' in environ:
     compilers.extend(environ['COMPILER_OVERRIDE'].upper().split(','))
 else:
-    if not IN_TERMUX and which('gcc'):  # Termux maps gcc->clang
+    if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.append('GCC')
-    if which('clang'):
-        compilers.append('CLANG')
     if which('cl'):
         @register
         def cleanup_objs():
@@ -88,10 +113,9 @@ else:
         compilers.append('CL')
     if which('pcc'):
         raise NotImplementedError()
-    if which('tcc'):
-        compilers.append('TCC')
-    if which('icc'):
-        compilers.append('ICC')
+    for compiler in ('clang', 'icc', 'tcc'):
+        if which(compiler):
+            compilers.append(compiler.upper())
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
@@ -108,6 +132,8 @@ def key(request):  # type: ignore
 
 
 def test_compiler_macros(compiler):
+    if NO_OPTIONAL_TESTS:
+        skip()
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
     test_path = Path(__file__).parent.joinpath("tests", "test_compiler_macros.c")
     try:
@@ -123,15 +149,15 @@ def test_compiler_macros(compiler):
         try:
             remove(exename)
         except Exception:
-            pass  # might not have been made yet
+            warn("EXE may not have been deleted")
 
 
 def test_is_prime(benchmark, compiler):
-    if 'NO_OPTIONAL_TESTS' in environ:
+    if NO_OPTIONAL_TESTS or ONLY_SLOW:
         skip()
     from p0007 import is_prime, prime_factors, primes
 
-    MAX_PRIME = 1000000
+    MAX_PRIME = 1_000_000
     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
     test_path = Path(__file__).parent.joinpath("tests", "test_is_prime.c")
     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
@@ -155,11 +181,11 @@ def test_is_prime(benchmark, compiler):
         try:
             remove(exename)
         except Exception:
-            pass  # might not have been made yet
+            warn("EXE may not have been deleted")
 
 
 def test_problem(benchmark, key, compiler):
-    if NO_SLOW and key in known_slow:
+    if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
     filename = SOURCE_TEMPLATE.format(key)
     exename = EXE_TEMPLATE.format(key, compiler)  # need to have both to keep name unique
@@ -174,12 +200,10 @@ def test_problem(benchmark, key, compiler):
         assert answers[key] == int(answer.strip())
         # sometimes benchmark disables itself, so check for .stats
         if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
-            if key in known_slow:
-                xfail("Exceeding 60s!")
-            else:
-                fail("Exceeding 60s!")
+            fail_func = xfail if key in known_slow else fail
+            fail_func("Exceeding 60s!")
     finally:
         try:
             remove(exename)
         except Exception:
-            pass  # might not have been made yet
+            warn("EXE may not have been deleted")
