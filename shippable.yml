@@ -29,13 +29,15 @@ matrix:
       env: jsver=8
     - language: c
       env: COMPILER_OVERRIDE=clang
+      python: 3.7
     - language: c
       env: COMPILER_OVERRIDE=gcc
+      python: 3.7
     - language: c
       env: COMPILER_OVERRIDE=tcc
+      python: 3.7
   allow_failures:
-    - language: c
-      env: COMPILER_OVERRIDE=tcc
+    - env: COMPILER_OVERRIDE=tcc
 
 build:
   ci:
