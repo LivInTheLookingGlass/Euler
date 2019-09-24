@@ -29,6 +29,7 @@ What is the largest prime factor of the number 600851475143 ?
 """
 from itertools import count, takewhile
 from math import ceil, sqrt
+from pathlib import Path
 from typing import Dict, Iterator, Optional
 
 from sortedcontainers import SortedSet
@@ -37,7 +38,7 @@ from umsgpack import load
 cache_filename = 'p0003_cache.mpack'
 
 try:
-    with open(cache_filename, 'rb') as f:
+    with Path(__file__).parent.joinpath(cache_filename).open('rb') as f:
         cache = SortedSet(load(f))
 except Exception:
     cache = SortedSet([

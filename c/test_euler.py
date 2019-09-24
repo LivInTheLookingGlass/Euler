@@ -12,7 +12,8 @@ from warnings import warn
 
 from pytest import fail, fixture, skip, xfail
 
-path.append(str(Path(__file__).parent.parent.joinpath("python")))
+C_FOLDER = Path(__file__).parent
+path.append(str(C_FOLDER.parent.joinpath("python")))
 
 answers = {
     1: 233168,
@@ -76,12 +77,12 @@ else:
     warn("Could not detect system architecture, defaulting to .exe")
     EXE_EXT = "exe"
 
-SOURCE_TEMPLATE = "p{:04}.c"
+SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 if IN_TERMUX:
     EXE_TEMPLATE = "{}/p{{:0>4}}.{{}}.{}".format(expanduser("~"), EXE_EXT)
     # Termux can't make executable files outside of $HOME
 else:
-    EXE_TEMPLATE = ".{}p{{:0>4}}.{{}}.{}".format(sep, EXE_EXT)
+    EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(C_FOLDER, sep, EXE_EXT)
     # include sep in the recipe so that Windows won't complain
 
 GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
