@@ -33,3 +33,31 @@ A test fails if it gets the wrong answer or if it takes more than 1 minute.
 ## Dependencies
 
 I try to keep the dependencies of this project as small as possible, except for test plugins. At the moment there are no non-test dependencies for this section.
+
+Note that there are optional test that leverage the Python infrastructure. If you want these tests to work you need to go to the python folder and run `make dependencies` or define the [`NO_OPTIONAL_TESTS`](#no-slow-tests) environment variable.
+
+## Environment Variables
+
+### COMPILER_OVERRIDE
+
+
+If this variable is defined, it should contain a comma-separated list of the compilers you would like to test from the following list (case insensitive):
+
+* cl
+* clang
+* gcc
+* icc (not yet supported)
+* pcc (not yet supported)
+* tcc
+
+### GCC_OVERRIDE
+
+If this variable is defined, it should hold a string representing the `gcc` binary you would like to use. One case you may want this in is on OSX, where `gcc` is often remapped to `clang`
+
+### NO_OPTIONAL_TESTS
+
+If this variable is defined, the test suite will skip any tests which require code from the python folder.
+
+### NO_SLOW
+
+If this variable is defined, problems in the known_slow group will not be tested.

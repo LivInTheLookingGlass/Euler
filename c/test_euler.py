@@ -32,6 +32,7 @@ known_slow = {}
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
 IN_TERMUX = bool(which('termux-setup-storage'))
+NO_SLOW = IN_TERMUX or bool(environ.get('NO_SLOW'))
 
 # this part isn't necessary, but I like having the binaries include their compile architecture
 if not (IN_WINDOWS or IN_TERMUX) and processor() and ' ' not in processor():
@@ -62,6 +63,7 @@ templates = {
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
     'CL': "cl -Fe:{1} -Foobjs\\ -O2 -TC {0}",
     'TCC': "tcc -lm -Werror -o {1} {0}",
+    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}"
 }
 
 if 'COMPILER_OVERRIDE' in environ:
@@ -86,7 +88,7 @@ else:
     if which('tcc'):
         compilers.append('TCC')
     if which('icc'):
-        raise NotImplementedError()
+        compilers.append('ICC')
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
@@ -122,6 +124,8 @@ def test_compiler_macros(compiler):
 
 
 def test_is_prime(benchmark, compiler):
+    if 'NO_OPTIONAL_TESTS' in environ:
+        skip()
     from p0007 import is_prime, prime_factors, primes
 
     MAX_PRIME = 1000000
@@ -152,7 +156,7 @@ def test_is_prime(benchmark, compiler):
 
 
 def test_problem(benchmark, key, compiler):
-    if IN_TERMUX and key in known_slow:
+    if NO_SLOW and key in known_slow:
         skip()
     filename = SOURCE_TEMPLATE.format(key)
     exename = EXE_TEMPLATE.format(key, compiler)  # need to have both to keep name unique
