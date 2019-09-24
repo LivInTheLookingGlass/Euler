@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include "../include/primes.h"
+
+#ifndef MAX_PRIME
+#define MAX_PRIME 1000
+#endif
+
+int main(int argc, char const *argv[]) {
+    // prints number, is_prime(), is_composite(), prime index or -1
+    prime_counter pc = prime_counter1(MAX_PRIME);
+    unsigned long long i, p, prev = 0;
+    p = next(pc);
+    while (!pc.exhausted) {
+        for (i = prev + 1; i < p; i++)  {
+            printf("%llu %d %llu -1\n", i, is_prime(i), is_composite(i));
+        }
+        printf("%llu %d %llu %llu\n", p, is_prime(p), is_composite(p), (unsigned long long) pc.idx - 1);
+        prev = p;
+        p = next(pc);
+    }
+    return 0;
+}

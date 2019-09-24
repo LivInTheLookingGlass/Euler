@@ -2,11 +2,16 @@ from atexit import register
 from functools import partial
 from os import environ, makedirs, remove, sep
 from os.path import expanduser
+from pathlib import Path
 from platform import processor, machine, system
 from shutil import rmtree, which
 from subprocess import check_call, check_output
+from sys import path
+from tempfile import TemporaryFile
 
 from pytest import fail, fixture, skip, xfail
+
+path.append(str(Path(__file__).parent.parent.joinpath("python")))
 
 answers = {
     1: 233168,
@@ -95,6 +100,36 @@ def compiler(request):  # type: ignore
 @fixture(params=("{:03}".format(x) for x in sorted(answers)))
 def key(request):  # type: ignore
     return int(request.param)  # reduce casting burden on test
+
+
+def test_is_prime(benchmark, compiler):
+    from p0007 import is_prime, prime_factors, primes
+
+    MAX_PRIME = 1_000_000
+    exename = EXE_TEMPLATE.format("test_is_prime", compiler)
+    test_path = Path(__file__).parent.joinpath("tests", "test_is_prime.c")
+    args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
+    try:
+        check_call(args.split())
+        with TemporaryFile('wb+') as f:
+            run_test = partial(check_call, [exename], stdout=f)
+            benchmark.pedantic(run_test, iterations=1, rounds=1)
+            prime_cache = tuple(primes(MAX_PRIME))
+            for line in f.readlines():
+                num, prime, composite, idx = (int(x) for x in line.split())
+                assert bool(prime) == bool(is_prime(num))
+                assert bool(composite) == (not is_prime(num))
+                assert composite == next(iter(prime_factors(num)))
+                assert idx == -1 or prime_cache[idx] == num
+
+        # sometimes benchmark disables itself, so check for .stats
+        if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1_000_000:
+            fail("Exceeding 200ns average!")
+    finally:
+        try:
+            remove(exename)
+        except Exception:
+            pass  # might not have been made yet
 
 
 def test_problem(benchmark, key, compiler):
