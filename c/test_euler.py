@@ -102,6 +102,25 @@ def key(request):  # type: ignore
     return int(request.param)  # reduce casting burden on test
 
 
+def test_compiler_macros(compiler):
+    exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
+    test_path = Path(__file__).parent.joinpath("tests", "test_compiler_macros.c")
+    try:
+        check_call(templates[compiler].format(test_path, exename).split())
+        buff = check_output([exename])
+        is_CL, is_CLANG, is_GCC, is_INTEL, is_TCC = (int(x) for x in buff.split())
+        assert bool(is_CL) == (compiler == "CL")
+        assert bool(is_CLANG) == (compiler == "CLANG")
+        assert bool(is_GCC) == (compiler == "GCC")
+        assert bool(is_INTEL) == (compiler == "ICC")
+        assert bool(is_TCC) == (compiler == "TCC")
+    finally:
+        try:
+            remove(exename)
+        except Exception:
+            pass  # might not have been made yet
+
+
 def test_is_prime(benchmark, compiler):
     from p0007 import is_prime, prime_factors, primes
 
