@@ -4,6 +4,8 @@ IF DEFINED PIP (
     set HOME=%APPVEYOR_BUILD_FOLDER%
     ECHO "4"
     %PYPY%
+    dir -r
+    dir /S
     ECHO "5"
     cd python
     ECHO "6"
