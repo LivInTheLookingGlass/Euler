@@ -32,7 +32,7 @@ endif
 test: dependencies _test
 
 test_%:
-	$(MAKE) test pytest_args="$(pytest_args) -n$*" PY=$(PY) PROXY=$(PROXY)
+	$(MAKE) test pytest_args="$(pytest_args) -n$*" $(MFLAGS)
 
 _test:
 	$(PY) -m pytest $(pytest_args)
