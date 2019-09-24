@@ -40,7 +40,6 @@ Note that there are optional test that leverage the Python infrastructure. If yo
 
 ### COMPILER_OVERRIDE
 
-
 If this variable is defined, it should contain a comma-separated list of the compilers you would like to test from the following list (case insensitive):
 
 * cl
@@ -50,14 +49,20 @@ If this variable is defined, it should contain a comma-separated list of the com
 * pcc (not yet supported)
 * tcc
 
+If this variable is not defined, compilers will be auto-detected using `which()`.
+
 ### GCC_OVERRIDE
 
-If this variable is defined, it should hold a string representing the `gcc` binary you would like to use. One case you may want this in is on OSX, where `gcc` is often remapped to `clang`
+If this variable is defined, it should hold a string representing the `gcc` binary you would like to use. One case you may want this in is on OSX, where `gcc` is often remapped to `clang`.
 
 ### NO_OPTIONAL_TESTS
 
-If this variable is defined, the test suite will skip any tests which require code from the python folder.
+If this variable is defined to something other than 0 or an empty string, the test suite will skip any tests which are not directly related to Project Euler problems. This value will default to the same value as [`ONLY_SLOW`](#only-slow).
 
 ### NO_SLOW
 
-If this variable is defined, problems in the known_slow group will not be tested.
+If this variable is defined to something other than 0 or an empty string, problems in the known_slow group will not be tested. This variable defaults to True on Termux systems. If both [`NO_SLOW`](#no-slow) and [`ONLY_SLOW`](#only-slow) are truthy, they will be ignored and a warning will be issued.
+
+### ONLY_SLOW
+
+If this variable is defined to something other than 0 or an empty string, *only* problems in the known_slow group will be tested. If both [`NO_SLOW`](#no-slow) and [`ONLY_SLOW`](#only-slow) are truthy, they will be ignored and a warning will be issued.

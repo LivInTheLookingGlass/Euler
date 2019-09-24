@@ -3,6 +3,7 @@ from os import environ
 from shutil import which
 from sys import argv
 from typing import Any
+from warnings import warn
 
 from pytest import fail, fixture, mark, skip, xfail
 from umsgpack import load
@@ -89,7 +90,30 @@ known_slow = {76, 118, 123, 145}
 prime_position = mark.first if "-c" in argv else mark.last
 
 IN_TERMUX = bool(which('termux-setup-storage'))
-NO_SLOW = IN_TERMUX or 'NO_SLOW' in environ
+
+_raw_NO_SLOW = environ.get('NO_SLOW')
+try:
+    _parsed_NO_SLOW = int(_raw_NO_SLOW)
+except Exception:
+    _parsed_NO_SLOW = _raw_NO_SLOW
+_raw_ONLY_SLOW = environ.get('ONLY_SLOW')
+try:
+    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)
+except Exception:
+    _parsed_ONLY_SLOW = _raw_ONLY_SLOW
+_raw_NO_OPTIONAL_TESTS = environ.get('NO_OPTIONAL_TESTS')
+try:
+    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)
+except Exception:
+    _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
+
+if _parsed_NO_SLOW and _parsed_ONLY_SLOW:
+    warn("Test suite told to ignore slow tests AND run only slow tests. Ignoring conflicing options")
+
+# if in Termux, default to NO_SLOW, but allow users to explicitly override that decision
+NO_SLOW = ((IN_TERMUX and _parsed_NO_SLOW is None) or _parsed_NO_SLOW) and not _parsed_ONLY_SLOW
+ONLY_SLOW = _parsed_ONLY_SLOW and not _parsed_NO_SLOW
+NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed_NO_OPTIONAL_TESTS
 
 
 @fixture(params=("{:03}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
@@ -108,6 +132,8 @@ def test_is_prime(benchmark) -> None:
                 assert not is_prime(z)
             last = x
 
+    if ONLY_SLOW or NO_OPTIONAL_TESTS:
+        skip()
     with open('primes.mpack', 'rb') as f:
         set_of_primes = load(f)  # set of first million primes
     benchmark.pedantic(func, args=(set_of_primes, ), iterations=1, rounds=1)
@@ -116,7 +142,7 @@ def test_is_prime(benchmark) -> None:
 
 
 def test_problem(benchmark: Any, key: int) -> None:
-    if NO_SLOW and key in known_slow:
+    if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
     module = __import__("p{:04}".format(key))
     if key in known_slow:
@@ -128,7 +154,5 @@ def test_problem(benchmark: Any, key: int) -> None:
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
-        if key in known_slow:
-            xfail("Exceeding 60s!")
-        else:
-            fail("Exceeding 60s!")
+        fail_func = xfail if key in known_slow else fail
+        fail_func("Exceeding 60s!")

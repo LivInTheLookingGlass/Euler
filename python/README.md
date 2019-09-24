@@ -63,3 +63,17 @@ This serialization library encodes things in the MessagePack format. The reason 
 ### sortedcontainers
 
 This library provides a collection of sorted containers. At the time of writing this, the only one I use is SortedSet() for the prime number generator. If I were willing to remove the prime number cache this would not be needed. I could also implement my own if need be.
+
+## Environment Variables
+
+### NO_OPTIONAL_TESTS
+
+If this variable is defined to something other than 0 or an empty string, the test suite will skip any tests which are not directly related to Project Euler problems. This value will default to the same value as [`ONLY_SLOW`](#only-slow).
+
+### NO_SLOW
+
+If this variable is defined to something other than 0 or an empty string, problems in the known_slow group will not be tested. This variable defaults to True on Termux systems. If both [`NO_SLOW`](#no-slow) and [`ONLY_SLOW`](#only-slow) are truthy, they will be ignored and a warning will be issued.
+
+### ONLY_SLOW
+
+If this variable is defined to something other than 0 or an empty string, *only* problems in the known_slow group will be tested. If both [`NO_SLOW`](#no-slow) and [`ONLY_SLOW`](#only-slow) are truthy, they will be ignored and a warning will be issued.
