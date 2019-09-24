@@ -32,12 +32,13 @@ text must contain common English words, decrypt the message and find the sum of
 the ASCII values in the original text.
 """
 from itertools import cycle, permutations
+from pathlib import Path
 
 alphabet = b'abcdefghijklmnopqrtsuvwxyz'
 
 
 def main() -> int:
-    with open('p0059_cipher.txt', 'r') as f:
+    with Path(__file__).parent.joinpath('p0059_cipher.txt').open('r') as f:
         ciphertext = bytes(int(x) for x in f.read().split(','))
     for key in permutations(alphabet, 3):
         plaintext = bytes(x ^ y for x, y in zip(ciphertext, cycle(key)))

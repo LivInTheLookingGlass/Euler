@@ -1,15 +1,19 @@
 import gc
 from os import environ
+from pathlib import Path
 from shutil import which
-from sys import argv
+from sys import argv, path
 from typing import Any
 from warnings import warn
 
 from pytest import fail, fixture, mark, skip, xfail
 from umsgpack import load
 
-from p0003 import primes
-from p0007 import is_prime
+PY_FOLDER = Path(__file__).parent
+path.append(str(PY_FOLDER))
+
+from p0003 import primes  # noqa: E402
+from p0007 import is_prime  # noqa: E402
 
 answers = {
     1: 233168,
@@ -134,7 +138,7 @@ def test_is_prime(benchmark) -> None:
 
     if ONLY_SLOW or NO_OPTIONAL_TESTS:
         skip()
-    with open('primes.mpack', 'rb') as f:
+    with PY_FOLDER.joinpath('primes.mpack').open('rb') as f:
         set_of_primes = load(f)  # set of first million primes
     benchmark.pedantic(func, args=(set_of_primes, ), iterations=1, rounds=1)
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > (200 * 1_000_000 / 1_000_000):  # 200ns * primes
