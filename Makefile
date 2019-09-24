@@ -2,13 +2,13 @@ PY?=python3
 PROXY?=
 
 py%:
-	cd python && $(MAKE) $* PY=$(PY) PROXY=$(PROXY)
+	cd python && $(MAKE) $* $(MFLAGS)
 
 c%:
-	cd c && $(MAKE) $* PY=$(PY) PROXY=$(PROXY)
+	cd c && $(MAKE) $* $(MFLAGS)
 
 js%:
-	cd javascript && $(MAKE) $*
+	cd javascript && $(MAKE) $* $(MFLAGS)
 
 %:
-	$(MAKE) c$* js$* py$* PY=$(PY)
+	$(MAKE) c$* js$* py$* $(MFLAGS)
