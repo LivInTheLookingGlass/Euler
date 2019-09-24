@@ -124,7 +124,7 @@ def test_compiler_macros(compiler):
 def test_is_prime(benchmark, compiler):
     from p0007 import is_prime, prime_factors, primes
 
-    MAX_PRIME = 1_000_000
+    MAX_PRIME = 1000000
     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
     test_path = Path(__file__).parent.joinpath("tests", "test_is_prime.c")
     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
@@ -142,7 +142,7 @@ def test_is_prime(benchmark, compiler):
                 assert idx == -1 or prime_cache[idx] == num
 
         # sometimes benchmark disables itself, so check for .stats
-        if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1_000_000:
+        if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
             fail("Exceeding 200ns average!")
     finally:
         try:
