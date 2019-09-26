@@ -3,7 +3,7 @@ from os import environ
 from pathlib import Path
 from shutil import which
 from sys import path
-from typing import Any
+from typing import Any, Union
 from warnings import warn
 
 from pytest import fail, fixture, skip, xfail
@@ -95,17 +95,17 @@ IN_TERMUX = bool(which('termux-setup-storage'))
 
 _raw_NO_SLOW = environ.get('NO_SLOW')
 try:
-    _parsed_NO_SLOW = int(_raw_NO_SLOW)  # type: ignore
+    _parsed_NO_SLOW: Union[str, int, None] = int(_raw_NO_SLOW)  # type: ignore
 except Exception:
     _parsed_NO_SLOW = _raw_NO_SLOW
 _raw_ONLY_SLOW = environ.get('ONLY_SLOW')
 try:
-    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)  # type: ignore
+    _parsed_ONLY_SLOW: Union[str, int, None] = int(_raw_ONLY_SLOW)  # type: ignore
 except Exception:
     _parsed_ONLY_SLOW = _raw_ONLY_SLOW
 _raw_NO_OPTIONAL_TESTS = environ.get('NO_OPTIONAL_TESTS')
 try:
-    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)  # type: ignore
+    _parsed_NO_OPTIONAL_TESTS: Union[str, int, None] = int(_raw_NO_OPTIONAL_TESTS)  # type: ignore
 except Exception:
     _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
 
