@@ -29,7 +29,6 @@ else
         make clint
     else
         sudo apt-get update
-        sudo apt-get install -y gcc clang tcc python3-pip
         if [ $pcc ]; then
             sudo apt-get install -y build-essential flex bison
             mkdir pcc pcc-libs
@@ -38,11 +37,13 @@ else
             cd pcc
             sed -i 's/MANPAGE=@BINPREFIX@cpp/MANPAGE=@BINPREFIX@pcc-cpp/' cc/cpp/Makefile.in
             ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
-            sudo make install
+            sudo make && make install
             cd ../pcc-libs
             ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
-            sudo make install
+            sudo make && make install
             cd ..
+        else
+            sudo apt-get install -y $COMPILER_OVERRIDE python3-pip
         fi
         cd c && make test USER_FLAG=
     fi
