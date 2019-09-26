@@ -1,6 +1,6 @@
 # gappleto97's Project Euler solutions
 
-Windows testing[¹](#footnotes): [![Windows build status](https://ci.appveyor.com/api/projects/status/lqi44hqr7jgqjwpy?svg=true)](https://ci.appveyor.com/project/gappleto97/euler) Linux testing[²](#footnotes): [![Linux build status](https://api.shippable.com/projects/5d7ab0a9686e0a0007cb5970/badge?branch=master)](https://app.shippable.com/github/gappleto97/Euler/dashboard) OSX testing[³](#footnotes): [![OSX build status](https://travis-ci.org/gappleto97/Euler.svg?branch=master)](https://travis-ci.org/gappleto97/Euler)
+Windows testing[¹](#footnotes): [![Windows build status](https://ci.appveyor.com/api/projects/status/lqi44hqr7jgqjwpy/branch/dev?svg=true)](https://ci.appveyor.com/project/gappleto97/euler) Linux testing[²](#footnotes): [![Linux build status](https://api.shippable.com/projects/5d7ab0a9686e0a0007cb5970/badge?branch=dev)](https://app.shippable.com/github/gappleto97/Euler/dashboard) OSX testing[³](#footnotes): [![OSX build status](https://travis-ci.org/gappleto97/Euler.svg?branch=dev)](https://travis-ci.org/gappleto97/Euler)
 
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
