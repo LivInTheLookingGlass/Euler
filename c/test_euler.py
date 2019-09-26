@@ -3,11 +3,12 @@ from functools import partial
 from os import environ, makedirs, remove, sep
 from os.path import expanduser
 from pathlib import Path
-from platform import processor, machine, system
+from platform import machine, processor, system
 from shutil import rmtree, which
 from subprocess import check_call, check_output
 from sys import path
 from tempfile import TemporaryFile
+from typing import List, Set
 from warnings import warn
 
 from pytest import fail, fixture, skip, xfail
@@ -30,7 +31,7 @@ answers = {
     76: 190569291,
 }
 
-known_slow = {}
+known_slow: Set[int] = set()
 # this is the set of problems where I have the right answer but wrong solution
 
 
@@ -40,17 +41,17 @@ IN_TERMUX = bool(which('termux-setup-storage'))
 
 _raw_NO_SLOW = environ.get('NO_SLOW')
 try:
-    _parsed_NO_SLOW = int(_raw_NO_SLOW)
+    _parsed_NO_SLOW = int(_raw_NO_SLOW)  # type: ignore
 except Exception:
     _parsed_NO_SLOW = _raw_NO_SLOW
 _raw_ONLY_SLOW = environ.get('ONLY_SLOW')
 try:
-    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)
+    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)  # type: ignore
 except Exception:
     _parsed_ONLY_SLOW = _raw_ONLY_SLOW
 _raw_NO_OPTIONAL_TESTS = environ.get('NO_OPTIONAL_TESTS')
 try:
-    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)
+    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)  # type: ignore
 except Exception:
     _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
 
@@ -88,7 +89,7 @@ else:
 GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 
 # compiler variables section
-compilers = []
+compilers: List[str] = []
 templates = {
     'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(GCC_BINARY),
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
@@ -114,9 +115,9 @@ else:
         compilers.append('CL')
     if which('pcc'):
         raise NotImplementedError()
-    for compiler in ('clang', 'icc', 'tcc'):
-        if which(compiler):
-            compilers.append(compiler.upper())
+    for x in ('clang', 'icc', 'tcc'):
+        if which(x):
+            compilers.append(x.upper())
 if not compilers:
     raise RuntimeError("No compilers detected!")
 

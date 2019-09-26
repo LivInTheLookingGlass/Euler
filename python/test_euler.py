@@ -2,18 +2,18 @@ import gc
 from os import environ
 from pathlib import Path
 from shutil import which
-from sys import argv, path
+from sys import path
 from typing import Any
 from warnings import warn
 
-from pytest import fail, fixture, mark, skip, xfail
+from pytest import fail, fixture, skip, xfail
 from umsgpack import load
 
 PY_FOLDER = Path(__file__).parent
 path.append(str(PY_FOLDER))
 
-from p0003 import primes  # noqa: E402
-from p0007 import is_prime  # noqa: E402
+from p0003 import primes  # noqa: E402  # isort:skip
+from p0007 import is_prime  # noqa: E402  # isort:skip
 
 answers = {
     1: 233168,
@@ -91,23 +91,21 @@ answers = {
 known_slow = {76, 118, 123, 145}
 # this is the set of problems where I have the right answer but wrong solution
 
-prime_position = mark.first if "-c" in argv else mark.last
-
 IN_TERMUX = bool(which('termux-setup-storage'))
 
 _raw_NO_SLOW = environ.get('NO_SLOW')
 try:
-    _parsed_NO_SLOW = int(_raw_NO_SLOW)
+    _parsed_NO_SLOW = int(_raw_NO_SLOW)  # type: ignore
 except Exception:
     _parsed_NO_SLOW = _raw_NO_SLOW
 _raw_ONLY_SLOW = environ.get('ONLY_SLOW')
 try:
-    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)
+    _parsed_ONLY_SLOW = int(_raw_ONLY_SLOW)  # type: ignore
 except Exception:
     _parsed_ONLY_SLOW = _raw_ONLY_SLOW
 _raw_NO_OPTIONAL_TESTS = environ.get('NO_OPTIONAL_TESTS')
 try:
-    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)
+    _parsed_NO_OPTIONAL_TESTS = int(_raw_NO_OPTIONAL_TESTS)  # type: ignore
 except Exception:
     _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
 
@@ -120,12 +118,11 @@ ONLY_SLOW = _parsed_ONLY_SLOW and not _parsed_NO_SLOW
 NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed_NO_OPTIONAL_TESTS
 
 
-@fixture(params=("{:03}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
+@fixture(params=("{:0>3}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
 def key(request):  # type: ignore
     return int(request.param)  # reduce processing burden on test
 
 
-@prime_position
 def test_is_prime(benchmark) -> None:
     def func(set_of_primes):
         last = 2
@@ -148,7 +145,7 @@ def test_is_prime(benchmark) -> None:
 def test_problem(benchmark: Any, key: int) -> None:
     if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
-    module = __import__("p{:04}".format(key))
+    module = __import__("p{:0>4}".format(key))
     if key in known_slow:
         answer = benchmark.pedantic(module.main, iterations=1, rounds=1)
     else:

@@ -10,15 +10,15 @@ LINT=less
 endif
 
 ifeq ($(LINT),false)
-pytest_args?= -v --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=func --benchmark-verbose
+pytest_args?= -v --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
 else
 ifeq ($(LINT),true)
 pytest_args?= -v --mypy --mypy-ignore-missing-imports --flake8 --isort -k 'not test_problem and not test_is_prime'
 else
 ifeq ($(LINT),less)
-pytest_args?= -v --flake8 --isort --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=func --benchmark-verbose
+pytest_args?= -v --flake8 --isort --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
 else
-pytest_args?= -v --mypy --mypy-ignore-missing-imports --flake8 --isort --benchmark-min-time=0.05 --benchmark-group-by=func --benchmark-sort=fullname --benchmark-verbose
+pytest_args?= -v --mypy --mypy-ignore-missing-imports --flake8 --isort --benchmark-min-time=0.05 --benchmark-group-by=fullfunc --benchmark-sort=fullname --benchmark-verbose
 endif
 endif
 endif
