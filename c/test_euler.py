@@ -5,7 +5,7 @@ from os.path import expanduser
 from pathlib import Path
 from platform import machine, processor, system
 from shutil import rmtree, which
-from subprocess import check_call, check_output
+from subprocess import CalledProcessError, check_call, check_output
 from sys import path
 from tempfile import TemporaryFile
 from typing import List, Set, Union
@@ -33,6 +33,11 @@ answers = {
 
 known_slow: Set[int] = set()
 # this is the set of problems where I have the right answer but wrong solution
+
+fails_pcc: Set[Union[str, int]] = {3, 5, 7, 10, 34, 'is_prime'}
+# this is the set of tests that fail on PCC compiler
+# this is because (at least on my system) including <stdlib.h> or <math.h> result in syntax errors
+# for the moment that is just limited to anything that includes primes.h or digits.h
 
 
 # platform variables section
@@ -95,7 +100,8 @@ templates = {
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
     'CL': "cl -Fe:{1} -Foobjs\\ -O2 -TC {0}",
     'TCC': "tcc -lm -Werror -o {1} {0}",
-    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}"
+    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
+    'PCC': "pcc -O2 -o {1} {0}",
 }
 
 if 'COMPILER_OVERRIDE' in environ:
@@ -113,9 +119,7 @@ else:
 
         makedirs('objs', exist_ok=True)
         compilers.append('CL')
-    if which('pcc'):
-        raise NotImplementedError()
-    for x in ('clang', 'icc', 'tcc'):
+    for x in ('clang', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
@@ -180,6 +184,13 @@ def test_is_prime(benchmark, compiler):
         # sometimes benchmark disables itself, so check for .stats
         if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
             fail("Exceeding 200ns average!")
+    except CalledProcessError:
+        if compiler == 'PCC' and 'is_prime' in fails_pcc:
+            xfail("Including <math.h> or <stdlib.h> on PCC seems to yield syntax errors")
+        raise
+    else:
+        if compiler == 'PCC' and 'is_prime' in fails_pcc:
+            fail("This test is expected to fail, yet it didn't!")
     finally:
         try:
             remove(exename)
@@ -205,6 +216,13 @@ def test_problem(benchmark, key, compiler):
         if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
             fail_func = xfail if key in known_slow else fail
             fail_func("Exceeding 60s!")
+    except CalledProcessError:
+        if compiler == 'PCC' and key in fails_pcc:
+            xfail("Including <math.h> or <stdlib.h> on PCC seems to yield syntax errors")
+        raise
+    else:
+        if compiler == 'PCC' and key in fails_pcc:
+            fail("This test is expected to fail, yet it didn't!")
     finally:
         try:
             remove(exename)
