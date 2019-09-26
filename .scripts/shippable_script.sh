@@ -30,6 +30,20 @@ else
     else
         sudo apt-get update
         sudo apt-get install -y gcc clang tcc python3-pip
+        if [ $pcc ]; then
+            sudo apt-get install -y build-essential flex bison
+            mkdir pcc pcc-libs
+            wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc/pcc-20190926.tgz | tar -xz --no-seek -C pcc --strip-components=1
+            wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-libs/pcc-libs-20190926.tgz | tar -xz --no-seek -C pcc-libs --strip-components=1
+            cd pcc
+            sed -i 's/MANPAGE=@BINPREFIX@cpp/MANPAGE=@BINPREFIX@pcc-cpp/' cc/cpp/Makefile.in
+            ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
+            sudo make install
+            cd ../pcc-libs
+            ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
+            sudo make install
+            cd ..
+        fi
         cd c && make test USER_FLAG=
     fi
 fi
