@@ -26,14 +26,14 @@ from typing import Set
 
 def main() -> int:
     seen: Set[int] = set()
+    seen_update = seen.update
     odd_digits = {"1", "3", "5", "7", "9"}
     for x in chain.from_iterable(range(x, 10**8 // 2, 10) for x in range(1, 10)):
         if x in seen:
             continue
         inverse = int(repr(x)[::-1])
         if all(digit in odd_digits for digit in repr(x + inverse)):
-            # print(x, inverse)
-            seen.update((x, inverse))
+            seen_update((x, inverse))
     return len(seen)
 
 
