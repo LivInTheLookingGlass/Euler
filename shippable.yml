@@ -14,10 +14,13 @@ matrix:
     - python: 3.7
       env: pyver=true linter=true
     - language: node_js
-      node_js: "10"
-      env: jsver=10 linter=true
+      node_js: "11"
+      env: jsver=11 linter=true
     - language: c
       env: linter=true
+    - language: node_js
+      node_js: "11"
+      env: jsver=11
     - language: node_js
       node_js: "10"
       env: jsver=10

@@ -7,13 +7,17 @@ matrix:
 #          pydist=macports
 #          pydist=homebrew
     - language: node_js
-      node_js: "10"
+      node_js: "11"
       os: osx
-      env: jsver=10 linter=true
+      env: jsver=11 linter=true
     - language: c
       os: osx
       env: linter=true
       script: brew install llvm; ln -s "/usr/local/opt/llvm/bin/clang-tidy" "/usr/local/bin/clang-tidy"; make clint
+    - language: node_js
+      node_js: "11"
+      os: osx
+      env: jsver=11
     - language: node_js
       node_js: "10"
       os: osx
