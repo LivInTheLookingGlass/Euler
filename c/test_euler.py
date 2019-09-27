@@ -102,6 +102,7 @@ templates = {
     'TCC': "tcc -lm -Werror -o {1} {0}",
     'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
     'PCC': "pcc -O2 -o {1} {0}",
+    'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
 }
 
 if 'COMPILER_OVERRIDE' in environ:
@@ -119,7 +120,7 @@ else:
 
         makedirs('objs', exist_ok=True)
         compilers.append('CL')
-    for x in ('clang', 'icc', 'pcc', 'tcc'):
+    for x in ('aocc', 'clang', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
@@ -145,11 +146,12 @@ def test_compiler_macros(compiler):
     try:
         check_call(templates[compiler].format(test_path, exename).split())
         buff = check_output([exename])
-        is_CL, is_CLANG, is_GCC, is_INTEL, is_PCC, is_TCC = (int(x) for x in buff.split())
+        is_CL, is_CLANG, is_GCC, is_INTEL, is_AMD, is_PCC, is_TCC = (int(x) for x in buff.split())
         assert bool(is_CL) == (compiler == "CL")
         assert bool(is_CLANG) == (compiler == "CLANG")
         assert bool(is_GCC) == (compiler == "GCC")
         assert bool(is_INTEL) == (compiler == "ICC")
+        assert bool(is_AMD) == (compiler == "AOCC")
         assert bool(is_PCC) == (compiler == "PCC")
         assert bool(is_TCC) == (compiler == "TCC")
     finally:
