@@ -26,7 +26,7 @@ This recipe runs tests in multiple threads, using however many are specified by 
 
 ### Compiler Detection Macros
 
-There are a set of macros which detect which compiler is being used. While these are not actively used in any of the problems, they are checked for validity with each test.
+There are a set of macros which detect which compiler is being used. These macros are mostly used to route around issues with particular compilers. For instance, PCC does not allow me to include `<stdlib.h>` or `<math.h>` on the systems I've tested it on, so I need to route around that. This test checks that those macros are correct.
 
 ### Prime Infrastructure Test
 
