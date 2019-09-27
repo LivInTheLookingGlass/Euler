@@ -44,9 +44,16 @@ environment:
       PYPY: "powershell.exe %APPVEYOR_BUILD_FOLDER%\\.scripts\\installpypy3.ps1"
       NO_SLOW: "true"
 
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "3.7"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+      ONLY_SLOW: "true"
+
 matrix:
   allow_failures:
     - PYTHON_VERSION: "pypy3"
+    - ONLY_SLOW: "true"
 
 test: off
 
