@@ -21,6 +21,7 @@
 #else
     #define INTEL_COMPILER 0
 #endif
+#define AMD_COMPILER 0
 #ifdef __PCC__
     #define PCC_COMPILER 1
 #else
