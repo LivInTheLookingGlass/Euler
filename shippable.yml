@@ -1,16 +1,7 @@
 language: python
 
-python:
-  - 3.7
-  - pypy3
-
-env:
-  - pyver: "true"
-    NO_SLOW: "true"
-
 matrix:
   include:
-    - env: py36=true pyver=true NO_SLOW=true
     - python: 3.7
       env: pyver=true linter=true
     - language: node_js
@@ -42,8 +33,13 @@ matrix:
     - language: c
       env: COMPILER_OVERRIDE=pcc pcc=true
       python: 3.7
-    - python: 3.7
-      env: pyver=true ONLY_SLOW=true NO_SLOW=
+    - env: pyver=true NO_SLOW=true
+      python: 3.7
+    - env: py36=true pyver=true NO_SLOW=true
+    - env: pyver=true NO_SLOW=true
+      python: pypy3
+    - env: pyver=true ONLY_SLOW=true NO_SLOW=
+      python: 3.7
   allow_failures:
     - env: COMPILER_OVERRIDE=tcc
     - env: COMPILER_OVERRIDE=pcc pcc=true
