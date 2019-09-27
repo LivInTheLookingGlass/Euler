@@ -3,8 +3,6 @@
 **/.mypy_cache/**
 javascript/node_modules/**
 **/a.out
-**/*.x86*
 **/*.exe
-**/*.aarch64
-**/objs/**
+**/build/**
 venv/**

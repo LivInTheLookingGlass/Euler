@@ -8,25 +8,14 @@
     #include <stdlib.h>
     #include <math.h>
 #else
-    #include "primes.h"
-
-    double ln(double x) {
-        double old_sum = 0.0;
-        double xmlxpl = (x - 1) / (x + 1);
-        double xmlxpl_2 = xmlxpl * xmlxpl;
-        double denom = 1.0;
-        double frac = xmlxpl;
-        double term = frac;                 // denom start from 1.0
-        double sum = term;
-        while (sum != old_sum)  {
-            old_sum = sum;
-            denom += 2.0;
-            frac *= xmlxpl_2;
-            sum += frac / denom;
+    unsigned long long imprecise_log10(unsigned long long x)    {
+        unsigned long long answer = 0;
+        while (x)   {
+            x /= 10;
+            ++answer;
         }
-        return 2.0 * sum;
+        return answer;
     }
-    #define log10(x) ln(x) / 2.3025850929940456840179914546844
 #endif
 
 typedef struct digit_counter digit_counter;
@@ -46,7 +35,11 @@ unsigned char advance_digit_counter(digit_counter *dc)  {
 digit_counter digits(unsigned long long n)  {
     digit_counter ret;
     IteratorInitHead(ret, advance_digit_counter);
+#if !PCC_COMPILER
     size_t digit_len = ceil(log10(n + 1));
+#else
+    size_t digit_len = imprecise_log10(n + 1);
+#endif
     ret.digits = (unsigned char *) malloc(digit_len * sizeof(unsigned char));
     for (size_t i = 0; i < digit_len; i++)    {
         ret.digits[i] = n % 10;
