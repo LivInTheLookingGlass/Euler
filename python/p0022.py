@@ -26,7 +26,7 @@ def score(name: str, idx: int) -> int:
 
 
 def main() -> int:
-    with Path(__file__).parent.joinpath('p0022_names.txt').open('r') as f:
+    with Path(__file__).parent.parent.joinpath('_data', 'p0022_names.txt').open('r') as f:
         names = sorted(f.read().upper().replace('"', '').split(','))
     return sum(score(name, idx) for idx, name in enumerate(names, 1))
 
