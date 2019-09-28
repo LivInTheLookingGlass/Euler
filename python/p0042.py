@@ -36,7 +36,7 @@ def is_in_triangle(n: int) -> bool:
 
 def main():
     answer = 0
-    with Path(__file__).parent.joinpath('p0042_words.txt').open('rb') as f:
+    with Path(__file__).parent.parent.joinpath('_data', 'p0042_words.txt').open('rb') as f:
         words = f.read().replace(b'"', b'').split(b',')
     for word in words:
         value = sum(x - 64 for x in word)
