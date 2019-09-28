@@ -8,14 +8,7 @@
     #include <stdlib.h>
     #include <math.h>
 #else
-    unsigned long long imprecise_log10(unsigned long long x)    {
-        unsigned long long answer = 0;
-        while (x)   {
-            x /= 10;
-            ++answer;
-        }
-        return answer;
-    }
+    #include "math.h"
 #endif
 
 typedef struct digit_counter digit_counter;

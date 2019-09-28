@@ -6,30 +6,11 @@
 #if !PCC_COMPILER
     #include <stdlib.h>
     #include <math.h>
+#else
+    #include "math.h"
 #endif
 
 #include "iterator.h"
-
-#if PCC_COMPILER
-    double sqrt(double S)   {
-        // implements the Bakhshali method of square root computation to fix a PCC error
-        double a, x = S / 2;
-        unsigned int i;
-        for (i = 0; i < 8; i++) {
-            a = (S - x*x) / (2 * x);
-            x = x + a - (a * a) / (2 * (x + a));
-        }
-        return x;
-    }
-
-    unsigned long long ceil(double x)   {
-        unsigned long long ret = (unsigned long long) x;
-        if (x == (double) ret)  {
-            return ret;
-        }
-        return ret + 1;
-    }
-#endif
 
 typedef struct prime_sieve prime_sieve;
 typedef struct prime_counter prime_counter;
