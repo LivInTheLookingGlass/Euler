@@ -56,11 +56,11 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
     }
     i = j = 2;
     answer = 1;
-    while (i < n)   {
+    while (i <= n)  {
         while (factors[i] > 0)  {
             tmp = answer;
             answer *= i;
-            while (answer < tmp && j < n)   {
+            while (answer < tmp && j <= n)  {
                 while (factors[j] < 0)  {
                     tmp /= j;
                     factors[j]++;
@@ -75,7 +75,7 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
         }
         i++;
     }
-    while (j < n)   {
+    while (j <= n)  {
         while (factors[j] < 0)  {
             answer /= j;
             factors[j]++;
@@ -87,9 +87,9 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
 }
 
 #if PCC_COMPILER
-    unsigned long long imprecise_log10(unsigned long long x);
-    inline unsigned long long imprecise_log10(unsigned long long x)    {
-        unsigned long long answer = 0;
+    unsigned char imprecise_log10(unsigned long long x);
+    inline unsigned char imprecise_log10(unsigned long long x)  {
+        unsigned char answer = 0;
         while (x)   {
             x /= 10;
             ++answer;

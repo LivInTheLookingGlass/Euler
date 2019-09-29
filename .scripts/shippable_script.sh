@@ -26,7 +26,9 @@ else
     if [ $linter ]; then
         sudo apt-get update
         sudo apt-get install -y clang-tidy
-        make clint
+        cd c
+        clang-tidy --help
+        clang-tidy *.c
     else
         sudo apt-get update
         if [ $pcc ]; then
