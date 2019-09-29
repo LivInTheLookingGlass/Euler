@@ -1,11 +1,13 @@
 #ifndef _EULER_MATH_H
 #define _EULER_MATH_H
 
+#include "macros.h"
+
 #if !PCC_COMPILER
     #include <stdlib.h>
 #endif
 
-#include "macros.h"
+#include <stdint.h>
 
 unsigned long long factorial(unsigned long long n);
 inline unsigned long long factorial(unsigned long long n)  {
@@ -17,15 +19,16 @@ inline unsigned long long factorial(unsigned long long n)  {
     return ret;
 }
 
-unsigned long long n_choose_r(unsigned long long n, unsigned long long r)   {
+uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
     // function returns -1 if it overflows
-    if (n <= MAX_FACTORIAL_64)  {
+    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128))   {
         // fast path if small enough
         return factorial(n) / factorial(r) / factorial(n-r);
     }
     // slow path for larger numbers
     int *factors;
-    unsigned long long answer, i, j, tmp;
+    uintmax_t answer, tmp;
+    unsigned int i, j;
     factors = (int *) malloc(sizeof(int) * (n + 1));
     // collect factors of final number
     for (i = 2; i <= n; i++) {
