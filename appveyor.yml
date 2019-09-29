@@ -40,12 +40,12 @@ environment:
     - C: "cygwin GCC x86"
       COMPILER_OVERRIDE: 'gcc'
       NO_SLOW: "true"
-      GCC_OVERRIDE: "C:\cygwin64\bin\gcc.exe"
+      GCC_OVERRIDE: "C:\\cygwin64\\bin\\gcc.exe"
 
     - C: "cygwin GCC x86_64"
       COMPILER_OVERRIDE: 'gcc'
       NO_SLOW: "true"
-      GCC_OVERRIDE: "C:\cygwin\bin\gcc.exe"
+      GCC_OVERRIDE: "C:\\cygwin\\bin\\gcc.exe"
 
     - NODE: "8"
     - NODE: "9"
