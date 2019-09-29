@@ -12,28 +12,28 @@ environment:
       PIP: "%PYTHON%\\Scripts\\pip"
       LINT: "true"
 
-    - C: "TRUE"
+    - C: "VS 2015 x86"
       VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86'
       COMPILER_OVERRIDE: 'cl'
       NO_SLOW: "true"
 
-    - C: "TRUE"
+    - C: "VS 2015 x86_64"
       WIN_SDK: 'call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
       VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64'
       COMPILER_OVERRIDE: 'cl'
       NO_SLOW: "true"
 
-    - C: "TRUE"
+    - C: "VS 2017 x86"
       VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"'
       COMPILER_OVERRIDE: 'cl'
       NO_SLOW: "true"
 
-    - C: "TRUE"
+    - C: "VS 2017 x86_64"
       VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"'
       COMPILER_OVERRIDE: 'cl'
       NO_SLOW: "true"
 
-    - C: "TRUE"
+    - C: "Clang"
       COMPILER_OVERRIDE: 'clang'
       NO_SLOW: "true"
 
