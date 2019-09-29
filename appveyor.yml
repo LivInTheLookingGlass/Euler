@@ -14,6 +14,28 @@ environment:
 
     - C: "TRUE"
       VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "TRUE"
+      WIN_SDK: 'call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "TRUE"
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "TRUE"
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "TRUE"
+      COMPILER_OVERRIDE: 'clang'
+      NO_SLOW: "true"
 
     - NODE: "8"
     - NODE: "9"
