@@ -32,7 +32,7 @@ answers = {
     76: 190569291,
 }
 
-known_slow: Set[int] = set([15])
+known_slow: Set[int] = set()
 # this is the set of problems where I have the right answer but wrong solution
 
 fails_pcc: Set[Union[str, int]] = {3, 5, 7, 10, 34, 'is_prime'}
