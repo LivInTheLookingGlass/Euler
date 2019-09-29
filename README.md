@@ -18,7 +18,7 @@ The repo is divided into sections for each language. The top-level Makefile will
 
 ## Footnotes
 
-1: Windows testing is only enabled for Python and Javascript at the moment until I get configuration set up correctly for CL
+1: Windows testing is done on C, Python, and Javascript. C compilers are CL (MSVC 2015/2017 x86/x64) and clang
 
 2: Linux testing is done on Ubuntu 14.04 for C, Python, and Javascript. C compilers are gcc, clang, tcc, and pcc. The pcc and tcc compilers are marked as allowed failures because tcc implements no optimizations and might have time failures, and pcc seems to have errors including `<math.h>` and `<stdlib.h>`
 
