@@ -9,6 +9,7 @@
 
 unsigned long long factorial(unsigned long long n);
 inline unsigned long long factorial(unsigned long long n)  {
+    // note that this function only works for numbers smaller than MAX_FACTORIAL_64
     unsigned long long ret = 1;
     for (unsigned long long i = 2; i <= n; ++i) {
         ret *= i;
@@ -18,14 +19,14 @@ inline unsigned long long factorial(unsigned long long n)  {
 
 unsigned long long n_choose_r(unsigned long long n, unsigned long long r)   {
     // function returns -1 if it overflows
-    if ((sizeof(unsigned long long) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(unsigned long long) == 4 && n <= MAX_FACTORIAL_32))   {
+    if (n <= MAX_FACTORIAL_64)  {
         // fast path if small enough
         return factorial(n) / factorial(r) / factorial(n-r);
     }
     // slow path for larger numbers
-    signed char *factors;
+    int *factors;
     unsigned long long answer, i, j;
-    factors = (signed char *) malloc(sizeof(signed char) * (n + 1));
+    factors = (int *) malloc(sizeof(int) * (n + 1));
     // collect factors of final number
     for (i = 2; i <= n; i++) {
         factors[i] = 1;
