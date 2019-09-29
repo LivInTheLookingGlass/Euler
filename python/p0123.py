@@ -6,6 +6,10 @@ shaved a few seconds off the runtime, but not enough to be hugely noticable.
 Additionally, I narrowed the search range by figuring that the remainder has to
 take place after the prime is 10**5.
 
+Revision 1:
+
+Reduce search space further by remembering that it's unlikely for n % (10**10 + epsilon) >= 10**10
+
 Problem:
 
 Let p[n] be the nth prime: 2, 3, 5, 7, 11, ..., and let r be the remainder when
@@ -21,12 +25,10 @@ from p0003 import primes
 
 
 def main() -> int:
-    ten_five = 10**5
+    min_p = 235_000
     ten_ten = 10**10
     for n, p in enumerate(primes(), 1):
-        if p < ten_five:
-            continue
-        elif n & 1 == 0:  # Seems to always produce remainder of 2?
+        if p < min_p or n & 1 == 0:  # Seems to always produce remainder of 2?
             continue
         base = ((p-1)**n + (p+1)**n)
         if base < ten_ten:
