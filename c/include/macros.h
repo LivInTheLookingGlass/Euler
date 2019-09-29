@@ -1,7 +1,7 @@
 #ifndef _MACROS_H
 #define _MACROS_H
 
-#ifdef _MSC_VER
+#if (defined(_MSC_VER) && !defined(__clang__))
     #define CL_COMPILER 1
 #else
     #define CL_COMPILER 0

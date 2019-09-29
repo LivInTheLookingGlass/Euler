@@ -37,16 +37,6 @@ environment:
       COMPILER_OVERRIDE: 'clang'
       NO_SLOW: "true"
 
-    - C: "cygwin GCC x86"
-      COMPILER_OVERRIDE: 'gcc'
-      NO_SLOW: "true"
-      GCC_OVERRIDE: "C:\\cygwin64\\bin\\gcc.exe"
-
-    - C: "cygwin GCC x86_64"
-      COMPILER_OVERRIDE: 'gcc'
-      NO_SLOW: "true"
-      GCC_OVERRIDE: "C:\\cygwin\\bin\\gcc.exe"
-
     - NODE: "8"
     - NODE: "9"
     - NODE: "10"
@@ -94,12 +84,6 @@ matrix:
     - ONLY_SLOW: "true"
 
 test: off
-
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
-on_finish:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 build_script:
   - .scripts\\appveyor_script.bat
