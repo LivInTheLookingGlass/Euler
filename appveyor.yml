@@ -10,8 +10,6 @@ environment:
       LINT: "true"
 
     - C: "TRUE"
-      on_finish:
-      - ps: "$blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))"
 
     - NODE: "8"
     - NODE: "9"
@@ -47,8 +45,6 @@ environment:
       PIP: "%RUN% -m pip"
       PYPY: "powershell.exe %APPVEYOR_BUILD_FOLDER%\\.scripts\\installpypy3.ps1"
       NO_SLOW: "true"
-      on_finish:
-      - ps: "$blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))"
 
     - PYTHON: "C:\\Python37-x64"
       PYTHON_VERSION: "3.7"
@@ -64,7 +60,10 @@ matrix:
 test: off
 
 init:
-  - ps: "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))"
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 build_script:
   - .scripts\\appveyor_script.bat
