@@ -1,3 +1,6 @@
+image:
+- Visual Studio 2017
+
 environment:
   matrix:
     - NODE: "11"
@@ -10,6 +13,7 @@ environment:
       LINT: "true"
 
     - C: "TRUE"
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86'
 
     - NODE: "8"
     - NODE: "9"
