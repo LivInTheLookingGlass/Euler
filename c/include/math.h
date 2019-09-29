@@ -25,7 +25,7 @@ unsigned long long n_choose_r(unsigned long long n, unsigned long long r)   {
     }
     // slow path for larger numbers
     int *factors;
-    unsigned long long answer, i, j;
+    unsigned long long answer, i, j, tmp;
     factors = (int *) malloc(sizeof(int) * (n + 1));
     // collect factors of final number
     for (i = 2; i <= n; i++) {
@@ -49,26 +49,33 @@ unsigned long long n_choose_r(unsigned long long n, unsigned long long r)   {
             }
         }
     }
-    i = 2;
+    i = j = 2;
     answer = 1;
     while (i < n)   {
         while (factors[i] > 0)  {
-            j = answer;
+            tmp = answer;
             answer *= i;
-            if (answer < j) {
+            while (answer < tmp && j < n)   {
+                while (factors[j] < 0)  {
+                    tmp /= j;
+                    factors[j]++;
+                }
+                j++;
+                answer = tmp * i;
+            }
+            if (answer < tmp)   {
                 return -1;  // this indicates an overflow
             }
             factors[i]--;
         }
         i++;
     }
-    i = 2;
-    while (i < n)   {
-        while (factors[i] < 0)  {
-            answer *= i;
-            factors[i]++;
+    while (j < n)   {
+        while (factors[j] < 0)  {
+            answer /= j;
+            factors[j]++;
         }
-        i++;
+        j++;
     }
     free(factors);
     return answer;
