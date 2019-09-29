@@ -97,7 +97,7 @@ GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 compilers: List[str] = []
 templates = {
     'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(GCC_BINARY),
-    'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
+    'CLANG': "clang {{}} -O2 {} -Werror -std=c11 -o {{}}".format('' if IN_WINDOWS else '-lm'),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Werror -o {1} {0}",
     'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
