@@ -111,7 +111,6 @@ else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.append('GCC')
     if which('cl'):
-        BUILD_FOLDER.joinpath('objs').mkdir(parents=True, exist_ok=True)
         compilers.append('CL')
     for x in ('aocc', 'clang', 'icc', 'pcc', 'tcc'):
         if which(x):
@@ -119,7 +118,10 @@ else:
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
-BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
+if 'CL' in compilers:
+    BUILD_FOLDER.joinpath('objs').mkdir(parents=True, exist_ok=True)
+else:
+    BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
 
 
 @register
