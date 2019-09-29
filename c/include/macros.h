@@ -37,4 +37,8 @@
     #define min(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
+#define MAX_FACTORIAL_64 20
+#define MAX_FACTORIAL_32 12
+#define PCC_SQRT_ACCURACY 8
+
 #endif
