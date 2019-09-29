@@ -27,11 +27,12 @@ answers = {
     9: 31875000,
     10: 142913828922,
     14: 837799,
+    15: 137846528820,
     34: 40730,
     76: 190569291,
 }
 
-known_slow: Set[int] = set()
+known_slow: Set[int] = set([15])
 # this is the set of problems where I have the right answer but wrong solution
 
 fails_pcc: Set[Union[str, int]] = {3, 5, 7, 10, 34, 'is_prime'}
@@ -97,7 +98,7 @@ compilers: List[str] = []
 templates = {
     'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(GCC_BINARY),
     'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
-    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -TC {{0}}".format(BUILD_FOLDER.joinpath('objs').relative_to(Path.cwd())),
+    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Werror -o {1} {0}",
     'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
     'PCC': "pcc -O2 -o {1} {0}",
