@@ -9,11 +9,13 @@
 
 #include <stdint.h>
 
-unsigned long long factorial(unsigned long long n);
-inline unsigned long long factorial(unsigned long long n)  {
+uintmax_t factorial(unsigned int n);
+inline uintmax_t factorial(unsigned int n)  {
     // note that this function only works for numbers smaller than MAX_FACTORIAL_64
-    unsigned long long ret = 1;
-    for (unsigned long long i = 2; i <= n; ++i) {
+    if ((sizeof(uintmax_t) == 8 && n > MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n > MAX_FACTORIAL_128))
+        return -1;
+    uintmax_t ret = 1;
+    for (unsigned int i = 2; i <= n; ++i) {
         ret *= i;
     }
     return ret;
