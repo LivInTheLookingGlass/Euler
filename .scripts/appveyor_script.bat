@@ -12,7 +12,7 @@ IF DEFINED PIP (
     %PIP% install -r requirements.txt
     IF DEFINED LINT (
         ECHO "7"
-        %RUN% -m pytest -v --mypy --mypy-ignore-missing-imports --flake8 --isort -k "not test_problem and not test_is_prime" || goto :error
+        %RUN% -m pytest -v --mypy --mypy-ignore-missing-imports --flake8 --isort -k "not test_problem and not test_is_prime and not test_groupwise" || goto :error
     ) ELSE (
         ECHO "7"
         %RUN% -m pytest test_euler.py -v --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-verbose || goto :error
