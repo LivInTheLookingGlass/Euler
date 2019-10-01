@@ -1,8 +1,15 @@
 #ifndef _PRIMES
 #define _PRIMES
 
-#include <stdlib.h>
-#include <math.h>
+#include "macros.h"
+
+#if !PCC_COMPILER
+    #include <stdlib.h>
+    #include <math.h>
+#else
+    #include "math.h"
+#endif
+
 #include "iterator.h"
 
 typedef struct prime_sieve prime_sieve;

@@ -19,6 +19,11 @@ Applied an optimization I found on the C side. Turns out, the number of solution
 a, b, n in [0, 100] is (100 - n) / 2 + 1. Additionally, I ported the optimization from Revision 2 to work in the case
 of the 2s count. These together brought runtime down from ~6m 40s -> ~1m 15s.
 
+Revision 4:
+
+Switch to defaultdict for counter storage, and replace 2 instances of sum() with closed-form math. Total speed increase
+is ~1m 15s -> ~45s.
+
 Problem:
 
 It is possible to write five as a sum in exactly six different ways:
@@ -33,28 +38,32 @@ It is possible to write five as a sum in exactly six different ways:
 How many different ways can one hundred be written as a sum of at least two
 positive integers?
 """
-from typing import List
+from collections import defaultdict
+from typing import DefaultDict
 
 
 def main() -> int:
     answer = 0
-    counts: List[int] = [0] * 101
+    counts: DefaultDict[int, int] = defaultdict(int)
     total = counts[2] = 100
-    while not counts[100]:
+    while True:
         counts[2] += 2
         if total >= 100:
             answer += (100 + counts[2] - total) // 2
-            counts[2] = 0  # because I can't do-while
+            # because I can't do-while[]
+            total += 3 - counts[2]
+            counts[2] = 0  # set to 0 instead of delete because it will be quickly set again
             counts[3] += 3
             idx = 3
-            total = sum(counts)
             while total > 100:
-                counts[idx] = 0
+                total += 1 + idx - counts[idx]
+                del counts[idx]
                 idx += 1
                 counts[idx] += idx
-                total = sum(counts)
+            if idx == 100:
+                break
             counts[2] = 100 - total - (total % 2)
-        total = sum(counts)
+        total = sum(counts.values())
     return answer
 
 

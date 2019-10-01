@@ -3,10 +3,10 @@ from os import environ
 from pathlib import Path
 from shutil import which
 from sys import path
-from typing import Any, Union
+from typing import Any, Callable, Union
 from warnings import warn
 
-from pytest import fail, fixture, skip, xfail
+from pytest import fail, fixture, mark, skip, xfail
 from umsgpack import load
 
 PY_FOLDER = Path(__file__).parent
@@ -14,6 +14,7 @@ path.append(str(PY_FOLDER))
 
 from p0003 import primes  # noqa: E402  # isort:skip
 from p0007 import is_prime  # noqa: E402  # isort:skip
+from p0008 import groupwise  # noqa: E402  # isort:skip
 
 answers = {
     1: 233168,
@@ -88,7 +89,7 @@ answers = {
     206: 1389019170,
 }
 
-known_slow = {76, 118, 123, 145}
+known_slow = {76, 118, 145}
 # this is the set of problems where I have the right answer but wrong solution
 
 IN_TERMUX = bool(which('termux-setup-storage'))
@@ -123,7 +124,21 @@ def key(request):  # type: ignore
     return int(request.param)  # reduce processing burden on test
 
 
-def test_is_prime(benchmark) -> None:
+@mark.parametrize("group_size_str", ("{:0>2}".format(x) for x in range(2, 65)))
+def test_groupwise(benchmark: Any, group_size_str: str) -> None:
+    def test_func():
+        return tuple(groupwise(range(10_000 + group_size), group_size))
+
+    if ONLY_SLOW or NO_OPTIONAL_TESTS:
+        skip()
+    group_size = int(group_size_str)
+    groups = benchmark(test_func)
+    comparison = tuple(range(10_000 + group_size))  # adding group_size produces an equal number of groups
+    for idx, group in enumerate(groups):
+        assert group == comparison[idx:idx+group_size]
+
+
+def test_is_prime(benchmark: Any) -> None:
     def func(set_of_primes):
         last = 2
         for x, y in zip(primes(), set_of_primes):
@@ -145,13 +160,13 @@ def test_is_prime(benchmark) -> None:
 def test_problem(benchmark: Any, key: int) -> None:
     if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
-    module = __import__("p{:0>4}".format(key))
+    test_func: Callable[[], int] = __import__("p{:0>4}".format(key)).main  # type: ignore
     if key in known_slow:
-        answer = benchmark.pedantic(module.main, iterations=1, rounds=1)
+        answer = benchmark.pedantic(test_func, iterations=1, rounds=1)
     else:
-        answer = benchmark(module.main)
+        answer = benchmark(test_func)
     assert answers[key] == answer
-    del module
+    del test_func
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:

@@ -1,3 +1,6 @@
+image:
+- Visual Studio 2017
+
 environment:
   matrix:
     - NODE: "11"
@@ -8,6 +11,31 @@ environment:
       RUN: "%PYTHON%\\python"
       PIP: "%PYTHON%\\Scripts\\pip"
       LINT: "true"
+
+    - C: "VS 2015 x86"
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "VS 2015 x86_64"
+      WIN_SDK: 'call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "VS 2017 x86"
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "VS 2017 x86_64"
+      VCVARS: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"'
+      COMPILER_OVERRIDE: 'cl'
+      NO_SLOW: "true"
+
+    - C: "Clang"
+      COMPILER_OVERRIDE: 'clang'
+      NO_SLOW: "true"
 
     - NODE: "8"
     - NODE: "9"
@@ -44,9 +72,16 @@ environment:
       PYPY: "powershell.exe %APPVEYOR_BUILD_FOLDER%\\.scripts\\installpypy3.ps1"
       NO_SLOW: "true"
 
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "3.7"
+      RUN: "%PYTHON%\\python"
+      PIP: "%PYTHON%\\Scripts\\pip"
+      ONLY_SLOW: "true"
+
 matrix:
   allow_failures:
     - PYTHON_VERSION: "pypy3"
+    - ONLY_SLOW: "true"
 
 test: off
 
