@@ -7,6 +7,7 @@ from shutil import rmtree, which
 from subprocess import check_call, check_output
 from sys import path
 from tempfile import TemporaryFile
+from time import sleep
 from typing import List, Set, Union
 from warnings import warn
 
@@ -149,6 +150,27 @@ def test_compiler_macros(compiler):
     assert bool(is_AMD) == (compiler == "AOCC")
     assert bool(is_PCC) == (compiler == "PCC")
     assert bool(is_TCC) == (compiler == "TCC")
+
+
+@mark.skipif('NO_OPTIONAL_TESTS')
+def test_deterministic_build(key, compiler):
+    filename = SOURCE_TEMPLATE.format(key)
+    exename1 = EXE_TEMPLATE.format("dbuild{}1".format(key), compiler)
+    exename2 = EXE_TEMPLATE.format("dbuild{}2".format(key), compiler)
+    environ['SOURCE_DATE_EPOCH'] = '1'
+    environ['ZERO_AR_DATE'] = 'true'
+    check_call(templates[compiler].format(filename, exename1).split())
+    sleep(2)
+    check_call(templates[compiler].format(filename, exename2).split())
+    try:
+        with open(exename1, "rb") as f, open(exename2, "rb") as g:
+            assert f.read() == g.read()
+    except AssertionError:
+        if IN_WINDOWS and compiler != 'CL':  # mingw gcc doesn't seem to make reproducible builds
+            xfail()
+        elif compiler == 'PCC':
+            xfail()  # PCC doesn't obviously allow reproducible builds
+        raise
 
 
 @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
