@@ -39,10 +39,10 @@ else
             cd pcc
             sed -i 's/MANPAGE=@BINPREFIX@cpp/MANPAGE=@BINPREFIX@pcc-cpp/' cc/cpp/Makefile.in
             ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
-            sudo make && make install
+            sudo make && sudo make install
             cd ../pcc-libs
             ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
-            sudo make && make install
+            sudo make && sudo make install
             cd ..
         else
             sudo apt-get install -y $COMPILER_OVERRIDE python3-pip

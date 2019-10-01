@@ -36,17 +36,17 @@ else
         if [ $pcc ]; then
             brew install flex bison
             mkdir pcc pcc-libs
-            wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-releases/pcc-1.1.0.tgz | tar -xz --no-seek -C pcc --strip-components=1
-            wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-releases/pcc-libs-1.1.0.tgz | tar -xz --no-seek -C pcc-libs --strip-components=1
+            wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-releases/pcc-1.1.0.tgz | tar -xz -C pcc --strip-components=1
+            wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-releases/pcc-libs-1.1.0.tgz | tar -xz -C pcc-libs --strip-components=1
             cd pcc
             ./configure
-            sudo make && make install
+            sudo make && sudo make install
             cd ../pcc-libs
             ./configure
-            sudo make && make install
+            sudo make && sudo make install
             cd ..
-        else
-            brew install $COMPILER_OVERRIDE;
+        elif [ $GCC_OVERRIDE ]; then
+            brew install gcc;
         fi
         make ctest;
     fi
