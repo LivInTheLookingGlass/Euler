@@ -35,11 +35,6 @@ answers = {
 known_slow: Set[int] = set()
 # this is the set of problems where I have the right answer but wrong solution
 
-fails_pcc: Set[Union[str, int]] = {3, 5, 7, 10, 34, 'is_prime'}
-# this is the set of tests that fail on PCC compiler
-# this is because (at least on my system) including <stdlib.h> or <math.h> result in syntax errors
-# for the moment that is just limited to anything that includes primes.h or digits.h
-
 
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
@@ -96,10 +91,10 @@ GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 # compiler variables section
 compilers: List[str] = []
 templates = {
-    'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(GCC_BINARY),
-    'CLANG': "clang {{}} -O2 {} -Werror -std=c11 -o {{}}".format('' if IN_WINDOWS else '-lm'),
-    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
-    'TCC': "tcc -lm -Werror -o {1} {0}",
+    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -o {{}}".format(GCC_BINARY),
+    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -o {{}}".format('' if IN_WINDOWS else '-lm'),
+    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
+    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
     'PCC': "pcc -O2 -o {1} {0}",
     'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
@@ -143,7 +138,7 @@ def key(request):  # type: ignore
 @mark.skipif('NO_OPTIONAL_TESTS')
 def test_compiler_macros(compiler):
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
-    test_path = Path(__file__).parent.joinpath("tests", "test_compiler_macros.c")
+    test_path = C_FOLDER.joinpath("tests", "test_compiler_macros.c")
     check_call(templates[compiler].format(test_path, exename).split())
     buff = check_output([exename])
     is_CL, is_CLANG, is_GCC, is_INTEL, is_AMD, is_PCC, is_TCC = (int(x) for x in buff.split())
@@ -161,7 +156,7 @@ def test_is_prime(benchmark, compiler):
     from p0007 import is_prime, prime_factors, primes
     MAX_PRIME = 1_000_000
     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
-    test_path = Path(__file__).parent.joinpath("tests", "test_is_prime.c")
+    test_path = C_FOLDER.joinpath("tests", "test_is_prime.c")
     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
     check_call(args.split())
     with TemporaryFile('wb+') as f:
