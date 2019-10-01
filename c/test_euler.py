@@ -1,5 +1,6 @@
 from atexit import register
 from functools import partial
+from itertools import chain
 from os import environ, sep
 from pathlib import Path
 from platform import machine, processor, system
@@ -9,6 +10,7 @@ from sys import path
 from tempfile import TemporaryFile
 from time import sleep
 from typing import List, Set, Union
+from uuid import uuid4
 from warnings import warn
 
 from pytest import fail, fixture, mark, skip, xfail
@@ -119,6 +121,8 @@ if 'CL' in compilers:
 else:
     BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
 
+TEST_FILES = ("test_compiler_macros.c", "test_is_prime.c")
+
 
 @register
 def cleanup():
@@ -134,6 +138,15 @@ def compiler(request):  # type: ignore
 @fixture(params=("{:03}".format(x) for x in sorted(answers)))
 def key(request):  # type: ignore
     return int(request.param)  # reduce casting burden on test
+
+
+# to make sure the benchmarks sort correctly
+@fixture(params=sorted(chain(TEST_FILES, ("{:03}".format(x) for x in answers))))
+def c_file(request):  # type: ignore
+    try:
+        return SOURCE_TEMPLATE.format(int(request.param))
+    except Exception:
+        return C_FOLDER.joinpath("tests", request.param)
 
 
 @mark.skipif('NO_OPTIONAL_TESTS')
@@ -153,15 +166,14 @@ def test_compiler_macros(compiler):
 
 
 @mark.skipif('NO_OPTIONAL_TESTS')
-def test_deterministic_build(key, compiler):
-    filename = SOURCE_TEMPLATE.format(key)
-    exename1 = EXE_TEMPLATE.format("dbuild{}1".format(key), compiler)
-    exename2 = EXE_TEMPLATE.format("dbuild{}2".format(key), compiler)
+def test_deterministic_build(c_file, compiler):
+    exename1 = EXE_TEMPLATE.format("dbuild{}".format(uuid4()), compiler)
+    exename2 = EXE_TEMPLATE.format("dbuild{}".format(uuid4()), compiler)
     environ['SOURCE_DATE_EPOCH'] = '1'
     environ['ZERO_AR_DATE'] = 'true'
-    check_call(templates[compiler].format(filename, exename1).split())
+    check_call(templates[compiler].format(c_file, exename1).split())
     sleep(2)
-    check_call(templates[compiler].format(filename, exename2).split())
+    check_call(templates[compiler].format(c_file, exename2).split())
     try:
         with open(exename1, "rb") as f, open(exename2, "rb") as g:
             assert f.read() == g.read()
