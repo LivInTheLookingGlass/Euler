@@ -1,7 +1,6 @@
 from atexit import register
 from functools import partial
-from os import environ, makedirs, remove, sep
-from os.path import expanduser
+from os import environ, sep
 from pathlib import Path
 from platform import machine, processor, system
 from shutil import rmtree, which
@@ -11,9 +10,10 @@ from tempfile import TemporaryFile
 from typing import List, Set, Union
 from warnings import warn
 
-from pytest import fail, fixture, skip, xfail
+from pytest import fail, fixture, mark, skip, xfail
 
 C_FOLDER = Path(__file__).parent
+BUILD_FOLDER = C_FOLDER.joinpath('build')
 path.append(str(C_FOLDER.parent.joinpath("python")))
 
 answers = {
@@ -27,6 +27,7 @@ answers = {
     9: 31875000,
     10: 142913828922,
     14: 837799,
+    15: 137846528820,
     34: 40730,
     76: 190569291,
 }
@@ -38,6 +39,9 @@ known_slow: Set[int] = set()
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
 IN_TERMUX = bool(which('termux-setup-storage'))
+
+if IN_TERMUX:
+    BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
 
 _raw_NO_SLOW = environ.get('NO_SLOW')
 try:
@@ -79,23 +83,21 @@ else:
     EXE_EXT = "exe"
 
 SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
-if IN_TERMUX:
-    EXE_TEMPLATE = "{}/p{{:0>4}}.{{}}.{}".format(expanduser("~"), EXE_EXT)
-    # Termux can't make executable files outside of $HOME
-else:
-    EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(C_FOLDER, sep, EXE_EXT)
-    # include sep in the recipe so that Windows won't complain
+EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
+# include sep in the recipe so that Windows won't complain
 
 GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 
 # compiler variables section
 compilers: List[str] = []
 templates = {
-    'GCC': "{} {{}} -O2 -lm -Werror -std=c11 -o {{}}".format(GCC_BINARY),
-    'CLANG': "clang {} -O2 -lm -Werror -std=c11 -o {}",
-    'CL': "cl -Fe:{1} -Foobjs\\ -O2 -TC {0}",
-    'TCC': "tcc -lm -Werror -o {1} {0}",
-    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}"
+    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -o {{}}".format(GCC_BINARY),
+    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -o {{}}".format('' if IN_WINDOWS else '-lm'),
+    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
+    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
+    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
+    'PCC': "pcc -O2 -o {1} {0}",
+    'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
 }
 
 if 'COMPILER_OVERRIDE' in environ:
@@ -104,22 +106,22 @@ else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.append('GCC')
     if which('cl'):
-        @register
-        def cleanup_objs():
-            try:
-                rmtree('objs')  # only present with cl compiler
-            except Exception:
-                pass  # if in multiprocess, this race-conditions
-
-        makedirs('objs', exist_ok=True)
         compilers.append('CL')
-    if which('pcc'):
-        raise NotImplementedError()
-    for x in ('clang', 'icc', 'tcc'):
+    for x in ('aocc', 'clang', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
     raise RuntimeError("No compilers detected!")
+
+if 'CL' in compilers:
+    BUILD_FOLDER.joinpath('objs').mkdir(parents=True, exist_ok=True)
+else:
+    BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
+
+
+@register
+def cleanup():
+    rmtree(BUILD_FOLDER)
 
 
 @fixture(params=sorted(compilers))
@@ -133,58 +135,44 @@ def key(request):  # type: ignore
     return int(request.param)  # reduce casting burden on test
 
 
+@mark.skipif('NO_OPTIONAL_TESTS')
 def test_compiler_macros(compiler):
-    if NO_OPTIONAL_TESTS:
-        skip()
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
-    test_path = Path(__file__).parent.joinpath("tests", "test_compiler_macros.c")
-    try:
-        check_call(templates[compiler].format(test_path, exename).split())
-        buff = check_output([exename])
-        is_CL, is_CLANG, is_GCC, is_INTEL, is_PCC, is_TCC = (int(x) for x in buff.split())
-        assert bool(is_CL) == (compiler == "CL")
-        assert bool(is_CLANG) == (compiler == "CLANG")
-        assert bool(is_GCC) == (compiler == "GCC")
-        assert bool(is_INTEL) == (compiler == "ICC")
-        assert bool(is_PCC) == (compiler == "PCC")
-        assert bool(is_TCC) == (compiler == "TCC")
-    finally:
-        try:
-            remove(exename)
-        except Exception:
-            warn("EXE may not have been deleted")
+    test_path = C_FOLDER.joinpath("tests", "test_compiler_macros.c")
+    check_call(templates[compiler].format(test_path, exename).split())
+    buff = check_output([exename])
+    is_CL, is_CLANG, is_GCC, is_INTEL, is_AMD, is_PCC, is_TCC = (int(x) for x in buff.split())
+    assert bool(is_CL) == (compiler == "CL")
+    assert bool(is_CLANG) == (compiler == "CLANG")
+    assert bool(is_GCC) == (compiler == "GCC")
+    assert bool(is_INTEL) == (compiler == "ICC")
+    assert bool(is_AMD) == (compiler == "AOCC")
+    assert bool(is_PCC) == (compiler == "PCC")
+    assert bool(is_TCC) == (compiler == "TCC")
 
 
+@mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
 def test_is_prime(benchmark, compiler):
-    if NO_OPTIONAL_TESTS or ONLY_SLOW:
-        skip()
     from p0007 import is_prime, prime_factors, primes
-
     MAX_PRIME = 1_000_000
     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
-    test_path = Path(__file__).parent.joinpath("tests", "test_is_prime.c")
+    test_path = C_FOLDER.joinpath("tests", "test_is_prime.c")
     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
-    try:
-        check_call(args.split())
-        with TemporaryFile('wb+') as f:
-            run_test = partial(check_call, [exename], stdout=f)
-            benchmark.pedantic(run_test, iterations=1, rounds=1)
-            prime_cache = tuple(primes(MAX_PRIME))
-            for line in f.readlines():
-                num, prime, composite, idx = (int(x) for x in line.split())
-                assert bool(prime) == bool(is_prime(num))
-                assert bool(composite) == (not is_prime(num))
-                assert composite == next(iter(prime_factors(num)))
-                assert idx == -1 or prime_cache[idx] == num
+    check_call(args.split())
+    with TemporaryFile('wb+') as f:
+        run_test = partial(check_call, [exename], stdout=f)
+        benchmark.pedantic(run_test, iterations=1, rounds=1)
+        prime_cache = tuple(primes(MAX_PRIME))
+        for line in f.readlines():
+            num, prime, composite, idx = (int(x) for x in line.split())
+            assert bool(prime) == bool(is_prime(num))
+            assert bool(composite) == (not is_prime(num))
+            assert composite == 0 or composite == next(iter(prime_factors(num)))
+            assert idx == -1 or prime_cache[idx] == num
 
-        # sometimes benchmark disables itself, so check for .stats
-        if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
-            fail("Exceeding 200ns average!")
-    finally:
-        try:
-            remove(exename)
-        except Exception:
-            warn("EXE may not have been deleted")
+    # sometimes benchmark disables itself, so check for .stats
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
+        fail("Exceeding 200ns average!")
 
 
 def test_problem(benchmark, key, compiler):
@@ -192,21 +180,15 @@ def test_problem(benchmark, key, compiler):
         skip()
     filename = SOURCE_TEMPLATE.format(key)
     exename = EXE_TEMPLATE.format(key, compiler)  # need to have both to keep name unique
-    try:
-        check_call(templates[compiler].format(filename, exename).split())
-        run_test = partial(check_output, [exename])
+    check_call(templates[compiler].format(filename, exename).split())
+    run_test = partial(check_output, [exename])
 
-        if key in known_slow:
-            answer = benchmark.pedantic(run_test, iterations=1, rounds=1)
-        else:
-            answer = benchmark(run_test)
-        assert answers[key] == int(answer.strip())
-        # sometimes benchmark disables itself, so check for .stats
-        if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
-            fail_func = xfail if key in known_slow else fail
-            fail_func("Exceeding 60s!")
-    finally:
-        try:
-            remove(exename)
-        except Exception:
-            warn("EXE may not have been deleted")
+    if key in known_slow:
+        answer = benchmark.pedantic(run_test, iterations=1, rounds=1)
+    else:
+        answer = benchmark(run_test)
+    assert answers[key] == int(answer.strip())
+    # sometimes benchmark disables itself, so check for .stats
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
+        fail_func = xfail if key in known_slow else fail
+        fail_func("Exceeding 60s!")

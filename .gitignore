@@ -5,8 +5,6 @@ javascript/node_modules/**
 .vscode/**
 **log*.txt
 **/a.out
-**/*.x86*
 **/*.exe
-**/*.aarch64
-**/objs/**
+**/build/**
 venv/**

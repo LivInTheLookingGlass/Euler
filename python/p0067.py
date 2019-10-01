@@ -31,7 +31,7 @@ from p0018 import reduce_triangle
 
 def main():
     rows = []
-    with Path(__file__).parent.joinpath("p0067_triangle.txt").open("r") as f:
+    with Path(__file__).parent.parent.joinpath("_data", "p0067_triangle.txt").open("r") as f:
         for line in f.readlines():
             rows.append([int(x) for x in line.split()])
     return reduce_triangle(rows)

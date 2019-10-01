@@ -7,13 +7,16 @@ matrix:
 #          pydist=macports
 #          pydist=homebrew
     - language: node_js
-      node_js: "10"
+      node_js: "11"
       os: osx
-      env: jsver=10 linter=true
+      env: jsver=11 linter=true
     - language: c
       os: osx
       env: linter=true
-      script: brew install llvm; ln -s "/usr/local/opt/llvm/bin/clang-tidy" "/usr/local/bin/clang-tidy"; make clint
+    - language: node_js
+      node_js: "11"
+      os: osx
+      env: jsver=11
     - language: node_js
       node_js: "10"
       os: osx
@@ -29,12 +32,13 @@ matrix:
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=clang
-      script: brew install clang python3; make ctest
     - language: c
       os: osx
       env: COMPILER_OVERRIDE=gcc GCC_OVERRIDE=gcc-9
       osx_image: xcode10.1
-      script: brew install gcc; make ctest
+    - language: c
+      os: osx
+      env: COMPILER_OVERRIDE=pcc pcc=true
     - language: generic
       python: 3.6
       os: osx
@@ -57,6 +61,9 @@ matrix:
       python: pypy3
       os: osx
       env: pyver=pypy3 pydist=homebrew NO_SLOW=true
+  allow_failures:
+    - env: COMPILER_OVERRIDE=pcc pcc=true
+    - python: pypy3
 
 script:
   - sh ./.scripts/travis_script.sh

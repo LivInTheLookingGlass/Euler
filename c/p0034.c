@@ -12,14 +12,7 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 */
 #include <stdio.h>
 #include "include/digits.h"
-
-unsigned long long factorial(unsigned long long n)  {
-    unsigned long long ret = 1;
-    for (unsigned long long i = 2; i <= n; i++) {
-        ret *= i;
-    }
-    return ret;
-}
+#include "include/math.h"
 
 int main(int argc, char const *argv[])  {
     unsigned long long answer = 0, sum;

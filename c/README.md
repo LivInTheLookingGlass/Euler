@@ -24,6 +24,20 @@ This recipe runs tests in multiple threads, using however many are specified by 
 
 ## Tests
 
+### Compiler Detection Macros
+
+There are a set of macros which detect which compiler is being used. These macros are mostly used to route around issues with particular compilers. For instance, PCC does not allow me to include `<stdlib.h>` or `<math.h>` on the systems I've tested it on, so I need to route around that. This test checks that those macros are correct.
+
+### Prime Infrastructure Test
+
+This test checks five things:
+
+1. It checks `is_prime()` for numbers up to `MAX_PRIME`, where that is defined in the test
+2. It checks that `is_composite()` returns truthy values on composites in that range, and falsey values on primes
+3. It checks that `is_composite()` returns the smallest prime factor on composite numbers
+4. It checks that the prime numbers are generated in the correct order
+5. It checks that all these operations are completed in less than 200ns * `MAX_PRIME`
+
 ### Generic Problems
 
 For each problem it will check the answer against a known dictionary. If the problem is not in the "known slow" category (meaning that I generate the correct answer with a poor solution), it will run it as many times as the benchmark plugin wants. Otherwise it is run exactly once.
@@ -42,11 +56,12 @@ Note that there are optional test that leverage the Python infrastructure. If yo
 
 If this variable is defined, it should contain a comma-separated list of the compilers you would like to test from the following list (case insensitive):
 
+* aocc (not yet supported)
 * cl
 * clang
 * gcc
 * icc (not yet supported)
-* pcc (not yet supported)
+* pcc (partial support)
 * tcc
 
 If this variable is not defined, compilers will be auto-detected using `which()`.

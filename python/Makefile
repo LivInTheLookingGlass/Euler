@@ -1,6 +1,5 @@
 LINT?=
 PY?=python3
-PROXY?=
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
 MYPY?=true
@@ -13,7 +12,7 @@ ifeq ($(LINT),false)
 pytest_args?= -v --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
 else
 ifeq ($(LINT),true)
-pytest_args?= -v --mypy --mypy-ignore-missing-imports --flake8 --isort -k 'not test_problem and not test_is_prime'
+pytest_args?= -v --mypy --mypy-ignore-missing-imports --flake8 --isort -k 'not test_problem and not test_is_prime and not test_groupwise'
 else
 ifeq ($(LINT),less)
 pytest_args?= -v --flake8 --isort --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
@@ -23,10 +22,14 @@ endif
 endif
 endif
 
-ifneq ($(PROXY), )
-PROXY_ARG="--proxy=$(PROXY)"
+ifneq ($(https_proxy), )
+PROXY_ARG=--proxy=$(https_proxy)
+else
+ifneq ($(http_proxy), )
+PROXY_ARG=--proxy=$(http_proxy)
 else
 PROXY_ARG=
+endif
 endif
 
 test: dependencies _test
