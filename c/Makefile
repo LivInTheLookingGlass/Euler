@@ -1,12 +1,15 @@
 PY?=python3
-PROXY?=
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
 
-ifneq ($(PROXY), )
-PROXY_ARG="--proxy=$(PROXY)"
+ifneq ($(https_proxy), )
+PROXY_ARG=--proxy=$(https_proxy)
+else
+ifneq ($(http_proxy), )
+PROXY_ARG=--proxy=$(http_proxy)
 else
 PROXY_ARG=
+endif
 endif
 
 test_%: dependencies
