@@ -23,6 +23,7 @@ answers = {
     1: 233168,
     2: 4613732,
     3: 6857,
+    4: 906609,
     5: 232792560,
     6: 25164150,
     7: 104743,
@@ -126,7 +127,8 @@ TEST_FILES = ("test_compiler_macros.c", "test_is_prime.c")
 
 @register
 def cleanup():
-    rmtree(BUILD_FOLDER)
+    if 'PYTEST_XDIST_WORKER' not in environ:
+        rmtree(BUILD_FOLDER)
 
 
 @fixture(params=sorted(compilers))
@@ -206,7 +208,7 @@ def test_is_prime(benchmark, compiler):
 
     # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
-        fail("Exceeding 200ns average!")
+        fail("Exceeding 200ns average! (time={}s)".format(benchmark.stats.stats.max))
 
 
 def test_problem(benchmark, key, compiler):
@@ -223,6 +225,7 @@ def test_problem(benchmark, key, compiler):
         answer = benchmark(run_test)
     assert answers[key] == int(answer.strip())
     # sometimes benchmark disables itself, so check for .stats
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = xfail if key in known_slow else fail
-        fail_func("Exceeding 60s!")
+        stats = benchmark.stats.stats
+        fail_func("Exceeding 60s! (Max={:.6}s, Median={:.6}s)".format(stats.max, stats.median))
