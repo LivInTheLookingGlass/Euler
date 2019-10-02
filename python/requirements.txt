@@ -1,5 +1,5 @@
 u-msgpack-python
-pytest>=4.4.0
+pytest>=4.4.0,<5
 sortedcontainers
 pytest-benchmark
 pytest-mypy
