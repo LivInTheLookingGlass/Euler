@@ -127,7 +127,7 @@ if not IN_WINDOWS:
     CLANG_LINK_MATH = '-lm'
 if 'CLANG' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
-    CLANG_ARCH = '-march=native' * not (run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
+    CLANG_ARCH = '-march=native' * (not run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
 
 SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
