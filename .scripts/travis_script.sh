@@ -28,14 +28,8 @@ elif [ $jsver ]; then
         make jstest;
     fi
 else
-    if [ $linter ]; then
-        brew install llvm;
-        ln -s "/usr/local/opt/llvm/bin/clang-tidy" "/usr/local/bin/clang-tidy";
-        make clint;
-    else
-        if [ $GCC_OVERRIDE ]; then
+    if [ $GCC_OVERRIDE ]; then
             brew install gcc;
-        fi
-        make ctest;
     fi
+    make ctest;
 fi

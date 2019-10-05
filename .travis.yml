@@ -10,9 +10,6 @@ matrix:
       node_js: "11"
       os: osx
       env: jsver=11 linter=true
-    - language: c
-      os: osx
-      env: linter=true
     - language: node_js
       node_js: "11"
       os: osx
