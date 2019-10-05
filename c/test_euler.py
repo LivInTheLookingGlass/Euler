@@ -136,7 +136,7 @@ EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 templates = {
     'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}".format(GCC_BINARY),
     'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 {} -flto -o {{}}".format(CLANG_LINK_MATH, CLANG_ARCH),
-    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Wall -WX -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
+    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
     'PCC': "pcc -O2 -o {1} {0}",
