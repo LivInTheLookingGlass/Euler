@@ -110,9 +110,9 @@ CL_NO_64 = False
 if 'CL' in compilers:
     OBJ_FOLDER = BUILD_FOLDER.joinpath('objs')
     OBJ_FOLDER.mkdir(exist_ok=True)
-    _test_file = C_FOLDER.joinpath('assertions', 'x64_assert.c')
-    _test_exe = BUILD_FOLDER.joinpath('test_cl_64_support.out')
-    CL_NO_64 = bool(run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), _test_file]).returncode)
+    _test_file = str(C_FOLDER.joinpath('assertions', 'x64_assert.c'))
+    _test_exe = str(BUILD_FOLDER.joinpath('test_cl_64_support.out'))
+    CL_NO_64 = bool(run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), str(_test_file)]).returncode)
 
 _test_file = str(C_FOLDER.joinpath('p0000_template.c'))
 GCC_NO_64 = False
