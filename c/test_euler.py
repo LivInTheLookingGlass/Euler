@@ -76,7 +76,7 @@ ONLY_SLOW = _parsed_ONLY_SLOW and not _parsed_NO_SLOW
 NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed_NO_OPTIONAL_TESTS
 
 # this part isn't necessary, but I like having the binaries include their compile architecture
-if not IN_LINUX and processor() and ' ' not in processor():
+if IN_LINUX and processor() and ' ' not in processor():
     EXE_EXT = processor()
 elif IN_WINDOWS:
     # processor() returns something too verbose in Windows
