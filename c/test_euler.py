@@ -106,8 +106,13 @@ if not compilers:
 
 COMPILER_LEN = len(max(compilers, key=len))  # make sure compiler fixtures are evenly spaced
 BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
+CL_NO_64 = False
 if 'CL' in compilers:
-    BUILD_FOLDER.joinpath('objs').mkdir(exist_ok=True)
+    OBJ_FOLDER = BUILD_FOLDER.joinpath('objs')
+    OBJ_FOLDER.mkdir(exist_ok=True)
+    _test_file = C_FOLDER.joinpath('assertions', 'x64_assert.c')
+    _test_exe = BUILD_FOLDER.joinpath('test_cl_64_support.out')
+    CL_NO_64 = bool(run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), _test_file]).returncode)
 
 _test_file = str(C_FOLDER.joinpath('p0000_template.c'))
 GCC_NO_64 = False
@@ -117,7 +122,7 @@ if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
     GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', _test_exe]).returncode)
 
-CLANG_LINK_MATH = CLANG_ARCH_NATIVE = ''
+CLANG_LINK_MATH = CLANG_ARCH = ''
 if not IN_WINDOWS:
     CLANG_LINK_MATH = '-lm'
 if 'CLANG' in compilers:
@@ -172,6 +177,7 @@ def test_compiler_macros(compiler):
     check_call(templates[compiler].format(test_path, exename).split())
     buff = check_output([exename])
     flags = [bool(int(x)) for x in buff.split()]
+    expect_32 = (compiler == 'GCC' and GCC_NO_64) or (compiler == 'CL' and CL_NO_64)
     assert flags[0] == (compiler == "CL")
     assert flags[1] == (compiler == "CLANG")
     assert flags[2] == (compiler == "GCC")
@@ -179,8 +185,8 @@ def test_compiler_macros(compiler):
     assert flags[4] == (compiler == "AOCC")
     assert flags[5] == (compiler == "PCC")
     assert flags[6] == (compiler == "TCC")
-    assert flags[7] == (EXE_EXT == "x86" or (compiler == 'GCC' and GCC_NO_64))
-    assert flags[8] == (EXE_EXT == "x86_64" and not (compiler == 'GCC' and GCC_NO_64))
+    assert flags[7] == (EXE_EXT == "x86" or expect_32)
+    assert flags[8] == (EXE_EXT == "x86_64" and not expect_32)
     assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
 
 
