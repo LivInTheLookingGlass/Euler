@@ -1,11 +1,11 @@
 from atexit import register
 from functools import partial
 from itertools import chain
-from os import environ, sep
+from os import environ, listdir, sep
 from pathlib import Path
 from platform import machine, processor, system
 from shutil import rmtree, which
-from subprocess import check_call, check_output
+from subprocess import check_call, check_output, run
 from sys import path
 from tempfile import TemporaryFile
 from time import sleep
@@ -87,17 +87,13 @@ else:
     warn("Could not detect system architecture, defaulting to .exe")
     EXE_EXT = "exe"
 
-SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
-EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
-# include sep in the recipe so that Windows won't complain
-
 GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 
 # compiler variables section
 compilers: List[str] = []
 templates = {
-    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -o {{}}".format(GCC_BINARY),
-    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -o {{}}".format('' if IN_WINDOWS else '-lm'),
+    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}".format(GCC_BINARY),
+    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -march=native -flto -o {{}}".format('' if IN_WINDOWS else '-lm'),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
@@ -110,20 +106,27 @@ if 'COMPILER_OVERRIDE' in environ:
 else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.append('GCC')
-    if which('cl'):
-        compilers.append('CL')
-    for x in ('aocc', 'clang', 'icc', 'pcc', 'tcc'):
+    for x in ('aocc', 'cl', 'clang', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
+BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
 if 'CL' in compilers:
-    BUILD_FOLDER.joinpath('objs').mkdir(parents=True, exist_ok=True)
-else:
-    BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
+    BUILD_FOLDER.joinpath('objs').mkdir(exist_ok=True)
 
-TEST_FILES = ("test_compiler_macros.c", "test_is_prime.c")
+if EXE_EXT == 'x86_64' and 'GCC' in compilers:
+    # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
+    # not knowing this will make the compiler macro test fail
+    _test_file = str(C_FOLDER.joinpath('p0000_template.c'))
+    _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
+    if run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', _test_exe]).returncode:
+        EXE_EXT = EXE_EXT.replace('_64', '')
+
+SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
+EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
+# include sep in the recipe so that Windows won't complain
 
 
 @register
@@ -144,7 +147,7 @@ def key(request):  # type: ignore
 
 
 # to make sure the benchmarks sort correctly
-@fixture(params=sorted(chain(TEST_FILES, ("{:03}".format(x) for x in answers))))
+@fixture(params=sorted(chain(listdir(C_FOLDER.joinpath("tests")), ("{:03}".format(x) for x in answers))))
 def c_file(request):  # type: ignore
     try:
         return SOURCE_TEMPLATE.format(int(request.param))
@@ -158,14 +161,17 @@ def test_compiler_macros(compiler):
     test_path = C_FOLDER.joinpath("tests", "test_compiler_macros.c")
     check_call(templates[compiler].format(test_path, exename).split())
     buff = check_output([exename])
-    is_CL, is_CLANG, is_GCC, is_INTEL, is_AMD, is_PCC, is_TCC = (int(x) for x in buff.split())
-    assert bool(is_CL) == (compiler == "CL")
-    assert bool(is_CLANG) == (compiler == "CLANG")
-    assert bool(is_GCC) == (compiler == "GCC")
-    assert bool(is_INTEL) == (compiler == "ICC")
-    assert bool(is_AMD) == (compiler == "AOCC")
-    assert bool(is_PCC) == (compiler == "PCC")
-    assert bool(is_TCC) == (compiler == "TCC")
+    flags = [bool(int(x)) for x in buff.split()]
+    assert flags[0] == (compiler == "CL")
+    assert flags[1] == (compiler == "CLANG")
+    assert flags[2] == (compiler == "GCC")
+    assert flags[3] == (compiler == "ICC")
+    assert flags[4] == (compiler == "AOCC")
+    assert flags[5] == (compiler == "PCC")
+    assert flags[6] == (compiler == "TCC")
+    assert flags[7] == (EXE_EXT == "x86")
+    assert flags[8] == (EXE_EXT == "x86_64")
+    assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
 
 
 @mark.skipif('NO_OPTIONAL_TESTS')
