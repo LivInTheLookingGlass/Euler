@@ -7,8 +7,6 @@ matrix:
     - language: node_js
       node_js: "11"
       env: jsver=11 linter=true
-    - language: c
-      env: linter=true
     - language: node_js
       node_js: "11"
       env: jsver=11
