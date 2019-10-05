@@ -92,15 +92,6 @@ GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 
 # compiler variables section
 compilers: List[str] = []
-templates = {
-    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}".format(GCC_BINARY),
-    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -march=native -flto -o {{}}".format('' if IN_WINDOWS else '-lm'),
-    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
-    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
-    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
-    'PCC': "pcc -O2 -o {1} {0}",
-    'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
-}
 
 if 'COMPILER_OVERRIDE' in environ:
     compilers.extend(environ['COMPILER_OVERRIDE'].upper().split(','))
@@ -118,17 +109,34 @@ BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
 if 'CL' in compilers:
     BUILD_FOLDER.joinpath('objs').mkdir(exist_ok=True)
 
+_test_file = str(C_FOLDER.joinpath('p0000_template.c'))
 GCC_NO_64 = False
 if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
     # not knowing this will make the compiler macro test fail
-    _test_file = str(C_FOLDER.joinpath('p0000_template.c'))
     _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
     GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', _test_exe]).returncode)
+
+CLANG_LINK_MATH = CLANG_ARCH_NATIVE = ''
+if not IN_WINDOWS:
+    CLANG_LINK_MATH = '-lm'
+if 'CLANG' in compilers:
+    _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
+    CLANG_ARCH = '-march=native' * bool(run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
 
 SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
+
+templates = {
+    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}".format(GCC_BINARY),
+    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 {} -flto -o {{}}".format(CLANG_LINK_MATH, CLANG_ARCH),
+    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Wall -WX -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
+    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
+    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
+    'PCC': "pcc -O2 -o {1} {0}",
+    'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
+}
 
 
 @register

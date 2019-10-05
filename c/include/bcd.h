@@ -234,7 +234,7 @@ BCD_int sub_bcd(BCD_int x, BCD_int y)   {
     if (x.negative == y.negative)   {
         return add_bcd(x, y);
     }
-    // TODO
+    return x; // TODO
 }
 
 BCD_int bcd_int_divide_pwr_10(BCD_int a, uintmax_t tens)    {
@@ -271,4 +271,9 @@ void print_bcd(BCD_int x)   {
             printf("%02x", x.digits[i]);
         }
     }
+}
+
+void print_bcd_ln(BCD_int x) {
+    print_bcd(x);
+    printf("\n");
 }
