@@ -120,7 +120,7 @@ if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
     # not knowing this will make the compiler macro test fail
     _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
-    GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', _test_exe]).returncode)
+    GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', str(_test_exe)]).returncode)
 
 CLANG_LINK_MATH = CLANG_ARCH = ''
 if not IN_WINDOWS:
