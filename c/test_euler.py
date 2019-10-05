@@ -3,7 +3,7 @@ from functools import partial
 from itertools import chain
 from os import environ, listdir, sep
 from pathlib import Path
-from platform import machine, processor, system
+from platform import machine, processor, system, uname
 from shutil import rmtree, which
 from subprocess import check_call, check_output, run
 from sys import path
@@ -44,7 +44,9 @@ known_slow: Set[int] = set()
 
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
+IN_OSX = system() == 'Darwin'
 IN_TERMUX = bool(which('termux-setup-storage'))
+IN_LINUX = (not IN_TERMUX) and (system() == 'Linux')
 
 if IN_TERMUX:
     BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
@@ -74,13 +76,16 @@ ONLY_SLOW = _parsed_ONLY_SLOW and not _parsed_NO_SLOW
 NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed_NO_OPTIONAL_TESTS
 
 # this part isn't necessary, but I like having the binaries include their compile architecture
-if not (IN_WINDOWS or IN_TERMUX) and processor() and ' ' not in processor():
+if not IN_LINUX and processor() and ' ' not in processor():
     EXE_EXT = processor()
 elif IN_WINDOWS:
     # processor() returns something too verbose in Windows
     EXE_EXT = "x86"
     if machine().endswith('64'):
         EXE_EXT += "_64"
+elif IN_OSX:
+    # processor() on OSX returns something too vague to be useful
+    EXE_EXT = uname().machine.replace('i3', 'x')
 elif IN_TERMUX:
     # processor() doesn't seem to work on Termux
     EXE_EXT = check_output('lscpu').split()[1].decode()
