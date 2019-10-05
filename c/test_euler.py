@@ -31,6 +31,7 @@ answers = {
     9: 31875000,
     10: 142913828922,
     11: 70600674,
+    13: 5537376230,
     14: 837799,
     15: 137846528820,
     34: 40730,
@@ -112,17 +113,18 @@ else:
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
+COMPILER_LEN = len(max(compilers, key=len))  # make sure compiler fixtures are evenly spaced
 BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
 if 'CL' in compilers:
     BUILD_FOLDER.joinpath('objs').mkdir(exist_ok=True)
 
+GCC_NO_64 = False
 if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
     # not knowing this will make the compiler macro test fail
     _test_file = str(C_FOLDER.joinpath('p0000_template.c'))
     _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
-    if run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', _test_exe]).returncode:
-        EXE_EXT = EXE_EXT.replace('_64', '')
+    GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', _test_exe]).returncode)
 
 SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
@@ -135,9 +137,9 @@ def cleanup():
         rmtree(BUILD_FOLDER)
 
 
-@fixture(params=sorted(compilers))
+@fixture(params=sorted(x.ljust(COMPILER_LEN) for x in compilers))
 def compiler(request):  # type: ignore
-    return request.param
+    return request.param.strip()
 
 
 # to make sure the benchmarks sort correctly
@@ -169,8 +171,8 @@ def test_compiler_macros(compiler):
     assert flags[4] == (compiler == "AOCC")
     assert flags[5] == (compiler == "PCC")
     assert flags[6] == (compiler == "TCC")
-    assert flags[7] == (EXE_EXT == "x86")
-    assert flags[8] == (EXE_EXT == "x86_64")
+    assert flags[7] == (EXE_EXT == "x86" or (compiler == 'GCC' and GCC_NO_64))
+    assert flags[8] == (EXE_EXT == "x86_64" and not (compiler == 'GCC' and GCC_NO_64))
     assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
 
 
