@@ -190,8 +190,8 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
                 if (((a & 0xF) + (b & 0xF)) > 9)    {  // if the lower nibble be bigger than 9
                     c += 0x06;                         // add 6 to make a decimal digit
                 }
+            #endif
             }
-        #endif
         z.digits[i] = c;
     }
     if (x.bcd_digits < y.bcd_digits)    {
@@ -266,8 +266,8 @@ void print_bcd(BCD_int x)   {
     }
     size_t i = x.bcd_digits - 1;
     printf("%x", x.digits[i]);
-    if (i)  {
-        for (i--; i != -1; i--)   {
+    if (i--)    {
+        for (; i != -1; i--)  {
             printf("%02x", x.digits[i]);
         }
     }
