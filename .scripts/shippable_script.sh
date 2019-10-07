@@ -42,10 +42,12 @@ else
         wget -O - -o /dev/null https://registrationcenter-download.intel.com/akdlm/irc_nas/15873/intel-sw-tools-installer.tar.gz | tar -xz --no-seek -C iccdir  --strip-components=1
         cd iccdir
         sudo apt-get update
-        sudo apt-get install cpio
+        sudo apt-get install -y cpio
         sed -i -e "s/ACCEPT_EULA=decline/ACCEPT_EULA=accept/g" silent.cfg
-        sed -i -e "s/#ACTIVATION_SERIAL_NUMBER=snpat/ACTIVATION_SERIAL_NUMBER=CKDX-WNDG7BK7/g" silent.cfg
         sed -i -e "s/ACTIVATION_TYPE=no_license/ACTIVATION_TYPE=serial_number/g" silent.cfg
+        echo "ACTIVATION_SERIAL_NUMBER=CKDX-WNDG7BK7" >> silent.cfg
+        echo "SELECTION_CONFIG_FILES_PATH=$PWD/packages.json" >> silent.cfg
+        echo '{"selections":[{"moduleId":"intel_cpp_compiler"},{"moduleId":"intel_threading_building_blocks","isDependencyTool":true}]}' > packages.json
         sudo ./install.sh -s silent.cfg
         cd ..
     else
