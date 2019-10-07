@@ -147,16 +147,17 @@ EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
 GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
+CLANG_TEMPLATE = "clang {{}} -O2 {} {} {} -Wall -Werror -std=c11 {} -o {{}}"
 
 templates = {
     'GCC': GCC_TEMPLATE.format(GCC_BINARY),
-    'CLANG': "clang {{}} -O2 {} {} {} -Wall -Werror -std=c11 -o {{}}".format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO),
+    'CLANG': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO, 'AMD_COMPILER=0'),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': GCC_TEMPLATE.format('icc'),
     'PCC': "pcc -O2 -o {1} {0}",
+    'AOCC': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO, 'AMD_COMPILER=1'),
 }
-templates['AOCC'] = templates['CLANG'].replace('-o', '-DAMD_COMPILER=1 -o')  # there's no way to detect the diff, sadly
 
 
 @register

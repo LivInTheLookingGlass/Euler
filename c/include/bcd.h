@@ -180,12 +180,8 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
             #else
                 // otherwise fall back to doing it in C
                 c = a + b;                             // set c to be the result of (a + b) % 0x100
-                if (a > 0x99 - b)   {                  // if c would overflow the decimal range
-                    overflow = true;                   // set overflow to true
+                if ((overflow = (a > 0x99 - b)))    {  // if c would overflow the decimal range
                     c += 0x60;                         // and add 0x60 to make a decimal digit
-                }
-                else    {
-                    overflow = false;                  // overflow defaults to 0
                 }
                 if (((a & 0xF) + (b & 0xF)) > 9)    {  // if the lower nibble be bigger than 9
                     c += 0x06;                         // add 6 to make a decimal digit

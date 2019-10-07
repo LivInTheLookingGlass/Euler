@@ -49,6 +49,8 @@ else
         echo "SELECTION_CONFIG_FILES_PATH=$PWD/packages.json" >> silent.cfg
         echo '{"selections":[{"moduleId":"intel_cpp_compiler"},{"moduleId":"intel_threading_building_blocks","isDependencyTool":true}]}' > packages.json
         sudo ./install.sh -s silent.cfg
+        PATH="/opt/intel/system_studio_2019/bin${PATH:+:${PATH}}"
+        export PATH
         cd ..
     else
         sudo apt-get install -y $COMPILER_OVERRIDE python3-pip
