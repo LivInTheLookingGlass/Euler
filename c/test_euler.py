@@ -134,9 +134,10 @@ if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
     GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', str(_test_exe)]).returncode)
 
-CLANG_LINK_MATH = CLANG_ARCH = ''
+CLANG_LINK_MATH = CLANG_ARCH = CLANG_LTO = ''
 if not IN_WINDOWS:
     CLANG_LINK_MATH = '-lm'
+    CLANG_LTO = '-flto'
 if 'CLANG' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
     CLANG_ARCH = '-march=native' * (not run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
@@ -149,13 +150,13 @@ GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwho
 
 templates = {
     'GCC': GCC_TEMPLATE.format(GCC_BINARY),
-    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -o {{}}".format(CLANG_LINK_MATH),
+    'CLANG': "clang {{}} -O2 {} {} {} -Wall -Werror -std=c11 -o {{}}".format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': GCC_TEMPLATE.format('icc'),
     'PCC': "pcc -O2 -o {1} {0}",
 }
-templates['AOCC'] = templates['CLANG']
+templates['AOCC'] = templates['CLANG'].replace('-o', '-DAMD_COMPILER=1 -o')  # there's no way to detect the diff, sadly
 
 
 @register
