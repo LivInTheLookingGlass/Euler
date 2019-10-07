@@ -8,7 +8,7 @@
 #else
     #define CL_COMPILER 0
 #endif
-#if (defined(__clang__) && !defined(AMD_COMPILER))
+#if (defined(__clang__) && (!defined(AMD_COMPILER) || !AMD_COMPILER))
     #define CLANG_COMPILER 1
 #else
     #define CLANG_COMPILER 0
@@ -25,7 +25,7 @@
 #endif
 #ifndef AMD_COMPILER
     #if CLANG_COMPILER
-        #warning "This suite can't detect the difference between clang and aocc. If this is aocc, you need to add -DAMD_COMPILER=1"
+        #warning "This suite can't detect the difference between clang and aocc. You need to specify -DAMD_COMPILER={0 or 1}"
     #endif
     #define AMD_COMPILER 0
 #endif
