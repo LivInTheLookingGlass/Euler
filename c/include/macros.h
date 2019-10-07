@@ -25,7 +25,7 @@
 #endif
 #ifndef AMD_COMPILER
     #if CLANG_COMPILER
-        #warning This suite can't detect the difference between clang and aocc. If this is aocc, you need to add -DAMD_COMPILER=1
+        #warning "This suite can't detect the difference between clang and aocc. If this is aocc, you need to add -DAMD_COMPILER=1"
     #endif
     #define AMD_COMPILER 0
 #endif
