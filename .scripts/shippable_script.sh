@@ -37,7 +37,7 @@ else
         ./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu
         sudo make && sudo make install
         cd ..
-    if [ $icc ]; then
+    elif [ $icc ]; then
         mkdir iccdir
         wget -O - -o /dev/null https://registrationcenter-download.intel.com/akdlm/irc_nas/15873/intel-sw-tools-installer.tar.gz | tar -xz --no-seek -C iccdir  --strip-components=1
         cd iccdir
