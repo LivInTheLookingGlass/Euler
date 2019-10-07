@@ -38,9 +38,11 @@ answers = {
     76: 190569291,
 }
 
-known_slow: Set[int] = set()
 # this is the set of problems where I have the right answer but wrong solution
+known_slow: Set[int] = set()
 
+# this is the set of problems where builds are not reproducible on PCC compiler
+PCC_no_reproducible: Set[str] = set()
 
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
@@ -103,7 +105,12 @@ if 'COMPILER_OVERRIDE' in environ:
 else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.append('GCC')
-    for x in ('aocc', 'cl', 'clang', 'icc', 'pcc', 'tcc'):
+    if which('clang'):
+        if b'AOCC' in check_output(['clang', '--version']):
+            compilers.append('AOCC')
+        else:
+            compilers.append('CLANG')
+    for x in ('cl', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
@@ -138,15 +145,17 @@ SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
+GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
+
 templates = {
-    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}".format(GCC_BINARY),
+    'GCC': GCC_TEMPLATE.format(GCC_BINARY),
     'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -o {{}}".format(CLANG_LINK_MATH),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
-    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
+    'ICC': GCC_TEMPLATE.format('icc'),
     'PCC': "pcc -O2 -o {1} {0}",
-    'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
 }
+templates['AOCC'] = templates['CLANG']
 
 
 @register
@@ -210,8 +219,8 @@ def test_deterministic_build(c_file, compiler):
     except AssertionError:
         if IN_WINDOWS and compiler != 'CL':  # mingw gcc doesn't seem to make reproducible builds
             xfail()
-        elif compiler == 'PCC':
-            xfail()  # PCC doesn't obviously allow reproducible builds
+        elif compiler == 'PCC' and c_file in PCC_no_reproducible:
+            xfail()  # PCC doesn't allow reproducible builds with static keyword
         raise
 
 

@@ -8,7 +8,7 @@
 #else
     #define CL_COMPILER 0
 #endif
-#ifdef __clang__
+#if (defined(__clang__) && !defined(__code_model_small_))
     #define CLANG_COMPILER 1
 #else
     #define CLANG_COMPILER 0
@@ -23,13 +23,17 @@
 #else
     #define INTEL_COMPILER 0
 #endif
-#define AMD_COMPILER 0
+#if (defined(__clang__) && defined(__code_model_small_))
+    #define AMD_COMPILER 1
+#else
+    #define AMD_COMPILER 0
+#endif
 #ifdef __PCC__
     #define PCC_COMPILER 1
 #else
     #define PCC_COMPILER 0
 #endif
-#define TCC_COMPILER (!(CL_COMPILER || CLANG_COMPILER || GCC_COMPILER || INTEL_COMPILER || PCC_COMPILER))
+#define TCC_COMPILER (!(AMD_COMPILER || CL_COMPILER || CLANG_COMPILER || GCC_COMPILER || INTEL_COMPILER || PCC_COMPILER))
 
 #if (defined(_M_X64) || defined(_M_AMD64) || defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64))
     #define X64_COMPILER 1
@@ -50,6 +54,15 @@
     #define ARM_THUMB 1
 #else
     #define ARM_THUMB 0
+#endif
+
+// compiler workaround section
+
+#if PCC_COMPILER
+    #warning static is being redefined to '' because you are on PCC. \
+    This is happening because PCC does not allow reproducible builds with the static keyword used globally. \
+    Make sure this does not have side effects, or undefine/redefine static per-usage.
+    #define static
 #endif
 
 // helper macro function section
