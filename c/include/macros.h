@@ -8,7 +8,7 @@
 #else
     #define CL_COMPILER 0
 #endif
-#if (defined(__clang__) && !defined(__code_model_small_))
+#if (defined(__clang__) && !defined(AMD_COMPILER))
     #define CLANG_COMPILER 1
 #else
     #define CLANG_COMPILER 0
@@ -23,9 +23,7 @@
 #else
     #define INTEL_COMPILER 0
 #endif
-#if (defined(__clang__) && defined(__code_model_small_))
-    #define AMD_COMPILER 1
-#else
+#ifndef AMD_COMPILER
     #define AMD_COMPILER 0
 #endif
 #ifdef __PCC__
