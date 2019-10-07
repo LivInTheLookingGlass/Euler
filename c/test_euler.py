@@ -151,12 +151,12 @@ CLANG_TEMPLATE = "clang {{}} -O2 {} {} {} -Wall -Werror -std=c11 {} -o {{}}"
 
 templates = {
     'GCC': GCC_TEMPLATE.format(GCC_BINARY),
-    'CLANG': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO, 'AMD_COMPILER=0'),
+    'CLANG': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO, '-DAMD_COMPILER=0'),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': GCC_TEMPLATE.format('icc'),
     'PCC': "pcc -O2 -o {1} {0}",
-    'AOCC': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO, 'AMD_COMPILER=1'),
+    'AOCC': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, CLANG_LTO, '-DAMD_COMPILER=1'),
 }
 
 
