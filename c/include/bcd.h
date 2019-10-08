@@ -166,16 +166,16 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
                     // note that the syntax here is: op [[src, ] dest]
                     // %\d indicates a C symbol is referenced, see the lookups at the end of code for which
                     __asm__(
-                        "add %3, %%al;"   // add the register containing b to al
-                        "daa;"            // have the CPU make sure register al contains valid, packed BCD digits
-                        "setc %1;"        // set the register containing overflow to hold the carry bit, set by daa
-                                          // this next section tells the compiler what to do after execution
-                      : "=al" (c),        // store the contents of register al in symbol c
-                        "=rl" (overflow)  // and a general register gets assigned to symbol overflow (referenced as %1)
-                                          // then below tells the compiler what our inputs are
-                      : "al" (a),         // symbol a should get dumped to register al
-                        "rl" (b)          // and symbol b in a general register (referenced as %3)
-                    );                       
+                        "add %3, %%al;"    // add the register containing b to al
+                        "daa;"             // have the CPU make sure register al contains valid, packed BCD digits
+                        "setc %1;"         // set the register containing overflow to hold the carry bit, set by daa
+                                           // this next section tells the compiler what to do after execution
+                      : "=a" (c),          // store the contents of register al in symbol c
+                        "=rgm" (overflow)  // and a general register or memory location gets assigned to symbol overflow (referenced as %1)
+                                           // then below tells the compiler what our inputs are
+                      : "a" (a),           // symbol a should get dumped to register al
+                        "rgm" (b)          // and symbol b in a general register or memory location (referenced as %3)
+                    );
                 #endif
             #else
                 // otherwise fall back to doing it in C
