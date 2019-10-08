@@ -220,6 +220,29 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
     return z;
 }
 
+BCD_int mul_bcd_cuint(BCD_int x, uintmax_t y)   {
+    if (!y) {
+        return new_BCD_int(0, false);
+    }
+    BCD_int ret = copy_BCD_int(x), tmp;
+    while (--y) {
+        tmp = add_bcd(ret, x);
+        free_BCD_int(ret);
+        ret = tmp;
+    }
+    return ret;
+}
+
+BCD_int pow_cuint_cuint(uintmax_t x, uintmax_t y)   {
+    BCD_int answer = new_BCD_int(1, false), tmp;
+    for (uintmax_t i = 0; i < y; i++)   {
+        tmp = mul_bcd_cuint(answer, x);
+        free_BCD_int(answer);
+        answer = tmp;
+    }
+    return answer;
+}
+
 BCD_int sub_bcd(BCD_int x, BCD_int y)   {
     if (x.zero) {
         return copy_BCD_int(y);
