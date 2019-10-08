@@ -97,6 +97,7 @@ else:
     EXE_EXT = "exe"
 
 GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
+AOCC_BINARY = environ.get('AOCC_OVERRIDE', 'clang')
 
 # compiler variables section
 compilers: List[str] = []
@@ -111,6 +112,8 @@ else:
             compilers.append('AOCC')
         else:
             compilers.append('CLANG')
+    if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
+        compilers.append('AOCC')
     for x in ('cl', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
@@ -147,16 +150,16 @@ EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
 GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
-CLANG_TEMPLATE = "clang {{}} -O2 {} {} -Wall -Werror -std=c11 {} -o {{}}"
+CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std=c11 {} -o {{}}"
 
 templates = {
     'GCC': GCC_TEMPLATE.format(GCC_BINARY),
-    'CLANG': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=0'),
+    'CLANG': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=0'),
     'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'ICC': GCC_TEMPLATE.format('icc'),
     'PCC': "pcc -O2 -o {1} {0}",
-    'AOCC': CLANG_TEMPLATE.format(CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=1'),
+    'AOCC': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=1'),
 }
 
 

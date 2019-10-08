@@ -56,19 +56,23 @@ Note that there are optional test that leverage the Python infrastructure. If yo
 
 If this variable is defined, it should contain a comma-separated list of the compilers you would like to test from the following list (case insensitive):
 
-* aocc (not yet supported)
-* cl
+* aocc (AMD Optimized C Compiler)
+* cl (Visual Studios compiler)
 * clang
 * gcc
-* icc (not yet supported)
-* pcc (partial support)
-* tcc
+* icc (Intel C Compiler)
+* pcc (Portable C Compiler)
+* tcc (Tiny C Compiler)
 
 If this variable is not defined, compilers will be auto-detected using `which()`.
 
+### AOCC_OVERRIDE
+
+If this variable is defined, it should hold a string representing the AMD compiler binary you would like to use. One case you may want this in is to test both the AMD compiler and traditional clang by renaming the AMD compiler's executable.
+
 ### GCC_OVERRIDE
 
-If this variable is defined, it should hold a string representing the `gcc` binary you would like to use. One case you may want this in is on OSX, where `gcc` is often remapped to `clang`.
+If this variable is defined, it should hold a string representing the `gcc` binary you would like to use. One case you may want this in is on OSX or Termux, where `gcc` is often remapped to `clang`.
 
 ### NO_OPTIONAL_TESTS
 
