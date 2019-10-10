@@ -55,8 +55,12 @@ matrix:
       python: pypy3
       os: osx
       env: pyver=pypy3 pydist=homebrew NO_SLOW=true
+    - language: generic
+      python: 3.7
+      os: osx
+      env: pyver=3.7 pydist=macpython ONLY_SLOW=true
   allow_failures:
-    - env: COMPILER_OVERRIDE=pcc pcc=true
+    - env: ONLY_SLOW=true
     - python: pypy3
 
 script:
