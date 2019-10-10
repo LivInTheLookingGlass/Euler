@@ -76,7 +76,7 @@
     #define min(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
-#if !CL_COMPILER
+#if !(CL_COMPILER || TCC_COMPILER)
     #define likely(x)   __builtin_expect(!!(x), 1)
     #define unlikely(x) __builtin_expect(!!(x), 0)
 #else
