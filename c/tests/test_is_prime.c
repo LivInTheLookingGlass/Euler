@@ -12,9 +12,9 @@ int main(int argc, char const *argv[]) {
     p = next(pc);
     while (!pc.exhausted) {
         for (i = prev + 1; i < p; i++)  {
-            printf("%" PRIu64 " %d %" PRIu64 " -1\n", i, is_prime(i), is_composite(i));
+            printf("%" PRIuMAX " %d %" PRIuMAX " -1\n", i, is_prime(i), is_composite(i));
         }
-        printf("%" PRIu64 " %d %" PRIu64 " %" PRIu64 "\n", p, is_prime(p), is_composite(p), (uintmax_t) pc.idx - 1);
+        printf("%" PRIuMAX " %d %" PRIuMAX " %" PRIuMAX "\n", p, is_prime(p), is_composite(p), (uintmax_t) pc.idx - 1);
         prev = p;
         p = next(pc);
     }
