@@ -1,5 +1,5 @@
-#ifndef _MACROS_H
-#define _MACROS_H
+#ifndef MACROS_H
+#define MACROS_H
 
 // compiler info section
 
@@ -64,12 +64,6 @@
     This is happening because PCC does not allow reproducible builds with the static keyword used globally. \
     Make sure this does not have side effects, or undefine/redefine static per-usage.
     #define static
-#endif
-
-#ifdef __SIZEOF_INT128__
-    // for some reason GCC and clang don't have intmax_t set to __int128
-    #define intmax_t __int128
-    #define uintmax_t unsigned intmax_t
 #endif
 
 // helper macro function section
