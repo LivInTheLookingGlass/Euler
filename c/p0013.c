@@ -225,7 +225,7 @@ int main(int argc, char const *argv[])  {
         free_BCD_int(tmp2);
         tmp2 = answer;
     }
-    answer = bcd_int_divide_pwr_10(tmp2, tmp2.decimal_digits - 10);
+    answer = div_bcd_pow_10(tmp2, tmp2.decimal_digits - 10);
     free_BCD_int(tmp2);
     print_bcd(answer);
     free_BCD_int(answer);
