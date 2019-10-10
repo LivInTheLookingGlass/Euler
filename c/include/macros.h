@@ -46,7 +46,7 @@
 #else
     #define X86_COMPILER 0
 #endif
-#if (defined(__arm__) || defined(__thumb__) || defined(_M_ARM) || defined(_M_ARMT))
+#if (defined(__arm__) || defined(__aarch64__) || defined(__thumb__) || defined(_M_ARM) || defined(_M_ARMT) || defined(__ARM_ARCH))
     #define ARM_COMPILER 1
 #else
     #define ARM_COMPILER 0
@@ -66,6 +66,12 @@
     #define static
 #endif
 
+#ifdef __SIZEOF_INT128__
+    // for some reason GCC and clang don't have intmax_t set to __int128
+    #define intmax_t __int128
+    #define uintmax_t unsigned intmax_t
+#endif
+
 // helper macro function section
 
 #ifndef max
@@ -76,10 +82,26 @@
     #define min(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
+#if !CL_COMPILER
+    #define likely(x)   __builtin_expect(!!(x), 1)
+    #define unlikely(x) __builtin_expect(!!(x), 0)
+#else
+    #define likely(x) x
+    #define unlikely(x) x
+#endif
+
 // constants section
 
 #define MAX_FACTORIAL_64 20
 #define MAX_FACTORIAL_128 34
 #define PCC_SQRT_ACCURACY 8
+#define MAX_POW_10_16 10000U
+#define POW_OF_MAX_POW_10_16 4
+#define MAX_POW_10_32 1000000000UL
+#define POW_OF_MAX_POW_10_32 9
+#define MAX_POW_10_64 10000000000000000000ULL
+#define POW_OF_MAX_POW_10_64 19
+#define MAX_POW_10_128 ((uintmax_t) MAX_POW_10_64 * (uintmax_t) MAX_POW_10_64)
+#define POW_OF_MAX_POW_10_128 38
 
 #endif
