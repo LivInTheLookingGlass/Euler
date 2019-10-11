@@ -1,5 +1,5 @@
-#ifndef _EULER_MATH_H
-#define _EULER_MATH_H
+#ifndef EULER_MATH_H
+#define EULER_MATH_H
 
 #include "macros.h"
 
@@ -87,8 +87,8 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
 }
 
 #if PCC_COMPILER
-    unsigned char imprecise_log10(unsigned long long x);
-    inline unsigned char imprecise_log10(unsigned long long x)  {
+    unsigned char imprecise_log10(uintmax_t x);
+    inline unsigned char imprecise_log10(uintmax_t x)  {
         unsigned char answer = 0;
         while (x)   {
             x /= 10;
@@ -109,9 +109,9 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
         return x;
     }
 
-    unsigned long long ceil(double x);
-    inline unsigned long long ceil(double x)   {
-        unsigned long long ret = (unsigned long long) x;
+    uintmax_t ceil(double x);
+    inline uintmax_t ceil(double x)   {
+        uintmax_t ret = (uintmax_t) x;
         if (x == (double) ret)  {
             return ret;
         }

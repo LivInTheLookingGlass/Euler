@@ -1,7 +1,9 @@
-#ifndef _ITERATOR
-#define _ITERATOR
+#ifndef ITERATOR_H
+#define ITERATOR_H
 
 #include <stdbool.h>
+#include <stdint.h>
+#include "macros.h"
 
 #define IteratorHead(return_type, struct_type) \
     return_type (*iterator_function)(struct_type *it); \
@@ -12,7 +14,7 @@
      * The base struct for all iterators in this project
      * @return_type: The type that your iterator will yield
      * @struct_type: The type that your iterator state is stored in
-     * 
+     *
      * @iterator_function: The function to advance the iterator and return the next element
      * @exhausted: An indicator that tells you if the iterator is exhausted
      * @started: An indicator that tells you if the interator has moved at all
@@ -37,7 +39,7 @@
     it.phase = 0; \
     it.exhausted = 0
     /**
-     * The base macro for all iterator intialization functions in this project
+     * The base macro for all iterator initialization functions in this project
      * @it: The iterator you are initializing
      * @advance: The function this iterator uses to advance
      *
@@ -74,13 +76,14 @@ struct counter {
      *
      * See IteratorHead
      */
-    IteratorHead(unsigned long long, counter);
-    unsigned long long idx;
-    unsigned long long stop;
-    long long step;
+    IteratorHead(uintmax_t, counter);
+    uintmax_t idx;
+    uintmax_t stop;
+    intmax_t step;
 };
 
-unsigned long long iterate_counter(counter *i)  {
+uintmax_t iterate_counter(counter *i);
+inline uintmax_t iterate_counter(counter *i)    {
     /**
      * The function to advance a counter
      * @i the counter you want to advance
@@ -88,8 +91,8 @@ unsigned long long iterate_counter(counter *i)  {
      * Returns the next number in the iteration
      */
     IterationHead(i);
-    unsigned long long ret = i->idx;
-    long long step = i->step;
+    uintmax_t ret = i->idx;
+    intmax_t step = i->step;
     i->idx += step;
     if ((step > 0 && i->idx >= i->stop) || (step < 0 && i->idx <= i->stop))   {
         i->exhausted = 1;
@@ -97,7 +100,8 @@ unsigned long long iterate_counter(counter *i)  {
     return ret;
 }
 
-counter counter3(unsigned long long start, unsigned long long stop, long long step)  {
+counter counter3(uintmax_t start, uintmax_t stop, intmax_t step);
+inline counter counter3(uintmax_t start, uintmax_t stop, intmax_t step) {
     /**
      * The base constructor for the counter iterator
      * @start: The beginning position of the counter
@@ -114,7 +118,8 @@ counter counter3(unsigned long long start, unsigned long long stop, long long st
     return ret;
 }
 
-counter counter2(unsigned long long start, unsigned long long stop)    {
+counter counter2(uintmax_t start, uintmax_t stop);
+inline counter counter2(uintmax_t start, uintmax_t stop)  {
     /**
      * The simpler constructor for the counter iterator
      * @start: The beginning position of the counter
@@ -125,7 +130,8 @@ counter counter2(unsigned long long start, unsigned long long stop)    {
     return counter3(start, stop, 1);
 }
 
-counter counter1(unsigned long long stop)  {
+counter counter1(uintmax_t stop);
+inline counter counter1(uintmax_t stop)    {
     /**
      * The simplest constructor for the counter iterator
      * @stop: The point where the counter is exhausted

@@ -1,6 +1,8 @@
-#ifndef _PRIMES
-#define _PRIMES
+#ifndef PRIMES_H
+#define PRIMES_H
 
+#include <stdint.h>
+#include <inttypes.h>
 #include "macros.h"
 
 #if !PCC_COMPILER
@@ -26,20 +28,20 @@ struct prime_counter {
      *
      * See IteratorHead
      */
-    IteratorHead(unsigned long long, prime_counter);
+    IteratorHead(uintmax_t, prime_counter);
     size_t idx;
-    unsigned long long stop;
+    uintmax_t stop;
     prime_sieve *ps;
 };
 
-static unsigned long long *prime_cache;
+static uintmax_t *prime_cache;
 // note: If you let it, this will grow indefinitely. To not let it do so, #define PRIME_CACHE_SIZE_LIMIT
-static unsigned long long prime_cache_max = 0;
+static uintmax_t prime_cache_max = 0;
 static size_t prime_cache_size = 0;
 static size_t prime_cache_idx = 0;
 prime_sieve prime_sieve0();
 
-unsigned long long advance_prime_counter(prime_counter *pc) {
+uintmax_t advance_prime_counter(prime_counter *pc) {
     /**
      * The function to advance a prime number generator
      * @pc the counter you want to advance
@@ -48,7 +50,7 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
      */
     IterationHead(pc);
     if (!prime_cache_size)  {  // if not already done, initialize the prime cache
-        prime_cache = (unsigned long long *) malloc(sizeof(unsigned long long) * 4);
+        prime_cache = (uintmax_t *) malloc(sizeof(uintmax_t) * 4);
         prime_cache[0] = 2;
         prime_cache[1] = 3;
         prime_cache[2] = 5;
@@ -57,13 +59,13 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
         prime_cache_idx = 4;
     }
     if (pc->idx < prime_cache_idx)  {
-        unsigned long long p = prime_cache[pc->idx++];
+        uintmax_t p = prime_cache[pc->idx++];
         if ((pc->exhausted = (p >= pc->stop)))  {
             return 0;
         }
         return p;
     }
-    for (unsigned long long p = prime_cache[pc->idx - 1] + 2; p < pc->stop; p += 2) {
+    for (uintmax_t p = prime_cache[pc->idx - 1] + 2; p < pc->stop; p += 2) {
         bool broken = false;
         for (size_t idx = 1; idx < prime_cache_idx; idx++)  {
             if (p % prime_cache[idx] == 0)  {  // is not prime
@@ -72,8 +74,8 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
             }
         }
         if (!broken)    {  // primeness not determined, exceeded cache
-            unsigned long long root_p = ceil(sqrt(p));
-            for (unsigned long long c = prime_cache_max; c <= root_p; c += 2)  {
+            uintmax_t root_p = ceil(sqrt(p));
+            for (uintmax_t c = prime_cache_max; c <= root_p; c += 2)  {
                 if (p % c == 0) {  // is not prime
                     broken = true;
                     break;
@@ -93,9 +95,9 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
                         new_size = PRIME_CACHE_SIZE_LIMIT;
                     }
 #endif
-                    void *tmp = realloc(prime_cache, new_size * sizeof(unsigned long long));
+                    void *tmp = realloc(prime_cache, new_size * sizeof(uintmax_t));
                     if (tmp != NULL)    {
-                        prime_cache = (unsigned long long *) tmp;
+                        prime_cache = (uintmax_t *) tmp;
                         prime_cache_size = new_size;
                         prime_cache[prime_cache_idx++] = prime_cache_max = p;
                     }
@@ -114,7 +116,7 @@ unsigned long long advance_prime_counter(prime_counter *pc) {
     return 0;
 }
 
-prime_counter prime_counter1(unsigned long long stop)  {
+prime_counter prime_counter1(uintmax_t stop)  {
     /**
      * The base constructor for the prime number generator
      * @stop: The point where the counter is exhausted
@@ -129,7 +131,8 @@ prime_counter prime_counter1(unsigned long long stop)  {
     return ret;
 }
 
-prime_counter prime_counter0()  {
+prime_counter prime_counter0();
+inline prime_counter prime_counter0()   {
     /**
      * The simplest constructor for the prime number generator
      *
@@ -154,16 +157,16 @@ struct prime_sieve {
      *
      * See IteratorHead
      */
-    IteratorHead(unsigned long long, prime_sieve);
-    unsigned long long *sieve;
+    IteratorHead(uintmax_t, prime_sieve);
+    uintmax_t *sieve;
     size_t sieve_len;
-    unsigned long long prime;
-    unsigned long long prime_squared;
-    unsigned long long candidate;
+    uintmax_t prime;
+    uintmax_t prime_squared;
+    uintmax_t candidate;
     prime_counter source;
 };
 
-unsigned long long advance_prime_sieve(prime_sieve *ps) {
+uintmax_t advance_prime_sieve(prime_sieve *ps) {
     /**
      * The function to advance a prime sieve iterator
      * @ps the sieve you want to advance
@@ -177,7 +180,7 @@ unsigned long long advance_prime_sieve(prime_sieve *ps) {
     }
     // if candidate in sieve
     while (true)    {
-        unsigned long long step;
+        uintmax_t step;
         bool candidate_in_sieve = false;
         size_t candidate_index = -1;
         for (size_t i = 0; i < ps->sieve_len * 2; i += 2)   {
@@ -190,7 +193,7 @@ unsigned long long advance_prime_sieve(prime_sieve *ps) {
         }
         if (!candidate_in_sieve)    {
             if (ps->candidate < ps->prime_squared)  {  // prime
-                unsigned long long ret = ps->candidate;
+                uintmax_t ret = ps->candidate;
                 ps->candidate += 2;
                 return ret;
             }
@@ -199,7 +202,7 @@ unsigned long long advance_prime_sieve(prime_sieve *ps) {
             ps->prime = next(ps->source);
             ps->prime_squared = ps->prime * ps->prime;
         }
-        unsigned long long candidate = ps->candidate;
+        uintmax_t candidate = ps->candidate;
         ps->candidate += 2;
         do {
             candidate += step;
@@ -215,7 +218,7 @@ unsigned long long advance_prime_sieve(prime_sieve *ps) {
             ps->sieve[candidate_index] = candidate;
         } else  {
             ps->sieve_len++;
-            ps->sieve = (unsigned long long *) realloc(ps->sieve, ps->sieve_len * 2 * sizeof(unsigned long long));
+            ps->sieve = (uintmax_t *) realloc(ps->sieve, ps->sieve_len * 2 * sizeof(uintmax_t));
             ps->sieve[(ps->sieve_len - 1) * 2] = candidate;
             ps->sieve[ps->sieve_len * 2 - 1] = step;
         }
@@ -270,13 +273,13 @@ struct prime_factor_counter {
      *
      * See IteratorHead
      */
-    IteratorHead(unsigned long long, prime_factor_counter);
-    unsigned long long target;
-    unsigned long long current;
+    IteratorHead(uintmax_t, prime_factor_counter);
+    uintmax_t target;
+    uintmax_t current;
     prime_counter pc;
 };
 
-unsigned long long advance_prime_factor_counter(prime_factor_counter *pfc)  {
+uintmax_t advance_prime_factor_counter(prime_factor_counter *pfc)  {
     /**
      * The function to advance a prime factor iterator
      * @i the counter you want to advance
@@ -295,7 +298,7 @@ unsigned long long advance_prime_factor_counter(prime_factor_counter *pfc)  {
     return -1;
 }
 
-prime_factor_counter prime_factors(unsigned long long n)    {
+prime_factor_counter prime_factors(uintmax_t n)    {
     /**
      * The base constructor for the prime factors iterator
      * @n: The non-zero number you wish to factor
@@ -315,7 +318,7 @@ prime_factor_counter prime_factors(unsigned long long n)    {
 
 #define free_prime_factor_counter(pfc) free_prime_counter(pfc.pc)
 
-unsigned long long is_composite(unsigned long long n)   {
+uintmax_t is_composite(uintmax_t n)   {
     /**
      * Tells you if a number is composite, and if so, its smallest prime factor
      * @n: The number you wish to test
@@ -326,14 +329,15 @@ unsigned long long is_composite(unsigned long long n)   {
         return 0;
     }
     prime_factor_counter iter = prime_factors(n);
-    unsigned long long ret = next(iter);
+    uintmax_t ret = next(iter);
     if (ret == n)   {
         return 0;
     }
     return ret;
 }
 
-bool is_prime(unsigned long long n) {
+bool is_prime(uintmax_t n);
+inline bool is_prime(uintmax_t n)  {
     /**
      * Tells you if a number is prime
      * @n: The number you wish to test

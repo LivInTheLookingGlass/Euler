@@ -1,5 +1,5 @@
-#ifndef _DIGITS
-#define _DIGITS
+#ifndef DIGITS_H
+#define DIGITS_H
 
 #include "macros.h"
 #include "iterator.h"
@@ -25,7 +25,7 @@ unsigned char advance_digit_counter(digit_counter *dc)  {
     return ret;
 }
 
-digit_counter digits(unsigned long long n)  {
+digit_counter digits(uintmax_t n)  {
     digit_counter ret;
     IteratorInitHead(ret, advance_digit_counter);
 #if !PCC_COMPILER

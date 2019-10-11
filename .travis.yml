@@ -10,9 +10,6 @@ matrix:
       node_js: "11"
       os: osx
       env: jsver=11 linter=true
-    - language: c
-      os: osx
-      env: linter=true
     - language: node_js
       node_js: "11"
       os: osx
@@ -36,9 +33,6 @@ matrix:
       os: osx
       env: COMPILER_OVERRIDE=gcc GCC_OVERRIDE=gcc-9
       osx_image: xcode10.1
-    - language: c
-      os: osx
-      env: COMPILER_OVERRIDE=pcc pcc=true
     - language: generic
       python: 3.6
       os: osx
@@ -61,8 +55,12 @@ matrix:
       python: pypy3
       os: osx
       env: pyver=pypy3 pydist=homebrew NO_SLOW=true
+    - language: generic
+      python: 3.7
+      os: osx
+      env: pyver=3.7 pydist=macpython ONLY_SLOW=true
   allow_failures:
-    - env: COMPILER_OVERRIDE=pcc pcc=true
+    - env: ONLY_SLOW=true
     - python: pypy3
 
 script:

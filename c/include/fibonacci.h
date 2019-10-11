@@ -1,28 +1,29 @@
-#ifndef _FIBONACCI
-#define _FIBONACCI
+#ifndef FIBONACCI_H
+#define FIBONACCI_H
 
 #include "iterator.h"
 
 typedef struct fibonacci fibonacci;
 struct fibonacci    {
-    IteratorHead(unsigned long long, fibonacci);
-    unsigned long long a;
-    unsigned long long b;
-    unsigned long long limit;
+    IteratorHead(uintmax_t, fibonacci);
+    uintmax_t a;
+    uintmax_t b;
+    uintmax_t limit;
 };
 
-unsigned long long advance_fibonacci(fibonacci *fib)    {
+uintmax_t advance_fibonacci(fibonacci *fib)    {
     if (fib->exhausted) {
         return 0;
     }
-    unsigned long long tmp = fib->a + fib->b;
+    IterationHead(fib);
+    uintmax_t tmp = fib->a + fib->b;
     fib->a = fib->b;
     fib->b = tmp;
     fib->exhausted = (tmp > fib->limit);
     return fib->a;
 }
 
-fibonacci fibonacci1(unsigned long long limit)  {
+fibonacci fibonacci1(uintmax_t limit)  {
     fibonacci ret;
     IteratorInitHead(ret, advance_fibonacci);
     ret.a = 0;
@@ -31,7 +32,8 @@ fibonacci fibonacci1(unsigned long long limit)  {
     return ret;
 }
 
-fibonacci fibonacci0()  {
+fibonacci fibonacci0();
+inline fibonacci fibonacci0()   {
     return fibonacci1(-1);
 }
 
