@@ -169,6 +169,7 @@ def test_problem(benchmark: Any, key: int) -> None:
     del test_func
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = xfail if key in known_slow else fail
-        fail_func("Exceeding 60s!")
+        stats = benchmark.stats.stats
+        fail_func("Exceeding 60s! (Max={:.6}s, Median={:.6}s)".format(stats.max, stats.median))

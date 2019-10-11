@@ -3,6 +3,10 @@ Project Euler Problem 73
 
 The biggest problem with this was remembering how to do groupwise()
 
+Revision 1:
+
+By making the boundary conditions better-defined, I was able to shave off a few seconds
+
 Problem:
 
 Consider the fraction, n/d, where n and d are positive integers. If n<d and
@@ -20,16 +24,15 @@ How many fractions lie between 1/3 and 1/2 in the sorted set of reduced proper
 fractions for d ≤ 12,000?
 """
 from fractions import Fraction
+from typing import Set, Tuple
 
 
 def main() -> int:
-    seen = set()
-    third = 1 / 3
+    seen: Set[Tuple[int, int]] = set()
     for x in range(2, 12001):
-        for y in range(x // 3, x // 2 + 1):
-            if third < y / x < 0.5:
-                f = Fraction(y, x)
-                seen.add((f.numerator, f.denominator))
+        for y in range(x // 3 + 1, (x + 1) // 2):
+            f = Fraction(y, x)
+            seen.add((f.numerator, f.denominator))
     return len(seen)
 
 

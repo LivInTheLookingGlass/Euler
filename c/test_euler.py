@@ -1,13 +1,16 @@
 from atexit import register
 from functools import partial
-from os import environ, sep
+from itertools import chain
+from os import environ, listdir, sep
 from pathlib import Path
-from platform import machine, processor, system
+from platform import machine, processor, system, uname
 from shutil import rmtree, which
-from subprocess import check_call, check_output
+from subprocess import check_call, check_output, run
 from sys import path
 from tempfile import TemporaryFile
+from time import sleep
 from typing import List, Set, Union
+from uuid import uuid4
 from warnings import warn
 
 from pytest import fail, fixture, mark, skip, xfail
@@ -20,25 +23,33 @@ answers = {
     1: 233168,
     2: 4613732,
     3: 6857,
+    4: 906609,
     5: 232792560,
     6: 25164150,
     7: 104743,
     8: 23514624000,
     9: 31875000,
     10: 142913828922,
+    11: 70600674,
+    13: 5537376230,
     14: 837799,
     15: 137846528820,
+    16: 1366,
     34: 40730,
     76: 190569291,
 }
 
-known_slow: Set[int] = set()
 # this is the set of problems where I have the right answer but wrong solution
+known_slow: Set[int] = set()
 
+# this is the set of problems where builds are not reproducible on PCC compiler
+PCC_no_reproducible: Set[str] = set()
 
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
+IN_OSX = system() == 'Darwin'
 IN_TERMUX = bool(which('termux-setup-storage'))
+IN_LINUX = (not IN_TERMUX) and (system() == 'Linux')
 
 if IN_TERMUX:
     BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
@@ -68,13 +79,16 @@ ONLY_SLOW = _parsed_ONLY_SLOW and not _parsed_NO_SLOW
 NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed_NO_OPTIONAL_TESTS
 
 # this part isn't necessary, but I like having the binaries include their compile architecture
-if not (IN_WINDOWS or IN_TERMUX) and processor() and ' ' not in processor():
+if IN_LINUX and processor() and ' ' not in processor():
     EXE_EXT = processor()
 elif IN_WINDOWS:
     # processor() returns something too verbose in Windows
     EXE_EXT = "x86"
     if machine().endswith('64'):
         EXE_EXT += "_64"
+elif IN_OSX:
+    # processor() on OSX returns something too vague to be useful
+    EXE_EXT = uname().machine.replace('i3', 'x')
 elif IN_TERMUX:
     # processor() doesn't seem to work on Termux
     EXE_EXT = check_output('lscpu').split()[1].decode()
@@ -82,51 +96,82 @@ else:
     warn("Could not detect system architecture, defaulting to .exe")
     EXE_EXT = "exe"
 
-SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
-EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
-# include sep in the recipe so that Windows won't complain
-
 GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
+AOCC_BINARY = environ.get('AOCC_OVERRIDE', 'clang')
 
 # compiler variables section
 compilers: List[str] = []
-templates = {
-    'GCC': "{} {{}} -O2 -lm -Wall -Werror -std=c11 -o {{}}".format(GCC_BINARY),
-    'CLANG': "clang {{}} -O2 {} -Wall -Werror -std=c11 -o {{}}".format('' if IN_WINDOWS else '-lm'),
-    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
-    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
-    'ICC': "icc {} -O2 -lm -Werror -std=c11 -o {}",
-    'PCC': "pcc -O2 -o {1} {0}",
-    'AOCC': "aocc {} -O2 -lm -Werror -std=c11 -o {}",
-}
 
 if 'COMPILER_OVERRIDE' in environ:
     compilers.extend(environ['COMPILER_OVERRIDE'].upper().split(','))
 else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.append('GCC')
-    if which('cl'):
-        compilers.append('CL')
-    for x in ('aocc', 'clang', 'icc', 'pcc', 'tcc'):
+    if which('clang'):
+        if b'AOCC' in check_output(['clang', '--version']):
+            compilers.append('AOCC')
+        else:
+            compilers.append('CLANG')
+    if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
+        compilers.append('AOCC')
+    for x in ('cl', 'icc', 'pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
+COMPILER_LEN = len(max(compilers, key=len))  # make sure compiler fixtures are evenly spaced
+BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
+CL_NO_64 = False
 if 'CL' in compilers:
-    BUILD_FOLDER.joinpath('objs').mkdir(parents=True, exist_ok=True)
-else:
-    BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
+    OBJ_FOLDER = BUILD_FOLDER.joinpath('objs')
+    OBJ_FOLDER.mkdir(exist_ok=True)
+    _test_file = str(C_FOLDER.joinpath('assertions', 'x64_assert.c'))
+    _test_exe = str(BUILD_FOLDER.joinpath('test_cl_64_support.out'))
+    CL_NO_64 = not (run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), str(_test_file)]).returncode)
+
+_test_file = str(C_FOLDER.joinpath('p0000_template.c'))
+GCC_NO_64 = False
+if EXE_EXT == 'x86_64' and 'GCC' in compilers:
+    # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
+    # not knowing this will make the compiler macro test fail
+    _test_exe = str(BUILD_FOLDER.joinpath('test_gcc_64_support.out'))
+    GCC_NO_64 = bool(run([GCC_BINARY, _test_file, '-O0', '-m64', '-o', str(_test_exe)]).returncode)
+
+CLANG_LINK_MATH = CLANG_ARCH = ''
+if not IN_WINDOWS:
+    CLANG_LINK_MATH = '-lm'
+if 'CLANG' in compilers:
+    _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
+    CLANG_ARCH = '-march=native' * (not run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
+
+SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
+EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
+# include sep in the recipe so that Windows won't complain
+
+GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
+CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std=c11 {} -o {{}}"
+
+templates = {
+    'GCC': GCC_TEMPLATE.format(GCC_BINARY),
+    'CLANG': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=0'),
+    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
+    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
+    'ICC': GCC_TEMPLATE.format('icc'),
+    'PCC': "pcc -O2 -o {1} {0}",
+    'AOCC': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=1'),
+}
 
 
 @register
 def cleanup():
-    rmtree(BUILD_FOLDER)
+    if 'PYTEST_XDIST_WORKER' not in environ:
+        rmtree(BUILD_FOLDER)
 
 
-@fixture(params=sorted(compilers))
+@fixture(params=sorted(x.ljust(COMPILER_LEN) for x in compilers))
 def compiler(request):  # type: ignore
-    return request.param
+    return request.param.strip()
 
 
 # to make sure the benchmarks sort correctly
@@ -135,20 +180,53 @@ def key(request):  # type: ignore
     return int(request.param)  # reduce casting burden on test
 
 
+# to make sure the benchmarks sort correctly
+@fixture(params=sorted(chain(listdir(C_FOLDER.joinpath("tests")), ("{:03}".format(x) for x in answers))))
+def c_file(request):  # type: ignore
+    try:
+        return SOURCE_TEMPLATE.format(int(request.param))
+    except Exception:
+        return C_FOLDER.joinpath("tests", request.param)
+
+
 @mark.skipif('NO_OPTIONAL_TESTS')
 def test_compiler_macros(compiler):
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
     test_path = C_FOLDER.joinpath("tests", "test_compiler_macros.c")
     check_call(templates[compiler].format(test_path, exename).split())
     buff = check_output([exename])
-    is_CL, is_CLANG, is_GCC, is_INTEL, is_AMD, is_PCC, is_TCC = (int(x) for x in buff.split())
-    assert bool(is_CL) == (compiler == "CL")
-    assert bool(is_CLANG) == (compiler == "CLANG")
-    assert bool(is_GCC) == (compiler == "GCC")
-    assert bool(is_INTEL) == (compiler == "ICC")
-    assert bool(is_AMD) == (compiler == "AOCC")
-    assert bool(is_PCC) == (compiler == "PCC")
-    assert bool(is_TCC) == (compiler == "TCC")
+    flags = [bool(int(x)) for x in buff.split()]
+    expect_32 = (compiler == 'GCC' and GCC_NO_64) or (compiler == 'CL' and CL_NO_64)
+    assert flags[0] == (compiler == "CL")
+    assert flags[1] == (compiler == "CLANG")
+    assert flags[2] == (compiler == "GCC")
+    assert flags[3] == (compiler == "ICC")
+    assert flags[4] == (compiler == "AOCC")
+    assert flags[5] == (compiler == "PCC")
+    assert flags[6] == (compiler == "TCC")
+    assert flags[7] == (EXE_EXT == "x86" or expect_32)
+    assert flags[8] == (EXE_EXT == "x86_64" and not expect_32)
+    assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
+
+
+@mark.skipif('NO_OPTIONAL_TESTS')
+def test_deterministic_build(c_file, compiler):
+    exename1 = EXE_TEMPLATE.format("dbuild{}".format(uuid4()), compiler)
+    exename2 = EXE_TEMPLATE.format("dbuild{}".format(uuid4()), compiler)
+    environ['SOURCE_DATE_EPOCH'] = '1'
+    environ['ZERO_AR_DATE'] = 'true'
+    check_call(templates[compiler].format(c_file, exename1).split())
+    sleep(2)
+    check_call(templates[compiler].format(c_file, exename2).split())
+    try:
+        with open(exename1, "rb") as f, open(exename2, "rb") as g:
+            assert f.read() == g.read()
+    except AssertionError:
+        if IN_WINDOWS and compiler != 'CL':  # mingw gcc doesn't seem to make reproducible builds
+            xfail()
+        elif compiler == 'PCC' and c_file in PCC_no_reproducible:
+            xfail()  # PCC doesn't allow reproducible builds with static keyword
+        raise
 
 
 @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
@@ -172,7 +250,7 @@ def test_is_prime(benchmark, compiler):
 
     # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
-        fail("Exceeding 200ns average!")
+        fail("Exceeding 200ns average! (time={}s)".format(benchmark.stats.stats.max))
 
 
 def test_problem(benchmark, key, compiler):
@@ -189,6 +267,7 @@ def test_problem(benchmark, key, compiler):
         answer = benchmark(run_test)
     assert answers[key] == int(answer.strip())
     # sometimes benchmark disables itself, so check for .stats
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 60:
+    if hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = xfail if key in known_slow else fail
-        fail_func("Exceeding 60s!")
+        stats = benchmark.stats.stats
+        fail_func("Exceeding 60s! (Max={:.6}s, Median={:.6}s)".format(stats.max, stats.median))
