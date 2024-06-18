@@ -1,0 +1,76 @@
+name: Euler Regression Check
+
+on: push
+
+jobs:
+  python:
+    strategy:
+      matrix:
+        version: ["3.6", "3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "pypy3.6", "pypy3.7", "pypy3.8", "pypy3.9", "pypy3.10", "graalpy-23.1", "graalpy-24.0"]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Python ${{ matrix.version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.version }}
+
+    - name: Run tests
+      run: make pytest
+
+  javascript:
+    strategy:
+      matrix:
+        version: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.version }}
+
+    - name: Run tests
+      run: make jstest
+
+  c:
+    strategy:
+      matrix:
+        compiler: ["llvm", "gcc"]
+        # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: windows-latest
+            compiler: msvc
+          - os: windows-latest
+            compiler: mingw
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Python 3.7
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.7
+
+    - name: Setup Cpp
+      uses: aminya/setup-cpp@v1
+      if: ${{ contains(matrix.compiler, fromJSON('["llvm", "gcc", "msvc"]')) }}
+      with:
+        compiler: ${{ matrix.compiler }}
+
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      if: ${{ matrix.compiler == 'mingw' }}
+      with:
+        platform: x64
+
+    - name: Run tests
+      run: make ctest
