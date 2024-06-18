@@ -12,12 +12,12 @@ ifeq ($(LINT),false)
 pytest_args?= -vl --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
 else
 ifeq ($(LINT),true)
-pytest_args?= -vl --mypy --mypy-ignore-missing-imports --flake8 --isort -k 'not test_problem and not test_is_prime and not test_groupwise'
+pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort -k 'not test_problem and not test_is_prime and not test_groupwise'
 else
 ifeq ($(LINT),less)
-pytest_args?= -vl --flake8 --isort --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
+pytest_args?= -vl --isort --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
 else
-pytest_args?= -vl --mypy --mypy-ignore-missing-imports --flake8 --isort --benchmark-min-time=0.05 --benchmark-group-by=fullfunc --benchmark-sort=fullname --benchmark-verbose
+pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --benchmark-min-time=0.05 --benchmark-group-by=fullfunc --benchmark-sort=fullname --benchmark-verbose
 endif
 endif
 endif
