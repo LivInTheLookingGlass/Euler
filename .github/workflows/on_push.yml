@@ -30,7 +30,7 @@ jobs:
         python-version: ${{ matrix.version }}
 
     - name: Run tests
-      run: LINT=FALSE make pytest
+      run: make pytest LINT=FALSE
 
   javascript:
     strategy:
@@ -38,6 +38,12 @@ jobs:
       matrix:
         version: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
         os: [ubuntu-latest, windows-latest, macos-latest]
+        exclude:
+        - os: macos-latest
+          version: [8, 9, 10, 11, 12, 13, 14, 15]
+        include:
+        - os: macos-13
+          version: [8, 9, 10, 11, 12, 13, 14, 15]
     runs-on: ${{ matrix.os }}
 
     steps:
