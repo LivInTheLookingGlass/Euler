@@ -99,27 +99,27 @@ jobs:
     - name: Run tests
       run: make jstest
 
-#   c:
-#     strategy:
-#       fail-fast: false
-#       matrix:
+  c:
+    strategy:
+      fail-fast: false
+      matrix:
 #         compiler: ["llvm", "gcc"]
 #         # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
-#         os: [ubuntu-latest, windows-latest, macos-latest]
+         os: [ubuntu-latest, windows-latest, macos-latest, macos-13]
 #         include:
 #           - os: windows-latest
 #             compiler: msvc
 #           - os: windows-latest
 #             compiler: mingw
-#     runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-#     steps:
-#     - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-#     - name: Use Python 3.7
-#       uses: actions/setup-python@v5
-#       with:
-#         python-version: 3.7
+    - name: Use Python 3.7
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.7
 
 #     - name: Setup Cpp ${{ matrix.compiler }}
 #       uses: aminya/setup-cpp@v1
@@ -133,5 +133,5 @@ jobs:
 #       with:
 #         platform: x64
 
-#     - name: Run tests
-#       run: make ctest
+    - name: Run tests
+      run: make ctest
