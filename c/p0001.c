@@ -16,8 +16,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 #include <stdio.h>
 #include "include/iterator.h"
 
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = 0;
+unsigned long long p0001() {
     counter c = counter3(0, 1000, 3);
     while (!c.exhausted)    {
         answer += next(c);
@@ -30,6 +29,10 @@ int main(int argc, char const *argv[])  {
     while (!c.exhausted)    {
         answer -= next(c);
     }
+}
+
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0001();
     printf("%llu\n", answer);
     return 0;
 }

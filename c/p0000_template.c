@@ -9,9 +9,14 @@ This paragraph should be replaced by the problem description, excluding images.
 */
 #include <stdio.h>
 
+unsigned long long p0000() {
+    return 0;
+}
 
+#ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    unsigned long long answer = 0;
+    unsigned long long answer = p0000();
     printf("%llu", answer);
     return 0;
 }
+#endif
