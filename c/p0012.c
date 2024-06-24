@@ -26,7 +26,8 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred
 divisors?
 */
-#pragma once
+#ifndef EULER_P0012
+#define EULER_P0012
 #include <stdio.h>
 #include "include/factors.h"
 
@@ -69,4 +70,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

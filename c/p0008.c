@@ -30,7 +30,8 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 */
-#pragma once
+#ifndef EULER_P0008
+#define EULER_P0008
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -77,4 +78,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

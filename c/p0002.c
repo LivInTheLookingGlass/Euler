@@ -14,7 +14,8 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 */
 
-#pragma once
+#ifndef EULER_P0002
+#define EULER_P0002
 #include <stdio.h>
 #include "include/fibonacci.h"
 
@@ -35,4 +36,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu\n", answer);
     return 0;
 }
+#endif
 #endif

@@ -7,7 +7,8 @@ critque.
 
 This paragraph should be replaced by the problem description, excluding images.
 */
-#pragma once
+#ifndef EULER_P0000
+#define EULER_P0000
 #include <stdio.h>
 
 unsigned long long p0000() {
@@ -20,4 +21,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

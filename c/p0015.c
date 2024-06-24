@@ -14,7 +14,8 @@ routes to the bottom right corner.
 
 How many such routes are there through a 20×20 grid?
 */
-#pragma once
+#ifndef EULER_P0015
+#define EULER_P0015
 #include <stdio.h>
 #include "include/math.h"
 
@@ -26,8 +27,9 @@ unsigned long long p0015() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    unsigned long long p0015();
+    unsigned long long answer = p0015();
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

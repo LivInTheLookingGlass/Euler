@@ -10,8 +10,8 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 
 What is the largest prime factor of the number 600851475143 ?
 */
-
-#pragma once
+#ifndef EULER_P0003
+#define EULER_P0003
 #include <stdio.h>
 #include "include/primes.h"
 
@@ -31,4 +31,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu\n", answer);
     return 0;
 }
+#endif
 #endif
