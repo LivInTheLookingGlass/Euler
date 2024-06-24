@@ -19,7 +19,8 @@ numbers and the square of the sum is 3025 − 385 = 2640.
 Find the difference between the sum of the squares of the first one hundred
 natural numbers and the square of the sum.
 */
-#pragma once
+#ifndef EULER_P0006
+#define EULER_P0006
 #include <stdio.h>
 
 unsigned long long p0006() {
@@ -36,4 +37,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

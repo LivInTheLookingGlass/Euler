@@ -12,7 +12,8 @@ get 3, 5, 6 and 9. The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 */
-#pragma once
+#ifndef EULER_P0001
+#define EULER_P0001
 #include <stdio.h>
 #include "include/iterator.h"
 
@@ -39,4 +40,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu\n", answer);
     return 0;
 }
+#endif
 #endif

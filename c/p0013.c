@@ -108,7 +108,8 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 */
-#pragma once
+#ifndef EULER_P0013
+#define EULER_P0013
 #include <stdio.h>
 #include "include/bcd.h"
 
@@ -235,8 +236,9 @@ unsigned long long p0013() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    BCD_int answer = p0013();
+    unsigned long long answer = p0013();
     printf("%llu\n", answer);
     return 0;
 }
+#endif
 #endif

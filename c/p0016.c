@@ -10,7 +10,8 @@ Problem:
 
 What is the sum of the digits of the number 21000?
 */
-#pragma once
+#ifndef EULER_P0016
+#define EULER_P0016
 #include <stdio.h>
 #include "include/bcd.h"
 
@@ -30,4 +31,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu\n", answer);
     return 0;
 }
+#endif
 #endif

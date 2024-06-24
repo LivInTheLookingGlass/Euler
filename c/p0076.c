@@ -38,7 +38,8 @@ It is possible to write five as a sum in exactly six different ways:
 How many different ways can one hundred be written as a sum of at least two
 positive integers?
 */
-#pragma once
+#ifndef EULER_P0076
+#define EULER_P0076
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -75,4 +76,5 @@ int main(int argc, char const *argv[])  {
     printf("%u", answer);
     return 0;
 }
+#endif
 #endif

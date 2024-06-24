@@ -11,8 +11,8 @@ Problem:
 
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
-
-#pragma once
+#ifndef EULER_P0005
+#define EULER_P0005
 #include <stdio.h>
 #include "include/macros.h"
 #include "include/primes.h"
@@ -46,4 +46,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

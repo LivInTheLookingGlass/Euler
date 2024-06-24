@@ -10,7 +10,8 @@ their digits.
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 */
-#pragma once
+#ifndef EULER_P0034
+#define EULER_P0034
 #include <stdio.h>
 #include "include/digits.h"
 #include "include/math.h"
@@ -38,4 +39,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

@@ -20,7 +20,8 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 */
-#pragma once
+#ifndef EULER_P0014
+#define EULER_P0014
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -63,4 +64,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

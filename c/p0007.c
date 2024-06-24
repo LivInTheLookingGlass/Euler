@@ -9,7 +9,8 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 
 What is the 10 001st prime number?
 */
-#pragma once
+#ifndef EULER_P0007
+#define EULER_P0007
 #include <stdio.h>
 #include "include/primes.h"
 
@@ -31,4 +32,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif

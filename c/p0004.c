@@ -10,9 +10,9 @@ the product of two 2-digit numbers is 9009 = 91 × 99.
 
 Find the largest palindrome made from the product of two 3-digit numbers.
 */
-#pragma once
+#ifndef EULER_P0004
+#define EULER_P0004
 #include <stdio.h>
-
 #include "include/digits.h"
 
 unsigned int p0004() {
@@ -41,7 +41,9 @@ unsigned int p0004() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[])  {
+    unsigned int answer = p0004();
     printf("%u", answer);
     return 0;
 }
+#endif
 #endif

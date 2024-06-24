@@ -9,7 +9,8 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
 */
-#pragma once
+#ifndef EULER_P0010
+#define EULER_P0010
 #include <stdio.h>
 #include "include/primes.h"
 
@@ -29,4 +30,5 @@ int main(int argc, char const *argv[])  {
     printf("%llu", answer);
     return 0;
 }
+#endif
 #endif
