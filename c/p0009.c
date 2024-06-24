@@ -13,10 +13,10 @@ For example, 32 + 42 = 9 + 16 = 25 = 52.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 */
+#pragma once
 #include <stdio.h>
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0009() {
     unsigned long long answer = 0;
     for (unsigned int c = 3; !answer && c < 1000; c++)  {
         for (unsigned int b = 2; b < c; b++)    {
@@ -27,6 +27,13 @@ int main(int argc, char const *argv[])  {
             }
         }
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0009();
     printf("%llu", answer);
     return 0;
 }
+#endif

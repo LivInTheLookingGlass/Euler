@@ -10,11 +10,12 @@ their digits.
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 */
+#pragma once
 #include <stdio.h>
 #include "include/digits.h"
 #include "include/math.h"
 
-int main(int argc, char const *argv[])  {
+unsigned long long p0034() {
     unsigned long long answer = 0, sum;
     digit_counter dc;
     for (unsigned long i = 10; i < 100000; i++) {
@@ -28,6 +29,13 @@ int main(int argc, char const *argv[])  {
         }
         free_digit_counter(dc);
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0034();
     printf("%llu", answer);
     return 0;
 }
+#endif

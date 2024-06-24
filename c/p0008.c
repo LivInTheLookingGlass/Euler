@@ -30,11 +30,11 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 */
+#pragma once
 #include <stdio.h>
 #include "include/macros.h"
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0008() {
     size_t i, j;
     unsigned long long answer = 0, tmp;
     const char *plain_digits = ("73167176531330624919225119674426574742355349194934"
@@ -68,6 +68,13 @@ int main(int argc, char const *argv[])  {
         }
         answer = max(answer, tmp);
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0008();
     printf("%llu", answer);
     return 0;
 }
+#endif

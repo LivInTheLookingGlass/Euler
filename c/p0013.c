@@ -108,6 +108,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 */
+#pragma once
 #include <stdio.h>
 #include "include/bcd.h"
 
@@ -215,9 +216,9 @@ static const char numbers[100][50] = {
     "53503534226472524250874054075591789781264330331690"
 };
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0013() {
     BCD_int answer, tmp1, tmp2 = new_BCD_int(0, false);
+    uintmax_t ret;
     for (size_t i = 0; i < 100; i++)    {
         tmp1 = BCD_from_ascii(numbers[i], 50, false);
         answer = add_bcd(tmp1, tmp2);
@@ -227,7 +228,15 @@ int main(int argc, char const *argv[])  {
     }
     answer = div_bcd_pow_10(tmp2, tmp2.decimal_digits - 10);
     free_BCD_int(tmp2);
-    print_bcd(answer);
+    ret = bcd_to_unsigned(answer);
     free_BCD_int(answer);
+    return ret;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    BCD_int answer = p0013();
+    printf("%llu\n", answer);
     return 0;
 }
+#endif

@@ -9,20 +9,26 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 
 What is the 10 001st prime number?
 */
+#pragma once
 #include <stdio.h>
 #include "include/primes.h"
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0007() {
     unsigned int answer, count = 0;
     prime_sieve ps = prime_sieve0();
     while (!ps.exhausted)   {
         answer = next(ps);
-        if (++count == 10001)  {
-            printf("%u", answer);
+        if (++count == 10001)
             break;
-        }
     }
     free_prime_sieve(ps);
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0007();
+    printf("%llu", answer);
     return 0;
 }
+#endif

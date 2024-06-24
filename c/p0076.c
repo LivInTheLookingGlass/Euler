@@ -38,11 +38,11 @@ It is possible to write five as a sum in exactly six different ways:
 How many different ways can one hundred be written as a sum of at least two
 positive integers?
 */
+#pragma once
 #include <stdio.h>
 #include "include/macros.h"
 
-
-int main(int argc, char const *argv[])  {
+unsigned int p0076() {
     unsigned int answer = 0;
     unsigned char idx, i, sum = 100, counts[101] = {0, 0, 100, 0};
     while (!counts[100]) {
@@ -66,6 +66,13 @@ int main(int argc, char const *argv[])  {
             sum += counts[i];
         }
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned int answer = p0076();
     printf("%u", answer);
     return 0;
 }
+#endif

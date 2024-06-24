@@ -14,15 +14,20 @@ routes to the bottom right corner.
 
 How many such routes are there through a 20×20 grid?
 */
+#pragma once
 #include <stdio.h>
 #include "include/math.h"
 
 #define lattice_paths(height, width) (n_choose_r(height + width, height))
 
+unsigned long long p0015() {
+    return lattice_paths(20, 20);
+}
 
+#ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    unsigned long long answer;
-    answer = lattice_paths(20, 20);
+    unsigned long long p0015();
     printf("%llu", answer);
     return 0;
 }
+#endif

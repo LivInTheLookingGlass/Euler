@@ -10,12 +10,12 @@ the product of two 2-digit numbers is 9009 = 91 × 99.
 
 Find the largest palindrome made from the product of two 3-digit numbers.
 */
+#pragma once
 #include <stdio.h>
 
 #include "include/digits.h"
 
-
-int main(int argc, char const *argv[])  {
+unsigned int p0004() {
     unsigned int answer = 0, i, j, a, z, prod;
     bool broken;
     digit_counter dc;
@@ -36,6 +36,12 @@ int main(int argc, char const *argv[])  {
             free_digit_counter(dc);
         }
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
     printf("%u", answer);
     return 0;
 }
+#endif

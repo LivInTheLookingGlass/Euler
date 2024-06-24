@@ -7,6 +7,7 @@ critque.
 
 This paragraph should be replaced by the problem description, excluding images.
 */
+#pragma once
 #include <stdio.h>
 
 unsigned long long p0000() {
