@@ -19,6 +19,8 @@ test: dependencies
 	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py
 
 dependencies:
+	git submodule init
+	git submodule update
 	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 lint:
