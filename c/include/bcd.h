@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -536,6 +537,25 @@ BCD_int div_bcd_pow_10(BCD_int a, uintmax_t tens)   {
 BCD_int shift_bcd_right(BCD_int a, uintmax_t tens);
 inline BCD_int shift_bcd_right(BCD_int a, uintmax_t tens)   {
     return div_bcd_pow_10(a, tens);
+}
+
+uintmax_t bcd_to_unsigned(BCD_int a) {
+    if (a.zero)
+        return 0;
+    uintmax_t answer = 0;
+    for (size_t i = 0; i < a.bcd_digits; ++i) {
+        size_t digit = a.bcd_digits - i - 1;
+        answer = answer * 100 + ((a.digits[digit] & 0xF0) >> 4) * 10 + (a.digits[digit] & 0xF);
+    }
+    return answer;
+}
+
+uintmax_t bcd_to_signed(BCD_int a);
+inline uintmax_t bcd_to_signed(BCD_int a) {
+    uintmax_t answer = bcd_to_unsigned(a);
+    if (a.negative)
+        return -answer;
+    return answer;
 }
 
 void print_bcd(BCD_int x)   {

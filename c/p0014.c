@@ -20,6 +20,7 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 */
+#pragma once
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -44,8 +45,7 @@ inline unsigned int collatz_len(unsigned long long n)    {
     return ret;
 }
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0014() {
     unsigned long long answer = 2, length = 2, tmp;
     for (unsigned long long test = 3; test < 1000000; test++)   {
         tmp = collatz_len(test);
@@ -54,6 +54,13 @@ int main(int argc, char const *argv[])  {
             length = tmp;
         }
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0014();
     printf("%llu", answer);
     return 0;
 }
+#endif

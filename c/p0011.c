@@ -31,6 +31,7 @@ The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in
 the 20×20 grid?
 */
+#pragma once
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -57,8 +58,7 @@ static const unsigned char grid[20][20] = {
     { 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48}
 };
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0011() {
     unsigned long answer = 0, tmp;
     unsigned char i, j;
     for (i = 0; i < 20; i++)    {
@@ -81,6 +81,13 @@ int main(int argc, char const *argv[])  {
             answer = max(answer, tmp);
         }
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0011();
     printf("%lu", answer);
     return 0;
 }
+#endif

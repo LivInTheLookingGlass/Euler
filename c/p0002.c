@@ -14,10 +14,11 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 */
 
+#pragma once
 #include <stdio.h>
 #include "include/fibonacci.h"
 
-int main(int argc, char const *argv[])  {
+unsigned long long p0002() {
     unsigned long long answer = 0;
     fibonacci fib = fibonacci1(3999999);
     while (!fib.exhausted)   {
@@ -25,6 +26,13 @@ int main(int argc, char const *argv[])  {
         next(fib);  // odd (1, 5, 21, 89, ...)
         answer += next(fib);  // even (2, 8, 34, 144, ...)
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0002();
     printf("%llu\n", answer);
     return 0;
 }
+#endif

@@ -9,17 +9,24 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 Find the sum of all the primes below two million.
 */
+#pragma once
 #include <stdio.h>
 #include "include/primes.h"
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0010() {
     unsigned long long tmp, answer = 0;
     prime_sieve ps = prime_sieve0();
     while ((tmp = next(ps)) < 2000000)  {
         answer += tmp;
     }
     free_prime_sieve(ps);
-    printf("%llu", answer);  // this is because of a bug
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0010();
+    printf("%llu", answer);
     return 0;
 }
+#endif

@@ -12,11 +12,12 @@ Problem:
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
 
+#pragma once
 #include <stdio.h>
 #include "include/macros.h"
 #include "include/primes.h"
 
-int main(int argc, char const *argv[])  {
+unsigned long long p0005() {
     unsigned long long answer = 1;
     unsigned char factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
     prime_factor_counter pfc;
@@ -36,6 +37,13 @@ int main(int argc, char const *argv[])  {
             answer *= i;
         }
     }
+    return answer;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0005();
     printf("%llu", answer);
     return 0;
 }
+#endif

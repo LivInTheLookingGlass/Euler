@@ -19,14 +19,21 @@ numbers and the square of the sum is 3025 − 385 = 2640.
 Find the difference between the sum of the squares of the first one hundred
 natural numbers and the square of the sum.
 */
+#pragma once
 #include <stdio.h>
 
-
-int main(int argc, char const *argv[])  {
+unsigned long long p0006() {
     unsigned long long sum = 100 * 101 / 2, sum_of_squares = 0;
     for (unsigned long long i = 1; i < 101; i++)    {
         sum_of_squares += i * i;
     }
-    printf("%llu", sum * sum - sum_of_squares);
+    return sum * sum - sum_of_squares;
+}
+
+#ifndef UNITY_END
+int main(int argc, char const *argv[])  {
+    unsigned long long answer = p0006();
+    printf("%llu", answer);
     return 0;
 }
+#endif
