@@ -7,8 +7,11 @@ py%:
 c%:
 	cd c && $(MAKE) $* $(MFLAGS)
 
+cs%:
+	cd csharp && $(MAKE) $* $(MFLAGS)
+
 js%:
 	cd javascript && $(MAKE) $* $(MFLAGS)
 
 %:
-	$(MAKE) c$* js$* py$* $(MFLAGS)
+	$(MAKE) c$* cs$* js$* py$* $(MFLAGS)
