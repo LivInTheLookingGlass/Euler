@@ -32,7 +32,7 @@ This test checks five things:
 
 ### Generic Problems
 
-For each problem it will check the answer against a known dictionary. If the problem is not in the "known slow" category (meaning that I generate the correct answer with a poor solution), it will run it as many times as the benchmark plugin wants. Otherwise it is run exactly once.
+For each problem it will check the answer against a known dictionary. If the problem is not in the "known slow" category (meaning that I generate the correct answer with a poor solution), it will always be run. Otherwise it tries to detect the `NO_SLOW` environment variable and dynamically skip them.
 
 A test fails if it gets the wrong answer or if it takes more than 1 minute.
 

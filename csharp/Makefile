@@ -1,8 +1,7 @@
 test: dependencies
-	dotnet test
+	dotnet test --nologo 
 
 test_%: dependencies
-	echo "WARNING: multithreaded tests not supported on javascript"
 	$(MAKE) test
 
 dependencies:
