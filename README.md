@@ -1,10 +1,10 @@
 # LivInTheLookingGlass's Project Euler solutions
 
-Windows testing[¹](#footnotes): [![Windows build status](https://ci.appveyor.com/api/projects/status/lqi44hqr7jgqjwpy/branch/master?svg=true)](https://ci.appveyor.com/project/gappleto97/euler) Linux testing[²](#footnotes): [![Linux build status](https://api.shippable.com/projects/5d7ab0a9686e0a0007cb5970/badge?branch=master)](https://app.shippable.com/github/gappleto97/Euler/dashboard) OSX testing[³](#footnotes): [![OSX build status](https://travis-ci.org/gappleto97/Euler.svg?branch=master)](https://travis-ci.org/gappleto97/Euler)
-
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
 This is useful because it has defined problems and answers such that you can compare answers with other people.
+
+All solutions are tested against multiple operating systems and language/compiler versions. For more information, see `.github/workflows/on_push.yml`
 
 ## This is NOT meant to help others on Project Euler problems
 
@@ -12,14 +12,9 @@ This is useful because it has defined problems and answers such that you can com
 
 The repo is divided into sections for each language. The top-level Makefile will direct recipes using prefixes
 
-- make c_____ will go to the c Makefile
-- make py______ will go to the python Makefile
-- make js______ will go to the javascript Makefile
+- `make c*` will go to the c Makefile
+- `make cs*` will go to the csharp Makefile
+- `make py*` will go to the python Makefile
+- `make js*` will go to the javascript Makefile
 
-## Footnotes
-
-1: Windows testing is done on C, Python, and Javascript. C compilers are CL (MSVC 2015/2017 x86/x64) and clang
-
-2: Linux testing is done on Ubuntu 14.04 for C, Python, and Javascript. C compilers are gcc, clang, tcc, and pcc. The pcc and tcc compilers are marked as allowed failures because tcc implements no optimizations and might have time failures, and pcc seems to have errors including `<math.h>` and `<stdlib.h>`
-
-3: OSX testing is done on C, Python, and Javascript. C compilers are gcc and clang
+For more information, please see the README documents in each section.
