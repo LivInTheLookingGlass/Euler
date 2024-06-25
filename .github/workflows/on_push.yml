@@ -142,7 +142,7 @@ jobs:
     - name: Run tests
       run: make jstest
 
-c-lint:
+  c-lint:
     steps:
     - uses: actions/checkout@v3
 
