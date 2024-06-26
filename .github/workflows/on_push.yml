@@ -187,8 +187,16 @@ jobs:
 #       with:
 #         platform: x64
 
-    - name: Run tests
+    - name: Run tests (windows + linux)
+      if: ${{ !contains(matrix.os, 'macos') }}
       run: make ctest
+
+    - name: Run tests (macos)
+      if: ${{ contains(matrix.os, 'macos') }}
+      run: make ctest
+      env:
+        NO_OPTIONAL_TESTS: true
+        COMPILER_OVERRIDE: clang
 
   csharp:
     strategy:
