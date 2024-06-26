@@ -59,3 +59,6 @@ icc:
 	sudo ./install.sh -s silent.cfg; \
 	PATH="/opt/intel/system_studio_2019/bin${PATH:+:${PATH}}"; export PATH
 endif
+
+native:
+	$(CC) *.c Unity/src/unity.c $(CFLAGS)
