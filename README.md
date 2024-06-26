@@ -1,5 +1,10 @@
 # LivInTheLookingGlass's Project Euler solutions
 
+Build Status:
+- C: [![C Build Status](actions/workflows/c.yml/badge.svg)](actions/workflows/c.yml)
+- C#: [![C# Build Status](actions/workflows/csharp.yml/badge.svg)](actions/workflows/csharp.yml)
+- JavaScript: [![JavaScript Build Status](actions/workflows/javascript.yml/badge.svg)](actions/workflows/javascript.yml)
+- Python: [![Python Build Status](actions/workflows/python.yml/badge.svg)](actions/workflows/python.yml)
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
 This is useful because it has defined problems and answers such that you can compare answers with other people.
