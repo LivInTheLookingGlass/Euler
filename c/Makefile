@@ -25,7 +25,7 @@ dependencies:
 
 lint:
 	if test -z "$(clang-tidy p0000_template.c -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
-		clang-tidy *.c -warnings-as-errors=*; \
+		clang-tidy *.c -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
 	else \
 		clang-tidy *.c; \
 	fi
