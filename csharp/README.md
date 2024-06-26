@@ -1,6 +1,6 @@
 # C# Section
 
-Build Status: [![C# Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml)
+[![C# Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml)
 
 All problems are solved in .NET 6, though an effort is made to support other versions.
 
