@@ -10,10 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "benchmark": "^2.1.4",
-    "mocha": "^6.2.0"
+    "mocha": "^10.5.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.5.0",
     "eslint": "^6.4.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "globals": "^15.6.0"
   }
 }
