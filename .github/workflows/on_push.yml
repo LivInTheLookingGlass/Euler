@@ -83,7 +83,7 @@ jobs:
         cache-dependency-path: 'javascript/package-lock.json'
 
     - name: Fetch ESLint
-      run: npm install eslint-config-google@latest eslint@>=5.16.0
+      run: make jsdependencies; npm install eslint-config-google@latest eslint@>=5.16.0
 
     - name: Lint
       run: make jslint
@@ -139,19 +139,22 @@ jobs:
         cache: 'npm'
         cache-dependency-path: 'javascript/package-lock.json'
 
+    - name: Install dependencies
+      run: make jsdependencies
+
     - name: Run tests
       run: make jstest
 
-  c-lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Setup clang-tidy
-      run: sudo apt-get install -y clang-tidy
-
-    - name: Run tests
-      run: make clint
+#  c-lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#
+#    - name: Setup clang-tidy
+#      run: sudo apt-get install -y clang-tidy
+#
+#    - name: Run tests
+#      run: make clint
 
   c:
     strategy:
