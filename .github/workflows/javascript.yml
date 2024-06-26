@@ -1,0 +1,65 @@
+name: JavaScript Check
+
+on: push
+
+jobs:
+  javascript-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js 22
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22
+        cache: 'npm'
+        cache-dependency-path: 'javascript/package-lock.json'
+
+    - name: Fetch ESLint
+      run: make jsdependencies; npm install eslint-config-google@latest eslint@>=5.16.0
+
+    - name: Lint
+      run: make jslint
+
+  javascript:
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        exclude:
+        - os: macos-latest
+          version: 12
+        - os: macos-latest
+          version: 13
+        - os: macos-latest
+          version: 14
+        - os: macos-latest
+          version: 15
+        include:
+        - os: macos-13
+          version: 12
+        - os: macos-13
+          version: 13
+        - os: macos-13
+          version: 14
+        - os: macos-13
+          version: 15
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.version }}
+        cache: 'npm'
+        cache-dependency-path: 'javascript/package-lock.json'
+
+    - name: Install dependencies
+      run: make jsdependencies
+
+    - name: Run tests
+      run: make jstest
+

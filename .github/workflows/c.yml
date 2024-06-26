@@ -1,0 +1,66 @@
+name: C Check
+
+on: push
+
+jobs:
+  c-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Setup clang-tidy
+      run: sudo apt-get install -y clang-tidy
+
+    - name: Run tests
+      run: make clint
+
+  c:
+    strategy:
+      fail-fast: false
+      matrix:
+#         compiler: ["llvm", "gcc"]
+#         # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
+         os: [ubuntu-latest, windows-latest, macos-latest, macos-13]
+#         include:
+#           - os: windows-latest
+#             compiler: msvc
+#           - os: windows-latest
+#             compiler: mingw
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Use Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+        cache-dependency-path: c/requirements.txt
+
+#     - name: Setup Cpp ${{ matrix.compiler }}
+#       uses: aminya/setup-cpp@v1
+#       if: ${{ contains(matrix.compiler, fromJSON('["llvm", "gcc", "msvc"]')) }}
+#       with:
+#         compiler: ${{ matrix.compiler }}
+
+#     - name: Set up MinGW
+#       uses: egor-tensin/setup-mingw@v2
+#       if: ${{ matrix.compiler == 'mingw' }}
+#       with:
+#         platform: x64
+
+    - name: Run tests (windows + linux)
+      if: ${{ !contains(matrix.os, 'macos') }}
+      run: make ctest
+
+    - name: Run tests (macos)
+      if: ${{ contains(matrix.os, 'macos') }}
+      run: make ctest
+      env:
+        NO_OPTIONAL_TESTS: true
+        COMPILER_OVERRIDE: clang
+

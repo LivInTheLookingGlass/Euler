@@ -1,0 +1,51 @@
+name: C# Check
+
+on: push
+
+jobs:
+  csharp:
+    strategy:
+      fail-fast: false
+      matrix:
+        net_version: [5, 6, 7, 8]
+        os: [ubuntu-latest]
+        include:
+        - net_version: 6
+          os: macos-latest
+        - net_version: 6
+          os: macos-13
+        - net_version: 6
+          os: windows-latest
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET ${{ matrix.net_version }}
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.net_version }}
+        cache: true
+        cache-dependency-path: 'csharp/*/packages.lock.json'
+
+    - name: Dependencies
+      run: make csdependencies
+
+    - name: Run Tests
+      run: make cstest
+
+  csharp-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8
+        cache: true
+        cache-dependency-path: 'csharp/*/packages.lock.json'
+
+    - name: Run Linter
+      run: make cslint
+
