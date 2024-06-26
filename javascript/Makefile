@@ -39,3 +39,5 @@ _dependencies:
 	npm install -g;
 endif
 
+lint:
+	npx eslint *.js

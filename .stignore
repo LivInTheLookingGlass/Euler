@@ -6,3 +6,8 @@ javascript/node_modules/**
 **/*.exe
 **/build/**
 venv/**
+**.dll
+**.pdb
+csharp/*/obj
+csharp/*/bin
+**/TestResults
