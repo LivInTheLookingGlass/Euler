@@ -4,11 +4,11 @@ PROXY?=
 py%:
 	cd python && $(MAKE) $* $(MFLAGS)
 
-c%:
-	cd c && $(MAKE) $* $(MFLAGS)
-
 cs%:
 	cd csharp && $(MAKE) $* $(MFLAGS)
+
+c%:
+	cd c && $(MAKE) $* $(MFLAGS)
 
 js%:
 	cd javascript && $(MAKE) $* $(MFLAGS)

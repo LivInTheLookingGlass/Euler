@@ -8,7 +8,7 @@ All C# files share a common prefix with their problem number. All shared functio
 
 ## Makefile
 
-There are two main recipes in this Makefile
+There are three main recipes in this Makefile
 
 ### dependencies
 
@@ -17,6 +17,10 @@ This recipe installs all the required and test dependencies. See the Dependencie
 ### test
 
 This recipe runs tests in multiple threads
+
+### lint
+
+This recipe runs `dotnet`s builtin linter with the `--verify-no-changes` flag
 
 ## Tests
 
