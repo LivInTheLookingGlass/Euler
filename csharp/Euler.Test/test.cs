@@ -1,10 +1,14 @@
+using System.Diagnostics;
+
 namespace Tests
 {
     public class EulerTest
     {
+        private readonly TimeSpan oneMinute = new TimeSpan(0, 1, 0);
         public static IEnumerable<object[]> Data()
         {
             yield return new object[] { typeof(p0000), 0 };
+            yield return new object[] { typeof(p0001), 233168 };
         }
 
         [Theory]
@@ -14,7 +18,11 @@ namespace Tests
             IEuler? prob;
             prob = (IEuler?)Activator.CreateInstance(problem);
             Assert.NotNull(prob);
-            Assert.Equal(expected, await prob.Answer());
+            Stopwatch sw = Stopwatch.StartNew();
+            Int64 result = await prob.Answer();
+            sw.Stop();
+            Assert.Equal(expected, result);
+            Assert.True(sw.Elapsed <= oneMinute);
         }
     }
 }
