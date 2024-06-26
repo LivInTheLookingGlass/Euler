@@ -1,4 +1,6 @@
-# Javascript Section
+# JavaScript Section
+
+Build Status: [![JavaScript Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml)
 
 All problems are solved in ES6+ Javascript
 

@@ -1,5 +1,7 @@
 # C Section
 
+Build Status: [![C Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml)
+
 All problems are solved in C11, though most if not all of it is C99-compatible. It is tested on clang, gcc, and cl (the Visual Studios compiler).
 
 ## Organization

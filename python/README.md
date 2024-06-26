@@ -1,5 +1,7 @@
 # Python Section
 
+Build Status: [![Python Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml)
+
 All problems are solved in type-hinted python3
 
 ## Organization
