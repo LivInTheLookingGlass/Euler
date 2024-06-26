@@ -1,10 +1,6 @@
 # LivInTheLookingGlass's Project Euler solutions
 
-Build Status:
-- C: [![C Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml)
-- C#: [![C# Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml)
-- JavaScript: [![JavaScript Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml)
-- Python: [![Python Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml)
+[![C Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml) [![C# Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml) [![JavaScript Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml) [![Python Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml)
 
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
