@@ -131,16 +131,18 @@ jobs:
     - name: Run tests
       run: make jstest
 
-#  c-lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v3
-#
-#    - name: Setup clang-tidy
-#      run: sudo apt-get install -y clang-tidy
-#
-#    - name: Run tests
-#      run: make clint
+  c-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Setup clang-tidy
+      run: sudo apt-get install -y clang-tidy
+
+    - name: Run tests
+      run: make clint
 
   c:
     strategy:
@@ -158,6 +160,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: true
 
     - name: Use Python 3.10
       uses: actions/setup-python@v5
