@@ -22,7 +22,7 @@ jobs:
       matrix:
 #         compiler: ["llvm", "gcc"]
 #         # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
-         os: [ubuntu-latest, windows-latest, macos-latest, macos-13]
+         os: [ubuntu-latest, windows-latest, macos-latest, macos-13, ubuntu-20.04]
 #         include:
 #           - os: windows-latest
 #             compiler: msvc
@@ -39,7 +39,9 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.10"
-        cache-dependency-path: c/requirements.txt
+        cache-dependency-path: |
+          c/requirements.txt
+          python/requirements.txt
 
 #     - name: Setup Cpp ${{ matrix.compiler }}
 #       uses: aminya/setup-cpp@v1
@@ -53,13 +55,17 @@ jobs:
 #       with:
 #         platform: x64
 
-    - name: Run tests (windows + linux)
-      if: ${{ !contains(matrix.os, 'macos') }}
-      run: make ctest
+    - name: Run tests (linux)
+      if: ${{ contains(matrix.os, 'ubuntu') }}
+      run: make ctest${{ matrix.os == 'ubuntu-latest' && '_auto' }}
+
+    - name: Run tests (windows)
+      if: ${{ contains(matrix.os == 'windows') }}
+      run: make ctest_auto
 
     - name: Run tests (macos)
       if: ${{ contains(matrix.os, 'macos') }}
-      run: make ctest
+      run: make ctest_auto
       env:
         NO_OPTIONAL_TESTS: true
         COMPILER_OVERRIDE: clang
