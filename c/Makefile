@@ -13,6 +13,7 @@ endif
 endif
 
 test_%: dependencies
+	cd ../python; $(MAKE) dependencies $(MFLAGS)
 	$(PY) -m pytest -vl -n$* test_euler.py
 
 test: dependencies
