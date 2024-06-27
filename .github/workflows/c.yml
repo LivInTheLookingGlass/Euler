@@ -45,15 +45,16 @@ jobs:
       if: ${{ matrix.os == 'ubuntu-latest' }}
       run: sudo apt-get install -y tcc pcc
 
-#     - name: Setup Cpp ${{ matrix.compiler }}
-#       uses: aminya/setup-cpp@v1
-#       if: ${{ contains(matrix.compiler, fromJSON('["llvm", "gcc", "msvc"]')) }}
-#       with:
-#         compiler: ${{ matrix.compiler }}
+    - name: Setup MSVC
+      uses: aminya/setup-cpp@v1
+      if: ${{ contains(matrix.os, 'windows') }}
+      with:
+        compiler: msvc
+        vcvarsall: true
 
 #     - name: Set up MinGW
+#       if: ${{ contains(matrix.os, 'windows') }}
 #       uses: egor-tensin/setup-mingw@v2
-#       if: ${{ matrix.compiler == 'mingw' }}
 #       with:
 #         platform: x64
 
