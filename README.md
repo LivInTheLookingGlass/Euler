@@ -2,7 +2,7 @@
 
 | Language | Version | Solved | Status |
 |:---------|:--------|:-------|:-------|
-| C | C11+<br>gcc, clang | 17 | [![C](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml) |
+| C | C11+<br>clang, gcc,<br>pcc, tcc | 17 | [![C](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml) |
 | C# | 5+ | 1 | [![C#](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml) |
 | JavaScript | Node 12+ | 2 | [![JavaScript](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml) |
 | Python | CPython 3.6+<br>Pypy 3.8+<br>GraalPy 23.1+ | 70 | [![Python](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml) |

@@ -41,6 +41,10 @@ jobs:
         python-version: "3.10"
         cache-dependency-path: '*/requirements.txt'
 
+    - name: Setup tcc, pcc
+      if: ${{ contains(matrix.os, 'ubuntu') }}
+      run: sudo apt-get install -y tcc pcc
+
 #     - name: Setup Cpp ${{ matrix.compiler }}
 #       uses: aminya/setup-cpp@v1
 #       if: ${{ contains(matrix.compiler, fromJSON('["llvm", "gcc", "msvc"]')) }}
