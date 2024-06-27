@@ -30,7 +30,7 @@ static unsigned int collatz_len_cache[CACHE_SIZE] = {0, 1, 0};
 
 unsigned int collatz_len(unsigned long long n);
 
-inline unsigned int collatz_len(unsigned long long n)    {
+unsigned int collatz_len(unsigned long long n)    {
     if (n < CACHE_SIZE && collatz_len_cache[n]) {
         return collatz_len_cache[n];
     }
