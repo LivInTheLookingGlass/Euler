@@ -10,7 +10,7 @@ All C files share a common prefix with their problem number. All shared function
 
 ## Makefile
 
-There are three main recipes in this Makefile
+There are four main recipes in this Makefile
 
 ### dependencies
 
@@ -23,6 +23,10 @@ This recipe runs tests in a single thread and performs benchmarks on each. This 
 ### test_*
 
 This recipe runs tests in multiple threads, using however many are specified by the number after the _. For example, `test_3` would spawn three python processes. Because benchmark disables itself when running in children processes, benchmark info is not available with this recipe.
+
+### native
+
+This recipe builds a test executable using the Unity test framework. It recycles no Python infrastructure, but consequently cannot test some features like compiler macros and deterministic building.
 
 ## Tests
 
@@ -87,3 +91,25 @@ If this variable is defined to something other than 0 or an empty string, proble
 ### ONLY_SLOW
 
 If this variable is defined to something other than 0 or an empty string, *only* problems in the known_slow group will be tested. If both [`NO_SLOW`](#no-slow) and [`ONLY_SLOW`](#only-slow) are truthy, they will be ignored and a warning will be issued.
+
+## Problems Solved
+
+- [x] [1](./p0001.c)
+- [x] [2](./p0002.c)
+- [x] [3](./p0003.c)
+- [x] [4](./p0004.c)
+- [x] [5](./p0005.c)
+- [x] [6](./p0006.c)
+- [x] [7](./p0007.c)
+- [x] [8](./p0008.c)
+- [x] [9](./p0009.c)
+- [x] [10](./p0010.c)
+- [x] [11](./p0011.c)
+- [ ] [12](./p0012.c)
+- [x] [13](./p0013.c)
+- [x] [14](./p0014.c)
+- [x] [15](./p0015.c)
+- [x] [16](./p0016.c)
+- [x] [34](./p0034.c)
+- [x] [76](./p0076.c)
+

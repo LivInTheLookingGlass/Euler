@@ -33,3 +33,8 @@ A test fails if it gets the wrong answer or if it takes more than 1 minute.
 ## Dependencies
 
 I try to keep the dependencies of this project as small as possible, except for test plugins. At the moment there are no non-test dependencies for this section.
+
+## Problems Solved
+
+- [x] [1](./p0001.js)
+- [x] [2](./p0002.js)
