@@ -68,5 +68,10 @@ jobs:
           python/requirements.txt
           c/requirements.txt
 
-    - name: Run tests
-      run: make pytest${{ ((!contains(matrix.os, 'latest') || (!contains(matrix.version, 'graalpy') || matrix.version != '3.12') && '_auto LINT=false')) || '' }}
+    - name: Run tests (serially)
+      if: (matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy')
+      run: make pytest
+
+    - name: Run tests (in parallel)
+      if: !((matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy'))
+      run: make pytest_auto
