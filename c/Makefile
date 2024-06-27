@@ -61,4 +61,4 @@ icc:
 endif
 
 native:
-	$(CC) *.c Unity/src/unity.c $(CFLAGS)
+	$(CC) test.c Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
