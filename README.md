@@ -1,6 +1,12 @@
 # LivInTheLookingGlass's Project Euler solutions
 
-[![C Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml) [![C# Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml) [![JavaScript Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml) [![Python Check](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml)
+| **Language**  | **Solved** | **Status** |
+|-----------------------|----|------------|
+| C (C11+)              | 18 | [![C](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml) |
+| C# (5+)               | 1  | [![C#](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml) |
+| JavaScript (Node 12+) | 2  | [![JavaScript](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml) |
+| Python (3.6+)         | 70 | [![Python](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml) |
+| CodeQL Scanning || [![CodeQL](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg)](https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml) |
 
 This is the repository I keep for prospective employers to look at project Euler code that I have written.
 
