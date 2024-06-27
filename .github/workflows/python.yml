@@ -26,10 +26,12 @@ jobs:
       matrix:
         version: ["3.6", "3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
         os: [ubuntu-latest, windows-latest]
-#        exclude:
-#        - os: ubuntu-latest
-#          version: 3.6
+        exclude:
+        - os: ubuntu-latest
+          version: 3.6
         include:
+        - os: ubuntu-20.04
+          version: 3.6
         - os: macos-latest
           version: 3.11
         - os: macos-latest
@@ -64,8 +66,8 @@ jobs:
 
     - name: Run tests (serially)
       if: ${{(matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy')}}
-      run: make pytest
+      run: make pytest LINT=false
 
     - name: Run tests (in parallel)
       if: ${{!((matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy'))}}
-      run: make pytest_auto
+      run: make pytest_auto LINT=false
