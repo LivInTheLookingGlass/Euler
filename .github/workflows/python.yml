@@ -69,4 +69,4 @@ jobs:
           c/requirements.txt
 
     - name: Run tests
-      run: make pytest${{ ((!contains(matrix.os, 'latest') || (!contains(matrix.version, 'graalpy') || matrix.version != '3.12')) && '_auto LINT=false') || '' }}
+      run: make pytest${{ ((!contains(matrix.os, 'latest') || (!contains(matrix.version, 'graalpy') || matrix.version != '3.12') && '_auto LINT=false')) || '' }}
