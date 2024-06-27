@@ -31,35 +31,5 @@ lint:
 		clang-tidy *.c; \
 	fi
 
-ifeq ($(OS),Windows_NT)
-else
-pcc:
-	sudo apt-get install -y build-essential flex bison
-	mkdir pcc pcc-libs
-	wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-releases/pcc-1.1.0.tgz | tar -xz --no-seek -C pcc --strip-components=1
-	wget -O - -o /dev/null http://pcc.ludd.ltu.se/ftp/pub/pcc-releases/pcc-libs-1.1.0.tgz | tar -xz --no-seek -C pcc-libs --strip-components=1
-	cd pcc; \
-	sed -i 's/MANPAGE=@BINPREFIX@cpp/MANPAGE=@BINPREFIX@pcc-cpp/' cc/cpp/Makefile.in; \
-	./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu; \
-	sudo make && sudo make install; \
-	cd ../pcc-libs; \
-	./configure --prefix=/usr --libexecdir=/usr/lib/{x86_64,i386}-linux-gnu; \
-	sudo make && sudo make install
-
-icc:
-	mkdir iccdir
-	wget -O - -o /dev/null https://registrationcenter-download.intel.com/akdlm/irc_nas/15873/intel-sw-tools-installer.tar.gz | tar -xz --no-seek -C iccdir  --strip-components=1
-	sudo apt-get update
-	sudo apt-get install -y cpio
-	cd iccdir; \
-	sed -i -e "s/ACCEPT_EULA=decline/ACCEPT_EULA=accept/g" silent.cfg; \
-	sed -i -e "s/ACTIVATION_TYPE=no_license/ACTIVATION_TYPE=serial_number/g" silent.cfg; \
-	echo "ACTIVATION_SERIAL_NUMBER=CKDX-WNDG7BK7" >> silent.cfg; \
-	echo "SELECTION_CONFIG_FILES_PATH=$PWD/packages.json" >> silent.cfg; \
-	echo '{"selections":[{"moduleId":"intel_cpp_compiler"},{"moduleId":"intel_threading_building_blocks","isDependencyTool":true}]}' > packages.json; \
-	sudo ./install.sh -s silent.cfg; \
-	PATH="/opt/intel/system_studio_2019/bin${PATH:+:${PATH}}"; export PATH
-endif
-
 native:
 	$(CC) test.c Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
