@@ -1,0 +1,8 @@
+Python Implementation of Problem 2
+==================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0002.py>`_
+
+.. automodule:: python.p0002
+   :members:
+   :undoc-members:

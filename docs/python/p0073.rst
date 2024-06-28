@@ -1,0 +1,8 @@
+Python Implementation of Problem 73
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0073.py>`_
+
+.. automodule:: python.p0073
+   :members:
+   :undoc-members:

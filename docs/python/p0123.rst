@@ -1,0 +1,8 @@
+Python Implementation of Problem 123
+====================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0123.py>`_
+
+.. automodule:: python.p0123
+   :members:
+   :undoc-members:

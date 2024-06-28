@@ -14,6 +14,8 @@ terms would be:
 
 Let us list the factors of the first seven triangle numbers:
 
+.. code-block::
+
      1: 1
      3: 1,3
      6: 1,2,3,6

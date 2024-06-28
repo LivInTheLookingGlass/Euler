@@ -1,0 +1,8 @@
+Python Implementation of Problem 35
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0035.py>`_
+
+.. automodule:: python.p0035
+   :members:
+   :undoc-members:

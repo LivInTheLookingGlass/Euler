@@ -1,0 +1,8 @@
+Python Implementation of Problem 33
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0033.py>`_
+
+.. automodule:: python.p0033
+   :members:
+   :undoc-members:

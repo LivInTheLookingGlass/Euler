@@ -13,3 +13,4 @@ venv/**
 csharp/*/obj
 csharp/*/bin
 **/TestResults
+docs/_build
