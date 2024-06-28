@@ -1,0 +1,8 @@
+Python Implementation of Problem 40
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0040.py>`_
+
+.. automodule:: python.p0040
+   :members:
+   :undoc-members:

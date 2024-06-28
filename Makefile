@@ -1,6 +1,9 @@
 PY?=python3
 PROXY?=
 
+html:
+	cd docs && $(make) $(MFLAGS)
+
 py%:
 	cd python && $(MAKE) $* $(MFLAGS)
 

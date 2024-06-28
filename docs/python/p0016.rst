@@ -1,0 +1,8 @@
+Python Implementation of Problem 16
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0016.py>`_
+
+.. automodule:: python.p0016
+   :members:
+   :undoc-members:

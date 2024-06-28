@@ -1,0 +1,8 @@
+Python Implementation of Problem 48
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0048.py>`_
+
+.. automodule:: python.p0048
+   :members:
+   :undoc-members:
