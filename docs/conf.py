@@ -55,6 +55,6 @@ html_static_path = ['_static']
 
 todo_include_todos = True
 
-if 'GITHUB_ACTION' in os.environ:
+if 'GITHUB_WORKSPACE' in os.environ:
     from clang import cindex
-    cindex.Config.set_library_file("~/llvm/lib/libclang.so")
+    cindex.Config.set_library_file(os.environ['GITHUB_WORKSPACE'] + os.sep + "/llvm/lib/libclang.so")
