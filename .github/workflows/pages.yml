@@ -21,7 +21,7 @@ jobs:
           c/requirements.txt
           docs/requirements.txt
 
-    - run: sudo apt-get install -y clang
+    - run: sudo apt-get install -y clang git
 
     - uses: ammaraskar/sphinx-action@master
       with:
