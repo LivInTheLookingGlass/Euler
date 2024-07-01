@@ -54,3 +54,7 @@ html_static_path = ['_static']
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
 todo_include_todos = True
+
+if 'GITHUB_ACTION' in os.environ:
+    from clang import cindex
+    cindex.Config.set_library_file("/usr/lib/x86_64-linux-gnu/libclang-17.so")
