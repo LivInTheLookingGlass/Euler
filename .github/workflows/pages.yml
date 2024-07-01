@@ -10,22 +10,8 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
-  
-    - name: Cache LLVM and Clang
-      id: cache-llvm
-      uses: actions/cache@v4
-      with:
-        path: llvm/lib/libclang.so*
-        key: llvm-17
 
-    - name: Install LLVM and Clang
-      uses: KyleMayes/install-llvm-action@v1
-      with:
-        version: "17.0"
-        cached: ${{ steps.cache-llvm.outputs.cache-hit }}
-
-    - name: Symlink libclang.so
-      run: sudo ln -s ./llvm/lib/libclang.so /usr/lib/x86_64-linux-gnu/libclang-17.so
+    - run: sudo apt-get install -y python3-clang
 
     - name: Use Python 3.12
       uses: actions/setup-python@v5
