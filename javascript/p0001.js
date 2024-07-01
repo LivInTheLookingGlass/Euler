@@ -10,7 +10,7 @@
  *
  * Find the sum of all the multiples of 3 or 5 below 1000.
  *
- * @returns {number}
+ * @return {number}
  */
 exports.p0001 = function() {
     let answer = 0;
