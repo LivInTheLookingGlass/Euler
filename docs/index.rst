@@ -6,10 +6,18 @@
 Welcome to Euler's documentation!
 =================================
 
-.. toctree::
-   :maxdepth: 1
+This repo includes solutions in the following languages:
 
-   usage
+.. include:: ../README.rst
+    :start-line: 2
+    :end-before: This is the repository
+
+.. include:: ../README.rst
+    :start-after: If you are working on Project Euler problems, DO NOT use this as a source
+
+.. toctree::
+   :maxdepth: 2
+
    c
    csharp
    javascript
