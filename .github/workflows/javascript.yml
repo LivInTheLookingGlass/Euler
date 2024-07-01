@@ -1,6 +1,12 @@
 name: JS
 
-on: push
+on:
+  push:
+    paths:
+      - javascript/**
+      - Makefile
+      - _data/**
+      - .github/javascript.yml
 
 jobs:
   javascript-lint:

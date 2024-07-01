@@ -1,6 +1,15 @@
 name: C
 
-on: push
+on:
+  push:
+    paths:
+      - python/requirements.txt
+      - python/p0003.py
+      - python/p0007.py
+      - c/**
+      - Makefile
+      - _data/**
+      - .github/c.yml
 
 jobs:
   c-lint:

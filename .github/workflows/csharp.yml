@@ -1,6 +1,13 @@
 name: C#
 
-on: push
+on:
+  push:
+    paths:
+      - csharp/**
+      - Euler.sln
+      - Makefile
+      - _data/**
+      - .github/csharp.yml
 
 jobs:
   csharp:
