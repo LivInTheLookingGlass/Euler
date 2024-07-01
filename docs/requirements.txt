@@ -1,5 +1,4 @@
 sphinx>=3.1
 sphinx-rtd-theme
 sphinx-js
-sphinx-c-autodoc
-beautifulsoup4
+hawkmoth
