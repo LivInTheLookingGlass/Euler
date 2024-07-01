@@ -11,8 +11,9 @@ import sys
 basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, basedir)
 sys.path.insert(0, basedir + os.sep + 'python')
-c_autodoc_roots = [basedir + os.sep + 'c']
-c_autodoc_compilation_args = ['-std=c11', '-DAMD_COMPILER=0']
+hawkmoth_root = basedir + os.sep + 'c'
+hackmouth_clang = ['-std=c11', '-DAMD_COMPILER=0']
+hawmouth_source_uri = 'https://github.com/LivInTheLookingGlass/Euler/blob/master/{source}#L{line}'
 js_source_path = basedir + os.sep + 'javascript'
 
 project = 'Euler'
@@ -30,7 +31,7 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
-    'sphinx_c_autodoc',
+    'hawkmoth',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',

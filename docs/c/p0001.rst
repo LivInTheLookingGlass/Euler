@@ -3,6 +3,8 @@ C Implementation of Problem 1
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0001.c>`_
 
-.. autocmodule:: p0001.c
-   :members:
-   :undoc-members:
+.. c:autosection:: Project Euler Problem 1
+   :file: p0001.c
+
+.. c:autodoc:: p0001.c
+   :clang: -std=c11 -DAMD_COMPILER=0
