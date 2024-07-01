@@ -2,4 +2,3 @@ sphinx>=3.1
 sphinx-rtd-theme
 sphinx-js
 hawkmoth
-clang
