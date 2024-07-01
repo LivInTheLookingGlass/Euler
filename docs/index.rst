@@ -22,8 +22,8 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. Recent Changes
-.. ==============
+Recent Changes
+==============
 
-.. .. git_changelog::
-..     :revisions: 16
+.. git_changelog::
+    :revisions: 16

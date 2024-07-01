@@ -27,7 +27,7 @@ help:
 .PHONY: help Makefile
 
 dependencies:
-	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
+	$(PIP) install -r requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	cd ../python && $(MAKE) dependencies $(MFLAGS)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
