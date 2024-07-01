@@ -1,6 +1,5 @@
 sphinx>=3.1
 sphinx-rtd-theme
-sphinx-git
 sphinx-js
 sphinx-c-autodoc
 beautifulsoup4
