@@ -33,7 +33,6 @@ extensions = [
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',
-    'sphinx_git',
     # 'sphinx_pyreverse',
     # 'sphinx_js',
     # 'sphinx_csharp',
