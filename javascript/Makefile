@@ -4,9 +4,11 @@ HAS_NPM?=$(shell command -v npm > /dev/null 2>&1 ; echo $$?)
 test: dependencies
 	npx mocha
 
+test_auto: dependencies
+	npx mocha --parallel
+
 test_%: dependencies
-	echo "WARNING: multithreaded tests not supported on javascript"
-	npx mocha
+	npx mocha -parallel -j $*
 
 ifneq ($(HAS_NPM),0)
 ifeq ($(OS),Windows_NT)  # if no NPM and Windows

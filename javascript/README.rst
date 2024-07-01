@@ -18,7 +18,7 @@ utilities for other problems to use.
 Makefile
 --------
 
-There are two main recipes in this Makefile
+There are four main recipes in this Makefile
 
 dependencies
 ~~~~~~~~~~~~
@@ -33,6 +33,20 @@ This recipe runs tests in a single thread and performs benchmarks on
 each. This test infrastructure is based on mocha and benchmark.js,
 though it currently does not export benchmark info except to fail tests
 for time limit reasons.
+
+test\_\*
+~~~~~~~~
+
+This recipe runs tests in the specified number of threads and performs
+benchmarks on each. This test infrastructure is based on mocha and benchmark.js,
+though it currently does not export benchmark info except to fail tests
+for time limit reasons. If you specify the number of threads as `auto`, it
+will default to using 1 fewer threads than you have CPUs.
+
+lint
+~~~~
+
+This recipe runs es-lint on the JavaScript files.
 
 Tests
 -----

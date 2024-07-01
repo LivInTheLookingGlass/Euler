@@ -66,6 +66,11 @@ jobs:
     - name: Install dependencies
       run: make jsdependencies
 
-    - name: Run tests
+    - name: Run tests (serially)
+      if: ${{ matrix.version == 22 && matrix.os == 'ubuntu-latest' }}
       run: make jstest
+
+    - name: Run tests (in parallel)
+      if: ${{ !(matrix.version == 22 && matrix.os == 'ubuntu-latest') }}
+      run: make jstest_auto
 
