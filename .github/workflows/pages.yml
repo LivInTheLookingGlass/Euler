@@ -11,8 +11,6 @@ jobs:
       with:
         submodules: true
 
-    - run: sudo apt-get install -y python3-clang
-
     - name: Use Python 3.12
       uses: actions/setup-python@v5
       with:
