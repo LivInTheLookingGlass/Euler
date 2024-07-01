@@ -9,8 +9,10 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
 .. |Python| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml
-.. |CodeQL| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg
+.. |CodeQL| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
+.. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
 .. |br| raw:: html
 
   <br/>
@@ -33,6 +35,8 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | GraalPy 23.1+       |              |              |
 +------------+---------------------+--------------+--------------+
 | CodeQL Scanning                                 | |CodeQL|     |
++-------------------------------------------------+--------------+
+| Documentation (in progress)                     | |Pages|      |
 +-------------------------------------------------+--------------+
 
 This is the repository I keep for prospective employers to look at
@@ -58,5 +62,7 @@ Makefile will direct recipes using prefixes
 -  ``make cs*`` will go to the csharp Makefile
 -  ``make py*`` will go to the python Makefile
 -  ``make js*`` will go to the javascript Makefile
+-  Any make recipes supported by Sphinx will be redirected to the docs Makefile
+-  All other recipes will be run for all languages
 
 For more information, please see the README documents in each section.

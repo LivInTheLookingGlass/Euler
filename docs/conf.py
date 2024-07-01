@@ -12,6 +12,7 @@ basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, basedir)
 sys.path.insert(0, basedir + os.sep + 'python')
 c_autodoc_roots = [basedir + os.sep + 'c']
+c_autodoc_compilation_args = ['-std=c11', '-DAMD_COMPILER=0']
 js_source_path = basedir + os.sep + 'javascript'
 
 project = 'Euler'
