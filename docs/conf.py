@@ -58,4 +58,4 @@ todo_include_todos = True
 
 if 'GITHUB_WORKSPACE' in os.environ:
     from clang import cindex
-    cindex.Config.set_library_file('/usr/lib/llvm-14/lib/libclang.so')
+    cindex.Config.set_library_file('/usr/lib/llvm-14/lib/libclang.so.1')
