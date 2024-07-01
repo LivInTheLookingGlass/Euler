@@ -11,6 +11,7 @@ import sys
 basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, basedir)
 sys.path.insert(0, basedir + os.sep + 'python')
+c_autodoc_roots = [basedir + os.sep + 'c']
 
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
@@ -27,13 +28,13 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
-    'sphinx-c-autodoc',
+    'sphinx_c_autodoc',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx-autodoc-typehints',
     # 'sphinx-git',
     # 'sphinx-pyreverse',
-    'sphinxcontrib-autojs',
+    'sphinxcontrib_autojs',
     # 'sphinx-csharp',
 ]
 
