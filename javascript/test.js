@@ -18,7 +18,7 @@ for (question in answers) {
                 if (knownSlow.includes(question)) {
                     this.timeout(-1);
                 }
-                assert.equal(answer, module.main());
+                assert.equal(answer, module[`p${formattedQuestion}`]());
             });
             it('should return take less than 1 minute', function(done) {
                 this.timeout(-1);
