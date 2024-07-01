@@ -54,7 +54,3 @@ html_static_path = ['_static']
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
 todo_include_todos = True
-
-if 'GITHUB_WORKSPACE' in os.environ:
-    from clang import cindex
-    cindex.Config.set_library_file(os.environ['GITHUB_WORKSPACE'] + os.sep + "/llvm/lib/libclang.so")
