@@ -20,13 +20,8 @@ jobs:
 
     # - run: sudo apt-get install -y python3-clang python3-pip libclang-dev clang
 
-    - name: Install JavaScript dependencies
-      run: make jsdependencies
-
-    - uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-        build-command: "make html"
+    - name: Build sphinx docs
+      run: make docs
 
     - uses: actions/upload-pages-artifact@v3
       with:
