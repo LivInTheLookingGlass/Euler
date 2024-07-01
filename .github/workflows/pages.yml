@@ -11,7 +11,7 @@ jobs:
       with:
         submodules: true
 
-    - run: sudo apt-get install -y clang
+    - run: sudo apt-get install -y clang libclang-dev
 
     - name: Use Python 3.12
       uses: actions/setup-python@v5
