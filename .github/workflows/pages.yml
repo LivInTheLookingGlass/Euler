@@ -15,13 +15,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 22
-        cache: 'npm'
-        cache-dependency-path: 'javascript/package-lock.json'
 
     # - run: sudo apt-get install -y python3-clang python3-pip libclang-dev clang
 
     - name: Build sphinx docs
-      run: make docs
+      run: make html
 
     - uses: actions/upload-pages-artifact@v3
       with:
