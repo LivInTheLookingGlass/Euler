@@ -11,6 +11,8 @@ jobs:
       with:
         submodules: true
 
+    - run: sudo apt-get install -y clang
+
     - name: Use Python 3.12
       uses: actions/setup-python@v5
       with:
@@ -20,8 +22,6 @@ jobs:
           python/requirements.txt
           c/requirements.txt
           docs/requirements.txt
-
-    - run: sudo apt-get install -y clang
 
     - uses: ammaraskar/sphinx-action@master
       with:
