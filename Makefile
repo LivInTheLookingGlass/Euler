@@ -1,8 +1,8 @@
 PY?=python3
 PROXY?=
 
-html:
-	cd docs && $(make) $(MFLAGS)
+html dirhtml singlehtml htmlhelp qthelp devhelp epub applehelp latex man texinfo text gettext doctest linkcheck xml pseudoxml:
+	cd docs && $(MAKE) $@ $(MFLAGS)
 
 py%:
 	cd python && $(MAKE) $* $(MFLAGS)
