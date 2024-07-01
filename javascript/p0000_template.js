@@ -6,6 +6,8 @@
  * critque.
  *
  * This paragraph should be replaced by the problem description, excluding images.
+ *
+ * @returns {number}
  **/
 
 exports.p0000 = function() {
