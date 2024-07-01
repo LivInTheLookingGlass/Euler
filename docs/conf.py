@@ -27,13 +27,13 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
-    # 'sphinx-c-autodoc',
+    'sphinx-c-autodoc',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx-autodoc-typehints',
     # 'sphinx-git',
     # 'sphinx-pyreverse',
-    # 'sphinxcontrib-autojs',
+    'sphinxcontrib-autojs',
     # 'sphinx-csharp',
 ]
 

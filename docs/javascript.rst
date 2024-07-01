@@ -10,3 +10,5 @@ Problems Solved
 
 .. toctree::
    :maxdepth: 1
+
+   javascript/p0001.rst

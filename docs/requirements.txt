@@ -1,3 +1,6 @@
 sphinx
 sphinx-rtd-theme
 sphinx-git
+sphinxcontrib-autojs
+sphinx-c-autodoc
+beautifulsoup4
