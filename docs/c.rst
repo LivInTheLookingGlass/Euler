@@ -6,7 +6,7 @@ Euler C Implementation
     :end-before: Problems Solved
 
 Problems Solved
-~~~~~~~~~~~~~~~
+---------------
 
 .. toctree::
    :maxdepth: 1
