@@ -12,6 +12,7 @@ basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, basedir)
 sys.path.insert(0, basedir + os.sep + 'python')
 c_autodoc_roots = [basedir + os.sep + 'c']
+js_source_path = basedir + os.sep + 'javascript'
 
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
@@ -31,11 +32,11 @@ extensions = [
     'sphinx_c_autodoc',
     # 'breathe',
     # 'javasphinx',
-    # 'sphinx-autodoc-typehints',
-    # 'sphinx-git',
-    # 'sphinx-pyreverse',
-    'sphinxcontrib_autojs',
-    # 'sphinx-csharp',
+    # 'sphinx_autodoc_typehints',
+    'sphinx_git',
+    # 'sphinx_pyreverse',
+    # 'sphinx_js',
+    # 'sphinx_csharp',
 ]
 
 templates_path = ['_templates']
@@ -46,7 +47,7 @@ language = 'english'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'agogo'
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # -- Options for todo extension ----------------------------------------------
