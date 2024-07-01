@@ -7,7 +7,7 @@
  *
  * This paragraph should be replaced by the problem description, excluding images.
  *
- * @returns {number}
+ * @return {number}
  **/
 
 exports.p0000 = function() {
