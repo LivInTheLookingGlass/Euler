@@ -29,6 +29,7 @@ help:
 dependencies:
 	$(PIP) install -r requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	cd ../python && $(MAKE) dependencies $(MFLAGS)
+	npm install -g jsdoc
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
