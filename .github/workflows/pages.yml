@@ -21,7 +21,9 @@ jobs:
     # - run: sudo apt-get install -y python3-clang python3-pip libclang-dev clang
 
     - name: Install JavaScript dependencies
-      run: make jsdependencies && npm install -g jsdoc
+      run: |
+        make jsdependencies
+        npm install -g jsdoc
 
     - uses: ammaraskar/sphinx-action@master
       with:
