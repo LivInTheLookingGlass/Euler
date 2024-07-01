@@ -31,12 +31,12 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
-    'hawkmoth',
+    # 'hawkmoth',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',
     # 'sphinx_pyreverse',
-    # 'sphinx_js',
+    'sphinx_js',
     # 'sphinx_csharp',
 ]
 
@@ -55,7 +55,3 @@ html_static_path = ['_static']
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
 todo_include_todos = True
-
-if 'GITHUB_WORKSPACE' in os.environ:
-    from clang import cindex
-    cindex.Config.set_library_file('/usr/lib/llvm-14/lib/libclang.so.1')
