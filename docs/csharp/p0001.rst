@@ -1,19 +1,15 @@
-C Implementation of Problem 1
-=============================
+C# Implementation of Problem 1
+==============================
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0001.c>`_
 
 .. csharp:namespace:: Euler
 
-.. csharp:class:: P0001
+.. csharp:class:: p0001
 
    .. csharp:inherits:: Euler.IEuler
 
-   .. csharp:method:: Task<Int64> answer()
-
-      An alas for :meth:`p0001`
-
-   .. csharp:method:: Task<Int64> p0001()
+   .. csharp:method:: Task<Int64> Answer()
 
 .. literalinclude:: ../../csharp/Euler/p0001.cs
    :language: csharp
