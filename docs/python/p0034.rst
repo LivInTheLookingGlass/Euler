@@ -6,3 +6,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 .. automodule:: python.p0034
    :members:
    :undoc-members:
+
+.. literalinclude:: ../../python/p0034.py
+   :language: python
+   :linenos:
