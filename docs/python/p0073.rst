@@ -6,3 +6,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 .. automodule:: python.p0073
    :members:
    :undoc-members:
+
+.. literalinclude:: ../../python/p0073.py
+   :language: python
+   :linenos:
