@@ -31,14 +31,15 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
-    'hawkmoth',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',
     # 'sphinx_pyreverse',
-    'sphinx_js',
-    # 'sphinx_csharp',
+    'sphinx_csharp.csharp',
 ]
+if 'TERMUX_VERSION' not in os.environ:
+    extensions.append('hawkmoth')
+    extensions.append('sphinx_js')
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
