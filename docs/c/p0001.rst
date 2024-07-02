@@ -8,3 +8,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
 .. c:autodoc:: p0001.c
    :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0001.c
+   :language: C
+   :linenos:

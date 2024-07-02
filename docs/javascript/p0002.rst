@@ -4,3 +4,8 @@ JavaScript Implementation of Problem 2
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/p0002.js>`_
 
 .. js:autofunction:: p0002
+
+.. literalinclude:: ../../javascript/p0002.js
+   :language: javascript
+   :linenos:
+
