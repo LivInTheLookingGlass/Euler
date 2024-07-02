@@ -4,6 +4,9 @@ PROXY?=
 html dirhtml singlehtml htmlhelp qthelp devhelp epub applehelp latex man texinfo text gettext doctest linkcheck xml pseudoxml:
 	cd docs && $(MAKE) $@ $(MFLAGS)
 
+clean:
+	rm -r docs/_build {c,python}/{*,*/*}.pyc csharp/*/{bin,obj,TestResults} javascript/node_modules || echo done
+
 py%:
 	cd python && $(MAKE) $* $(MFLAGS)
 
