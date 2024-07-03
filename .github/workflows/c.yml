@@ -9,7 +9,7 @@ on:
       - c/**
       - Makefile
       - _data/**
-      - .github/c.yml
+      - .github/workflows/c.yml
 
 jobs:
   c-lint:

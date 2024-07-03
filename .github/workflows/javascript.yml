@@ -6,7 +6,7 @@ on:
       - javascript/**
       - Makefile
       - _data/**
-      - .github/javascript.yml
+      - .github/workflows/javascript.yml
 
 jobs:
   javascript-lint:

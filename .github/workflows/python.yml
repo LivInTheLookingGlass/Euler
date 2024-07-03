@@ -6,7 +6,7 @@ on:
       - python/**
       - Makefile
       - _data/**
-      - .github/python.yml
+      - .github/workflows/python.yml
 
 jobs:
 #  python-lint:
