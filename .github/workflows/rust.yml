@@ -21,7 +21,28 @@ jobs:
           - stable
           - beta
           - nightly
-        os: [ubuntu-latest, windows-latest, macos-13, macos-latest]
+        os:
+          - ubuntu-latest
+          - windows-latest
+        include:
+          - toolchain: stable
+            os: macos-13
+          - toolchain: stable
+            os: macos-latest
+          - toolchain: "1.20"
+            os: ubuntu-latest
+          - toolchain: "1.28"
+            os: ubuntu-latest
+          - toolchain: "1.30"
+            os: ubuntu-latest
+          - toolchain: "1.40"
+            os: ubuntu-latest
+          - toolchain: "1.50"
+            os: ubuntu-latest
+          - toolchain: "1.60"
+            os: ubuntu-latest
+          - toolchain: "1.70"
+            os: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
