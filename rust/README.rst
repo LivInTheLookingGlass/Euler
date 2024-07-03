@@ -26,7 +26,7 @@ test\_\*
 ~~~~~~~~
 
 Runs ``cargo test`` with a number of threads determined by the recipe suffix. If you call
-``make test_3`` it will use 3 threads. ``make yest_auto`` will let the test runner determine
+``make test_3`` it will use 3 threads. ``make test_auto`` will let the test runner determine
 the number of threads to use.
 
 clean
