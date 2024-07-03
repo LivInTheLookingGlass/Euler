@@ -7,7 +7,7 @@ on:
       - Euler.sln
       - Makefile
       - _data/**
-      - .github/csharp.yml
+      - .github/workflows/csharp.yml
 
 jobs:
   csharp:

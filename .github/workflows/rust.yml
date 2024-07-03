@@ -6,7 +6,7 @@ on:
       - rust/**
       - Makefile
       - _data/**
-      - .github/rust.yml
+      - .github/workflows/rust.yml
 
 env:
   CARGO_TERM_COLOR: always
