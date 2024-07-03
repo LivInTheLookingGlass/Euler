@@ -1,0 +1,14 @@
+C Implementation of Problem 11
+==============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0011.c>`_
+
+.. c:autosection:: Project Euler Problem 11
+   :file: p0011.c
+
+.. c:autodoc:: p0011.c
+   :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0011.c
+   :language: C
+   :linenos:

@@ -1,0 +1,14 @@
+C Implementation of Problem 16
+==============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0016.c>`_
+
+.. c:autosection:: Project Euler Problem 16
+   :file: p0016.c
+
+.. c:autodoc:: p0016.c
+   :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0016.c
+   :language: C
+   :linenos:
