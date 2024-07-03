@@ -1,0 +1,14 @@
+C Implementation of Problem 3
+=============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0003.c>`_
+
+.. c:autosection:: Project Euler Problem 3
+   :file: p0003.c
+
+.. c:autodoc:: p0003.c
+   :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0003.c
+   :language: C
+   :linenos:

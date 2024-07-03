@@ -1,0 +1,14 @@
+C Implementation of Problem 34
+==============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0034.c>`_
+
+.. c:autosection:: Project Euler Problem 34
+   :file: p0034.c
+
+.. c:autodoc:: p0034.c
+   :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0034.c
+   :language: C
+   :linenos:

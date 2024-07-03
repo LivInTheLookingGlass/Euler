@@ -1,0 +1,14 @@
+C Implementation of Problem 9
+=============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0009.c>`_
+
+.. c:autosection:: Project Euler Problem 9
+   :file: p0009.c
+
+.. c:autodoc:: p0009.c
+   :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0009.c
+   :language: C
+   :linenos:

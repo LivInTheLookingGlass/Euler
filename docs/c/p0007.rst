@@ -1,0 +1,14 @@
+C Implementation of Problem 7
+=============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0007.c>`_
+
+.. c:autosection:: Project Euler Problem 7
+   :file: p0007.c
+
+.. c:autodoc:: p0007.c
+   :clang: -std=c11 -DAMD_COMPILER=0
+
+.. literalinclude:: ../../c/p0007.c
+   :language: C
+   :linenos:
