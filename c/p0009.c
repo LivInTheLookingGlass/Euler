@@ -23,7 +23,7 @@ unsigned long long p0009() {
         for (unsigned int b = 2; b < c; b++)    {
             unsigned int a = 1000 - c - b;
             if (a < b && a*a + b*b == c*c)  {
-                answer = a * b * c;
+                answer = (unsigned long long) a * b * c;
                 break;
             }
         }
