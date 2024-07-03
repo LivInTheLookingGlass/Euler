@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        net_version: [5, 6, 7, 8]
+        net_version: [2, 3, 5, 6, 7, 8, 9]
         os: [ubuntu-latest]
         include:
         - net_version: 6
@@ -23,14 +23,6 @@ jobs:
           os: macos-13
         - net_version: 6
           os: windows-latest
-        - net_version: 1
-          os: ubuntu-20.04
-        - net_version: 2
-          os: ubuntu-20.04
-        - net_version: 3
-          os: ubuntu-20.04
-        - net_version: 4
-          os: ubuntu-20.04
     runs-on: ${{ matrix.os }}
 
     steps:

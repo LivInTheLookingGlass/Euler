@@ -6,8 +6,7 @@ C# Section
 
 |C# Check|
 
-All problems are solved in .NET 5, though an effort is made to support
-other versions.
+All problems are solved in .NET 2+.
 
 Organization
 ------------
