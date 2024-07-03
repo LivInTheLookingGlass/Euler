@@ -26,6 +26,8 @@ Problems Solved
 ---------------
 
 .. toctree::
+   :glob:
+   :numbered:
    :maxdepth: 1
 
-   csharp/p0001.rst
+   csharp/p[0-9][0-9][0-9][0-9]
