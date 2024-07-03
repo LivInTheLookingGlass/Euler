@@ -1,4 +1,11 @@
+#[cfg(test)]
+use std::time::Duration;
+
+#[cfg(test)]
+use seq_macro::seq;
+#[cfg(test)]
 use rstest::rstest;
+
 mod p0001;
 
 const ANSWERS: [(&str, fn() -> u64, u64); 1] = [
@@ -12,11 +19,17 @@ fn main() {
     }
 }
 
+#[cfg(test)]
+seq!(N in 0..1 {
 #[rstest]
-#[case(0)]
+#[timeout(Duration::new(60, 0))]
+#(
+#[case(N)]
+)*
 fn test_problem(#[case] idx: usize) -> Result<(), String> {
     let (_, func, answer) = ANSWERS[idx];
     let result = func();
     assert_eq!(answer, result);
     Ok(())
 }
+});
