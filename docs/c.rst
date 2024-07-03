@@ -9,7 +9,8 @@ Problems Solved
 ---------------
 
 .. toctree::
+   :glob:
+   :numbered:
    :maxdepth: 1
 
-   c/p0001.rst
-
+   c/p[0-9][0-9][0-9][0-9]

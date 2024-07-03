@@ -36,11 +36,11 @@ extensions = [
     # 'sphinx_autodoc_typehints',
     # 'sphinx_pyreverse',
     'sphinx_csharp.csharp',
-    'sphinx_rust',
 ]
 if 'TERMUX_VERSION' not in os.environ:
     extensions.append('hawkmoth')
     extensions.append('sphinx_js')
+    extensions.append('sphinx_rust')
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

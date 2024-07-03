@@ -9,7 +9,9 @@ Problems Solved
 ---------------
 
 .. toctree::
+   :glob:
+   :numbered:
    :maxdepth: 1
 
-   javascript/p0001.rst
-   javascript/p0002.rst
+   javascript/p[0-9][0-9][0-9][0-9]
+
