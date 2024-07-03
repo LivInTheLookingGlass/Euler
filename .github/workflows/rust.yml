@@ -1,0 +1,32 @@
+name: Rs
+
+on:
+  push:
+    paths:
+      - rust/**
+      - Makefile
+      - _data/**
+      - .github/rust.yml
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build_and_test:
+    name: Rust project - latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        toolchain:
+          - stable
+          - beta
+          - nightly
+        os: [ubuntu-latest, windows-latest, macos-13, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.toolchain }}
+      - run: cargo build --verbose
+      - run: cargo test --verbose

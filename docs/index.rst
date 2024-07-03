@@ -22,6 +22,7 @@ This repo includes solutions in the following languages:
    csharp
    javascript
    python
+   rust
 
 Indices and tables
 ==================
