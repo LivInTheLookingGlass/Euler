@@ -13,35 +13,41 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml
 .. |CodeQL| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
+.. |ESLint| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml/badge.svg
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
+.. |RustClippy| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml/badge.svg
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
 .. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
 .. |br| raw:: html
 
   <br/>
-.. |total| replace:: 642
+.. |total| replace:: 897
 
-+------------+---------------------+--------------+--------------+
-| Language   | Version             | Solved       | Status       |
-+============+=====================+==============+==============+
-| C          | C11+ in: ``gcc``,   | 17 / |total| | |C|          |
-|            | |br| ``clang``,     |              |              |
-|            | ``msvc``, |br|      |              |              |
-|            | ``pcc``, ``tcc``    |              |              |
-+------------+---------------------+--------------+--------------+
-| C#         | .NET 2+             | 1 / |total|  | |C#|         |
-+------------+---------------------+--------------+--------------+
-| JavaScript | Node 12+            | 2 / |total|  | |JavaScript| |
-+------------+---------------------+--------------+--------------+
-| Python     | CPython 3.6+ |br|   | 70 / |total| | |Python|     |
-|            | Pypy 3.8+ |br|      |              |              |
-|            | GraalPy 23.1+       |              |              |
-+------------+---------------------+--------------+--------------+
-| Rust       | 1.1+                | 1 / |total|  | |Rust|       |
-+------------+---------------------+--------------+--------------+
-| CodeQL Scanning                                 | |CodeQL|     |
-+-------------------------------------------------+--------------+
-| Documentation (in progress)                     | |Pages|      |
-+-------------------------------------------------+--------------+
++------------+---------------------+--------------+---------------+
+| Language   | Version             | Solved       | Status        |
++============+=====================+==============+===============+
+| C          | C11+ in: ``gcc``,   | 17 / |total| | |C|           |
+|            | |br| ``clang``,     |              |               |
+|            | ``msvc``, |br|      |              |               |
+|            | ``pcc``, ``tcc``    |              |               |
++------------+---------------------+--------------+---------------+
+| C#         | .NET 2+             |  2 / |total| | |C#|          |
++------------+---------------------+--------------+---------------+
+| JavaScript | Node 12+            |  2 / |total| | |JavaScript|  |
++------------+---------------------+--------------+---------------+
+| Python     | CPython 3.6+ |br|   | 70 / |total| | |Python|      |
+|            | Pypy 3.8+ |br|      |              |               |
+|            | GraalPy 23.1+       |              |               |
++------------+---------------------+--------------+---------------+
+| Rust       | 1.1+                |  2 / |total| | |Rust|        |
++------------+---------------------+--------------+---------------+
+| Documentation (in progress)                     | |Pages|       |
++-------------------------------------------------+---------------+
+| Code Scanning                                   | |CodeQL| |br| |
+|                                                 | |ESLint| |br| |
+|                                                 | |RustClippy|  |
++-------------------------------------------------+---------------+
 
 This is the repository I keep for prospective employers to look at
 project Euler code that I have written.
@@ -64,8 +70,8 @@ Makefile will direct recipes using prefixes
 
 -  ``make c*`` will go to the c Makefile
 -  ``make cs*`` will go to the csharp Makefile
--  ``make py*`` will go to the python Makefile
 -  ``make js*`` will go to the javascript Makefile
+-  ``make py*`` will go to the python Makefile
 -  ``make rs*`` will go to the rust Makefile
 -  Any make recipes supported by Sphinx will be redirected to the docs Makefile
 -  All other recipes will be run for all languages

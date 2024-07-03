@@ -9,24 +9,6 @@ on:
       - .github/workflows/javascript.yml
 
 jobs:
-  javascript-lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Use Node.js 22
-      uses: actions/setup-node@v3
-      with:
-        node-version: 22
-        cache: 'npm'
-        cache-dependency-path: 'javascript/package-lock.json'
-
-    - name: Fetch ESLint
-      run: make jsdependencies; npm install eslint-config-google@latest eslint@>=5.16.0
-
-    - name: Lint
-      run: make jslint
-
   javascript:
     strategy:
       fail-fast: false

@@ -7,9 +7,11 @@ use seq_macro::seq;
 use rstest::rstest;
 
 mod p0001;
+mod p0002;
 
 const ANSWERS: [(&str, fn() -> u64, u64); 1] = [
     ("p0001", p0001::p0001, 233168)
+    ("p0002", p0002::p0002, 4613732)
 ];
 
 fn main() {
