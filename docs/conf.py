@@ -38,7 +38,7 @@ extensions = [
     'sphinx_csharp.csharp',
 ]
 if 'TERMUX_VERSION' not in os.environ:
-    extensions.append('hawkmoth')
+    # extensions.append('hawkmoth')
     extensions.append('sphinx_js')
     extensions.append('sphinx_rust')
 

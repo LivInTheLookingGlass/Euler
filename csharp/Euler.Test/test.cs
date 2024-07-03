@@ -9,6 +9,7 @@ namespace Tests
         {
             yield return new object[] { typeof(p0000), 0 };
             yield return new object[] { typeof(p0001), 233168 };
+            yield return new object[] { typeof(p0002), 4613732 };
         }
 
         [Theory]
