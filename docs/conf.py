@@ -36,6 +36,7 @@ extensions = [
     # 'sphinx_autodoc_typehints',
     # 'sphinx_pyreverse',
     'sphinx_csharp.csharp',
+    'sphinx_rust',
 ]
 if 'TERMUX_VERSION' not in os.environ:
     extensions.append('hawkmoth')

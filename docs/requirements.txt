@@ -4,3 +4,5 @@ sphinx-js
 hawkmoth
 clang==14
 sphinx-csharp
+sphinx-rust
+

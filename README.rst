@@ -9,6 +9,8 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
 .. |Python| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml
+.. |Rust| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml/badge.svg
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml
 .. |CodeQL| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
 .. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
@@ -33,6 +35,8 @@ LivInTheLookingGlass’s Project Euler solutions
 | Python     | CPython 3.6+ |br|   | 70 / |total| | |Python|     |
 |            | Pypy 3.8+ |br|      |              |              |
 |            | GraalPy 23.1+       |              |              |
++------------+---------------------+--------------+--------------+
+| Rust       |                     | 1 / |total|  | |Rust|       |
 +------------+---------------------+--------------+--------------+
 | CodeQL Scanning                                 | |CodeQL|     |
 +-------------------------------------------------+--------------+
@@ -62,6 +66,7 @@ Makefile will direct recipes using prefixes
 -  ``make cs*`` will go to the csharp Makefile
 -  ``make py*`` will go to the python Makefile
 -  ``make js*`` will go to the javascript Makefile
+-  ``make rs*`` will go to the rust Makefile
 -  Any make recipes supported by Sphinx will be redirected to the docs Makefile
 -  All other recipes will be run for all languages
 

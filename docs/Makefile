@@ -27,8 +27,7 @@ help:
 .PHONY: help Makefile
 
 dependencies:
-	$(PIP) install -r requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
-	cd ../python && $(MAKE) dependencies $(MFLAGS)
+	$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	npm install -g jsdoc
 
 # Catch-all target: route all unknown targets to Sphinx using the new
