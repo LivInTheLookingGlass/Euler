@@ -18,10 +18,9 @@ pub fn p0002() -> u64 {
     let mut answer = 0;
     let mut i = 2;
     let mut j = 8;
-    let mut tmp = 0;
     while i < 4000000 {
         answer += i;
-        tmp = 4 * j + i;
+        let tmp = 4 * j + i;
         i = j;
         j = tmp;
     }

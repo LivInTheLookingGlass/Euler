@@ -9,8 +9,8 @@ use rstest::rstest;
 mod p0001;
 mod p0002;
 
-const ANSWERS: [(&str, fn() -> u64, u64); 1] = [
-    ("p0001", p0001::p0001, 233168)
+const ANSWERS: [(&str, fn() -> u64, u64); 2] = [
+    ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732)
 ];
 
@@ -22,7 +22,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..1 {
+seq!(N in 0..2 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(
