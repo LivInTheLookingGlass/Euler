@@ -51,8 +51,11 @@ jobs:
         cache-dependency-path: '*/requirements.txt'
 
     - name: Setup tcc, pcc
+      uses: awalsh128/cache-apt-pkgs-action@latest
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: sudo apt-get install -y tcc pcc
+      with:
+        packages: tcc pcc
+        version: 1.0
 
     - name: Setup MSVC
       uses: aminya/setup-cpp@v1
