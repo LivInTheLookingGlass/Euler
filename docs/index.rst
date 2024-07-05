@@ -31,7 +31,7 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 
   This recipe redirects to the docs Makefile. Note that this is actually a
   multi-target recipe that includes any builder name supported by
-  ``Sphinx <https://www.sphinx-doc.org/en/master/usage/builders/index.html>`_.
+  `Sphinx <https://www.sphinx-doc.org/en/master/usage/builders/index.html>`__.
   Only ``html`` has guaranteed support, but currently implemented are:
 
   - ``html``
