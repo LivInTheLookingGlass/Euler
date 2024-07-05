@@ -36,7 +36,7 @@ jobs:
         cache-dependency-path: 'csharp/*/packages.lock.json'
 
     - name: Dependencies
-      run: make csdependencies
+      run: make cs_dependencies
 
     - name: Run Tests
       run: make cs_test
