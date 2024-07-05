@@ -6,7 +6,7 @@ Euler Rust Implementation
     :end-before: Makefile
 
 .. include:: ../rust/README.rst
-    :start-before: Tests
+    :start-after: Alias for ``cargo clean``
     :end-before: Problems Solved
 
 Usage
