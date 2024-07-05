@@ -15,6 +15,7 @@ hawkmoth_root = basedir + os.sep + 'c'
 hawkmoth_clang = ['-std=c11', '-DAMD_COMPILER=0']
 hawkmoth_source_uri = 'https://github.com/LivInTheLookingGlass/Euler/blob/master/{source}#L{line}'
 js_source_path = basedir + os.sep + 'javascript'
+rust_crates = ["../rust"]
 
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
