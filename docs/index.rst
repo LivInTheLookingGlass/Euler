@@ -12,9 +12,6 @@ This repo includes solutions in the following languages:
     :start-line: 2
     :end-before: This is the repository
 
-.. include:: ../README.rst
-    :start-after: If you are working on Project Euler problems, DO NOT use this as a source
-
 Usage
 -----
 
@@ -22,17 +19,63 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 
 .. highlight:: make
 
+.. make:var:: PY
+
+  A string that contains the command used for your Python interpreter. Defaults to ``python3``.
+
+.. make:target:: clean
+
+  Removes all temporary or cache files, as well as any build artifacts
+
+.. make:target:: html
+
+  This recipe redirects to the docs Makefile. Note that this is actually a
+  multi-target recipe that includes any builder name supported by
+  ``Sphinx <https://www.sphinx-doc.org/en/master/usage/builders/index.html>`_.
+  Only ``html`` has guaranteed support, but currently implemented are:
+
+  - ``html``
+  - ``dirhtml``
+  - ``singlehtml``
+  - ``epub``
+  - ``latex``
+  - ``man``
+  - ``htmlhelp``
+  - ``qthelp``
+  - ``devhelp``
+  - ``applehelp``
+  - ``texinfo``
+  - ``text``
+  - ``gettext``
+  - ``doctest``
+  - ``linkcheck``
+  - ``xml``
+  - ``pseudoxml``
+
 .. make:target:: cs%
+
+  Recipes with this prefix are redirected to the C# directory. Please see language-specific documentation for more details.
 
 .. make:target:: c%
 
+  Recipes with this prefix are redirected to the C directory. Please see language-specific documentation for more details.
+
 .. make:target:: js%
+
+  Recipes with this prefix are redirected to the JavaScript directory. Please see language-specific documentation for more details.
 
 .. make:target:: py%
 
+  Recipes with this prefix are redirected to the Python directory. Please see language-specific documentation for more details.
+
 .. make:target:: rs%
 
+  Recipes with this prefix are redirected to the Rust directory. Please see language-specific documentation for more details.
+
 .. make:target:: %
+
+  If the recipe you call isn't covered by any others, it will get distributed to all languages. So for instance,
+  ``make test`` would be translated to ``make cstest ctest jstest pytest rstest``
 
 .. toctree::
    :maxdepth: 2
