@@ -52,23 +52,27 @@ This project is divided into several Makefiles, connected by a root Makefile whi
   - ``xml``
   - ``pseudoxml``
 
-.. make:target:: cs%
+.. make:target:: cs_%
 
   Recipes with this prefix are redirected to the C# directory. Please see language-specific documentation for more details.
 
-.. make:target:: c%
+.. make:target:: c_%
 
   Recipes with this prefix are redirected to the C directory. Please see language-specific documentation for more details.
 
-.. make:target:: js%
+.. make:target:: docs_%
+
+  Recipes with this prefix are redirected to the docs directory.
+
+.. make:target:: js_%
 
   Recipes with this prefix are redirected to the JavaScript directory. Please see language-specific documentation for more details.
 
-.. make:target:: py%
+.. make:target:: py_%
 
   Recipes with this prefix are redirected to the Python directory. Please see language-specific documentation for more details.
 
-.. make:target:: rs%
+.. make:target:: rs_%
 
   Recipes with this prefix are redirected to the Rust directory. Please see language-specific documentation for more details.
 

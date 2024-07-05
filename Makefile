@@ -2,25 +2,27 @@ PY?=python3
 PROXY?=
 
 html dirhtml singlehtml htmlhelp qthelp devhelp epub applehelp latex man texinfo text gettext doctest linkcheck xml pseudoxml:
-	cd docs && $(MAKE) $@ $(MFLAGS)
+	@$(MAKE) docs_$@ $(MFLAGS)
 
-clean: rsclean
-	rm -r docs/_build {c,python}/{*,*/*}.pyc csharp/*/{bin,obj,TestResults} javascript/node_modules || echo done
+clean: cs_clean c_clean js_clean py_clean rs_clean docs_clean
 
-py%:
-	cd python && $(MAKE) $* $(MFLAGS)
+cs_%:
+	@cd csharp && $(MAKE) $* $(MFLAGS)
 
-cs%:
-	cd csharp && $(MAKE) $* $(MFLAGS)
+c_%:
+	@cd c && $(MAKE) $* $(MFLAGS)
 
-c%:
-	cd c && $(MAKE) $* $(MFLAGS)
+docs_%:
+	@cd docs && $(MAKE) $* $(MFLAGS)
 
-js%:
-	cd javascript && $(MAKE) $* $(MFLAGS)
+js_%:
+	@cd javascript && $(MAKE) $* $(MFLAGS)
 
-rs%:
-	cd rust && $(MAKE) $* $(MFLAGS)
+py_%:
+	@cd python && $(MAKE) $* $(MFLAGS)
+
+rs_%:
+	@cd rust && $(MAKE) $* $(MFLAGS)
 
 %:
-	$(MAKE) c$* cs$* js$* py$* rs$* $(MFLAGS)
+	@$(MAKE) c_$* cs_$* js_$* py_$* rs_$*  $(MFLAGS)

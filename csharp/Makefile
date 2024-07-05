@@ -1,3 +1,6 @@
+clean:
+	dotnet clean || rm ./*/{bin,obj,TestResults} || echo
+
 test: dependencies
 	dotnet test --nologo 
 

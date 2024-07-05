@@ -3,7 +3,48 @@ Euler C# Implementation
 
 .. include:: ../csharp/README.rst
     :start-line: 2
+    :end-before: Makefile
+
+.. include:: ../rust/README.rst
+    :start-after: Alias for ``cargo clean``
     :end-before: Problems Solved
+
+Usage
+-----
+
+.. highlight:: make
+
+This folder contains a Makefile with several recipes>
+This facilitates the root Makefile dispatching tasks>
+build or test processes.
+
+.. make:target:: test
+
+  Alias for ``dotnet test``.
+
+.. make:target:: test_auto
+
+  .. note::
+
+    WIP
+
+  Runs tests in parallel with one less thread than you have CPUs. Alias for ``dotnet test ``.
+
+.. make:target:: test_%
+
+  .. note::
+
+    WIP
+
+  Runs tests in parallel with the specified number of threads. Alias for ``dotnet test `. 
+
+.. make:target:: clean
+
+  Alias for ``dotnet clean``, with some degree of fallback if ``dotnet`` is not installed.
+
+.. make:target:: lint
+
+  Alias for ``dotnet format --verify-no-changes``.
 
 Test Infrastructure
 -------------------
