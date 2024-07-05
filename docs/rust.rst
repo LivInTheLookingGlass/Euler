@@ -3,6 +3,10 @@ Euler Rust Implementation
 
 .. include:: ../rust/README.rst
     :start-line: 2
+    :end-before: Makefile
+
+.. include:: ../rust/README.rst
+    :start-before: Tests
     :end-before: Problems Solved
 
 Usage
