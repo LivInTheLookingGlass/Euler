@@ -86,7 +86,7 @@ jobs:
     - if: matrix.build-mode == 'manual' && matrix.language == 'c-cpp'
       shell: bash
       run: |
-        make cnative
+        make c_native
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
