@@ -68,11 +68,12 @@ If you are working on Project Euler problems, DO NOT use this as a source
 The repo is divided into sections for each language. The top-level
 Makefile will direct recipes using prefixes
 
--  ``make c*`` will go to the c Makefile
--  ``make cs*`` will go to the csharp Makefile
--  ``make js*`` will go to the javascript Makefile
--  ``make py*`` will go to the python Makefile
--  ``make rs*`` will go to the rust Makefile
+-  ``make c_*`` will go to the c Makefile
+-  ``make cs_*`` will go to the csharp Makefile
+-  ``make docs_*`` will go to the docs Makefile
+-  ``make js_*`` will go to the javascript Makefile
+-  ``make py_*`` will go to the python Makefile
+-  ``make rs_*`` will go to the rust Makefile
 -  Any make recipes supported by Sphinx will be redirected to the docs Makefile
 -  All other recipes will be run for all languages
 
