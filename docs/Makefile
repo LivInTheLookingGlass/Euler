@@ -26,6 +26,9 @@ help:
 
 .PHONY: help Makefile
 
+clean:
+	rm -r _build || echo
+
 dependencies:
 	$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	npm install -g jsdoc

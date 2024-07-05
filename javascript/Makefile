@@ -43,3 +43,6 @@ endif
 
 lint:
 	npx eslint *.js
+
+clean:
+	rm -r node_modules || echo

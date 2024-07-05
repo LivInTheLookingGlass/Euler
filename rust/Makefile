@@ -8,4 +8,4 @@ test_%:
 	cargo test -j $*
 
 clean:
-	cargo clean
+	cargo clean || echo

@@ -48,3 +48,6 @@ dependencies:
 	cat requirements.txt | grep -v "mypy" > .requirements.txt
 	$(PIP) install -r .requirements.txt $(USER_FLAG) $(PROXY_ARG)
 endif
+
+clean:
+	rm -r ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
