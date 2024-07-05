@@ -5,3 +5,4 @@ hawkmoth
 clang==14
 sphinx-csharp
 sphinxcontrib-makedomain
+sphinx_rust
