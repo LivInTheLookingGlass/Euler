@@ -46,13 +46,13 @@ jobs:
         cache-dependency-path: 'javascript/package-lock.json'
 
     - name: Install dependencies
-      run: make jsdependencies
+      run: make js_dependencies
 
     - name: Run tests (serially)
       if: ${{ matrix.version == 22 && matrix.os == 'ubuntu-latest' }}
-      run: make jstest
+      run: make js_test
 
     - name: Run tests (in parallel)
       if: ${{ !(matrix.version == 22 && matrix.os == 'ubuntu-latest') }}
-      run: make jstest_auto
+      run: make js_test_auto
 
