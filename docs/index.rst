@@ -15,6 +15,25 @@ This repo includes solutions in the following languages:
 .. include:: ../README.rst
     :start-after: If you are working on Project Euler problems, DO NOT use this as a source
 
+Usage
+-----
+
+This project is divided into several Makefiles, connected by a root Makefile which redirects commands whever necessary.
+
+.. highlight:: make
+
+.. make:target:: cs%
+
+.. make:target:: c%
+
+.. make:target:: js%
+
+.. make:target:: py%
+
+.. make:target:: rs%
+
+.. make:target:: %
+
 .. toctree::
    :maxdepth: 2
 
