@@ -26,7 +26,7 @@ jobs:
         version: 1.0
 
     - name: Run tests
-      run: make clint
+      run: make c_lint
 
   c:
     strategy:
@@ -75,15 +75,15 @@ jobs:
 
     - name: Run tests (linux)
       if: ${{ contains(matrix.os, 'ubuntu') }}
-      run: make ctest${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }}
+      run: make c_test${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }}
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
-      run: make ctest_auto
+      run: make c_test_auto
 
     - name: Run tests (macos)
       if: ${{ contains(matrix.os, 'macos') }}
-      run: make ctest_auto
+      run: make c_test_auto
       env:
         NO_OPTIONAL_TESTS: true
         COMPILER_OVERRIDE: clang
