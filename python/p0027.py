@@ -39,7 +39,7 @@ def quadratic(n: int, a: int, b: int) -> int:
     return (n + a) * n + b
 
 
-def primes_and_negatives(*args) -> Iterator[int]:
+def primes_and_negatives(*args: int) -> Iterator[int]:
     for p in primes(*args):
         yield p
         yield -p

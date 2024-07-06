@@ -19,7 +19,7 @@ from math import log10
 from operator import mul
 
 
-def main():
+def main() -> int:
     digits_seen = 1
     interests = {1, 10, 100, 1_000, 10_000, 100_000, 1_000_000}
     queries = []
@@ -32,6 +32,7 @@ def main():
                     print(queries)
                     return reduce(mul, queries, 1)
         digits_seen += digits
+    return -1
 
 
 if __name__ == '__main__':

@@ -3,6 +3,7 @@ PY?=python3
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
 MYPY?=true
+COV?=false
 
 ifneq ($(MYPY),true)
 LINT=less
@@ -20,6 +21,10 @@ else
 pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --benchmark-min-time=0.05 --benchmark-group-by=fullfunc --benchmark-sort=fullname --benchmark-verbose
 endif
 endif
+endif
+
+ifeq ($(COV),true)
+pytest_args+= --cov
 endif
 
 ifneq ($(https_proxy), )

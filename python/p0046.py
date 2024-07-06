@@ -30,7 +30,7 @@ from p0003 import primes
 from p0007 import is_prime
 
 
-def main():
+def main() -> int:
     cached_primes = tuple(primes(6000))
     for goal in count(35, 2):
         if is_prime(goal):
@@ -45,6 +45,7 @@ def main():
                 break
         else:
             return goal
+    return -1
 
 
 if __name__ == '__main__':

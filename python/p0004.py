@@ -18,16 +18,16 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 """
 from itertools import combinations
-from typing import Callable
+from typing import Any, Callable
 
 
-def is_palindrome(n, rep_func: Callable[[int], str] = repr):
+def is_palindrome(n: Any, rep_func: Callable[[Any], str] = repr) -> bool:
     """Checks if the string representation of an object is a palindrome"""
     r = rep_func(n)
     return r == r[::-1]
 
 
-def main():
+def main() -> int:
     result = 0
     for x, y in combinations(range(100, 1000), 2):
         num = x * y
