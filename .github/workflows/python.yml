@@ -72,8 +72,13 @@ jobs:
 
     - name: Run tests (serially)
       if: ${{(matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy')}}
-      run: make py_test LINT=false
+      run: make py_test LINT=true COV=true
 
     - name: Run tests (in parallel)
       if: ${{!((matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy'))}}
-      run: make py_test_auto LINT=false
+      run: make py_test_auto LINT=false COV=true
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
