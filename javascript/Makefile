@@ -1,14 +1,21 @@
 NOT_TERMUX?=$(shell command -v termux-setup-storage > /dev/null 2>&1 ; echo $$?)
 HAS_NPM?=$(shell command -v npm > /dev/null 2>&1 ; echo $$?)
+COV?=false
+
+ifeq ($(COV),true)
+MOCHA=istanbul cover ./node_modules/mocha/bin/_mocha
+else
+MOCHA=npx mocha
+endif
 
 test: dependencies
-	npx mocha
+	$(MOCHA)
 
 test_auto: dependencies
-	npx mocha --parallel
+	$(MOCHA) --parallel
 
 test_%: dependencies
-	npx mocha -parallel -j $*
+	$(MOCHA) --parallel -j $*
 
 ifneq ($(HAS_NPM),0)
 ifeq ($(OS),Windows_NT)  # if no NPM and Windows
@@ -34,6 +41,10 @@ dependencies: _dependencies
 endif
 
 _dependencies:
+ifeq ($(COV),true)
+	npm install -g istanbul
+endif
+	npm install
 
 lint:
 	npx eslint *.js
