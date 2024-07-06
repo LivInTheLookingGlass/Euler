@@ -9,8 +9,8 @@ This paragraph should be replaced by the problem description, excluding images.
 """
 
 
-def main():
-    pass
+def main() -> int:
+    return 0
 
 
 if __name__ == '__main__':

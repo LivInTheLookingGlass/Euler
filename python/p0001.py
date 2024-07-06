@@ -23,7 +23,7 @@ def summation(up_to: int, factor: int) -> int:
     return (n + 1) * factor * n // 2
 
 
-def main():
+def main() -> int:
     return summation(999, 3) + summation(999, 5) - summation(999, 15)
 
 

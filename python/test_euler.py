@@ -3,7 +3,7 @@ from os import environ
 from pathlib import Path
 from shutil import which
 from sys import path
-from typing import Any, Callable, Union
+from typing import Any, Callable, Iterable, Tuple, Union, cast
 from warnings import warn
 
 from pytest import fail, fixture, mark, skip, xfail
@@ -120,13 +120,13 @@ NO_OPTIONAL_TESTS = (_parsed_NO_OPTIONAL_TESTS is None and ONLY_SLOW) or _parsed
 
 
 @fixture(params=("{:0>3}".format(x) for x in sorted(answers.keys())))  # to make sure the benchmarks sort correctly
-def key(request):  # type: ignore
+def key(request) -> int:  # type: ignore
     return int(request.param)  # reduce processing burden on test
 
 
 @mark.parametrize("group_size_str", ("{:0>2}".format(x) for x in range(2, 65)))
 def test_groupwise(benchmark: Any, group_size_str: str) -> None:
-    def test_func():
+    def test_func() -> Iterable[Tuple[int, ...]]:
         return tuple(groupwise(range(10_000 + group_size), group_size))
 
     if ONLY_SLOW or NO_OPTIONAL_TESTS:
@@ -139,7 +139,7 @@ def test_groupwise(benchmark: Any, group_size_str: str) -> None:
 
 
 def test_is_prime(benchmark: Any) -> None:
-    def func(set_of_primes):
+    def func(set_of_primes: Iterable[int]) -> None:
         last = 2
         for x, y in zip(primes(), set_of_primes):
             assert is_prime(x)
@@ -160,7 +160,7 @@ def test_is_prime(benchmark: Any) -> None:
 def test_problem(benchmark: Any, key: int) -> None:
     if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
-    test_func: Callable[[], int] = __import__("p{:0>4}".format(key)).main  # type: ignore
+    test_func: Callable[[], int] = __import__("p{:0>4}".format(key)).main
     if key in known_slow:
         answer = benchmark.pedantic(test_func, iterations=1, rounds=1)
     else:
@@ -170,6 +170,6 @@ def test_problem(benchmark: Any, key: int) -> None:
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
     if hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
-        fail_func = xfail if key in known_slow else fail
+        fail_func = cast(Callable[[str], None], xfail if key in known_slow else fail)
         stats = benchmark.stats.stats
         fail_func("Exceeding 60s! (Max={:.6}s, Median={:.6}s)".format(stats.max, stats.median))

@@ -5,3 +5,4 @@ pytest-benchmark
 pytest-mypy
 pytest-isort
 pytest-xdist
+pytest-coverage

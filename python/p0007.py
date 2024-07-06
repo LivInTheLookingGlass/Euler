@@ -61,7 +61,7 @@ def is_prime(
     seen_add: Callable[[Optional[int]], None]
     if distinct:
         seen = set()
-        seen_add = cast(Set[Optional[int]], seen).add
+        seen_add = seen.add
     else:
         seen = []
         seen_add = seen.append
