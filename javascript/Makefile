@@ -33,13 +33,7 @@ else  # has NPM
 dependencies: _dependencies
 endif
 
-ifneq ($(NOT_TERMUX),0)
 _dependencies:
-	npm install;
-else
-_dependencies:
-	npm install -g;
-endif
 
 lint:
 	npx eslint *.js
