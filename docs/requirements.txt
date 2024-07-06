@@ -1,8 +1,6 @@
 sphinx>=3.1
 sphinx-rtd-theme
 sphinx-js
-hawkmoth
-clang==14
 sphinx-csharp
 sphinxcontrib-makedomain
 sphinx_rust

@@ -11,24 +11,28 @@ jobs:
       with:
         submodules: true
 
-    - name: Install system dependencies
-      uses: awalsh128/cache-apt-pkgs-action@latest
+    - name: Use Python 3.12
+      uses: actions/setup-python@v5
       with:
-        packages: python3-clang python3-pip libclang-dev clang
-        version: 1.0
+        python-version: 3.12
+        cache: 'pip'
+        cache-dependency-path: |
+          python/requirements.txt
+          c/requirements.txt
+          docs/requirements.txt
 
     - name: Use Node.js 22
       uses: actions/setup-node@v3
       with:
         node-version: 22
 
-    - name: Use Rust stable
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
+    # - name: Use Rust stable
+    #   uses: actions-rs/toolchain@v1
+    #   with:
+    #     toolchain: stable
 
-    - name: Compile rust crate
-      run: cd docs && cargo build --manifest-path ../rust/Cargo.toml
+    # - name: Compile rust crate
+    #   run: cd docs && cargo build --manifest-path ../rust/Cargo.toml
 
     - name: Build sphinx docs
       run: make html

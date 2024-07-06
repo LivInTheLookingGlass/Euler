@@ -11,9 +11,6 @@ import sys
 basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, basedir)
 sys.path.insert(0, basedir + os.sep + 'python')
-hawkmoth_root = basedir + os.sep + 'c'
-hawkmoth_clang = ['-std=c11', '-DAMD_COMPILER=0']
-hawkmoth_source_uri = 'https://github.com/LivInTheLookingGlass/Euler/blob/master/{source}#L{line}'
 js_source_path = basedir + os.sep + 'javascript'
 rust_crates = ["../rust"]
 
@@ -40,7 +37,6 @@ extensions = [
     'sphinxcontrib.makedomain',
 ]
 if 'TERMUX_VERSION' not in os.environ:
-    # extensions.append('hawkmoth')
     extensions.append('sphinx_js')
     extensions.append('sphinx_rust')
 

@@ -5,6 +5,22 @@ Euler C Implementation
     :start-line: 2
     :end-before: Problems Solved
 
+Library Code
+------------
+
+.. toctree::
+   :glob:
+   :numbered:
+   :maxdepth: 1
+
+   c/bcd
+   c/digits
+   c/factors
+   c/iterator
+   c/macros
+   c/math
+   c/primes
+
 Problems Solved
 ---------------
 
