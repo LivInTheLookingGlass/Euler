@@ -27,20 +27,6 @@ jobs:
             os: macos-13
           - toolchain: stable
             os: macos-latest
-          - toolchain: "1.1"
-            os: ubuntu-latest
-          - toolchain: "1.10"
-            os: ubuntu-latest
-          - toolchain: "1.20"
-            os: ubuntu-latest
-          - toolchain: "1.28"
-            os: ubuntu-latest
-          - toolchain: "1.30"
-            os: ubuntu-latest
-          - toolchain: "1.40"
-            os: ubuntu-latest
-          - toolchain: "1.50"
-            os: ubuntu-latest
           - toolchain: "1.60"
             os: ubuntu-latest
           - toolchain: "1.70"
@@ -67,7 +53,7 @@ jobs:
 
       - name: rust-grcov
         if: ${{ matrix.toolchain == 'nightly' }}
-        run: cargo install grcov && cd rust && grcov
+        run: cargo install grcov && grcov rust
 
       - name: Upload coverage reports to Codecov
         if: ${{ matrix.toolchain == 'nightly' }}
