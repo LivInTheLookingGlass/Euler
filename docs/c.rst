@@ -16,6 +16,7 @@ Library Code
    c/bcd
    c/digits
    c/factors
+   c/fibonacci
    c/iterator
    c/macros
    c/math
