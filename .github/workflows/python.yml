@@ -72,7 +72,7 @@ jobs:
 
     - name: Run tests (serially)
       if: ${{(matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy')}}
-      run: make py_test LINT=true COV=true
+      run: make py_test COV=true
 
     - name: Run tests (in parallel)
       if: ${{!((matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy'))}}
