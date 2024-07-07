@@ -2,12 +2,6 @@ name: C#
 
 on:
   push:
-    paths:
-      - csharp/**
-      - Euler.sln
-      - Makefile
-      - _data/**
-      - .github/workflows/csharp.yml
 
 jobs:
   csharp:

@@ -2,14 +2,6 @@ name: C
 
 on:
   push:
-    paths:
-      - python/requirements.txt
-      - python/p0003.py
-      - python/p0007.py
-      - c/**
-      - Makefile
-      - _data/**
-      - .github/workflows/c.yml
 
 jobs:
   c-lint:
@@ -75,7 +67,7 @@ jobs:
 
     - name: Run tests (linux)
       if: ${{ contains(matrix.os, 'ubuntu') }}
-      run: make c_test${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }}
+      run: make c_test${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }} COV=true
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}

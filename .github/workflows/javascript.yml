@@ -2,11 +2,6 @@ name: JS
 
 on:
   push:
-    paths:
-      - javascript/**
-      - Makefile
-      - _data/**
-      - .github/workflows/javascript.yml
 
 jobs:
   javascript:
