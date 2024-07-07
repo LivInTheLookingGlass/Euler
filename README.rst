@@ -19,6 +19,8 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
 .. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
+.. |Coverage| image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graph/badge.svg?token=6GHBNILEHG 
+   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
 .. |br| raw:: html
 
   <br/>
@@ -44,6 +46,8 @@ LivInTheLookingGlass’s Project Euler solutions
 +------------+---------------------+--------------+---------------+
 | Documentation (in progress)                     | |Pages|       |
 +-------------------------------------------------+---------------+
+| Code Coverage (in progress)                     | |Coverage|    |
++-------------------------------------------------+---------------+
 | Code Scanning                                   | |CodeQL| |br| |
 |                                                 | |ESLint| |br| |
 |                                                 | |RustClippy|  |
@@ -58,6 +62,11 @@ can compare answers with other people.
 All solutions are tested against multiple operating systems and
 language/compiler versions. For more information, see
 ``.github/workflows/``
+
+Coverage Graph
+--------------
+
+.. image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graphs/icicle.svg?token=6GHBNILEHG
 
 This is NOT meant to help others on Project Euler problems
 ----------------------------------------------------------
