@@ -550,9 +550,9 @@ uintmax_t bcd_to_unsigned(BCD_int a) {
     return answer;
 }
 
-uintmax_t bcd_to_signed(BCD_int a);
-inline uintmax_t bcd_to_signed(BCD_int a) {
-    uintmax_t answer = bcd_to_unsigned(a);
+intmax_t bcd_to_signed(BCD_int a);
+inline intmax_t bcd_to_signed(BCD_int a) {
+    intmax_t answer = (intmax_t) bcd_to_unsigned(a);
     if (a.negative)
         return -answer;
     return answer;
