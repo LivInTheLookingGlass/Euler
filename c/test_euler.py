@@ -149,7 +149,7 @@ SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
-GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
+GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -ftest-coverage -fprofile-arcs -o {{}}"
 CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std=c11 {} -o {{}}"
 
 templates = {
