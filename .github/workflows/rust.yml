@@ -2,6 +2,9 @@ name: Rs
 
 on:
   push:
+  schedule:
+    cron:
+    - "0 0 1 * *"
 
 env:
   CARGO_TERM_COLOR: always

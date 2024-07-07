@@ -2,6 +2,9 @@ name: JS
 
 on:
   push:
+  schedule:
+    cron:
+    - "0 0 1 * *"
 
 jobs:
   javascript:

@@ -2,6 +2,9 @@ name: Py
 
 on:
   push:
+  schedule:
+    cron:
+    - "0 0 1 * *"
 
 jobs:
 #  python-lint:
