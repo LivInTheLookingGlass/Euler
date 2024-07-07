@@ -1,9 +1,9 @@
 LivInTheLookingGlass’s Project Euler solutions
 ==============================================
 
-.. |C| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg
+.. |Ci| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml
-.. |C#| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg
+.. |C#i| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
 .. |JavaScript| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
@@ -29,12 +29,12 @@ LivInTheLookingGlass’s Project Euler solutions
 +------------+---------------------+--------------+---------------+
 | Language   | Version             | Solved       | Status        |
 +============+=====================+==============+===============+
-| C          | C11+ in: ``gcc``,   | 17 / |total| | |C|           |
+| C          | C11+ in: ``gcc``,   | 17 / |total| | |Ci|          |
 |            | |br| ``clang``,     |              |               |
 |            | ``msvc``, |br|      |              |               |
 |            | ``pcc``, ``tcc``    |              |               |
 +------------+---------------------+--------------+---------------+
-| C#         | .NET 2+             |  2 / |total| | |C#|          |
+| C#         | .NET 2+             |  2 / |total| | |C#i|         |
 +------------+---------------------+--------------+---------------+
 | JavaScript | Node 12+            |  2 / |total| | |JavaScript|  |
 +------------+---------------------+--------------+---------------+

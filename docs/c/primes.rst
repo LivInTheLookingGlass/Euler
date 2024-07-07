@@ -8,7 +8,7 @@ primes.h
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive prime numbers.
 
-    .. c:member:: uintmax_t (*iterator_function)(*prime_counter pc)
+    .. c:member:: uintmax_t (*iterator_function)(prime_counter *pc)
 
         The function to advance the iterator and return the next element.
 
@@ -43,7 +43,7 @@ primes.h
 
     An :c:macro:`Iterator <c.iterator.IteratorHead>` that implements a modified sieve of eratosthenes
 
-    .. c:member:: uintmax_t (*iterator_function)(*prime_sieve ps)
+    .. c:member:: uintmax_t (*iterator_function)(prime_sieve *ps)
 
         The function to advance the iterator and return the next element.
 
@@ -92,7 +92,7 @@ primes.h
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive prime factors.
 
-    .. c:member:: uintmax_t (*iterator_function)(*prime_factor_counter pfc)
+    .. c:member:: uintmax_t (*iterator_function)(prime_factor_counter *pfc)
 
         The function to advance the iterator and return the next element.
 

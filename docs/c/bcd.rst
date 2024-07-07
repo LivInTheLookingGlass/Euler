@@ -40,7 +40,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
     .. c:function:: BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bool little_endian)
 
-        Takes in an arbitrary-sized encoded integer (like in Python's :external:python:ref:`int.from_bytes`) to a
+        Takes in an arbitrary-sized encoded integer (like in Python's :external:py:meth:`int.from_bytes`) to a
         :c:type:`BCD_int`.
 
     .. c:function:: BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative)
