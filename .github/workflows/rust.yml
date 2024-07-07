@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: sudo apt-get remove -y rust cargo
+      - run: sudo apt-get remove -y rustc cargo
         if: ${{ contains(matrix.os, 'ubuntu') }}
 
       - uses: actions-rs/toolchain@v1
