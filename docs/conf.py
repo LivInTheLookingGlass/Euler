@@ -24,9 +24,11 @@ author = 'Olivia Appleton'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosectionlabel',
+    'sphinx.ext.extlinks',
     'sphinx.ext.githubpages',
     'sphinx.ext.graphviz',
     'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
     # 'breathe',
@@ -55,3 +57,8 @@ html_static_path = ['_static']
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
 todo_include_todos = True
+
+extlinks = {'prob': ('https://projecteuler.net/problem=%#d',
+                     'Problem %03#d')}
+
+intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
