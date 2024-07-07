@@ -2,11 +2,6 @@ name: Rs
 
 on:
   push:
-    paths:
-      - rust/**
-      - Makefile
-      - _data/**
-      - .github/workflows/rust.yml
 
 env:
   CARGO_TERM_COLOR: always

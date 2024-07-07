@@ -2,11 +2,6 @@ name: Py
 
 on:
   push:
-    paths:
-      - python/**
-      - Makefile
-      - _data/**
-      - .github/workflows/python.yml
 
 jobs:
 #  python-lint:
