@@ -49,9 +49,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: sudo apt-get remove -y rustc cargo
-        if: ${{ contains(matrix.os, 'ubuntu') }}
-
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: ${{ matrix.toolchain }}
@@ -70,7 +67,7 @@ jobs:
 
       - name: rust-grcov
         if: ${{ matrix.toolchain == 'nightly' }}
-        run: cargo install grcov && grcov -r rust
+        run: cargo install grcov && cd rust && grcov
 
       - name: Upload coverage reports to Codecov
         if: ${{ matrix.toolchain == 'nightly' }}
