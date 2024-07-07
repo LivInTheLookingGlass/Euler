@@ -44,7 +44,7 @@ extensions = [
 try:
     check_call(['rpm-ostree', '--version'])
     IS_SILVERBLUE = True
-except CalledProcessError:
+except Exception:
     IS_SILVERBLUE = False
 
 if 'TERMUX_VERSION' not in environ:
