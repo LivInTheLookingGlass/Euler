@@ -14,8 +14,8 @@ Usage
 
 .. highlight:: make
 
-This folder contains a Makefile with several recipes>
-This facilitates the root Makefile dispatching tasks>
+This folder contains a Makefile with several recipes, most of which are aliases to ``dotnet`` commands.
+This facilitates the root Makefile dispatching tasks to each language, many of which have more complex
 build or test processes.
 
 .. make:target:: test
@@ -28,7 +28,7 @@ build or test processes.
 
     WIP
 
-  Runs tests in parallel with one less thread than you have CPUs. Alias for ``dotnet test ``.
+  Runs tests in parallel with one less thread than you have CPUs. Alias for ``dotnet test``.
 
 .. make:target:: test_%
 
@@ -36,7 +36,7 @@ build or test processes.
 
     WIP
 
-  Runs tests in parallel with the specified number of threads. Alias for ``dotnet test `. 
+  Runs tests in parallel with the specified number of threads. Alias for ``dotnet test``. 
 
 .. make:target:: clean
 

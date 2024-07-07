@@ -8,7 +8,7 @@ digits.h
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive decimal digits of a given number.
 
-    .. c:member:: unsigned char (*iterator_function)(*digit_counter)
+    .. c:member:: unsigned char (*iterator_function)(digit_counter *dc)
 
         The function to advance the iterator and return the next element.
 
@@ -32,8 +32,8 @@ digits.h
 
         This represents the current position in :c:member:`digits`.
 
-    .. c:function:: digit_counter digits(uintmax_t n)
+.. c:function:: digit_counter digits(uintmax_t n)
 
-    .. c:function:: void free_digit_counter(digit_counter dc)
+.. c:function:: void free_digit_counter(digit_counter dc)
 
 .. c:namespace-pop::

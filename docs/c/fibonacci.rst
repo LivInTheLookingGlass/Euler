@@ -1,5 +1,5 @@
 fibonacci.h
-========
+===========
 
 .. c:namespace-push:: fibonacci
 
@@ -8,7 +8,7 @@ fibonacci.h
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive Fibonacci numbers.
 
-    .. c:member:: uintmax_t (*iterator_function)(*digit_counter)
+    .. c:member:: uintmax_t (*iterator_function)(fibonacci *fib)
 
         The function to advance the iterator and return the next element.
 

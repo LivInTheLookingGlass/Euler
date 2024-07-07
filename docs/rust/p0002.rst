@@ -3,7 +3,7 @@ Rust Implementation of Problem 2
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0002.rs>`_
 
-.. rust:fn:: p0002::p0002() -> int64
+.. rust:fn:: p0002::p0002() -> u64
 
 .. literalinclude:: ../../rust/src/p0002.rs
    :language: rust

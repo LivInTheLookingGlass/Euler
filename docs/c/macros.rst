@@ -45,21 +45,21 @@ macros.h
     These macros implement the ``likely()`` and ``unlikely()`` flags, as in the Linux kernel to
     assist in branch prediction. On ``tcc`` and ``cl`` it has no effect.
 
-.. c:macro:: MAX_FACTORIAL_64 20
-             MAX_FACTORIAL_128 34
+.. c:macro:: MAX_FACTORIAL_64
+             MAX_FACTORIAL_128
 
-.. c:macro:: PCC_SQRT_ACCURACY 8
+.. c:macro:: PCC_SQRT_ACCURACY
 
-.. c:macro:: MAX_POW_10_16 10000U
-             POW_OF_MAX_POW_10_16 4
+.. c:macro:: MAX_POW_10_16
+             POW_OF_MAX_POW_10_16
 
-.. c:macro:: MAX_POW_10_32 1000000000UL
-             POW_OF_MAX_POW_10_32 9
+.. c:macro:: MAX_POW_10_32
+             POW_OF_MAX_POW_10_32
 
-.. c:macro:: MAX_POW_10_64 10000000000000000000ULL
-             POW_OF_MAX_POW_10_64 19
+.. c:macro:: MAX_POW_10_64
+             POW_OF_MAX_POW_10_64
 
-.. c:macro:: MAX_POW_10_128 ((uintmax_t) MAX_POW_10_64 * (uintmax_t) MAX_POW_10_64)
-             POW_OF_MAX_POW_10_128 38
+.. c:macro:: MAX_POW_10_128
+             POW_OF_MAX_POW_10_128
 
 .. c:namespace-pop::

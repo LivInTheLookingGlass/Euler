@@ -60,7 +60,7 @@ iterator.h
     This is an example implementation of the :c:macro:`Iterator <IteratorHead>`
     API used in this project. You can construct it using any of the factory
     functions found below, and it is generally used much like Python's
-    :external:py:ref:`range` object.
+    :external:py:class:`range` object.
 
     .. c:member:: uintmax_t (*iterator_function)(counter *it)
 
