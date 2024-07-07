@@ -9,16 +9,18 @@ ifneq ($(MYPY),true)
 LINT=less
 endif
 
+benchmark_flags=--benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
+
 ifeq ($(LINT),false)
-pytest_args?= -vl --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
+pytest_args?= -vl
 else
 ifeq ($(LINT),true)
 pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort -k 'not test_problem and not test_is_prime and not test_groupwise'
 else
 ifeq ($(LINT),less)
-pytest_args?= -vl --isort --benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
+pytest_args?= -vl --isort
 else
-pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --benchmark-min-time=0.05 --benchmark-group-by=fullfunc --benchmark-sort=fullname --benchmark-verbose
+pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort
 endif
 endif
 endif
@@ -38,12 +40,12 @@ endif
 endif
 
 test: dependencies _test
+	$(PY) -m pytest $(pytest_args) $(benchmark_flags)
 
-test_%:
-	$(MAKE) test pytest_args="$(pytest_args) -n$*" $(MFLAGS)
+test_%: dependencies
+	$(PY) -m pytest $(pytest_args) -n$*
 
 _test:
-	$(PY) -m pytest $(pytest_args)
 
 ifeq ($(MYPY),true)
 dependencies:
