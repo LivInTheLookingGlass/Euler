@@ -22,7 +22,7 @@ test: dependencies
 dependencies:
 	git submodule init
 	git submodule update
-	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
+	$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 lint:
 	if test -z "$(clang-tidy p0000_template.c -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
