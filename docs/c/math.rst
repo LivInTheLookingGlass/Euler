@@ -2,18 +2,14 @@ math.h
 ======
 
 .. c:namespace-push:: math
-
-.. c:macro:: MAX_FACTORIAL_64 20
-
-.. c:macro:: MAX_FACTORIAL_128 34
     
 .. c:function:: uintmax_t factorial(unsigned int n)
 
     .. warning::
         
         This function only works for numbers smaller than
-        :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAC_FACTORIAL_128`,
-        depending on the size of `uintmax_t`.
+        :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAX_FACTORIAL_128`,
+        depending on the size of ``uintmax_t``.
 
 .. c:function:: uintmax_t n_choose_r(unsigned int n, unsigned int r)
 
@@ -22,13 +18,13 @@ math.h
     .. warning::
         
         This function only works for numbers smaller than
-        :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAC_FACTORIAL_128`,
-        depending on the size of `uintmax_t`.
+        :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAX_FACTORIAL_128`,
+        depending on the size of ``uintmax_t``.
 
 .. note::
 
     The following are only available or necessary for the ``pcc`` compiler, as it has
-    a hard time including `<stdlib.h>`.
+    a hard time including ``<stdlib.h>``.
 
 .. c:function:: unsigned char imprecise_log10(uintmax_t x)
 
