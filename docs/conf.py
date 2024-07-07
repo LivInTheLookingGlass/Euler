@@ -59,6 +59,6 @@ html_static_path = ['_static']
 todo_include_todos = True
 
 extlinks = {'prob': ('https://projecteuler.net/problem=%s',
-                     'Problem \#%s')}
+                     'Problem #%s')}
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
