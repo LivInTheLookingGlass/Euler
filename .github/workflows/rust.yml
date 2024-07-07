@@ -68,9 +68,11 @@ jobs:
           RUSTDOCFLAGS: '-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests'
 
       - name: rust-grcov
-        uses: actions-rs/grcov@v0.1
+        if: ${{ matrix.toolchain == 'nightly' }}
+        run: cargo install grcov && grcov -r rust
 
       - name: Upload coverage reports to Codecov
+        if: ${{ matrix.toolchain == 'nightly' }}
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
