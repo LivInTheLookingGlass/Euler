@@ -79,7 +79,7 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 .. make:target:: %
 
   If the recipe you call isn't covered by any others, it will get distributed to all languages. So for instance,
-  ``make test`` would be translated to ``make cstest ctest jstest pytest rstest``
+  ``make test`` would be translated to ``make cs_test c_test js_test py_test rs_test``
 
 .. toctree::
    :maxdepth: 2
