@@ -6,12 +6,14 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-import os
-import sys
-basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.insert(0, basedir)
-sys.path.insert(0, basedir + os.sep + 'python')
-js_source_path = basedir + os.sep + 'javascript'
+from os import environ, path, sep
+from subprocess import CalledProcessError, check_call
+from sys import path as sys_path
+
+basedir = path.abspath(path.join(path.dirname(__file__), '..'))
+sys_path.insert(0, basedir)
+sys_path.insert(0, basedir + sep + 'python')
+js_source_path = basedir + sep + 'javascript'
 rust_crates = ["../rust"]
 
 project = 'Euler'
@@ -38,8 +40,16 @@ extensions = [
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
 ]
-if 'TERMUX_VERSION' not in os.environ:
-    extensions.append('sphinx_js')
+
+try:
+    check_call(['rpm-ostree', '--version'])
+    IS_SILVERBLUE = True
+except CalledProcessError:
+    IS_SILVERBLUE = False
+
+if 'TERMUX_VERSION' not in environ:
+    if not IS_SILVERBLUE:
+        extensions.append('sphinx_js')
     extensions.append('sphinx_rust')
 
 templates_path = ['_templates']
