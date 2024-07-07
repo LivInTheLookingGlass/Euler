@@ -36,7 +36,7 @@ iterator.h
 
         An indicator that flips every time the iterator moves.
 
-.. c:macro:: IteratotionHead(it)
+.. c:macro:: IterationHead(it)
 
     This macro implements the base functionality of all :c:macro:`Iterator <IteratorHead>` functions.
     It must be at the top of all iteration functions, with the iterator passed
