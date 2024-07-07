@@ -47,6 +47,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - run: sudo apt-get remove -y rust cargo
+
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: ${{ matrix.toolchain }}
