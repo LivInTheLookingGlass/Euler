@@ -25,4 +25,4 @@ rs_%:
 	@cd rust && $(MAKE) $* $(MFLAGS)
 
 %:
-	@$(MAKE) c_$* cs_$* js_$* py_$* rs_$*  $(MFLAGS)
+	@$(MAKE) {c,cs,js,py,rs}_$* $(MFLAGS)
