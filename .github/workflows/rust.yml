@@ -27,7 +27,7 @@ jobs:
             os: macos-13
           - toolchain: stable
             os: macos-latest
-          - toolchain: "1.60"
+          - toolchain: "1.67.1"
             os: ubuntu-latest
           - toolchain: "1.70"
             os: ubuntu-latest
