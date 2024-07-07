@@ -6,3 +6,4 @@ pytest-mypy
 pytest-isort
 pytest-xdist
 pytest-coverage
+coverage
