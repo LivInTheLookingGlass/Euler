@@ -53,6 +53,8 @@ LivInTheLookingGlass’s Project Euler solutions
 |                                                 | |RustClippy|  |
 +-------------------------------------------------+---------------+
 
+.. image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graphs/icicle.svg?token=6GHBNILEHG
+
 This is the repository I keep for prospective employers to look at
 project Euler code that I have written.
 
@@ -62,11 +64,6 @@ can compare answers with other people.
 All solutions are tested against multiple operating systems and
 language/compiler versions. For more information, see
 ``.github/workflows/``
-
-Coverage Graph
---------------
-
-.. image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graphs/icicle.svg?token=6GHBNILEHG
 
 This is NOT meant to help others on Project Euler problems
 ----------------------------------------------------------
