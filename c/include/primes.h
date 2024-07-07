@@ -146,7 +146,7 @@ struct prime_sieve {
      * The iterator that implements a modified sieve of eratosthenes
      * @iterator_function: The function to advance the iterator and return the next element
      * @exhausted: An indicator that tells you if the iterator is exhausted
-     * @started: An indicator that tells you if the interator has moved at all
+     * @started: An indicator that tells you if the iterator has moved at all
      * @phase: An indicator that flips every time the iterator moves
      * @sieve: The sieve state used to generate new primes
      * @sieve_len: The length of the sieve state (divided by 2)
