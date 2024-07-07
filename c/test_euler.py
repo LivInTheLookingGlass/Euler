@@ -149,7 +149,9 @@ SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
-GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -ftest-coverage -fprofile-arcs -o {{}}"
+GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
+if environ.get('COV') == 'true':
+    GCC_TEMPLATE += ' -ftest-coverage -fprofile-arcs'
 CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std=c11 {} -o {{}}"
 
 templates = {
@@ -226,6 +228,8 @@ def test_deterministic_build(c_file, compiler):
             xfail()
         elif compiler == 'PCC' and c_file in PCC_no_reproducible:
             xfail()  # PCC doesn't allow reproducible builds with static keyword
+        elif compiler == 'GCC' and environ.get('COV') == 'true':
+            xfail()  # GCC doesn't do reproducible builds w/ code coverage
         raise
 
 
