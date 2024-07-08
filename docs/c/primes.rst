@@ -122,7 +122,7 @@ primes.h
 
     .. c:function:: prime_factor_counter prime_factors(uintmax_t n)
 
-    .. c:macro:: free_prime_factor_counter(pfc x)
+    .. c:macro:: free_prime_factor_counter(pfc)
 
 .. c:function:: uintmax_t is_composite(uintmax_t n)
 

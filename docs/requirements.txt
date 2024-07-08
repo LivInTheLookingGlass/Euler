@@ -3,4 +3,4 @@ sphinx-rtd-theme
 sphinx-js
 sphinx-csharp
 sphinxcontrib-makedomain
-sphinx_rust
+sphinxcontrib-domaintools

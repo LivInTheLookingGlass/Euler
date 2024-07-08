@@ -10,6 +10,8 @@ from os import environ, path, sep
 from subprocess import CalledProcessError, check_call
 from sys import path as sys_path
 
+from sphinxcontrib.domaintools import custom_domain
+
 basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
 sys_path.insert(0, basedir + sep + 'python')
@@ -72,3 +74,16 @@ extlinks = {'prob': ('https://projecteuler.net/problem=%s',
                      'Problem #%s')}
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
+
+def setup(app):
+    app.add_domain(custom_domain(
+        "RustDomain",
+        "rust",
+        "Rust",
+        {
+            "fn": {
+            },
+            "var": {
+            },
+        }
+    ))
