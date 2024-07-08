@@ -23,10 +23,13 @@ namespace Euler
             int answer = 0;
             for (int i = 0; i < 1000; i += 3)
                 answer += i;
+
             for (int i = 0; i < 1000; i += 5)
                 answer += i;
+
             for (int i = 0; i < 1000; i += 15)
                 answer -= i;
+
             return Task.FromResult<Int64>(answer);
         }
     }
