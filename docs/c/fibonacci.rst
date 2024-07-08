@@ -25,7 +25,7 @@ fibonacci.h
         An indicator that flips every time the iterator moves.
 
     .. c:member:: uintmax_t a
-    .. c:member:: uintmax_t b
+                  uintmax_t b
 
     .. c:member:: uintmax_t limit
 

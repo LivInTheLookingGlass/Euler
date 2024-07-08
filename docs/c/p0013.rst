@@ -3,11 +3,10 @@ C Implementation of Problem 13
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0013.c>`_
 
-.. c:autosection:: Project Euler Problem 13
-   :file: p0013.c
+Includes
+--------
 
-.. c:autodoc:: p0013.c
-   :clang: -std=c11 -DAMD_COMPILER=0
+- `bcd.h <./bcd.html>`__
 
 .. literalinclude:: ../../c/p0013.c
    :language: C

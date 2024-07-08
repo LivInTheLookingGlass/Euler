@@ -8,7 +8,7 @@ primes.h
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive prime numbers.
 
-    .. c:member:: uintmax_t (*iterator_function)(*prime_counter)
+    .. c:member:: uintmax_t (*iterator_function)(*prime_counter pc)
 
         The function to advance the iterator and return the next element.
 
@@ -35,8 +35,7 @@ primes.h
     .. c:member:: prime_sieve *ps
 
     .. c:function:: prime_counter prime_counter1(uintmax_t stop)
-
-    .. c:function:: prime_counter prime_counter0()
+                    prime_counter prime_counter0()
 
     .. c:function:: void free_prime_counter(prime_counter pc)
 
@@ -44,7 +43,7 @@ primes.h
 
     An :c:macro:`Iterator <c.iterator.IteratorHead>` that implements a modified sieve of eratosthenes
 
-    .. c:member:: uintmax_t (*iterator_function)(*prime_sieve)
+    .. c:member:: uintmax_t (*iterator_function)(*prime_sieve ps)
 
         The function to advance the iterator and return the next element.
 
@@ -93,7 +92,7 @@ primes.h
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive prime factors.
 
-    .. c:member:: uintmax_t (*iterator_function)(*prime_factor_counter)
+    .. c:member:: uintmax_t (*iterator_function)(*prime_factor_counter pfc)
 
         The function to advance the iterator and return the next element.
 
@@ -123,7 +122,7 @@ primes.h
 
     .. c:function:: prime_factor_counter prime_factors(uintmax_t n)
 
-    .. c:macro:: free_prime_factor_counter(pfc)
+    .. c:macro:: free_prime_factor_counter(pfc x)
 
 .. c:function:: uintmax_t is_composite(uintmax_t n)
 

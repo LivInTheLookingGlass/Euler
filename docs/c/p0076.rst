@@ -3,11 +3,10 @@ C Implementation of Problem 76
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0076.c>`_
 
-.. c:autosection:: Project Euler Problem 76
-   :file: p00076.c
+Includes
+--------
 
-.. c:autodoc:: p0076.c
-   :clang: -std=c11 -DAMD_COMPILER=0
+- `macros.h <./macros.html>`__
 
 .. literalinclude:: ../../c/p0076.c
    :language: C

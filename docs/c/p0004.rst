@@ -3,11 +3,10 @@ C Implementation of Problem 4
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0004.c>`_
 
-.. c:autosection:: Project Euler Problem 4
-   :file: p0004.c
+Includes
+--------
 
-.. c:autodoc:: p0004.c
-   :clang: -std=c11 -DAMD_COMPILER=0
+- `iterator.h <./digits.html>`__
 
 .. literalinclude:: ../../c/p0004.c
    :language: C
