@@ -3,11 +3,10 @@ C Implementation of Problem 2
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0002.c>`_
 
-.. c:autosection:: Project Euler Problem 2
-   :file: p0002.c
+Includes
+--------
 
-.. c:autodoc:: p0002.c
-   :clang: -std=c11 -DAMD_COMPILER=0
+- `fibonacci.h <./fibonacci.html>`__
 
 .. literalinclude:: ../../c/p0002.c
    :language: C

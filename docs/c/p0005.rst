@@ -3,11 +3,11 @@ C Implementation of Problem 5
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0005.c>`_
 
-.. c:autosection:: Project Euler Problem 5
-   :file: p0005.c
+Includes
+--------
 
-.. c:autodoc:: p0005.c
-   :clang: -std=c11 -DAMD_COMPILER=0
+- `macros.h <./macros.html>`__
+- `primes.h <./primes.html>`__
 
 .. literalinclude:: ../../c/p0005.c
    :language: C

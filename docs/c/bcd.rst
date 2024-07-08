@@ -72,12 +72,12 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
     Returns ``x ** y``.
 
 .. c:function:: BCD_int mul_bcd_pow_10(BCD_int x, uintmax_t tens)
-.. c:function:: BCD_int shift_bcd_left(BCD_int x, uintmax_t tens)
+                BCD_int shift_bcd_left(BCD_int x, uintmax_t tens)
 
     Returns ``x * 10**tens``.
 
 .. c:function:: BCD_int div_bcd_pow_10(BCD_int a, uintmax_t tens)
-.. c:function:: BCD_int shift_bcd_right(BCD_int a, uintmax_t tens)
+                BCD_int shift_bcd_right(BCD_int a, uintmax_t tens)
 
     Returns ``x // 10**tens``.
 
@@ -86,7 +86,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
     Returns 1 if ``x > y``, -1 if ``y > x``, and otherwise 0.
 
 .. c:function:: void print_bcd(BCD_int x)
-.. c:function:: void print_bcd_ln(BCD_int x)
+                void print_bcd_ln(BCD_int x)
 
     Writes a :c:type:`BCD_int` to `stdout`, and optionally adds a newline.
 

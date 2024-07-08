@@ -3,11 +3,10 @@ C Implementation of Problem 16
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0016.c>`_
 
-.. c:autosection:: Project Euler Problem 16
-   :file: p0016.c
+Includes
+--------
 
-.. c:autodoc:: p0016.c
-   :clang: -std=c11 -DAMD_COMPILER=0
+- `bcd.h <./bcd.html>`__
 
 .. literalinclude:: ../../c/p0016.c
    :language: C

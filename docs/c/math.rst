@@ -27,9 +27,7 @@ math.h
     a hard time including ``<stdlib.h>``.
 
 .. c:function:: unsigned char imprecise_log10(uintmax_t x)
-
-.. c:function:: double sqrt(double S)
-
-.. c:function:: uintmax_t ceil(double x)
+                double sqrt(double S)
+                uintmax_t ceil(double x)
 
 .. c:namespace-pop::

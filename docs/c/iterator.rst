@@ -49,7 +49,7 @@ iterator.h
     argument should be a pointer to its iteration function.
 
 .. c:macro:: next(state)
-.. c:macro:: next_p(state)
+             next_p(state)
 
     These macros implement the iteration operation. The only difference between
     them is that :c:macro:`next` takes in a struct and
