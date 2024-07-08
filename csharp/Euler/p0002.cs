@@ -26,6 +26,7 @@ namespace Euler
                   i = 2,
                   j = 8,
                   tmp = 0;
+
             while (i < 4000000)
             {
                 answer += i;
@@ -33,6 +34,7 @@ namespace Euler
                 i = j;
                 j = tmp;
             }
+
             return Task.FromResult<Int64>(answer);
         }
     }
