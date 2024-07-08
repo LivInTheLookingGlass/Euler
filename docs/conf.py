@@ -16,7 +16,6 @@ basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
 sys_path.insert(0, basedir + sep + 'python')
 js_source_path = basedir + sep + 'javascript'
-rust_crates = ["../rust"]
 
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
@@ -49,10 +48,8 @@ try:
 except Exception:
     IS_SILVERBLUE = False
 
-if 'TERMUX_VERSION' not in environ:
-    if not IS_SILVERBLUE:
-        extensions.append('sphinx_js')
-    extensions.append('sphinx_rust')
+if 'TERMUX_VERSION' not in environ and not IS_SILVERBLUE:
+    extensions.append('sphinx_js')
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
