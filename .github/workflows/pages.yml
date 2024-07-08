@@ -30,14 +30,6 @@ jobs:
       with:
         node-version: 22
 
-    # - name: Use Rust stable
-    #   uses: actions-rs/toolchain@v1
-    #   with:
-    #     toolchain: stable
-
-    # - name: Compile rust crate
-    #   run: cd docs && cargo build --manifest-path ../rust/Cargo.toml
-
     - name: Build sphinx docs
       run: make html
 
