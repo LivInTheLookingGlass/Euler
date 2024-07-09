@@ -15,3 +15,6 @@ csharp/*/bin
 **/TestResults
 docs/_build
 rust/target
+**/.coverage
+**/.coverage.*
+javascript/coverage
