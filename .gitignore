@@ -14,3 +14,4 @@ csharp/*/obj
 csharp/*/bin
 **/TestResults
 docs/_build
+rust/target
