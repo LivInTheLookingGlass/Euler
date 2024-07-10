@@ -91,9 +91,11 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 .. raw:: html
 
   <style>
-    tr > td > p {text-align: center;}
-    tr > td:first-of-type > p {text-align: left;}
+    .centertable > tbody > tr > td > p {text-align: center;}
+    .centertable > tbody > tr > td:first-of-type > p {text-align: left;}
   </style>
+
+.. rst-class:: centertable
 
 +-----------+------+------+------+------+------+
 |           |  |C| | |C#| | |Js| | |Py| | |Rs| |
