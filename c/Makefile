@@ -1,6 +1,8 @@
 PY?=python3
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
+BLUE=\033[0;34m
+NC=\033[0m # No Color
 
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
@@ -11,6 +13,14 @@ else
 PROXY_ARG=
 endif
 endif
+
+help:
+	@echo "  $(BLUE)test$(NC)  	run through all tests in sequence. Utilizes the Python test runner infrastructure"
+	@echo "  $(BLUE)test_*$(NC)	run through all tests in parallel with the given number of threads. Use auto to allow the test runner to determine it. Utilizes the Python test runner infrastructure"
+	@echo "  $(BLUE)dependencies$(NC)	initialize submodules and install any Python dependencies"
+	@echo "  $(BLUE)lint$(NC)  	run clang-tidy across each of the .c and .h files"
+	@echo "  $(BLUE)native$(NC) 	build a test binary utilizing the Unity test framework"
+	@echo "  $(BLUE)clean$(NC) 	clean up any stray files"
 
 test_%: dependencies
 	cd ../python; $(MAKE) dependencies $(MFLAGS)
