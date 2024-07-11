@@ -38,6 +38,14 @@ else
 PROXY_ARG=
 endif
 endif
+BLUE=\033[0;34m
+NC=\033[0m # No Color
+
+help:
+	@echo "  $(BLUE)test$(NC)   	run through all tests in sequence. Utilizes the pytest test runner infrastructure"
+	@echo "  $(BLUE)test_*$(NC) 	run through all tests in parallel with the given number of threads. Use auto to allow the test runner to determine it. Utilizes the pytest runner"
+	@echo "  $(BLUE)dependencies$(NC)	grabs all dependencies through pip"
+	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 test: dependencies _test
 	$(PY) -m pytest $(pytest_args) $(benchmark_flags)
