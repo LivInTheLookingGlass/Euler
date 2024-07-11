@@ -1,7 +1,37 @@
 PY?=python3
 PROXY?=
+BLUE=\033[0;34m
+NC=\033[0m # No Color
 
-html dirhtml singlehtml htmlhelp qthelp devhelp epub applehelp latex man texinfo text gettext doctest linkcheck xml pseudoxml:
+help:
+	@echo "This project has a number of recipes that are delegated to other Makefiles. The following jobs are available with no prefix"
+	@echo "  $(BLUE)clean$(NC)"
+	@echo "  $(BLUE)html$(NC)"
+	@echo "  $(BLUE)dirhtml$(NC)"
+	@echo "  $(BLUE)singlehtml$(NC)"
+	@echo "  $(BLUE)epub$(NC)"
+	@echo "  $(BLUE)latex$(NC)"
+	@echo
+	@echo "The following jobs are available under the docs_ prefix"
+	@$(MAKE) docs_help $(MFLAGS) --no-print-directory
+	@echo
+	@echo "The following jobs are available under the c_ prefix"
+	@$(MAKE) c_help $(MFLAGS) --no-print-directory
+	@echo
+	@echo "The following jobs are available under the cs_ prefix"
+	@$(MAKE) cs_help $(MFLAGS) --no-print-directory
+	@echo
+	@echo "The following jobs are available under the js_ prefix"
+	@$(MAKE) js_help $(MFLAGS) --no-print-directory
+	@echo
+	@echo "The following jobs are available under the py_ prefix"
+	@$(MAKE) py_help $(MFLAGS) --no-print-directory
+	@echo
+	@echo "The following jobs are available under the rs_ prefix"
+	@$(MAKE) rs_help $(MFLAGS) --no-print-directory
+
+
+html dirhtml singlehtml epub latex:
 	@$(MAKE) docs_$@ $(MFLAGS)
 
 clean: cs_clean c_clean js_clean py_clean rs_clean docs_clean
@@ -25,4 +55,4 @@ rs_%:
 	@cd rust && $(MAKE) $* $(MFLAGS)
 
 %:
-	@$(MAKE) {c,cs,js,py,rs}_$* $(MFLAGS)
+	@$(MAKE) c_$* cs_$* js_$* py_$* rs_$* $(MFLAGS)
