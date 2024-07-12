@@ -39,7 +39,7 @@ LivInTheLookingGlass’s Project Euler solutions
 | JavaScript | Node 12+            |  2 / |total| | |JavaScript|  |
 +------------+---------------------+--------------+---------------+
 | Python     | CPython 3.6+ |br|   | 70 / |total| | |Python|      |
-|            | Pypy 3.8+ |br|      |              |               |
+|            | Pypy 3.6+ |br|      |              |               |
 |            | GraalPy 23.1+       |              |               |
 +------------+---------------------+--------------+---------------+
 | Rust       | 1.69+               |  3 / |total| | |Rust|        |
