@@ -41,6 +41,8 @@ Library Code
    :numbered:
    :maxdepth: 1
 
+   rust/digits
+   rust/fibonacci
    rust/primes
 
 Problems Solved
