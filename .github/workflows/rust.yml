@@ -16,9 +16,9 @@ jobs:
       fail-fast: false
       matrix:
         toolchain:
-          - stable
-          - beta
-          - nightly
+          - nightly  # currently = 1.81
+          - beta     # currently = 1.80
+          - stable   # currently = 1.79
         os:
           - ubuntu-latest
           - windows-latest
@@ -27,9 +27,25 @@ jobs:
             os: macos-13
           - toolchain: stable
             os: macos-latest
-          - toolchain: "1.69"
+          - toolchain: "1.78"
+            os: ubuntu-latest
+          - toolchain: "1.77"
+            os: ubuntu-latest
+          - toolchain: "1.76"
+            os: ubuntu-latest
+          - toolchain: "1.75"
+            os: ubuntu-latest
+          - toolchain: "1.74"
+            os: ubuntu-latest
+          - toolchain: "1.73"
+            os: ubuntu-latest
+          - toolchain: "1.72"
+            os: ubuntu-latest
+          - toolchain: "1.71"
             os: ubuntu-latest
           - toolchain: "1.70"
+            os: ubuntu-latest
+          - toolchain: "1.69"
             os: ubuntu-latest
 
     steps:
