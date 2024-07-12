@@ -34,15 +34,8 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 .. make:target:: latex
 
   This recipe redirects to the docs Makefile. Note that this is actually a
-  multi-target recipe that includes any builder name supported by
+  multi-target recipe that includes many builder names supported by
   `Sphinx <https://www.sphinx-doc.org/en/master/usage/builders/index.html>`__.
-  Only ``html`` has guaranteed support, but currently implemented are:
-
-  - ``html``
-  - ``dirhtml``
-  - ``singlehtml``
-  - ``epub``
-  - ``latex``
 
 .. make:target:: cs_%
 
@@ -92,7 +85,7 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 +-----------+------+------+------+------+------+
 |           |  |C| | |C#| | |Js| | |Py| | |Rs| |
 +===========+======+======+======+======+======+
-|Coverage   |  |d| | |ip| |  |d| |  |d| | |ip| |
+|Coverage   |  |d| | |ip| |  |d| |  |d| |  |d| |
 +-----------+------+------+------+------+------+
 |Docs       | |ip| |  |d| |  |d| |  |d| | |ip| |
 +-----------+------+------+------+------+------+
