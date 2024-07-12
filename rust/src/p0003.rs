@@ -12,5 +12,5 @@ What is the largest prime factor of the number 600851475143 ?
 use crate::primes::prime_factors;
 
 pub fn p0003() -> u64 {
-    return prime_factors(600851475143).map(|&x| x?).max();
+    return prime_factors(600851475143).map(|x| x?).max();
 }
