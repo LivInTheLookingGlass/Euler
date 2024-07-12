@@ -28,6 +28,10 @@ This project is divided into several Makefiles, connected by a root Makefile whi
   Removes all temporary or cache files, as well as any build artifacts
 
 .. make:target:: html
+.. make:target:: dirhtml
+.. make:target:: singlehtml
+.. make:target:: epub
+.. make:target:: latex
 
   This recipe redirects to the docs Makefile. Note that this is actually a
   multi-target recipe that includes any builder name supported by
@@ -39,18 +43,6 @@ This project is divided into several Makefiles, connected by a root Makefile whi
   - ``singlehtml``
   - ``epub``
   - ``latex``
-  - ``man``
-  - ``htmlhelp``
-  - ``qthelp``
-  - ``devhelp``
-  - ``applehelp``
-  - ``texinfo``
-  - ``text``
-  - ``gettext``
-  - ``doctest``
-  - ``linkcheck``
-  - ``xml``
-  - ``pseudoxml``
 
 .. make:target:: cs_%
 
