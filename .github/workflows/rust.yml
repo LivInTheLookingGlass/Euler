@@ -69,7 +69,7 @@ jobs:
 
       - name: rust-grcov
         if: ${{ matrix.toolchain == 'nightly' }}
-        run: cargo install grcov && grcov rust
+        run: cargo install grcov && grcov rust --path-mapping rust/mapping.json
 
       - name: Upload coverage reports to Codecov
         if: ${{ matrix.toolchain == 'nightly' }}
