@@ -40,7 +40,7 @@ impl Iterator for Eratosthenes {
         fn next_prime(sieve: &mut HashMap<u64, Vec<u64>>, candidate: u64) -> u64 {
             match sieve.get(&candidate) {
                 Some(numbers) => {
-                    for num in numbers {
+                    for num in numbers.to_owned() {
                         sieve
                             .entry(candidate + num)
                             .and_modify(|v| v.push(num))
