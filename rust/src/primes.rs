@@ -70,6 +70,10 @@ pub fn primes() -> Eratosthenes {
     return Eratosthenes::new();
 }
 
+pub fn primes_until(x: u64) -> Eratosthenes {
+    return Eratosthenes::with_limit(x);
+}
+
 pub struct PrimeFactors {
     number: u64
 }
@@ -115,4 +119,22 @@ pub fn proper_divisors(x: u64) -> Vec<u64> {
     ret.sort();
     ret.dedup();
     return ret;
+}
+
+pub fn is_composite(x: u64) -> u64 {
+    match prime_factors(x).next() {
+        None => {
+            return 0;
+        }
+        Some(number) => {
+            if number == x {
+                return 0;
+            }
+            return number;
+        }
+    }
+}
+
+pub fn is_prime(x: u64) -> bool {
+    return is_composite(x) == 0;
 }

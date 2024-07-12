@@ -7,6 +7,10 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   A convenience method that returns an iterator over the prime numbers.
 
+.. rust:fn:: primes::primes_until(x: u64) -> Eratosthenes
+
+  A convenience method that returns an iterator over the prime numbers until a given limit.
+
 .. rust:struct:: primes::Eratosthenes
 
   This class implements the `Sieve of Eratosthenes <https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes>`_. In general,
@@ -39,6 +43,14 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 .. rust:fn:: primes::proper_divisors(x: u64) -> Vec<u64>
 
   This function returns a vector of the proper divisors of a number.
+
+.. rust:fn:: fn is_composite(x: u64) -> u64
+
+  Returns ``0`` if the number is prime, and the smallest prime factor otherwise.
+
+.. rust:fn:: fn is_prime(x: u64) -> bool
+
+  Returns ``true`` if the number is prime, and ``false`` otherwise.
 
 .. literalinclude:: ../../rust/src/primes.rs
    :language: rust
