@@ -1,66 +1,82 @@
 use std::collections::HashMap;
 
-pub struct ModifiedEratosthenes {
-    sieve: HashMap<u64, u64>,
+pub struct Eratosthenes {
+    sieve: HashMap<u64, Vec<u64>>,
     prime: u64,
     candidate: u64,
-    recurse: Option<Box<ModifiedEratosthenes>>
 }
 
-impl ModifiedEratosthenes {
-    pub fn new() -> ModifiedEratosthenes {
-        return ModifiedEratosthenes{
+impl Default for Eratosthenes {
+    fn default() -> Self {
+        return Eratosthenes{
             sieve: HashMap::new(),
             prime: 0,
             candidate: 2,
-            recurse: None
         };
     }
 }
 
-impl Iterator for ModifiedEratosthenes {
+impl Eratosthenes {
+    pub fn new() -> Eratosthenes {
+        return Default::default();
+    }
+}
+
+impl Iterator for Eratosthenes {
     type Item = u64;
 
     fn next(&mut self) -> Option<Self::Item> {
-        if self.candidate == 2 {
-            self.candidate = 3;
-            self.prime = 3;
-            println!("Returning 2");
-            return Some(2);
-        }
-        let mut candidate = self.candidate;
-        self.candidate += 2;
-        loop {
-            let prime_squared = self.prime * self.prime;
-            println!("Candidate: {}", candidate);
-            let step: u64;
-            if self.sieve.contains_key(&candidate) {
-                step = self.sieve.remove(&candidate)?;
-                println!("Candidate in cache as {}", step);
-            }
-            else if candidate < prime_squared {
-                println!("Candidate not in cache, but less than {}", prime_squared);
-                return Some(candidate);
-            }
-            else {
-                if candidate != prime_squared {
-                    panic!("Something has gone wrong in the sieve");
+        fn next_prime(sieve: &mut HashMap<u64, Vec<u64>>, candidate: u64) -> u64 {
+            match sieve.get(&candidate) {
+                Some(numbers) => {
+                    for num in numbers.to_owned() {
+                        sieve
+                            .entry(candidate + num)
+                            .and_modify(|v| v.push(num))
+                            .or_insert_with(|| vec![num]);
+                    }
+                    sieve.remove(&candidate);
+                    return next_prime(sieve, candidate + 1);
                 }
-                step = self.prime * 2;
-                if self.recurse.is_none() {
-                    self.recurse = Some(Box::new(ModifiedEratosthenes::new()));
-                    let mut recursed = self.recurse.take()?;
-                    let _ = (*recursed).next();
+                None => {
+                    sieve.insert(candidate * candidate, vec![candidate]);
+                    return candidate;
                 }
-                let mut recursed = self.recurse.take()?;
-                self.prime = ((*recursed).next())?;
             }
-            println!("This is the good part");
-            candidate += step;
-            while self.sieve.contains_key(&candidate) {
-                candidate += step;
-            }
-            self.sieve.insert(candidate, step);
         }
+
+        self.prime = next_prime(&mut self.sieve, self.candidate);
+        self.candidate = self.prime + 1; // This number will be the next to be tested
+
+        return Some(self.prime)
+    }
+}
+
+pub struct PrimeFactors {
+    number: u64
+}
+
+impl PrimeFactors {
+    pub fn new(x: u64) -> PrimeFactors {
+        return PrimeFactors{
+            number: x
+        };
+    }
+}
+
+impl Iterator for PrimeFactors {
+    type Item = u64;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        for p in Eratosthenes::new() {
+            if self.number % p == 0 {
+                self.number = self.number / p;
+                return Some(p);
+            }
+            else if self.number < p {
+                break;
+            }
+        }
+        return None;
     }
 }
