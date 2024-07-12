@@ -105,11 +105,11 @@ pub fn prime_factors(x: u64) -> PrimeFactors {
 
 pub fn proper_divisors(x: u64) -> Vec<u64> {
     let mut ret: Vec<u64> = vec![];
-    let factors: Vec<u64> = PrimeFactors::new(x).collect().filter_map(Option::as_ref);
+    let factors: Vec<u64> = PrimeFactors::new(x).collect();
     ret.extend(factors.clone());
     for i in 2..(factors.len()) {
         for v in factors.iter().combinations(i) {
-            ret.push(v.iter().product());
+            ret.push(v.into_iter().product());
         }
     }
     ret.sort();
