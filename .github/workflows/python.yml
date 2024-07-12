@@ -48,6 +48,10 @@ jobs:
         - os: ubuntu-latest
           version: graalpy-24.0
         - os: ubuntu-latest
+          version: pypy3.6
+        - os: ubuntu-latest
+          version: pypy3.7
+        - os: ubuntu-latest
           version: pypy3.8
         - os: ubuntu-latest
           version: pypy3.9
