@@ -86,8 +86,8 @@ jobs:
     - name: Run tests (in parallel, w/ minimum dependencies)
       if: ${{(matrix.version == 'pypy3.6') || (matrix.version == 'pypy3.7')}}
       run: |
-        sed '/pytest-[^b\n][^\n]*/d' python/requirements.txt
-        sed '/coverage/d' python/requirements.txt
+        sed -i '/pytest-[^b\n][^\n]*/d' python/requirements.txt
+        sed -i '/coverage/d' python/requirements.txt
         make py_test_auto LINT=false COV=false
 
     - name: Upload coverage reports to Codecov
