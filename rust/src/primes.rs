@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 
+use itertools::Itertools;
+
 pub struct Eratosthenes {
     sieve: HashMap<u64, Vec<u64>>,
     prime: u64,
@@ -24,9 +26,10 @@ impl Eratosthenes {
     }
 
     pub fn with_limit(limit: u64) -> Eratosthenes {
-        let mut ret: Eratosthenes = Default::default();
-        ret.limit = limit;
-        return ret;
+        return Eratosthenes{
+            limit: limit,
+            ..Default::default()
+        };
     }
 }
 
@@ -63,6 +66,10 @@ impl Iterator for Eratosthenes {
     }
 }
 
+pub fn primes() -> Eratosthenes {
+    return Eratosthenes::new();
+}
+
 pub struct PrimeFactors {
     number: u64
 }
@@ -90,4 +97,20 @@ impl Iterator for PrimeFactors {
         }
         return None;
     }
+}
+
+pub fn prime_factors(x: u64) -> PrimeFactors {
+    return PrimeFactors::new(x);
+}
+
+pub fn proper_divisors(x: u64) -> Vec<u64> {
+    let mut ret: Vec<u64> = vec![];
+    let factors: Vec<u64> = PrimeFactors::new(x).collect();
+    ret.extend(factors.clone());
+    for i in 2..(factors.len()) {
+        for v in factors.iter().combinations(i) {
+            ret.push(v.iter().fold(1, |x, &y| x * y));
+        }
+    }
+    return ret;
 }
