@@ -27,7 +27,7 @@ impl Eratosthenes {
 
     pub fn with_limit(limit: u64) -> Eratosthenes {
         return Eratosthenes{
-            limit: limit,
+            limit,
             ..Default::default()
         };
     }
@@ -40,7 +40,7 @@ impl Iterator for Eratosthenes {
         fn next_prime(sieve: &mut HashMap<u64, Vec<u64>>, candidate: u64) -> u64 {
             match sieve.get(&candidate) {
                 Some(numbers) => {
-                    for num in numbers.to_owned() {
+                    for num in numbers {
                         sieve
                             .entry(candidate + num)
                             .and_modify(|v| v.push(num))
@@ -88,7 +88,7 @@ impl Iterator for PrimeFactors {
     fn next(&mut self) -> Option<Self::Item> {
         for p in Eratosthenes::new() {
             if self.number % p == 0 {
-                self.number = self.number / p;
+                self.number /= p;
                 return Some(p);
             }
             else if self.number < p {
@@ -105,12 +105,14 @@ pub fn prime_factors(x: u64) -> PrimeFactors {
 
 pub fn proper_divisors(x: u64) -> Vec<u64> {
     let mut ret: Vec<u64> = vec![];
-    let factors: Vec<u64> = PrimeFactors::new(x).collect();
+    let factors: Vec<u64> = PrimeFactors::new(x).collect().filter_map(Option::as_ref);
     ret.extend(factors.clone());
     for i in 2..(factors.len()) {
         for v in factors.iter().combinations(i) {
-            ret.push(v.iter().fold(1, |x, &y| x * y));
+            ret.push(v.iter().product());
         }
     }
+    ret.sort();
+    ret.dedup();
     return ret;
 }
