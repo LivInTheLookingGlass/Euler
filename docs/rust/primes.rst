@@ -17,6 +17,6 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   .. rust:fn:: primes::PrimeFactors::next() -> Option<u64>
 
-.. literalinclude:: ../../rust/src/p0001.rs
+.. literalinclude:: ../../rust/src/primes.rs
    :language: rust
    :linenos:
