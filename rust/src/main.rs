@@ -66,11 +66,11 @@ fn test_prime_factors() -> Result<(), String> {
     for v in primes::primes_until(1024).combinations(2) {
         let p = v[0];
         let s = v[1];
-        assert!(prime::is_prime(p));
-        assert!(prime::is_prime(s));
-        assert!(prime::is_composite(p * s) != 0);
+        assert!(primes::is_prime(p));
+        assert!(primes::is_prime(s));
+        assert!(primes::is_composite(p * s) != 0);
         for f in primes::prime_factors(p * s) {
-            assert!(prime::is_prime(f));
+            assert!(primes::is_prime(f));
             assert!(f == p || f == s);
         }
     }
