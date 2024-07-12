@@ -34,6 +34,15 @@ build or test processes.
 
   Alias for ``cargo clean``.
 
+Library Code
+------------
+
+.. toctree::
+   :numbered:
+   :maxdepth: 1
+
+   rust/primes
+
 Problems Solved
 ---------------
 

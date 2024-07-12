@@ -80,6 +80,8 @@ def setup(app):
         {
             "fn": {
             },
+            "struct": {
+            },
             "var": {
             },
         }

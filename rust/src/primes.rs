@@ -4,6 +4,7 @@ pub struct Eratosthenes {
     sieve: HashMap<u64, Vec<u64>>,
     prime: u64,
     candidate: u64,
+    limit: u64,
 }
 
 impl Default for Eratosthenes {
@@ -12,6 +13,7 @@ impl Default for Eratosthenes {
             sieve: HashMap::new(),
             prime: 0,
             candidate: 2,
+            limit: u64::MAX,
         };
     }
 }
@@ -19,6 +21,12 @@ impl Default for Eratosthenes {
 impl Eratosthenes {
     pub fn new() -> Eratosthenes {
         return Default::default();
+    }
+
+    pub fn with_limit(limit: u64) -> Eratosthenes {
+        let mut ret: Eratosthenes = Default::default();
+        ret.limit = limit;
+        return ret;
     }
 }
 
@@ -48,7 +56,10 @@ impl Iterator for Eratosthenes {
         self.prime = next_prime(&mut self.sieve, self.candidate);
         self.candidate = self.prime + 1; // This number will be the next to be tested
 
-        return Some(self.prime)
+        if self.prime > self.limit {
+            return None;
+        }
+        return Some(self.prime);
     }
 }
 
