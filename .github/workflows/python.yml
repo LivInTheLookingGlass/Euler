@@ -80,11 +80,18 @@ jobs:
       run: make py_test LINT=false benchmark_flags=
 
     - name: Run tests (in parallel)
-      if: ${{!((matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy'))}}
+      if: ${{!((matrix.os == 'ubuntu-latest' && matrix.version == '3.12') || contains(matrix.version, 'graalpy') || (matrix.version == 'pypy3.6') || (matrix.version == 'pypy3.7'))}}
       run: make py_test_auto LINT=false COV=true
 
+    - name: Run tests (in parallel, w/ minimum dependencies)
+      if: ${{(matrix.version == 'pypy3.6') || (matrix.version == 'pypy3.7')}}
+      run: |
+        sed '/pytest-[^b\n][^\n]*/d' python/requirements.txt
+        sed '/coverage/d' python/requirements.txt
+        make py_test_auto LINT=false COV=false
+
     - name: Upload coverage reports to Codecov
-      if: ${{!contains(matrix.version, 'graalpy')}}
+      if: ${{!contains(matrix.version, 'graalpy') && matrix.version != 'pypy3.6' && matrix.version != 'pypy3.7'}}
       uses: codecov/codecov-action@v4.0.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
