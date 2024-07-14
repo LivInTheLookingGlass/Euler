@@ -47,7 +47,7 @@ LivInTheLookingGlass’s Project Euler solutions
 +-------------------------------------------+---------------+
 | Code Coverage (in progress)               | |Coverage|    |
 +-------------------------------------------+---------------+
-y| Code Scanning                             | |CodeQL| |br| |
+| Code Scanning                             | |CodeQL| |br| |
 |                                           | |ESLint| |br| |
 |                                           | |RustClippy|  |
 +-------------------------------------------+---------------+
