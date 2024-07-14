@@ -9,7 +9,7 @@ use rstest::rstest;
 #[cfg(test)]
 use itertools::Itertools;
 
-seq!(N in 0001..=0004 {
+seq!(N in 0001..=0005 {
 mod p~N;
 });
 mod p0007;
@@ -18,11 +18,12 @@ mod primes;
 
 type ProblemType = fn() -> u64;
 type ProblemRef<'a> = (&'a str, ProblemType, u64);
-const ANSWERS: [ProblemRef; 6] = [
+const ANSWERS: [ProblemRef; 7] = [
     ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732),
     ("p0003", p0003::p0003, 6857),
     ("p0004", p0004::p0004, 906609),
+    ("p0005", p0005::p0005, 232792560),
     ("p0007", p0007::p0007, 104743),
     ("p0010", p0010::p0010, 142913828922),
 ];
@@ -39,7 +40,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..6 {
+seq!(N in 0..7 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(
