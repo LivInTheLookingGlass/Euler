@@ -7,10 +7,10 @@ help:
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 test:
-	cargo test
+	cargo test -j 1
 
 test_auto:
-	cargo test -j
+	cargo test -j default
 
 test_%:
 	cargo test -j $*

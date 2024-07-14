@@ -1,18 +1,15 @@
-Rust Implementation of Problem 3
+Rust Implementation of Problem 4
 ================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0003.rs>`_
-
-Includes
---------
-
-- `primes <./primes.html>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0004.rs>`_
 
 Problem Solution
 ----------------
 
-.. rust:fn:: p0003::p0003() -> u64
+.. rust:fn:: p0004::is_palindrome(x: u64) -> bool
 
-.. literalinclude:: ../../rust/src/p0003.rs
+.. rust:fn:: p0004::p0004() -> u64
+
+.. literalinclude:: ../../rust/src/p0004.rs
    :language: rust
    :linenos:
