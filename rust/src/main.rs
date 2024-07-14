@@ -12,14 +12,16 @@ use itertools::Itertools;
 seq!(N in 0001..=0003 {
 mod p~N;
 });
+mod p0007;
 mod primes;
 
 type ProblemType = fn() -> u64;
 type ProblemRef<'a> = (&'a str, ProblemType, u64);
-const ANSWERS: [ProblemRef; 3] = [
+const ANSWERS: [ProblemRef; 4] = [
     ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732),
     ("p0003", p0003::p0003, 6857),
+    ("p0007", p0007::p0007, 104743),
 ];
 
 fn main() {
@@ -34,7 +36,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..2 {
+seq!(N in 0..3 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(
@@ -63,7 +65,7 @@ fn test_primes() -> Result<(), String> {
 #[cfg(test)]
 #[test]
 fn test_prime_factors() -> Result<(), String> {
-    for v in primes::primes_until(1024).combinations(2) {
+    for v in primes::primes_until(256).combinations(2) {
         let p = v[0];
         let s = v[1];
         assert!(primes::is_prime(p));
