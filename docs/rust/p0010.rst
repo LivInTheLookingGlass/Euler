@@ -1,0 +1,18 @@
+Rust Implementation of Problem 10
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0010.rs>`_
+
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0010::p0010() -> u64
+
+.. literalinclude:: ../../rust/src/p0010.rs
+   :language: rust
+   :linenos:
