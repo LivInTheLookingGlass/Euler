@@ -13,15 +13,17 @@ seq!(N in 0001..=0003 {
 mod p~N;
 });
 mod p0007;
+mod p0010;
 mod primes;
 
 type ProblemType = fn() -> u64;
 type ProblemRef<'a> = (&'a str, ProblemType, u64);
-const ANSWERS: [ProblemRef; 4] = [
+const ANSWERS: [ProblemRef; 5] = [
     ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732),
     ("p0003", p0003::p0003, 6857),
     ("p0007", p0007::p0007, 104743),
+    ("p0010", p0010::p0010, 142913828922),
 ];
 
 fn main() {
@@ -36,7 +38,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..3 {
+seq!(N in 0..=4 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(

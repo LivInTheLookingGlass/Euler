@@ -12,10 +12,5 @@ What is the 10 001st prime number?
 use crate::primes::primes;
 
 pub fn p0007() -> u64 {
-    for (i, p) in primes().enumerate() {
-        if i == 1001 {
-            return p;
-        }
-    }
-    return 0;
+    return primes().take(10001).last().unwrap();
 }
