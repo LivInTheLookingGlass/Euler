@@ -25,7 +25,7 @@ const ANSWERS: [ProblemRef; 4] = [
 ];
 
 fn main() {
-    let sieve = primes::primes().take(10);
+    let sieve = primes::primes::<u64>().take(10);
     for i in sieve {
         println!("{}", i);
     }
@@ -55,7 +55,7 @@ fn test_problem(#[case] idx: usize) -> Result<(), String> {
 #[test]
 fn test_primes() -> Result<(), String> {
     let primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113];
-    let sieve = primes::primes().take(primes.len());
+    let sieve = primes::primes::<u32>().take(primes.len());
     for (p, s) in zip(primes, sieve) {
         assert_eq!(p, s);
     }
@@ -65,7 +65,7 @@ fn test_primes() -> Result<(), String> {
 #[cfg(test)]
 #[test]
 fn test_prime_factors() -> Result<(), String> {
-    for v in primes::primes_until(256).combinations(2) {
+    for v in primes::primes_until::<u32>(256).combinations(2) {
         let p = v[0];
         let s = v[1];
         assert!(primes::is_prime(p));
