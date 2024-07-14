@@ -1,31 +1,37 @@
 use std::collections::HashMap;
+use std::cmp::PartialOrd;
+use std::hash::Hash;
 
+use num_traits::NumAssign;
+use num_traits::Bounded;
+use num_traits::zero;
+use num_traits::one;
 use itertools::Itertools;
 
-pub struct Eratosthenes {
-    sieve: HashMap<u64, Vec<u64>>,
-    prime: u64,
-    candidate: u64,
-    limit: u64,
+pub struct Eratosthenes<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> {
+    sieve: HashMap<I, Vec<I>>,
+    prime: I,
+    candidate: I,
+    limit: I,
 }
 
-impl Default for Eratosthenes {
+impl<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> Default for Eratosthenes<I> {
     fn default() -> Self {
-        return Eratosthenes{
+        return Eratosthenes::<I>{
             sieve: HashMap::new(),
-            prime: 0,
-            candidate: 2,
-            limit: u64::MAX,
+            prime: zero::<I>(),
+            candidate: one::<I>() + one(),
+            limit: I::max_value(),
         };
     }
 }
 
-impl Eratosthenes {
-    pub fn new() -> Eratosthenes {
+impl<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> Eratosthenes<I> {
+    pub fn new() -> Eratosthenes<I> {
         return Default::default();
     }
 
-    pub fn with_limit(limit: u64) -> Eratosthenes {
+    pub fn with_limit(limit: I) -> Eratosthenes<I> {
         return Eratosthenes{
             limit,
             ..Default::default()
@@ -33,11 +39,11 @@ impl Eratosthenes {
     }
 }
 
-impl Iterator for Eratosthenes {
-    type Item = u64;
+impl<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> Iterator for Eratosthenes<I> {
+    type Item = I;
 
     fn next(&mut self) -> Option<Self::Item> {
-        fn next_prime(sieve: &mut HashMap<u64, Vec<u64>>, candidate: u64) -> u64 {
+        fn next_prime<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>(sieve: &mut HashMap<I, Vec<I>>, candidate: I) -> I {
             match sieve.get(&candidate) {
                 Some(numbers) => {
                     for num in numbers.to_owned() {
@@ -47,7 +53,7 @@ impl Iterator for Eratosthenes {
                             .or_insert_with(|| vec![num]);
                     }
                     sieve.remove(&candidate);
-                    return next_prime(sieve, candidate + 1);
+                    return next_prime(sieve, candidate + one::<I>());
                 }
                 None => {
                     sieve.insert(candidate * candidate, vec![candidate]);
@@ -56,8 +62,8 @@ impl Iterator for Eratosthenes {
             }
         }
 
-        self.prime = next_prime(&mut self.sieve, self.candidate);
-        self.candidate = self.prime + 1; // This number will be the next to be tested
+        self.prime = next_prime::<I>(&mut self.sieve, self.candidate);
+        self.candidate = self.prime + one();
 
         if self.prime > self.limit {
             return None;
@@ -66,32 +72,32 @@ impl Iterator for Eratosthenes {
     }
 }
 
-pub fn primes() -> Eratosthenes {
+pub fn primes<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>() -> Eratosthenes<I> {
     return Eratosthenes::new();
 }
 
-pub fn primes_until(x: u64) -> Eratosthenes {
+pub fn primes_until<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>(x: I) -> Eratosthenes<I> {
     return Eratosthenes::with_limit(x);
 }
 
-pub struct PrimeFactors {
-    number: u64
+pub struct PrimeFactors<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> {
+    number: I
 }
 
-impl PrimeFactors {
-    pub fn new(x: u64) -> PrimeFactors {
+impl<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> PrimeFactors<I> {
+    pub fn new(x: I) -> PrimeFactors<I> {
         return PrimeFactors{
             number: x
         };
     }
 }
 
-impl Iterator for PrimeFactors {
-    type Item = u64;
+impl<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy> Iterator for PrimeFactors<I> {
+    type Item = I;
 
     fn next(&mut self) -> Option<Self::Item> {
         for p in Eratosthenes::new() {
-            if self.number % p == 0 {
+            if self.number % p == zero() {
                 self.number /= p;
                 return Some(p);
             }
@@ -103,17 +109,17 @@ impl Iterator for PrimeFactors {
     }
 }
 
-pub fn prime_factors(x: u64) -> PrimeFactors {
+pub fn prime_factors<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>(x: I) -> PrimeFactors<I> {
     return PrimeFactors::new(x);
 }
 
-pub fn proper_divisors(x: u64) -> Vec<u64> {
-    let mut ret: Vec<u64> = vec![];
-    let factors: Vec<u64> = PrimeFactors::new(x).collect();
+pub fn proper_divisors<I: NumAssign + Bounded + Ord + Eq + Hash + Copy>(x: I) -> Vec<I> {
+    let mut ret: Vec<I> = vec![];
+    let factors: Vec<I> = PrimeFactors::new(x).collect();
     ret.extend(factors.clone());
     for i in 2..(factors.len()) {
         for v in factors.iter().combinations(i) {
-            ret.push(v.into_iter().product());
+            ret.push(v.into_iter().fold(one(), |x, y| x * (*y)));
         }
     }
     ret.sort();
@@ -121,20 +127,20 @@ pub fn proper_divisors(x: u64) -> Vec<u64> {
     return ret;
 }
 
-pub fn is_composite(x: u64) -> u64 {
+pub fn is_composite<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>(x: I) -> I {
     match prime_factors(x).next() {
         None => {
-            return 0;
+            return zero();
         }
         Some(number) => {
             if number == x {
-                return 0;
+                return zero();
             }
             return number;
         }
     }
 }
 
-pub fn is_prime(x: u64) -> bool {
-    return is_composite(x) == 0;
+pub fn is_prime<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>(x: I) -> bool {
+    return is_composite(x) == zero();
 }
