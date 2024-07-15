@@ -11,6 +11,8 @@ from subprocess import CalledProcessError, check_call
 from sys import path as sys_path
 
 from sphinxcontrib.domaintools import custom_domain
+from gh import linguist
+import matplotlib.pyplot as plt
 
 basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
@@ -73,6 +75,13 @@ extlinks = {'prob': ('https://projecteuler.net/problem=%s',
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
 
 def setup(app):
+    langs = ghl.linguist(basedir)
+    labels = [lang[0] for lang in langs]
+    sizes = [lang[1] for lang in langs]
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%')
+    plt.savefig("languages.svg")
+
     app.add_domain(custom_domain(
         "RustDomain",
         "rust",
@@ -86,3 +95,4 @@ def setup(app):
             },
         }
     ))
+

@@ -4,3 +4,5 @@ sphinx-js
 sphinx-csharp
 sphinxcontrib-makedomain
 sphinxcontrib-domaintools
+ghlinguist
+matplotlib
