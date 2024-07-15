@@ -73,7 +73,7 @@ jobs:
 
       - name: rust-grcov
         if: ${{ matrix.toolchain == 'nightly' }}
-        run: cargo install grcov && grcov rust --path-mapping rust/mapping.json -t lcov,cobertura,coveralls,coveralls+ -o .
+        run: cargo install grcov && grcov rust --path-mapping rust/mapping.json -t lcov,cobertura,coveralls,coveralls+ -o . --token Euler
 
       - name: Install coverage.py
         if: ${{ matrix.toolchain == 'nightly' }}
