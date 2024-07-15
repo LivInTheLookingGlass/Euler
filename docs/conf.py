@@ -81,7 +81,7 @@ def setup(app):
         labels = [lang[0] for lang in langs]
         sizes = [lang[1] for lang in langs]
         fig, ax = plt.subplots()
-        ax.pie(sizes, labels=labels, autopct='%1.1f%%')
+        ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None)
         plt.legend(title='Languages', loc='center right', bbox_to_anchor=(1, 0, 0.5, 1))
         plt.savefig("languages.svg", transparent=True)
 
