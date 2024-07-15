@@ -1,7 +1,7 @@
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 COV?=false
-ifeq (COV, true)
+ifeq ($(COV),true)
 cov_args= --collect:"XPlat Code Coverage"
 else
 cov_args=
