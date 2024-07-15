@@ -75,6 +75,9 @@ jobs:
         if: ${{ matrix.toolchain == 'nightly' }}
         run: cargo install grcov && grcov rust --path-mapping rust/mapping.json -o lcov.txt
 
+      - name: Install coverage.py
+        run: sudo pip install coverage
+
       # - name: Setup upterm session
       #   uses: lhotari/action-upterm@v1
       #   if: ${{ matrix.toolchain == 'nightly' }}
