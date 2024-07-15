@@ -41,7 +41,7 @@ jobs:
     - name: Run Tests
       run: |
         make cs_test COV=true
-        mv csharp/Euler.Tests/TestResults/*/coverage.cobertura.xml ./
+        mv csharp/Euler.Test/TestResults/*/coverage.cobertura.xml ./
 
 #    - name: Setup upterm session
 #      uses: lhotari/action-upterm@v1
