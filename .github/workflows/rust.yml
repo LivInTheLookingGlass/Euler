@@ -71,6 +71,13 @@ jobs:
         if: ${{ matrix.toolchain == 'nightly' }}
         run: cargo install grcov && grcov rust --path-mapping rust/mapping.json
 
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        if: ${{ matrix.toolchain == 'nightly' }}
+        with:
+          wait-timeout-minutes: 5
+          limit-access-to-actor: true
+
       - name: Upload coverage reports to Codecov
         if: ${{ matrix.toolchain == 'nightly' }}
         uses: codecov/codecov-action@v4.0.1
