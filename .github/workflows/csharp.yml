@@ -39,7 +39,12 @@ jobs:
       run: make cs_dependencies
 
     - name: Run Tests
-      run: make cs_test
+      run: make cs_test COV=true
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
 
   csharp-lint:
     runs-on: ubuntu-latest
