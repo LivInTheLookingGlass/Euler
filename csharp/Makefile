@@ -1,5 +1,11 @@
 BLUE=\033[0;34m
 NC=\033[0m # No Color
+COV?=false
+ifeq (COV, true)
+cov_args= --collect:"XPlat Code Coverage"
+else
+cov_args=
+endif
 
 help:
 	@echo "  $(BLUE)test$(NC)    	run through all tests in sequence. Utilizes the Xunit framework"
@@ -12,10 +18,10 @@ clean:
 	dotnet clean || rm ./*/{bin,obj,TestResults} || echo
 
 test: dependencies
-	dotnet test --nologo 
+	dotnet test --nologo $(cov_args)
 
 test_%: dependencies
-	$(MAKE) test
+	$(MAKE) test $(MFLAGS)
 
 dependencies:
 	dotnet restore
