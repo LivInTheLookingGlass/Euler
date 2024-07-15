@@ -39,7 +39,9 @@ jobs:
       run: make cs_dependencies
 
     - name: Run Tests
-      run: make cs_test COV=true
+      run: |
+        make cs_test COV=true
+        mv csharp/TestResults/coverage.cobertura.xml ./
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
