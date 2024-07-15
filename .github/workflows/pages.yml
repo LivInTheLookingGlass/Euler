@@ -31,7 +31,7 @@ jobs:
         node-version: 22
 
     - name: Install Linguist
-      run: gem install github-linguist
+      run: sudo gem install github-linguist
 
     - name: Build sphinx docs
       run: make html
