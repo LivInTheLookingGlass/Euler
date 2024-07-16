@@ -1,3 +1,4 @@
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -38,8 +39,8 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
-    'sphinx-favicon',
-    'sphinx-notfound-page',
+    'sphinx_favicon',
+    'sphinx_notfound_page',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',
