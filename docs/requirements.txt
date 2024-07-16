@@ -6,3 +6,5 @@ sphinxcontrib-makedomain
 sphinxcontrib-domaintools
 ghlinguist
 matplotlib
+sphinx-favicon
+sphinx-notfound-page
