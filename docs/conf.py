@@ -30,6 +30,7 @@ author = 'Olivia Appleton'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosectionlabel',
+    'sphinx.ext.duration',
     'sphinx.ext.extlinks',
     'sphinx.ext.githubpages',
     'sphinx.ext.graphviz',
@@ -37,6 +38,8 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
+    'sphinx-favicon',
+    'sphinx-notfound-page',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',
@@ -65,6 +68,16 @@ language = 'english'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+favicons = [
+    {
+        "rel": "apple-touch-icon",
+        "href": "https://projecteuler.net/favicons/apple-touch-icon.png",
+    },
+    {"href": "https://projecteuler.net/favicons/favicon-32x32.png"},
+    {"href": "https://projecteuler.net/favicons/favicon-16x16.png"},
+    {"href": "https://projecteuler.net/favicons/favicon.ico"},
+]
+
 # -- Options for todo extension ----------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
@@ -73,7 +86,15 @@ todo_include_todos = True
 extlinks = {'prob': ('https://projecteuler.net/problem=%s',
                      'Problem #%s')}
 
-intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
+intersphinx_mapping = {
+    'python':           ('https://docs.python.org/3', None),
+    'matplotlib':       ('https://matplotlib.org/stable/', None),
+    'Sphinx':           ('https://www.sphinx-doc.org/en/stable/', None),
+    'sortedcontainers': ('https://grantjenks.com/docs/sortedcontainers/', None),
+    'u-msgpack-python': ('https://u-msgpack-python.readthedocs.io/en/latest/', None),
+    'pytest':           ('https://docs.pytest.org/en/stable/', None),
+    'coverage':         ('https://coverage.readthedocs.io/en/latest/', None)
+}
 
 def setup(app):
     if 'TERMUX_VERSION' not in environ:
@@ -83,18 +104,18 @@ def setup(app):
         fig, ax = plt.subplots()
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.8)
         plt.legend(title='Languages', loc='center left', bbox_to_anchor=(1, 0))
-        plt.savefig("languages.svg", transparent=True)
+        plt.savefig('languages.svg', transparent=True)
 
     app.add_domain(custom_domain(
-        "RustDomain",
-        "rust",
-        "Rust",
+        'RustDomain',
+        'rust',
+        'Rust',
         {
-            "fn": {
+            'fn': {
             },
-            "struct": {
+            'struct': {
             },
-            "var": {
+            'var': {
             },
         }
     ))
