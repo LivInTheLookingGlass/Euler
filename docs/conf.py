@@ -40,7 +40,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
     'sphinx_favicon',
-    'sphinx_notfound_page',
+    'notfound.extension',
     # 'breathe',
     # 'javasphinx',
     # 'sphinx_autodoc_typehints',
