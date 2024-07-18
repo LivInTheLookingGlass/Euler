@@ -69,5 +69,5 @@ pub fn p0008() -> i128 {
             answer = prod;
         }
     }
-    return answer;
+    return answer.into();
 }

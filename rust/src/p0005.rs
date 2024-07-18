@@ -26,5 +26,5 @@ pub fn p0005() -> i128 {
             }
         }
     }
-    return answer;
+    return answer.into();
 }

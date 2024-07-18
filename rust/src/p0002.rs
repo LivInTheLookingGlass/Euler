@@ -24,5 +24,5 @@ pub fn p0002() -> i128 {
         i = j;
         j = tmp;
     }
-    return answer;
+    return answer.into();
 }
