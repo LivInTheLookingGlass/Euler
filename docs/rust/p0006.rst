@@ -1,0 +1,13 @@
+Rust Implementation of Problem 6
+================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0006.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0006::p0006() -> u64
+
+.. literalinclude:: ../../rust/src/p0006.rs
+   :language: rust
+   :linenos:

@@ -1,0 +1,13 @@
+Rust Implementation of Problem 5
+================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0005.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0005::p0005() -> u64
+
+.. literalinclude:: ../../rust/src/p0005.rs
+   :language: rust
+   :linenos:
