@@ -1,0 +1,13 @@
+Rust Implementation of Problem 8
+================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0008.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0008::p0008() -> u64
+
+.. literalinclude:: ../../rust/src/p0008.rs
+   :language: rust
+   :linenos:
