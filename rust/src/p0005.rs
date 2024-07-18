@@ -16,8 +16,8 @@ numbers from 1 to 20?
 use itertools::Itertools;
 
 pub fn p0005() -> i128 {
-    let mut answer = u32::MAX;
-    let group = 1..=20u32;
+    let mut answer = u64::MAX;
+    let group = 1..=20u64;
     for x in group.clone() {
         for multiples in group.clone().combinations(x as usize) {
             let num = multiples.into_iter().product();
