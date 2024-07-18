@@ -22,5 +22,5 @@ pub fn p0001() -> i128 {
     for i in (0..1000).step_by(15) {
         answer -= i;
     }
-    return answer;
+    return answer.into();
 }

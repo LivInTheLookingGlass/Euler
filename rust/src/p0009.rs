@@ -23,7 +23,7 @@ pub fn p0009() -> i128 {
             for a in 1..b {
                 let a_square = a * a;
                 if a_square + b_square == c_square && a + b + c == 1000 {
-                    return a * b * c;
+                    return (a * b * c).into();
                 }
             }
         }

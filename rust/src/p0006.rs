@@ -24,5 +24,5 @@ pub fn p0006() -> i128 {
     let sum_of_squares = group.clone().fold(0, |x, y| x + y * y);
     let sum: u32 = group.sum();
     let square_of_sum = sum * sum;
-    return square_of_sum - sum_of_squares;
+    return (square_of_sum - sum_of_squares).into();
 }

@@ -14,7 +14,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 */
 use itertools::Itertools;
 
-fn is_palindrome(x: u64) -> bool {
+fn is_palindrome(x: u32) -> bool {
     let s = x.to_string();
     return s == s.chars().rev().collect::<String>();
 }
@@ -22,11 +22,11 @@ fn is_palindrome(x: u64) -> bool {
 pub fn p0004() -> i128 {
     let mut answer: u32 = 0;
     for v in (100..1000).combinations(2) {
-        let p = v.into_iter().product();
+        let p: u32 = v.into_iter().product();
         if is_palindrome(p) && p > answer {
             answer = p;
         }
     }
-    return answer;
+    return answer.into();
 }
 
