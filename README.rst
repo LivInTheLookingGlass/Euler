@@ -45,7 +45,7 @@ LivInTheLookingGlass’s Project Euler solutions
 +------------+---------------------+--------+---------------+
 | Documentation (in progress)               | |Pages|       |
 +-------------------------------------------+---------------+
-| Code Coverage (in progress)               | |Coverage|    |
+| Code Coverage                             | |Coverage|    |
 +-------------------------------------------+---------------+
 | Code Scanning                             | |CodeQL| |br| |
 |                                           | |ESLint| |br| |
@@ -83,3 +83,15 @@ Makefile will direct recipes using prefixes
 -  All other recipes will be run for all languages
 
 For more information, please see the README documents in each section.
+
+Roadmap
+-------
+
+1. Make sure no language is below Makefile in code percentage
+2. Create a C++ section
+  a. Make stubs for test code
+  b. Port C infrastructure to C++
+  c. Write minimal documentation
+  d. Port problems 1-n, until higher than Makefile percentage
+3. Repeat step 1
+4. Create a Ruby section
