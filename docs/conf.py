@@ -103,9 +103,9 @@ def setup(app):
         labels = [lang[0] for lang in langs]
         sizes = [lang[1] for lang in langs]
         fig, ax = plt.subplots()
-        ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
-        plt.legend(title='Languages', loc='lower center')
-        plt.savefig('languages.svg', transparent=True)
+        pie = ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
+        plt.legend(title='Languages', loc='right')
+        plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
     app.add_domain(custom_domain(
         'RustDomain',
