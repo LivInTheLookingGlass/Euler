@@ -1,0 +1,13 @@
+Rust Implementation of Problem 9
+================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0009.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0009::p0009() -> u64
+
+.. literalinclude:: ../../rust/src/p0009.rs
+   :language: rust
+   :linenos:
