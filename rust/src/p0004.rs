@@ -19,8 +19,8 @@ fn is_palindrome(x: u64) -> bool {
     return s == s.chars().rev().collect::<String>();
 }
 
-pub fn p0004() -> u64 {
-    let mut answer: u64 = 0;
+pub fn p0004() -> i128 {
+    let mut answer: u32 = 0;
     for v in (100..1000).combinations(2) {
         let p = v.into_iter().product();
         if is_palindrome(p) && p > answer {

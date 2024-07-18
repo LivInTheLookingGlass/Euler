@@ -19,10 +19,10 @@ natural numbers and the square of the sum.
 */
 
 
-pub fn p0006() -> u64 {
+pub fn p0006() -> i128 {
     let group = 1..101;
     let sum_of_squares = group.clone().fold(0, |x, y| x + y * y);
-    let sum: u64 = group.sum();
+    let sum: u32 = group.sum();
     let square_of_sum = sum * sum;
     return square_of_sum - sum_of_squares;
 }
