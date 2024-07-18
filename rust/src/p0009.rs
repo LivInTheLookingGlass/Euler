@@ -13,9 +13,9 @@ For example, 3**2 + 4**2 = 9 + 16 = 25 = 5**2.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 */
-const MAX: u64 = 500;
+const MAX: u32 = 500;
 
-pub fn p0009() -> u64 {
+pub fn p0009() -> i128 {
     for c in 3..MAX {
         let c_square = c * c;
         for b in 2..c {

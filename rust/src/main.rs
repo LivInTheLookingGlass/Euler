@@ -14,8 +14,8 @@ mod p~N;
 });
 mod primes;
 
-type ProblemType = fn() -> u64;
-type ProblemRef<'a> = (&'a str, ProblemType, u64);
+type ProblemType = fn() -> i128;
+type ProblemRef<'a> = (&'a str, ProblemType, i128);
 const ANSWERS: [ProblemRef; 10] = [
     ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732),

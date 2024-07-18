@@ -11,6 +11,6 @@ What is the 10 001st prime number?
 */
 use crate::primes::primes;
 
-pub fn p0007() -> u64 {
-    return primes().take(10001).last().unwrap();
+pub fn p0007() -> i128 {
+    return primes::<u32>().take(10001).last().unwrap();
 }

@@ -14,8 +14,8 @@ terms. By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 */
-pub fn p0002() -> u64 {
-    let mut answer = 0;
+pub fn p0002() -> i128 {
+    let mut answer: u64 = 0;
     let mut i = 2;
     let mut j = 8;
     while i < 4000000 {
