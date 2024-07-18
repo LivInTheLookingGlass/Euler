@@ -12,6 +12,9 @@ This repo includes solutions in the following languages:
     :start-line: 2
     :end-before: This is the repository
 
+Code Size By Language
+---------------------
+
 .. image:: ./languages.svg
 
 Usage

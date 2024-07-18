@@ -52,6 +52,9 @@ LivInTheLookingGlass’s Project Euler solutions
 |                                           | |RustClippy|  |
 +-------------------------------------------+---------------+
 
+Coverage
+--------
+
 .. image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graphs/icicle.svg?token=6GHBNILEHG
 
 This is the repository I keep for prospective employers to look at
