@@ -17,6 +17,9 @@ concurrency:
 
 on:
   push:
+    paths-ignore:
+      - 'docs/**'
+      - 'README.rst'
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
