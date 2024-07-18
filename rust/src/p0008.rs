@@ -58,10 +58,10 @@ pub fn p0008() -> i128 {
         "05886116467109405077541002256983155200055935729725",
         "71636269561882670428252483600823257530420752963450"
     );
-    let mut answer: u32 = 0;
+    let mut answer: u64 = 0;
     for i in 0..(string.len() - 13) {
         let slice = &string[i..(i + 13)];
-        let mut prod: u32 = 1;
+        let mut prod: u64 = 1;
         for c in slice.bytes() {
             prod *= c as u32 - '0' as u32;
         }
