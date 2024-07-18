@@ -104,7 +104,7 @@ def setup(app):
         sizes = [lang[1] for lang in langs]
         fig, ax = plt.subplots()
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
-        plt.legend(title='Languages', loc='bottom')
+        plt.legend(title='Languages', loc='lower center')
         plt.savefig('languages.svg', transparent=True)
 
     app.add_domain(custom_domain(
