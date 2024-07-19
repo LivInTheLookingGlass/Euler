@@ -10,7 +10,7 @@ test:
 	cargo test -j 1
 
 test_auto:
-	cargo test -j default
+	cargo test
 
 test_%:
 	cargo test -j $*
