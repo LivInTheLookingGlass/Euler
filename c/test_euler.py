@@ -50,6 +50,7 @@ IN_WINDOWS = system() == 'Windows'
 IN_OSX = system() == 'Darwin'
 IN_TERMUX = bool(which('termux-setup-storage'))
 IN_LINUX = (not IN_TERMUX) and (system() == 'Linux')
+STANDARDS = ('c99', 'c11', 'c17')
 
 if IN_TERMUX:
     BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
@@ -106,15 +107,18 @@ if 'COMPILER_OVERRIDE' in environ:
     compilers.extend(environ['COMPILER_OVERRIDE'].upper().split(','))
 else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
-        compilers.append('GCC')
+        compilers.extend(f'GCC+{std}' for std in STANDARDS)
     if which('clang'):
         if b'AOCC' in check_output(['clang', '--version']):
-            compilers.append('AOCC')
+            compilers.extend(f'AOCC+{std}' for std in STANDARDS)
         else:
-            compilers.append('CLANG')
+            compilers.extend(f'CLANG+{std}' for std in STANDARDS)
     if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
-        compilers.append('AOCC')
-    for x in ('cl', 'icc', 'pcc', 'tcc'):
+        compilers.extend(f'AOCC+{std}' for std in STANDARDS)
+    for x in ('icc', 'icc'):
+        if which(x):
+            compilers.extend(f'{x.upper()}+{std}' for std in STANDARDS)
+    for x in ('pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())
 if not compilers:
@@ -149,20 +153,24 @@ SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
-GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std=c11 -march=native -flto -fwhole-program -o {{}}"
+GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std={} -march=native -flto -fwhole-program -o {{}}"
 if environ.get('COV') == 'true':
     GCC_TEMPLATE += ' -ftest-coverage -fprofile-arcs'
-CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std=c11 {} -o {{}}"
+CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std={} {} -o {{}}"
 
 templates = {
-    'GCC': GCC_TEMPLATE.format(GCC_BINARY),
-    'CLANG': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=0'),
-    'CL': "cl -Fe:{{1}} -Fo{}\\ -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs')),
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
-    'ICC': GCC_TEMPLATE.format('icc'),
     'PCC': "pcc -O2 -o {1} {0}",
-    'AOCC': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, '-DAMD_COMPILER=1'),
 }
+for std in STANDARDS:
+    templates.update({
+        f'GCC+{std}': GCC_TEMPLATE.format(GCC_BINARY, std),
+        f'CLANG+{std}': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=0'),
+        f'ICC+{std}': GCC_TEMPLATE.format('icc', std),
+        f'AOCC+{std}': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=1'),
+    })
+    if std in ('c11', 'c17'):
+        templates[f'CL+{std}'] = "cl -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
 
 
 @register
@@ -199,13 +207,13 @@ def test_compiler_macros(compiler):
     buff = check_output([exename])
     flags = [bool(int(x)) for x in buff.split()]
     expect_32 = (compiler == 'GCC' and GCC_NO_64) or (compiler == 'CL' and CL_NO_64)
-    assert flags[0] == (compiler == "CL")
-    assert flags[1] == (compiler == "CLANG")
-    assert flags[2] == (compiler == "GCC")
-    assert flags[3] == (compiler == "ICC")
-    assert flags[4] == (compiler == "AOCC")
-    assert flags[5] == (compiler == "PCC")
-    assert flags[6] == (compiler == "TCC")
+    assert flags[0] == compiler.startswith("CL+")
+    assert flags[1] == compiler.startswith("CLANG")
+    assert flags[2] == compiler.startswith("GCC")
+    assert flags[3] == compiler.startswith("ICC")
+    assert flags[4] == compiler.startswith("AOCC")
+    assert flags[5] == compiler.startswith("PCC")
+    assert flags[6] == compiler.startswith("TCC")
     assert flags[7] == (EXE_EXT == "x86" or expect_32)
     assert flags[8] == (EXE_EXT == "x86_64" and not expect_32)
     assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
@@ -226,7 +234,7 @@ def test_deterministic_build(c_file, compiler):
     except AssertionError:
         if IN_WINDOWS and compiler != 'CL':  # mingw gcc doesn't seem to make reproducible builds
             xfail()
-        elif compiler == 'PCC' and c_file in PCC_no_reproducible:
+        elif compiler == 'PCC':
             xfail()  # PCC doesn't allow reproducible builds with static keyword
         elif compiler == 'GCC' and environ.get('COV') == 'true':
             xfail()  # GCC doesn't do reproducible builds w/ code coverage
