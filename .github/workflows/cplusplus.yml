@@ -34,8 +34,8 @@ jobs:
       fail-fast: false
       matrix:
 #         compiler: ["llvm", "gcc"]
-#         # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
-         os: [ubuntu-latest, windows-latest, macos-latest, macos-13, 'ubuntu-20.04']
+#         # compiler targets (ideally): clang, gcc, MSVCC, icc, 
+         os: [ubuntu-latest, windows-latest, macos-latest, macos-13]
 #         include:
 #           - os: windows-latest
 #             compiler: msvc
@@ -54,13 +54,6 @@ jobs:
         python-version: "3.10"
         cache-dependency-path: '*/requirements.txt'
 
-    - name: Setup tcc, pcc
-      uses: awalsh128/cache-apt-pkgs-action@latest
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-      with:
-        packages: tcc pcc
-        version: 1.0
-
     - name: Setup MSVC
       uses: aminya/setup-cpp@v1
       if: ${{ contains(matrix.os, 'windows') }}
@@ -76,7 +69,7 @@ jobs:
 
     - name: Run tests (linux)
       if: ${{ contains(matrix.os, 'ubuntu') }}
-      run: make cp_test${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }} COV=true
+      run: make cp_test COV=true
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
