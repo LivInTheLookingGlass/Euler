@@ -18,6 +18,9 @@ help:
 	@echo "The following jobs are available under the c_ prefix"
 	@$(MAKE) c_help $(MFLAGS) --no-print-directory
 	@echo
+	@echo "The following jobs are available under the cp_ prefix"
+	@$(MAKE) cp_help $(MFLAGS) --no-print-directory
+	@echo
 	@echo "The following jobs are available under the cs_ prefix"
 	@$(MAKE) cs_help $(MFLAGS) --no-print-directory
 	@echo
@@ -34,9 +37,12 @@ help:
 html dirhtml singlehtml epub latex:
 	@$(MAKE) docs_$@ $(MFLAGS)
 
-clean: cs_clean c_clean js_clean py_clean rs_clean docs_clean
+clean: cs_clean cp_clean c_clean js_clean py_clean rs_clean docs_clean
 
 cs_%:
+	@cd csharp && $(MAKE) $* $(MFLAGS)
+
+cp_%:
 	@cd csharp && $(MAKE) $* $(MFLAGS)
 
 c_%:
@@ -55,4 +61,4 @@ rs_%:
 	@cd rust && $(MAKE) $* $(MFLAGS)
 
 %:
-	@$(MAKE) c_$* cs_$* js_$* py_$* rs_$* $(MFLAGS)
+	@$(MAKE) c_$* cp_$* cs_$* js_$* py_$* rs_$* $(MFLAGS)
