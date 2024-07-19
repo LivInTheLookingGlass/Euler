@@ -85,7 +85,8 @@ AOCC_BINARY = environ.get('AOCC_OVERRIDE', 'clang')
 compilers: List[str] = []
 
 if 'COMPILER_OVERRIDE' in environ:
-    compilers.extend(environ['COMPILER_OVERRIDE'].upper().split(','))
+    for comp in environ['COMPILER_OVERRIDE'].upper().split(','):
+        compilers.extend(f'{comp}+{std}' for std in STANDARDS)
 else:
     if not (IN_TERMUX and GCC_BINARY == 'g++') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.extend(f'GCC+{std}' for std in STANDARDS)
