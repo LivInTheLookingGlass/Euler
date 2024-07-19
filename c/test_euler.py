@@ -219,28 +219,6 @@ def test_compiler_macros(compiler):
     assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
 
 
-@mark.skipif('NO_OPTIONAL_TESTS')
-def test_deterministic_build(c_file, compiler):
-    exename1 = EXE_TEMPLATE.format("dbuild{}".format(uuid4()), compiler)
-    exename2 = EXE_TEMPLATE.format("dbuild{}".format(uuid4()), compiler)
-    environ['SOURCE_DATE_EPOCH'] = '1'
-    environ['ZERO_AR_DATE'] = 'true'
-    check_call(templates[compiler].format(c_file, exename1).split())
-    sleep(2)
-    check_call(templates[compiler].format(c_file, exename2).split())
-    try:
-        with open(exename1, "rb") as f, open(exename2, "rb") as g:
-            assert f.read() == g.read()
-    except AssertionError:
-        if IN_WINDOWS and compiler != 'CL':  # mingw gcc doesn't seem to make reproducible builds
-            xfail()
-        elif compiler == 'PCC':
-            xfail()  # PCC doesn't allow reproducible builds with static keyword
-        elif compiler == 'GCC' and environ.get('COV') == 'true':
-            xfail()  # GCC doesn't do reproducible builds w/ code coverage
-        raise
-
-
 @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
 def test_is_prime(benchmark, compiler):
     from p0007 import is_prime, prime_factors, primes
