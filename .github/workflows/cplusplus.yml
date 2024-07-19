@@ -27,7 +27,7 @@ jobs:
         version: 1.0
 
     - name: Run tests
-      run: make cpp_lint
+      run: make cp_lint
 
   cpp:
     strategy:
