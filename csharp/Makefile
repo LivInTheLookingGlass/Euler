@@ -1,3 +1,4 @@
+NOT_TERMUX?=$(shell command -v termux-setup-storage > /dev/null 2>&1 ; echo $$?)
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 COV?=false
@@ -18,13 +19,19 @@ clean:
 	dotnet clean || rm ./*/{bin,obj,TestResults} || echo
 
 test: dependencies
+ifneq ($(NOT_TERMUX),0)
 	dotnet test --nologo $(cov_args)
+endif
 
 test_%: dependencies
 	$(MAKE) test $(MFLAGS)
 
 dependencies:
+ifneq ($(NOT_TERMUX),0)
 	dotnet restore
+endif
 
 lint:
+ifneq ($(NOT_TERMUX),0)
 	dotnet format --verify-no-changes
+endif
