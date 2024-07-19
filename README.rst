@@ -35,7 +35,7 @@ LivInTheLookingGlass’s Project Euler solutions
 +------------+---------------------+--------+---------------+
 | C#         | .NET 2+             |  2     | |C#i|         |
 +------------+---------------------+--------+---------------+
-| JavaScript | Node 12+            |  2     | |JavaScript|  |
+| JavaScript | Node 12+            |  5     | |JavaScript|  |
 +------------+---------------------+--------+---------------+
 | Python     | CPython 3.6+ |br|   | 70     | |Python|      |
 |            | Pypy 3.6+ |br|      |        |               |

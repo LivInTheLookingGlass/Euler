@@ -4,6 +4,9 @@ const assert = require('assert');
 const answers = {
     1: 233168,
     2: 4613732,
+    6: 25164150,
+    8: 23514624000,
+    9: 31875000,
 };
 const knownSlow = [];
 let benchmarkReport = '';
