@@ -5,6 +5,8 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml
 .. |C#i| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
+.. |Cpi| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml/badge.svg
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml
 .. |JavaScript| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
 .. |Python| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg
@@ -28,10 +30,12 @@ LivInTheLookingGlass’s Project Euler solutions
 +------------+---------------------+--------+---------------+
 | Language   | Version             | Solved | Status        |
 +============+=====================+========+===============+
-| C          | C11+ in: ``gcc``,   | 17     | |Ci|          |
+| C          | C99+ in: ``gcc``,   | 17     | |Ci|          |
 |            | |br| ``clang``,     |        |               |
 |            | ``msvc``, |br|      |        |               |
 |            | ``pcc``, ``tcc``    |        |               |
++------------+---------------------+--------+---------------+
+| C++        | C++98+              |  1     | |Cpi|         |
 +------------+---------------------+--------+---------------+
 | C#         | .NET 2+             |  5     | |C#i|         |
 +------------+---------------------+--------+---------------+
@@ -77,6 +81,7 @@ The repo is divided into sections for each language. The top-level
 Makefile will direct recipes using prefixes
 
 -  ``make c_*`` will go to the c Makefile
+-  ``make cp_*`` will go to the csharp Makefile
 -  ``make cs_*`` will go to the csharp Makefile
 -  ``make docs_*`` will go to the docs Makefile
 -  ``make js_*`` will go to the javascript Makefile

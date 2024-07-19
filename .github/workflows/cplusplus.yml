@@ -1,0 +1,95 @@
+name: C++
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - 'README.rst'
+  schedule:
+  - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  c-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Setup clang-tidy
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: clang-tidy
+        version: 1.0
+
+    - name: Run tests
+      run: make cpp_lint
+
+  cpp:
+    strategy:
+      fail-fast: false
+      matrix:
+#         compiler: ["llvm", "gcc"]
+#         # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
+         os: [ubuntu-latest, windows-latest, macos-latest, macos-13, 'ubuntu-20.04']
+#         include:
+#           - os: windows-latest
+#             compiler: msvc
+#           - os: windows-latest
+#             compiler: mingw
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Use Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+        cache-dependency-path: '*/requirements.txt'
+
+    - name: Setup tcc, pcc
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      with:
+        packages: tcc pcc
+        version: 1.0
+
+    - name: Setup MSVC
+      uses: aminya/setup-cpp@v1
+      if: ${{ contains(matrix.os, 'windows') }}
+      with:
+        compiler: msvc
+        vcvarsall: true
+
+#     - name: Set up MinGW
+#       if: ${{ contains(matrix.os, 'windows') }}
+#       uses: egor-tensin/setup-mingw@v2
+#       with:
+#         platform: x64
+
+    - name: Run tests (linux)
+      if: ${{ contains(matrix.os, 'ubuntu') }}
+      run: make c_test${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }} COV=true
+
+    - name: Run tests (windows)
+      if: ${{ contains(matrix.os, 'windows') }}
+      run: make c_test_auto
+
+    - name: Run tests (macos)
+      if: ${{ contains(matrix.os, 'macos') }}
+      run: make c_test_auto
+      env:
+        NO_OPTIONAL_TESTS: true
+        COMPILER_OVERRIDE: clang
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}

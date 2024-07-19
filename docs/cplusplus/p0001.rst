@@ -1,0 +1,8 @@
+C++ Implementation of Problem 1
+===============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/p0001.cpp>`_
+
+.. literalinclude:: ../../cplusplus/p0001.cpp
+   :language: C++
+   :linenos:
