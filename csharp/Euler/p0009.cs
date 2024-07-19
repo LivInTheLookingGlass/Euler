@@ -22,13 +22,17 @@ namespace Euler
         private const int MAX = 500;
         public Task<Int64> Answer()
         {
-            for (int c = 3; c < MAX; c++) {
+            for (int c = 3; c < MAX; c++)
+            {
                 int c_square = c * c;
-                for (int b = 2; b < c; b++) {
+                for (int b = 2; b < c; b++)
+                {
                     int b_square = b * b;
-                    for (int a = 1; a < b; a++) {
+                    for (int a = 1; a < b; a++)
+                    {
                         int a_square = a * a;
-                        if (a_square + b_square == c_square && a + b + c == 1000) {
+                        if (a_square + b_square == c_square && a + b + c == 1000)
+                        {
                             return Task.FromResult<Int64>(a * b * c);
                         }
                     }
