@@ -43,7 +43,7 @@ cs_%:
 	@cd csharp && $(MAKE) $* $(MFLAGS)
 
 cp_%:
-	@cd csharp && $(MAKE) $* $(MFLAGS)
+	@cd cplusplus && $(MAKE) $* $(MFLAGS)
 
 c_%:
 	@cd c && $(MAKE) $* $(MFLAGS)
