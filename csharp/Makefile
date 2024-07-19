@@ -18,12 +18,12 @@ help:
 clean:
 	dotnet clean || rm ./*/{bin,obj,TestResults} || echo
 
-test: dependencies
+test:
 ifneq ($(NOT_TERMUX),0)
 	dotnet test --nologo $(cov_args)
 endif
 
-test_%: dependencies
+test_%:
 	$(MAKE) test $(MFLAGS)
 
 dependencies:
