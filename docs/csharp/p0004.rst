@@ -1,0 +1,16 @@
+C# Implementation of Problem 4
+==============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/csharp/Euler/p0004.cs>`_
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0004
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: Task<Int64> Answer()
+
+.. literalinclude:: ../../csharp/Euler/p0004.cs
+   :language: csharp
+   :linenos:
