@@ -18,14 +18,14 @@ namespace Euler
 {
     public class p0004 : IEuler
     {
-        private static string Reverse( string s )
+        private static string Reverse(string s)
         {
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);
             return new string(charArray);
         }
 
-        private static bool IsPalindrome( Int64 x )
+        private static bool IsPalindrome(Int64 x)
         {
             string rep = x.ToString();
             return rep == Reverse(rep);
@@ -34,10 +34,13 @@ namespace Euler
         public Task<Int64> Answer()
         {
             Int64 answer = 0;
-            for (int v = 101; v < 1000; v++) {
-                for (int u = 100; u < v; u++) {
+            for (int v = 101; v < 1000; v++)
+            {
+                for (int u = 100; u < v; u++)
+                {
                     Int64 p = u * v;
-                    if (IsPalindrome(p) && p > answer) {
+                    if (IsPalindrome(p) && p > answer)
+                    {
                         answer = p;
                     }
                 }
