@@ -19,6 +19,8 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
 .. |RustClippy| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
+.. |PythonLint| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml/badge.svg
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
 .. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
 .. |Coverage| image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graph/badge.svg?token=6GHBNILEHG 
@@ -26,35 +28,38 @@ LivInTheLookingGlass’s Project Euler solutions
 .. |br| raw:: html
 
   <br/>
- 
-+------------+---------------------+--------+---------------+
-| Language   | Version             | Solved | Status        |
-+============+=====================+========+===============+
-| C          | C99+ in: ``gcc``,   | 17     | |Ci|          |
-|            | |br| ``clang``,     |        |               |
-|            | ``msvc``, |br|      |        |               |
-|            | ``pcc``, ``tcc``    |        |               |
-+------------+---------------------+--------+---------------+
-| C++        | C++98+              |  1     | |Cpi|         |
-+------------+---------------------+--------+---------------+
-| C#         | .NET 2+             |  6     | |C#i|         |
-+------------+---------------------+--------+---------------+
-| JavaScript | Node 12+            |  5     | |JavaScript|  |
-+------------+---------------------+--------+---------------+
-| Python     | CPython 3.6+ |br|   | 70     | |Python|      |
-|            | Pypy 3.6+ |br|      |        |               |
-|            | GraalPy 23.1+       |        |               |
-+------------+---------------------+--------+---------------+
-| Rust       | 1.69+               | 10     | |Rust|        |
-+------------+---------------------+--------+---------------+
-| Documentation (in progress)               | |Pages|       |
-+-------------------------------------------+---------------+
-| Code Coverage                             | |Coverage|    |
-+-------------------------------------------+---------------+
-| Code Scanning                             | |CodeQL| |br| |
-|                                           | |ESLint| |br| |
-|                                           | |RustClippy|  |
-+-------------------------------------------+---------------+
+
++------------+---------------------+--------+-------------------+
+| Language   | Version             | Solved | Status            |
++============+=====================+========+===================+
+| C          | C99+ in: ``gcc``,   | 17     | |Ci|              |
+|            | |br| ``clang``,     |        |                   |
+|            | ``msvc``, |br|      |        |                   |
+|            | ``pcc``, ``tcc``    |        |                   |
++------------+---------------------+--------+-------------------+
+| C++        | C++98+ in ``g++``   |  1     | |Cpi|             |
+|            | |br| ``clang``,     |        |                   |
+|            | ``msvc``            |        |                   |
++------------+---------------------+--------+-------------------+
+| C#         | .NET 2+             |  6     | |C#i|             |
++------------+---------------------+--------+-------------------+
+| JavaScript | Node 12+            |  5     | |JavaScript|      |
++------------+---------------------+--------+-------------------+
+| Python     | CPython 3.6+ |br|   | 70     | |Python|          |
+|            | Pypy 3.6+ |br|      |        |                   |
+|            | GraalPy 23.1+       |        |                   |
++------------+---------------------+--------+-------------------+
+| Rust       | 1.69+               | 10     | |Rust|            |
++------------+---------------------+--------+-------------------+
+| Documentation (in progress)               | |Pages|           |
++-------------------------------------------+-------------------+
+| Code Coverage                             | |Coverage|        |
++-------------------------------------------+-------------------+
+| Code Scanning                             | |CodeQL| |br|     |
+|                                           | |ESLint| |br|     |
+|                                           | |PythonLint| |br| |
+|                                           | |RustClippy|      |
++-------------------------------------------+-------------------+
 
 Coverage
 --------

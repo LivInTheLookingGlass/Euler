@@ -14,6 +14,7 @@ on:
     paths-ignore:
       - 'docs/**'
       - 'README.rst'
+      - '**/README.rst'
     branches: [ "master" ]
   pull_request:
     # The branches below must be a subset of the branches above

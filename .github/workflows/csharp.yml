@@ -5,6 +5,7 @@ on:
     paths-ignore:
       - 'docs/**'
       - 'README.rst'
+      - '**/README.rst'
   schedule:
   - cron: "0 0 1 * *"
 

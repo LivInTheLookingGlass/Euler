@@ -20,6 +20,7 @@ on:
     paths-ignore:
       - 'docs/**'
       - 'README.rst'
+      - '**/README.rst'
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]

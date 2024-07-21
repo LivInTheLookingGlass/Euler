@@ -58,5 +58,14 @@ dependencies for this section.
 Problems Solved
 ---------------
 
--  ☒ `1 <./p0001.rs>`__
+-  ☒ `1 <./src/p0001.rs>`__
+-  ☒ `2 <./src/p0002.rs>`__
+-  ☒ `3 <./src/p0003.rs>`__
+-  ☒ `4 <./src/p0004.rs>`__
+-  ☒ `5 <./src/p0005.rs>`__
+-  ☒ `6 <./src/p0006.rs>`__
+-  ☒ `7 <./src/p0007.rs>`__
+-  ☒ `8 <./src/p0008.rs>`__
+-  ☒ `9 <./src/p0009.rs>`__
+-  ☒ `10 <./src/p0010.rs>`__
 
