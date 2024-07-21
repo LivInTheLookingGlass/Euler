@@ -3,6 +3,8 @@ C++ Implementation of Problem 2
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/p0002.cpp>`_
 
+.. cpp:function:: unsigned long long p0002()
+
 .. literalinclude:: ../../cplusplus/p0002.cpp
    :language: C++
    :linenos:
