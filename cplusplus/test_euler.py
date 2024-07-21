@@ -21,6 +21,7 @@ path.append(str(CPP_FOLDER.parent.joinpath("python")))
 
 answers = {
     1: 233168,
+    2: 4613732,
 }
 
 # this is the set of problems where I have the right answer but wrong solution
@@ -78,7 +79,7 @@ else:
     warn("Could not detect system architecture, defaulting to .exe")
     EXE_EXT = "exe"
 
-GCC_BINARY = environ.get('GCC_OVERRIDE', 'g++')
+GCC_BINARY = environ.get('GCC_OVERRIDE', 'gcc')
 AOCC_BINARY = environ.get('AOCC_OVERRIDE', 'clang')
 
 # compiler variables section
@@ -88,7 +89,7 @@ if 'COMPILER_OVERRIDE' in environ:
     for comp in environ['COMPILER_OVERRIDE'].upper().split(','):
         compilers.extend(f'{comp}+{std}' for std in STANDARDS)
 else:
-    if not (IN_TERMUX and GCC_BINARY == 'g++') and which(GCC_BINARY):  # Termux maps gcc->clang
+    if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.extend(f'GCC+{std}' for std in STANDARDS)
     if which('clang'):
         if b'AOCC' in check_output(['clang', '--version']):
