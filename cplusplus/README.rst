@@ -55,6 +55,10 @@ around that. This test checks that those macros are correct.
 Prime Infrastructure Test
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+(Note that this is in progress, and these tests will be run only when
+there is an implementation to refer to. Since they are identical to the
+test in the c folder, the test is already written and ready to go.)
+
 This test checks five things:
 
 1. It checks ``is_prime()`` for numbers up to ``MAX_PRIME``, where that

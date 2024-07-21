@@ -64,24 +64,38 @@ iterator.h
 
     .. c:member:: uintmax_t (*iterator_function)(counter *it)
 
+        The function to advance the iterator and return the next element.
+
     .. c:member:: bool exhausted : 1
+
+        An indicator that tells you if the iterator is exhausted.
 
     .. c:member:: bool started : 1
 
+        An indicator that tells you if the interator has moved at all.
+
     .. c:member:: bool phase : 1
+
+        An indicator that flips every time the iterator moves.
 
     .. c:member:: uintmax_t idx
 
+        The current position of the counter.
+
     .. c:member:: uintmax_t stop
+
+        The point before which the counter will stop (as in :external:py:ref:`range`).
 
     .. c:member:: intmax_t step
 
-    .. c:function:: uintmax_t iterate_counter(counter *i)
+        The amount by which the counter will move in each iteration (as in :external:py:ref:`range`).
 
-    .. c:function:: counter counter3(uintmax_t start, uintmax_t stop, intmax_t step)
+.. c:function:: uintmax_t iterate_counter(counter *i)
 
-    .. c:function:: counter counter2(uintmax_t start, uintmax_t stop)
+.. c:function:: counter counter3(uintmax_t start, uintmax_t stop, intmax_t step)
 
-    .. c:function:: counter counter1(uintmax_t stop)
+.. c:function:: counter counter2(uintmax_t start, uintmax_t stop)
+
+.. c:function:: counter counter1(uintmax_t stop)
 
 .. c:namespace-pop::

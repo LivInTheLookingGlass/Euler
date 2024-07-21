@@ -31,8 +31,8 @@ fibonacci.h
 
         This represents the largest number the iterator is allowed to yield.
 
-    .. c:function:: fibonacci fibonacci1(uintmax_t limit)
+.. c:function:: fibonacci fibonacci1(uintmax_t limit)
 
-    .. c:function:: fibonacci fibonacci0()
+.. c:function:: fibonacci fibonacci0()
 
 .. c:namespace-pop::

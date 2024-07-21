@@ -23,8 +23,8 @@ factors for a given number. It is generally used by first calling
 
     .. c:function:: uintmax_t advance_factor_counter(factor_counter *fc)
 
-    .. c:function:: factor_counter proper_divisors(uintmax_t target)
+.. c:function:: factor_counter proper_divisors(uintmax_t target)
 
-    .. c:function:: uintmax_t proper_divisor_count(uintmax_t target)
+.. c:function:: uintmax_t proper_divisor_count(uintmax_t target)
 
 .. c:namespace-pop::

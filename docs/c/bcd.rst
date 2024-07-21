@@ -34,18 +34,18 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
         Shortcut value to determine if the encoded integer is 0.
 
-    .. c:function:: void free_BCD_int(BCD_int x)
+.. c:function:: void free_BCD_int(BCD_int x)
 
-    .. c:function:: BCD_int new_BCD_int(uintmax_t a, bool negative)
+.. c:function:: BCD_int new_BCD_int(uintmax_t a, bool negative)
 
-    .. c:function:: BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bool little_endian)
+.. c:function:: BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bool little_endian)
 
-        Takes in an arbitrary-sized encoded integer (like in Python's :external:py:meth:`int.from_bytes`) to a
-        :c:type:`BCD_int`.
+    Takes in an arbitrary-sized encoded integer (like in Python's :external:py:meth:`int.from_bytes`) to a
+    :c:type:`BCD_int`.
 
-    .. c:function:: BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative)
+.. c:function:: BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative)
 
-        From an ASCII-encoded integer to a :c:ref:`BCD_int`.
+    From an ASCII-encoded integer to a :c:ref:`BCD_int`.
 
 .. c:function:: BCD_int add_bcd(BCD_int x, BCD_int y)
 

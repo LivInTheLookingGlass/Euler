@@ -1,2 +1,4 @@
 c/*.c linguist-language=c
 c/*.h linguist-language=c
+cplusplus/*.cpp linguist-language=c++
+cplusplus/*.h linguist-language=c++

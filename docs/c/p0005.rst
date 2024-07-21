@@ -9,6 +9,18 @@ Includes
 - `macros.h <./macros.html>`__
 - `primes.h <./primes.html>`__
 
+Solution
+--------
+
+.. c:func:: unsigned long long p0005()
+
+.. c:func:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+      It is not present when compiling for the Unity test runner.
+
 .. literalinclude:: ../../c/p0005.c
    :language: C
    :linenos:

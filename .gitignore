@@ -1,13 +1,17 @@
 **.pyc
+__pycache__/**
+**/__pycache__/**
 **/.pytest_cache/**
 **/.mypy_cache/**
-javascript/node_modules/**
+.pytest_cache/**
+.mypy_cache/**
+**/node_modules/**
 .vscode/**
 **log*.txt
 **/a.out
 **/*.exe
 **/build/**
-venv/**
+**/venv/**
 **.dll
 **.pdb
 csharp/*/obj
@@ -17,4 +21,4 @@ docs/_build
 rust/target
 **/.coverage
 **/.coverage.*
-javascript/coverage
+**/coverage
