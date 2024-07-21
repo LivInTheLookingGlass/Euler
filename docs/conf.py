@@ -86,8 +86,35 @@ favicons = [
 
 todo_include_todos = True
 
-extlinks = {'prob': ('https://projecteuler.net/problem=%s',
-                     'Problem #%s')}
+langcodes = [
+    ('c', 'c'),
+    # ('cp', 'cobol'),
+    ('cp', 'cplusplus'),
+    ('cs', 'csharp'),
+    # ('d', 'd'),
+    # ('da', 'dart'),
+    # ('j', 'java'),
+    ('js', 'javascript'),
+    # ('ju', 'julia'),
+    # ('ko', 'kotlin'),
+    # ('ph', 'php'),
+    ('py', 'python'),
+    # ('r', 'r'),
+    # ('rb', 'rb'),
+    ('rs', 'rust'),
+    # ('sq', 'sql'),
+    # ('sw', 'swift'),
+    # ('ts', 'typescript'),
+]
+extlinks = {
+    'prob': ('https://projecteuler.net/problem=%s',
+             'Problem #%s'),
+} | {
+    f'{code}-d': (f'./{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
+} | {
+    f'{code}-i': (f'./{lang}/p%s.html', '⏱%.0s') for (code, lang) in langcodes
+}
+extlinks_detect_hardcoded_links = True
 
 intersphinx_mapping = {
     'python':           ('https://docs.python.org/3', None),

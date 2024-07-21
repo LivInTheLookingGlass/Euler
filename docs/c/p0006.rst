@@ -6,9 +6,9 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 Solution
 --------
 
-.. c:func:: unsigned long long p0006()
+.. c:function:: unsigned long long p0006()
 
-.. c:func:: int main(int argc, char const *argv[])
+.. c:function:: int main(int argc, char const *argv[])
 
    .. note:: 
       

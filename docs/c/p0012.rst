@@ -15,9 +15,9 @@ Includes
 Solution
 --------
 
-.. c:func:: unsigned long long p0012()
+.. c:function:: unsigned long long p0012()
 
-.. c:func:: int main(int argc, char const *argv[])
+.. c:function:: int main(int argc, char const *argv[])
 
    .. note:: 
       

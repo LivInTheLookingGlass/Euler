@@ -11,9 +11,9 @@ Includes
 Solution
 --------
 
-.. c:func:: unsigned long long p0011()
+.. c:function:: unsigned long long p0011()
 
-.. c:func:: int main(int argc, char const *argv[])
+.. c:function:: int main(int argc, char const *argv[])
 
    .. note:: 
       
