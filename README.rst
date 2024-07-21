@@ -29,6 +29,12 @@ LivInTheLookingGlass’s Project Euler solutions
 
   <br/>
 
+.. raw:: html
+
+  <style>
+    .centertable > tbody > tr > td > p > code {white-space: nowrap; display: inline-block;}
+  </style>
+
 +------------+---------------------+--------+-------------------+
 | Language   | Version             | Solved | Status            |
 +============+=====================+========+===================+
@@ -38,7 +44,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | ``pcc``, ``tcc``    |        |                   |
 +------------+---------------------+--------+-------------------+
 | C++        | C++98+ in |br|      |  1     | |Cpi|             |
-|            | ``clang``, ``g++``, |        |                   |
+|            | ``g++``, ``clang``, |        |                   |
 |            | ``msvc``            |        |                   |
 +------------+---------------------+--------+-------------------+
 | C#         | .NET 2+             |  6     | |C#i|             |
