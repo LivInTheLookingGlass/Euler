@@ -29,12 +29,6 @@ LivInTheLookingGlass’s Project Euler solutions
 
   <br/>
 
-.. raw:: html
-
-  <style>
-    .centertable > tbody > tr > td > p > code {white-space: nowrap; display: inline-block;}
-  </style>
-
 +------------+---------------------+--------+-------------------+
 | Language   | Version             | Solved | Status            |
 +============+=====================+========+===================+
