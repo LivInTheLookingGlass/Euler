@@ -12,9 +12,11 @@ from subprocess import CalledProcessError, check_call
 from sys import path as sys_path
 
 from sphinxcontrib.domaintools import custom_domain
-if 'TERMUX_VERSION' not in environ:
+try:
     from ghlinguist import linguist
     import matplotlib.pyplot as plt
+except Exception:
+    pass
 
 basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
@@ -98,7 +100,7 @@ intersphinx_mapping = {
 }
 
 def setup(app):
-    if 'TERMUX_VERSION' not in environ:
+    try:
         langs = linguist(basedir)
         labels = [lang[0] for lang in langs]
         sizes = [lang[1] for lang in langs]
@@ -106,6 +108,8 @@ def setup(app):
         pie = ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
+    except Exception:
+        pass
 
     app.add_domain(custom_domain(
         'RustDomain',
@@ -118,6 +122,8 @@ def setup(app):
             },
             'var': {
             },
+            'crate': {
+            }
         }
     ))
 

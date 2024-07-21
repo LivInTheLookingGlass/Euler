@@ -1,5 +1,5 @@
 Euler C++ Implementation
-======================
+========================
 
 .. include:: ../cplusplus/README.rst
     :start-line: 2
