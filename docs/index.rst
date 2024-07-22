@@ -73,7 +73,7 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 .. make:target:: %
 
   If the recipe you call isn't covered by any others, it will get distributed to all languages. So for instance,
-  ``make test`` would be translated to ``make cs_test c_test js_test py_test rs_test``
+  ``make test`` would be translated to ``make c_test cp_test cs_test js_test py_test rs_test``
 
 .. |C| replace:: **C**
 .. |Cp| replace:: **C++**
@@ -81,7 +81,7 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 .. |Js| replace:: **JavaScript**
 .. |Py| replace:: **Python**
 .. |Rs| replace:: **Rust**
-..   |d|     replace:: ✔
+.. |d| replace:: ✔
 .. |ip| replace:: ⏱
 .. raw:: html
 
