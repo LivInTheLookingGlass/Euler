@@ -21,6 +21,8 @@ unsigned long long p0034() {
     for (unsigned long i = 10; i < 100000; i++) {
         sum = 0;
         char buf[8] = {};
+        // I know snprintf exists, but it isn't defined in C++98,
+        // and this isn't taking in user input
         sprintf(buf, "%lu", i);
         for (unsigned char j = 0; j < 8; j++)   {
             if (!buf[j]) break;

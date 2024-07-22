@@ -22,6 +22,8 @@ unsigned int p0004() {
         for (j = 100; j < 1000; j++)    {
             prod = i * j;
             char buf[8] = {};
+            // I know snprintf exists, but it isn't defined in C++98,
+            // and this isn't taking in user input
             sprintf(buf, "%u", prod);
             std::string forward(buf);
             std::string reverse = forward;
