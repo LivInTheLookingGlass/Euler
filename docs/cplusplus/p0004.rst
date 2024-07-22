@@ -1,0 +1,10 @@
+C++ Implementation of Problem 4
+===============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/p0004.cpp>`_
+
+.. cpp:function:: unsigned long long p0004()
+
+.. literalinclude:: ../../cplusplus/p0004.cpp
+   :language: C++
+   :linenos:
