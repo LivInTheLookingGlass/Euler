@@ -1,0 +1,19 @@
+C++ Implementation of Problem 9
+===============================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/p0009.cpp>`_
+
+Solution
+--------
+
+.. cpp:function:: unsigned long long p0009()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../cplusplus/p0009.cpp
+   :language: C++
+   :linenos:

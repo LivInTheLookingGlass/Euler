@@ -23,6 +23,13 @@ answers = {
     1: 233168,
     2: 4613732,
     4: 906609,
+    6: 25164150,
+    9: 31875000,
+    11: 70600674,
+    14: 837799,
+    15: 137846528820,
+    34: 40730,
+    76: 190569291,
 }
 
 # this is the set of problems where I have the right answer but wrong solution

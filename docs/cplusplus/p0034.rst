@@ -1,0 +1,25 @@
+C++ Implementation of Problem 34
+================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/p0034.cpp>`_
+
+Includes
+--------
+
+- `digits.h <./digits.html>`__
+- `math.h <./math.html>`__
+
+Solution
+--------
+
+.. cpp:function:: unsigned long long p0034()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../cplusplus/p0034.cpp
+   :language: C++
+   :linenos:

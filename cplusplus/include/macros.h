@@ -53,14 +53,6 @@
 
 // helper macro function section
 
-#ifndef max
-    #define max(a, b) (((a) > (b)) ? (a) : (b))
-#endif
-
-#ifndef min
-    #define min(a, b) (((a) < (b)) ? (a) : (b))
-#endif
-
 #if !(CL_COMPILER)
     #define likely(x)   __builtin_expect(!!(x), 1)
     #define unlikely(x) __builtin_expect(!!(x), 0)
