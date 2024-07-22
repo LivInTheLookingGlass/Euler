@@ -1,5 +1,6 @@
 BLUE=\033[0;34m
 NC=\033[0m # No Color
+RUSTFLAGS?="-Copt-level=2"
 
 help:
 	@echo "  $(BLUE)test$(NC)   	run through all tests in sequence."

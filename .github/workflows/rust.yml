@@ -67,13 +67,15 @@ jobs:
 
       - run: cd rust && cargo test
         if: ${{ matrix.toolchain != 'nightly' }}
+        env:
+          RUSTFLAGS: '-Copt-level=2'
 
       - run: cd rust && cargo test
         if: ${{ matrix.toolchain == 'nightly' }}
         env:
           CARGO_INCREMENTAL: '0'
-          RUSTFLAGS: '-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests'
-          RUSTDOCFLAGS: '-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests'
+          RUSTFLAGS: '-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
+          RUSTDOCFLAGS: '-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
 
       - name: rust-grcov
         if: ${{ matrix.toolchain == 'nightly' }}
