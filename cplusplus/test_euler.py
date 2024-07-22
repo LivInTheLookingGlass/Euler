@@ -33,7 +33,10 @@ IN_WINDOWS = system() == 'Windows'
 IN_OSX = system() == 'Darwin'
 IN_TERMUX = bool(which('termux-setup-storage'))
 IN_LINUX = (not IN_TERMUX) and (system() == 'Linux')
-STANDARDS = ('c++98', 'c++03', 'c++11', 'c++14', 'c++17', 'c++20')
+if system() == 'Windows':
+    STANDARDS = ('c++14', 'c++17', 'c++20')
+else:
+    STANDARDS = ('c++98', 'c++03', 'c++11', 'c++14', 'c++17', 'c++20')
 
 if IN_TERMUX:
     BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
@@ -146,9 +149,8 @@ for std in STANDARDS:
         f'CLANG+{std}': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=0'),
         f'ICC+{std}': GCC_TEMPLATE.format('icc', std),
         f'AOCC+{std}': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=1'),
+        f'CL+{std}': "cl -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
     })
-    if std in ('c++14', 'c++17', 'c++20'):
-        templates[f'CL+{std}'] = "cl -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
 
 
 @register
