@@ -16,7 +16,7 @@ four million, find the sum of the even-valued terms.
 
 #ifndef EULER_P0002
 #define EULER_P0002
-#include <stdio.h>
+#include <iostream>
 
 unsigned long long p0002() {
     unsigned long long answer = 0,
@@ -37,8 +37,7 @@ unsigned long long p0002() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0002();
-    printf("%llu\n", answer);
+    std::cout << p0002() << std::endl;
     return 0;
 }
 #endif

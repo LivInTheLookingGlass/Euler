@@ -22,6 +22,7 @@ path.append(str(CPP_FOLDER.parent.joinpath("python")))
 answers = {
     1: 233168,
     2: 4613732,
+    4: 906609,
 }
 
 # this is the set of problems where I have the right answer but wrong solution
@@ -133,10 +134,10 @@ SOURCE_TEMPLATE = "{}{}p{{:0>4}}.cpp".format(CPP_FOLDER, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
-GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std={} -march=native -flto -fwhole-program -o {{}}"
+GCC_TEMPLATE = "{} {{}} -O2 -lstdc++ -lm -Wall -Werror -std={} -march=native -flto -fwhole-program -o {{}}"
 if environ.get('COV') == 'true':
     GCC_TEMPLATE += ' -ftest-coverage -fprofile-arcs'
-CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std={} {} -o {{}}"
+CLANG_TEMPLATE = "{} {{}} -O2 -lstdc++ {} {} -Wall -Werror -std={} {} -o {{}}"
 
 templates = {}
 for std in STANDARDS:

@@ -14,7 +14,7 @@
  */
 #ifndef EULER_P0001
 #define EULER_P0001
-#include <stdio.h>
+#include <iostream>
 
 unsigned long long p0001() {
     unsigned long long answer = 0;
@@ -32,8 +32,7 @@ unsigned long long p0001() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0001();
-    printf("%llu\n", answer);
+    std::cout << p0001() << std::endl;
     return 0;
 }
 #endif
