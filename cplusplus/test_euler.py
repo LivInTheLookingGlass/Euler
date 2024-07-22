@@ -40,10 +40,7 @@ IN_WINDOWS = system() == 'Windows'
 IN_OSX = system() == 'Darwin'
 IN_TERMUX = bool(which('termux-setup-storage'))
 IN_LINUX = (not IN_TERMUX) and (system() == 'Linux')
-if system() == 'Windows':
-    STANDARDS = ('c++14', 'c++17', 'c++20')
-else:
-    STANDARDS = ('c++98', 'c++03', 'c++11', 'c++14', 'c++17', 'c++20')
+STANDARDS = ('c++98', 'c++03', 'c++11', 'c++14', 'c++17', 'c++20')
 
 if IN_TERMUX:
     BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
