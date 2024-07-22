@@ -33,7 +33,7 @@ LivInTheLookingGlass’s Project Euler solutions
 | Language   | Version                 | Solved | Status            |
 +============+=========================+========+===================+
 | C          | C99+ in: ``gcc``, |br|  | 17     | |Ci|              |
-|            | ``clang``, ``msvc``     |        |                   |
+|            | ``clang``, ``msvc``,    |        |                   |
 |            | |br| ``pcc``, ``tcc``   |        |                   |
 +------------+-------------------------+--------+-------------------+
 | C++        | C++98+ in |br|          |  3     | |Cpi|             |
