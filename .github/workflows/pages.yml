@@ -34,7 +34,7 @@ jobs:
       run: sudo gem install github-linguist
 
     - name: Build sphinx docs
-      run: make html
+      run: make docs_dependencies html
 
     - uses: actions/upload-pages-artifact@v3
       with:
