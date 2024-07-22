@@ -20,7 +20,9 @@ unsigned int p0004() {
     for (i = 100; i < 1000; i++)    {
         for (j = 100; j < 1000; j++)    {
             prod = i * j;
-            std::string forward = std::to_string(prod);
+            char buf[8] = {};
+            sprintf(buf, "%u", prod);
+            std::string forward(buf);
             std::string reverse = forward;
             std::reverse(reverse.begin(), reverse.end());
             if (forward == reverse) {
