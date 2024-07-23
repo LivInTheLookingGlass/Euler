@@ -105,8 +105,8 @@ else:
         else:
             compilers.extend(f'CLANG+{std}' for std in STANDARDS)
         if IN_WINDOWS:
-            compilers.remove('CLANG+C++98')
-            compilers.remove('CLANG+C++03')
+            compilers.remove('CLANG+c++98')
+            compilers.remove('CLANG+c++03')
     if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
         compilers.extend(f'AOCC+{std}' for std in STANDARDS)
     if which('icc'):
