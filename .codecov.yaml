@@ -10,6 +10,10 @@ component_management:
       name: C  # this is a display name, and can be changed freely
       paths:
         - c/**
+    - component_id: module_cplusplus
+      name: C++
+      paths:
+        - cplusplus/**
     - component_id: module_csharp
       name: C#
       paths:

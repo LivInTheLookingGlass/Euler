@@ -63,7 +63,7 @@ pub fn p0008() -> i128 {
         let slice = &string[i..(i + 13)];
         let mut prod: u64 = 1;
         for c in slice.bytes() {
-            prod *= (c as u32 - '0' as u32) as u64;
+            prod *= (c - b'0') as u64;
         }
         if prod > answer {
             answer = prod;
