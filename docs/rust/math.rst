@@ -3,7 +3,12 @@ math.rs
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/math.rs>`_
 
-.. rust:fn:: math::n_choose_r(n: usize, r: usize) -> i128
+.. rust:fn:: math::factorial<I: NumAssign + From<u8>>(n: u8) -> I
+
+  Returns the factorial of a given number. Note that it only accepts a ``u8`` because
+  any number that requires a larger type is *guaranteed* to overflow.
+
+.. rust:fn:: math::n_choose_r<I: NumAssign + From<i8> + From<usize>>(n: usize, r: usize) -> I
 
   Returns the number of ways to choose r items from a set of n.
 

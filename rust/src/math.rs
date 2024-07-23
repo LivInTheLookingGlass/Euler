@@ -1,7 +1,18 @@
-pub fn n_choose_r(n: usize, r: usize) -> i128 {
+use num_traits::NumAssign;
+use num_traits::one;
+
+pub fn factorial<I: NumAssign + From<u8>>(n: u8) -> I {
+    let mut answer: I = one();
+    for i in 2..=n {
+        answer *= i.into();
+    }
+    return answer
+}
+
+pub fn n_choose_r<I: NumAssign + From<i8> + From<usize>>(n: usize, r: usize) -> I {
     // slow path for larger numbers
-    let mut answer: i128 = 1;
-    let mut tmp: i128;
+    let mut answer: I = one();
+    let mut tmp: I;
     let mut factors: Vec<i8> = vec![0; n + 1];
     // collect factors of final number
     for i in 2..=n {
@@ -30,17 +41,17 @@ pub fn n_choose_r(n: usize, r: usize) -> i128 {
     while i <= n {
         while factors[i] > 0 {
             tmp = answer;
-            answer *= i as i128;
+            answer *= i.into();
             while answer < tmp && j <= n {
                 while factors[j] < 0 {
-                    tmp /= j as i128;
+                    tmp /= j.into();
                     factors[j] += 1;
                 }
                 j += 1;
-                answer = tmp * i as i128;
+                answer = tmp * i.into();
             }
             if answer < tmp {
-                return -1;  // this indicates an overflow
+                return (-1).into();  // this indicates an overflow
             }
             factors[i] -= 1;
         }
@@ -48,7 +59,7 @@ pub fn n_choose_r(n: usize, r: usize) -> i128 {
     }
     while j <= n {
         while factors[j] < 0 {
-            answer /= j as i128;
+            answer /= j.into();
             factors[j] += 1;
         }
         j += 1;

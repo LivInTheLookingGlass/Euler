@@ -1,0 +1,18 @@
+Rust Implementation of Problem 34
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0034.rs>`_
+
+Includes
+--------
+
+- `math <./math.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0034::p0034() -> i128
+
+.. literalinclude:: ../../rust/src/p0034.rs
+   :language: rust
+   :linenos:
