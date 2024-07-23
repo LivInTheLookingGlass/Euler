@@ -8,7 +8,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
   Returns the factorial of a given number. Note that it only accepts a ``u8`` because
   any number that requires a larger type is *guaranteed* to overflow.
 
-.. rust:fn:: math::n_choose_r<I: NumAssign + From<i8> + From<usize>>(n: usize, r: usize) -> I
+.. rust:fn:: math::n_choose_r<I: NumAssign + PartialOrd>(n: u64, r: u64) -> I
 
   Returns the number of ways to choose r items from a set of n.
 

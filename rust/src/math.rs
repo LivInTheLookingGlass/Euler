@@ -11,11 +11,11 @@ pub fn factorial<I: NumAssign + From<u8>>(n: u8) -> I {
     return answer
 }
 
-pub fn n_choose_r<I: NumAssign + From<i8> + From<u64> + PartialOrd>(n: u64, r: u64) -> I {
+pub fn n_choose_r<I: NumAssign + PartialOrd>(n: u64, r: u64) -> I {
     // slow path for larger numbers
     let mut answer: I = one();
-    let sn: usize = n.into();
-    let sr: usize = r.into();
+    let sn: usize = n.try_into().unwrap();
+    let sr: usize = r.try_into().unwrap();
     let mut tmp: I;
     let mut factors: Vec<i8> = vec![0; n + 1];
     // collect factors of final number
@@ -45,17 +45,17 @@ pub fn n_choose_r<I: NumAssign + From<i8> + From<u64> + PartialOrd>(n: u64, r: u
     while i <= sn {
         while factors[i] > 0 {
             tmp = answer;
-            answer *= i.into();
+            answer *= i.try_into().unwrap();
             while answer < tmp && j <= sn {
                 while factors[j] < 0 {
-                    tmp /= j.into();
+                    tmp /= j.try_into().unwrap();
                     factors[j] += 1;
                 }
                 j += 1;
-                answer = tmp * i.into();
+                answer = tmp * i.try_into().unwrap();
             }
             if answer < tmp {
-                return (-1).into();  // this indicates an overflow
+                panic!();  // overflow
             }
             factors[i] -= 1;
         }
@@ -63,7 +63,7 @@ pub fn n_choose_r<I: NumAssign + From<i8> + From<u64> + PartialOrd>(n: u64, r: u
     }
     while j <= sn {
         while factors[j] < 0 {
-            answer /= j.into();
+            answer /= j.try_into().unwrap();
             factors[j] += 1;
         }
         j += 1;
