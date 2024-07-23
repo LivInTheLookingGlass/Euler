@@ -33,7 +33,7 @@ pub fn p0012() -> i128 {
     let mut num: u64 = 0;
     for x in 1.. {
         num += x;
-        if proper_divisors(num).len() > 499 {
+        if primes::proper_divisors(num).len() > 499 {
             return num.into();
         }
     }
