@@ -13,5 +13,5 @@ Find the sum of all the primes below two million.
 use crate::math;
 
 pub fn p0015() -> i128 {
-    return math::n_choose_r(40, 20);
+    return math::n_choose_r::<u64>(40, 20).into();
 }
