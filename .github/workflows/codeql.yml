@@ -21,9 +21,7 @@ on:
       - 'docs/**'
       - 'README.rst'
       - '**/README.rst'
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
   schedule:
     - cron: '29 10 * * 4'
 

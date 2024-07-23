@@ -15,10 +15,7 @@ on:
       - 'docs/**'
       - 'README.rst'
       - '**/README.rst'
-    branches: [ "master" ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ "master" ]
   schedule:
     - cron: '32 21 * * 4'
 
