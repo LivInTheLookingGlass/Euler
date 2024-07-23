@@ -119,9 +119,10 @@ else:
             compilers.extend(f'CLANG+{std}' for std in STANDARDS)
     if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
         compilers.extend(f'AOCC+{std}' for std in STANDARDS)
-    for x in ('cl', 'icc'):
-        if which(x):
-            compilers.extend(f'{x.upper()}+{std}' for std in STANDARDS)
+    if which('icc'):
+        compilers.extend(f'ICC+{std}' for std in STANDARDS)
+    # if which('cl'):
+    #     compilers.extend(f'CL+{std}' for std in STANDARDS)
     for x in ('pcc', 'tcc'):
         if which(x):
             compilers.append(x.upper())

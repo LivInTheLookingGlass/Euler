@@ -104,11 +104,19 @@ else:
             compilers.extend(f'AOCC+{std}' for std in STANDARDS)
         else:
             compilers.extend(f'CLANG+{std}' for std in STANDARDS)
+        if IN_WINDOWS:
+            compilers.remove('CLANG+C++98')
+            compilers.remove('CLANG+C++03')
     if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
         compilers.extend(f'AOCC+{std}' for std in STANDARDS)
-    for x in ('cl', 'icc'):
-        if which(x):
-            compilers.extend(f'{x.upper()}+{std}' for std in STANDARDS)
+    if which('icc'):
+        compilers.extend(f'ICC+{std}' for std in STANDARDS)
+    # if which('cl'):
+    #     compilers.extend(f'CL+{std}' for std in STANDARDS)
+    #     compilers.remove('CL+C++98')
+    #     compilers.remove('CL+C++03')
+    #     compilers.remove('CL+C++11')
+    #     compilers.remove('CL+C++14')
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
@@ -117,7 +125,7 @@ BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
 CL_NO_64 = False
 if 'CL' in compilers:
     OBJ_FOLDER = BUILD_FOLDER.joinpath('objs')
-    OBJ_FOLDER.mkdir(exist_ok=True)
+    OBJ_FOLDER.mkdir(parents=True, exist_ok=True)
     _test_file = str(CPP_FOLDER.joinpath('assertions', 'x64_assert.cpp'))
     _test_exe = str(BUILD_FOLDER.joinpath('test_cl_64_support.out'))
     CL_NO_64 = not (run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), str(_test_file)]).returncode)
@@ -153,7 +161,7 @@ for std in STANDARDS:
         f'CLANG+{std}': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=0'),
         f'ICC+{std}': GCC_TEMPLATE.format('icc', std),
         f'AOCC+{std}': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=1'),
-        f'CL+{std}': "cl -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
+        f'CL+{std}': "cl /EHa -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
     })
 
 
