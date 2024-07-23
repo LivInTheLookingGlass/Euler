@@ -11,7 +11,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0003::p0003() -> u64
+.. rust:fn:: p0003::p0003() -> i128
 
 .. literalinclude:: ../../rust/src/p0003.rs
    :language: rust

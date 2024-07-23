@@ -6,9 +6,9 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 Problem Solution
 ----------------
 
-.. rust:fn:: p0004::is_palindrome(x: u64) -> bool
+.. rust:fn:: p0004::is_palindrome(x: u32) -> bool
 
-.. rust:fn:: p0004::p0004() -> u64
+.. rust:fn:: p0004::p0004() -> i128
 
 .. literalinclude:: ../../rust/src/p0004.rs
    :language: rust

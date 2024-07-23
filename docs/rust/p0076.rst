@@ -6,7 +6,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 Problem Solution
 ----------------
 
-.. rust:fn:: p0076::p0076() -> u64
+.. rust:fn:: p0076::p0076() -> i128
 
 .. literalinclude:: ../../rust/src/p0076.rs
    :language: rust
