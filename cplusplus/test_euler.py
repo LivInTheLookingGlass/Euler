@@ -107,16 +107,17 @@ else:
         if IN_WINDOWS:
             compilers.remove('CLANG+c++98')
             compilers.remove('CLANG+c++03')
+            compilers.remove('CLANG+c++11')
     if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
         compilers.extend(f'AOCC+{std}' for std in STANDARDS)
     if which('icc'):
         compilers.extend(f'ICC+{std}' for std in STANDARDS)
     # if which('cl'):
     #     compilers.extend(f'CL+{std}' for std in STANDARDS)
-    #     compilers.remove('CL+C++98')
-    #     compilers.remove('CL+C++03')
-    #     compilers.remove('CL+C++11')
-    #     compilers.remove('CL+C++14')
+    #     compilers.remove('CL+c++98')
+    #     compilers.remove('CL+c++03')
+    #     compilers.remove('CL+c++11')
+    #     compilers.remove('CL+c++14')
 if not compilers:
     raise RuntimeError("No compilers detected!")
 
