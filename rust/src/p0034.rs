@@ -19,11 +19,9 @@ use crate::math::factorial;
 pub fn p0034() -> i128 {
     let mut answer: u32 = 0;
     for x in 10..100000 {
-        let string: String = x.to_string();
-        let sum = 
-            string.bytes()
-                  .into_iter()
-                  .fold(0, |a, b| a + factorial::<u32>(b - '0' as u8));
+        let sum = x.to_string()
+                   .bytes()
+                   .fold(0, |a, b| a + factorial::<u32>(b - '0'.into()));
         if sum == x {
             answer += x;
         }
