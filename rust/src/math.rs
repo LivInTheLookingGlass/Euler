@@ -11,7 +11,7 @@ pub fn factorial<I: NumAssign + From<u8>>(n: u8) -> I {
     return answer
 }
 
-pub fn n_choose_r<I: NumAssign + From<u64> + PartialOrd>(n: u64, r: u64) -> I {
+pub fn n_choose_r<I: Copy + From<u64> + NumAssign + PartialOrd>(n: u64, r: u64) -> I {
     // slow path for larger numbers
     let mut answer: I = one();
     let sn: usize = n.try_into().unwrap();
