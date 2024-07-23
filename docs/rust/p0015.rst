@@ -1,0 +1,18 @@
+Rust Implementation of Problem 15
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0015.rs>`_
+
+Includes
+--------
+
+- `primes <./math.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0015::p0015() -> i128
+
+.. literalinclude:: ../../rust/src/p0015.rs
+   :language: rust
+   :linenos:
