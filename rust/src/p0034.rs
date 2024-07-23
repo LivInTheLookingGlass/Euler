@@ -21,7 +21,7 @@ pub fn p0034() -> i128 {
     for x in 10..100000 {
         let sum = x.to_string()
                    .bytes()
-                   .fold(0, |a, b| a + factorial::<u32>(b - '0'.into()));
+                   .fold(0, |a, b| a + factorial::<u32>(b - '0'.into::<u8>()));
         if sum == x {
             answer += x;
         }
