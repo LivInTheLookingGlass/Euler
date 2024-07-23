@@ -38,7 +38,7 @@ def main() -> int:
     num = 0
     for x in count(1):
         num += x
-        if sum(1 for _ in proper_divisors(num)) > 499:
+        if sum(1 for _ in proper_divisors(num)) > 500:
             return num
     return -1
 

@@ -6,7 +6,6 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 Includes
 --------
 
-- `digits.h <./digits.html>`__
 - `math.h <./math.html>`__
 
 Solution

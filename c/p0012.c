@@ -59,7 +59,7 @@ unsigned long long p0012() {
     while (true)    {
         current = next(ti);
         // printf("%llu\n", current);
-        if (proper_divisor_count(current) > 499)
+        if (proper_divisor_count(current) > 500)
             return current;
     }
 }

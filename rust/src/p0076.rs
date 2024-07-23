@@ -35,7 +35,7 @@ pub fn p0076() -> i128 {
                 idx += 1;
                 counts[idx] += idx as u64;
                 sum = counts.iter().sum();
-                if !(sum > 100) {
+                if sum <= 100 {
                     break;
                 }
             }
