@@ -1,0 +1,13 @@
+Python Implementation of Problem 60
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0060.py>`_
+
+.. automodule:: python.p0060
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../python/p0060.py
+   :language: python
+   :linenos:
+

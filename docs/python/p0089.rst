@@ -1,0 +1,13 @@
+Python Implementation of Problem 89
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0089.py>`_
+
+.. automodule:: python.p0089
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../python/p0089.py
+   :language: python
+   :linenos:
+

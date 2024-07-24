@@ -1,0 +1,13 @@
+Python Implementation of Problem 81
+===================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0081.py>`_
+
+.. automodule:: python.p0081
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../python/p0081.py
+   :language: python
+   :linenos:
+
