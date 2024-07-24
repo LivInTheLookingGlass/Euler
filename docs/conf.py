@@ -114,7 +114,7 @@ extlinks = {
 } | {
     f'{code}-s': (f'./{lang}/p%s.html', '⏱%.0s') for (code, lang) in langcodes
 } | {
-    f'{code}-i': (f'./{lang}/p%s.html', '🔧%.0s') for (code, lang) in langcodes
+    f'{code}-i': (f'./{lang}/p%s.html', '🛠%.0s') for (code, lang) in langcodes
 }
 extlinks_detect_hardcoded_links = True
 

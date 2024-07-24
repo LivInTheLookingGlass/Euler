@@ -63,7 +63,7 @@ LivInTheLookingGlass’s Project Euler solutions
 | Rust       | 1.69+                   | 15     | |Rust| |br|       |
 |            |                         |        | |Rs-Cov|          |
 +------------+-------------------------+--------+-------------------+
-| Documentation (in progress)                   | |Pages|           |
+| Documentation                                 | |Pages|           |
 +-----------------------------------------------+-------------------+
 | Code Scanning                                 | |CodeQL| |br|     |
 |                                               | |ESLint| |br|     |

@@ -86,7 +86,7 @@ Problems Solved
 .. |Py| replace:: **Python**
 .. |Rs| replace:: **Rust**
 .. |d| replace:: ✔
-.. |ip| replace:: 🔧
+.. |ip| replace:: 🛠
 .. raw:: html
 
   <style>
