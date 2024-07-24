@@ -86,7 +86,7 @@ Problems Solved
 .. |Py| replace:: **Python**
 .. |Rs| replace:: **Rust**
 .. |d| replace:: ✔
-.. |ip| replace:: ⏱
+.. |ip| replace:: 🔧
 .. raw:: html
 
   <style>
@@ -98,7 +98,7 @@ Key:
 
 - In Progress: |ip|
 - Fully done: |d|
-- Done, but slower than 60 seconds: ⏳
+- Done, but slower than 60 seconds: ⏱
 
 .. rst-class:: centertable
 
