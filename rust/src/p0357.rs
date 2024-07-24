@@ -17,7 +17,7 @@ use crate::primes::{is_prime,primes_until,proper_divisors};
 
 pub fn p0357() -> i128 {
     let mut answer: u64 = 1 + 2;  // don't bother trying 1, 2, they're correct
-    let prime_squares = HashSet::from_iter(
+    let prime_squares = HashSet::<u64>::from_iter(
         primes_until::<u64>(10001).map(|x| x * x)
     );
     for n in (6..100000000).step_by(4) {
