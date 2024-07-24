@@ -24,7 +24,7 @@ pub fn p0357() -> i128 {
         // n can't be odd (unless 1) because then n + n/d is even, and can't be a multiple of 4 as shown below
         let broken = false;
         for d in proper_divisors(n).into_iter().chain(vec![n].into_iter()) {
-            if prime_squares.contains(d) || !is_prime(d + n / d) {
+            if prime_squares.contains(&d) || !is_prime(d + n / d) {
                 // this works because if n=kp^2, then whenever d=p, (p + kp^2/p) = (k+1)p, which isn't prime
                 // but since detecting if n % d^2 == 0 is expensive, I just wait for p^2 to show up
                 broken = true;
