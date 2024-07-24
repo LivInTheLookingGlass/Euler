@@ -18,24 +18,22 @@ Prime square filter shaves off an additional ~8%.
 without negating its benefit, or figure out a more general solution to the filter.
 Filtering to evens also shaves off some more, and n=4k+2 goes even further, about 45%.
 This cuts it overall from ~20 minutes to ~5 minutes.
+
+Revision 2:
+
+Using the :py:func:`proper_divisors <python.p0021.proper_divisors>` function from p0021 speeds this up by ~11%, going
+from 2:26 to 2:10
 """
 from typing import Iterable
 
-from p0003 import prime_factors, primes
+from p0003 import primes
 from p0007 import is_prime
+from p0021 import proper_divisors
 
 
 def divisors(n: int) -> Iterable[int]:
-    yield 1
-    divs = {1}
-    for fact in prime_factors(n):
-        temp = []
-        for div in divs:
-            d = fact * div
-            if d not in divs:
-                yield d
-                temp.append(fact * div)
-        divs.update(temp)
+    yield from proper_divisors(n)
+    yield n
 
 
 def main() -> int:
