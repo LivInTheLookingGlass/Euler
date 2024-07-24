@@ -2,10 +2,9 @@ name: Py
 
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.rst'
-      - '**/README.rst'
+    paths:
+      - 'python/**'
+      - '!python/README.rst'
   schedule:
   - cron: "0 0 1 * *"
 

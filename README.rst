@@ -23,17 +23,17 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
 .. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
-.. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&logoSize=auto&label=C
+.. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&logoSize=auto&label=C%20Cov
    :target: https://codecov.io/github/LivInTheLookingGlass/Euler
-.. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=C%2B%2B
+.. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=C%2B%2B%20Cov
    :target: https://codecov.io/github/LivInTheLookingGlass/Euler
-.. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&logoSize=auto&label=C%23
+.. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&logoSize=auto&label=C%23%20Cov
    :target: https://codecov.io/github/LivInTheLookingGlass/Euler
-.. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&logoSize=auto&label=Js
+.. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&logoSize=auto&label=Js%20Cov
    :target: https://codecov.io/github/LivInTheLookingGlass/Euler
-.. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&logoSize=auto&label=Py
+.. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&logoSize=auto&label=Py%20Cov
    :target: https://codecov.io/github/LivInTheLookingGlass/Euler
-.. |Rs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Rust&logo=codecov&logoSize=auto&label=Rs
+.. |Rs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Rust&logo=codecov&logoSize=auto&label=Rs%20Cov
    :target: https://codecov.io/github/LivInTheLookingGlass/Euler
 .. |br| raw:: html
 
@@ -70,11 +70,6 @@ LivInTheLookingGlass’s Project Euler solutions
 |                                               | |PythonLint| |br| |
 |                                               | |RustClippy|      |
 +-----------------------------------------------+-------------------+
-
-Coverage
---------
-
-.. image:: https://codecov.io/github/LivInTheLookingGlass/Euler/graphs/icicle.svg?token=6GHBNILEHG
 
 This is the repository I keep for prospective employers to look at
 project Euler code that I have written.

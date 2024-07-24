@@ -2,10 +2,9 @@ name: Rs
 
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.rst'
-      - '**/README.rst'
+    paths:
+      - 'rust/**'
+      - '!rust/README.rst'
   schedule:
   - cron: "0 0 1 * *"
 
