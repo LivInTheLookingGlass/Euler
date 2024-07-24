@@ -98,7 +98,7 @@ Key:
 
 - In Progress: |ip|
 - Fully done: |d|
-- Done, but slower than 60 seconds: 🐌
+- Done, but slower than 60 seconds: ⏳
 
 .. rst-class:: centertable
 
