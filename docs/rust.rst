@@ -43,6 +43,7 @@ Library Code
 
    rust/digits
    rust/fibonacci
+   rust/math
    rust/primes
 
 Problems Solved
