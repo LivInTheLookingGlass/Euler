@@ -1,9 +1,20 @@
 use std::cmp::PartialOrd;
+use std::mem::size_of;
 
 use num_traits::NumAssign;
 use num_traits::one;
 
-pub fn factorial<I: NumAssign + From<u8>>(n: u8) -> I {
+const MAX_FACTORIAL: [usize; 16] = [
+    5, // u8
+    8, // u16
+    10, 12, // u32
+    14, 16, 18, 20, // u64
+    22, 24, 25, 27, 29, 30, 32, 34 // u128
+];
+
+pub fn factorial<I>(n: u8) -> I
+where I: NumAssign + From<u8>
+{
     let mut answer: I = one();
     for i in 2..=n {
         answer *= i.into();
@@ -11,7 +22,15 @@ pub fn factorial<I: NumAssign + From<u8>>(n: u8) -> I {
     return answer
 }
 
-pub fn n_choose_r<I: Copy + From<u64> + NumAssign + PartialOrd>(n: usize, r: usize) -> I {
+pub fn n_choose_r<I>(n: usize, r: usize) -> I
+where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
+{
+    if n < r {
+        panic!("Out of function's bounds");
+    }
+    if n < MAX_FACTORIAL[size_of::<I>() as usize] {
+        return factorial::<I>(n as u8) / factorial::<I>(r as u8);
+    }
     // slow path for larger numbers
     let mut answer: I = one();
     let mut tmp: I;

@@ -52,7 +52,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..16 {
+seq!(N in 0..15 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(

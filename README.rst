@@ -60,7 +60,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | Pypy 3.6+ |br|          |        | |Py-Cov|          |
 |            | GraalPy 23.1+           |        |                   |
 +------------+-------------------------+--------+-------------------+
-| Rust       | 1.69+                   | 16     | |Rust| |br|       |
+| Rust       | 1.69+                   | 15     | |Rust| |br|       |
 |            |                         |        | |Rs-Cov|          |
 +------------+-------------------------+--------+-------------------+
 | Documentation                                 | |Pages|           |
