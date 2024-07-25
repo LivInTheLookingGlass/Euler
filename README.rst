@@ -56,20 +56,18 @@ LivInTheLookingGlass’s Project Euler solutions
 +------------+-------------------------+--------+-------------------+
 | JavaScript | Node 12+                |  6     | |JavaScript| |br| |
 |            |                         |        | |Js-Cov| |br|     |
-|            |                         |        | |ESLint| |br|     |
-|            |                         |        | |CodeQL|          |
+|            |                         |        | |CodeQL| |br|     |
+|            |                         |        | |ESLint|          |
 +------------+-------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|       | 77     | |Python| |br|     |
 |            | Pypy 3.6+ |br|          |        | |Py-Cov| |br|     |
-|            | GraalPy 23.1+           |        | |PythonLint| |br| |
-|            |                         |        | |CodeQL|          |
+|            | GraalPy 23.1+           |        | |CodeQL| |br|     |
+|            |                         |        | |PythonLint|      |
 +------------+-------------------------+--------+-------------------+
 | Rust       | 1.69+                   | 15     | |Rust| |br|       |
 |            |                         |        | |Rs-Cov| |br|     |
 |            |                         |        | |RustClippy|      |
 +------------+-------------------------+--------+-------------------+
-| Documentation                                 | |Pages|           |
-+-----------------------------------------------+-------------------+
 
 This is the repository I keep for prospective employers to look at
 project Euler code that I have written.
