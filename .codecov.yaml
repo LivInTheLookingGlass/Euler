@@ -30,3 +30,6 @@ component_management:
       name: Rust
       paths:
         - rust/**
+flag_management:
+  default_rules: # the rules that will be followed for any flag added, generally
+    carryforward: true

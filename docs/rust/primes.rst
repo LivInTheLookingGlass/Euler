@@ -11,7 +11,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   A convenience method that returns an iterator over the prime numbers until a given limit.
 
-.. rust:struct:: primes::Eratosthenes<I>
+.. rust:struct:: primes::Eratosthenes<I> where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 
   This class implements the `Sieve of Eratosthenes <https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes>`_. In general,
   it will iterate over all of the prime numbers. You can also provide an optional ``limit`` argument, which will force
@@ -31,7 +31,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   A convenience method that returns an iterator over the prime factors of a given number.
 
-.. rust:struct:: primes::PrimeFactors<I>
+.. rust:struct:: primes::PrimeFactors<I> where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 
   This class will iterate over all the prime factors of a number. It *only* supports positive integers. To find the
   factors of a negative number, iterate over the prime factors of its absolute value and add ``-1`` as a factor manually.
@@ -40,15 +40,15 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   .. rust:fn:: primes::PrimeFactors::next() -> Option<I>
 
-.. rust:fn:: primes::proper_divisors<I>(x: I) -> Vec<I>
+.. rust:fn:: primes::proper_divisors<I>(x: I) -> Vec<I> where I: NumAssign + Bounded + Ord + Eq + Hash + Copy
 
   This function returns a vector of the proper divisors of a number.
 
-.. rust:fn:: fn is_composite<I>(x: I) -> I
+.. rust:fn:: fn is_composite<I>(x: I) -> I where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 
   Returns ``0`` if the number is prime, and the smallest prime factor otherwise.
 
-.. rust:fn:: fn is_prime<I>(x: I) -> bool
+.. rust:fn:: fn is_prime<I>(x: I) -> bool where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 
   Returns ``true`` if the number is prime, and ``false`` otherwise.
 
