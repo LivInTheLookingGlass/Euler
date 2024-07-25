@@ -14,6 +14,7 @@ mod primes;
 seq!(N in 0001..=0012 {
 mod p~N;
 });
+mod p0014;
 mod p0015;
 mod p0034;
 mod p0076;
@@ -21,7 +22,7 @@ mod p0357;
 
 type ProblemType = fn() -> i128;
 type ProblemRef<'a> = (&'a str, ProblemType, i128);
-const ANSWERS: [ProblemRef; 16] = [
+const ANSWERS: [ProblemRef; 17] = [
     ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732),
     ("p0003", p0003::p0003, 6857),
@@ -34,6 +35,7 @@ const ANSWERS: [ProblemRef; 16] = [
     ("p0010", p0010::p0010, 142913828922),
     ("p0011", p0011::p0011, 70600674),
     ("p0012", p0012::p0012, 76576500),
+    ("p0014", p0014::p0014, 837799),
     ("p0015", p0015::p0015, 137846528820),
     ("p0034", p0034::p0034, 40730),
     ("p0076", p0076::p0076, 190569291),
@@ -52,7 +54,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..15 {
+seq!(N in 0..16 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(

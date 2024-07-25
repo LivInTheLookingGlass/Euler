@@ -21,8 +21,6 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
 .. |PythonLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&logoSize=auto&label=mypy%2Bisort
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
-.. |Pages| https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/pages.yml?logo=github&logoSize=auto&label=Docs
-   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
 .. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&logoSize=auto&label=C%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C
 .. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=Cpp%20Cov
@@ -64,7 +62,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | GraalPy 23.1+           |        | |CodeQL| |br|     |
 |            |                         |        | |PythonLint|      |
 +------------+-------------------------+--------+-------------------+
-| Rust       | 1.69+                   | 15     | |Rust| |br|       |
+| Rust       | 1.69+                   | 16     | |Rust| |br|       |
 |            |                         |        | |Rs-Cov| |br|     |
 |            |                         |        | |RustClippy|      |
 +------------+-------------------------+--------+-------------------+

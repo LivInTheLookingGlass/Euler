@@ -1,0 +1,13 @@
+Rust Implementation of Problem 14
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0014.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0014::p0014() -> i128
+
+.. literalinclude:: ../../rust/src/p0014.rs
+   :language: rust
+   :linenos:
