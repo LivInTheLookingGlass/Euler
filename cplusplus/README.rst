@@ -17,7 +17,7 @@ functions are moved to header files in the include subfolder
 Makefile
 --------
 
-There are three main recipes in this Makefile
+There are four main recipes in this Makefile
 
 dependencies
 ~~~~~~~~~~~~
@@ -39,6 +39,13 @@ specified by the number after the \_. For example, ``test_3`` would
 spawn three python processes. Because benchmark disables itself when
 running in children processes, benchmark info is not available with this
 recipe.
+
+native
+~~~~~~
+
+This recipe borrows the C test infrastructure. This is entirely to allow
+CodeQL to analyze my C++ code. It is not actually a supported test runner.
+In future, it will be replaced with a C++-native test runner.
 
 Tests
 -----

@@ -48,13 +48,20 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - language: c-cpp
+        - name: c
+          language: c-cpp
           build-mode: manual
-        - language: csharp
+        - name: cpp
+          language: c-cpp
+          build-mode: manual
+        - name: csharp
+          language: csharp
           build-mode: none
-        - language: javascript-typescript
+        - name: javascript
+          language: javascript-typescript
           build-mode: none
-        - language: python
+        - name: python
+          language: python
           build-mode: none
         # CodeQL supports the following values keywords for 'language': 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
         # Use `c-cpp` to analyze code written in C, C++ or both
@@ -89,10 +96,15 @@ jobs:
     # to build your code.
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-    - if: matrix.build-mode == 'manual' && matrix.language == 'c-cpp'
+    - if: matrix.build-mode == 'manual' && matrix.name == 'c'
       shell: bash
       run: |
         make c_native
+
+    - if: matrix.build-mode == 'manual' && matrix.name == 'cpp'
+      shell: bash
+      run: |
+        make cp_native
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3

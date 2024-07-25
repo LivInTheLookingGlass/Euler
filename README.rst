@@ -1,31 +1,31 @@
 LivInTheLookingGlass’s Project Euler solutions
 ==============================================
 
-.. |Ci| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg
+.. |Ci| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/c.yml?logo=github&logoSize=auto&label=C%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml
-.. |C#i| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg
-   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
-.. |Cpi| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml/badge.svg
+.. |Cpi| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/cplusplus.yml?logo=github&logoSize=auto&label=Cpp%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml
-.. |JavaScript| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg
+.. |C#i| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp.yml?logo=github&logoSize=auto&label=C%23%20Tests
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
+.. |JavaScript| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/javascript.yml?logo=github&logoSize=auto&label=Js%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
-.. |Python| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg
+.. |Python| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python.yml?logo=github&logoSize=auto&label=Py%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml
-.. |Rust| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml/badge.svg
+.. |Rust| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/rust.yml?logo=github&logoSize=auto&label=Rs%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml
-.. |CodeQL| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml/badge.svg
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&logoSize=auto&label=CodeQL
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
-.. |ESLint| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml/badge.svg
+.. |ESLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/eslint.yml?logo=github&logoSize=auto&label=ESLint
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
-.. |RustClippy| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml/badge.svg
+.. |RustClippy| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/rust-clippy.yml?logo=github&logoSize=auto&label=Clippy
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
-.. |PythonLint| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml/badge.svg
+.. |PythonLint| https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&logoSize=auto&label=mypy%2Bisort
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
-.. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
+.. |Pages| https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/pages.yml?logo=github&logoSize=auto&label=Docs
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
 .. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&logoSize=auto&label=C%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C
-.. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=C%2B%2B%20Cov
+.. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=Cpp%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C%2B%2B
 .. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&logoSize=auto&label=C%23%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C%23
@@ -43,32 +43,32 @@ LivInTheLookingGlass’s Project Euler solutions
 | Language   | Version                 | Solved | Status            |
 +============+=========================+========+===================+
 | C          | C99+ in: ``gcc``, |br|  | 17     | |Ci| |br|         |
-|            | ``clang``, ``msvc``,    |        | |C-Cov|           |
-|            | |br| ``pcc``, ``tcc``   |        |                   |
+|            | ``clang``, ``msvc``,    |        | |C-Cov| |br|      |
+|            | |br| ``pcc``, ``tcc``   |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | C++        | C++98+ in |br|          | 10     | |Cpi| |br|        |
-|            | ``gcc``, ``clang`` |br| |        | |Cp-Cov|          |
-|            | C++14+ in ``msvc``      |        |                   |
+|            | ``gcc``, ``clang`` |br| |        | |Cp-Cov| |br|     |
+|            | C++14+ in ``msvc``      |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | C#         | .NET 2+                 |  6     | |C#i| |br|        |
-|            |                         |        | |Cs-Cov|          |
+|            |                         |        | |Cs-Cov| |br|     |
+|            |                         |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | JavaScript | Node 12+                |  6     | |JavaScript| |br| |
-|            |                         |        | |Js-Cov|          |
+|            |                         |        | |Js-Cov| |br|     |
+|            |                         |        | |ESLint| |br|     |
+|            |                         |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|       | 77     | |Python| |br|     |
-|            | Pypy 3.6+ |br|          |        | |Py-Cov|          |
-|            | GraalPy 23.1+           |        |                   |
+|            | Pypy 3.6+ |br|          |        | |Py-Cov| |br|     |
+|            | GraalPy 23.1+           |        | |PythonLint| |br| |
+|            |                         |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | Rust       | 1.69+                   | 15     | |Rust| |br|       |
-|            |                         |        | |Rs-Cov|          |
+|            |                         |        | |Rs-Cov| |br|     |
+|            |                         |        | |RustClippy|      |
 +------------+-------------------------+--------+-------------------+
 | Documentation                                 | |Pages|           |
-+-----------------------------------------------+-------------------+
-| Code Scanning                                 | |CodeQL| |br|     |
-|                                               | |ESLint| |br|     |
-|                                               | |PythonLint| |br| |
-|                                               | |RustClippy|      |
 +-----------------------------------------------+-------------------+
 
 This is the repository I keep for prospective employers to look at
