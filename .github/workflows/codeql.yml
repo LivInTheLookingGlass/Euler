@@ -51,9 +51,9 @@ jobs:
         - name: c
           language: c-cpp
           build-mode: manual
-        # - name: cpp
-        #   language: c-cpp
-        #   build-mode: manual
+        - name: cpp
+          language: c-cpp
+          build-mode: manual
         - name: csharp
           language: csharp
           build-mode: none

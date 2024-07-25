@@ -39,7 +39,7 @@ lint:
 	fi
 
 native:
-	$(CC) test.cpp ../Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0
+	$(CXX) test.cpp ./Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
 
 clean:
 	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo

@@ -1,3 +1,6 @@
 [submodule "c/Unity"]
 	path = c/Unity
 	url = https://github.com/ThrowTheSwitch/Unity
+[submodule "cplusplus/Unity"]
+	path = cplusplus/Unity
+	url = https://github.com/ThrowTheSwitch/Unity
