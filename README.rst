@@ -24,17 +24,17 @@ LivInTheLookingGlass’s Project Euler solutions
 .. |Pages| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml/badge.svg
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
 .. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&logoSize=auto&label=C%20Cov
-   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C
 .. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=C%2B%2B%20Cov
-   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C%2B%2B
 .. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&logoSize=auto&label=C%23%20Cov
-   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C%23
 .. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&logoSize=auto&label=Js%20Cov
-   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=JavaScript
 .. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&logoSize=auto&label=Py%20Cov
-   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Python
 .. |Rs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Rust&logo=codecov&logoSize=auto&label=Rs%20Cov
-   :target: https://codecov.io/github/LivInTheLookingGlass/Euler
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Rust
 .. |br| raw:: html
 
   <br/>
