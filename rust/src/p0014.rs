@@ -42,7 +42,7 @@ fn collatz_len(n: u64, cache: &mut HashMap<u64, u64>) -> u64 {
     }
 }
 
-pub fn main() {
+pub fn p0014() -> i128 {
     let mut biggest_seen: u64 = 0;
     let mut biggest_idx: u64 = 0;
     let mut cache: HashMap<u64, u64> = HashMap::new();
