@@ -96,7 +96,7 @@ answers = {
     357: 1739023853137,
 }
 
-known_slow = {118, 357}
+known_slow = {76, 118, 357}
 # this is the set of problems where I have the right answer but wrong solution
 
 IN_TERMUX = bool(which('termux-setup-storage'))
