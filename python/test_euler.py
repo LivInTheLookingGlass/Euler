@@ -96,7 +96,7 @@ answers = {
     357: 1739023853137,
 }
 
-known_slow = {76, 118, 357}
+known_slow = {118, 357}
 # this is the set of problems where I have the right answer but wrong solution
 
 IN_TERMUX = bool(which('termux-setup-storage'))
@@ -176,7 +176,7 @@ def test_problem(benchmark: Any, key: int) -> None:
     del test_func
     gc.collect()
     # sometimes benchmark disables itself, so check for .stats
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
+    if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = cast(Callable[[str], None], xfail if key in known_slow else fail)
         stats = benchmark.stats.stats
         fail_func("Exceeding 60s! (Max={:.6}s, Median={:.6}s)".format(stats.max, stats.median))
