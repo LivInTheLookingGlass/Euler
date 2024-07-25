@@ -1,0 +1,13 @@
+Rust Implementation of Problem 13
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0013.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0013::p0013() -> i128
+
+.. literalinclude:: ../../rust/src/p0013.rs
+   :language: rust
+   :linenos:
