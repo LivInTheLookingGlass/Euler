@@ -29,4 +29,4 @@ jobs:
           c/requirements.txt
 
     - name: Lint
-      run: make py_test LINT=only
+      run: make py_test LINT=true
