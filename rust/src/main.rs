@@ -42,6 +42,7 @@ const ANSWERS: [ProblemRef; 17] = [
     ("p0357", p0357::p0357, 1739023853137),
 ];
 
+#[cfg(not(test))]
 fn main() {
     let sieve = primes::primes::<u64>().take(10);
     for i in sieve {

@@ -37,5 +37,5 @@ pub fn p0012() -> i128 {
             return num.into();
         }
     }
-    return -1;
+    unreachable!();
 }
