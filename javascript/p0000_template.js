@@ -11,5 +11,5 @@
  **/
 
 exports.p0000 = function() {
-
+    return 0;
 };

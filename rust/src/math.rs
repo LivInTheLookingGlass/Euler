@@ -4,7 +4,7 @@ use std::mem::size_of;
 use num_traits::NumAssign;
 use num_traits::one;
 
-const MAX_FACTORIAL: [usize; 16] = [
+const MAX_FACTORIAL: [u8; 16] = [
     5, // u8
     8, // u16
     10, 12, // u32
@@ -28,17 +28,15 @@ where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
     if n < r {
         panic!("Out of function's bounds");
     }
-    if n < MAX_FACTORIAL[size_of::<I>() as usize] {
+    if n < MAX_FACTORIAL[size_of::<I>() as usize] as usize {
         return factorial::<I>(n as u8) / factorial::<I>(r as u8);
     }
     // slow path for larger numbers
     let mut answer: I = one();
     let mut tmp: I;
-    let mut factors: Vec<i8> = vec![0; n + 1];
-    // collect factors of final number
-    for i in 2..=n {
-        factors[i] = 1;
-    }
+    let mut factors: Vec<i8> = vec![1; n + 1];
+    factors[0] = 0;
+    factors[1] = 0;
     // negative factor values indicate need to divide
     for i in 2..=r {
         factors[i] -= 1;

@@ -1,7 +1,8 @@
 """
 Project Euler Problem 357
 
-A key note is that n // d is always also a factor, so it ends up being pairs. This means you can halve your search space
+A key note is that n // d is always also a factor, so it ends up being pairs.
+This means you can halve your search space
 
 Problem:
 
@@ -13,16 +14,16 @@ such that for every divisor d of n, d+n/d is prime.
 
 Revision 1:
 
-Prime filter cuts by a little more than half, but I think this is mostly from the cache benefits on is_prime().
-Prime square filter shaves off an additional ~8%.
+Prime filter cuts by a little more than half, but I think this is mostly from the
+cache benefits on is_prime(). Prime square filter shaves off an additional ~8%.
 without negating its benefit, or figure out a more general solution to the filter.
 Filtering to evens also shaves off some more, and n=4k+2 goes even further, about 45%.
 This cuts it overall from ~20 minutes to ~5 minutes.
 
 Revision 2:
 
-Using the :py:func:`proper_divisors <python.p0021.proper_divisors>` function from p0021 speeds this up by ~11%, going
-from 2:26 to 2:10
+Using the :py:func:`proper_divisors <python.p0021.proper_divisors>` function from
+p0021 speeds this up by ~11%, going from 2:26 to 2:10
 """
 from typing import Iterable
 

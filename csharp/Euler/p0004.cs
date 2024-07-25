@@ -45,6 +45,7 @@ namespace Euler
                     }
                 }
             }
+
             return Task.FromResult<Int64>(answer);
         }
     }

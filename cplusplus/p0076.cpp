@@ -67,6 +67,7 @@ unsigned int p0076() {
             sum += counts[i];
         }
     }
+
     return answer;
 }
 
