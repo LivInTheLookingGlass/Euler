@@ -28,7 +28,7 @@ where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
     if n < r {
         panic!("Out of function's bounds");
     }
-    if n < MAX_FACTORIAL[size_of::<I>() as usize] as usize {
+    if n < MAX_FACTORIAL[size_of::<I>()] as usize {
         return factorial::<I>(n as u8) / factorial::<I>(r as u8);
     }
     // slow path for larger numbers
