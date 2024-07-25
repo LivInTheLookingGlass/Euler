@@ -19,7 +19,7 @@ LivInTheLookingGlass’s Project Euler solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
 .. |RustClippy| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/rust-clippy.yml?logo=github&logoSize=auto&label=Clippy
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
-.. |PythonLint| https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&logoSize=auto&label=mypy%2C%20isort
+.. |PythonLint| https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&logoSize=auto&label=mypy%20isort
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
 .. |Pages| https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/pages.yml?logo=github&logoSize=auto&label=Docs
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/pages.yml
