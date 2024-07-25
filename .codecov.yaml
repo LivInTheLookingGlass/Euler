@@ -33,3 +33,11 @@ component_management:
 flag_management:
   default_rules: # the rules that will be followed for any flag added, generally
     carryforward: true
+  C:
+    carryforward: true
+    paths:
+      - c/**
+  Cpp:
+    carryforward: true
+    paths:
+      - cplusplus/**
