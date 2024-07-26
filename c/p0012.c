@@ -31,37 +31,23 @@ divisors?
 #include <stdio.h>
 #include "include/factors.h"
 
-typedef struct triangle_iterator triangle_iterator;
-struct triangle_iterator    {
-    IteratorHead(unsigned long long, triangle_iterator);
-    unsigned long long current;
-    unsigned long long idx;
-};
-
-unsigned long long advance_triangle_iterator(triangle_iterator *ti) {
-    // IterationHead(ti);
-    ti->idx++;
-    ti->current += ti->idx;
-    return ti->current;
-}
-
-triangle_iterator triangle_iterator0()  {
-    triangle_iterator ret;
-    IteratorInitHead(ret, advance_triangle_iterator);
-    ret.current = 0;
-    ret.idx = 0;
-    return ret;
-}
-
 unsigned long long p0012() {
-    triangle_iterator ti = triangle_iterator0();
-    unsigned long long current;
-    while (true)    {
-        current = next(ti);
+    unsigned long long current = 1;
+    for (unsigned int i = 2; ; ++i)    {
+        current += i;  // 3, 21, ...
+        ++i;
+        current += i;  // 6, 28, ...
         // printf("%llu\n", current);
         if (proper_divisor_count(current) > 500)
             return current;
+        ++i;
+        current += i;  // 10, 36, ...
+        if (proper_divisor_count(current) > 500)
+            return current;
+        ++i;
+        current += i;  // 15, 45, ...
     }
+    return -1;
 }
 
 #ifndef UNITY_END
