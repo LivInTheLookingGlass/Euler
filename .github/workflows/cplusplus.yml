@@ -68,7 +68,7 @@ jobs:
 
     - name: Run tests (ubuntu-latest)
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: make c_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }} NO_CLEANUP=true
+      run: make cp_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }} NO_CLEANUP=true
 
     # - name: Setup upterm session
     #   uses: lhotari/action-upterm@v1
