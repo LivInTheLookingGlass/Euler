@@ -35,8 +35,17 @@ jobs:
       matrix:
 #         compiler: ["llvm", "gcc"]
 #         # compiler targets (ideally): clang, gcc, MSVCC, icc, 
-         os: [ubuntu-latest, windows-latest, macos-latest, macos-13]
-#         include:
+         os: [windows-latest, macos-latest, macos-13]
+         compiler: ['all']
+         include:
+           - os: ubuntu-latest
+             compiler: clang
+           - os: ubuntu-latest
+             compiler: gcc
+           - os: ubuntu-latest
+             compiler: tcc
+           - os: ubuntu-latest
+             compiler: pcc
 #           - os: windows-latest
 #             compiler: msvc
 #           - os: windows-latest
@@ -61,15 +70,20 @@ jobs:
         compiler: msvc
         vcvarsall: true
 
-#     - name: Set up MinGW
-#       if: ${{ contains(matrix.os, 'windows') }}
-#       uses: egor-tensin/setup-mingw@v2
-#       with:
-#         platform: x64
+    - name: Run tests (ubuntu-latest)
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: make c_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }} NO_CLEANUP=true
 
-    - name: Run tests (linux)
-      if: ${{ contains(matrix.os, 'ubuntu') }}
-      run: make cp_test COV=true
+    # - name: Setup upterm session
+    #   uses: lhotari/action-upterm@v1
+    #   if: ${{ matrix.os == 'ubuntu-latest' }}
+    #   with:
+    #     ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+    #     limit-access-to-actor: true
+
+    - name: Run tests (ubuntu lts)
+      if: ${{ contains(matrix.os, 'ubuntu') && matrix.os != 'ubuntu-latest' }}
+      run: make c_test_auto
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
@@ -84,7 +98,7 @@ jobs:
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
-      if: ${{ contains(matrix.os, 'ubuntu') }}
+      if: ${{ matrix.compiler == 'ubuntu-latest' && (matrix.compiler == 'pcc' || matrix.compiler == 'tcc') }}
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         flags: Cpp
