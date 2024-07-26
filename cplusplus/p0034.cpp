@@ -24,8 +24,7 @@ unsigned long long p0034() {
         // I know snprintf exists, but it isn't defined in C++98,
         // and this isn't taking in user input
         sprintf(buf, "%lu", i);
-        for (unsigned char j = 0; j < 8; j++)   {
-            if (!buf[j]) break;
+        for (unsigned char j = 0; j < 8 && buf[j]; j++)   {
             sum += factorial(buf[j] - '0');
         }
         if (sum == i)   {
