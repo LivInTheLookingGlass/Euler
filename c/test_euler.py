@@ -162,7 +162,7 @@ GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std={} -march=native -flto -fwhol
 CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std={} {} -o {{}}"
 if environ.get('COV') == 'true':
     GCC_TEMPLATE = GCC_TEMPLATE.replace('-O2', '-O1') + ' --coverage'
-    CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' --coverage -femit-coverage-data -femit-coverage-notes'
+    CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' --coverage'
 
 templates = {
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
