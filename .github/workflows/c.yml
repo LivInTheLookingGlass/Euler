@@ -65,14 +65,6 @@ jobs:
         packages: ${{ matrix.compiler }}
         version: ${{ matrix.compiler }}
 
-    - name: Remove unused compilers
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: sudo apt-get remove -y 
-        ${{ matrix.compiler != 'clang' && 'clang' || '' }}
-        ${{ matrix.compiler != 'gcc' && 'gcc' || '' }}
-        ${{ matrix.compiler != 'pcc' && 'pcc' || '' }}
-        ${{ matrix.compiler != 'tcc' && 'tcc' || '' }}
-
     - name: Setup MSVC
       uses: aminya/setup-cpp@v1
       if: ${{ contains(matrix.os, 'windows') }}
@@ -80,9 +72,13 @@ jobs:
         compiler: msvc
         vcvarsall: true
 
-    - name: Run tests (linux)
+    - name: Run tests (ubuntu-latest)
       if: ${{ contains(matrix.os, 'ubuntu') }}
-      run: make c_test${{ (matrix.os != 'ubuntu-latest' && '_auto') || '' }} COV=true
+      run: make c_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }}
+
+    - name: Run tests (ubuntu lts)
+      if: ${{ contains(matrix.os, 'ubuntu') }}
+      run: make c_test_auto
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
