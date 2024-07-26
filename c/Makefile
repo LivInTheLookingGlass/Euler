@@ -24,7 +24,7 @@ help:
 
 test_%: dependencies
 	cd ../python; $(MAKE) dependencies $(MFLAGS)
-	$(PY) -m pytest -vl -n$* test_euler.py
+	$(PY) -m pytest -vl -n$* test_euler.py --cov
 
 test: dependencies
 	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py

@@ -2,7 +2,7 @@ PY?=python3
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
 BLUE=\033[0;34m
-NC=\033[0m  # No Color
+NC=\033[0m # No Color
 
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
@@ -23,7 +23,7 @@ help:
 
 test_%: dependencies
 	cd ../python; $(MAKE) dependencies $(MFLAGS)
-	$(PY) -m pytest -vl -n$* test_euler.py
+	$(PY) -m pytest -vl -n$* test_euler.py --cov
 
 test: dependencies
 	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py
