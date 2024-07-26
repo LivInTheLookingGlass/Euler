@@ -105,7 +105,7 @@ compilers: List[str] = []
 
 if 'COMPILER_OVERRIDE' in environ:
     for comp in environ['COMPILER_OVERRIDE'].upper().split(','):
-        if comp in ('pcc', 'tcc'):
+        if comp.strip().lower() in ('pcc', 'tcc'):
             compilers.append(comp)
         else:
             compilers.extend(f'{comp}+{std}' for std in STANDARDS)
