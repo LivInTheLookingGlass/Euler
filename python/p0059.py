@@ -44,7 +44,7 @@ def main() -> int:
         plaintext = bytes(x ^ y for x, y in zip(ciphertext, cycle(key)))
         if b'beginning' in plaintext:
             return sum(plaintext)
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

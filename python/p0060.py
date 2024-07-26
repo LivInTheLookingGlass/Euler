@@ -45,7 +45,7 @@ def main() -> int:
                 compat[x].add(y)
                 compat[y].add(x)
         cached_primes.append(x)
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

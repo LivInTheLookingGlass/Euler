@@ -37,10 +37,9 @@ def cached_is_prime(args: Tuple[int, int, bool]) -> bool:
 
 def main() -> int:
     for group in groupwise(count(2), 4):
-        # print(group[0])
         if all(cached_is_prime((x, 4, True)) for x in group):
             return group[0]
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

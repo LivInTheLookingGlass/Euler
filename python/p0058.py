@@ -36,7 +36,7 @@ def main() -> int:
         total += 4
         if primes < total / 10:
             return 2 * x + 1
-    return -1  # should be unreachable
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

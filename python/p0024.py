@@ -22,7 +22,7 @@ def main() -> int:
     for idx, x in enumerate(permutations(range(10))):
         if idx == 999999:
             return int("".join(repr(i) for i in x))
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

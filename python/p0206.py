@@ -21,7 +21,7 @@ def main() -> int:
     for x in range(minimum, maximum, step):
         if pattern.match(repr(x * x)):
             return x
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

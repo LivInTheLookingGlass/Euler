@@ -40,7 +40,7 @@ def main() -> int:
         num += x
         if sum(1 for _ in proper_divisors(num)) > 500:
             return num
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

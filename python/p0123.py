@@ -35,7 +35,7 @@ def main() -> int:
             continue
         elif base % (p * p) > ten_ten:
             return n
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

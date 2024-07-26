@@ -32,7 +32,7 @@ def main() -> int:
         orig = set(digits(x))
         if all(set(digits(x * y)) == orig for y in range(2, 7)):
             return x
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

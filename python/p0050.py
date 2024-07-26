@@ -36,7 +36,7 @@ def main() -> int:
             total = sum(group)
             if is_prime(total):
                 return total
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

@@ -45,7 +45,7 @@ def main() -> int:
                 break
         else:
             return goal
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

@@ -32,7 +32,7 @@ def main() -> int:
                     print(queries)
                     return reduce(mul, queries, 1)
         digits_seen += digits
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

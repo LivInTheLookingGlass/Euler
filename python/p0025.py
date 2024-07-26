@@ -37,7 +37,7 @@ def main() -> int:
     for idx, x in enumerate(fib(), 1):
         if x > check:
             return idx
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':

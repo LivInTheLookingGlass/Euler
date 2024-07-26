@@ -32,7 +32,7 @@ def main() -> int:
     for triple in triples():
         if sum(triple) == 1000:
             return reduce(mul, triple, 1)
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':
