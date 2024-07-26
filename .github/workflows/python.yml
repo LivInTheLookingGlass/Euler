@@ -5,7 +5,6 @@ on:
     paths:
       - 'python/**'
       - '!python/README.rst'
-      - '.github/workflows/python.yml'
   schedule:
   - cron: "0 0 1 * *"
 

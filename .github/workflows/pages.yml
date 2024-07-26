@@ -8,7 +8,6 @@ on:
       - 'python/**'
       - 'README.rst'
       - '**/*.rst'
-      - '.github/workflows/pages.yml'
   workflow_dispatch:
   schedule:
   - cron: "0 0 * * 1"

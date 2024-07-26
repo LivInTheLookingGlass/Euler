@@ -5,7 +5,6 @@ on:
     paths:
       - 'c/**'
       - '!c/README.rst'
-      - '.github/workflows/c.yml'
   schedule:
   - cron: "0 0 1 * *"
 

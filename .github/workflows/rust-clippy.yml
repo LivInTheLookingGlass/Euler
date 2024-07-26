@@ -14,7 +14,6 @@ on:
     paths:
       - 'rust/**'
       - '!rust/README.rst'
-      - '.github/workflows/rust-clippy.yml'
   pull_request:
   schedule:
     - cron: '32 21 * * 4'
