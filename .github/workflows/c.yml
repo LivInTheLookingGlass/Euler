@@ -33,14 +33,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-#         compiler: ["llvm", "gcc"]
-#         # compiler targets (ideally): clang, gcc, MSVCC, pcc, tcc, icc, 
-         os: [ubuntu-latest, windows-latest, macos-latest, macos-13, 'ubuntu-20.04']
-#         include:
-#           - os: windows-latest
-#             compiler: msvc
-#           - os: windows-latest
-#             compiler: mingw
+        os: [windows-latest, macos-latest, macos-13, 'ubuntu-20.04']
+        compiler: ['all']
+        include:
+          - os: ubuntu-latest
+            compiler: clang
+          - os: ubuntu-latest
+            compiler: gcc
+          - os: ubuntu-latest
+            compiler: tcc
+          - os: ubuntu-latest
+            compiler: pcc
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -54,12 +57,20 @@ jobs:
         python-version: "3.10"
         cache-dependency-path: '*/requirements.txt'
 
-    - name: Setup tcc, pcc
+    - name: Setup compiler
       uses: awalsh128/cache-apt-pkgs-action@latest
       if: ${{ matrix.os == 'ubuntu-latest' }}
       with:
-        packages: tcc pcc
-        version: 1.0
+        packages: ${{ matrix.compiler }}
+        version: ${{ matrix.compiler }}
+
+    - name: Remove unused compilers
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: sudo apt-get remove -y 
+        ${{ matrix.compiler != 'clang' && 'clang' || '' }}
+        ${{ matrix.compiler != 'gcc' && 'gcc' || '' }}
+        ${{ matrix.compiler != 'pcc' && 'pcc' || '' }}
+        ${{ matrix.compiler != 'tcc' && 'tcc' || '' }}
 
     - name: Setup MSVC
       uses: aminya/setup-cpp@v1
@@ -67,12 +78,6 @@ jobs:
       with:
         compiler: msvc
         vcvarsall: true
-
-#     - name: Set up MinGW
-#       if: ${{ contains(matrix.os, 'windows') }}
-#       uses: egor-tensin/setup-mingw@v2
-#       with:
-#         platform: x64
 
     - name: Run tests (linux)
       if: ${{ contains(matrix.os, 'ubuntu') }}
