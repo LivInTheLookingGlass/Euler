@@ -52,5 +52,5 @@ def main() -> int:
     return coin_combinations(200, units, counts)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print(main())

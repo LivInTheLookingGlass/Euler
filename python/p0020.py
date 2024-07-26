@@ -20,5 +20,5 @@ def main() -> int:
     return sum(int(x) for x in repr(factorial(100)))
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print(main())

@@ -41,5 +41,5 @@ def main() -> int:
     return len(seen)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print(main())

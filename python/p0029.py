@@ -27,5 +27,5 @@ def main() -> int:
     return len(set(a**b for a in space for b in space))
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print(main())

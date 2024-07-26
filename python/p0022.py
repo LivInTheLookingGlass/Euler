@@ -31,5 +31,5 @@ def main() -> int:
     return sum(score(name, idx) for idx, name in enumerate(names, 1))
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print(main())

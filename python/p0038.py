@@ -46,5 +46,5 @@ def main() -> int:
     return reduce(lambda x, y: x * 10 + y, answer)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print(main())
