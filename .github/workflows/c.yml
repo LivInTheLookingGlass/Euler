@@ -73,14 +73,14 @@ jobs:
 
     - name: Run tests (ubuntu-latest)
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: make c_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }}
+      run: make c_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }} NO_CLEANUP=true
 
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-      with:
-        ## limits ssh access and adds the ssh public key for the user which triggered the workflow
-        limit-access-to-actor: true
+    # - name: Setup upterm session
+    #   uses: lhotari/action-upterm@v1
+    #   if: ${{ matrix.os == 'ubuntu-latest' }}
+    #   with:
+    #     ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+    #     limit-access-to-actor: true
 
     - name: Run tests (ubuntu lts)
       if: ${{ contains(matrix.os, 'ubuntu') && matrix.os != 'ubuntu-latest' }}

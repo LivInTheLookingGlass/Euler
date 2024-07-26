@@ -161,8 +161,8 @@ EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std={} -march=native -flto -fwhole-program -o {{}}"
 CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std={} {} -o {{}}"
 if environ.get('COV') == 'true':
-    GCC_TEMPLATE += ' -ftest-coverage -fprofile-arcs'
-    CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' -ftest-coverage'
+    GCC_TEMPLATE = GCC_TEMPLATE.replace('-O2', '-O1') + ' --coverage'
+    CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' --coverage -femit-coverage-data -femit-coverage-notes'
 
 templates = {
     'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
@@ -181,7 +181,7 @@ for std in STANDARDS:
 
 @register
 def cleanup():
-    if 'PYTEST_XDIST_WORKER' not in environ:
+    if 'PYTEST_XDIST_WORKER' not in environ and environ.get('NO_CLEANUP', 'false') != 'true':
         rmtree(BUILD_FOLDER)
 
 
