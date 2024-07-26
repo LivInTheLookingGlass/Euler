@@ -151,9 +151,10 @@ EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
 GCC_TEMPLATE = "{} {{}} -O2 -lstdc++ -lm -Wall -Werror -Wno-deprecated-declarations -std={} -march=native -flto -fwhole-program -o {{}}"
+CLANG_TEMPLATE = "{} {{}} -O2 -lstdc++ {} {} -Wall -Werror -Wno-deprecated-declarations -std={} {} -o {{}}"
 if environ.get('COV') == 'true':
     GCC_TEMPLATE += ' -ftest-coverage -fprofile-arcs'
-CLANG_TEMPLATE = "{} {{}} -O2 -lstdc++ {} {} -Wall -Werror -Wno-deprecated-declarations -std={} {} -o {{}}"
+    CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' -ftest-coverage'
 
 templates = {}
 for std in STANDARDS:
