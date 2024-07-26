@@ -5,6 +5,7 @@ on:
     paths:
       - 'rust/**'
       - '!rust/README.rst'
+      - '.github/workflows/rust.yml'
   schedule:
   - cron: "0 0 1 * *"
 

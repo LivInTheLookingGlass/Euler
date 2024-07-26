@@ -14,6 +14,7 @@ on:
     paths:
       - 'javascript/**'
       - '!javascript/README.rst'
+      - '.github/workflows/eslint.yml'
   pull_request:
   schedule:
     - cron: '27 15 * * 5'
