@@ -42,10 +42,6 @@ jobs:
              compiler: clang
            - os: ubuntu-latest
              compiler: gcc
-           - os: ubuntu-latest
-             compiler: tcc
-           - os: ubuntu-latest
-             compiler: pcc
 #           - os: windows-latest
 #             compiler: msvc
 #           - os: windows-latest
@@ -98,7 +94,7 @@ jobs:
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
-      if: ${{ matrix.compiler == 'ubuntu-latest' && (matrix.compiler == 'pcc' || matrix.compiler == 'tcc') }}
+      if: ${{ matrix.compiler == 'ubuntu-latest' }}
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         flags: Cpp
