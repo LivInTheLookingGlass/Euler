@@ -12,13 +12,11 @@ Organization
 ------------
 
 All files share a common prefix with their problem number. Several of
-the problems also have code leveraged as if they were a library. That
+the problems also have code leveraged as if they were a library. I am in
+the midst of moving these function into a library subfolder. That
 list is (approximately):
 
--  p0002 for the fibonacci sequence
--  p0003 for prime numbers and factors
 -  p0004 for palindrome detection
--  p0007 for is_prime()
 -  p0008 for iterating over a series in groups of n
 -  p0015 for n_choose_r
 -  p0018 for trianglar pathfinding

@@ -26,8 +26,7 @@ What is the smallest odd composite that cannot be written as the sum of a prime 
 from itertools import count, takewhile
 from math import ceil, sqrt
 
-from p0003 import primes
-from p0007 import is_prime
+from lib.primes import is_prime, primes
 
 
 def main() -> int:

@@ -3,6 +3,14 @@ Python Implementation of Problem 41
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0041.py>`_
 
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
 .. automodule:: python.p0041
    :members:
    :undoc-members:

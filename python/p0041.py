@@ -12,7 +12,7 @@ also prime.
 What is the largest n-digit pandigital prime that exists?
 """
 
-from p0003 import primes
+from lib.primes import primes
 from p0074 import digits
 
 

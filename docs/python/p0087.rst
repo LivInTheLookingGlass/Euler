@@ -3,6 +3,14 @@ Python Implementation of Problem 87
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0087.py>`_
 
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
 .. automodule:: python.p0087
    :members:
    :undoc-members:

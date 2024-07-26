@@ -21,7 +21,7 @@ The least value of n for which the remainder first exceeds 10**9 is 7037.
 
 Find the least value of n for which the remainder first exceeds 10**10.
 """
-from p0003 import primes
+from lib.primes import primes
 
 
 def main() -> int:

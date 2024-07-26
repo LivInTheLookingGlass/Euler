@@ -26,7 +26,7 @@ from functools import lru_cache
 from itertools import count
 from typing import Tuple
 
-from p0007 import is_prime
+from lib.primes import is_prime
 from p0008 import groupwise
 
 

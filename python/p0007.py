@@ -34,40 +34,7 @@ the 6th prime is 13.
 
 What is the 10 001st prime number?
 """
-from typing import Callable, Collection, Optional, Set, cast
-
-from p0003 import cache, prime_factors, primes
-
-
-def is_prime(
-    num: int,
-    count: int = 1,
-    distinct: bool = False
-) -> bool:
-    """Detects if a number is prime or not.
-
-    If a count other than 1 is given, it returns True only if the number has
-    exactly count prime factors."""
-    if num in (0, 1):
-        return False
-    factors = iter(prime_factors(num))
-    if count == 1:
-        if num in cache:  # always has 2
-            return True
-        if num % 2 == 0:
-            return False
-        return next(factors) == num
-    seen: Collection[Optional[int]]
-    seen_add: Callable[[Optional[int]], None]
-    if distinct:
-        seen = set()
-        seen_add = seen.add
-    else:
-        seen = []
-        seen_add = seen.append
-    while None not in seen and count != len(seen):
-        seen_add(next(factors, None))
-    return None not in seen and next(factors, None) is None
+from lib.primes import primes
 
 
 def main() -> int:

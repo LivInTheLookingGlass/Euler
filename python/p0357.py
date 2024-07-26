@@ -27,8 +27,7 @@ p0021 speeds this up by ~11%, going from 2:26 to 2:10
 """
 from typing import Iterable
 
-from p0003 import primes
-from p0007 import is_prime
+from lib.primes import is_prime, primes
 from p0021 import proper_divisors
 
 

@@ -24,7 +24,7 @@ Find the sum of all the primes below two million.
 """
 from itertools import takewhile
 
-from p0003 import primes
+from lib.primes import primes
 
 
 def main() -> int:

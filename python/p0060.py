@@ -13,8 +13,7 @@ from collections import defaultdict
 from itertools import combinations
 from typing import DefaultDict, List, Set
 
-from p0003 import primes
-from p0007 import is_prime
+from lib.primes import is_prime, primes
 
 
 def is_concat_prime(x: int, y: int) -> bool:

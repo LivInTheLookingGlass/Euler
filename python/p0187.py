@@ -24,7 +24,7 @@ distinct, prime factors?
 """
 from itertools import takewhile
 
-from p0003 import primes
+from lib.primes import primes
 
 
 def main() -> int:

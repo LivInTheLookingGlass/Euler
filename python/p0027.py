@@ -31,8 +31,7 @@ from functools import partial
 from itertools import count, takewhile
 from typing import Iterator
 
-from p0003 import primes
-from p0007 import is_prime
+from lib.primes import is_prime, primes
 
 
 def quadratic(n: int, a: int, b: int) -> int:

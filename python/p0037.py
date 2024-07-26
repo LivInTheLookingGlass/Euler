@@ -15,8 +15,7 @@ right and right to left.
 
 NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 """
-from p0003 import primes
-from p0007 import is_prime
+from lib.primes import is_prime, primes
 
 
 def main() -> int:

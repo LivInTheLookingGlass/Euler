@@ -213,7 +213,7 @@ def test_compiler_macros(compiler):
 
 # @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
 # def test_is_prime(benchmark, compiler):
-#     from p0007 import is_prime, prime_factors, primes
+#     from lib.primes import is_prime, prime_factors, primes
 #     MAX_PRIME = 1_000_000
 #     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
 #     test_path = CPP_FOLDER.joinpath("tests", "test_is_prime.cpp")

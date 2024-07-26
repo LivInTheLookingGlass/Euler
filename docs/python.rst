@@ -5,6 +5,16 @@ Euler Python Implementation
    :start-line: 2
    :end-before: Problems Solved
 
+Library Code
+------------
+
+.. toctree::
+   :glob:
+   :numbered:
+   :maxdepth: 1
+
+   python/primes
+
 Problems Solved
 ---------------
 

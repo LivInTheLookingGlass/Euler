@@ -22,7 +22,7 @@ diagonals first falls below 10%?
 """
 from itertools import count
 
-from p0007 import is_prime
+from lib.primes import is_prime
 from p0028 import spiral_corners
 
 

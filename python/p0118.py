@@ -14,7 +14,7 @@ How many distinct sets containing each of the digits one through nine exactly on
 from itertools import takewhile
 from math import ceil, log10
 
-from p0003 import primes
+from lib.primes import primes
 
 all_digits = set("123456789")
 

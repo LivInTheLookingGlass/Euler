@@ -18,7 +18,7 @@ What is the first value which can be written as the sum of primes in over five t
 from itertools import count
 from typing import List, Tuple
 
-from p0003 import primes
+from lib.primes import primes
 
 
 def prime_summations(n: int) -> int:
