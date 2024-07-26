@@ -84,6 +84,7 @@ jobs:
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
+      if: ${{ contains(matrix.os, 'ubuntu') }}
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         flags: Cpp
