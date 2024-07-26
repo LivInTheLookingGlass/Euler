@@ -2,7 +2,7 @@ PY?=python3
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
 BLUE=\033[0;34m
-NC=\033[0m  # No Color
+NC=\033[0m # No Color
 
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
