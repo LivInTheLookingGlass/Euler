@@ -24,10 +24,10 @@ help:
 
 test_%: dependencies
 	cd ../python; $(MAKE) dependencies $(MFLAGS)
-	$(PY) -m pytest -vl -n$* test_euler.py --cov
+	$(PY) -m pytest -vl -n$* test_euler.py
 
 test: dependencies
-	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
+	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py
 
 dependencies:
 	git submodule init
