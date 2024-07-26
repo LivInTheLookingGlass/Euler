@@ -27,7 +27,7 @@ test_%: dependencies
 	$(PY) -m pytest -vl -n$* test_euler.py --cov
 
 test: dependencies
-	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py
+	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
 dependencies:
 	git submodule init
