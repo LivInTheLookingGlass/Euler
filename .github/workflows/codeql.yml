@@ -17,10 +17,13 @@ concurrency:
 
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.rst'
-      - '**/README.rst'
+    paths:
+      - 'c/**'
+      - 'cplusplus/**'
+      - 'csharp/**'
+      - 'javascript/**'
+      - 'python/**'
+      - '!*/README.rst'
   pull_request:
   schedule:
     - cron: '29 10 * * 4'

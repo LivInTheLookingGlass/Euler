@@ -11,10 +11,9 @@ name: ESLint
 
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.rst'
-      - '**/README.rst'
+    paths:
+      - 'javascript/**'
+      - '!javascript/README.rst'
   pull_request:
   schedule:
     - cron: '27 15 * * 5'

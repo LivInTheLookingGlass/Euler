@@ -11,10 +11,9 @@ name: Rust-Clippy
 
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.rst'
-      - '**/README.rst'
+    paths:
+      - 'rust/**'
+      - '!rust/README.rst'
   pull_request:
   schedule:
     - cron: '32 21 * * 4'
