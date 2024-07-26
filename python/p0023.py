@@ -43,5 +43,5 @@ def main() -> int:
     return sum(filterfalse(abundant_sums.__contains__, range(1, 28124)))
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

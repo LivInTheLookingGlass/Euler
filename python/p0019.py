@@ -37,5 +37,5 @@ def main() -> int:
     return sum(1 for _ in monthly_iterator(years=range(1901, 2001)))
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

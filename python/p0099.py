@@ -36,5 +36,5 @@ def main() -> int:
     return max(enumerate(candidates, 1), key=lambda x: cmp_to_key(cmp_two_exp)(x[1]))[0]
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

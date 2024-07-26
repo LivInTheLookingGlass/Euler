@@ -122,5 +122,5 @@ def main() -> int:
     return max(prime_factors(600851475143))
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

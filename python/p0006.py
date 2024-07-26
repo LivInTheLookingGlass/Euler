@@ -26,5 +26,5 @@ def main() -> int:
     return square_of_sum - sum_of_squares
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

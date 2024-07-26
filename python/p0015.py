@@ -30,5 +30,5 @@ def main() -> int:
     return lattice_paths(20, 20)
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

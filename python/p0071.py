@@ -32,5 +32,5 @@ def main() -> int:
     ).numerator
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

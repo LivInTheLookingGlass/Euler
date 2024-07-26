@@ -14,5 +14,5 @@ def main() -> int:
     return sum(pow(x, x, ten_ten) for x in range(1, 1001)) % ten_ten
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover

@@ -31,5 +31,5 @@ def main() -> int:
     return sum(takewhile((2_000_000).__gt__, primes()))
 
 
-if __name__ == '__main__':  # pragma: no cover
-    print(main())
+if __name__ == '__main__':
+    print(main())  # pragma: no cover
