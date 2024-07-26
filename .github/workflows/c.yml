@@ -72,11 +72,11 @@ jobs:
         vcvarsall: true
 
     - name: Run tests (ubuntu-latest)
-      if: ${{ contains(matrix.os, 'ubuntu') }}
+      if: ${{ matrix.os == 'ubuntu-latest' }}
       run: make c_test COV=true COMPILER_OVERRIDE=${{ matrix.compiler }}
 
     - name: Run tests (ubuntu lts)
-      if: ${{ contains(matrix.os, 'ubuntu') }}
+      if: ${{ contains(matrix.os, 'ubuntu') && matrix.os != 'ubuntu-latest' }}
       run: make c_test_auto
 
     - name: Run tests (windows)
