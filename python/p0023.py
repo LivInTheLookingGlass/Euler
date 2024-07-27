@@ -27,13 +27,7 @@ two abundant numbers.
 from itertools import combinations_with_replacement, filterfalse
 from typing import Iterator
 
-from lib.factors import proper_divisors
-
-
-def abundants() -> Iterator[int]:
-    for x in range(12, 28112):
-        if sum(proper_divisors(x)) > x:
-            yield x
+from lib.iters import abundants
 
 
 def main() -> int:

@@ -6,7 +6,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 Includes
 --------
 
-- `factors <./factors.html>`_
+- `iters <./iters.html>`_
 
 Problem Solution
 ----------------
