@@ -24,7 +24,7 @@ It is not until n=23
 How many, not necessarily distinct, values of nCr
 for 1≤n≤100, are greater than one-million?
 """
-from p0015 import n_choose_r
+from lib.math import n_choose_r
 
 
 def main() -> int:

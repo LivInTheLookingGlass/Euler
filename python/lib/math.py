@@ -1,4 +1,13 @@
+from math import factorial
 from typing import Iterable
+
+
+def n_choose_r(n: int, r: int) -> int:
+    return factorial(n) // factorial(r) // factorial(n - r)
+
+
+def lattice_paths(height: int, width: int) -> int:
+    return n_choose_r(height + width, height)
 
 
 def from_digits(digs: Iterable[int]) -> int:
