@@ -15,32 +15,23 @@ English words, how many are triangle words?
 from pathlib import Path
 from typing import Set
 
-
-class Cache:
-    cache: Set[int] = set()
-    max_cached = 0
-    max_cached_idx = -1
-
-
-def triangle(n: int) -> int:
-    return n * (n + 1) // 2
-
-
-def is_in_triangle(n: int) -> bool:
-    while n > Cache.max_cached:
-        Cache.max_cached_idx += 1
-        Cache.max_cached = triangle(Cache.max_cached_idx)
-        Cache.cache.add(Cache.max_cached)
-    return n in Cache.cache
+from lib.math import triangle
 
 
 def main() -> int:
     answer = 0
     with Path(__file__).parent.parent.joinpath('_data', 'p0042_words.txt').open('rb') as f:
         words = f.read().replace(b'"', b'').split(b',')
+    max_cached_idx: int = 0
+    max_cached: int = 0
+    cache: Set[int] = set()
     for word in words:
-        value = sum(x - 64 for x in word)
-        if is_in_triangle(value):
+        n = sum(x - 0x40 for x in word)
+        while n > max_cached:
+            max_cached_idx += 1
+            max_cached = triangle(max_cached_idx)
+            cache.add(max_cached)
+        if n in cache:
             answer += 1
     return answer
 
