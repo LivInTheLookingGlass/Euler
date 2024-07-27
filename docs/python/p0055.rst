@@ -7,6 +7,7 @@ Includes
 --------
 
 - `iters <./iters.html>`_
+- `math <./math.html>`_
 
 Problem Solution
 ----------------
