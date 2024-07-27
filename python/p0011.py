@@ -64,7 +64,7 @@ def down_diags_by_4(grid: List[List[int]]) -> Iterable[Tuple[int, int, int, int]
         for y in range(len(grid[x]) - 4):
             try:
                 yield cast(Tuple[int, int, int, int], tuple(grid[x+z][y+z] for z in range(4)))
-            except IndexError:
+            except IndexError:  # pragma: no cover
                 break
 
 
@@ -73,7 +73,7 @@ def up_diags_by_4(grid: List[List[int]]) -> Iterable[Tuple[int, int, int, int]]:
         for y in range(len(grid[x]) - 4):
             try:
                 yield cast(Tuple[int, int, int, int], tuple(grid[x-z][y+z] for z in range(4)))
-            except IndexError:
+            except IndexError:  # pragma: no cover
                 break
 
 
@@ -105,7 +105,6 @@ def main() -> int:
     for group in chain(rows_by_4(grid), cols_by_4(grid), down_diags_by_4(grid), up_diags_by_4(grid)):
         product = reduce(mul, group, 1)
         if product > answer:
-            print("New group!", group, product)
             answer = product
     return answer
 

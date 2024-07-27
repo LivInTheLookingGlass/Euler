@@ -11,7 +11,7 @@ cache_filename = 'primes_cache.mpack'
 try:
     with Path(__file__).parent.joinpath(cache_filename).open('rb') as f:
         cache = SortedSet(load(f))
-except Exception:
+except Exception:  # pragma: no cover
     cache = SortedSet([
         2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
     ])
@@ -60,7 +60,7 @@ def modified_eratosthenes() -> Iterator[int]:
     next(recurse)
     prime = next(recurse)
     if prime != 3:
-        raise ValueError()
+        raise ValueError()  # pragma: no cover
     prime_squared = prime * prime
     for candidate in count(9, 2):
         if candidate in sieve:  # if c is a multiple of some base prime, or

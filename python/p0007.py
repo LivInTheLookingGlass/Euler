@@ -41,7 +41,7 @@ def main() -> int:
     for idx, num in enumerate(primes(), 1):
         if idx == 10001:
             return num
-    return -1
+    return -1  # pragma: no cover
 
 
 if __name__ == '__main__':
