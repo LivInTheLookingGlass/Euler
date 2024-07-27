@@ -33,11 +33,11 @@ divisors?
 
 unsigned long long p0012() {
     unsigned long long current = 1;
-    for (unsigned int i = 2; ; ++i)    {
+    unsigned int i = 2;
+    while (true)    {
         current += i;  // 3, 21, ...
         ++i;
         current += i;  // 6, 28, ...
-        // printf("%llu\n", current);
         if (proper_divisor_count(current) > 500)
             return current;
         ++i;
@@ -46,6 +46,7 @@ unsigned long long p0012() {
             return current;
         ++i;
         current += i;  // 15, 45, ...
+        ++i;
     }
     return -1;
 }
