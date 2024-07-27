@@ -31,7 +31,7 @@ divisors?
 """
 from itertools import count
 
-from p0021 import proper_divisors
+from lib.factors import proper_divisors
 
 
 def main() -> int:

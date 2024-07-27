@@ -1,7 +1,7 @@
 from itertools import count, takewhile
 from math import ceil, sqrt
 from pathlib import Path
-from typing import Callable, Collection, Dict, Iterator, Optional, Set, cast
+from typing import Callable, Collection, Dict, Iterator, Optional
 
 from sortedcontainers import SortedSet
 from umsgpack import load

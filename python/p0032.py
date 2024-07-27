@@ -20,7 +20,7 @@ include it once in your sum.
 """
 from itertools import chain
 
-from p0021 import proper_divisors
+from lib.factors import proper_divisors
 from p0074 import digits
 
 

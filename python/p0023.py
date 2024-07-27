@@ -27,7 +27,7 @@ two abundant numbers.
 from itertools import combinations_with_replacement, filterfalse
 from typing import Iterator
 
-from p0021 import proper_divisors
+from lib.factors import proper_divisors
 
 
 def abundants() -> Iterator[int]:

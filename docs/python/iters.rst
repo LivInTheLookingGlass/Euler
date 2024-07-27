@@ -1,5 +1,5 @@
 iters.py
-============
+========
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/lib/iters.py>`_
 
