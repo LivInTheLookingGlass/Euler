@@ -26,8 +26,8 @@ from functools import lru_cache
 from itertools import count
 from typing import Tuple
 
-from lib.primes import is_prime
 from lib.iters import groupwise
+from lib.primes import is_prime
 
 
 @lru_cache()

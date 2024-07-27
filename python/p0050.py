@@ -20,8 +20,8 @@ Which prime, below one-million, can be written as the sum of the most consecutiv
 """
 from typing import List
 
-from lib.primes import is_prime, primes
 from lib.iters import groupwise
+from lib.primes import is_prime, primes
 
 
 def main() -> int:

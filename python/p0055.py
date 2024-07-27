@@ -28,13 +28,14 @@ How many Lychrel numbers are there below ten-thousand?
 NOTE: Wording was modified slightly on 24 April 2007 to emphasise the theoretical nature of Lychrel numbers.
 """
 from p0004 import is_palindrome
+
 from lib.iters import digits
 from lib.math import from_digits
 
 
 def steps_to_palindrome(n: int, depth: int = 0) -> int:
     """Returns a 0 if the number does not reach a palindrome in 50 or fewer steps, otherwise returns the step count"""
-    new = n + from_digits(reversed([*digits(n)]))
+    new = n + from_digits(digits(n))
     if is_palindrome(new):
         return depth + 1
     elif depth == 50:
