@@ -45,6 +45,7 @@ Library Code
    rust/fibonacci
    rust/math
    rust/primes
+   rust/triangles
 
 Problems Solved
 ---------------

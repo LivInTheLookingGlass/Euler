@@ -1,0 +1,18 @@
+Rust Implementation of Problem 18
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0018.rs>`_
+
+Includes
+--------
+
+- `triangles <./triangles.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0018::p0018() -> i128
+
+.. literalinclude:: ../../rust/src/p0018.rs
+   :language: rust
+   :linenos:

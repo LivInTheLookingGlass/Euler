@@ -1,9 +1,9 @@
-math.rs
-=======
+triangle.rs
+===========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/include/math.rs>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/include/triangle.rs>`_
 
-.. rust:fn:: math::factorial<I>(n: u8) -> I where I: NumAssign + From<u8>
+.. rust:fn:: triangle::factorial<I>(n: u8) -> I where I: NumAssign + From<u8>
 
   Returns the factorial of a given number. Note that it only accepts a ``u8`` because
   any number that requires a larger type is *guaranteed* to overflow.
@@ -12,6 +12,6 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   Returns the number of ways to choose r items from a set of n.
 
-.. literalinclude:: ../../rust/src/include/math.rs
+.. literalinclude:: ../../rust/src/include/triangle.rs
    :language: rust
    :linenos:

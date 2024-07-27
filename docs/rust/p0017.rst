@@ -1,0 +1,13 @@
+Rust Implementation of Problem 17
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0017.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0017::p0017() -> i128
+
+.. literalinclude:: ../../rust/src/p0017.rs
+   :language: rust
+   :linenos:
