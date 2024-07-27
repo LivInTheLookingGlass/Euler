@@ -1,37 +1,35 @@
 use std::collections::HashMap;
-use std::cmp::PartialOrd;
+use std::cmp::Ord;
 use std::hash::Hash;
+use std::ops::{Add,Div,Mul,Rem};
 
-use num_traits::NumAssign;
-use num_traits::Bounded;
-use num_traits::zero;
-use num_traits::one;
+use num_traits::{one,zero,One,Zero};
 use itertools::Itertools;
 
 pub struct Eratosthenes<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash
 {
     sieve: HashMap<I, Vec<I>>,
     prime: I,
     candidate: I,
-    limit: I,
+    limit: Option<I>,
 }
 
 impl<I> Default for Eratosthenes<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + One + Zero + Add
 {
     fn default() -> Self {
         return Eratosthenes::<I>{
             sieve: HashMap::new(),
             prime: zero::<I>(),
             candidate: one::<I>() + one(),
-            limit: I::max_value(),
+            limit: None,
         };
     }
 }
 
 impl<I> Eratosthenes<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + One + Zero + Add
 {
     pub fn new() -> Eratosthenes<I> {
         return Default::default();
@@ -39,19 +37,21 @@ where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 
     pub fn with_limit(limit: I) -> Eratosthenes<I> {
         return Eratosthenes{
-            limit,
+            limit: Some(limit),
             ..Default::default()
         };
     }
 }
 
 impl<I> Iterator for Eratosthenes<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + One + Zero + Add + Mul + Ord + Copy
 {
     type Item = I;
 
     fn next(&mut self) -> Option<Self::Item> {
-        fn next_prime<I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy>(sieve: &mut HashMap<I, Vec<I>>, candidate: I) -> I {
+        fn next_prime<I>(sieve: &mut HashMap<I, Vec<I>>, candidate: I) -> I
+        where I: Hash + One + Zero + Add + Mul + Ord + Copy
+        {
             match sieve.get(&candidate) {
                 Some(numbers) => {
                     for num in numbers.to_owned() {
@@ -73,7 +73,7 @@ where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
         self.prime = next_prime::<I>(&mut self.sieve, self.candidate);
         self.candidate = self.prime + one();
 
-        if self.prime > self.limit {
+        if self.limit != None && self.prime > self.limit? {
             return None;
         }
         return Some(self.prime);
@@ -81,25 +81,23 @@ where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 }
 
 pub fn primes<I>() -> Eratosthenes<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + One + Zero + Add
 {
     return Eratosthenes::new();
 }
 
 pub fn primes_until<I>(x: I) -> Eratosthenes<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + One + Zero + Add
 {
     return Eratosthenes::with_limit(x);
 }
 
 pub struct PrimeFactors<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 {
     number: I
 }
 
 impl<I> PrimeFactors<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 {
     pub fn new(x: I) -> PrimeFactors<I> {
         return PrimeFactors{
@@ -109,14 +107,14 @@ where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 }
 
 impl<I> Iterator for PrimeFactors<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {
     type Item = I;
 
     fn next(&mut self) -> Option<Self::Item> {
         for p in Eratosthenes::new() {
             if self.number % p == zero() {
-                self.number /= p;
+                self.number = self.number / p;
                 return Some(p);
             }
             else if self.number < p {
@@ -128,13 +126,12 @@ where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 }
 
 pub fn prime_factors<I>(x: I) -> PrimeFactors<I>
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 {
     return PrimeFactors::new(x);
 }
 
 pub fn proper_divisors<I>(x: I) -> Vec<I>
-where I: NumAssign + Bounded + Ord + Eq + Hash + Copy
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {
     let mut ret: Vec<I> = vec![];
     let factors: Vec<I> = PrimeFactors::new(x).collect();
@@ -150,7 +147,7 @@ where I: NumAssign + Bounded + Ord + Eq + Hash + Copy
 }
 
 pub fn is_composite<I>(x: I) -> I
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {
     match prime_factors(x).next() {
         None => {
@@ -166,7 +163,7 @@ where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
 }
 
 pub fn is_prime<I>(x: I) -> bool
-where I: NumAssign + Bounded + PartialOrd + Eq + Hash + Copy
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {
     return is_composite(x) == zero();
 }
