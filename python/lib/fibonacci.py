@@ -12,13 +12,16 @@ def fib() -> Iterator[int]:
 
 def fib_by_3(start_index: int = 0) -> Iterator[int]:
     """This generator goes through the fibonacci sequence skipping by 3s. This works because:
-    F[n] = F[n-1]          + F[n-2]
-    F[n] = F[n-2] + F[n-3] + F[n-2]
-    F[n] = 2 * F[n-2]            + F[n-3]
-    F[n] = 2 * (F[n-3] + F[n-4]) + F[n-3]
-    F[n] = 3 * F[n-3] + 2 * F[n-4]
-    F[n] = 3 * F[n-3] + F[n-4] + F[n-5] + F[n-6]
-    F[n] = 4 * F[n-3]                   + F[n-6]
+
+    .. code-block:: python
+
+      F[n] = F[n-1]          + F[n-2]
+      F[n] = F[n-2] + F[n-3] + F[n-2]
+      F[n] = 2 * F[n-2]            + F[n-3]
+      F[n] = 2 * (F[n-3] + F[n-4]) + F[n-3]
+      F[n] = 3 * F[n-3] + 2 * F[n-4]
+      F[n] = 3 * F[n-3] + F[n-4] + F[n-5] + F[n-6]
+      F[n] = 4 * F[n-3]                   + F[n-6]
     """
     orig = fib()
     a = 0
