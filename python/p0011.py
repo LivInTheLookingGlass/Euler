@@ -39,7 +39,7 @@ from itertools import chain
 from operator import mul
 from typing import Iterable, List, Tuple, cast
 
-from p0008 import groupwise
+from lib.iters import groupwise
 
 
 def text_to_grid(text: str) -> List[List[int]]:

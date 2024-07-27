@@ -27,7 +27,7 @@ from itertools import count
 from typing import Tuple
 
 from lib.primes import is_prime
-from p0008 import groupwise
+from lib.iters import groupwise
 
 
 @lru_cache()

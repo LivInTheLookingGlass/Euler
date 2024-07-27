@@ -3,6 +3,14 @@ Python Implementation of Problem 11
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0011.py>`_
 
+Includes
+--------
+
+- `iters <./iters.html>`_
+
+Problem Solution
+----------------
+
 .. automodule:: python.p0011
    :members:
    :undoc-members:

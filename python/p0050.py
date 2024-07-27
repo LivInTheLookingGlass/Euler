@@ -21,7 +21,7 @@ Which prime, below one-million, can be written as the sum of the most consecutiv
 from typing import List
 
 from lib.primes import is_prime, primes
-from p0008 import groupwise
+from lib.iters import groupwise
 
 
 def main() -> int:

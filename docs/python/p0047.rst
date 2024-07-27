@@ -6,6 +6,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 Includes
 --------
 
+- `iters <./iters.html>`_
 - `primes <./primes.html>`_
 
 Problem Solution

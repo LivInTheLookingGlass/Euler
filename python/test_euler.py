@@ -12,8 +12,8 @@ from umsgpack import load
 PY_FOLDER = Path(__file__).parent
 path.append(str(PY_FOLDER))
 
+from lib.iters import groupwise  # noqa: E402  # isort:skip
 from lib.primes import is_prime, primes  # noqa: E402  # isort:skip
-from p0008 import groupwise  # noqa: E402  # isort:skip
 
 answers = {
     1: 233168,
