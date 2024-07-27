@@ -9,8 +9,9 @@ use rstest::rstest;
 #[cfg(test)]
 use itertools::Itertools;
 
-mod math;
-mod primes;
+pub mod include;
+use include::math;
+use include::primes;
 seq!(N in 0001..=0015 {
 mod p~N;
 });

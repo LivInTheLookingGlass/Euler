@@ -52,6 +52,6 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   Returns ``true`` if the number is prime, and ``false`` otherwise.
 
-.. literalinclude:: ../../rust/src/primes.rs
+.. literalinclude:: ../../rust/src/include/primes.rs
    :language: rust
    :linenos:

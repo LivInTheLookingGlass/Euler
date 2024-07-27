@@ -12,6 +12,6 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
   Returns the number of ways to choose r items from a set of n.
 
-.. literalinclude:: ../../rust/src/math.rs
+.. literalinclude:: ../../rust/src/include/math.rs
    :language: rust
    :linenos:
