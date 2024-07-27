@@ -27,10 +27,9 @@ How many Lychrel numbers are there below ten-thousand?
 
 NOTE: Wording was modified slightly on 24 April 2007 to emphasise the theoretical nature of Lychrel numbers.
 """
-from p0004 import is_palindrome
-
 from lib.iters import digits
 from lib.math import from_digits
+from p0004 import is_palindrome
 
 
 def steps_to_palindrome(n: int, depth: int = 0) -> int:
