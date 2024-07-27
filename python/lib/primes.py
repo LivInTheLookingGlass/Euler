@@ -133,3 +133,10 @@ def is_prime(
     while None not in seen and count != len(seen):
         seen_add(next(factors, None))
     return None not in seen and next(factors, None) is None
+
+
+def primes_and_negatives(*args: int) -> Iterator[int]:
+    """Iterate over the primes and their negatives using :py:func:`primes`."""
+    for p in primes(*args):
+        yield p
+        yield -p

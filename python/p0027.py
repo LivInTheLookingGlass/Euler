@@ -31,17 +31,11 @@ from functools import partial
 from itertools import count, takewhile
 from typing import Iterator
 
-from lib.primes import is_prime, primes
+from lib.primes import is_prime, primes_and_negatives
 
 
 def quadratic(n: int, a: int, b: int) -> int:
     return (n + a) * n + b
-
-
-def primes_and_negatives(*args: int) -> Iterator[int]:
-    for p in primes(*args):
-        yield p
-        yield -p
 
 
 def main() -> int:
