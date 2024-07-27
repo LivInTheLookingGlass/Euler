@@ -1,7 +1,7 @@
 from __future__ import generator_stop
 
 from itertools import count, tee
-from typing import Iterable, Iterator, Tuple, TypeVar
+from typing import Iterable, Iterator, Optional, Tuple, TypeVar
 
 from .factors import proper_divisors
 
@@ -21,9 +21,13 @@ def groupwise(iterable: Iterable[T], size: int) -> Iterator[Tuple[T, ...]]:
         pass
 
 
-def abundants() -> Iterator[int]:
+def abundants(stop: Optional[int] = None) -> Iterator[int]:
     """Iterate over the abundant numbers."""
-    for x in count(12):
+    if stop is None:
+        iterator: Iterable[int] = count(12)
+    else:
+        iterator = range(12, stop)
+    for x in iterator:
         if sum(proper_divisors(x)) > x:
             yield x
 

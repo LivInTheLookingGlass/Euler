@@ -31,7 +31,7 @@ from lib.iters import abundants
 
 def main() -> int:
     abundant_sums = set((24, ))
-    for x, y in combinations_with_replacement(abundants(), 2):
+    for x, y in combinations_with_replacement(abundants(stop=28112), 2):
         abundant_sums.add(x + y)
     return sum(filterfalse(abundant_sums.__contains__, range(1, 28124)))
 
