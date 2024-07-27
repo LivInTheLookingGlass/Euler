@@ -26,7 +26,7 @@ billion years to check them all. There is an efficient algorithm to solve it. ;o
 """
 from pathlib import Path
 
-from p0018 import reduce_triangle
+from lib.triangles import reduce_triangle
 
 
 def main() -> int:
