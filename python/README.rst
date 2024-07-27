@@ -17,17 +17,7 @@ the midst of moving these function into a library subfolder. That
 list is (approximately):
 
 -  p0004 for palindrome detection
--  p0008 for iterating over a series in groups of n
--  p0015 for n_choose_r
--  p0018 for trianglar pathfinding
-
-   -  only used by p0018 and p0067
--  p0021 for proper divisors
--  p0052 and p0074 for digits functions
-
-   -  p0052 for a sequence
-   -  p0074 for a generator
--  p0055 for retrieving a number from its digits
+-  p0028 getting the corners of number spirals
 
 Makefile
 --------
