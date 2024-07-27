@@ -30,7 +30,7 @@ NOTE: Wording was modified slightly on 24 April 2007 to emphasise the theoretica
 from typing import Iterable
 
 from p0004 import is_palindrome
-from p0052 import digits
+from lib.iters import digits
 
 
 def from_digits(digs: Iterable[int]) -> int:
@@ -42,7 +42,7 @@ def from_digits(digs: Iterable[int]) -> int:
 
 def steps_to_palindrome(n: int, depth: int = 0) -> int:
     """Returns a 0 if the number does not reach a palindrome in 50 or fewer steps, otherwise returns the step count"""
-    new = n + from_digits(reversed(digits(n)))
+    new = n + from_digits(reversed([*digits(n)]))
     if is_palindrome(new):
         return depth + 1
     elif depth == 50:

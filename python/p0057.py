@@ -22,7 +22,7 @@ In the first one-thousand expansions, how many fractions contain a numerator wit
 from fractions import Fraction
 from functools import lru_cache
 
-from p0052 import digits
+from lib.iters import digits
 
 
 @lru_cache()
@@ -40,7 +40,7 @@ def main() -> int:
     answer = 0
     for x in range(1_000):
         frac = root_two_expansion(x)
-        if len(digits(frac.numerator)) > len(digits(frac.denominator)):
+        if len(digits(frac.numerator)) > len([*digits(frac.denominator)]):
             answer += 1
     return answer
 

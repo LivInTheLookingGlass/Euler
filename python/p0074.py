@@ -34,18 +34,13 @@ How many chains, with a starting number below one million, contain exactly
 sixty non-repeating terms?
 """
 from math import factorial
-from typing import Iterator, Set
+from typing import Set
 
-cache = [factorial(x) for x in range(10)]
-
-
-def digits(x: int) -> Iterator[int]:
-    while x:
-        x, y = divmod(x, 10)
-        yield y
+from lib.iters import digits
 
 
 def main() -> int:
+    cache = [factorial(x) for x in range(10)]
     paths = {
         69: 363600,
         78: 45360,

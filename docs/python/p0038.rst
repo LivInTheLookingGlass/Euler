@@ -3,6 +3,14 @@ Python Implementation of Problem 38
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0038.py>`_
 
+Includes
+--------
+
+- `iters <./iters.html>`_
+
+Problem Solution
+----------------
+
 .. automodule:: python.p0038
    :members:
    :undoc-members:

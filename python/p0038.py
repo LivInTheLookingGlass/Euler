@@ -24,7 +24,7 @@ concatenated product of an integer with (1,2, ... , n) where n > 1?
 from functools import reduce
 from typing import Tuple
 
-from p0074 import digits
+from lib.iters import digits
 
 
 def main() -> int:

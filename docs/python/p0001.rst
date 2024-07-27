@@ -3,6 +3,9 @@ Python Implementation of Problem 1
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0001.py>`_
 
+Problem Solution
+----------------
+
 .. automodule:: python.p0001
    :members:
    :undoc-members:

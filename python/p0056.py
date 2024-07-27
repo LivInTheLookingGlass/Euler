@@ -8,7 +8,7 @@ followed by two-hundred zeros. Despite their size, the sum of the digits in each
 
 Considering natural numbers of the form, ab, where a, b < 100, what is the maximum digital sum?
 """
-from p0074 import digits
+from lib.iters import digits
 
 
 def main() -> int:

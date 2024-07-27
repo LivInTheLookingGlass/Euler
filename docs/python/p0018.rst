@@ -3,6 +3,9 @@ Python Implementation of Problem 18
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0018.py>`_
 
+Problem Solution
+----------------
+
 .. automodule:: python.p0018
    :members:
    :undoc-members:

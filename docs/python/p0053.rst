@@ -3,6 +3,9 @@ Python Implementation of Problem 53
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0053.py>`_
 
+Problem Solution
+----------------
+
 .. automodule:: python.p0053
    :members:
    :undoc-members:

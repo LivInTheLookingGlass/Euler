@@ -17,8 +17,8 @@ sequence?
 """
 from itertools import tee
 
+from lib.iters import digits
 from lib.primes import primes
-from p0074 import digits
 
 
 def main() -> int:

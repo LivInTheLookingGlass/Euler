@@ -29,13 +29,9 @@ starting with n=0.
 """
 from functools import partial
 from itertools import count, takewhile
-from typing import Iterator
 
+from lib.math import quadratic
 from lib.primes import is_prime, primes_and_negatives
-
-
-def quadratic(n: int, a: int, b: int) -> int:
-    return (n + a) * n + b
 
 
 def main() -> int:

@@ -12,8 +12,8 @@ also prime.
 What is the largest n-digit pandigital prime that exists?
 """
 
+from lib.iters import digits
 from lib.primes import primes
-from p0074 import digits
 
 
 def main() -> int:

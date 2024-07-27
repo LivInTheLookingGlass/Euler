@@ -24,3 +24,9 @@ def abundants() -> Iterator[int]:
     for x in range(12, 28112):
         if sum(proper_divisors(x)) > x:
             yield x
+
+
+def digits(x: int) -> Iterator[int]:
+    while x:
+        x, y = divmod(x, 10)
+        yield y

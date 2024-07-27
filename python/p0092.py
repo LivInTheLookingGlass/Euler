@@ -22,7 +22,7 @@ How many starting numbers below ten million will arrive at 89?
 """
 from functools import lru_cache
 
-from p0074 import digits
+from lib.iters import digits
 
 
 @lru_cache(maxsize=None)

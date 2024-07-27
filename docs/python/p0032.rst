@@ -7,6 +7,7 @@ Includes
 --------
 
 - `factors <./factors.html>`_
+- `iters <./iters.html>`_
 
 Problem Solution
 ----------------

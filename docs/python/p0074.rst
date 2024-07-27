@@ -3,6 +3,14 @@ Python Implementation of Problem 74
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0074.py>`_
 
+Includes
+--------
+
+- `iters <./iters.html>`_
+
+Problem Solution
+----------------
+
 .. automodule:: python.p0074
    :members:
    :undoc-members:

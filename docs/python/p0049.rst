@@ -7,6 +7,7 @@ Includes
 --------
 
 - `primes <./primes.html>`_
+- `iters <./iters.html>`_
 
 Problem Solution
 ----------------

@@ -3,6 +3,9 @@ Python Implementation of Problem 28
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0028.py>`_
 
+Problem Solution
+----------------
+
 .. automodule:: python.p0028
    :members:
    :undoc-members:

@@ -21,7 +21,7 @@ include it once in your sum.
 from itertools import chain
 
 from lib.factors import proper_divisors
-from p0074 import digits
+from lib.iters import digits
 
 
 def main() -> int:
