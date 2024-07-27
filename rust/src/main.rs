@@ -17,13 +17,14 @@ mod p~N;
 });
 mod p0017;
 mod p0018;
+mod p0024;
 mod p0034;
 mod p0076;
 mod p0357;
 
 type ProblemType = fn() -> i128;
 type ProblemRef<'a> = (&'a str, ProblemType, i128);
-const ANSWERS: [ProblemRef; 20] = [
+const ANSWERS: [ProblemRef; 21] = [
     ("p0001", p0001::p0001, 233168),
     ("p0002", p0002::p0002, 4613732),
     ("p0003", p0003::p0003, 6857),
@@ -41,6 +42,7 @@ const ANSWERS: [ProblemRef; 20] = [
     ("p0015", p0015::p0015, 137846528820),
     ("p0017", p0017::p0017, 21124),
     ("p0018", p0018::p0018, 1074),
+    ("p0024", p0024::p0024, 2783915460),
     ("p0034", p0034::p0034, 40730),
     ("p0076", p0076::p0076, 190569291),
     ("p0357", p0357::p0357, 1739023853137),
@@ -59,7 +61,7 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 0..18 {
+seq!(N in 0..20 {
 #[rstest]
 #[timeout(Duration::new(60, 0))]
 #(
