@@ -10,7 +10,10 @@ from pathlib import Path
 from typing import List, MutableMapping, Sequence
 
 
-def min_path_sum(matrix: Sequence[Sequence[int]], cache: MutableMapping[Sequence[int], int]) -> int:
+def min_path_sum(
+    matrix: Sequence[Sequence[int]],
+    cache: MutableMapping[Sequence[Sequence[int]], int]
+) -> int:
     if matrix in cache:
         return cache[matrix]
     if len(matrix[0]) == 1:

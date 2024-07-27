@@ -35,7 +35,7 @@ def f(n: int, cache: MutableMapping[int, int]) -> int:
 
 def main() -> int:
     answer = 0
-    cache = {}
+    cache: MutableMapping[int, int] = {}
     for x in range(2, 10000000):
         while x not in (1, 89):
             x = f(x, cache)

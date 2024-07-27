@@ -31,7 +31,7 @@ from lib.primes import is_prime
 
 def cached_is_prime(
     args: Tuple[int, int, bool],
-    cache: MutableMapping[Tuple[int, int, bool], int]
+    cache: MutableMapping[Tuple[int, int, bool], bool]
 ) -> bool:
     if args in cache:
         return cache[args]
@@ -41,7 +41,7 @@ def cached_is_prime(
 
 
 def main() -> int:
-    cache = {}
+    cache: MutableMapping[Tuple[int, int, bool], bool] = {}
     for group in groupwise(count(2), 4):
         if all(cached_is_prime((x, 4, True), cache) for x in group):
             return group[0]

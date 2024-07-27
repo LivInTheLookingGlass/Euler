@@ -25,7 +25,7 @@ from typing import MutableMapping
 from lib.iters import digits
 
 
-def root_two_denominator(n: int, cache: MutableMapping[int, int]) -> Fraction:
+def root_two_denominator(n: int, cache: MutableMapping[int, Fraction]) -> Fraction:
     if n in cache:
         return cache[n]
     if n == 0:
@@ -36,13 +36,13 @@ def root_two_denominator(n: int, cache: MutableMapping[int, int]) -> Fraction:
     return result
 
 
-def root_two_expansion(n: int, cache: MutableMapping[int, int]) -> Fraction:
+def root_two_expansion(n: int, cache: MutableMapping[int, Fraction]) -> Fraction:
     return 1 + Fraction(1, root_two_denominator(n, cache))
 
 
 def main() -> int:
     answer = 0
-    cache = {}
+    cache: MutableMapping[int, Fraction] = {}
     for x in range(1_000):
         frac = root_two_expansion(x, cache)
         if len([*digits(frac.numerator)]) > len([*digits(frac.denominator)]):

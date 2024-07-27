@@ -26,10 +26,10 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 """
-from typing import MutableMapping, Sequence
+from typing import MutableMapping
 
 
-def collatz_len(n: int, cache: MutableMapping[Sequence[int], int]) -> int:
+def collatz_len(n: int, cache: MutableMapping[int, int]) -> int:
     if n in cache:
         return cache[n]
     if n == 1:
@@ -43,7 +43,7 @@ def collatz_len(n: int, cache: MutableMapping[Sequence[int], int]) -> int:
 
 
 def main() -> int:
-    cache: MutableMapping[Sequence[int], int] = {}
+    cache: MutableMapping[int, int] = {}
     return max(
         (collatz_len(x, cache), x) for x in range(1, 1000000)
     )[1]
