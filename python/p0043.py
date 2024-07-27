@@ -27,7 +27,7 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
 from itertools import islice, permutations
 
 from lib.iters import groupwise
-from p0055 import from_digits
+from lib.math import from_digits
 
 
 def main() -> int:
