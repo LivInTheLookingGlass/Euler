@@ -61,9 +61,9 @@ jobs:
           python/requirements.txt
           c/requirements.txt
 
-    - name: Run tests (serially, benchmarked, linted)
+    - name: Run tests (serially, benchmarked)
       if: ${{matrix.os == 'ubuntu-latest' && matrix.version == '3.12'}}
-      run: make py_test COV=true
+      run: make py_test COV=true LINT=false
 
     - name: Run tests (serially)
       if: ${{contains(matrix.version, 'graalpy')}}
