@@ -20,21 +20,25 @@ at 1 or 89.
 
 How many starting numbers below ten million will arrive at 89?
 """
-from functools import lru_cache
+from typing import MutableMapping
 
 from lib.iters import digits
 
 
-@lru_cache(maxsize=None)
-def f(n: int) -> int:
-    return sum(x**2 for x in digits(n))
+def f(n: int, cache: MutableMapping[int, int]) -> int:
+    if n in cache:
+        return cache[n]
+    result = sum(x**2 for x in digits(n))
+    cache[n] = result
+    return result
 
 
 def main() -> int:
     answer = 0
+    cache = {}
     for x in range(2, 10000000):
         while x not in (1, 89):
-            x = f(x)
+            x = f(x, cache)
         if x == 89:
             answer += 1
     return answer

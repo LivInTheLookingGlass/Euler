@@ -20,26 +20,31 @@ where the number of digits in the numerator exceeds the number of digits in the 
 In the first one-thousand expansions, how many fractions contain a numerator with more digits than denominator?
 """
 from fractions import Fraction
-from functools import lru_cache
+from typing import MutableMapping
 
 from lib.iters import digits
 
 
-@lru_cache()
-def root_two_denominator(n: int) -> Fraction:
+def root_two_denominator(n: int, cache: MutableMapping[int, int]) -> Fraction:
+    if n in cache:
+        return cache[n]
     if n == 0:
-        return Fraction(2, 1)
-    return 2 + Fraction(1, root_two_denominator(n - 1))
+        result = Fraction(2, 1)
+    else:
+        result = 2 + Fraction(1, root_two_denominator(n - 1, cache))
+    cache[n] = result
+    return result
 
 
-def root_two_expansion(n: int) -> Fraction:
-    return 1 + Fraction(1, root_two_denominator(n))
+def root_two_expansion(n: int, cache: MutableMapping[int, int]) -> Fraction:
+    return 1 + Fraction(1, root_two_denominator(n, cache))
 
 
 def main() -> int:
     answer = 0
+    cache = {}
     for x in range(1_000):
-        frac = root_two_expansion(x)
+        frac = root_two_expansion(x, cache)
         if len([*digits(frac.numerator)]) > len([*digits(frac.denominator)]):
             answer += 1
     return answer

@@ -6,18 +6,24 @@ In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom
 
 Find the minimal path sum from the top left to the bottom right by only moving right and down in matrix.txt (right click and "Save Link/Target As..."), a 31K text file containing an 80 by 80 matrix.
 """
-from functools import lru_cache
 from pathlib import Path
-from typing import List, Sequence
+from typing import List, MutableMapping, Sequence
 
 
-@lru_cache(maxsize=4096)
-def min_path_sum(matrix: Sequence[Sequence[int]]) -> int:
+def min_path_sum(matrix: Sequence[Sequence[int]], cache: MutableMapping[Sequence[int], int]) -> int:
+    if matrix in cache:
+        return cache[matrix]
     if len(matrix[0]) == 1:
-        return sum(row[0] for row in matrix)
-    if len(matrix) == 1:
-        return sum(matrix[0])
-    return matrix[0][0] + min(min_path_sum(matrix[1:]), min_path_sum(tuple(row[1:] for row in matrix)))
+        result = sum(row[0] for row in matrix)
+    elif len(matrix) == 1:
+        result = sum(matrix[0])
+    else:
+        result = matrix[0][0] + min(
+            min_path_sum(matrix[1:], cache),
+            min_path_sum(tuple(row[1:] for row in matrix), cache)
+        )
+    cache[matrix] = result
+    return result
 
 
 def main() -> int:
@@ -27,8 +33,7 @@ def main() -> int:
         for raw_line in f.readlines():
             line = raw_line.rstrip('\n')
             setup.append(tuple(int(x) for x in line.split(',')))
-    matrix = tuple(setup)
-    return min_path_sum(matrix)
+    return min_path_sum(tuple(setup), {})
 
 
 if __name__ == '__main__':

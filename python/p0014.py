@@ -26,21 +26,26 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 """
-from functools import lru_cache
+from typing import MutableMapping, Sequence
 
 
-@lru_cache(maxsize=1 << 18)
-def collatz_len(n: int) -> int:
+def collatz_len(n: int, cache: MutableMapping[Sequence[int], int]) -> int:
+    if n in cache:
+        return cache[n]
     if n == 1:
-        return 0
+        result = 0
     elif n & 1 == 0:
-        return 1 + collatz_len(n // 2)
-    return 2 + collatz_len((3 * n + 1) // 2)
+        result = 1 + collatz_len(n // 2, cache)
+    else:
+        result = 2 + collatz_len((3 * n + 1) // 2, cache)
+    cache[n] = result
+    return result
 
 
 def main() -> int:
+    cache: MutableMapping[Sequence[int], int] = {}
     return max(
-        (collatz_len(x), x) for x in range(1, 1000000)
+        (collatz_len(x, cache), x) for x in range(1, 1000000)
     )[1]
 
 
