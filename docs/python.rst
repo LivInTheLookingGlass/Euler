@@ -13,7 +13,12 @@ Library Code
    :numbered:
    :maxdepth: 1
 
+   python/factors
+   python/fibonacci
+   python/iters
+   python/math
    python/primes
+   python/triangles
 
 Problems Solved
 ---------------
