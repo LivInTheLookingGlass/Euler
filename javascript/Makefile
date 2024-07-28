@@ -15,6 +15,8 @@ help:
 	@echo "  $(BLUE)test_*$(NC) 	run through all tests in parallel with the given number of threads. Use auto to allow the test runner to determine it. Utilizes the Mocha test runner"
 	@echo "  $(BLUE)dependencies$(NC)	runs npm install"
 	@echo "  $(BLUE)lint$(NC)   	runs eslint"
+	@echo "  $(BLUE)bun_test$(NC)   	run through all tests in sequence. Utilizes the bun runtime and test runner"
+	@echo "  $(BLUE)bun_dependencies$(NC)	installs bun and runs bun install"
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 test: dependencies

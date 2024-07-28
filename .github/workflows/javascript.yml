@@ -67,7 +67,7 @@ jobs:
 
   bun:
     strategy:
-      fast-fail: false
+      fail-fast: false
       matrix:
         version:
         - 1.1.21
