@@ -13,9 +13,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  javascript:
+  nodejs:
     strategy:
-      fail-fast: false
       matrix:
         version: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -59,6 +58,58 @@ jobs:
     - name: Run tests (in parallel)
       if: ${{ !(matrix.version == 22 && matrix.os == 'ubuntu-latest') }}
       run: make js_test_auto COV=true
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: JavaScript
+
+  bun:
+    strategy:
+      matrix:
+        version:
+        - 1.1.21
+        - 1.1.20
+        - 1.1.15
+        - 1.1.10
+        - 1.1.5
+        - 1.1.0
+        - 1.0.36
+        - 1.0.30
+        - 1.0.25
+        - 1.0.20
+        - 1.0.15
+        - 1.0.10
+        - 1.0.5
+        - 1.0.0
+        - 0.8.1
+        - 0.8.0
+        - 0.7.3
+        - 0.7.0
+        - 0.6.14
+        - 0.6.10
+        - 0.6.5
+        - 0.6.0
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js 22
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22
+
+    - name: Install bun ${{ matrix.version }}
+      run: npm -g install bun@${{ matrix.version }}
+
+    - name: Install dependencies
+      run: make js_bun_dependencies
+
+    - name: Run tests (serially)
+      run: make js_bun_test COV=true
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1

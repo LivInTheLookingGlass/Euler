@@ -26,6 +26,23 @@ test_auto: dependencies
 test_%: dependencies
 	$(MOCHA) --parallel -j $*
 
+bun_dependencies:
+	if ! command -v bun; then npm -g install bun; fi
+	bun install
+
+bun_test: bun_dependencies
+ifeq ($(COV),true)
+	bun test ./test.js --coverage --coverage-reporter lcov
+else
+	bun test ./test.js
+endif
+
+bun_test_auto: bun_dependencies
+	bun test ./test.js
+
+bun_test_%: bun_dependencies
+	bun test ./test.js
+
 ifneq ($(HAS_NPM),0)
 ifeq ($(OS),Windows_NT)  # if no NPM and Windows
 dependencies:

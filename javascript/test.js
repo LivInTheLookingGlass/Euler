@@ -19,15 +19,17 @@ for (question in answers) {
         const module = require(`./p${formattedQuestion}.js`);
         describe(`Problem ${formattedQuestion}`, ()=>{
             it(`Should equal ${answer}`, function() {
-                if (knownSlow.includes(question)) {
+                if (typeof this.timeout !== 'undefined')
+                  if (knownSlow.includes(question)) {
                     this.timeout(-1);
-                }
-                else {
+                  }
+                  else {
                     this.timeout(60 * 1000);
-                }
+                  }
                 assert.equal(answer, module[`p${formattedQuestion}`]());
             });
-            it('should return take less than 1 minute', function(done) {
+            if (typeof this.timeout !== 'undefined')
+              it('should return take less than 1 minute', function(done) {
                 this.timeout(-1);
                 this.slow(300000); // five minutes
                 const b = new benchmark.Benchmark(formattedQuestion, module.main, {'minSamples': 10});
@@ -49,6 +51,7 @@ for (question in answers) {
     }
 }
 
-after(()=>{
-    process.stdout.write(benchmarkReport);
-});
+if (typeof after !== 'undefined')
+    after(()=>{
+        process.stdout.write(benchmarkReport);
+    });
