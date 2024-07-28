@@ -51,7 +51,8 @@ for (question in answers) {
     }
 }
 
-if (typeof after !== 'undefined')
+if (typeof after !== 'undefined') {
     after(()=>{
         process.stdout.write(benchmarkReport);
     });
+}

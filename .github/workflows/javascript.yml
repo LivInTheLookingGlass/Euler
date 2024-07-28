@@ -66,6 +66,7 @@ jobs:
         flags: JavaScript
 
   bun:
+    fast-fail: false
     strategy:
       matrix:
         version:
