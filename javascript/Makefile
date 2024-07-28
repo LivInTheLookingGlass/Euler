@@ -37,12 +37,6 @@ else
 	bun test ./test.js
 endif
 
-bun_test_auto: bun_dependencies
-	bun test ./test.js
-
-bun_test_%: bun_dependencies
-	bun test ./test.js
-
 ifneq ($(HAS_NPM),0)
 ifeq ($(OS),Windows_NT)  # if no NPM and Windows
 dependencies:
