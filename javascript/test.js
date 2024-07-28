@@ -28,10 +28,11 @@ for (question in answers) {
                   }
                 assert.equal(answer, module[`p${formattedQuestion}`]());
             });
-            if (typeof this.timeout !== 'undefined')
-              it('should return take less than 1 minute', function(done) {
-                this.timeout(-1);
-                this.slow(300000); // five minutes
+            it('should return take less than 1 minute', function(done) {
+                if (typeof this.timeout !== 'undefined') {
+                  this.timeout(-1);
+                  this.slow(300000); // five minutes
+                }
                 const b = new benchmark.Benchmark(formattedQuestion, module.main, {'minSamples': 10});
                 const [results] = benchmark.Benchmark.invoke([b], 'run');
                 const max = Math.max(...(results.stats.sample));
