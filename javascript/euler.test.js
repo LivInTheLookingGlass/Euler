@@ -2,12 +2,12 @@ const assert = require('assert');
 const benchmark = require('benchmark');
 
 const answers = {
-    1: [233168, 	require(`./p0001.js`)],
-    2: [4613732,	require(`./p0002.js`)],
-    4: [906609, 	require(`./p0004.js`)],
-    6: [25164150,	require(`./p0006.js`)],
-    8: [23514624000,	require(`./p0008.js`)],
-    9: [31875000,	require(`./p0009.js`)],
+    1: [require('./src/p0001.js'), 233168],
+    2: [require('./src/p0002.js'), 4613732],
+    4: [require('./src/p0004.js'), 906609],
+    6: [require('./src/p0006.js'), 25164150],
+    8: [require('./src/p0008.js'), 23514624000],
+    9: [require('./src/p0009.js'), 31875000],
 
 };
 const knownSlow = [];
@@ -16,7 +16,7 @@ let benchmarkReport = '';
 for (question in answers) {
     if (answers.hasOwnProperty(question)) {
         const formattedQuestion = `${question}`.padStart(4, '0');
-        const [answer, module] = answers[question];
+        const [module, answer] = answers[question];
         describe(`Problem ${formattedQuestion}`, ()=>{
             it(`Should equal ${answer}`, function() {
                 if (typeof this.timeout !== 'undefined')

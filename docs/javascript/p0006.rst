@@ -1,10 +1,10 @@
 JavaScript Implementation of Problem 6
 ======================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/p0006.js>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/p0006.js>`_
 
 .. js:autofunction:: p0006
 
-.. literalinclude:: ../../javascript/p0006.js
+.. literalinclude:: ../../javascript/src/p0006.js
    :language: javascript
    :linenos:
