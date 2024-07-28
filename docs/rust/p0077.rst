@@ -1,0 +1,18 @@
+Rust Implementation of Problem 77
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0077.rs>`_
+
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0077::p0077() -> i128
+
+.. literalinclude:: ../../rust/src/p0077.rs
+   :language: rust
+   :linenos:

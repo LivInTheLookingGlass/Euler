@@ -1,0 +1,18 @@
+Rust Implementation of Problem 69
+=================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0069.rs>`_
+
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0069::p0069() -> i128
+
+.. literalinclude:: ../../rust/src/p0069.rs
+   :language: rust
+   :linenos:
