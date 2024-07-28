@@ -8,6 +8,7 @@ const answers = {
     6: 25164150,
     8: 23514624000,
     9: 31875000,
+
 };
 const knownSlow = [];
 let benchmarkReport = '';
