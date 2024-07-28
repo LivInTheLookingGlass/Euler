@@ -20,13 +20,13 @@ help:
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 test: dependencies
-	$(MOCHA)
+	$(MOCHA) euler.test.js
 
 test_auto: dependencies
-	$(MOCHA) --parallel
+	$(MOCHA) --parallel euler.test.js
 
 test_%: dependencies
-	$(MOCHA) --parallel -j $*
+	$(MOCHA) --parallel -j $* euler.test.js
 
 bun_dependencies:
 	if ! command -v bun; then npm -g install bun; fi
@@ -34,9 +34,9 @@ bun_dependencies:
 
 bun_test: bun_dependencies
 ifeq ($(COV),true)
-	bun test ./test.js --coverage --coverage-reporter lcov
+	bun test --coverage --coverage-reporter lcov
 else
-	bun test ./test.js
+	bun test
 endif
 
 ifneq ($(HAS_NPM),0)
