@@ -16,8 +16,7 @@
  * @return {number}
  */
 exports.p0009 = function() {
-    const MAX = 500;
-    for (let c = 3; c < MAX; c++) {
+    for (let c = 3; ; c++) {
         let c_square = c * c;
         for (let b = 2; b < c; b++) {
             let b_square = b * b;
