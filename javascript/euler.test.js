@@ -2,12 +2,12 @@ const assert = require('assert');
 const benchmark = require('benchmark');
 
 const answers = {
-    1: 233168,
-    2: 4613732,
-    4: 906609,
-    6: 25164150,
-    8: 23514624000,
-    9: 31875000,
+    1: [233168, 	require(`./p0001.js`)],
+    2: [4613732,	require(`./p0002.js`)],
+    4: [906609, 	require(`./p0004.js`)],
+    6: [25164150,	require(`./p0006.js`)],
+    8: [23514624000,	require(`./p0008.js`)],
+    9: [31875000,	require(`./p0009.js`)],
 
 };
 const knownSlow = [];
@@ -16,8 +16,7 @@ let benchmarkReport = '';
 for (question in answers) {
     if (answers.hasOwnProperty(question)) {
         const formattedQuestion = `${question}`.padStart(4, '0');
-        const answer = answers[question];
-        const module = require(`./p${formattedQuestion}.js`);
+        const [answer, module] = answers[question];
         describe(`Problem ${formattedQuestion}`, ()=>{
             it(`Should equal ${answer}`, function() {
                 if (typeof this.timeout !== 'undefined')
