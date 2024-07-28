@@ -1,5 +1,5 @@
-const benchmark = require('benchmark');
 const assert = require('assert');
+const benchmark = require('benchmark');
 
 const answers = {
     1: 233168,
