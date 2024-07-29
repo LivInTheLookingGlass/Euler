@@ -1,4 +1,4 @@
-/*
+/**
  * Project Euler Problem 17
  *
  * I feel like there is a better way to recurse this problem, but I could not
@@ -16,7 +16,7 @@
  * forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20
  * letters. The use of "and" when writing out numbers is in compliance with
  * British usage.
-**/
+ */
 exports.p0017 = function() {
     let answer = 0;
     for (let x = 1; x < 1001; x += 1) {
