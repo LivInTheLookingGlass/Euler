@@ -18,7 +18,7 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4,
 use crate::include::utils::get_data_file;
 
 fn score(idx: usize, name: &str) -> u32 {
-    return (idx as u32) * name.bytes().map(|x| (x as u8 - b'A' + 1) as u32).sum::<u32>();
+    return (idx as u32) * name.bytes().map(|x| (x - b'A' + 1) as u32).sum::<u32>();
 }
 
 pub fn p0022() -> i128 {

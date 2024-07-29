@@ -23,7 +23,7 @@ fn to_string(n: u16) -> String {
         let mut thousands = to_string(n / 1000 % 100);
         thousands.push_str(&" thousand");
         if n % 1000 != 0 {
-            thousands.push_str(" ");
+            thousands.push(' ');
             thousands.push_str(&to_string(n % 1000));
         }
         return thousands;
@@ -50,7 +50,7 @@ fn to_string(n: u16) -> String {
             _ => unreachable!()
         }.to_owned();
         if n % 10 != 0 {
-            tens.push_str(&"-");
+            tens.push('-');
             tens.push_str(&to_string(n % 10));
         }
         return tens;

@@ -73,7 +73,7 @@ where I: Hash + One + Zero + Add + Mul + Ord + Copy
         self.prime = next_prime::<I>(&mut self.sieve, self.candidate);
         self.candidate = self.prime + one();
 
-        if self.limit != None && self.prime > self.limit? {
+        if self.limit.is_some() && self.prime > self.limit? {
             return None;
         }
         return Some(self.prime);
