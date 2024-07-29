@@ -57,7 +57,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            |                         |        | |CodeQL| |br|     |
 |            |                         |        | |ESLint|          |
 +------------+-------------------------+--------+-------------------+
-| Python     | CPython 3.6+ |br|       | 77     | |Python| |br|     |
+| Python     | CPython 3.6+ |br|       | 78     | |Python| |br|     |
 |            | Pypy 3.6+ |br|          |        | |Py-Cov| |br|     |
 |            | GraalPy 23.1+           |        | |CodeQL| |br|     |
 |            |                         |        | |PythonLint|      |
