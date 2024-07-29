@@ -21,7 +21,7 @@ British usage.
 fn to_string(n: u16) -> String {
     if n >= 1000 {
         let mut thousands = to_string(n / 1000 % 100);
-        thousands.push_str(&" thousand");
+        thousands.push_str(" thousand");
         if n % 1000 != 0 {
             thousands.push(' ');
             thousands.push_str(&to_string(n % 1000));
@@ -30,9 +30,9 @@ fn to_string(n: u16) -> String {
     }
     if n >= 100 {
         let mut hundreds = to_string(n / 100 % 10);
-        hundreds.push_str(&" hundred");
+        hundreds.push_str(" hundred");
         if n % 100 != 0 {
-            hundreds.push_str(&" and ");
+            hundreds.push_str(" and ");
             hundreds.push_str(&to_string(n % 100));
         }
         return hundreds;
@@ -66,7 +66,7 @@ fn to_string(n: u16) -> String {
             19 => "nine",
             _ => unreachable!()
         }.to_owned();
-        prefix.push_str(&"teen");
+        prefix.push_str("teen");
         return prefix;
     }
     return match n {
