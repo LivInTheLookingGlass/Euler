@@ -11,11 +11,12 @@
 #include "p0009.c"
 #include "p0010.c"
 #include "p0011.c"
-// #include "p0012.c"
+#include "p0012.c"
 #include "p0013.c"
 #include "p0014.c"
 #include "p0015.c"
 #include "p0016.c"
+#include "p0017.c"
 #include "p0034.c"
 #include "p0076.c"
 
@@ -42,6 +43,7 @@ static const Answer answers[] = {
 	{14,	837799,			p0014},
 	{15,	137846528820,	p0015},
 	{16,	1366,			p0016},
+	{17,	21124,			p0017},
 	{34,	40730,			p0034},
 	{76,	190569291,		(unsigned long long (*)()) p0076},
 };
