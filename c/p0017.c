@@ -1,18 +1,21 @@
 /*
-Project Euler Problem 15
+Project Euler Problem 17
 
-Turns out this is easy, if you think sideways a bit
-
-You can only go down or right. If we say right=1, then you can only have 20 1s, since otherwise you go off the grid.
-You also can't have fewer than 20 1s, since then you go off the grid the other way. This means you can look at it as a
-bit string, and the number of 40-bit strings with 20 1s is 40c20.
+I feel like there is a better way to recurse this problem, but I could not
+think of one at the time
 
 Problem:
 
-Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6
-routes to the bottom right corner.
+If the numbers 1 to 5 are written out in words: one, two, three, four, five,
+then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
 
-How many such routes are there through a 20×20 grid?
+If all the numbers from 1 to 1000 (one thousand) inclusive were written out in
+words, how many letters would be used?
+
+NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and
+forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20
+letters. The use of "and" when writing out numbers is in compliance with
+British usage.
 */
 #ifndef EULER_P0017
 #define EULER_P0017
