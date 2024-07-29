@@ -17,24 +17,26 @@ How many such routes are there through a 20×20 grid?
 #ifndef EULER_P0017
 #define EULER_P0017
 #include <iostream>
+#include <stdexcept>
+#include <string>
 
 unsigned long long p0017() {
     unsigned long long answer = 0;
     for (unsigned int x = 1; x < 1001; x += 1) {
-        std::string str = to_string(x);
+        std::string str = ToString(x);
         answer += str.replace(" ", "").replace("-", "").length;
     }
     return answer;
 }
 
-std::string to_string(unsigned long long n) {
+std::string ToString(unsigned long long n) {
     if (n >= 1000) {
-        return to_string(n / 1000 % 100) + " thousand";
+        return ToString(n / 1000 % 100) + " thousand";
     }
     else if (n >= 100) {
-        std::string hundreds = to_string(n / 100 % 10) + " hundred";
+        std::string hundreds = ToString(n / 100 % 10) + " hundred";
         if (n % 100)
-            return hundreds + " and " + to_string(n % 100);
+            return hundreds + " and " + ToString(n % 100);
         return hundreds;
     }
     else if (n >= 20) {
@@ -65,10 +67,10 @@ std::string to_string(unsigned long long n) {
                 tens = "ninety";
                 break;
             default:
-                throw new Exception();
+                throw std::invalid_argument("n is not in the accepted range");
         }
         if (n % 10)
-            return tens + "-" + to_string(n % 10);
+            return tens + "-" + ToString(n % 10);
         return tens;
     }
     switch (n) {
@@ -91,7 +93,7 @@ std::string to_string(unsigned long long n) {
         case 17: return "seventeen";
         case 18: return "eighteen";
         case 19: return "nineteen";
-        default: throw new Exception();
+        default: throw std::invalid_argument("n is not in the accepted range");
     }
 }
 
