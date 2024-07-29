@@ -26,7 +26,7 @@ LivInTheLookingGlass’s Project Euler solutions
 .. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&logoSize=auto&label=Cpp%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Cpp
 .. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&logoSize=auto&label=C%23%20Cov
-   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C%23
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Csharp
 .. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&logoSize=auto&label=Js%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=JavaScript
 .. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&logoSize=auto&label=Py%20Cov
