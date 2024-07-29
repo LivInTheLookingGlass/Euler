@@ -17,6 +17,7 @@ mod p~N;
 });
 mod p0017;
 mod p0018;
+mod p0022;
 mod p0024;
 mod p0034;
 mod p0069;
@@ -47,6 +48,7 @@ fn get_problem<'b>(n: u32) -> ProblemRef<'b> {
         15 =>  ( &15, p0015::p0015, 137846528820),
         17 =>  ( &17, p0017::p0017, 21124),
         18 =>  ( &18, p0018::p0018, 1074),
+        22 =>  ( &22, p0022::p0022, 871198282),
         24 =>  ( &24, p0024::p0024, 2783915460),
         34 =>  ( &34, p0034::p0034, 40730),
         69 =>  ( &69, p0069::p0069, 510510),
@@ -64,7 +66,20 @@ fn main() {
     for i in sieve {
         println!("{}", i);
     }
-    for (id, func, answer) in ANSWERS {
+    let mut answers: Vec<u32> = (1..=15).collect();
+    answers.push(17);
+    answers.push(18);
+    answers.push(22);
+    answers.push(24);
+    answers.push(34);
+    answers.push(69);
+    answers.push(76);
+    answers.push(77);
+    answers.push(87);
+    answers.push(357);
+
+    for id  in answers {
+        let (_, func, answer) = get_problem(id);
         let result = func();
         println!("Problem {} should return {}. Returned {}!", id, answer, result);
     }
@@ -79,6 +94,7 @@ seq!(N in 01..=15 {
 )*
 #[case::problem_17(17)]
 #[case::problem_18(18)]
+#[case::problem_22(22)]
 #[case::problem_24(24)]
 #[case::problem_34(34)]
 #[case::problem_69(69)]

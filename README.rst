@@ -62,7 +62,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | GraalPy 23.1+           |        | |CodeQL| |br|     |
 |            |                         |        | |PythonLint|      |
 +------------+-------------------------+--------+-------------------+
-| Rust       | 1.69+                   | 23     | |Rust| |br|       |
+| Rust       | 1.69+                   | 24     | |Rust| |br|       |
 |            |                         |        | |Rs-Cov| |br|     |
 |            |                         |        | |RustClippy|      |
 +------------+-------------------------+--------+-------------------+

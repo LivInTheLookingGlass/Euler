@@ -46,6 +46,7 @@ Library Code
    rust/math
    rust/primes
    rust/triangles
+   rust/utils
 
 Problems Solved
 ---------------
