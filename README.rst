@@ -52,7 +52,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            |                         |        | |Cs-Cov| |br|     |
 |            |                         |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|           |  6     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|           |  7     | |JavaScript| |br| |
 |            | Bun 0.6.10+             |        | |Js-Cov| |br|     |
 |            |                         |        | |CodeQL| |br|     |
 |            |                         |        | |ESLint|          |

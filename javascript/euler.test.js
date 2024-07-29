@@ -8,7 +8,7 @@ const answers = {
     6: [require('./src/p0006.js'), 25164150],
     8: [require('./src/p0008.js'), 23514624000],
     9: [require('./src/p0009.js'), 31875000],
-
+   17: [require('./src/p0017.js'), 21124],
 };
 const knownSlow = [];
 let benchmarkReport = '';
