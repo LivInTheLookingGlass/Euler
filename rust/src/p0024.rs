@@ -20,7 +20,7 @@ use itertools::Itertools;
 
 pub fn p0024() -> i128 {
     return (0..10).permutations(10)
-                  .nth(1000000)
+                  .nth(999999)
                   .unwrap()
                   .into_iter()
                   .map(|y| y.to_string())
