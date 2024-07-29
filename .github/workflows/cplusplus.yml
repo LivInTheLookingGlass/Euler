@@ -79,15 +79,15 @@ jobs:
 
     - name: Run tests (ubuntu lts)
       if: ${{ contains(matrix.os, 'ubuntu') && matrix.os != 'ubuntu-latest' }}
-      run: make c_test_auto
+      run: make c_test_auto COV=true
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
-      run: make cp_test_auto
+      run: make cp_test_auto COV=true
 
     - name: Run tests (macos)
       if: ${{ contains(matrix.os, 'macos') }}
-      run: make cp_test_auto
+      run: make cp_test_auto COV=true
       env:
         NO_OPTIONAL_TESTS: true
         COMPILER_OVERRIDE: clang

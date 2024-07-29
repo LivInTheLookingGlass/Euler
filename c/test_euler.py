@@ -53,7 +53,8 @@ IN_LINUX = (not IN_TERMUX) and (system() == 'Linux')
 STANDARDS = ('c99', 'c11', 'c17')
 
 if IN_TERMUX:
-    BUILD_FOLDER = Path.home().joinpath('build')  # Termux can't make executable files outside of $HOME
+    # Termux can't make executable files outside of $HOME
+    BUILD_FOLDER = Path.home().joinpath('build')  # pragma: no cover
 
 _raw_NO_SLOW = environ.get('NO_SLOW')
 try:
@@ -72,7 +73,7 @@ except Exception:
     _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
 
 if _parsed_NO_SLOW and _parsed_ONLY_SLOW:
-    warn("Test suite told to ignore slow tests AND run only slow tests. Ignoring conflicing options")
+    warn("Test suite told to ignore slow tests AND run only slow tests. Ignoring conflicing options")  # pragma: no cover
 
 # if in Termux, default to NO_SLOW, but allow users to explicitly override that decision
 NO_SLOW = ((IN_TERMUX and _parsed_NO_SLOW is None) or _parsed_NO_SLOW) and not _parsed_ONLY_SLOW
@@ -127,7 +128,7 @@ else:
         if which(x):
             compilers.append(x.upper())
 if not compilers:
-    raise RuntimeError("No compilers detected!")
+    raise RuntimeError("No compilers detected!")  # pragma: no cover
 
 COMPILER_LEN = len(max(compilers, key=len))  # make sure compiler fixtures are evenly spaced
 BUILD_FOLDER.mkdir(parents=True, exist_ok=True)
@@ -180,7 +181,7 @@ for std in STANDARDS:
 
 
 @register
-def cleanup():
+def cleanup():  # pragma: no cover
     if 'PYTEST_XDIST_WORKER' not in environ and environ.get('NO_CLEANUP', 'false') != 'true':
         rmtree(BUILD_FOLDER)
 
