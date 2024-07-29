@@ -1,8 +1,7 @@
 /*
 Project Euler Problem 17
 
-I feel like there is a better way to recurse this problem, but I could not
-think of one at the time
+Realizing I don't need the actual string made it much easier to write a C version
 
 Problem:
 
