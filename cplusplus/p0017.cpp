@@ -94,16 +94,16 @@ unsigned long long p0017() {
     for (unsigned int x = 1; x < 1001; x += 1) {
         std::string str = ToString(x);
         size_t pos = str.find(" ");
-        while (pos != string::npos) {
+        while (pos != std::string::npos) {
             str.replace(pos, 1, "");
             pos = str.find(" ", pos + 1);
         }
         pos = str.find("-");
-        while (pos != string::npos) {
+        while (pos != std::string::npos) {
             str.replace(pos, 1, "");
             pos = str.find("-", pos + 1);
         }
-        answer += str.length;
+        answer += str.length();
     }
     return answer;
 }
