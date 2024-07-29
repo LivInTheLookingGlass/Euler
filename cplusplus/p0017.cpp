@@ -20,15 +20,7 @@ How many such routes are there through a 20×20 grid?
 #include <stdexcept>
 #include <string>
 
-unsigned long long p0017() {
-    unsigned long long answer = 0;
-    for (unsigned int x = 1; x < 1001; x += 1) {
-        std::string str = ToString(x);
-        answer += str.replace(" ", "").replace("-", "").length;
-    }
-    return answer;
-}
-
+std::string ToString(unsigned long long n);
 std::string ToString(unsigned long long n) {
     if (n >= 1000) {
         return ToString(n / 1000 % 100) + " thousand";
@@ -95,6 +87,25 @@ std::string ToString(unsigned long long n) {
         case 19: return "nineteen";
         default: throw std::invalid_argument("n is not in the accepted range");
     }
+}
+
+unsigned long long p0017() {
+    unsigned long long answer = 0;
+    for (unsigned int x = 1; x < 1001; x += 1) {
+        std::string str = ToString(x);
+        size_t pos = str.find(" ");
+        while (pos != string::npos) {
+            str.replace(pos, 1, "");
+            pos = str.find(" ", pos + 1);
+        }
+        pos = str.find("-");
+        while (pos != string::npos) {
+            str.replace(pos, 1, "");
+            pos = str.find("-", pos + 1);
+        }
+        answer += str.length;
+    }
+    return answer;
 }
 
 #ifndef UNITY_END
