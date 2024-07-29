@@ -1,16 +1,17 @@
-C Implementation of Problem 12 (port in progress)
-=================================================
+C Implementation of Problem 12
+==============================
 
 View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0012.c>`_
 
 .. note::
 
-   The port of this problem is still in progress
+   While this is a complete solution, and will eventually complete, until :c:struct:`prime_counter` utilizes the prime sieve
+   (as opposed to the current implementation that searches naively with a cache) it will be quite slow. That conversion is underway.
 
 Includes
 --------
 
-- `macros.h <./macros.html>`__
+- `factors.h <./factors.html>`__
 
 Solution
 --------
