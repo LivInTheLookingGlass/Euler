@@ -38,10 +38,7 @@ namespace Euler
         {
             if (n >= 1000)
             {
-                string thousands = to_string(n / 1000 % 100) + " thousand";
-                if (n % 1000 != 0)
-                    return thousands + " " + to_string(n % 1000);
-                return thousands;
+                return to_string(n / 1000 % 100) + " thousand";
             }
             else if (n >= 100)
             {
@@ -88,7 +85,6 @@ namespace Euler
             }
             switch (n)
             {
-                case 0: return "zero";
                 case 1: return "one";
                 case 2: return "two";
                 case 3: return "three";

@@ -19,10 +19,9 @@ namespace Euler
 {
     public class p0009 : IEuler
     {
-        private const int MAX = 500;
         public Task<Int64> Answer()
         {
-            for (int c = 3; c < MAX; c++)
+            for (int c = 3; ; c++)
             {
                 int c_square = c * c;
                 for (int b = 2; b < c; b++)
@@ -38,7 +37,6 @@ namespace Euler
                     }
                 }
             }
-            return Task.FromResult<Int64>(0);
         }
     }
 }
