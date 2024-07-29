@@ -7,7 +7,7 @@
 // #include "p0005.cpp"
 #include "p0006.cpp"
 // #include "p0007.cpp"
-// #include "p0008.cpp"
+#include "p0008.cpp"
 #include "p0009.cpp"
 // #include "p0010.cpp"
 #include "p0011.cpp"
@@ -34,7 +34,7 @@ static const Answer answers[] = {
 	// {5,		232792560,		p0005},
 	{6,		25164150,		p0006},
 	// {7,		104743,			p0007},
-	// {8,		23514624000,	p0008},
+	{8,		23514624000,	p0008},
 	{9,		31875000,		p0009},
 	// {10,	142913828922,	p0010},
 	{11,	70600674,		p0011},
