@@ -44,7 +44,7 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | ``clang``, ``msvc``,    |        | |C-Cov| |br|      |
 |            | |br| ``pcc``, ``tcc``   |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
-| C++        | C++98+ in |br|          | 11     | |Cpi| |br|        |
+| C++        | C++98+ in |br|          | 12     | |Cpi| |br|        |
 |            | ``gcc``, ``clang`` |br| |        | |Cp-Cov| |br|     |
 |            | C++14+ in ``msvc``      |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+

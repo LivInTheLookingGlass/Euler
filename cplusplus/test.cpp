@@ -16,6 +16,7 @@
 #include "p0014.cpp"
 #include "p0015.cpp"
 // #include "p0016.cpp"
+#include "p0017.cpp"
 #include "p0034.cpp"
 #include "p0076.cpp"
 
@@ -42,6 +43,7 @@ static const Answer answers[] = {
 	{14,	837799,			p0014},
 	{15,	137846528820,	p0015},
 	// {16,	1366,			p0016},
+	{17,	21124,			p0017},
 	{34,	40730,			p0034},
 	{76,	190569291,		(unsigned long long (*)()) p0076},
 };
