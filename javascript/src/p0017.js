@@ -16,6 +16,8 @@
  * forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20
  * letters. The use of "and" when writing out numbers is in compliance with
  * British usage.
+ *
+ * @return {number}
  */
 exports.p0017 = function() {
     let answer = 0;
