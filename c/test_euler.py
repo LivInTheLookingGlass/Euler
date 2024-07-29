@@ -31,6 +31,7 @@ answers = {
     9: 31875000,
     10: 142913828922,
     11: 70600674,
+    12: 76576500,
     13: 5537376230,
     14: 837799,
     15: 137846528820,
@@ -40,7 +41,7 @@ answers = {
 }
 
 # this is the set of problems where I have the right answer but wrong solution
-known_slow: Set[int] = set()
+known_slow: Set[int] = {12}
 
 # this is the set of problems where builds are not reproducible on PCC compiler
 PCC_no_reproducible: Set[str] = set()
