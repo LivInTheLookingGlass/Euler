@@ -5,6 +5,11 @@ Euler JavaScript Implementation
     :start-line: 2
     :end-before: Problems Solved
 
+Live Tests
+----------
+
+To run these problems in your browser, `click here! <./_static/test-js.html>`__
+
 Problems Solved
 ---------------
 

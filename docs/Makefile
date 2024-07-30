@@ -27,11 +27,20 @@ help:
 .PHONY: help Makefile
 
 clean:
-	rm -r _build || echo
+	rm -r _build _static/index.html _static/dist || echo
 
 dependencies:
 	$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	npm install -g jsdoc
+
+_static/index.html: Makefile
+	cd ../javascript && $(MAKE) webpack $(MAKEFLAGS)
+	mkdir -p _static/dist
+	cp ../javascript/dist/bundle.js _static/dist/bundle.js
+	cp ../javascript/index.html _static/test-js.html
+
+html: Makefile _static/index.html
+	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
