@@ -20,3 +20,5 @@ cplusplus/*/*.h linguist-language=c++
 */*.yaml linguist-language=yaml
 */*/*.yml linguist-language=yaml
 */*/*.yaml linguist-language=yaml
+
+javascript/index.html linguist-vendored
