@@ -34,7 +34,7 @@ dependencies:
 	npm install -g jsdoc
 
 _static/index.html: Makefile
-	cd ../javascript && $(MAKE) webpack $(MAKEFLAGS)
+	cd ../javascript && $(MAKE) webpack $(MFLAGS)
 	mkdir -p _static/dist
 	cp ../javascript/dist/bundle.js _static/dist/bundle.js
 	cp ../javascript/index.html _static/test-js.html
