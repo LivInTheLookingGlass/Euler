@@ -25,6 +25,7 @@ mod p0076;
 mod p0077;
 mod p0087;
 mod p0357;
+mod p0836;
 
 type ProblemType = fn() -> i128;
 type ProblemRef<'a> = (&'a u32, ProblemType, i128);
@@ -103,6 +104,7 @@ seq!(N in 01..=15 {
 #[case::problem_77(77)]
 #[case::problem_87(87)]
 // #[case::problem_357(357)]
+#[case::problem_836(836)]
 fn test_problem(#[case] id: u32) -> Result<(), String> {
     let (_, func, answer) = get_problem(id);
     let result = func();
