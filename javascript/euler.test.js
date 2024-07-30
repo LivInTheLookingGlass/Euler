@@ -1,5 +1,6 @@
-const assert = require('assert');
-const benchmark = require('benchmark');
+const chai = require('chai');
+const expect = chai.expect;
+const Benchmark = require('benchmark');
 
 const answers = {
     1: [require('./src/p0001.js'), 233168],
@@ -28,17 +29,17 @@ for (question in answers) {
                   else {
                     this.timeout(60 * 1000);
                   }
-                assert.equal(answer, module[`p${formattedQuestion}`]());
+                expect(answer).to.equal(module[`p${formattedQuestion}`]());
             });
             it('should return take less than 1 minute', function(done) {
                 if (typeof this.timeout !== 'undefined') {
                   this.timeout(-1);
                   this.slow(300000); // five minutes
                 }
-                const b = new benchmark.Benchmark(formattedQuestion, module.main, {'minSamples': 10});
-                const [results] = benchmark.Benchmark.invoke([b], 'run');
+                const b = new Benchmark(formattedQuestion, module.main, {'minSamples': 10});
+                const [results] = Benchmark.invoke([b], 'run');
                 const max = Math.max(...(results.stats.sample));
-                assert.ok(60 > max);
+                expect(60).to.be.greaterThan(max);
                 benchmarkReport += `================= p${formattedQuestion} =================\n`;
                 benchmarkReport += `Maximum time:            ${max.toFixed(6)}s\n`;
                 benchmarkReport += `Minimum time:            ${Math.min(...(results.stats.sample)).toFixed(6)}s\n`;
