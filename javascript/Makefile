@@ -17,6 +17,7 @@ help:
 	@echo "  $(BLUE)lint$(NC)   	runs eslint"
 	@echo "  $(BLUE)bun_test$(NC)   	run through all tests in sequence. Utilizes the bun runtime and test runner"
 	@echo "  $(BLUE)bun_dependencies$(NC)	installs bun and runs bun install"
+	@echo "  $(BLUE)webpack$(NC)	Packages these tests for use in browsers"
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 test: dependencies
@@ -66,10 +67,13 @@ _dependencies:
 ifeq ($(COV),true)
 	npm install -g istanbul
 endif
-	npm install
+	npm install --include=dev
 
 lint:
 	npx eslint *.js
 
 clean:
-	rm -r node_modules || echo
+	rm -r node_modules dist || echo
+
+webpack: dependencies
+	npx webpack

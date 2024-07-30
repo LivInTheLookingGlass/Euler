@@ -53,9 +53,9 @@ LivInTheLookingGlass’s Project Euler solutions
 |            |                         |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|           |  9     | |JavaScript| |br| |
-|            | Bun 0.6.10+             |        | |Js-Cov| |br|     |
-|            |                         |        | |CodeQL| |br|     |
-|            |                         |        | |ESLint|          |
+|            | Bun 0.6.10+ |br|        |        | |Js-Cov| |br|     |
+|            | Firefox* |br|           |        | |CodeQL| |br|     |
+|            | Chrome*                 |        | |ESLint|          |
 +------------+-------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|       | 79     | |Python| |br|     |
 |            | Pypy 3.6+ |br|          |        | |Py-Cov| |br|     |

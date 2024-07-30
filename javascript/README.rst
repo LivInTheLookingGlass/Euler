@@ -18,7 +18,7 @@ utilities for other problems to use.
 Makefile
 --------
 
-There are four main recipes in this Makefile
+There are eight recipes in this Makefile
 
 dependencies
 ~~~~~~~~~~~~
@@ -43,10 +43,35 @@ though it currently does not export benchmark info except to fail tests
 for time limit reasons. If you specify the number of threads as `auto`, it
 will default to using 1 fewer threads than you have CPUs.
 
+dependencies
+~~~~~~~~~~~~
+
+Install all dependencies for the NodeJS platform.
+
 lint
 ~~~~
 
 This recipe runs es-lint on the JavaScript files.
+
+bun_test
+~~~~~~~~
+
+Run through all tests in sequence. Utilizes the bun runtime and test runner.
+
+bun_dependencies
+~~~~~~~~~~~~~~~~
+
+Installs bun and runs bun install.
+
+webpack
+~~~~~~~
+
+Packages these tests for use in browsers.
+
+clean
+~~~~~
+
+Remove any installed modules or webpack files.
 
 Tests
 -----

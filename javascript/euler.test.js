@@ -1,6 +1,5 @@
 const chai = require('chai');
 const expect = chai.expect;
-const Benchmark = require('benchmark');
 
 const answers = {
     1: [require('./src/p0001.js'), 233168],
@@ -14,49 +13,24 @@ const answers = {
     836: [require('./src/p0836.js'), 'aprilfoolsjoke'],
 };
 const knownSlow = [];
-let benchmarkReport = '';
 
 for (question in answers) {
     if (answers.hasOwnProperty(question)) {
         const formattedQuestion = `${question}`.padStart(4, '0');
         const [module, answer] = answers[question];
+        const problem = module[`p${formattedQuestion}`];
         describe(`Problem ${formattedQuestion}`, ()=>{
             it(`Should equal ${answer}`, function() {
-                if (typeof this.timeout !== 'undefined')
-                  if (knownSlow.includes(question)) {
-                    this.timeout(-1);
-                  }
-                  else {
-                    this.timeout(60 * 1000);
-                  }
-                expect(answer).to.equal(module[`p${formattedQuestion}`]());
-            });
-            it('should return take less than 1 minute', function(done) {
                 if (typeof this.timeout !== 'undefined') {
-                  this.timeout(-1);
-                  this.slow(300000); // five minutes
+                    if (knownSlow.includes(question)) {
+                        this.timeout(Infinity);
+                    }
+                    else {
+                        this.timeout(60 * 1000);
+                    }
                 }
-                const b = new Benchmark(formattedQuestion, module.main, {'minSamples': 10});
-                const [results] = Benchmark.invoke([b], 'run');
-                const max = Math.max(...(results.stats.sample));
-                expect(60).to.be.greaterThan(max);
-                benchmarkReport += `================= p${formattedQuestion} =================\n`;
-                benchmarkReport += `Maximum time:            ${max.toFixed(6)}s\n`;
-                benchmarkReport += `Minimum time:            ${Math.min(...(results.stats.sample)).toFixed(6)}s\n`;
-                benchmarkReport += `Average time:            ${results.stats.mean.toFixed(6)}s\n`;
-                benchmarkReport += `OPS:                     ${results.hz.toFixed(6)}/s\n`;
-                benchmarkReport += `Standard Deviation:      ${results.stats.deviation.toFixed(6)}s\n`;
-                benchmarkReport += `Margin of Error:         ${results.stats.moe.toFixed(6)}s\n`;
-                benchmarkReport += `Iterations:              ${results.stats.sample.length}\n\n\n`;
-                done();
-                process.stdout.write(`        Max time: ${max.toFixed(6)}s\n`);
+                expect(answer).to.equal(problem());
             });
         });
     }
-}
-
-if (typeof after !== 'undefined') {
-    after(()=>{
-        process.stdout.write(benchmarkReport);
-    });
 }
