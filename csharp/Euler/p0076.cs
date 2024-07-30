@@ -26,6 +26,7 @@ namespace Euler
     {
         public Task<object> Answer()
         {
+            ushort idx;
             int answer = 0;
             int sum = 100;
             int[] counts = new int[101];
@@ -36,17 +37,18 @@ namespace Euler
                 if (sum >= 100)
                 {
                     answer += (100 + counts[2] - sum) / 2;
-                    ushort idx = 2;
+                    idx = 2;
                     while (true)
                     {
                         counts[idx] = 0;
                         idx += 1;
                         counts[idx] += idx;
-                        sum = Enumerable.Sum(counts);
+                        // sum = Enumerable.Sum(counts);
+                        sum = 0;
+                        for (int i = idx - 1; i < 101; i += 1)
+                            sum += counts[i];
                         if (sum <= 100)
-                        {
                             break;
-                        }
                     }
                     counts[2] = 100 - sum - (sum % 2);
                 }

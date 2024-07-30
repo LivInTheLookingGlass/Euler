@@ -34,7 +34,10 @@ exports.p0076 = function() {
                 counts[idx] = 0;
                 idx += 1;
                 counts[idx] += idx;
-                sum = counts.reduce((a, x) => a + x, 0);
+                sum = 0;
+                for (let i = idx - 1; i < 101; i += 1) {
+                    sum += counts[i];
+                }
                 if (sum <= 100) {
                     break;
                 }
