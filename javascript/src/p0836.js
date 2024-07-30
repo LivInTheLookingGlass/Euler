@@ -18,5 +18,5 @@
  * @return {string}
  */
 exports.p0836 = function() {
-    return "aprilfoolsjoke";
-}
+    return 'aprilfoolsjoke';
+};

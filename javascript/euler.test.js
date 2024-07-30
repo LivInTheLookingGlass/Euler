@@ -24,8 +24,7 @@ for (question in answers) {
                 if (typeof this.timeout !== 'undefined') {
                     if (knownSlow.includes(question)) {
                         this.timeout(Infinity);
-                    }
-                    else {
+                    } else {
                         this.timeout(60 * 1000);
                     }
                 }

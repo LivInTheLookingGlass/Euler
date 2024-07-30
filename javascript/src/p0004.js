@@ -16,14 +16,11 @@
  **/
 exports.p0004 = function() {
     let answer = 0;
-    for (let v = 101; v < 1000; v++)
-    {
-        for (let u = 100; u < v; u++)
-        {
-            let p = u * v.toString();
-            let ps = p.toString();
-            if (ps === ps.split("").reverse().join("") && p > answer)
-            {
+    for (let v = 101; v < 1000; v++) {
+        for (let u = 100; u < v; u++) {
+            const p = u * v.toString();
+            const ps = p.toString();
+            if (ps === ps.split('').reverse().join('') && p > answer) {
                 answer = p;
             }
         }

@@ -22,11 +22,11 @@
 
 exports.p0006 = function() {
     let sum = 1;
-    let sum_of_squares = 1;
+    let sumOfSquares = 1;
     for (let i = 2; i < 101; i++) {
-        sum_of_squares += i * i;
+        sumOfSquares += i * i;
         sum += i;
     }
-    let square_of_sum = sum * sum;
-    return square_of_sum - sum_of_squares;
-}
+    const squareOfSum = sum * sum;
+    return squareOfSum - sumOfSquares;
+};

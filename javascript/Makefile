@@ -69,8 +69,8 @@ ifeq ($(COV),true)
 endif
 	npm install --include=dev
 
-lint:
-	npx eslint *.js
+lint: dependencies
+	npx eslint *.js src/*.js src/lib/*.js --ignore-pattern "dist/*"
 
 clean:
 	rm -r node_modules dist || echo

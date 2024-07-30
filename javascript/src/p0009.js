@@ -17,16 +17,16 @@
  */
 exports.p0009 = function() {
     for (let c = 3; ; c++) {
-        let c_square = c * c;
+        const cSquared = c * c;
         for (let b = 2; b < c; b++) {
-            let b_square = b * b;
+            const bSquared = b * b;
             for (let a = 1; a < b; a++) {
-                let a_square = a * a;
-                if (a_square + b_square == c_square && a + b + c === 1000) {
+                const aSquared = a * a;
+                if (aSquared + bSquared == cSquared && a + b + c === 1000) {
                     return a * b * c;
                 }
             }
         }
     }
     return 0;
-}
+};
