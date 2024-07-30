@@ -39,6 +39,7 @@ answers = {
     17: 21124,
     34: 40730,
     76: 190569291,
+    836: "aprilfoolsjoke",
 }
 
 # this is the set of problems where I have the right answer but wrong solution

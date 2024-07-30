@@ -16,17 +16,18 @@ namespace Tests
             yield return new object[] { typeof(p0009), 31875000 };
             yield return new object[] { typeof(p0011), 70600674 };
             yield return new object[] { typeof(p0017), 21124 };
+            yield return new object[] { typeof(p0836), "aprilfoolsjoke" };
         }
 
         [Theory]
         [MemberData(nameof(Data))]
-        public async Task EulerTest_Problem(Type problem, Int64 expected)
+        public async Task EulerTest_Problem(Type problem, object expected)
         {
             IEuler? prob;
             prob = (IEuler?)Activator.CreateInstance(problem);
             Assert.NotNull(prob);
             Stopwatch sw = Stopwatch.StartNew();
-            Int64 result = await prob.Answer();
+            object result = await prob.Answer();
             sw.Stop();
             Assert.Equal(expected, result);
             Assert.True(sw.Elapsed <= oneMinute);

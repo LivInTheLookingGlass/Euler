@@ -23,9 +23,9 @@ namespace Euler
 {
     public class p0011 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
-            Int64 answer = 0, tmp;
+            int answer = 0, tmp;
             for (byte i = 0; i < 20; i++)
             {
                 for (byte j = 0; j < 17; j++)
@@ -50,7 +50,7 @@ namespace Euler
                     answer = Math.Max(answer, tmp);
                 }
             }
-            return Task.FromResult<Int64>(answer);
+            return Task.FromResult<object>(answer);
         }
 
         byte[][] grid = new byte[20][]{

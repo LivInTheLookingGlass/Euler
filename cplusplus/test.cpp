@@ -19,6 +19,7 @@
 #include "p0017.cpp"
 #include "p0034.cpp"
 #include "p0076.cpp"
+#include "p0836.cpp"
 
 typedef struct {
 	unsigned int id;

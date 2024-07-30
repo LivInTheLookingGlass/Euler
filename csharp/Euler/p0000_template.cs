@@ -13,13 +13,13 @@ namespace Euler
 {
     public interface IEuler
     {
-        public Task<Int64> Answer();
+        public Task<object> Answer();
     }
     public class p0000 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
-            return Task.FromResult<Int64>(0);
+            return Task.FromResult<object>(0);
         }
     }
 }

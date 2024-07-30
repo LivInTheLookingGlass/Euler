@@ -23,17 +23,17 @@ namespace Euler
 {
     public class p0006 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
-            Int64 sum_of_squares = 0,
+            int sum_of_squares = 0,
                   sum = 0;
             for (int i = 1; i < 101; i++)
             {
                 sum += i;
                 sum_of_squares += i * i;
             }
-            Int64 square_of_sum = sum * sum;
-            return Task.FromResult<Int64>(square_of_sum - sum_of_squares);
+            int square_of_sum = sum * sum;
+            return Task.FromResult<object>(square_of_sum - sum_of_squares);
         }
     }
 }

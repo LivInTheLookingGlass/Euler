@@ -23,18 +23,18 @@ namespace Euler
 {
     public class p0017 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
-            Int64 answer = 0;
-            for (Int64 x = 1; x < 1001; x += 1)
+            int answer = 0;
+            for (int x = 1; x < 1001; x += 1)
             {
                 string str = to_string(x);
                 answer += str.Replace(" ", "").Replace("-", "").Length;
             }
-            return Task.FromResult<Int64>(answer);
+            return Task.FromResult<object>(answer);
         }
 
-        static String to_string(Int64 n)
+        static String to_string(int n)
         {
             if (n >= 1000)
             {

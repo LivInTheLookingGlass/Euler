@@ -10,6 +10,7 @@ const answers = {
     9: [require('./src/p0009.js'), 31875000],
     11: [require('./src/p0011.js'), 70600674],
     17: [require('./src/p0017.js'), 21124],
+    836: [require('./src/p0836.js'), 'aprilfoolsjoke'],
 };
 const knownSlow = [];
 let benchmarkReport = '';

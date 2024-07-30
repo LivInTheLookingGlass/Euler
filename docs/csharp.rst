@@ -53,7 +53,7 @@ Test Infrastructure
 
 .. csharp:class:: Euler.IEuler
 
-   .. csharp:method:: Task<Int64> Answer()
+   .. csharp:method:: Task<object> Answer()
 
 .. csharp:namespace:: EulerTest
 

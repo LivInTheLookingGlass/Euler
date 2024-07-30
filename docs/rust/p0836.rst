@@ -1,0 +1,13 @@
+Rust Implementation of Problem 836
+==================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0836.rs>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0836::p0836() -> i128
+
+.. literalinclude:: ../../rust/src/p0836.rs
+   :language: rust
+   :linenos:

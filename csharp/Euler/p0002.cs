@@ -20,9 +20,9 @@ namespace Euler
 {
     public class p0002 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
-            Int64 answer = 0,
+            int answer = 0,
                   i = 2,
                   j = 8,
                   tmp = 0;
@@ -35,7 +35,7 @@ namespace Euler
                 j = tmp;
             }
 
-            return Task.FromResult<Int64>(answer);
+            return Task.FromResult<object>(answer);
         }
     }
 }

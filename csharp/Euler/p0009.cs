@@ -19,7 +19,7 @@ namespace Euler
 {
     public class p0009 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
             for (int c = 3; ; c++)
             {
@@ -32,7 +32,7 @@ namespace Euler
                         int a_square = a * a;
                         if (a_square + b_square == c_square && a + b + c == 1000)
                         {
-                            return Task.FromResult<Int64>(a * b * c);
+                            return Task.FromResult<object>(a * b * c);
                         }
                     }
                 }

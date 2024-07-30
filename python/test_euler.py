@@ -3,7 +3,7 @@ from os import environ
 from pathlib import Path
 from shutil import which
 from sys import path
-from typing import Any, Callable, Iterable, Tuple, Union, cast
+from typing import Any, Callable, Dict, Iterable, Tuple, Union, cast
 from warnings import warn
 
 from pytest import fail, fixture, mark, skip, xfail
@@ -15,7 +15,7 @@ path.append(str(PY_FOLDER))
 from lib.iters import groupwise  # noqa: E402  # isort:skip
 from lib.primes import is_prime, primes  # noqa: E402  # isort:skip
 
-answers = {
+answers: Dict[int, Union[int, str]] = {
     1: 233168,
     2: 4613732,
     3: 6857,
@@ -94,6 +94,7 @@ answers = {
     187: 17427258,
     206: 1389019170,
     357: 1739023853137,
+    836: "aprilfoolsjoke",
 }
 
 known_slow = {118, 357}
@@ -167,7 +168,7 @@ def test_is_prime(benchmark: Any) -> None:
 def test_problem(benchmark: Any, key: int) -> None:
     if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
-    test_func: Callable[[], int] = __import__("p{:0>4}".format(key)).main
+    test_func: Callable[[], Union[int, str]] = __import__("p{:0>4}".format(key)).main
     if key in known_slow:
         answer = benchmark.pedantic(test_func, iterations=1, rounds=1)
     else:

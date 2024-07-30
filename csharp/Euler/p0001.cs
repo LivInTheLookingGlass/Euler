@@ -18,7 +18,7 @@ namespace Euler
 {
     public class p0001 : IEuler
     {
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
             int answer = 0;
             for (int i = 0; i < 1000; i += 3)
@@ -30,7 +30,7 @@ namespace Euler
             for (int i = 0; i < 1000; i += 15)
                 answer -= i;
 
-            return Task.FromResult<Int64>(answer);
+            return Task.FromResult<object>(answer);
         }
     }
 }

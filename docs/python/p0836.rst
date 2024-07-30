@@ -1,0 +1,22 @@
+Python Implementation of Problem 836
+====================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0836.py>`_
+
+Includes
+--------
+
+- `factors <./factors.html>`_
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.p0836
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../python/p0836.py
+   :language: python
+   :linenos:
+

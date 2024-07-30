@@ -25,20 +25,20 @@ namespace Euler
             return new string(charArray);
         }
 
-        private static bool IsPalindrome(Int64 x)
+        private static bool IsPalindrome(int x)
         {
             string rep = x.ToString();
             return rep == Reverse(rep);
         }
 
-        public Task<Int64> Answer()
+        public Task<object> Answer()
         {
-            Int64 answer = 0;
+            int answer = 0;
             for (int v = 101; v < 1000; v++)
             {
                 for (int u = 100; u < v; u++)
                 {
-                    Int64 p = u * v;
+                    int p = u * v;
                     if (IsPalindrome(p) && p > answer)
                     {
                         answer = p;
@@ -46,7 +46,7 @@ namespace Euler
                 }
             }
 
-            return Task.FromResult<Int64>(answer);
+            return Task.FromResult<object>(answer);
         }
     }
 }
