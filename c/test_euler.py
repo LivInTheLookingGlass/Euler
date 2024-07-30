@@ -265,7 +265,10 @@ def test_problem(benchmark, key, compiler):
         answer = benchmark.pedantic(run_test, iterations=1, rounds=1)
     else:
         answer = benchmark(run_test)
-    assert answers[key] == int(answer.strip())
+    if isinstance(answers[key], int):
+        assert answers[key] == int(answer.strip())
+    else:
+        assert answers[key] == answer.strip()
     # sometimes benchmark disables itself, so check for .stats
     if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = xfail if key in known_slow else fail
