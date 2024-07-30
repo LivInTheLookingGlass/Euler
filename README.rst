@@ -48,11 +48,11 @@ LivInTheLookingGlass’s Project Euler solutions
 |            | ``gcc``, ``clang`` |br| |        | |Cp-Cov| |br|     |
 |            | C++14+ in ``msvc``      |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
-| C#         | .NET 2+                 |  9     | |C#i| |br|        |
+| C#         | .NET 2+                 | 10     | |C#i| |br|        |
 |            |                         |        | |Cs-Cov| |br|     |
 |            |                         |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|           |  9     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|           | 10     | |JavaScript| |br| |
 |            | Bun 0.6.10+ |br|        |        | |Js-Cov| |br|     |
 |            | Firefox* |br|           |        | |CodeQL| |br|     |
 |            | Chrome*                 |        | |ESLint|          |

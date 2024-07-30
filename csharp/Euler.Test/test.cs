@@ -16,6 +16,7 @@ namespace Tests
             yield return new object[] { typeof(p0009), 31875000 };
             yield return new object[] { typeof(p0011), 70600674 };
             yield return new object[] { typeof(p0017), 21124 };
+            yield return new object[] { typeof(p0076), 190569291 };
             yield return new object[] { typeof(p0836), "aprilfoolsjoke" };
         }
 
