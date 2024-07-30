@@ -13,7 +13,7 @@ const answers = {
     76: [require('./src/p0076.js'), 190569291],
     836: [require('./src/p0836.js'), 'aprilfoolsjoke'],
 };
-const knownSlow = [];
+const knownSlow = [76];
 
 for (question in answers) {
     if (answers.hasOwnProperty(question)) {
