@@ -15,6 +15,8 @@ namespace Tests
             yield return new object[] { typeof(p0008), false, 23514624000 };
             yield return new object[] { typeof(p0009), false, 31875000 };
             yield return new object[] { typeof(p0011), false, 70600674 };
+            yield return new object[] { typeof(p0014), false, 837799 };
+            yield return new object[] { typeof(p0015), false, 137846528820 };
             yield return new object[] { typeof(p0017), false, 21124 };
             yield return new object[] { typeof(p0076), true, 190569291 };
             yield return new object[] { typeof(p0836), false, "aprilfoolsjoke" };
@@ -24,9 +26,9 @@ namespace Tests
         [MemberData(nameof(Data))]
         public async Task EulerTest_Problem(Type problem, bool isSlow, object expected)
         {
-            IEuler? prob;
-            prob = (IEuler?)Activator.CreateInstance(problem);
-            Assert.NotNull(prob);
+            IEuler? prob = (IEuler?)Activator.CreateInstance(problem);
+            if (prob is null)
+                throw new Exception("Unable to construct test object");
             Stopwatch sw = Stopwatch.StartNew();
             object result = await prob.Answer();
             sw.Stop();
