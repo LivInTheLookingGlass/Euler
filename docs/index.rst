@@ -1,12 +1,20 @@
-.. Euler documentation master file, created by
-   sphinx-quickstart on Fri Jun 28 11:07:39 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to Olivia's Project Euler Documentation!
+================================================
 
-Welcome to Euler's documentation!
-=================================
+I maintain a repository of solutions to Project Euler problems, showcasing my programming proficiency across multiple
+languages such as Python, C, and Rust. This collection highlights:
 
-This repo includes solutions in the following languages:
+- **Diverse Problem-Solving:** Solutions cover a range of mathematical and computational challenges, demonstrating my
+  ability to tackle complex problems.
+- **Multi-Language Skills:** Code examples in various languages illustrate my adaptability and expertise.
+- **Clean and Documented Code:** Each solution is well-documented, reflecting my commitment to maintainable and
+  readable programming.
+- **Optimized Algorithms:** Many problems are solved with advanced techniques, showcasing my focus on efficiency.
+
+This repository not only displays my technical skills but also my dedication to continuous learning and
+problem-solving. Explore it to see how I approach and solve programming challenges.
+
+This repository includes solutions in the following languages:
 
 .. include:: ../README.rst
     :start-line: 2
@@ -79,26 +87,15 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 Problems Solved
 ---------------
 
-.. |C| replace:: **C**
-.. |Cp| replace:: **C++**
-.. |C#| replace:: **C#**
-.. |Js| replace:: **JavaScript**
-.. |Py| replace:: **Python**
-.. |Rs| replace:: **Rust**
-.. |d| replace:: ✔
-.. |ip| replace:: 🛠
-.. raw:: html
-
-  <style>
-    .centertable > tbody > tr > td > p {text-align: center;}
-    .centertable > tbody > tr > td:first-of-type > p {text-align: left;}
-  </style>
-
-Key:
-
-- In Progress: |ip|
-- Fully done: |d|
-- Done, but slower than 60 seconds: ⏱
++---------------------------------------+
+|                  Key                  |
++======+================================+
+| |ip| |Work in progress                |
++------+--------------------------------+
+| |d|  |Done, and faster than 60 seconds|
++------+--------------------------------+
+| |s|  |Done, but slower than 60 seconds|
++------+--------------------------------+
 
 .. rst-class:: centertable
 
@@ -289,3 +286,19 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. |C| replace:: **C**
+.. |Cp| replace:: **C++**
+.. |C#| replace:: **C#**
+.. |Js| replace:: **JavaScript**
+.. |Py| replace:: **Python**
+.. |Rs| replace:: **Rust**
+.. |d| replace:: ✔
+.. |ip| replace:: 🛠
+.. |s| replace:: ⏱
+.. raw:: html
+
+  <style>
+    .centertable > tbody > tr > td > p {text-align: center;}
+    .centertable > tbody > tr > td:first-of-type > p {text-align: left;}
+  </style>
