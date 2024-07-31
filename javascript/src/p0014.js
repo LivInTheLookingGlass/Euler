@@ -21,7 +21,7 @@
  *
  * NOTE: Once the chain starts the terms are allowed to go above one million.
  *
- * @returns {number}
+ * @return {number}
 */
 exports.p0014 = function() {
     let biggest_seen = 0;
