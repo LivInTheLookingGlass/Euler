@@ -20,9 +20,9 @@ namespace Euler
 {
     public class p0836 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
-            return Task.FromResult<object>("aprilfoolsjoke");
+            return "aprilfoolsjoke";
         }
     }
 }

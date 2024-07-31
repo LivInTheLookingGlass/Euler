@@ -40,7 +40,7 @@ namespace Euler
     public class p0008 : IEuler
     {
         private const int MAX = 500;
-        public Task<object> Answer()
+        public object Answer()
         {
             String str = String.Concat(
                 "73167176531330624919225119674426574742355349194934",
@@ -70,15 +70,12 @@ namespace Euler
                 String slice = str.Substring(i, 13);
                 Int64 prod = 1;
                 foreach (char c in slice)
-                {
                     prod *= c - '0';
-                }
+
                 if (prod > answer)
-                {
                     answer = prod;
-                }
             }
-            return Task.FromResult<object>(answer);
+            return answer;
         }
     }
 }

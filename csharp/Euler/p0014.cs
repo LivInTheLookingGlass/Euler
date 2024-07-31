@@ -26,7 +26,7 @@ namespace Euler
 {
     public class p0014 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
             int biggestSeen = 0;
             long biggestIdx = 0;
@@ -40,28 +40,21 @@ namespace Euler
                     biggestIdx = x;
                 }
             }
-            return Task.FromResult<object>((int)biggestIdx);
+            return (int)biggestIdx;
         }
 
         static int CollatzLen(long n, IDictionary<long, int> cache)
         {
             if (n == 1)
-            {
                 return 0;
-            }
             else if (cache.ContainsKey(n))
-            {
                 return cache[n];
-            }
+
             int result;
             if (n % 2 == 0)
-            {
                 result = 1 + CollatzLen(n / 2, cache);
-            }
             else
-            {
                 result = 2 + CollatzLen((3 * n + 1) / 2, cache);
-            }
             cache.Add(n, result);
             return result;
         }

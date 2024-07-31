@@ -20,7 +20,7 @@ namespace Euler
 {
     public class p0002 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
             int answer = 0,
                   i = 2,
@@ -35,7 +35,7 @@ namespace Euler
                 j = tmp;
             }
 
-            return Task.FromResult<object>(answer);
+            return answer;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Euler
             return rep == Reverse(rep);
         }
 
-        public Task<object> Answer()
+        public object Answer()
         {
             int answer = 0;
             for (int v = 101; v < 1000; v++)
@@ -40,13 +40,11 @@ namespace Euler
                 {
                     int p = u * v;
                     if (IsPalindrome(p) && p > answer)
-                    {
                         answer = p;
-                    }
                 }
             }
 
-            return Task.FromResult<object>(answer);
+            return answer;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Euler
 {
     public class p0076 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
             ushort idx;
             int answer = 0;
@@ -54,7 +54,7 @@ namespace Euler
                 }
                 sum = Enumerable.Sum(counts);
             }
-            return Task.FromResult<object>(answer);
+            return answer;
         }
     }
 }

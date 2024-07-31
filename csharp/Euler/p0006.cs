@@ -23,7 +23,7 @@ namespace Euler
 {
     public class p0006 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
             int sum_of_squares = 0,
                   sum = 0;
@@ -32,8 +32,9 @@ namespace Euler
                 sum += i;
                 sum_of_squares += i * i;
             }
+
             int square_of_sum = sum * sum;
-            return Task.FromResult<object>(square_of_sum - sum_of_squares);
+            return square_of_sum - sum_of_squares;
         }
     }
 }

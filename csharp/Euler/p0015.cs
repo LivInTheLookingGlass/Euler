@@ -20,9 +20,9 @@ namespace Euler
 {
     public class p0015 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
-            return Task.FromResult<object>((long)Mathematics.NChooseR(40, 20));
+            return (long)Mathematics.NChooseR(40, 20);
         }
     }
 }

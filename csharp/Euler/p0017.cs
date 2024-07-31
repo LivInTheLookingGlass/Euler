@@ -23,7 +23,7 @@ namespace Euler
 {
     public class p0017 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
             int answer = 0;
             for (int x = 1; x < 1001; x += 1)
@@ -31,7 +31,7 @@ namespace Euler
                 string str = to_string(x);
                 answer += str.Replace(" ", "").Replace("-", "").Length;
             }
-            return Task.FromResult<object>(answer);
+            return answer;
         }
 
         static String to_string(int n)

@@ -23,7 +23,7 @@ namespace Euler
 {
     public class p0011 : IEuler
     {
-        public Task<object> Answer()
+        public object Answer()
         {
             int answer = 0, tmp;
             for (byte i = 0; i < 20; i++)
@@ -50,7 +50,7 @@ namespace Euler
                     answer = Math.Max(answer, tmp);
                 }
             }
-            return Task.FromResult<object>(answer);
+            return answer;
         }
 
         byte[][] grid = new byte[20][]{
