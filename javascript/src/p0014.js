@@ -1,4 +1,4 @@
-/*
+/**
  * Project Euler Problem 14
  *
  * This was pleasantly easy to adapt from my Python solution.
