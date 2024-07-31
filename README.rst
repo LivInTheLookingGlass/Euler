@@ -37,35 +37,49 @@ Olivia's Project Euler Solutions
 
   <br/>
 
-+------------+-------------------------+--------+-------------------+
-| Language   | Version                 | Solved | Status            |
-+============+=========================+========+===================+
-| C          | C99+ in: ``gcc``, |br|  | 20     | |Ci| |br|         |
-|            | ``clang``, ``msvc``,    |        | |C-Cov| |br|      |
-|            | |br| ``pcc``, ``tcc``   |        | |CodeQL|          |
-+------------+-------------------------+--------+-------------------+
-| C++        | C++98+ in |br|          | 13     | |Cpi| |br|        |
-|            | ``gcc``, ``clang`` |br| |        | |Cp-Cov| |br|     |
-|            | C++14+ in ``msvc`` [1]_ |        | |CodeQL|          |
-+------------+-------------------------+--------+-------------------+
-| C#         | .NET 2+                 | 12     | |C#i| |br|        |
-|            |                         |        | |Cs-Cov| |br|     |
-|            |                         |        | |CodeQL|          |
-+------------+-------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|           | 11     | |JavaScript| |br| |
-|            | Bun 0.6.10+ |br|        |        | |Js-Cov| |br|     |
-|            | Firefox [2]_ |br|       |        | |CodeQL| |br|     |
-|            | Chrome [2]_             |        | |ESLint|          |
-+------------+-------------------------+--------+-------------------+
-| Python     | CPython 3.6+ |br|       | 79     | |Python| |br|     |
-|            | Pypy 3.6+ |br|          |        | |Py-Cov| |br|     |
-|            | GraalPy 23.1+           |        | |CodeQL| |br|     |
-|            |                         |        | |PythonLint|      |
-+------------+-------------------------+--------+-------------------+
-| Rust       | 1.69+                   | 25     | |Rust| |br|       |
-|            |                         |        | |Rs-Cov| |br|     |
-|            |                         |        | |RustClippy|      |
-+------------+-------------------------+--------+-------------------+
+.. |gcc| replace:: ``gcc``
+.. |clang| replace:: ``clang``
+.. |msvc| replace:: ``msvc``
+.. |pcc| replace:: ``pcc``
+.. |tcc| replace:: ``tcc``
+
++------------+--------------------------+--------+-------------------+
+| Language   | Version                  | Solved | Status            |
++============+==========================+========+===================+
+| C          | C99+ in: |clang|, |br|   | 20     | |Ci| |br|         |
+|            | |gcc|, |pcc|, |tcc|      |        | |C-Cov| |br|      |
+|            | |br| C11+ in |msvc| [1]_ |        | |CodeQL|          |
++------------+--------------------------+--------+-------------------+
+| C++        | C++98+ in |br| |gcc|     | 13     | |Cpi| |br|        |
+|            | |clang| |br|             |        | |Cp-Cov| |br|     |
+|            | C++14+ in |msvc| [1]_    |        | |CodeQL|          |
++------------+--------------------------+--------+-------------------+
+| C#         | .NET 2+                  | 12     | |C#i| |br|        |
+|            |                          |        | |Cs-Cov| |br|     |
+|            |                          |        | |CodeQL|          |
++------------+--------------------------+--------+-------------------+
+| JavaScript | Node 12+ |br|            | 11     | |JavaScript| |br| |
+|            | Bun 0.6.10+ |br|         |        | |Js-Cov| |br|     |
+|            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
+|            | Chrome [2]_              |        | |ESLint|          |
++------------+--------------------------+--------+-------------------+
+| Python     | CPython 3.6+ |br|        | 79     | |Python| |br|     |
+|            | Pypy 3.6+ |br|           |        | |Py-Cov| |br|     |
+|            | GraalPy 23.1+            |        | |CodeQL| |br|     |
+|            |                          |        | |PythonLint|      |
++------------+--------------------------+--------+-------------------+
+| Rust       | 1.69+                    | 25     | |Rust| |br|       |
+|            |                          |        | |Rs-Cov| |br|     |
+|            |                          |        | |RustClippy|      |
++------------+--------------------------+--------+-------------------+
+
+.. |test-js-link| raw:: html
+
+   <a href="./_static/test-js.html" target="_blank">click here!</a>
+
+.. [1] This is the earliest standard the MSVC explicitly supports.
+.. [2] While they do run on Chrome and Firefox, the solutions need to be bundled with WebPack first, and these tests
+   not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 
 Coverage
 --------
@@ -107,14 +121,9 @@ Roadmap
 -------
 
 1. Make sure no language is below Makefile in code percentage
-2. Create a C++ section
-  a. Make stubs for test code
-  b. Port C infrastructure to C++
+2. For each language in: Ruby, ...
+  a. Create a new section
+  b. Make stubs for test code
   c. Write minimal documentation
   d. Port problems 1-n, until higher than Makefile percentage
-1. Repeat step 1
-2. Create a Ruby section
-
-.. [1] This is the earliest standard the MSVC explicitly supports.
-.. [2] While they do run on Chrome and Firefox, the solutions need to be bundled with WebPack first, and these tests
-   not yet automated as in Nodejs and Bun.
+  e. Repeat step 1
