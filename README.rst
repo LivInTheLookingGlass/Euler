@@ -10,7 +10,7 @@ Olivia's Project Euler Solutions
 +------------+-------------------------+--------+-------------------+
 | C++        | C++98+ in |br|          | 13     | |Cpi| |br|        |
 |            | ``gcc``, ``clang`` |br| |        | |Cp-Cov| |br|     |
-|            | C++14+ in ``msvc``      |        | |CodeQL|          |
+|            | C++14+ in ``msvc``[1]_  |        | |CodeQL|          |
 +------------+-------------------------+--------+-------------------+
 | C#         | .NET 2+                 | 12     | |C#i| |br|        |
 |            |                         |        | |Cs-Cov| |br|     |
@@ -18,8 +18,8 @@ Olivia's Project Euler Solutions
 +------------+-------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|           | 11     | |JavaScript| |br| |
 |            | Bun 0.6.10+ |br|        |        | |Js-Cov| |br|     |
-|            | Firefox* |br|           |        | |CodeQL| |br|     |
-|            | Chrome*                 |        | |ESLint|          |
+|            | Firefox[2]_ |br|        |        | |CodeQL| |br|     |
+|            | Chrome[2]_              |        | |ESLint|          |
 +------------+-------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|       | 79     | |Python| |br|     |
 |            | Pypy 3.6+ |br|          |        | |Py-Cov| |br|     |
@@ -115,3 +115,7 @@ Roadmap
 .. |br| raw:: html
 
   <br/>
+
+.. [1] This is the earliest standard the MSVC explicitly supports.
+.. [2] While they do run on Chrome and Firefox, the solutions need to be bundled with WebPack first, and these tests
+   not yet automated as in Nodejs and Bun.
