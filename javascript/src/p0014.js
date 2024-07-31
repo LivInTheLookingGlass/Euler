@@ -24,33 +24,35 @@
  * @return {number}
  */
 exports.p0014 = function() {
-    let biggest_seen = 0;
-    let biggest_idx = 0;
-    let cache = new Map();
+    let biggestSeen = 0;
+    let biggestIdx = 0;
+    const cache = new Map();
     for (let x = 1; x < 1000000; x += 1) {
-        let result = collatz_len(x, cache);
-        if (result > biggest_seen) {
-            biggest_seen = result;
-            biggest_idx = x;
+        const result = collatzLen(x, cache);
+        if (result > biggestSeen) {
+            biggestSeen = result;
+            biggestIdx = x;
         }
     }
-    return biggest_idx;
-}
+    return biggestIdx;
+};
 
-function collatz_len(n, cache) {
+/**
+ * @param {number} n
+ * @param {Map} cache
+ * @return {number}
+ */
+function collatzLen(n, cache) {
     if (n == 1) {
         return 0;
-    }
-    else if (cache.has(n)) {
+    } else if (cache.has(n)) {
         return cache.get(n);
-    }
-    else if (n % 2 == 0) {
-        let result = 1 + collatz_len(n / 2, cache);
+    } else if (n % 2 == 0) {
+        const result = 1 + collatzLen(n / 2, cache);
         cache.set(n, result);
         return result;
-    }
-    else {
-        let result = 2 + collatz_len((3 * n + 1) / 2, cache);
+    } else {
+        const result = 2 + collatzLen((3 * n + 1) / 2, cache);
         cache.set(n, result);
         return result;
     }
