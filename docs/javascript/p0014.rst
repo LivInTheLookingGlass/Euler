@@ -1,0 +1,10 @@
+JavaScript Implementation of Problem 14
+=======================================
+
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/p0014.js>`_
+
+.. js:autofunction:: p0014
+
+.. literalinclude:: ../../javascript/src/p0014.js
+   :language: javascript
+   :linenos:
