@@ -138,7 +138,8 @@ def setup(app):
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
     except Exception:
-        pass
+        if 'GITHUB_ACTION' in environ:
+            raise
 
     app.add_domain(custom_domain(
         'RustDomain',
