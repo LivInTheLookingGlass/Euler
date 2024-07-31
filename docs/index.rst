@@ -87,6 +87,22 @@ This project is divided into several Makefiles, connected by a root Makefile whi
 Problems Solved
 ---------------
 
+.. |C| replace:: **C**
+.. |Cp| replace:: **C++**
+.. |C#| replace:: **C#**
+.. |Js| replace:: **JavaScript**
+.. |Py| replace:: **Python**
+.. |Rs| replace:: **Rust**
+.. |d| replace:: ✔
+.. |ip| replace:: 🛠
+.. |s| replace:: ⏱
+.. raw:: html
+
+  <style>
+    .centertable > tbody > tr > td > p {text-align: center;}
+    .centertable > tbody > tr > td:first-of-type > p {text-align: left;}
+  </style>
+
 +---------------------------------------+
 |                  Key                  |
 +======+================================+
@@ -286,19 +302,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-.. |C| replace:: **C**
-.. |Cp| replace:: **C++**
-.. |C#| replace:: **C#**
-.. |Js| replace:: **JavaScript**
-.. |Py| replace:: **Python**
-.. |Rs| replace:: **Rust**
-.. |d| replace:: ✔
-.. |ip| replace:: 🛠
-.. |s| replace:: ⏱
-.. raw:: html
-
-  <style>
-    .centertable > tbody > tr > td > p {text-align: center;}
-    .centertable > tbody > tr > td:first-of-type > p {text-align: left;}
-  </style>
