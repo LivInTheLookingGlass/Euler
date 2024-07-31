@@ -167,7 +167,7 @@ for std in STANDARDS:
         f'CLANG+{std}': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=0'),
         f'ICC+{std}': GCC_TEMPLATE.format('icc', std),
         f'AOCC+{std}': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=1'),
-        f'CL+{std}': "cl /EHa -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
+        f'CL+{std}': "cl /EHa -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TP {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
     })
 
 
