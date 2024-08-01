@@ -7,3 +7,4 @@ pytest-isort
 pytest-xdist
 pytest-coverage
 coverage
+typing_extensions>=4.6.0; python_version < '3.8'
