@@ -19,7 +19,7 @@
 exports.p0034 = function() {
     let answer = 0;
     for (let x = 10; x < 100000; x += 1) {
-        let xs = x.toString();
+        const xs = x.toString();
         let sum = 0;
         for (let i = 0; i < xs.length; i += 1) {
             sum += Mathematics.factorial(parseInt(xs[i]));
