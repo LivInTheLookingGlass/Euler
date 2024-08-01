@@ -9,7 +9,7 @@ View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler
 
    .. csharp:inherits:: Euler.IEuler
 
-   .. csharp:method:: Task<object> Answer()
+   .. csharp:method:: object Answer()
 
 .. literalinclude:: ../../csharp/Euler/p0009.cs
    :language: csharp

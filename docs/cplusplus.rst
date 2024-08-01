@@ -9,7 +9,6 @@ Library Code
 ------------
 
 .. toctree::
-   :glob:
    :numbered:
    :maxdepth: 1
 

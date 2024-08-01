@@ -54,11 +54,11 @@ Olivia's Project Euler Solutions
 |            | |gcc| |br|               |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_   |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| C#         | .NET 2+                  | 12     | |C#i| |br|        |
+| C#         | .NET 2+                  | 13     | |C#i| |br|        |
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 12     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 13     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |

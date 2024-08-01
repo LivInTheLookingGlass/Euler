@@ -12,6 +12,7 @@ const answers = {
     14: [require('./src/p0014.js'), false, 837799],
     15: [require('./src/p0015.js'), false, 137846528820],
     17: [require('./src/p0017.js'), false, 21124],
+    34: [require('./src/p0034.js'), false, 40730],
     76: [require('./src/p0076.js'), true, 190569291],
     836: [require('./src/p0836.js'), false, 'aprilfoolsjoke'],
 };

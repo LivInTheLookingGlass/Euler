@@ -53,7 +53,7 @@ Test Infrastructure
 
 .. csharp:class:: Euler.IEuler
 
-   .. csharp:method:: Task<object> Answer()
+   .. csharp:method:: object Answer()
 
 .. csharp:namespace:: EulerTest
 
@@ -62,6 +62,16 @@ Test Infrastructure
    .. csharp:method:: Task EulerTest_Problem()
 
       An Xunit theory that, for each registered solution, will test against the known answer and a one minute time limit.
+
+Library Code
+------------
+
+.. toctree::
+   :numbered:
+   :maxdepth: 1
+
+   csharp/math
+   csharp/primes
 
 Problems Solved
 ---------------
