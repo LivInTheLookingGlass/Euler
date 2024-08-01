@@ -11,8 +11,9 @@ NOTE: The first two lines in the file represent the numbers in the example given
 """
 from functools import cmp_to_key
 from math import log
-from pathlib import Path
 from typing import List, Tuple
+
+from lib.utils import get_data_file
 
 
 def cmp_two_exp(pair1: Tuple[int, float], pair2: Tuple[int, float]) -> int:
@@ -29,10 +30,9 @@ def cmp_two_exp(pair1: Tuple[int, float], pair2: Tuple[int, float]) -> int:
 
 def main() -> int:
     candidates: List[Tuple[int, int]] = []
-    with Path(__file__).parent.parent.joinpath('_data', 'p0099_base_exp.txt').open('r') as f:
-        for line in f.readlines():
-            x, y = line.rstrip('\n').split(',')
-            candidates.append((int(x), int(y)))
+    for line in get_data_file('p0099_base_exp.txt', 'r').splitlines():
+        x, y = line.rstrip('\n').split(',')
+        candidates.append((int(x), int(y)))
     return max(enumerate(candidates, 1), key=lambda x: cmp_to_key(cmp_two_exp)(x[1]))[0]
 
 

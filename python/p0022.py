@@ -18,7 +18,7 @@ obtain a score of 938 × 53 = 49714.
 
 What is the total of all the name scores in the file?
 """
-from pathlib import Path
+from lib.utils import get_data_file
 
 
 def score(name: str, idx: int) -> int:
@@ -26,8 +26,7 @@ def score(name: str, idx: int) -> int:
 
 
 def main() -> int:
-    with Path(__file__).parent.parent.joinpath('_data', 'p0022_names.txt').open('r') as f:
-        names = sorted(f.read().upper().replace('"', '').split(','))
+    names = sorted(get_data_file('p0022_names.txt').upper().replace('"', '').split(','))
     return sum(score(name, idx) for idx, name in enumerate(names, 1))
 
 

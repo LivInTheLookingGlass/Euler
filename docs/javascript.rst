@@ -19,6 +19,7 @@ Library Code
 
    javascript/math
    javascript/primes
+   javascript/utils
 
 Problems Solved
 ---------------

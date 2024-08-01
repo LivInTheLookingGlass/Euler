@@ -88,5 +88,17 @@ namespace Tests
             foreach (Task task in tasks)
                 await task;
         }
+
+        [Fact]
+        public void EulerTest_Utils_GetDataFileText()
+        {
+            Assert.NotNull(Utilities.GetDataFileText("p0022_names.txt"));
+        }
+
+        [Fact]
+        public void EulerTest_Utils_GetDataFileBytes()
+        {
+            Assert.NotNull(Utilities.GetDataFileBytes("p0022_names.txt"));
+        }
     }
 }

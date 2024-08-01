@@ -20,6 +20,7 @@ Library Code
    cplusplus/macros
    cplusplus/math
    cplusplus/primes
+   cplusplus/utils
 
 Problems Solved
 ---------------

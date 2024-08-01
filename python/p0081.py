@@ -6,8 +6,9 @@ In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom
 
 Find the minimal path sum from the top left to the bottom right by only moving right and down in matrix.txt (right click and "Save Link/Target As..."), a 31K text file containing an 80 by 80 matrix.
 """
-from pathlib import Path
 from typing import List, MutableMapping, Sequence
+
+from lib.utils import get_data_file
 
 
 def min_path_sum(
@@ -30,12 +31,10 @@ def min_path_sum(
 
 
 def main() -> int:
-    matrix: Sequence[Sequence[int]] = []
     setup: List[Sequence[int]] = []
-    with Path(__file__).parent.parent.joinpath('_data', 'p0081_matrix.txt').open('r') as f:
-        for raw_line in f.readlines():
-            line = raw_line.rstrip('\n')
-            setup.append(tuple(int(x) for x in line.split(',')))
+    for raw_line in get_data_file('p0081_matrix.txt').splitlines():
+        line = raw_line.rstrip('\n')
+        setup.append(tuple(int(x) for x in line.split(',')))
     return min_path_sum(tuple(setup), {})
 
 

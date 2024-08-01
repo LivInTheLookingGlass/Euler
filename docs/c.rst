@@ -20,6 +20,7 @@ Library Code
    c/macros
    c/math
    c/primes
+   c/utils
 
 Problems Solved
 ---------------

@@ -18,6 +18,7 @@ Library Code
    python/math
    python/primes
    python/triangles
+   python/utils
 
 Problems Solved
 ---------------

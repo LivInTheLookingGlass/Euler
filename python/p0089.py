@@ -25,7 +25,7 @@ Find the number of characters saved by writing each of these in their minimal fo
 
 Note: You can assume that all the Roman numerals in the file contain no more than four consecutive identical units.
 """
-from pathlib import Path
+from lib.utils import get_data_file
 
 
 def parse_roman(roman: str) -> int:
@@ -66,10 +66,9 @@ def to_minimal(r: str) -> str:
 
 def main() -> int:
     saved = 0
-    with Path(__file__).parent.parent.joinpath('_data', 'p0089_roman.txt').open('r') as f:
-        for raw_line in f.readlines():
-            line = raw_line.rstrip('\n')
-            saved += len(line) - len(to_minimal(line))
+    for raw_line in get_data_file('p0089_roman.txt').splitlines():
+        line = raw_line.rstrip('\n')
+        saved += len(line) - len(to_minimal(line))
     return saved
 
 

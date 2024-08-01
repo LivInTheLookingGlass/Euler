@@ -72,6 +72,7 @@ Library Code
 
    csharp/math
    csharp/primes
+   csharp/utils
 
 Problems Solved
 ---------------

@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack'); // to access built-in plugins
 
 module.exports = {
     entry: './euler.test.js', // Adjust the entry point to your main file
@@ -26,4 +27,11 @@ module.exports = {
         extensions: ['.js'],
     },
     mode: 'development', // Change to 'production' for production builds
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                APP_ENV: JSON.stringify('browser'),
+            },
+        }),
+    ],
 };

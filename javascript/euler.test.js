@@ -1,5 +1,22 @@
 const chai = require('chai');
 const expect = chai.expect;
+const Mathematics = require('./src/lib/math.js');
+const Utilities = require('./src/lib/utils.js');
+
+describe('Data Files', ()=>{
+    it('Should be able to fetch files as utf8', function() {
+        Utilities.get_data_file('p0022_names.txt', 'utf8');
+    });
+    it('Should be able to fetch files as buffer', function() {
+        Utilities.get_data_file('p0022_names.txt', 'buffer');
+    });
+});
+
+describe('Mathematics', ()=>{
+    it('Should be able to compute factorials', function() {
+        expect(Mathematics.factorial(6)).to.equal(2 * 3 * 4 * 5 * 6);
+    });
+});
 
 const answers = {
     1: [require('./src/p0001.js'), false, 233168],

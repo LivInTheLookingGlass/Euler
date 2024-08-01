@@ -7,6 +7,7 @@ Includes
 --------
 
 - `triangles <./triangles.html>`_
+- `utils <./utils.html>`_
 
 Problem Solution
 ----------------

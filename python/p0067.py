@@ -21,19 +21,15 @@ containing a triangle with one-hundred rows.
 NOTE: This is a much more difficult version of Problem 18. It is not possible to try every route to solve this problem,
 as there are 2^99 altogether! If you could check one trillion (10^12) routes every second it would take over twenty
 billion years to check them all. There is an efficient algorithm to solve it. ;o)
-
-
 """
-from pathlib import Path
-
 from lib.triangles import reduce_triangle
+from lib.utils import get_data_file
 
 
 def main() -> int:
     rows = []
-    with Path(__file__).parent.parent.joinpath("_data", "p0067_triangle.txt").open("r") as f:
-        for line in f.readlines():
-            rows.append([int(x) for x in line.split()])
+    for line in get_data_file("p0067_triangle.txt").splitlines():
+        rows.append([int(x) for x in line.split()])
     return reduce_triangle(rows)
 
 
