@@ -1,4 +1,6 @@
 /**
+ * Compute the factorial of a given number. Note that, unlike the version of this in other languages, this does not
+ * guard against imprecision or overflow.
  * @param {number} n
  * @return {number}
  */
@@ -10,6 +12,8 @@ exports.factorial = function factorial(n) {
     return answer;
 };
 /**
+ * Returns the number of ways to return r elements from a group of size n. This method guards against imprecision by
+ * having a "slow path" for larger values of n.
  * @param {number} n
  * @param {number} r
  * @return {number}
