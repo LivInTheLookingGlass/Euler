@@ -25,6 +25,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js'],
+        fallback: {
+            buffer: require.resolve('buffer/'),
+        },
     },
     mode: 'development', // Change to 'production' for production builds
     plugins: [
@@ -32,6 +35,9 @@ module.exports = {
             'process.env': {
                 APP_ENV: JSON.stringify('browser'),
             },
+        }),
+        new webpack.ProvidePlugin({
+            Buffer: ['buffer', 'Buffer'],
         }),
     ],
 };
