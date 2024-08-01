@@ -21,7 +21,11 @@ except Exception:
 basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
 sys_path.insert(0, basedir + sep + 'python')
-js_source_path = basedir + sep + 'javascript' + sep + 'src'
+root_for_relative_js_paths = basedir + sep + 'javascript'
+js_source_path = [
+    root_for_relative_js_paths + sep + 'src',
+    root_for_relative_js_paths + sep + 'src' + sep + 'lib'
+]
 
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
