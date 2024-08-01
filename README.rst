@@ -58,7 +58,7 @@ Olivia's Project Euler Solutions
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 11     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 12     | |JavaScript| |br| |
 |            | Bun 0.6.10+ |br|         |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |

@@ -10,6 +10,17 @@ Live Tests
 
 To run these problems in your browser, |test-js-link|
 
+Library Code
+------------
+
+.. toctree::
+   :glob:
+   :numbered:
+   :maxdepth: 1
+
+   javascript/math
+   javascript/primes
+
 Problems Solved
 ---------------
 
