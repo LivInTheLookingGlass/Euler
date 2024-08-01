@@ -27,8 +27,7 @@ typedef struct {
 	unsigned long long (*func)();
 } Answer;
 
-#define ANSWERS_LEN (sizeof(answers) / sizeof(answers[0]))
-static const Answer answers[] = {
+const Answer answers[] = {
 	{1,		233168,			p0001},
 	{2,		4613732, 		p0002},
 	{3,		6857,			p0003},
@@ -48,7 +47,8 @@ static const Answer answers[] = {
 	{34,	40730,			p0034},
 	{76,	190569291,		(unsigned long long (*)()) p0076},
 };
-static unsigned long long current_index = 0;
+const size_t ANSWERS_LEN = sizeof(answers) / sizeof(answers[0]);
+static size_t current_index = 0;
 
 void setUp(void) {
 	// set stuff up here

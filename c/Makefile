@@ -22,16 +22,18 @@ help:
 	@echo "  $(BLUE)native$(NC) 	build a test binary utilizing the Unity test framework"
 	@echo "  $(BLUE)clean$(NC) 	clean up any stray files"
 
-test_%: dependencies
+test_%: submodules dependencies
 	cd ../python; $(MAKE) dependencies $(MFLAGS)
 	$(PY) -m pytest -vl -n$* test_euler.py --cov
 
-test: dependencies
+test: submodules dependencies
 	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
-dependencies:
+submodules:
 	git submodule init
 	git submodule update
+
+dependencies: submodules
 	$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 lint:
@@ -46,3 +48,8 @@ native:
 
 clean:
 	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
+
+wasm:
+	cd wasi-libc && $(MAKE) install $(MFLAGS) INSTALL_DIR=/tmp/wasi-libc
+	mkdir -p build
+	clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm p*.c

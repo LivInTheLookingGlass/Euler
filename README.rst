@@ -47,12 +47,12 @@ Olivia's Project Euler Solutions
 | Language   | Version                  | Solved | Status            |
 +============+==========================+========+===================+
 | C          | C99+ in: |clang|, |br|   | 20     | |Ci| |br|         |
-|            | |gcc|, |pcc|, |tcc|      |        | |C-Cov| |br|      |
-|            | |br| C11+ in |msvc| [1]_ |        | |CodeQL|          |
+|            | |gcc|, |pcc|, |tcc| |br| |        | |C-Cov| |br|      |
+|            | C11+ in: |msvc| [1]_     |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| C++        | C++98+ in |br| |gcc|     | 13     | |Cpi| |br|        |
-|            | |clang| |br|             |        | |Cp-Cov| |br|     |
-|            | C++14+ in |msvc| [1]_    |        | |CodeQL|          |
+| C++        | C++98+ in: |br| |clang|  | 13     | |Cpi| |br|        |
+|            | |gcc| |br|               |        | |Cp-Cov| |br|     |
+|            | C++14+ in: |msvc| [1]_   |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
 | C#         | .NET 2+                  | 12     | |C#i| |br|        |
 |            |                          |        | |Cs-Cov| |br|     |
@@ -78,8 +78,8 @@ Olivia's Project Euler Solutions
    <a href="https://euler.oliviaappleton.com/_static/test-js.html" target="_blank">click here!</a>
 
 .. [1] This is the earliest standard the MSVC explicitly supports.
-.. [2] While they do run on Chrome and Firefox, the solutions need to be bundled with WebPack first, and these tests
-   not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
+.. [2] While these solutions do run on Chrome and Firefox, they need to be bundled with WebPack + Babel first, and
+   these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 
 Coverage
 --------
