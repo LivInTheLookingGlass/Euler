@@ -1,7 +1,7 @@
 Python Implementation of Problem 67
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0067.py>`_
+View source code :source:`python/src/p0067.py`
 
 Includes
 --------

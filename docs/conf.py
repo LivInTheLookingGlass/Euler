@@ -8,7 +8,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 from os import environ, path, sep
-from subprocess import CalledProcessError, check_call
+from subprocess import check_call
 from sys import path as sys_path
 
 from sphinxcontrib.domaintools import custom_domain
@@ -21,11 +21,6 @@ except Exception:
 basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
 sys_path.insert(0, basedir + sep + 'python')
-root_for_relative_js_paths = basedir + sep + 'javascript'
-js_source_path = [
-    root_for_relative_js_paths + sep + 'src',
-    root_for_relative_js_paths + sep + 'src' + sep + 'lib'
-]
 
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
@@ -49,8 +44,6 @@ extensions = [
     'notfound.extension',
     # 'breathe',
     # 'javasphinx',
-    # 'sphinx_autodoc_typehints',
-    # 'sphinx_pyreverse',
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
 ]
@@ -75,37 +68,45 @@ language = 'english'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
-favicons = [
-    {
-        "rel": "apple-touch-icon",
-        "href": "https://projecteuler.net/favicons/apple-touch-icon.png",
-    },
-    {"href": "https://projecteuler.net/favicons/favicon-32x32.png"},
-    {"href": "https://projecteuler.net/favicons/favicon-16x16.png"},
-    {"href": "https://projecteuler.net/favicons/favicon.ico"},
-]
+# -- Options for autodoc extension -------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
 
-# -- Options for todo extension ----------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
+autodoc_member_order = 'bysource'
 
-todo_include_todos = True
+# -- Options for autosection extension ---------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/autosection.html#configuration
+
+autosectionlabel_prefix_document = True
+
+# -- Options for extlinks extension ------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html#configuration
 
 langcodes = [
+    # ('a', 'ada'),
     ('c', 'c'),
-    # ('cp', 'cobol'),
+    # ('cb', 'cobol'),
     ('cp', 'cplusplus'),
     ('cs', 'csharp'),
     # ('d', 'd'),
     # ('da', 'dart'),
+    # ('fo', 'fortran'),
+    # ('fs', 'fsharp'),
+    # ('go', 'go'),
     # ('j', 'java'),
     ('js', 'javascript'),
     # ('ju', 'julia'),
-    # ('ko', 'kotlin'),
+    # ('k', 'kotlin'),
+    # ('li', 'lisp'),
+    # ('lu', 'lua'),
+    # ('ma', 'matlab'),
+    # ('pe', 'perl'),
     # ('ph', 'php'),
     ('py', 'python'),
     # ('r', 'r'),
-    # ('rb', 'rb'),
+    # ('rb', 'ruby'),
     ('rs', 'rust'),
+    # ('sa', 'scala'),
+    # ('sh', 'scheme'),
     # ('sq', 'sql'),
     # ('sw', 'swift'),
     # ('ts', 'typescript'),
@@ -113,6 +114,8 @@ langcodes = [
 extlinks = {
     'prob': ('https://projecteuler.net/problem=%s',
              'Problem #%s'),
+    'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s',
+               'here on GitHub!%.0s'),
 } | {
     f'{code}-d': (f'./{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
 } | {
@@ -121,6 +124,9 @@ extlinks = {
     f'{code}-i': (f'./{lang}/p%s.html', '🛠%.0s') for (code, lang) in langcodes
 }
 extlinks_detect_hardcoded_links = True
+
+# -- Options for intersphinx extension ---------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
 
 intersphinx_mapping = {
     'python':           ('https://docs.python.org/3', None),
@@ -132,15 +138,40 @@ intersphinx_mapping = {
     'coverage':         ('https://coverage.readthedocs.io/en/latest/', None)
 }
 
-autodoc_member_order = 'bysource'
+# -- Options for todo extension ----------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
+
+todo_include_todos = True
+
+# -- Options for favicon extension -------------------------------------------
+# https://sphinx-favicon.readthedocs.io/en/latest/configuration.html
+
+favicons = [
+    {
+        "rel": "apple-touch-icon",
+        "href": "https://projecteuler.net/favicons/apple-touch-icon.png",
+    },
+    {"href": "https://projecteuler.net/favicons/favicon-32x32.png"},
+    {"href": "https://projecteuler.net/favicons/favicon-16x16.png"},
+    {"href": "https://projecteuler.net/favicons/favicon.ico"},
+]
+
+# -- Options for sphinx-js extension -----------------------------------------
+# https://github.com/mozilla/sphinx-js
+
+root_for_relative_js_paths = basedir + sep + 'javascript'
+js_source_path = [
+    root_for_relative_js_paths + sep + 'src',
+    root_for_relative_js_paths + sep + 'src' + sep + 'lib'
+]
 
 def setup(app):
     try:
         langs = linguist(basedir)
         labels = [lang[0] for lang in langs]
         sizes = [lang[1] for lang in langs]
-        fig, ax = plt.subplots()
-        pie = ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
+        _, ax = plt.subplots()
+        ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
     except Exception:

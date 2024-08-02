@@ -1,7 +1,7 @@
 utils.cs
 =======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/csharp/include/utils.cs>`_
+View source code :source:`csharp/include/utils.cs`
 
 .. csharp:namespace:: Euler
 

@@ -1,7 +1,7 @@
 fibonacci.h
 ===========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/fibonacci.h>`_
+View source code :source:`c/src/include/fibonacci.h`
 
 .. c:namespace-push:: fibonacci
 

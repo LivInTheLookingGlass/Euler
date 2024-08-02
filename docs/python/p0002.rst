@@ -1,7 +1,7 @@
 Python Implementation of Problem 2
 ==================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0002.py>`_
+View source code :source:`python/src/p0002.py`
 
 Problem Solution
 ----------------

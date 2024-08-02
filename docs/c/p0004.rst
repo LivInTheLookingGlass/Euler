@@ -1,7 +1,7 @@
 C Implementation of Problem 4
 =============================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/p0004.c>`_
+View source code :source:`c/src/p0004.c`
 
 Includes
 --------

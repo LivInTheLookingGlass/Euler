@@ -1,7 +1,7 @@
 math.rs
 =======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/include/math.rs>`_
+View source code :source:`rust/src/include/math.rs`
 
 .. rust:fn:: math::factorial<I>(n: u8) -> I where I: NumAssign + From<u8>
 

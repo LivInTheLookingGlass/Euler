@@ -1,7 +1,7 @@
 Python Implementation of Problem 92
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0092.py>`_
+View source code :source:`python/src/p0092.py`
 
 Includes
 --------

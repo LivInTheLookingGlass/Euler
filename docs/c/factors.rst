@@ -1,7 +1,7 @@
 factors.h
 =========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/factors.h>`_
+View source code :source:`c/src/include/factors.h`
 
 This file implements an :c:macro:`Iterator <IteratorHead>` that yields proper
 factors for a given number. It is generally used by first calling

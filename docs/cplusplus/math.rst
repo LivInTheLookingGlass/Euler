@@ -1,7 +1,7 @@
 math.h
 ======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/src/include/math.h>`_
+View source code :source:`cplusplus/src/include/math.h`
 
 .. c:namespace-push:: math
     

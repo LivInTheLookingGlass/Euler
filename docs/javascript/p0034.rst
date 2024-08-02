@@ -1,7 +1,7 @@
 JavaScript Implementation of Problem 34
 =======================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/p0034.js>`_
+View source code :source:`javascript/src/p0034.js`
 
 Includes
 --------

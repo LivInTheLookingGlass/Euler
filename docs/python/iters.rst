@@ -1,7 +1,7 @@
 iters.py
 ========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/iters.py>`_
+View source code :source:`python/src/lib/iters.py`
 
 .. automodule:: python.src.lib.iters
    :members:

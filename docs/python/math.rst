@@ -1,7 +1,7 @@
 math.py
 =======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/math.py>`_
+View source code :source:`python/src/lib/math.py`
 
 .. automodule:: python.src.lib.math
    :members:

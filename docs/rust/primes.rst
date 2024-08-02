@@ -1,7 +1,7 @@
 primes.rs
 =========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/include/primes.rs>`_
+View source code :source:`rust/src/include/primes.rs`
 
 .. rust:fn:: primes::primes<I>() -> Eratosthenes<I> where I: Hash + One + Zero + Add
 

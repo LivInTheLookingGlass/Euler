@@ -1,7 +1,7 @@
 utils.rs
 ========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/include/utils.rs>`_
+View source code :source:`rust/src/include/utils.rs`
 
 .. rust:fn:: utils::read_data_file(name: &str) -> String
 

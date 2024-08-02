@@ -1,7 +1,7 @@
 Rust Implementation of Problem 13
 =================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0013.rs>`_
+View source code :source:`rust/src/p0013.rs`
 
 Problem Solution
 ----------------

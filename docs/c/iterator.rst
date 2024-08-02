@@ -1,7 +1,7 @@
 iterator.h
 ==========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/iterator.h>`_
+View source code :source:`c/src/include/iterator.h`
 
 .. c:namespace-push:: iterator
 

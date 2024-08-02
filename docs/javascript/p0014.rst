@@ -1,7 +1,7 @@
 JavaScript Implementation of Problem 14
 =======================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/p0014.js>`_
+View source code :source:`javascript/src/p0014.js`
 
 .. js:autofunction:: p0014
 

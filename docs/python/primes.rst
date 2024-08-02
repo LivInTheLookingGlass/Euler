@@ -1,7 +1,7 @@
 primes.py
 =========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/primes.py>`_
+View source code :source:`python/src/lib/primes.py`
 
 .. automodule:: python.src.lib.primes
    :members:

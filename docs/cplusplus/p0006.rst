@@ -1,7 +1,7 @@
 C++ Implementation of Problem 6
 ===============================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/src/p0006.cpp>`_
+View source code :source:`cplusplus/src/p0006.cpp`
 
 Solution
 --------

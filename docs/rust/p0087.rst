@@ -1,7 +1,7 @@
 Rust Implementation of Problem 87
 =================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/p0087.rs>`_
+View source code :source:`rust/src/p0087.rs`
 
 Includes
 --------

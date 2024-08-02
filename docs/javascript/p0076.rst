@@ -1,7 +1,7 @@
 JavaScript Implementation of Problem 76
 =======================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/p0076.js>`_
+View source code :source:`javascript/src/p0076.js`
 
 .. js:autofunction:: p0076
 

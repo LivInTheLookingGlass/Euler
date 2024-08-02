@@ -1,7 +1,7 @@
 triangle.rs
 ===========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/rust/src/include/triangle.rs>`_
+View source code :source:`rust/src/include/triangle.rs`
 
 .. rust:fn:: triangle::factorial<I>(n: u8) -> I where I: NumAssign + From<u8>
 

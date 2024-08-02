@@ -1,7 +1,7 @@
 utils.js
 ========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/lib/utils.js>`_
+View source code :source:`javascript/src/lib/utils.js`
 
 .. js:autofunction:: utils.get_data_file
 

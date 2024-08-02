@@ -1,7 +1,7 @@
 utils.py
 ========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/utils.py>`_
+View source code :source:`python/src/lib/utils.py`
 
 .. automodule:: python.src.lib.utils
    :members:

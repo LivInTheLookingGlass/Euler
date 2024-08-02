@@ -1,7 +1,7 @@
 math.js
 =======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/javascript/src/lib/math.js>`_
+View source code :source:`javascript/src/lib/math.js`
 
 .. js:autofunction:: math.factorial
 

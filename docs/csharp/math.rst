@@ -1,7 +1,7 @@
 math.cs
 =======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/csharp/include/math.cs>`_
+View source code :source:`csharp/include/math.cs`
 
 .. csharp:namespace:: Euler
 

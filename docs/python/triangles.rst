@@ -1,7 +1,7 @@
 triangles.py
 ============
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/triangles.py>`_
+View source code :source:`python/src/lib/triangles.py`
 
 .. automodule:: python.src.lib.triangles
    :members:
