@@ -15,12 +15,12 @@ ifeq ($(LINT),false)
 pytest_args?= -vl
 else
 ifeq ($(LINT),true)
-pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort -k 'not test_problem and not test_is_prime and not test_groupwise'
+pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --flake8 -k 'not test_problem and not test_is_prime and not test_groupwise'
 else
 ifeq ($(LINT),less)
 pytest_args?= -vl --isort
 else
-pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort
+pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --flake8
 endif
 endif
 endif
