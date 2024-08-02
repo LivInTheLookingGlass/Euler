@@ -76,13 +76,13 @@ dependencies for this section.
 Problems Solved
 ---------------
 
--  ☒ `1 <./Euler/0001.cs>`__
--  ☒ `2 <./Euler/0002.cs>`__
--  ☒ `4 <./Euler/0004.cs>`__
--  ☒ `6 <./Euler/0006.cs>`__
--  ☒ `8 <./Euler/0008.cs>`__
--  ☒ `9 <./Euler/0009.cs>`__
--  ☒ `11 <./Euler/0011.cs>`__
--  ☒ `17 <./Euler/0017.cs>`__
--  ☒ `836 <./Euler/0836.cs>`__
+-  ☒ `1 <./Euler/p0001.cs>`__
+-  ☒ `2 <./Euler/p0002.cs>`__
+-  ☒ `4 <./Euler/p0004.cs>`__
+-  ☒ `6 <./Euler/p0006.cs>`__
+-  ☒ `8 <./Euler/p0008.cs>`__
+-  ☒ `9 <./Euler/p0009.cs>`__
+-  ☒ `11 <./Euler/p0011.cs>`__
+-  ☒ `17 <./Euler/p0017.cs>`__
+-  ☒ `836 <./Euler/p0836.cs>`__
 
