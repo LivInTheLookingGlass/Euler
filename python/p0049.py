@@ -15,17 +15,15 @@ exhibiting this property, but there is one other 4-digit increasing sequence.
 What 12-digit number do you form by concatenating the three terms in this
 sequence?
 """
-from itertools import tee
+from itertools import takewhile, tee
 
-from lib.iters import digits
+from lib.iters import consume, digits
 from lib.primes import primes
 
 
 def main() -> int:
-    primes_at_1000 = primes()
-    for p in primes_at_1000:
-        if p > 1000:
-            break
+    primes_at_1000 = primes(10000)
+    consume(takewhile((1000).__gt__, primes_at_1000))
     primes_at_1000, pgen_1 = tee(primes_at_1000)
     for p1 in pgen_1:
         if p1 == 1487:
@@ -36,9 +34,7 @@ def main() -> int:
                 break
             pgen_2, pgen_3 = tee(pgen_2)
             for p3 in pgen_3:
-                if p3 > 10000:
-                    break
-                elif p1 - p2 < p2 - p3:
+                if p1 - p2 < p2 - p3:
                     continue
                 elif p1 - p2 > p2 - p3:
                     break

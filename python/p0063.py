@@ -16,7 +16,7 @@ def main() -> int:
     for x in range(1, 10):
         for n in range(1, 100):
             if len(str(x**n)) == n:
-                seen[x,n] = x**n
+                seen[x, n] = x**n
     return len(seen)
 
 

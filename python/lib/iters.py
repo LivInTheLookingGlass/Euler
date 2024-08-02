@@ -1,11 +1,21 @@
 from __future__ import generator_stop
 
-from itertools import count, tee
-from typing import Iterable, Iterator, Optional, Tuple, TypeVar
+from collections import deque
+from itertools import count, islice, tee
+from typing import Any, Iterable, Iterator, Optional, Tuple, TypeVar
 
 from .factors import proper_divisors
 
 T = TypeVar("T")
+
+
+def consume(iterator: Iterable[Any], n: Optional[int] = None) -> None:
+    "Advance the iterator n-steps ahead. If n is None, consume entirely. (From itertools recipes)"
+    # Use functions that consume iterators at C speed.
+    if n is None:
+        deque(iterator, maxlen=0)
+    else:
+        next(islice(iterator, n, n), None)
 
 
 def groupwise(iterable: Iterable[T], size: int) -> Iterator[Tuple[T, ...]]:

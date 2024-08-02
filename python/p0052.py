@@ -19,8 +19,8 @@ from lib.iters import digits
 
 def main() -> int:
     for x in count(1):
-        orig = { *digits(x) }
-        if all( { *digits(x * y) } == orig for y in range(2, 7)):
+        orig = {*digits(x)}
+        if all({*digits(x * y)} == orig for y in range(2, 7)):
             return x
     return -1  # pragma: no cover
 

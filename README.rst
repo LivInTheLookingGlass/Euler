@@ -19,7 +19,7 @@ Olivia's Project Euler Solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
 .. |RustClippy| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/rust-clippy.yml?logo=github&label=Clippy
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
-.. |PythonLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&label=mypy%2Bisort
+.. |PythonLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&label=Linting
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
 .. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&label=C%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C

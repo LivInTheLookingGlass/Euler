@@ -20,7 +20,7 @@ last_cached: int = cache[-1] + 2
 
 def primes(stop: Optional[int] = None) -> Iterator[int]:
     """Iterates over the prime numbers up to an (optional) limit, with caching.
-    
+
     This iterator leverages the :py:func:`modified_eratosthenes` iterator, but adds
     additional features. The biggest is a ``stop`` argument, which will prevent it
     from yielding any numbers larger than that. The next is caching of any yielded
@@ -47,9 +47,9 @@ def primes(stop: Optional[int] = None) -> Iterator[int]:
 def modified_eratosthenes() -> Iterator[int]:
     """Iterates over prime numbers using the Sieve of Eratosthenes.
 
-    This function implements the `Sieve of Eratosthenes <https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes>`_. In general,
-    it will iterate over all of the prime numbers. Below is a gif (courtesy of Wikipedia) that demonstrates the principle
-    of the sieve.
+    This function implements the `Sieve of Eratosthenes <https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes>`_. In
+    general, it will iterate over all of the prime numbers. Below is a gif (courtesy of Wikipedia) that demonstrates
+    the principle of the sieve.
 
     .. image:: https://upload.wikimedia.org/wikipedia/commons/9/94/Animation_Sieve_of_Eratosth.gif
         :alt: Any animated example of the Sieve of Eratosthenes"""

@@ -13,6 +13,7 @@ How many distinct sets containing each of the digits one through nine exactly on
 """
 from itertools import takewhile
 from math import ceil, log10
+from typing import Tuple
 
 from lib.primes import primes
 
@@ -36,44 +37,35 @@ def is_not_pandigital(*numbers: int) -> int:
     return length
 
 
+def check(*numbers: int) -> Tuple[bool, bool]:
+    """Returns two bools, indicating first whether to continue and second whether to increment answer."""
+    if numbers[-2] >= numbers[-1]:
+        return (True, False)  # otherwise we can't guarantee uniqueness
+    length = is_not_pandigital(*numbers)
+    if length == 9:
+        return (True, False)  # this means any nested loops can't be pandigital
+    if not length:
+        return (True, True)  # if this set is pandigital, skip nested loops
+    return (False, False)
+
+
+def nest(cached_primes: Tuple[int, ...], numbers: Tuple[int, ...], digits: int) -> int:
+    answer = 0
+    for x in takewhile((10**(9 - digits)).__gt__, cached_primes):
+        cont, inc = check(*numbers, x)
+        answer += inc
+        x_digits = digits + int(ceil(log10(x)))
+        if not cont and len(numbers) < 6:
+            answer += nest(cached_primes, (*numbers, x), x_digits)
+    return answer
+
+
 def main() -> int:
     answer = 0
-
-    def check(*numbers: int) -> bool:
-        """Modifies answer if necessary, then returns True if you need to continue"""
-        if numbers[-2] >= numbers[-1]:
-            return True  # otherwise we can't guarantee uniqueness
-        length = is_not_pandigital(*numbers)
-        if length == 9:
-            return True  # this means any nested loops can't be pandigital
-        if not length:
-            nonlocal answer
-            answer += 1
-            return True  # if this set is pandigital, skip nested loops
-        return False
-
     cached_primes = tuple(primes(98765432))  # should be largest eligible number
     for a in takewhile((10**5).__gt__, cached_primes):
-        a_digits = ceil(log10(a))
-        for b in takewhile((10**(9 - a_digits)).__gt__, cached_primes):
-            if check(a, b):
-                continue
-            b_digits = a_digits + ceil(log10(b))
-            for c in takewhile((10**(9 - b_digits)).__gt__, cached_primes):
-                if check(a, b, c):
-                    continue
-                c_digits = b_digits + ceil(log10(c))
-                for d in takewhile((10**(9 - c_digits)).__gt__, cached_primes):
-                    if check(a, b, c, d):
-                        continue
-                    d_digits = c_digits + ceil(log10(d))
-                    for e in takewhile((10**(9 - d_digits)).__gt__, cached_primes):
-                        if check(a, b, c, d, e):
-                            continue
-                        e_digits = d_digits + ceil(log10(e))
-                        for f in takewhile((10**(9 - e_digits)).__gt__, cached_primes):
-                            if check(a, b, c, d, e, f):
-                                continue
+        a_digits = int(ceil(log10(a)))
+        answer += nest(cached_primes, (a, ), a_digits)
     return answer
 
 
