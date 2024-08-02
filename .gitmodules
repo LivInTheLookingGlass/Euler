@@ -1,9 +1,9 @@
 [submodule "c/Unity"]
-	path = c/Unity
+	path = c/src/Unity
 	url = https://github.com/ThrowTheSwitch/Unity
 [submodule "cplusplus/Unity"]
 	path = cplusplus/Unity
 	url = https://github.com/ThrowTheSwitch/Unity
 [submodule "c/wasi-libc"]
-	path = c/wasi-libc
+	path = c/src/wasi-libc
 	url = https://github.com/CraneStation/wasi-libc.git

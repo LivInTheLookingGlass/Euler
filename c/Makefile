@@ -37,19 +37,19 @@ dependencies: submodules
 	$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 lint:
-	if test -z "$(clang-tidy p0000_template.c -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
-		clang-tidy *.c -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
+	if test -z "$(clang-tidy src/p0000_template.c -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
+		clang-tidy src/*.c -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
 	else \
-		clang-tidy *.c; \
+		clang-tidy src/*.c; \
 	fi
 
 native:
-	$(CC) test.c Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
+	$(CC) test.c src/Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
 
 clean:
 	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
 
 wasm:
-	cd wasi-libc && $(MAKE) install $(MFLAGS) INSTALL_DIR=/tmp/wasi-libc
+	cd src/wasi-libc && $(MAKE) install $(MFLAGS) INSTALL_DIR=/tmp/wasi-libc
 	mkdir -p build
-	clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm p*.c
+	clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c

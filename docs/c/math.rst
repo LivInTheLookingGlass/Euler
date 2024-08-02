@@ -1,6 +1,8 @@
 math.h
 ======
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/math.h>`_
+
 .. c:namespace-push:: math
     
 .. c:function:: uintmax_t factorial(unsigned int n)
@@ -31,3 +33,7 @@ math.h
                 uintmax_t ceil(double x)
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/math.h
+   :language: C
+   :linenos:

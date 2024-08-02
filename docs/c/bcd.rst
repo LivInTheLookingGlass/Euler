@@ -1,6 +1,8 @@
 bcd.h
 =====
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/bcd.h>`_
+
 This library implements a `Binary Coded Decimal <https://en.wikipedia.org/wiki/Binary-coded_decimal>`__ object in C. Mostly
 this is done to prove that I could, but also because it allows for incredibly easy printing of arbitrary-sized integers.
 It was also a good exercise in x86 assembly, as several portions are accellerated by handcrafted assembly.
@@ -111,3 +113,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
     Convenience method to multiply a digit pair.
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/bcd.h
+   :language: C
+   :linenos:

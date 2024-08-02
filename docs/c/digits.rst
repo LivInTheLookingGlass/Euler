@@ -1,6 +1,8 @@
 digits.h
 ========
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/digits.h>`_
+
 .. c:namespace-push:: digits
 
 .. c:type:: digit_counter
@@ -37,3 +39,7 @@ digits.h
 .. c:function:: void free_digit_counter(digit_counter dc)
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/digits.h
+   :language: C
+   :linenos:

@@ -1,7 +1,7 @@
 C Implementation of Problem 12
 ==============================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/p0012.c>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/p0012.c>`_
 
 .. note::
 
@@ -25,6 +25,6 @@ Solution
       This function is only present in the Python test runner, or when compiling as a standalone program.
       It is not present when compiling for the Unity test runner.
 
-.. literalinclude:: ../../c/p0012.c
+.. literalinclude:: ../../c/src/p0012.c
    :language: C
    :linenos:

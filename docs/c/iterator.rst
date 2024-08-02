@@ -1,6 +1,8 @@
 iterator.h
 ==========
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/iterator.h>`_
+
 .. c:namespace-push:: iterator
 
 .. c:macro:: IteratorHead(return_type, struct_type)
@@ -99,3 +101,7 @@ iterator.h
 .. c:function:: counter counter1(uintmax_t stop)
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/iterator.h
+   :language: C
+   :linenos:

@@ -158,7 +158,7 @@ if 'CLANG' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
     CLANG_ARCH = '-march=native' * (not run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
 
-SOURCE_TEMPLATE = "{}{}p{{:0>4}}.c".format(C_FOLDER, sep)
+SOURCE_TEMPLATE = "{}{}src{}p{{:0>4}}.c".format(C_FOLDER, sep, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
@@ -234,7 +234,7 @@ def test_is_prime(benchmark, compiler):
     from src.lib.primes import is_prime, prime_factors, primes
     MAX_PRIME = 1_000_000
     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
-    test_path = C_FOLDER.joinpath("tests", "test_is_prime.c")
+    test_path = C_FOLDER.joinpath("src", "tests", "test_is_prime.c")
     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
     check_call(args.split())
     with TemporaryFile('wb+') as f:

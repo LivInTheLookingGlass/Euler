@@ -1,6 +1,8 @@
 primes.h
 ========
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/primes.h>`_
+
 .. c:namespace-push:: primes
 
 .. c:type:: prime_counter
@@ -133,3 +135,7 @@ primes.h
     Tests if a number is prime.
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/primes.h
+   :language: C
+   :linenos:

@@ -1,6 +1,8 @@
 factors.h
 =========
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/factors.h>`_
+
 This file implements an :c:macro:`Iterator <IteratorHead>` that yields proper
 factors for a given number. It is generally used by first calling
 :c:func:`proper_divisor_count` and the :c:macro:`next`/:c:macro:`next_p` functions.
@@ -28,3 +30,7 @@ factors for a given number. It is generally used by first calling
 .. c:function:: uintmax_t proper_divisor_count(uintmax_t target)
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/factors.h
+   :language: C
+   :linenos:

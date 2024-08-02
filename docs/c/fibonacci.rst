@@ -1,6 +1,8 @@
 fibonacci.h
 ===========
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/c/src/include/fibonacci.h>`_
+
 .. c:namespace-push:: fibonacci
 
 .. c:type:: fibonacci
@@ -36,3 +38,7 @@ fibonacci.h
 .. c:function:: fibonacci fibonacci0()
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../c/src/include/fibonacci.h
+   :language: C
+   :linenos:
