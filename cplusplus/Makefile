@@ -28,18 +28,22 @@ test_%: dependencies
 test: dependencies
 	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
+submodules:
+	git submodule init
+	git submodule update
+
 dependencies:
 	$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 lint:
-	if test -z "$(clang-tidy p0000_template.cpp -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
-		clang-tidy *.cpp -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
+	if test -z "$(clang-tidy src/p0000_template.cpp -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
+		clang-tidy src/*.cpp -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
 	else \
-		clang-tidy *.cpp; \
+		clang-tidy src/*.cpp; \
 	fi
 
-native:
-	$(CXX) test.cpp ./Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
+native: submodules
+	$(CXX) test.cpp Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
 
 clean:
 	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo

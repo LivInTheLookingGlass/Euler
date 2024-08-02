@@ -43,13 +43,13 @@ lint:
 		clang-tidy src/*.c; \
 	fi
 
-native:
-	$(CC) test.c src/Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
+native: submodules
+	$(CC) test.c Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
 
 clean:
 	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
 
-wasm:
-	cd src/wasi-libc && $(MAKE) install $(MFLAGS) INSTALL_DIR=/tmp/wasi-libc
+wasm: submodules
+	cd wasi-libc && $(MAKE) install $(MFLAGS) INSTALL_DIR=/tmp/wasi-libc
 	mkdir -p build
 	clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c
