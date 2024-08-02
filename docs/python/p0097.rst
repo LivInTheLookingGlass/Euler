@@ -1,15 +1,15 @@
 Python Implementation of Problem 97
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0097.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0097.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0097
+.. automodule:: python.src.p0097
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0097.py
+.. literalinclude:: ../../python/src/p0097.py
    :language: python
    :linenos:

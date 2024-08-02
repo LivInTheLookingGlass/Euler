@@ -1,4 +1,5 @@
-import gc
+from gc import collect as gc_collect
+from importlib import import_module
 from os import environ
 from pathlib import Path
 from shutil import which
@@ -12,8 +13,8 @@ from umsgpack import load
 PY_FOLDER = Path(__file__).parent
 path.append(str(PY_FOLDER))
 
-from lib.iters import groupwise  # noqa: E402  # isort:skip
-from lib.primes import is_prime, primes  # noqa: E402  # isort:skip
+from src.lib.iters import groupwise  # noqa: E402  # isort:skip
+from src.lib.primes import is_prime, primes  # noqa: E402  # isort:skip
 
 answers: Dict[int, Union[int, str]] = {
     1: 233168,
@@ -168,14 +169,14 @@ def test_is_prime(benchmark: Any) -> None:
 def test_problem(benchmark: Any, key: int) -> None:
     if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
         skip()
-    test_func: Callable[[], Union[int, str]] = __import__("p{:0>4}".format(key)).main
+    test_func: Callable[[], Union[int, str]] = import_module("src.p{:0>4}".format(key)).main
     if key in known_slow:
         answer = benchmark.pedantic(test_func, iterations=1, rounds=1)
     else:
         answer = benchmark(test_func)
     assert answers[key] == answer
     del test_func
-    gc.collect()
+    gc_collect()
     # sometimes benchmark disables itself, so check for .stats
     if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = cast(Callable[[str], None], xfail if key in known_slow else fail)

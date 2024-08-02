@@ -1,7 +1,7 @@
 Python Implementation of Problem 58
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0058.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0058.py>`_
 
 Includes
 --------
@@ -11,11 +11,11 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0058
+.. automodule:: python.src.p0058
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0058.py
+.. literalinclude:: ../../python/src/p0058.py
    :language: python
    :linenos:
 

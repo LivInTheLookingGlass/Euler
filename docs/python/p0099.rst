@@ -1,7 +1,7 @@
 Python Implementation of Problem 99
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0099.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0099.py>`_
 
 Includes
 --------
@@ -11,11 +11,11 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0099
+.. automodule:: python.src.p0099
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0099.py
+.. literalinclude:: ../../python/src/p0099.py
    :language: python
    :linenos:
 

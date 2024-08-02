@@ -1,7 +1,7 @@
 Python Implementation of Problem 41
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0041.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0041.py>`_
 
 Includes
 --------
@@ -12,10 +12,10 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0041
+.. automodule:: python.src.p0041
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0041.py
+.. literalinclude:: ../../python/src/p0041.py
    :language: python
    :linenos:

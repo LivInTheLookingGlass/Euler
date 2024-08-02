@@ -1,15 +1,15 @@
 Python Implementation of Problem 14
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0014.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0014.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0014
+.. automodule:: python.src.p0014
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0014.py
+.. literalinclude:: ../../python/src/p0014.py
    :language: python
    :linenos:

@@ -1,13 +1,13 @@
 primes.py
 =========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/lib/primes.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/primes.py>`_
 
-.. automodule:: python.lib.primes
+.. automodule:: python.src.lib.primes
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/lib/primes.py
+.. literalinclude:: ../../python/src/lib/primes.py
    :language: python
    :linenos:
 

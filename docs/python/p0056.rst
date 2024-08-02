@@ -1,7 +1,7 @@
 Python Implementation of Problem 56
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0056.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0056.py>`_
 
 Includes
 --------
@@ -11,10 +11,10 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0056
+.. automodule:: python.src.p0056
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0056.py
+.. literalinclude:: ../../python/src/p0056.py
    :language: python
    :linenos:

@@ -1,15 +1,15 @@
 Python Implementation of Problem 24
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0024.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0024.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0024
+.. automodule:: python.src.p0024
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0024.py
+.. literalinclude:: ../../python/src/p0024.py
    :language: python
    :linenos:

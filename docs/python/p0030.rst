@@ -1,15 +1,15 @@
 Python Implementation of Problem 30
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0030.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0030.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0030
+.. automodule:: python.src.p0030
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0030.py
+.. literalinclude:: ../../python/src/p0030.py
    :language: python
    :linenos:

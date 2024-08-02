@@ -1,13 +1,13 @@
 math.py
 =======
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/lib/math.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/math.py>`_
 
-.. automodule:: python.lib.math
+.. automodule:: python.src.lib.math
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/lib/math.py
+.. literalinclude:: ../../python/src/lib/math.py
    :language: python
    :linenos:
 

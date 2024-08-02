@@ -1,15 +1,15 @@
 Python Implementation of Problem 9
 ==================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0009.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0009.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0009
+.. automodule:: python.src.p0009
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0009.py
+.. literalinclude:: ../../python/src/p0009.py
    :language: python
    :linenos:

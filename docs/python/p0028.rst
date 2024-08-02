@@ -1,16 +1,16 @@
 Python Implementation of Problem 28
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0028.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0028.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0028
+.. automodule:: python.src.p0028
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0028.py
+.. literalinclude:: ../../python/src/p0028.py
    :language: python
    :linenos:
 

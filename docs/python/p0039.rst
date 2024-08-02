@@ -1,15 +1,15 @@
 Python Implementation of Problem 39
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0039.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0039.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0039
+.. automodule:: python.src.p0039
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0039.py
+.. literalinclude:: ../../python/src/p0039.py
    :language: python
    :linenos:

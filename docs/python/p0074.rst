@@ -1,7 +1,7 @@
 Python Implementation of Problem 74
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0074.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0074.py>`_
 
 Includes
 --------
@@ -11,10 +11,10 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0074
+.. automodule:: python.src.p0074
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0074.py
+.. literalinclude:: ../../python/src/p0074.py
    :language: python
    :linenos:

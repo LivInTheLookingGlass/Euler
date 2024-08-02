@@ -1,15 +1,15 @@
 Python Implementation of Problem 6
 ==================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0006.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0006.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0006
+.. automodule:: python.src.p0006
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0006.py
+.. literalinclude:: ../../python/src/p0006.py
    :language: python
    :linenos:

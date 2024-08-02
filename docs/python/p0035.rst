@@ -1,7 +1,7 @@
 Python Implementation of Problem 35
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0035.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0035.py>`_
 
 Includes
 --------
@@ -11,10 +11,10 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0035
+.. automodule:: python.src.p0035
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0035.py
+.. literalinclude:: ../../python/src/p0035.py
    :language: python
    :linenos:

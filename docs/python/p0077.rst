@@ -1,7 +1,7 @@
 Python Implementation of Problem 77
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0077.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0077.py>`_
 
 Includes
 --------
@@ -11,10 +11,10 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.p0077
+.. automodule:: python.src.p0077
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0077.py
+.. literalinclude:: ../../python/src/p0077.py
    :language: python
    :linenos:

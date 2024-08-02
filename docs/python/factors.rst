@@ -1,13 +1,13 @@
 factors.py
 ==========
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/lib/factors.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/lib/factors.py>`_
 
-.. automodule:: python.lib.factors
+.. automodule:: python.src.lib.factors
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/lib/factors.py
+.. literalinclude:: ../../python/src/lib/factors.py
    :language: python
    :linenos:
 

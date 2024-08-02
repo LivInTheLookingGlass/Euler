@@ -1,15 +1,15 @@
 Python Implementation of Problem 45
 ===================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0045.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0045.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0045
+.. automodule:: python.src.p0045
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0045.py
+.. literalinclude:: ../../python/src/p0045.py
    :language: python
    :linenos:

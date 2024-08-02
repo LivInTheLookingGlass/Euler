@@ -1,16 +1,16 @@
 Python Implementation of Problem 1
 ==================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/p0001.py>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/python/src/p0001.py>`_
 
 Problem Solution
 ----------------
 
-.. automodule:: python.p0001
+.. automodule:: python.src.p0001
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../python/p0001.py
+.. literalinclude:: ../../python/src/p0001.py
    :language: python
    :linenos:
 
