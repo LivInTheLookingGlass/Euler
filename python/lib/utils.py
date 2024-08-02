@@ -1,9 +1,10 @@
 from pathlib import Path
 from typing import Any, overload
+
 try:
     from typing import Literal
 except ImportError:
-    from typing_extensions import Literal
+    from typing_extensions import Literal  # type: ignore
 
 
 @overload
