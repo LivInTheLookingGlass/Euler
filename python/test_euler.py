@@ -120,7 +120,9 @@ except Exception:
     _parsed_NO_OPTIONAL_TESTS = _raw_NO_OPTIONAL_TESTS
 
 if _parsed_NO_SLOW and _parsed_ONLY_SLOW:
-    warn("Test suite told to ignore slow tests AND run only slow tests. Ignoring conflicing options")
+    warn(
+        "Test suite told to ignore slow tests AND run only slow tests. Ignoring conflicing options"
+    )  # pragma: no cover
 
 # if in Termux, default to NO_SLOW, but allow users to explicitly override that decision
 NO_SLOW = ((IN_TERMUX and _parsed_NO_SLOW is None) or _parsed_NO_SLOW) and not _parsed_ONLY_SLOW

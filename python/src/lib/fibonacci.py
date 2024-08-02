@@ -1,5 +1,6 @@
-
 from typing import Iterator
+
+from .iters import consume
 
 
 def fib() -> Iterator[int]:
@@ -25,10 +26,7 @@ def fib_by_3(start_index: int = 0) -> Iterator[int]:
     """
     orig = fib()
     a = 0
-    if start_index:
-        for _ in range(start_index - 1):
-            next(orig)
-        a = next(orig)
+    consume(orig, start_index)
     next(orig)  # start + 1
     next(orig)  # start + 2
     b = next(orig)  # start + 3

@@ -132,6 +132,8 @@ intersphinx_mapping = {
     'coverage':         ('https://coverage.readthedocs.io/en/latest/', None)
 }
 
+autodoc_member_order = 'bysource'
+
 def setup(app):
     try:
         langs = linguist(basedir)

@@ -31,9 +31,7 @@ def main() -> int:
         if p < min_p or n & 1 == 0:  # Seems to always produce remainder of 2?
             continue
         base = ((p-1)**n + (p+1)**n)
-        if base < ten_ten:
-            continue
-        elif base % (p * p) > ten_ten:
+        if base % (p * p) > ten_ten:
             return n
     return -1  # pragma: no cover
 

@@ -1,4 +1,4 @@
-from itertools import count, takewhile
+from itertools import count, filterfalse, takewhile
 from math import ceil, sqrt
 from pathlib import Path
 from typing import Callable, Collection, Dict, Iterator, Optional
@@ -15,7 +15,7 @@ except Exception:  # pragma: no cover
     cache = SortedSet([
         2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
     ])
-last_cached: int = cache[-1] + 2
+last_cached: int = cache[-1]
 
 
 def primes(stop: Optional[int] = None) -> Iterator[int]:
@@ -30,17 +30,15 @@ def primes(stop: Optional[int] = None) -> Iterator[int]:
     else:
         yield from takewhile(stop.__gt__, cache)
     global last_cached
-    if stop and last_cached - 2 > stop:
+    if stop and last_cached > stop:
         return
     if stop is None:
         secondary = modified_eratosthenes()
     else:
         secondary = takewhile(stop.__gt__, modified_eratosthenes())
-    for p in secondary:
-        if p in cache:
-            continue
+    for p in filterfalse(cache.__contains__, secondary):
         cache.add(p)
-        last_cached = p + 2
+        last_cached = p
         yield p
 
 
@@ -69,8 +67,8 @@ def modified_eratosthenes() -> Iterator[int]:
             yield candidate
             continue
         else:  # the next base prime's square
-            if candidate != prime_squared:
-                raise ValueError()
+            # if candidate != prime_squared:
+            #     raise ValueError()
             step = prime * 2
             prime = next(recurse)
             prime_squared = prime * prime

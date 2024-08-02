@@ -15,6 +15,22 @@ def lattice_paths(height: int, width: int) -> int:
     return n_choose_r(height + width, height)
 
 
+def mul_inv(a: int, b: int) -> int:
+    """Multiplicative inverse for modulo numbers"""
+    if b == 1:
+        return 1
+    b0: int = b
+    x0: int = 0
+    x1: int = 1
+    while a > 1:
+        q: int = a // b
+        a, b = b, a % b
+        x0, x1 = x1 - q * x0, x0
+    if x1 < 0:
+        return x1 + b0
+    return x1
+
+
 def n_choose_r(n: int, r: int) -> int:
     """Enumerate the number of ways to pick r elements from a collection of size n."""
     return factorial(n) // factorial(r) // factorial(n - r)

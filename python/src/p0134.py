@@ -22,23 +22,8 @@ by p1 and n is divisible by p2. Let S be the smallest of these values of n.
 
 Find ∑ S for every pair of consecutive primes with 5 ≤ p1 ≤ 1000000.
 """
+from .lib.math import mul_inv
 from .lib.primes import primes
-
-
-def mul_inv(a: int, b: int) -> int:
-    """Multiplicative inverse for modulo numbers"""
-    if b == 1:
-        return 1
-    b0: int = b
-    x0: int = 0
-    x1: int = 1
-    while a > 1:
-        q: int = a // b
-        a, b = b, a % b
-        x0, x1 = x1 - q * x0, x0
-    if x1 < 0:
-        return x1 + b0
-    return x1
 
 
 def main() -> int:

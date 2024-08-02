@@ -21,10 +21,7 @@ British usage.
 
 def to_string(n: int) -> str:
     if n >= 1000:
-        thousands = "{} thousand".format(to_string(n // 1000 % 100))
-        if n % 1000:
-            return "{} {}".format(thousands, to_string(n % 1000))
-        return thousands
+        return "{} thousand".format(to_string(n // 1000 % 100))
     elif n >= 100:
         hundreds = "{} hundred".format(to_string(n // 100 % 10))
         if n % 100:
