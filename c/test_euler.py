@@ -139,11 +139,11 @@ CL_NO_64 = False
 if 'CL' in compilers:
     OBJ_FOLDER = BUILD_FOLDER.joinpath('objs')
     OBJ_FOLDER.mkdir(exist_ok=True)
-    _test_file = str(C_FOLDER.joinpath('assertions', 'x64_assert.c'))
+    _test_file = str(C_FOLDER.joinpath('src', 'assertions', 'x64_assert.c'))
     _test_exe = str(BUILD_FOLDER.joinpath('test_cl_64_support.out'))
     CL_NO_64 = not (run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), str(_test_file)]).returncode)
 
-_test_file = str(C_FOLDER.joinpath('p0000_template.c'))
+_test_file = str(C_FOLDER.joinpath('src', 'p0000_template.c'))
 GCC_NO_64 = False
 if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
@@ -201,18 +201,18 @@ def key(request):  # type: ignore
 
 
 # to make sure the benchmarks sort correctly
-@fixture(params=sorted(chain(listdir(C_FOLDER.joinpath("tests")), ("{:03}".format(x) for x in answers))))
+@fixture(params=sorted(chain(listdir(C_FOLDER.joinpath("src", "tests")), ("{:03}".format(x) for x in answers))))
 def c_file(request):  # type: ignore
     try:
         return SOURCE_TEMPLATE.format(int(request.param))
     except Exception:
-        return C_FOLDER.joinpath("tests", request.param)
+        return C_FOLDER.joinpath("src", "tests", request.param)
 
 
 @mark.skipif('NO_OPTIONAL_TESTS')
 def test_compiler_macros(compiler):
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
-    test_path = C_FOLDER.joinpath("tests", "test_compiler_macros.c")
+    test_path = C_FOLDER.joinpath("src", "tests", "test_compiler_macros.c")
     check_call(templates[compiler].format(test_path, exename).split())
     buff = check_output([exename])
     flags = [bool(int(x)) for x in buff.split()]

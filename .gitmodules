@@ -2,7 +2,7 @@
 	path = c/src/Unity
 	url = https://github.com/ThrowTheSwitch/Unity
 [submodule "cplusplus/Unity"]
-	path = cplusplus/Unity
+	path = cplusplus/src/Unity
 	url = https://github.com/ThrowTheSwitch/Unity
 [submodule "c/wasi-libc"]
 	path = c/src/wasi-libc

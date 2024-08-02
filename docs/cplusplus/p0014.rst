@@ -1,7 +1,7 @@
 C++ Implementation of Problem 14
 ================================
 
-View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/p0014.cpp>`_
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/src/p0014.cpp>`_
 
 Includes
 --------
@@ -19,6 +19,6 @@ Solution
       
       This function is only present in the Python test runner, or when compiling as a standalone program.
 
-.. literalinclude:: ../../cplusplus/p0014.cpp
+.. literalinclude:: ../../cplusplus/src/p0014.cpp
    :language: C++
    :linenos:

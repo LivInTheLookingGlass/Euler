@@ -131,11 +131,11 @@ CL_NO_64 = False
 if 'CL' in compilers:
     OBJ_FOLDER = BUILD_FOLDER.joinpath('objs')
     OBJ_FOLDER.mkdir(parents=True, exist_ok=True)
-    _test_file = str(CPP_FOLDER.joinpath('assertions', 'x64_assert.cpp'))
+    _test_file = str(CPP_FOLDER.joinpath('src', 'assertions', 'x64_assert.cpp'))
     _test_exe = str(BUILD_FOLDER.joinpath('test_cl_64_support.out'))
     CL_NO_64 = not (run(['cl', '-Fe:{}'.format(_test_exe), '-Fo{}\\'.format(OBJ_FOLDER), str(_test_file)]).returncode)
 
-_test_file = str(CPP_FOLDER.joinpath('p0000_template.cpp'))
+_test_file = str(CPP_FOLDER.joinpath('src', 'p0000_template.cpp'))
 GCC_NO_64 = False
 if EXE_EXT == 'x86_64' and 'GCC' in compilers:
     # MingW GCC sometimes doesn't have 64-bit support on 64-bit targets
@@ -150,7 +150,7 @@ if 'CLANG' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
     CLANG_ARCH = '-march=native' * (not run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
 
-SOURCE_TEMPLATE = "{}{}p{{:0>4}}.cpp".format(CPP_FOLDER, sep)
+SOURCE_TEMPLATE = "{}{}src{}p{{:0>4}}.cpp".format(CPP_FOLDER, sep, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
@@ -189,18 +189,18 @@ def key(request):  # type: ignore
 
 
 # to make sure the benchmarks sort correctly
-@fixture(params=sorted(chain(listdir(CPP_FOLDER.joinpath("tests")), ("{:03}".format(x) for x in answers))))
+@fixture(params=sorted(chain(listdir(CPP_FOLDER.joinpath("src", "tests")), ("{:03}".format(x) for x in answers))))
 def c_file(request):  # type: ignore
     try:
         return SOURCE_TEMPLATE.format(int(request.param))
     except Exception:
-        return CPP_FOLDER.joinpath("tests", request.param)
+        return CPP_FOLDER.joinpath("src", "tests", request.param)
 
 
 @mark.skipif('NO_OPTIONAL_TESTS')
 def test_compiler_macros(compiler):
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
-    test_path = CPP_FOLDER.joinpath("tests", "test_compiler_macros.cpp")
+    test_path = CPP_FOLDER.joinpath("src", "tests", "test_compiler_macros.cpp")
     check_call(templates[compiler].format(test_path, exename).split())
     buff = check_output([exename])
     flags = [bool(int(x)) for x in buff.split()]
@@ -220,7 +220,7 @@ def test_compiler_macros(compiler):
 #     from src.lib.primes import is_prime, prime_factors, primes
 #     MAX_PRIME = 1_000_000
 #     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
-#     test_path = CPP_FOLDER.joinpath("tests", "test_is_prime.cpp")
+#     test_path = CPP_FOLDER.joinpath("src", "tests", "test_is_prime.cpp")
 #     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
 #     check_call(args.split())
 #     with TemporaryFile('wb+') as f:

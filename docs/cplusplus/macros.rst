@@ -1,6 +1,8 @@
 macros.h
 ========
 
+View source code `here on GitHub! <https://github.com/LivInTheLookingGlass/Euler/blob/master/cplusplus/src/include/macros.h>`_
+
 .. c:namespace-push:: cppmacros
 
 .. c:macro:: CL_COMPILER
@@ -49,3 +51,7 @@ macros.h
              POW_OF_MAX_POW_10_128
 
 .. c:namespace-pop::
+
+.. literalinclude:: ../../cplusplus/src/include/macros.h
+   :language: C++
+   :linenos:
