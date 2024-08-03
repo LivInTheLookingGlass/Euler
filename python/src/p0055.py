@@ -29,17 +29,7 @@ NOTE: Wording was modified slightly on 24 April 2007 to emphasise the theoretica
 """
 from .lib.iters import digits
 from .lib.math import from_digits
-from .p0004 import is_palindrome
-
-
-def steps_to_palindrome(n: int, depth: int = 0) -> int:
-    """Returns a 0 if the number does not reach a palindrome in 50 or fewer steps, otherwise returns the step count"""
-    new = n + from_digits(digits(n))
-    if is_palindrome(new):
-        return depth + 1
-    elif depth == 50:
-        return 0
-    return steps_to_palindrome(new, depth=depth + 1)
+from .lib.utils import steps_to_palindrome
 
 
 def main() -> int:

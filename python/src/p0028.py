@@ -48,15 +48,7 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 """
 from typing import Tuple
 
-
-def spiral_corners(i: int) -> Tuple[int, int, int, int]:
-    r = range((2 * i - 1)**2 + 1, (2 * i + 1)**2 + 1)
-    return (
-        r[1 * 2 * i - 1],
-        r[2 * 2 * i - 1],
-        r[3 * 2 * i - 1],
-        r[4 * 2 * i - 1]
-    )
+from .lib.iters import spiral_corners
 
 
 def square_corner_sum(i: int) -> int:

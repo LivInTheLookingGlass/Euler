@@ -14,7 +14,7 @@ base 10 and base 2.
 leading zeros.)
 
 """
-from .p0004 import is_palindrome
+from .lib.utils import is_palindrome
 
 
 def bin_repr(x: int) -> str:

@@ -12,12 +12,8 @@ Organization
 ------------
 
 All files share a common prefix with their problem number. Several of
-the problems also have code leveraged as if they were a library. I am in
-the midst of moving these function into a library subfolder. That
-list is (approximately):
-
--  pp0004 for palindrome detection
--  pp0028 getting the corners of number spirals
+the problems also draw on code from the ``lib`` subfolder for those that
+require similar tools and strategies.
 
 Makefile
 --------

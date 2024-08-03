@@ -47,3 +47,13 @@ def groupwise(iterable: Iterable[T], size: int) -> Iterator[Tuple[T, ...]]:
             yield tuple(next(x) for x in iters)
     except RuntimeError:
         pass
+
+
+def spiral_corners(i: int) -> Tuple[int, int, int, int]:
+    r = range((2 * i - 1)**2 + 1, (2 * i + 1)**2 + 1)
+    return (
+        r[1 * 2 * i - 1],
+        r[2 * 2 * i - 1],
+        r[3 * 2 * i - 1],
+        r[4 * 2 * i - 1]
+    )

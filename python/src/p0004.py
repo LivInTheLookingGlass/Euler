@@ -20,11 +20,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 from itertools import combinations
 from typing import Any, Callable
 
-
-def is_palindrome(n: Any, rep_func: Callable[[Any], str] = repr) -> bool:
-    """Checks if the string representation of an object is a palindrome"""
-    r = rep_func(n)
-    return r == r[::-1]
+from .lib.utils import is_palindrome
 
 
 def main() -> int:
