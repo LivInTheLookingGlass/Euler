@@ -1,0 +1,29 @@
+C Implementation of Problem 22
+==============================
+
+View source code :source:`c/src/p0022.c`
+
+Includes
+--------
+
+- `utils.h <./utils.html>`__
+
+Solution
+--------
+
+.. c:function:: int cmpstr(const void *a, const void *b)
+
+  A wrapper around ``strcmp()`` to adapt it for ``qsort()``
+
+.. c:function:: unsigned long long p0022()
+
+.. c:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+      It is not present when compiling for the Unity test runner.
+
+.. literalinclude:: ../../c/src/p0022.c
+   :language: C
+   :linenos:

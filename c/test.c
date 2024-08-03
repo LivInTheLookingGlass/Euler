@@ -17,6 +17,7 @@
 #include "src/p0015.c"
 #include "src/p0016.c"
 #include "src/p0017.c"
+#include "src/p0022.c"
 #include "src/p0034.c"
 #include "src/p0076.c"
 #include "src/p0836.c"
@@ -44,6 +45,7 @@ const Answer answers[] = {
 	{15,	137846528820,	p0015},
 	{16,	1366,			p0016},
 	{17,	21124,			p0017},
+	{22,	871198282,			p0022},
 	{34,	40730,			p0034},
 	{76,	190569291,		(unsigned long long (*)()) p0076},
 };
