@@ -7,7 +7,7 @@
 #include <limits.h> // for PATH_MAX
 
 
-char* get_parent_directory(const char* path, const unsigned int levels) {
+char* get_parent_directory(char* path, const unsigned int levels) {
     char* dir = dirname(path);
     for (unsigned int i = 0; i < levels; ++i) {
         dir = dirname(dir);
@@ -44,7 +44,7 @@ char *get_data_file(const char *name) {
     }
 
     fseek(file, 0, SEEK_END);
-    long length = ftell(file);
+    size_t length = ftell(file);
     fseek(file, 0, SEEK_SET);
 
     char* buffer = (char*)malloc(length + 1);
@@ -54,7 +54,14 @@ char *get_data_file(const char *name) {
         return NULL;
     }
 
-    fread(buffer, 1, length, file);
+    const size_t ret_code = fread(buffer, 1, length, file);
+    if (ret_code != length) {
+        if (feof(file))
+            printf("Error reading %s: unexpected end of file, read %zu of %zu bytes expected\n", name, ret_code, length);
+        else if (ferror(file))
+            perror("Error reading data file");
+    }
+
     buffer[length] = 0;
     fclose(file);
 
