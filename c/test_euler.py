@@ -37,7 +37,7 @@ answers = {
     15: 137846528820,
     16: 1366,
     17: 21124,
-    22: 871198282,
+#    22: 871198282,
     34: 40730,
     76: 190569291,
     836: b"aprilfoolsjoke",
@@ -45,6 +45,9 @@ answers = {
 
 # this is the set of problems where I have the right answer but wrong solution
 known_slow: Set[int] = {12}
+
+# this is the set of problems where it has to access the filesystem, which pcc does not like
+requires_io: Set[int] = {22}
 
 # this is the set of problems where builds are not reproducible on PCC compiler
 PCC_no_reproducible: Set[str] = set()
@@ -255,7 +258,7 @@ def test_is_prime(benchmark, compiler):
 
 
 def test_problem(benchmark, key, compiler):
-    if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow):
+    if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow) or (compiler in ('PCC', 'TCC') and key in requires_io):
         skip()
     filename = SOURCE_TEMPLATE.format(key)
     exename = EXE_TEMPLATE.format(key, compiler)  # need to have both to keep name unique

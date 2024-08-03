@@ -3,6 +3,12 @@ C Implementation of Problem 22
 
 View source code :source:`c/src/p0022.c`
 
+.. note::
+
+   Because this proble requires file I/O, it includes the standard library.
+   Unfortunately, I have never been able to make ``pcc`` compile while including that.
+   This may change in futute releases. All other compilers are supported.
+
 Includes
 --------
 
