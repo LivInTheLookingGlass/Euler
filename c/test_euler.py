@@ -37,7 +37,7 @@ answers = {
     15: 137846528820,
     16: 1366,
     17: 21124,
-#    22: 871198282,
+    # 22: 871198282,
     34: 40730,
     76: 190569291,
     836: b"aprilfoolsjoke",
@@ -113,27 +113,23 @@ compilers: List[str] = []
 
 if 'COMPILER_OVERRIDE' in environ:
     for comp in environ['COMPILER_OVERRIDE'].upper().split(','):
-        if comp.strip().lower() in ('pcc', 'tcc'):
+        if comp.strip().lower() == 'pcc':
             compilers.append(comp)
+        elif comp.strip().lower() == 'tcc':
+            compilers.extend(f'{comp}+{std}' for std in ('c99', 'c11'))
         else:
             compilers.extend(f'{comp}+{std}' for std in STANDARDS)
 else:
     if not (IN_TERMUX and GCC_BINARY == 'gcc') and which(GCC_BINARY):  # Termux maps gcc->clang
         compilers.extend(f'GCC+{std}' for std in STANDARDS)
     if which('clang'):
-        if b'AOCC' in check_output(['clang', '--version']):
-            compilers.extend(f'AOCC+{std}' for std in STANDARDS)
-        else:
-            compilers.extend(f'CLANG+{std}' for std in STANDARDS)
-    if AOCC_BINARY != 'clang' and which(AOCC_BINARY):
-        compilers.extend(f'AOCC+{std}' for std in STANDARDS)
-    if which('icc'):
-        compilers.extend(f'ICC+{std}' for std in STANDARDS)
+        compilers.extend(f'CLANG+{std}' for std in STANDARDS)
     # if which('cl'):
     #     compilers.extend(f'CL+{std}' for std in STANDARDS)
-    for x in ('pcc', 'tcc'):
-        if which(x):
-            compilers.append(x.upper())
+    if which('pcc'):
+        compilers.append('PCC')
+    if which('tcc'):
+        compilers.extend(f'TCC+{std}' for std in ('c99', 'c11'))
 if not compilers:
     raise RuntimeError("No compilers detected!")  # pragma: no cover
 
@@ -157,7 +153,7 @@ if EXE_EXT == 'x86_64' and 'GCC' in compilers:
 
 CLANG_LINK_MATH = CLANG_ARCH = ''
 if not IN_WINDOWS:
-    CLANG_LINK_MATH = '-lm'
+    CLANG_LINK_MATH = '-lm '
 if 'CLANG' in compilers:
     _test_exe = str(BUILD_FOLDER.joinpath('test_clang_arch_native.out'))
     CLANG_ARCH = '-march=native' * (not run(['clang', _test_file, '-O0', '-march=native', '-o', _test_exe]).returncode)
@@ -173,18 +169,17 @@ if environ.get('COV') == 'true':
     CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' --coverage'
 
 templates = {
-    'TCC': "tcc -lm -Wall -Werror -o {1} {0}",
     'PCC': "pcc -O2 -o {1} {0}",
 }
 for std in STANDARDS:
     templates.update({
-        f'GCC+{std}': GCC_TEMPLATE.format(GCC_BINARY, std),
-        f'CLANG+{std}': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=0'),
-        f'ICC+{std}': GCC_TEMPLATE.format('icc', std),
-        f'AOCC+{std}': CLANG_TEMPLATE.format(AOCC_BINARY, CLANG_LINK_MATH, CLANG_ARCH, std, '-DAMD_COMPILER=1'),
+        f'GCC+{std}': GCC_TEMPLATE.format(GCC_BINARY, std.replace('c', 'gnu')),
+        f'CLANG+{std}': CLANG_TEMPLATE.format('clang', CLANG_LINK_MATH, CLANG_ARCH, std.replace('c', 'gnu'), '-DAMD_COMPILER=0'),
     })
     if std in ('c11', 'c17'):
         templates[f'CL+{std}'] = "cl -Fe:{{1}} -Fo{}\\ /std:{} -O2 -GL -GF -GW -Brepro -TC {{0}}".format(BUILD_FOLDER.joinpath('objs'), std)
+    if std in ('c99', 'c11'):
+        templates[f'TCC+{std}'] = "tcc -lm -std={} -Wall -Werror -o {{1}} {{0}}".format(std)
 
 
 @register
@@ -224,13 +219,11 @@ def test_compiler_macros(compiler):
     assert flags[0] == compiler.startswith("CL+")
     assert flags[1] == compiler.startswith("CLANG")
     assert flags[2] == compiler.startswith("GCC")
-    assert flags[3] == compiler.startswith("ICC")
-    assert flags[4] == compiler.startswith("AOCC")
-    assert flags[5] == compiler.startswith("PCC")
-    assert flags[6] == compiler.startswith("TCC")
-    assert flags[7] == (EXE_EXT == "x86" or expect_32)
-    assert flags[8] == (EXE_EXT == "x86_64" and not expect_32)
-    assert flags[9] == (EXE_EXT not in ("x86", "x86_64", "exe"))
+    assert flags[3] == compiler.startswith("PCC")
+    assert flags[4] == compiler.startswith("TCC")
+    assert flags[5] == (EXE_EXT == "x86" or expect_32)
+    assert flags[6] == (EXE_EXT == "x86_64" and not expect_32)
+    assert flags[7] == (EXE_EXT not in ("x86", "x86_64", "exe"))
 
 
 @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
@@ -253,12 +246,12 @@ def test_is_prime(benchmark, compiler):
             assert idx == -1 or prime_cache[idx] == num
 
     # sometimes benchmark disables itself, so check for .stats
-    if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
+    if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
         fail("Exceeding 200ns average! (time={}s)".format(benchmark.stats.stats.max))
 
 
 def test_problem(benchmark, key, compiler):
-    if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow) or (compiler in ('PCC', 'TCC') and key in requires_io):
+    if (NO_SLOW and key in known_slow) or (ONLY_SLOW and key not in known_slow) or (compiler == 'PCC' and key in requires_io):
         skip()
     filename = SOURCE_TEMPLATE.format(key)
     exename = EXE_TEMPLATE.format(key, compiler)  # need to have both to keep name unique

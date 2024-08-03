@@ -24,7 +24,7 @@ help:
 
 test_%: submodules dependencies
 	cd ../python; $(MAKE) dependencies $(MFLAGS)
-	$(PY) -m pytest -vl -n$* test_euler.py --cov
+	$(PY) -m pytest -dvl -n$* test_euler.py --cov
 
 test: submodules dependencies
 	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
@@ -44,12 +44,12 @@ lint:
 	fi
 
 native: submodules
-	$(CC) test.c Unity/src/unity.c -O2 -lm -Wall -Werror -std=c11 -march=native -flto -DAMD_COMPILER=0
+	$(CC) test.c Unity/src/unity.c -O2 -lm -lc -Wall -Werror -march=native -flto -DAMD_COMPILER=0
 
 clean:
 	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
 
 wasm: submodules
-	cd wasi-libc && $(MAKE) install $(MFLAGS) INSTALL_DIR=/tmp/wasi-libc
+	wget https://github.com/jedisct1/libclang_rt.builtins-wasm32.a -O wasm32.a
 	mkdir -p build
 	clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c

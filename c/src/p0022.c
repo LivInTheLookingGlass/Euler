@@ -37,6 +37,7 @@ unsigned long long p0022() {
         pi = ++i;
     } while (fstring[i]);
     qsort(names, sizeof(names)/sizeof(*names), sizeof(*names), cmpstr);
+    qsort(names, sizeof(names)/sizeof(*names), sizeof(*names), cmpstr);
     for (idx = 0; idx < name_count; idx++) {
         unsigned long score = 0;
         for (i = 0; names[idx][i]; i++) {

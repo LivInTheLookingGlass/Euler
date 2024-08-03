@@ -1,10 +1,7 @@
 #pragma once
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <libgen.h>
-#include <unistd.h> // for getcwd, chdir
-#include <limits.h> // for PATH_MAX
 
 
 char* get_parent_directory(char* path, const unsigned int levels) {
@@ -27,7 +24,6 @@ char *get_data_file(const char *name) {
         perror("realpath");
     }
     char* parents_dir = get_parent_directory(absolute_path, 3);
-    free(absolute_path);
     const size_t p_len = strlen(parents_dir),
     name_len = strlen(name);
     char *file_path = (char *)malloc(p_len + name_len + 8);
@@ -35,8 +31,9 @@ char *get_data_file(const char *name) {
     memcpy(file_path + p_len, "/_data/", 7);
     memcpy(file_path + p_len + 7, name, name_len);
     file_path[p_len + name_len + 7] = 0;
-//    free(parents_dir);
     FILE* file = fopen(file_path, "r");
+    free(absolute_path);
+//    free(parents_dir);
     free(file_path);
     if (!file) {
         perror("fopen");

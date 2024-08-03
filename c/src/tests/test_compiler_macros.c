@@ -3,12 +3,10 @@
 
 int main(int argc, char const *argv[]) {
     printf(
-        "%d %d %d %d %d %d %d %d %d %d",
+        "%d %d %d %d %d %d %d %d",
         CL_COMPILER,
         CLANG_COMPILER,
         GCC_COMPILER,
-        INTEL_COMPILER,
-        AMD_COMPILER,
         PCC_COMPILER,
         TCC_COMPILER,
         X86_COMPILER,

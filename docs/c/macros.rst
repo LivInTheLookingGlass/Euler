@@ -8,8 +8,6 @@ View source code :source:`c/src/include/macros.h`
 .. c:macro:: CL_COMPILER
              CLANG_COMPILER
              GCC_COMPILER
-             INTEL_COMPILER
-             AMD_COMPILER
              PCC_COMPILER
              TCC_COMPILER
 
@@ -28,13 +26,6 @@ View source code :source:`c/src/include/macros.h`
              ARM_THUMB
 
     These macros attempt to detect the architecture the program is being compiled for.
-
-.. c:macro:: static
-
-    .. note::
-
-        This macro only exists on ``pcc`` because it does not allow reproducible builds
-        with static variables.
 
 .. c:macro:: max(a, b)
              min(a, b)

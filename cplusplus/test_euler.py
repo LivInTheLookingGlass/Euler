@@ -235,7 +235,7 @@ def test_compiler_macros(compiler):
 #             assert idx == -1 or prime_cache[idx] == num
 
 #     # sometimes benchmark disables itself, so check for .stats
-#     if hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
+#     if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
 #         fail("Exceeding 200ns average! (time={}s)".format(benchmark.stats.stats.max))
 
 

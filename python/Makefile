@@ -51,7 +51,7 @@ test: dependencies _test
 	$(PY) -m pytest $(pytest_args) $(benchmark_flags)
 
 test_%: dependencies
-	$(PY) -m pytest $(pytest_args) -n$*
+	$(PY) -m pytest $(pytest_args) -d -n$*
 
 _test:
 
