@@ -18,7 +18,6 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 """
 from itertools import combinations
-from typing import Any, Callable
 
 from .lib.utils import is_palindrome
 

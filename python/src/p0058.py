@@ -22,8 +22,8 @@ diagonals first falls below 10%?
 """
 from itertools import count
 
-from .lib.primes import is_prime
 from .lib.iters import spiral_corners
+from .lib.primes import is_prime
 
 
 def main() -> int:
