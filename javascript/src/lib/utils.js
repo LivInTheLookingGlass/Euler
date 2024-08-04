@@ -9,8 +9,12 @@
  */
 exports.get_data_file = function(name, encoding = 'utf8') {
     if (process.env.APP_ENV === 'browser') {
-        // I've put this into a different file because it's quite ugly and full of base64 strings
-        return require('./_utils_fallback').get_data_file(name, encoding);
+        const data = require(`./fallbacks/${name}.js`).value;
+        const result = Buffer.from(data, 'base64');
+        if (encoding !== 'buffer') {
+            return result.toString(encoding);
+        }
+        return result;
     } else {
         const fs = require('fs');
         const path = require('path');

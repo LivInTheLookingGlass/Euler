@@ -73,7 +73,14 @@ lint: dependencies
 	npx eslint *.js src/*.js src/lib/*.js --ignore-pattern "dist/*"
 
 clean:
-	rm -r node_modules dist || echo
+	rm -r node_modules dist src/lib/fallbacks || echo
 
 webpack: dependencies
+	mkdir -p src/lib/fallbacks
+	for f in ../_data/*; do \
+	  bf=$$(echo $$f | sed "s/.*\///"); \
+	  echo -n "exports.value = '" > ./src/lib/fallbacks/$$bf.js; \
+	  base64 -w0 $$f | head --bytes -1 >> ./src/lib/fallbacks/$$bf.js; \
+	  echo "';" >> ./src/lib/fallbacks/$$bf.js; \
+	done
 	npx webpack
