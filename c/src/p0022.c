@@ -30,18 +30,17 @@ unsigned long long p0022() {
     do {
         while (fstring[i] && fstring[i] != ',')
             i++;
-        const size_t len = i - pi;
-        names[idx] = (char *)malloc(len - 1);
-        memcpy(names[idx], fstring + pi + 1, len - 2);
-        names[idx++][len - 1] = 0;
+        const size_t len = i - pi - 2;
+        names[idx] = (char *)malloc(len);
+        memcpy(names[idx], fstring + pi + 1, len);
+        names[idx++][len] = 0;
         pi = ++i;
     } while (fstring[i]);
-    qsort(names, sizeof(names)/sizeof(*names), sizeof(*names), cmpstr);
     qsort(names, sizeof(names)/sizeof(*names), sizeof(*names), cmpstr);
     for (idx = 0; idx < name_count; idx++) {
         unsigned long score = 0;
         for (i = 0; names[idx][i]; i++) {
-            score += names[idx][i] - 'A' + 1;
+            score += names[idx][i] & 0x3F;
         }
         answer += score * (idx + 1);
     }
