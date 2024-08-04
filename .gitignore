@@ -23,5 +23,5 @@ rust/target
 **/.coverage.*
 **/coverage
 **/dist/*
-docs/_static/test-js.html
+docs/_static/test-*.html
 javascript/src/lib/fallbacks
