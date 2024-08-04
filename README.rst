@@ -46,7 +46,7 @@ Olivia's Project Euler Solutions
 +------------+--------------------------+--------+-------------------+
 | Language   | Version                  | Solved | Status            |
 +============+==========================+========+===================+
-| C          | C99+ in: |clang|, |br|   | 21     | |Ci| |br|         |
+| C          | C99+ in: |clang|, |br|   | 20     | |Ci| |br|         |
 |            | |gcc|, |pcc|, |tcc| |br| |        | |C-Cov| |br|      |
 |            | C11+ in: |msvc| [1]_     |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
@@ -58,7 +58,7 @@ Olivia's Project Euler Solutions
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 13     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 14     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |
