@@ -4,7 +4,7 @@ const webpack = require('webpack'); // to access built-in plugins
 module.exports = {
     entry: './euler.test.js', // Adjust the entry point to your main file
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle-js.js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
         globalObject: 'this',
