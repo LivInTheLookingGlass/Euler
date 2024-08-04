@@ -1,0 +1,24 @@
+C# Implementation of Problem 22
+===============================
+
+View source code :source:`csharp/Euler/p0022.cs`
+
+Includes
+--------
+
+- `utils <./utils.html>`_
+
+Problem Solution
+----------------
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0022
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: object Answer()
+
+.. literalinclude:: ../../csharp/Euler/p0022.cs
+   :language: csharp
+   :linenos:
