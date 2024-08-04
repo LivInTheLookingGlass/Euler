@@ -28,7 +28,7 @@ namespace Euler
         {
             int answer = 0;
             string[] names = Utilities.GetDataFileText("p0022_names.txt").Replace("\"", "").Split(',');
-            names.Sort();
+            Array.Sort(names);
             for (int i = 0; i < names.Length; i += 1)
             {
                 int sum = 0;
