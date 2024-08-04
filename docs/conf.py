@@ -116,6 +116,8 @@ extlinks = {
              'Problem #%s'),
     'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s',
                'here on GitHub!%.0s'),
+    'live-test': ('/_static/bundle-%s.js',
+                  'click here!%.0s'),
 } | {
     f'{code}-d': (f'./{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
 } | {

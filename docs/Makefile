@@ -33,13 +33,12 @@ dependencies:
 	$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	npm install -g jsdoc
 
-_static/index.html: Makefile
+_static/bundle-js.js: Makefile
 	cd ../javascript && $(MAKE) webpack $(MFLAGS)
 	mkdir -p _static/dist
-	cp ../javascript/dist/bundle.js _static/dist/bundle.js
-	cp ../javascript/index.html _static/test-js.html
+	cp ../javascript/dist/bundle.js _static/dist/bundle-js.js
 
-html: Makefile _static/index.html
+html: Makefile _static/bundle-js.js
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new

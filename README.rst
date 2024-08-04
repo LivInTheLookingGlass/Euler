@@ -75,7 +75,7 @@ Olivia's Project Euler Solutions
 
 .. |test-js-link| raw:: html
 
-   <a href="https://euler.oliviaappleton.com/_static/test-js.html" target="_blank">click here!</a>
+   <a href="https://euler.oliviaappleton.com/javascript/live-test.html" target="_blank">click here!</a>
 
 .. [1] This is the earliest standard the MSVC explicitly supports.
 .. [2] While these solutions do run on Chrome and Firefox, they need to be bundled with WebPack + Babel first, and
