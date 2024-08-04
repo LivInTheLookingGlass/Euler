@@ -27,7 +27,7 @@ namespace Euler
         public object Answer()
         {
             int answer = 0;
-            string[] names = Utilities.getDataFileText("p0022_names.txt").Replace("\"", "").Split(',');
+            string[] names = Utilities.GetDataFileText("p0022_names.txt").Replace("\"", "").Split(',');
             names.Sort();
             for (int i = 0; i < names.Length; i += 1)
             {
