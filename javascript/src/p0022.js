@@ -20,7 +20,7 @@
  */
 exports.p0022 = function() {
     const contents = require('./lib/utils.js').get_data_file('p0022_names.txt');
-    let names = contents.split('"').join('').split(',');
+    const names = contents.split('"').join('').split(',');
     names.sort();
     let sum = 0;
     for (let i = 0; i < names.length; i += 1) {
