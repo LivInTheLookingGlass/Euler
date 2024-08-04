@@ -88,7 +88,7 @@ char *get_data_file(const char *name) {
     const size_t ret_code = fread(buffer, 1, length, file);
     if (ret_code != length) {
         if (feof(file))
-            printf("Error reading %s: unexpected end of file, read %zu of %zu bytes expected\n", name, ret_code, length);
+            printf("Error reading %s: unexpected end of file, read %llu of %llu bytes expected\n", name, (unsigned long long)ret_code, (unsigned long long)length);
         else if (ferror(file))
             perror("Error reading data file");
     }
