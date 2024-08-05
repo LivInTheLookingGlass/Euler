@@ -7,6 +7,7 @@
 #define PATH_SEPARATOR "\\"
 #else
 #include <libgen.h>
+#include <stdio.h>
 #include <unistd.h>
 #define PATH_SEPARATOR "/"
 #endif
