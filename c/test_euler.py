@@ -162,8 +162,8 @@ SOURCE_TEMPLATE = "{}{}src{}p{{:0>4}}.c".format(C_FOLDER, sep, sep)
 EXE_TEMPLATE = "{}{}p{{:0>4}}.{{}}.{}".format(BUILD_FOLDER, sep, EXE_EXT)
 # include sep in the recipe so that Windows won't complain
 
-GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Werror -std={} -march=native -flto -fwhole-program -o {{}}"
-CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Werror -std={} {} -o {{}}"
+GCC_TEMPLATE = "{} {{}} -O2 -lm -Wall -Wno-deprecated-declarations -Werror -std={} -march=native -flto -fwhole-program -o {{}}"
+CLANG_TEMPLATE = "{} {{}} -O2 {} {} -Wall -Wno-deprecated-declarations -Werror -std={} {} -o {{}}"
 if environ.get('COV') == 'true':
     GCC_TEMPLATE = GCC_TEMPLATE.replace('-O2', '-O1') + ' --coverage'
     CLANG_TEMPLATE = CLANG_TEMPLATE.replace('-O2', '-O1') + ' --coverage'
