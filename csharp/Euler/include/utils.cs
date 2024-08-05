@@ -1,4 +1,5 @@
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Euler
 {
@@ -14,11 +15,15 @@ namespace Euler
 
         public static string GetDataFileText(string name)
         {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("WEBASSEMBLY")))
+                return WasmIOFallback.GetText(name);
             return File.ReadAllText(GetDataPath(name));
         }
 
         public static byte[] GetDataFileBytes(string name)
         {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("WEBASSEMBLY")))
+                return WasmIOFallback.GetBytes(name);
             return File.ReadAllBytes(GetDataPath(name));
         }
 
