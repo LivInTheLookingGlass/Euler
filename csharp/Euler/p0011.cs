@@ -25,7 +25,7 @@ namespace Euler
     {
         public object Answer()
         {
-            int answer = 0, tmp;
+            uint answer = 0, tmp;
             for (byte i = 0; i < 20; i++)
             {
                 for (byte j = 0; j < 17; j++)

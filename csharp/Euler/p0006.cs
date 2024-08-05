@@ -25,15 +25,15 @@ namespace Euler
     {
         public object Answer()
         {
-            int sum_of_squares = 0,
+            uint sum_of_squares = 0,
                   sum = 0;
-            for (int i = 1; i < 101; i++)
+            for (uint i = 1; i < 101; i++)
             {
                 sum += i;
                 sum_of_squares += i * i;
             }
 
-            int square_of_sum = sum * sum;
+            uint square_of_sum = sum * sum;
             return square_of_sum - sum_of_squares;
         }
     }

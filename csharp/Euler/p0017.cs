@@ -25,8 +25,8 @@ namespace Euler
     {
         public object Answer()
         {
-            int answer = 0;
-            for (int x = 1; x < 1001; x += 1)
+            ushort answer = 0;
+            for (ushort x = 1; x < 1001; x += 1)
             {
                 string str = to_string(x);
                 answer += str.Replace(" ", "").Replace("-", "").Length;
@@ -34,7 +34,7 @@ namespace Euler
             return answer;
         }
 
-        static String to_string(int n)
+        static String to_string(ushort n)
         {
             if (n >= 1000)
             {

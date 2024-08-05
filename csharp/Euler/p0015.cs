@@ -22,7 +22,7 @@ namespace Euler
     {
         public object Answer()
         {
-            return (long)Mathematics.NChooseR(40, 20);
+            return Mathematics.NChooseR(40, 20);
         }
     }
 }

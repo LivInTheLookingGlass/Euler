@@ -22,7 +22,7 @@ namespace Euler
     {
         public object Answer()
         {
-            int answer = 0,
+            uint answer = 0,
                   i = 2,
                   j = 8,
                   tmp = 0;

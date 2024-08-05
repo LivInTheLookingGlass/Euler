@@ -28,9 +28,35 @@ namespace Euler
             {
                 var arr = line.Split("\t");
                 if (arr[0] != n.ToString()) continue;
-                if (arr[1] == "str") return arr[3];
-                if (int.Parse(arr[2]) <= 32) return int.Parse(arr[3]);
-                return long.Parse(arr[3]);
+                switch (arr[1])
+                {
+                    case "str":
+                        return arr[3];
+                    case "int":
+                        switch (int.Parse(arr[2])
+                        {
+                            case 8:
+                                return sbyte.Parse(arr[3]);
+                            case 16:
+                                return short.Parse(arr[3]);
+                            case 32:
+                                return int.Parse(arr[3]);
+                            case 64:
+                                return long.Parse(arr[3]);
+                        }
+                    case "uint":
+                        switch (int.Parse(arr[2])
+                        {
+                            case 8:
+                                return byte.Parse(arr[3]);
+                            case 16:
+                                return ushort.Parse(arr[3]);
+                            case 32:
+                                return uint.Parse(arr[3]);
+                            case 64:
+                                return ulong.Parse(arr[3]);
+                        }
+                }
             }
             throw new IOException();
         }

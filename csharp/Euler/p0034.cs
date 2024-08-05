@@ -22,14 +22,14 @@ namespace Euler
     {
         public object Answer()
         {
-            int answer = 0;
-            for (int x = 10; x < 100000; x += 1)
+            ushort answer = 0;
+            for (uint x = 10; x < 100000; x += 1)
             {
                 string xs = x.ToString();
-                int sum = 0;
+                uint sum = 0;
                 for (byte i = 0; i < xs.Length; i += 1)
                 {
-                    sum += (int)Mathematics.Factorial((ulong)(xs[i] - '0'));
+                    sum += (uint)Mathematics.Factorial((ulong)(xs[i] - '0'));
                 }
                 if (sum == x)
                 {

@@ -28,9 +28,9 @@ namespace Euler
     {
         public object Answer()
         {
-            int biggestSeen = 0;
-            long biggestIdx = 0;
-            Dictionary<long, int> cache = new();
+            uint biggestSeen = 0;
+            ulong biggestIdx = 0;
+            Dictionary<ulong, uint> cache = new();
             for (long x = 1; x < 1000000; x += 1)
             {
                 int result = CollatzLen(x, cache);
@@ -40,17 +40,17 @@ namespace Euler
                     biggestIdx = x;
                 }
             }
-            return (int)biggestIdx;
+            return (uint)biggestIdx;
         }
 
-        static int CollatzLen(long n, IDictionary<long, int> cache)
+        static uint CollatzLen(long n, IDictionary<ulong, uint> cache)
         {
             if (n == 1)
                 return 0;
             else if (cache.ContainsKey(n))
                 return cache[n];
 
-            int result;
+            uint result;
             if (n % 2 == 0)
                 result = 1 + CollatzLen(n / 2, cache);
             else

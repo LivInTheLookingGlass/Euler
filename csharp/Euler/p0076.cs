@@ -27,30 +27,26 @@ namespace Euler
         public object Answer()
         {
             ushort idx;
-            int answer = 0;
-            int sum = 100;
-            int[] counts = new int[101];
+            uint answer = 0;
+            byte sum = 100;
+            byte[] counts = new byte[101];
             counts[2] = 100;
             while (counts[100] == 0)
             {
                 counts[2] += 2;
                 if (sum >= 100)
                 {
-                    answer += (100 + counts[2] - sum) / 2;
+                    answer += (uint)(100 + counts[2] - sum) / 2;
                     idx = 2;
-                    while (true)
+                    do
                     {
                         counts[idx] = 0;
                         idx += 1;
                         counts[idx] += idx;
-                        // sum = Enumerable.Sum(counts);
                         sum = 0;
                         for (int i = idx - 1; i < 101; i += 1)
                             sum += counts[i];
-                        if (sum <= 100)
-                            break;
-                    }
-                    counts[2] = 100 - sum - (sum % 2);
+                    } while (sum > 100);
                 }
                 sum = Enumerable.Sum(counts);
             }

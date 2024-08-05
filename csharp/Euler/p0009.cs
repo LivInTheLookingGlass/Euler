@@ -21,15 +21,15 @@ namespace Euler
     {
         public object Answer()
         {
-            for (int c = 3; ; c++)
+            for (uint c = 3; ; c++)
             {
-                int c_square = c * c;
-                for (int b = 2; b < c; b++)
+                uint c_square = c * c;
+                for (uint b = 2; b < c; b++)
                 {
-                    int b_square = b * b;
-                    for (int a = 1; a < b; a++)
+                    uint b_square = b * b;
+                    for (uint a = 1; a < b; a++)
                     {
-                        int a_square = a * a;
+                        uint a_square = a * a;
                         if (a_square + b_square == c_square && a + b + c == 1000)
                             return a * b * c;
                     }
