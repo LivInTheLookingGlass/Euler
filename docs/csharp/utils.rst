@@ -11,6 +11,8 @@ View source code :source:`csharp/include/utils.cs`
 
     .. csharp:method:: static byte[] GetDataFileBytes(string name)
 
+    .. csharp:method:: static object GetAnswer(ulong n)
+
 .. literalinclude:: ../../csharp/Euler/include/utils.cs
    :language: csharp
    :linenos:

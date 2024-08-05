@@ -8,20 +8,20 @@ namespace Tests
         public static IEnumerable<object[]> Data()
         {
             yield return new object[] { typeof(p0000), false, 0 };
-            yield return new object[] { typeof(p0001), false, 233168 };
-            yield return new object[] { typeof(p0002), false, 4613732 };
-            yield return new object[] { typeof(p0004), false, 906609 };
-            yield return new object[] { typeof(p0006), false, 25164150 };
-            yield return new object[] { typeof(p0008), false, 23514624000 };
-            yield return new object[] { typeof(p0009), false, 31875000 };
-            yield return new object[] { typeof(p0011), false, 70600674 };
-            yield return new object[] { typeof(p0014), false, 837799 };
-            yield return new object[] { typeof(p0015), false, 137846528820 };
-            yield return new object[] { typeof(p0017), false, 21124 };
-            yield return new object[] { typeof(p0022), false, 871198282 };
-            yield return new object[] { typeof(p0034), false, 40730 };
-            yield return new object[] { typeof(p0076), true, 190569291 };
-            yield return new object[] { typeof(p0836), false, "aprilfoolsjoke" };
+            yield return new object[] { typeof(p0001), false, Utilities.GetAnswer(1) };
+            yield return new object[] { typeof(p0002), false, Utilities.GetAnswer(2) };
+            yield return new object[] { typeof(p0004), false, Utilities.GetAnswer(4) };
+            yield return new object[] { typeof(p0006), false, Utilities.GetAnswer(6) };
+            yield return new object[] { typeof(p0008), false, Utilities.GetAnswer(8) };
+            yield return new object[] { typeof(p0009), false, Utilities.GetAnswer(9) };
+            yield return new object[] { typeof(p0011), false, Utilities.GetAnswer(11) };
+            yield return new object[] { typeof(p0014), false, Utilities.GetAnswer(14) };
+            yield return new object[] { typeof(p0015), false, Utilities.GetAnswer(15) };
+            yield return new object[] { typeof(p0017), false, Utilities.GetAnswer(17) };
+            yield return new object[] { typeof(p0022), false, Utilities.GetAnswer(22) };
+            yield return new object[] { typeof(p0034), false, Utilities.GetAnswer(34) };
+            yield return new object[] { typeof(p0076), true, Utilities.GetAnswer(76) };
+            yield return new object[] { typeof(p0836), false, Utilities.GetAnswer(836) };
         }
 
         [Theory]
