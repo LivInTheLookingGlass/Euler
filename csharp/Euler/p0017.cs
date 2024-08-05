@@ -25,16 +25,16 @@ namespace Euler
     {
         public object Answer()
         {
-            ushort answer = 0;
-            for (ushort x = 1; x < 1001; x += 1)
+            int answer = 0;
+            for (int x = 1; x < 1001; x += 1)
             {
                 string str = to_string(x);
                 answer += str.Replace(" ", "").Replace("-", "").Length;
             }
-            return answer;
+            return (ushort)answer;
         }
 
-        static String to_string(ushort n)
+        static String to_string(int n)
         {
             if (n >= 1000)
             {
@@ -109,3 +109,4 @@ namespace Euler
         }
     }
 }
+

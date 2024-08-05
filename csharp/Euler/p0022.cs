@@ -34,7 +34,7 @@ namespace Euler
                 uint sum = 0;
                 foreach (char c in names[i])
                 {
-                    sum += c & 0x3F;
+                    sum += (ushort)c & 0x3Fu;
                 }
                 answer += sum * (i + 1);
             }

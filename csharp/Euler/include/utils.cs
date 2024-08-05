@@ -44,6 +44,7 @@ namespace Euler
                             case 64:
                                 return long.Parse(arr[3]);
                         }
+                        break;
                     case "uint":
                         switch (int.Parse(arr[2]))
                         {
@@ -56,6 +57,7 @@ namespace Euler
                             case 64:
                                 return ulong.Parse(arr[3]);
                         }
+                        break;
                 }
             }
             throw new IOException();

@@ -33,7 +33,7 @@ namespace Euler
 
         public object Answer()
         {
-            int answer = 0;
+            uint answer = 0;
             for (uint v = 101; v < 1000; v++)
             {
                 for (uint u = 100; u < v; u++)

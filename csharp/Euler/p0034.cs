@@ -22,7 +22,7 @@ namespace Euler
     {
         public object Answer()
         {
-            ushort answer = 0;
+            uint answer = 0;
             for (uint x = 10; x < 100000; x += 1)
             {
                 string xs = x.ToString();
@@ -36,7 +36,7 @@ namespace Euler
                     answer += x;
                 }
             }
-            return answer;
+            return (ushort)answer;
         }
     }
 }

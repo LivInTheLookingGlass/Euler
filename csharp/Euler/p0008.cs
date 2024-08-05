@@ -70,7 +70,7 @@ namespace Euler
                 String slice = str.Substring(i, 13);
                 ulong prod = 1;
                 foreach (char c in slice)
-                    prod *= c - '0';
+                    prod *= (ulong)c - '0';
 
                 if (prod > answer)
                     answer = prod;

@@ -31,9 +31,9 @@ namespace Euler
             uint biggestSeen = 0;
             ulong biggestIdx = 0;
             Dictionary<ulong, uint> cache = new();
-            for (long x = 1; x < 1000000; x += 1)
+            for (ulong x = 1; x < 1000000; x += 1)
             {
-                int result = CollatzLen(x, cache);
+                uint result = CollatzLen(x, cache);
                 if (result > biggestSeen)
                 {
                     biggestSeen = result;
@@ -43,7 +43,7 @@ namespace Euler
             return (uint)biggestIdx;
         }
 
-        static uint CollatzLen(long n, IDictionary<ulong, uint> cache)
+        static uint CollatzLen(ulong n, IDictionary<ulong, uint> cache)
         {
             if (n == 1)
                 return 0;

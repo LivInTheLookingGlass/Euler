@@ -26,7 +26,7 @@ namespace Euler
     {
         public object Answer()
         {
-            ushort idx;
+            byte idx;
             uint answer = 0;
             byte sum = 100;
             byte[] counts = new byte[101];
@@ -44,11 +44,13 @@ namespace Euler
                         idx += 1;
                         counts[idx] += idx;
                         sum = 0;
-                        for (int i = idx - 1; i < 101; i += 1)
+                        for (byte i = (byte)(idx - 1); i < 101; i += 1)
                             sum += counts[i];
                     } while (sum > 100);
                 }
-                sum = Enumerable.Sum(counts);
+                sum = 0;
+                for (byte i = 0; i < 101; i += 1)
+                    sum += counts[i];
             }
             return answer;
         }
