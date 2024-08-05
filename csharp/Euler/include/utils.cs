@@ -33,7 +33,7 @@ namespace Euler
                     case "str":
                         return arr[3];
                     case "int":
-                        switch (int.Parse(arr[2])
+                        switch (int.Parse(arr[2]))
                         {
                             case 8:
                                 return sbyte.Parse(arr[3]);
@@ -45,7 +45,7 @@ namespace Euler
                                 return long.Parse(arr[3]);
                         }
                     case "uint":
-                        switch (int.Parse(arr[2])
+                        switch (int.Parse(arr[2]))
                         {
                             case 8:
                                 return byte.Parse(arr[3]);
