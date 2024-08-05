@@ -43,15 +43,18 @@ exports.get_data_file = function(name, encoding = 'utf8') {
  * @return {number | string}
  */
 exports.get_answer = function(n) {
-    for (line of exports.get_data_file("answers.csv").split(new RegExp("\\r?\\n"))) {
-        let [id_, type, size, value] = line.split("\t");
+    for (line of exports.get_data_file('answers.csv').split(new RegExp('\\r?\\n'))) {
+        const [id_, type, size, value] = line.split('\t');
         if (id_ !== n.toString()) {
             continue;
         }
-        if (type === "str") {
+        if (type === 'str') {
+            if (value.length !== parseInt(size)) {
+                throw new Error('string length does not match');
+            }
             return value;
         }
         return parseInt(value);
     }
-    throw new Error("Answer not found");
-}
+    throw new Error('Answer not found');
+};
