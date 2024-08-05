@@ -26,13 +26,13 @@ unsigned long long p0022() {
     std::vector<std::string> names(5163, "");
     size_t idx = 0, i = 0, pi = 0;
     do {
-        while (fstring[i] && fstring[i] != ',')
+        while (i < fstring.length() && fstring[i] != ',')
             i++;
         const size_t len = i - pi - 2;
         names[idx] = fstring.substr(pi + 1, len);
         idx++;
         pi = ++i;
-    } while (fstring[i]);
+    } while (i < fstring.length());
     std::sort(names.begin(), names.end());
     for (idx = 0; idx < name_count; idx++) {
         unsigned long score = 0;
