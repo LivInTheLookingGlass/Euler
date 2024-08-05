@@ -1,4 +1,3 @@
-
 /**
  * Grab the contents of a file from the _data directory at root of this repository. Valid encodings are the same as
  * those passed to Node.JS's fs.ReadFileSync(). 'utf8' (the default) will return a string. 'buffer' will return a raw
@@ -39,3 +38,20 @@ exports.get_data_file = function(name, encoding = 'utf8') {
     }
 };
 
+/**
+ * @param {number} n
+ * @return {number | string}
+ */
+exports.get_answer = function(n) {
+    for (line of exports.get_data_file("answers.csv").split(new RegExp("\\r?\\n"))) {
+        let [id_, type, size, value] = line.split("\t");
+        if (id_ !== n.toString()) {
+            continue;
+        }
+        if (type === "str") {
+            return value;
+        }
+        return parseInt(value);
+    }
+    throw new Error("Answer not found");
+}
