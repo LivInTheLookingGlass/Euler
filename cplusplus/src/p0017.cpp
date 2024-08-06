@@ -88,7 +88,7 @@ std::string ToString(unsigned long long n) {
         case 17: return "seventeen";
         case 18: return "eighteen";
         case 19: return "nineteen";
-        default: throw std::invalid_argument("n is not in the accepted range");
+        // default: throw std::invalid_argument("n is not in the accepted range");
     }
 }
 

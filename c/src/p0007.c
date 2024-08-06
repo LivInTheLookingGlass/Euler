@@ -17,7 +17,7 @@ What is the 10 001st prime number?
 unsigned long long p0007() {
     unsigned int answer, count = 0;
     prime_sieve ps = prime_sieve0();
-    while (!ps.exhausted)   {
+    while (true) {
         answer = next(ps);
         if (++count == 10001)
             break;
