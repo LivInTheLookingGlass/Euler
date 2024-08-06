@@ -57,11 +57,8 @@ _static/test-js.html:
 	cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 	cp ../javascript/index.html _static/test-js.html
 
-_static/test-py.html:
+_static/dist/pyodide.js:
 	cd ../python && $(MAKE) webpack $(MFLAGS)
-	mkdir -p _static/dist
-	cp ../javascript/dist/bundle-py.js _static/dist/bundle-py.js
-	cat ../javascript/index.html | sed s#_static/bundle-js.js#_static/bundle-py.js > _static/test-py.html
 
 _static/test-rs.html:
 	cd ../rust && $(MAKE) webpack $(MFLAGS)
@@ -69,7 +66,7 @@ _static/test-rs.html:
 	cp ../rust/dist/bundle-rs.js _static/dist/bundle-rs.js
 	cat ../javascript/index.html | sed s#_static/bundle-js.js#_static/bundle-rs.js > _static/test-rs.html
 
-html: _static/test-js.html
+html: _static/test-js.html _static/dist/pyodide.js
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
