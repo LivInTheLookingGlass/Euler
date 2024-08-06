@@ -3,11 +3,6 @@ Rust Implementation of Problem 24
 
 View source code :source:`rust/src/p0024.rs`
 
-Includes
---------
-
-- `triangles <./triangles.html>`_
-
 Problem Solution
 ----------------
 
