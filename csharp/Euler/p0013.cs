@@ -218,15 +218,18 @@ namespace Euler
             ulong ten18 = 1000000000000000000;
             ulong ten10 = 10000000000;
             ulong high = 0, med = 0, low = 0;
-            for (byte i = 0; i < 100; ++i) {
+            for (byte i = 0; i < 100; ++i)
+            {
                 low += numbers[i][2];
                 med += numbers[i][1];
                 high += numbers[i][0];
-                if (low > ten18) {
+                if (low > ten18)
+                {
                     med += low / ten18;
                     low %= ten18;
                 }
-                if (med > ten18) {
+                if (med > ten18)
+                {
                     high += med / ten18;
                     med %= ten18;
                 }
