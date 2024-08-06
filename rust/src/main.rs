@@ -14,10 +14,9 @@ use itertools::Itertools;
 pub mod include;
 use include::math;
 use include::primes;
-seq!(N in 0001..=0018 {
+seq!(N in 0001..=0020 {
 mod p~N;
 });
-mod p0020;
 mod p0022;
 mod p0024;
 mod p0034;
@@ -51,6 +50,7 @@ fn get_problem<'b>(n: u32) -> ProblemRef<'b> {
         16 =>  ( &16, p0016::p0016, false, 1366),
         17 =>  ( &17, p0017::p0017, false, 21124),
         18 =>  ( &18, p0018::p0018, false, 1074),
+        19 =>  ( &19, p0019::p0019, false, 171),
         20 =>  ( &20, p0020::p0020, false, 648),
         22 =>  ( &22, p0022::p0022, false, 871198282),
         24 =>  ( &24, p0024::p0024, false, 2783915460),
@@ -71,8 +71,7 @@ fn main() {
     for i in sieve {
         println!("{}", i);
     }
-    let mut answers: Vec<u32> = (1..=18).collect();
-    answers.push(20);
+    let mut answers: Vec<u32> = (1..=20).collect();
     answers.push(22);
     answers.push(24);
     answers.push(34);
@@ -90,12 +89,11 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 01..=18 {
+seq!(N in 01..=20 {
 #[rstest]
 #(
 #[case::problem_~N(N)]
 )*
-#[case::problem_20(20)]
 #[case::problem_22(22)]
 #[case::problem_24(24)]
 #[case::problem_34(34)]
