@@ -1,0 +1,13 @@
+Rust Implementation of Problem 16
+=================================
+
+View source code :source:`rust/src/p0016.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: p0016::p0016() -> i128
+
+.. literalinclude:: ../../rust/src/p0016.rs
+   :language: rust
+   :linenos:
