@@ -74,7 +74,7 @@ unsigned int to_string_len(unsigned long long n) {
         case 17: return 9;  // len("seventeen")
         case 18: return 8;  // len("eighteen")
         case 19: return 8;  // len("nineteen")
-        // default: return -1;
+        default: return -1;
     }
 }
 
