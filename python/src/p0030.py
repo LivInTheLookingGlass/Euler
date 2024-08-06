@@ -26,7 +26,6 @@ def main() -> int:
     ret = 0
     for x in range(2, 10**6):
         if x == sum(int(y)**5 for y in repr(x)):
-            print(x)
             ret += x
     return ret
 

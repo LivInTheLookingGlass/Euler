@@ -39,7 +39,6 @@ def main() -> int:
                 break
             elif len(cur_digits) == 9 and sorted(cur_digits) == list_of_digits:
                 if cur_digits > answer:
-                    print(num, cur_digits)
                     answer = cur_digits
                 break
             cur_digits = cur_digits + tuple(digits(x * num))[::-1]

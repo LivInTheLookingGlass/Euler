@@ -29,7 +29,6 @@ def main() -> int:
             if digits_seen + idx in interests:
                 queries.append(int(str(x)[idx]))
                 if len(queries) == len(interests):
-                    print(queries)
                     return reduce(mul, queries, 1)
         digits_seen += digits
     return -1  # pragma: no cover
