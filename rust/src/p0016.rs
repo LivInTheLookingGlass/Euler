@@ -13,8 +13,8 @@ pub fn p0016() -> i128 {
     let ten36: u128 = 1000000000000000000000000000000000000;
     numbers[0] = 1;
     for _ in 0..1000 {
-        for number in numbers {
-            number *= 2;
+        for number in numbers.iter_mut() {
+            *number *= 2;
         }
         for j in 0..8 {
             if numbers[j] > ten36 {
@@ -26,7 +26,7 @@ pub fn p0016() -> i128 {
     let mut answer: i128 = 0;
     let mut power: u128 = 1;
     for _ in 0..36 {
-        for number in numbers {
+        for number in numbers.iter() {
             answer += ((number / power) % 10) as i128;
         }
         power *= 10;

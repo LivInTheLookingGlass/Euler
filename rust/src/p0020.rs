@@ -16,8 +16,8 @@ pub fn p0020() -> i128 {
     let ten36: u128 = 1000000000000000000000000000000000000;
     numbers[0] = 1;
     for i in 2..=100 {
-        for number in numbers {
-            number *= i;
+        for number in numbers.iter_mut() {
+            *number *= i;
         }
         for j in 0..4 {
             if numbers[j] > ten36 {
@@ -29,7 +29,7 @@ pub fn p0020() -> i128 {
     let mut answer: i128 = 0;
     let mut power: u128 = 1;
     for _ in 0..36 {
-        for number in numbers {
+        for number in numbers.iter() {
             answer += ((number / power) % 10) as i128;
         }
         power *= 10;
