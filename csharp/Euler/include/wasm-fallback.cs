@@ -11,7 +11,7 @@ namespace Euler
 
         public static byte[] GetBytes(string name)
         {
-            return new byte[] {};
+            return new byte[] { };
         }
     }
 }
