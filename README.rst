@@ -65,8 +65,8 @@ Olivia's Project Euler Solutions
 +------------+--------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|        | 79     | |Python| |br|     |
 |            | Pypy 3.6+ |br|           |        | |Py-Cov| |br|     |
-|            | GraalPy 23.1+            |        | |CodeQL| |br|     |
-|            |                          |        | |PythonLint|      |
+|            | GraalPy 23.1+ |br|       |        | |CodeQL| |br|     |
+|            | Pyodide 0.26.2+ [3]_     |        | |PythonLint|      |
 +------------+--------------------------+--------+-------------------+
 | Rust       | 1.69+                    | 27     | |Rust| |br|       |
 |            |                          |        | |Rs-Cov| |br|     |
@@ -77,9 +77,15 @@ Olivia's Project Euler Solutions
 
    <a href="https://euler.oliviaappleton.com/_static/test-js.html" target="_blank">click here!</a>
 
+.. |test-py-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-py.html" target="_blank">click here!</a>
+
 .. [1] This is the earliest standard the MSVC explicitly supports.
 .. [2] While these solutions do run on Chrome and Firefox, they need to be bundled with WebPack + Babel first, and
    these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
+.. [3] Pyodide setup is in progress, but the code in this repository is currently packaged for pyodide. If you would
+   like to test this in an interactive shell, |test-py-link|
 
 Coverage
 --------
