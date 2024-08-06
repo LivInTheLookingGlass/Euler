@@ -34,6 +34,7 @@
       let pyodideReadyPromise = main();
       pyodideReadyPromise.then(async () => {
           let pyodide = await pyodideReadyPromise;
+          await pyodide.loadPackage("micropip");
           await pyodide.runPythonAsync(`
             import micropip
             await micropip.install(["sortedcontainers", "u-msgpack-python"])
