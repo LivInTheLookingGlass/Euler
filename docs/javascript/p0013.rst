@@ -1,0 +1,10 @@
+JavaScript Implementation of Problem 13
+=======================================
+
+View source code :source:`javascript/src/p0013.js`
+
+.. js:autofunction:: p0013
+
+.. literalinclude:: ../../javascript/src/p0013.js
+   :language: javascript
+   :linenos:

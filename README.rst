@@ -50,15 +50,15 @@ Olivia's Project Euler Solutions
 |            | |gcc|, |pcc|, |tcc| |br| |        | |C-Cov| |br|      |
 |            | C11+ in: |msvc| [1]_     |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| C++        | C++98+ in: |br| |clang|  | 14     | |Cpi| |br|        |
+| C++        | C++98+ in: |br| |clang|  | 15     | |Cpi| |br|        |
 |            | |gcc| |br|               |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_   |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| C#         | .NET 2+                  | 14     | |C#i| |br|        |
+| C#         | .NET 2+                  | 15     | |C#i| |br|        |
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL|          |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 14     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 15     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |

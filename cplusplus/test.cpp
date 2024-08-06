@@ -12,7 +12,7 @@
 // #include "src/p0010.cpp"
 #include "src/p0011.cpp"
 // #include "src/p0012.cpp"
-// #include "src/p0013.cpp"
+#include "src/p0013.cpp"
 #include "src/p0014.cpp"
 #include "src/p0015.cpp"
 // #include "src/p0016.cpp"
@@ -41,7 +41,7 @@ static const Answer answers[] = {
 	{9,		31875000,		p0009},
 	// {10,	142913828922,	p0010},
 	{11,	70600674,		p0011},
-	// {13,	5537376230,		p0013},
+	{13,	5537376230,		p0013},
 	{14,	837799,			p0014},
 	{15,	137846528820,	p0015},
 	// {16,	1366,			p0016},

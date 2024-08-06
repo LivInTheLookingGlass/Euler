@@ -18,22 +18,26 @@ from pytest import fail, fixture, mark, skip, xfail
 CPP_FOLDER = Path(__file__).parent
 BUILD_FOLDER = CPP_FOLDER.joinpath('build')
 path.append(str(CPP_FOLDER.parent.joinpath("python")))
+from src.lib.utils import get_answer  # noqa: E402  # isort:skip
 
 answers = {
-    1: 233168,
-    2: 4613732,
-    4: 906609,
-    6: 25164150,
-    8: 23514624000,
-    9: 31875000,
-    11: 70600674,
-    14: 837799,
-    15: 137846528820,
-    17: 21124,
-    22: 871198282,
-    34: 40730,
-    76: 190569291,
-    836: b"aprilfoolsjoke",
+    x: get_answer(x) for x in (
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        11,
+        14,
+        13,
+        15,
+        17,
+        22,
+        34,
+        76,
+        836,
+    )
 }
 
 # this is the set of problems where I have the right answer but wrong solution
@@ -255,7 +259,7 @@ def test_problem(benchmark, key, compiler):
     if isinstance(answers[key], int):
         assert answers[key] == int(answer.strip())
     else:
-        assert answers[key] == answer.strip()
+        assert answers[key] == answer.strip().decode()
     # sometimes benchmark disables itself, so check for .stats
     if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.median > 60:
         fail_func = xfail if key in known_slow else fail

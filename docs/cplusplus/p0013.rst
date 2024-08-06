@@ -1,0 +1,19 @@
+C++ Implementation of Problem 13
+================================
+
+View source code :source:`cplusplus/src/p0013.cpp`
+
+Solution
+--------
+
+.. cpp:function:: unsigned long long p0013()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../cplusplus/src/p0013.cpp
+   :language: C++
+   :linenos:
