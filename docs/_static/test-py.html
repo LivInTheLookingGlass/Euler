@@ -33,11 +33,12 @@
       }
       let pyodideReadyPromise = main();
       pyodideReadyPromise.then(async () => {
-          await micropip.install(["sortedcontainers", "u-msgpack-python"])
           await pyodide.runPythonAsync(`
-             from pyodide.http import pyfetch
-             response = await pyfetch("https://euler.oliviaappleton.com/_static/dist/python.tar.gz") # .zip, .whl, ...
-             await response.unpack_archive() # by default, unpacks to the current dir
+            import micropip
+            await micropip.install(["sortedcontainers", "u-msgpack-python"])
+            from pyodide.http import pyfetch
+            response = await pyfetch("https://euler.oliviaappleton.com/_static/dist/python.tar.gz") # .zip, .whl, ...
+            await response.unpack_archive() # by default, unpacks to the current dir
           `);
       });
 
