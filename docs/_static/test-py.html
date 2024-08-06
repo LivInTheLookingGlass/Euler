@@ -32,7 +32,7 @@
         return pyodide;
       }
       let pyodideReadyPromise = main();
-      pyodideReadyPromise.then(() => {
+      pyodideReadyPromise.then(async () => {
           await micropip.install(["sortedcontainers", "u-msgpack-python"])
           await pyodide.runPythonAsync(`
              from pyodide.http import pyfetch
