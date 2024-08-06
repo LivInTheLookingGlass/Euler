@@ -171,6 +171,7 @@ Problems Solved
 -  ☒ `6 <./src/p0006.cpp>`__
 -  ☒ `9 <./src/p0009.cpp>`__
 -  ☒ `11 <./src/p0011.cpp>`__
+-  ☒ `13 <./src/p0013.cpp>`__
 -  ☒ `14 <./src/p0014.cpp>`__
 -  ☒ `15 <./src/p0015.cpp>`__
 -  ☒ `17 <./src/p0017.cpp>`__
