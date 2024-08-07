@@ -35,6 +35,7 @@
             [i for i in src.problems.keys() if i not in src.slow]
           `);
           for (i of problems) {
+            const q = `${i}`.padStart(4, '0');
             const expected = await pyodide.runPythonAsync(`
               from euler.python.src.lib.utils import get_answer
               get_answer(${i})
@@ -42,12 +43,11 @@
             describe(`run test ${i}`, function() {
               this.timeout(Infinity);
               it(`should return ${expected}`, async () => {
-                const q = `${i}`.padStart(4, '0');
                 const answer = await pyodide.runPythonAsync(`
                   from euler.python.src import p${q}
                   p${q}.main()
                 `);
-                console.log(answer, expected);
+                console.log(q, answer, expected);
                 if (answer !== expected) {
                   throw new Error();
                 }
