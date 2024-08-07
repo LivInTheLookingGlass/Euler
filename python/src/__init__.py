@@ -1,6 +1,6 @@
 from importlib import import_module
 from sys import modules
-from time import perf_counter_ns
+from time import perf_counter
 from typing import Callable, Dict, Union
 
 from . import lib
@@ -21,7 +21,7 @@ for i in range(1, 10000):
 
 def run_problems() -> None:  # pragma: no cover
     for i, p in problems.items():
-        start = perf_counter_ns()
+        start = perf_counter()
         answer = p()
-        stop = perf_counter_ns()
-        print(f'The answer to problem {i:04} is {answer!r} (found in {(stop - start) / 1000:,}μs)')  # noqa
+        stop = perf_counter()
+        print(f'The answer to problem {i:04} is {answer!r} (found in {(stop - start) * 1000:,}ms)')  # noqa
