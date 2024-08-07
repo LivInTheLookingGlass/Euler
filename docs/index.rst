@@ -25,65 +25,6 @@ Code Size By Language
 
 .. image:: ./languages.svg
 
-Usage
------
-
-This project is divided into several Makefiles, connected by a root Makefile which redirects commands whever necessary.
-
-.. highlight:: make
-
-.. make:var:: PY
-
-  A string that contains the command used for your Python interpreter. Defaults to ``python3``.
-
-.. make:target:: clean
-
-  Removes all temporary or cache files, as well as any build artifacts
-
-.. make:target:: html
-.. make:target:: dirhtml
-.. make:target:: singlehtml
-.. make:target:: epub
-.. make:target:: latex
-
-  This recipe redirects to the docs Makefile. Note that this is actually a
-  multi-target recipe that includes many builder names supported by
-  `Sphinx <https://www.sphinx-doc.org/en/master/usage/builders/index.html>`__.
-
-.. make:target:: c_%
-
-  Recipes with this prefix are redirected to the C directory. Please see language-specific documentation for more details.
-
-.. make:target:: cp_%
-
-  Recipes with this prefix are redirected to the C++ directory. Please see language-specific documentation for more details.
-
-.. make:target:: cs_%
-
-  Recipes with this prefix are redirected to the C# directory. Please see language-specific documentation for more details.
-
-.. make:target:: docs_%
-
-  Recipes with this prefix are redirected to the docs directory.
-
-.. make:target:: js_%
-
-  Recipes with this prefix are redirected to the JavaScript directory. Please see language-specific documentation for more details.
-
-.. make:target:: py_%
-
-  Recipes with this prefix are redirected to the Python directory. Please see language-specific documentation for more details.
-
-.. make:target:: rs_%
-
-  Recipes with this prefix are redirected to the Rust directory. Please see language-specific documentation for more details.
-
-.. make:target:: %
-
-  If the recipe you call isn't covered by any others, it will get distributed to all languages. So for instance,
-  ``make test`` would be translated to ``make c_test cp_test cs_test js_test py_test rs_test``
-
-
 Problems Solved
 ---------------
 
@@ -289,6 +230,7 @@ Problems Solved
 .. toctree::
    :maxdepth: 2
 
+   usage
    c
    cplusplus
    csharp
