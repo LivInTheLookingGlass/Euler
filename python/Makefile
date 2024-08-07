@@ -69,18 +69,17 @@ clean:
 
 webpack:
 	# Create temporary directory for the archive content
-	mkdir -p ../docs/_static/dist/tmp
-	cp -r ../* ../docs/_static/dist/tmp
+	mkdir -p ../docs/_static/dist/tmp/euler
+	cp -r ../{_data,python} ../docs/_static/dist/tmp/euler
 
 	# Add __init__.py files to the temporary directory
-	echo "# init file" > ../docs/_static/dist/tmp/__init__.py
-	echo "# init file" > ../docs/_static/dist/tmp/python/__init__.py
+	echo "# init file" > ../docs/_static/dist/tmp/euler/__init__.py
+	echo "# init file" > ../docs/_static/dist/tmp/euler/python/__init__.py
 	
 	# Exclude unwanted directories and create tarball
-	cd ../docs/_static/dist/tmp && \
+	cd ../docs/_static/dist/tmp/euler && \
 		tar --exclude='__pycache__' --exclude='*/__pycache__' \
-			--exclude='!_data' --exclude='!python' \
-			-czvf ../python.tar.gz .
+			-czvf ../../python.tar.gz .
 
 	# Clean up temporary directory
 	rm -rf ../docs/_static/dist/tmp
