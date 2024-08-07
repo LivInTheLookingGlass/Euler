@@ -18,10 +18,10 @@
       async function main() {
         return await loadPyodide();
       }
-      let pyodideReadyPromise = main();
+      const pyodideReadyPromise = main();
       window.onload = function() {
         pyodideReadyPromise.then(async () => {
-          let pyodide = await pyodideReadyPromise;
+          const pyodide = await pyodideReadyPromise;
           await pyodide.loadPackage("micropip");
           await pyodide.runPythonAsync(`
             import micropip
@@ -35,31 +35,35 @@
             [i for i in src.problems.keys() if i not in src.slow]
           `);
           for (i of problems) {
-            describe(`run test ${i}`, function() {
+            describe(`run test ${i}`, async function() {
               this.timeout(Infinity);
-              it('should return a value', async () => {
-                let q = `${i}`.padStart(4, '0');
-                const pyodide = await pyodideReadyPromise;
-                const [answer, expected] = await pyodide.runPythonAsync(`
+              const pyodide = await pyodideReadyPromise;
+              const expected = await pyodide.runPythonAsync(`
+                from euler.python.src.lib.utils import get_answer
+                get_answer(${i})
+              `);
+              it(`should return ${expected}`, async () => {
+                const q = `${i}`.padStart(4, '0');
+                const answer = await pyodide.runPythonAsync(`
                   from euler.python.src import p${q}
-                  from euler.python.src.lib.utils import get_answer
-                  [p${q}.main(), get_answer(${i})]
+                  p${q}.main()
                 `);
+                console.log(answer, expected);
                 if (answer !== expected) {
                   throw new Error();
                 }
               });
             });
           }
-          var runner = mocha.run();
-          var failedTests = [];
+          const runner = mocha.run();
+          let failedTests = [];
           runner.on('end', function() {
             window.mochaResults = runner.stats;
             window.mochaResults.reports = failedTests;
           });
           runner.on('fail', function logFailure(test, err){
-            var flattenTitles = function(test){
-              var titles = [];
+            const flattenTitles = function(test){
+              let titles = [];
               while (test.parent.title){
                 titles.push(test.parent.title);
                 test = test.parent;
