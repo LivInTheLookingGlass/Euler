@@ -70,7 +70,8 @@ clean:
 webpack:
 	# Create temporary directory for the archive content
 	mkdir -p ../docs/_static/dist/tmp/euler
-	cp -r ../{_data,python} ../docs/_static/dist/tmp/euler
+	cp -r ../_data ../docs/_static/dist/tmp/euler/_data
+	cp -r ../python ../docs/_static/dist/tmp/euler/python
 
 	# Add __init__.py files to the temporary directory
 	echo "# init file" > ../docs/_static/dist/tmp/euler/__init__.py
