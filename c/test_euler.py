@@ -37,7 +37,7 @@ known_slow: Set[int] = {12}
 requires_io: Set[int] = {22}
 
 # this is the set of problems where builds are not reproducible on PCC compiler
-PCC_no_reproducible: Set[str] = set()
+# PCC_no_reproducible: Set[str] = set()
 
 # platform variables section
 IN_WINDOWS = system() == 'Windows'
