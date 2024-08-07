@@ -3,15 +3,15 @@ Olivia's Project Euler Solutions
 
 .. |Ci| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/c.yml?logo=github&label=C%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml
-.. |C-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/c-lint.yml?logo=github&label=C%20Tests
+.. |C-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/c-lint.yml?logo=github&label=Linting
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c-lint.yml
 .. |Cpi| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/cplusplus.yml?logo=github&label=Cpp%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml
-.. |Cp-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/cplusplus-lint.yml?logo=github&label=Cpp%20Tests
+.. |Cp-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/cplusplus-lint.yml?logo=github&label=Linting
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus-lint.yml
 .. |C#i| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp.yml?logo=github&label=C%23%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
-.. |C#-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp-lint.yml?logo=github&label=C%23%20Tests
+.. |C#-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp-lint.yml?logo=github&label=Linting
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp-lint.yml
 .. |JavaScript| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/javascript.yml?logo=github&label=Js%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
