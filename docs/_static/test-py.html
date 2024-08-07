@@ -42,7 +42,7 @@
                 const pyodide = await pyodideReadyPromise;
                 const [answer, expected] = await pyodide.runPythonAsync(`
                   from euler.python.src import p${q}
-                  from euler.python.src.utils import get_answer
+                  from euler.python.src.lib.utils import get_answer
                   [p${q}.main(), get_answer(${i})]
                 `);
                 if (answer !== expected) {
