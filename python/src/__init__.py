@@ -1,12 +1,13 @@
 from importlib import import_module
 from sys import modules
 from time import perf_counter
-from typing import Callable, Dict, Union
+from typing import Callable, Dict, Set, Union
 
 from . import lib
 
 __all__ = ['lib']
 problems: Dict[int, Callable[[], Union[int, str]]] = {}
+slow: Set[int] = set()
 
 for i in range(1, 10000):
     try:
@@ -15,6 +16,8 @@ for i in range(1, 10000):
         setattr(modules[__name__], name, module)
         __all__.append(name)
         problems[i] = module.main
+        if getattr(module, 'is_slow', False):
+            slow.add(i)
     except ImportError:
         pass
 

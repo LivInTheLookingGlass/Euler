@@ -17,8 +17,8 @@ from typing import Tuple
 
 from .lib.primes import primes
 
+is_slow = True
 all_digits = set("123456789")
-
 max_digits = {
     2: 8,
     3: 7,

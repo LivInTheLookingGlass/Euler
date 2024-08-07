@@ -30,6 +30,8 @@ from typing import Iterable
 from .lib.factors import proper_divisors
 from .lib.primes import is_prime, primes
 
+is_slow = True
+
 
 def divisors(n: int) -> Iterable[int]:
     yield from proper_divisors(n)

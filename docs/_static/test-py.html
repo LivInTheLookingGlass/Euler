@@ -29,10 +29,12 @@
             from pyodide.http import pyfetch
             response = await pyfetch("https://euler.oliviaappleton.com/_static/dist/python.tar.gz") # .zip, .whl, ...
             await response.unpack_archive() # by default, unpacks to the current dir
-            from euler.python import src
-            print(src.problems)
           `);
-          for (let i = 1; i < 26; i += 1) {
+          const problems = pyodide.runPython(`
+            from euler.python import src
+            [i for i in src.problems.keys() if i not in src.slow]
+          `);
+          for (i of problems) {
             describe(`run test ${i}`, function() {
               this.timeout(Infinity);
               it('should return a value', async () => {
