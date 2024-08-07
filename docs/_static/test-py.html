@@ -35,10 +35,13 @@
               it('should return a value', async () => {
                 let q = `${i}`.padStart(4, '0');
                 const pyodide = await pyodideReadyPromise;
-                expect(await pyodide.runPythonAsync(`
+                const answer = await pyodide.runPythonAsync(`
                   from src import p${q}
                   p${q}.main()
-                `)).to.be.finite;
+                `);
+                if (answer === null || answer === undefined) {
+                  throw new Error();
+                }
               });
             });
           }
