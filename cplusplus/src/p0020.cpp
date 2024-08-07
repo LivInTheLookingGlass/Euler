@@ -21,10 +21,10 @@ unsigned long long p0020() {
     const unsigned long long ten17 = 100000000000000000;
     numbers[0] = 1;
     for (unsigned char i = 2; i <= 100; i++) {
-        for (unsigned char j = 0; j < numbers.size(); j++) {
+        for (size_t j = 0; j < numbers.size(); j++) {
             numbers[j] *= i;
         }
-        for (unsigned char j = 0; j < numbers.size() - 1; j++) {
+        for (size_t j = 0; j < numbers.size() - 1; j++) {
             if (numbers[j] > ten17) {
                 numbers[j + 1] += numbers[j] / ten17;
                 numbers[j] %= ten17;
@@ -34,7 +34,7 @@ unsigned long long p0020() {
     unsigned long long answer = 0;
     unsigned long long power = 1;
     for (unsigned char i = 0; i < 18; i++) {
-        for (unsigned char j = 0; j < numbers.size(); j++) {
+        for (size_t j = 0; j < numbers.size(); j++) {
             answer += (numbers[j] / power) % 10;
         }
         power *= 10;
