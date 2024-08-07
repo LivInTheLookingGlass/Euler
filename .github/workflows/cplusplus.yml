@@ -13,22 +13,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cpp-lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-
-    - name: Setup clang-tidy
-      uses: awalsh128/cache-apt-pkgs-action@latest
-      with:
-        packages: clang-tidy
-        version: 1.0
-
-    - name: Run tests
-      run: make cp_lint
-
   cpp:
     strategy:
       fail-fast: false

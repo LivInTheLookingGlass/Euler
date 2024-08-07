@@ -1,0 +1,30 @@
+name: C Lint
+
+on:
+  push:
+    paths:
+      - 'c/**'
+      - '!c/README.rst'
+  schedule:
+  - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  c-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Setup clang-tidy
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: clang-tidy
+        version: 1.0
+
+    - name: Run tests
+      run: make c_lint

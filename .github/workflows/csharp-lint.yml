@@ -1,0 +1,30 @@
+name: C# Lint
+
+on:
+  push:
+    paths:
+      - 'csharp/**'
+      - '!csharp/README.rst'
+  schedule:
+  - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  csharp-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8
+        cache: true
+        cache-dependency-path: 'csharp/*/packages.lock.json'
+
+    - name: Run Linter
+      run: make cs_lint
+
