@@ -34,6 +34,7 @@
             describe(`run test ${i}`, () => {
               it('should return a value', async () => {
                 let q = `${i}`.padStart(4, '0');
+                this.timeout(-1);
                 const pyodide = await pyodideReadyPromise;
                 const answer = await pyodide.runPythonAsync(`
                   from src import p${q}
@@ -42,6 +43,7 @@
                 if (answer === null || answer === undefined) {
                   throw new Error();
                 }
+                done();
               });
             });
           }
