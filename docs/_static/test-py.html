@@ -37,7 +37,7 @@
                 let q = `${i}`.padStart(4, '0');
                 const pyodide = await pyodideReadyPromise;
                 const answer = await pyodide.runPythonAsync(`
-                  from src import p${q}
+                  from euler.python.src import p${q}
                   p${q}.main()
                 `);
                 if (answer === null || answer === undefined) {

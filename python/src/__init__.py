@@ -10,7 +10,7 @@ problems: Dict[int, Callable[[], Union[int, str]]] = {}
 
 for i in range(1, 10000):
     try:
-        name = f'p{i:04}'  # noqa
+        name = f'p{i:0>4}'  # noqa
         module = import_module(f'.{name}', __name__)
         setattr(modules[__name__], name, module)
         __all__.append(name)
@@ -24,4 +24,4 @@ def run_problems() -> None:  # pragma: no cover
         start = perf_counter()
         answer = p()
         stop = perf_counter()
-        print(f'The answer to problem {i:04} is {answer!r} (found in {(stop - start) * 1000:,}ms)')  # noqa
+        print(f'The answer to problem {i:0>4} is {answer!r} (found in {(stop - start) * 1000:,}ms)')  # noqa

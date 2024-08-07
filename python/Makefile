@@ -68,6 +68,19 @@ clean:
 	rm -r ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
 
 webpack:
-	mkdir -p ../docs/_static/dist
-	wget https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js -O ../docs/_static/dist/pyodide.js
-	tar --exclude=__pycache__ -czvf ../docs/_static/dist/python.tar.gz src
+	# Create temporary directory for the archive content
+	mkdir -p ../docs/_static/dist/tmp
+	cp -r ../* ../docs/_static/dist/tmp
+
+	# Add __init__.py files to the temporary directory
+	echo "# init file" > ../docs/_static/dist/tmp/__init__.py
+	echo "# init file" > ../docs/_static/dist/tmp/python/__init__.py
+	
+	# Exclude unwanted directories and create tarball
+	cd ../docs/_static/dist/tmp && \
+		tar --exclude='__pycache__' --exclude='*/__pycache__' \
+			--exclude='!_data' --exclude='!python' \
+			-czvf ../python.tar.gz .
+
+	# Clean up temporary directory
+	rm -rf ../docs/_static/dist/tmp
