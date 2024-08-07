@@ -52,22 +52,22 @@ Olivia's Project Euler Solutions
 +------------+--------------------------+--------+-------------------+
 | Language   | Version                  | Solved | Status            |
 +============+==========================+========+===================+
-| C          | C99+ in: |clang|, |br|   | 21     | |Ci| |br|         |
+| C          | C99+ in: |clang|, |br|   | 22     | |Ci| |br|         |
 |            | |gcc|, |pcc|, |tcc| |br| |        | |C-Cov| |br|      |
 |            | C11+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
 |            |                          |        | |C-lint|          |
 +------------+--------------------------+--------+-------------------+
-| C++        | C++98+ in: |br| |clang|  | 15     | |Cpi| |br|        |
+| C++        | C++98+ in: |br| |clang|  | 16     | |Cpi| |br|        |
 |            | |gcc| |br|               |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_   |        | |CodeQL| |br|     |
 |            |                          |        | |Cp-lint|         |
 +------------+--------------------------+--------+-------------------+
-| C#         | .NET 2+                  | 15     | |C#i| |br|        |
+| C#         | .NET 2+                  | 16     | |C#i| |br|        |
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL| |br|     |
 |            |                          |        | |C#-lint|         |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 15     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 16     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |
@@ -93,8 +93,8 @@ Olivia's Project Euler Solutions
 .. [1] This is the earliest standard the MSVC explicitly supports.
 .. [2] While these solutions do run on Chrome and Firefox, they need to be bundled with WebPack + Babel first, and
    these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
-.. [3] Pyodide setup is in progress, but the code in this repository is currently packaged for pyodide. If you would
-   like to test this in an interactive shell, |test-py-link|
+.. [3] While these solutions do run on Chrome and Firefox, they need to be bundled with Pyodide first, and these
+   tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
 
 Coverage
 --------
