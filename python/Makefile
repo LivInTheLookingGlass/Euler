@@ -78,9 +78,9 @@ webpack:
 	echo "# init file" > ../docs/_static/dist/tmp/euler/python/__init__.py
 	
 	# Exclude unwanted directories and create tarball
-	cd ../docs/_static/dist/tmp/euler && \
+	cd ../docs/_static/dist/tmp && \
 		tar --exclude='__pycache__' --exclude='*/__pycache__' \
-			-czvf ../../python.tar.gz .
+			-czvf ../python.tar.gz euler
 
 	# Clean up temporary directory
 	rm -rf ../docs/_static/dist/tmp
