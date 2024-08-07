@@ -31,10 +31,10 @@
             await response.unpack_archive() # by default, unpacks to the current dir
           `);
           for (let i = 1; i < 26; i += 1) {
-            describe(`run test ${i}`, () => {
+            describe(`run test ${i}`, function() {
+              this.timeout(Infinity);
               it('should return a value', async () => {
                 let q = `${i}`.padStart(4, '0');
-                this.timeout(-1);
                 const pyodide = await pyodideReadyPromise;
                 const answer = await pyodide.runPythonAsync(`
                   from src import p${q}
