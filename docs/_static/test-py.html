@@ -15,11 +15,11 @@
     <!-- Mocha setup and initiation code -->
     <script>
       mocha.setup('bdd');
+      async function main() {
+        return await loadPyodide();
+      }
+      let pyodideReadyPromise = main();
       window.onload = function() {
-        async function main() {
-          return await loadPyodide();
-        }
-        let pyodideReadyPromise = main();
         pyodideReadyPromise.then(async () => {
           let pyodide = await pyodideReadyPromise;
           await pyodide.loadPackage("micropip");
@@ -29,6 +29,8 @@
             from pyodide.http import pyfetch
             response = await pyfetch("https://euler.oliviaappleton.com/_static/dist/python.tar.gz") # .zip, .whl, ...
             await response.unpack_archive() # by default, unpacks to the current dir
+            from euler.python import src
+            print(src.problems)
           `);
           for (let i = 1; i < 26; i += 1) {
             describe(`run test ${i}`, function() {
