@@ -16,13 +16,11 @@
     <script>
       mocha.setup('bdd');
       window.onload = function() {
-      async function main() {
-        let pyodide = await loadPyodide();
-        output.value += "Ready!\n";
-        return pyodide;
-      }
-      let pyodideReadyPromise = main();
-      pyodideReadyPromise.then(async () => {
+        async function main() {
+          return await loadPyodide();
+        }
+        let pyodideReadyPromise = main();
+        pyodideReadyPromise.then(async () => {
           let pyodide = await pyodideReadyPromise;
           await pyodide.loadPackage("micropip");
           await pyodide.runPythonAsync(`
@@ -32,43 +30,45 @@
             response = await pyfetch("https://euler.oliviaappleton.com/_static/dist/python.tar.gz") # .zip, .whl, ...
             await response.unpack_archive() # by default, unpacks to the current dir
           `);
-      });
-// describe tests here, or include another file
-
-for (let i = 1; i < 26; i += 1) {
-  describe(`run test ${i}`, () => {
-    it('should return a value', async () => {
-      const pyodide = await pyodideReadyPromise;
-      expect(await pyodide.runPythonAsync(`
-        from src import p{q}
-        p{q}.main()
-      `)).to.be.finite;
-    });
-  });
-}
-        var runner = mocha.run();
-        var failedTests = [];                                                                           runner.on('end', function() {                     window.mochaResults = runner.stats;
-          window.mochaResults.reports = failedTests;                                                    });
-                                                        runner.on('fail', logFailure);
-
-        function logFailure(test, err){
-          var flattenTitles = function(test){
-            var titles = [];
-            while (test.parent.title){
-              titles.push(test.parent.title);
-              test = test.parent;
-            }
-            return titles.reverse();
-          };
-
-          failedTests.push({
-            name: test.title,
-            result: false,
-            message: err.message,
-            stack: err.stack,
-            titles: flattenTitles(test)
+          for (let i = 1; i < 26; i += 1) {
+            describe(`run test ${i}`, () => {
+              it('should return a value', async () => {
+                let q = `${i}`.padStart(4, '0');
+                const pyodide = await pyodideReadyPromise;
+                expect(await pyodide.runPythonAsync(`
+                  from src import p${q}
+                  p${q}.main()
+                `)).to.be.finite;
+              });
+            });
+          }
+          var runner = mocha.run();
+          var failedTests = [];
+          runner.on('end', function() {
+            window.mochaResults = runner.stats;
+            window.mochaResults.reports = failedTests;
           });
-        };
+          runner.on('fail', logFailure);
+
+          function logFailure(test, err){
+            var flattenTitles = function(test){
+              var titles = [];
+              while (test.parent.title){
+                titles.push(test.parent.title);
+                test = test.parent;
+              }
+              return titles.reverse();
+            };
+
+            failedTests.push({
+              name: test.title,
+              result: false,
+              message: err.message,
+              stack: err.stack,
+              titles: flattenTitles(test)
+            });
+          };
+        });
       };
     </script>
   </body>
