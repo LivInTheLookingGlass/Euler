@@ -42,9 +42,10 @@ is the same challenge with a triangle containing one-hundred rows; it cannot be 
 clever method! ;o)
 */
 use crate::include::triangles::reduce_triangle;
+use crate::include::utils::Answer;
 
 
-pub fn p0018() -> i128 {
+pub fn p0018() -> Answer {
     let rows = vec![
         vec![75, ],
         vec![95, 64],
@@ -62,5 +63,5 @@ pub fn p0018() -> i128 {
         vec![63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
         vec![ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23]
     ];
-    return reduce_triangle(rows).into();
+    return Answer::Int(reduce_triangle(rows).into());
 }

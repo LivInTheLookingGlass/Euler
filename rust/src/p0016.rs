@@ -7,8 +7,9 @@ Problem:
 
 What is the sum of the digits of the number 2**1000?
 */
+use crate::include::utils::Answer;
 
-pub fn p0016() -> i128 {
+pub fn p0016() -> Answer {
     let mut numbers: Vec<u128> = vec![0; 9];
     let ten36: u128 = 1000000000000000000000000000000000000;
     numbers[0] = 1;
@@ -31,5 +32,5 @@ pub fn p0016() -> i128 {
         }
         power *= 10;
     }
-    return answer;
+    return Answer::Int(answer);
 }

@@ -11,7 +11,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0087::p0087() -> i128
+.. rust:fn:: p0087::p0087() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0087.rs
    :language: rust

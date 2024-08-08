@@ -6,7 +6,7 @@ View source code :source:`rust/src/p0016.rs`
 Problem Solution
 ----------------
 
-.. rust:fn:: p0016::p0016() -> i128
+.. rust:fn:: p0016::p0016() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0016.rs
    :language: rust

@@ -14,7 +14,8 @@ Define f(m,p) as the maximal possible discriminant of the **jacobian** associate
 
 Find f(20230401, 57). Give as your answer the concatenation of the first letters of each bolded word.
 */
+use crate::include::utils::Answer;
 
-pub fn p0836() -> i128 {
-    return i128::from_ne_bytes(*b"\x00\x00aprilfoolsjoke");
+pub fn p0836() -> Answer {
+    return Answer::String("aprilfoolsjoke".to_string());
 }

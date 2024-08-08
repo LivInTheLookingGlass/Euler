@@ -11,7 +11,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0022::p0022() -> i128
+.. rust:fn:: p0022::p0022() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0022.rs
    :language: rust

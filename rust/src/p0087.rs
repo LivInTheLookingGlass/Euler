@@ -27,9 +27,10 @@ square, prime cube, and prime fourth power?
 use std::collections::HashSet;
 
 use crate::primes::primes_until;
+use crate::include::utils::Answer;
 
 
-pub fn p0087() -> i128 {
+pub fn p0087() -> Answer {
     let mut seen: HashSet<u64> = HashSet::new();
     let root2_50m = f64::powf(50_000_000.0, 1.0 / 2.0).floor() as u64;
     let root3_50m = f64::powf(50_000_000.0, 1.0 / 3.0).floor() as u64;
@@ -49,5 +50,5 @@ pub fn p0087() -> i128 {
             }
         }
     }
-    return (seen.len() as u64).into();
+    return Answer::Int((seen.len() as u64).into());
 }

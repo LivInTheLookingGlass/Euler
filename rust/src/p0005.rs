@@ -15,7 +15,9 @@ numbers from 1 to 20?
 */
 use itertools::Itertools;
 
-pub fn p0005() -> i128 {
+use crate::include::utils::Answer;
+
+pub fn p0005() -> Answer {
     let mut answer = u64::MAX;
     let group = 1..=20u64;
     for x in group.clone() {
@@ -26,5 +28,5 @@ pub fn p0005() -> i128 {
             }
         }
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

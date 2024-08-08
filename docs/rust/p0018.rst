@@ -11,7 +11,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0018::p0018() -> i128
+.. rust:fn:: p0018::p0018() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0018.rs
    :language: rust

@@ -14,7 +14,9 @@ terms. By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 */
-pub fn p0002() -> i128 {
+use crate::include::utils::Answer;
+
+pub fn p0002() -> Answer {
     let mut answer: u64 = 0;
     let mut i = 2;
     let mut j = 8;
@@ -24,5 +26,5 @@ pub fn p0002() -> i128 {
         i = j;
         j = tmp;
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

@@ -14,8 +14,9 @@ such that for every divisor d of n, d+n/d is prime.
 use std::collections::HashSet;
 
 use crate::primes::{is_prime,primes_until,proper_divisors};
+use crate::include::utils::Answer;
 
-pub fn p0357() -> i128 {
+pub fn p0357() -> Answer {
     let mut answer: u64 = 1 + 2;  // don't bother trying 1, 2, they're correct
     let prime_squares = HashSet::<u64>::from_iter(
         primes_until::<u64>(10001).map(|x| x * x)
@@ -35,5 +36,5 @@ pub fn p0357() -> i128 {
             answer += n;
         }
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

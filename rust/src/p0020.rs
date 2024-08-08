@@ -10,8 +10,9 @@ and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
 Find the sum of the digits in the number 100!
 */
+use crate::include::utils::Answer;
 
-pub fn p0020() -> i128 {
+pub fn p0020() -> Answer {
     let mut numbers: Vec<u128> = vec![0; 5];
     let ten36: u128 = 1000000000000000000000000000000000000;
     numbers[0] = 1;
@@ -34,5 +35,5 @@ pub fn p0020() -> i128 {
         }
         power *= 10;
     }
-    return answer;
+    return Answer::Int(answer);
 }

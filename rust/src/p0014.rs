@@ -23,6 +23,8 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 use std::collections::HashMap;
 
+use crate::include::utils::Answer;
+
 fn collatz_len(n: u64, cache: &mut HashMap<u64, u64>) -> u64 {
     if n == 1 {
         return 0;
@@ -42,7 +44,7 @@ fn collatz_len(n: u64, cache: &mut HashMap<u64, u64>) -> u64 {
     }
 }
 
-pub fn p0014() -> i128 {
+pub fn p0014() -> Answer {
     let mut biggest_seen: u64 = 0;
     let mut biggest_idx: u64 = 0;
     let mut cache: HashMap<u64, u64> = HashMap::new();
@@ -53,5 +55,5 @@ pub fn p0014() -> i128 {
             biggest_idx = x;
         }
     }
-    return biggest_idx.into();
+    return Answer::Int(biggest_idx.into());
 }

@@ -18,8 +18,9 @@ It is possible to write five as a sum in exactly six different ways:
 How many different ways can one hundred be written as a sum of at least two
 positive integers?
 */
+use crate::include::utils::Answer;
 
-pub fn p0076() -> i128 {
+pub fn p0076() -> Answer {
     let mut answer: u64 = 0;
     let mut idx: usize;
     let mut sum: u64 = 100;
@@ -43,5 +44,5 @@ pub fn p0076() -> i128 {
         }
         sum = counts.iter().sum();
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

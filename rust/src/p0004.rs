@@ -14,12 +14,14 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 */
 use itertools::Itertools;
 
+use crate::include::utils::Answer;
+
 fn is_palindrome(x: u32) -> bool {
     let s = x.to_string();
     return s == s.chars().rev().collect::<String>();
 }
 
-pub fn p0004() -> i128 {
+pub fn p0004() -> Answer {
     let mut answer: u32 = 0;
     for v in (100..1000).combinations(2) {
         let p: u32 = v.into_iter().product();
@@ -27,6 +29,6 @@ pub fn p0004() -> i128 {
             answer = p;
         }
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }
 

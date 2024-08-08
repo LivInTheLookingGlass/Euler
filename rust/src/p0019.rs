@@ -4,9 +4,11 @@ Project Euler Problem 19
 Problem:
 
 */
-use chrono::{DateTime};
+use chrono::DateTime;
 
-pub fn p0019() -> i128 {
+use crate::include::utils::Answer;
+
+pub fn p0019() -> Answer {
     let mut answer: u8 = 0;
     for year in 1901..2001 {
         for month in 1..13 {
@@ -16,5 +18,5 @@ pub fn p0019() -> i128 {
             }
         }
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

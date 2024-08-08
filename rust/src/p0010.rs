@@ -11,10 +11,13 @@ The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 Find the sum of all the primes below two million.
 */
 use crate::primes::primes;
+use crate::include::utils::Answer;
 
-pub fn p0010() -> i128 {
-    return primes::<u64>()
-        .take_while(|&p| p < 2000000)
-        .sum::<u64>()
-        .into();
+pub fn p0010() -> Answer {
+    return Answer::Int(
+        primes::<u64>()
+            .take_while(|&p| p < 2000000)
+            .sum::<u64>()
+            .into()
+    );
 }

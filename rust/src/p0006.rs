@@ -17,12 +17,12 @@ numbers and the square of the sum is 3025 − 385 = 2640.
 Find the difference between the sum of the squares of the first one hundred
 natural numbers and the square of the sum.
 */
+use crate::include::utils::Answer;
 
-
-pub fn p0006() -> i128 {
+pub fn p0006() -> Answer {
     let group = 1..101;
     let sum_of_squares = group.clone().fold(0, |x, y| x + y * y);
     let sum: u32 = group.sum();
     let square_of_sum = sum * sum;
-    return (square_of_sum - sum_of_squares).into();
+    return Answer::Int((square_of_sum - sum_of_squares).into());
 }

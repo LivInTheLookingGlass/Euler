@@ -187,6 +187,8 @@ def setup(app):
         {
             'fn': {
             },
+            'enum': {
+            },
             'struct': {
             },
             'var': {

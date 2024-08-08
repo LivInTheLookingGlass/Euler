@@ -5,6 +5,11 @@ Euler Python Implementation
    :start-line: 2
    :end-before: Problems Solved
 
+Live Tests
+----------
+
+To run these problems in your browser, :live-test:`py`
+
 Library Code
 ------------
 

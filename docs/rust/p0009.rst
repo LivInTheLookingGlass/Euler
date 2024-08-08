@@ -6,7 +6,7 @@ View source code :source:`rust/src/p0009.rs`
 Problem Solution
 ----------------
 
-.. rust:fn:: p0009::p0009() -> i128
+.. rust:fn:: p0009::p0009() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0009.rs
    :language: rust

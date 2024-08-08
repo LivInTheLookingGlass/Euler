@@ -33,6 +33,8 @@ the 20×20 grid?
 */
 use core::cmp::max;
 
+use crate::include::utils::Answer;
+
 const GRID: [[u8; 20]; 20] = [
     [ 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8],
     [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48,  4, 56, 62,  0],
@@ -57,7 +59,7 @@ const GRID: [[u8; 20]; 20] = [
 ];
 
 
-pub fn p0011() -> i128 {
+pub fn p0011() -> Answer {
     let mut answer: u64 = 0;
     let mut tmp: u64;
     for i in 0..20 {
@@ -82,5 +84,5 @@ pub fn p0011() -> i128 {
         }
     }
 
-    return answer.into();
+    return Answer::Int(answer.into());
 }

@@ -17,14 +17,18 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4,
 */
 use itertools::Itertools;
 
+use crate::include::utils::Answer;
 
-pub fn p0024() -> i128 {
-    return (0..10).permutations(10)
-                  .nth(999999)
-                  .unwrap()
-                  .into_iter()
-                  .map(|y| y.to_string())
-                  .fold("".to_owned(), |y, z| y + &z)
-                  .parse::<i128>()
-                  .unwrap();
+pub fn p0024() -> Answer {
+    return Answer::Int(
+        (0..10)
+            .permutations(10)
+            .nth(999999)
+            .unwrap()
+            .into_iter()
+            .map(|y| y.to_string())
+            .fold("".to_owned(), |y, z| y + &z)
+            .parse::<i128>()
+            .unwrap()
+    );
 }

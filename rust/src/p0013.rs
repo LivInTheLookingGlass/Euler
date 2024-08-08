@@ -108,6 +108,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 */
+use crate::include::utils::Answer;
 
 const NUMBERS: [(u128, u128); 100] = [
     (3710728753390210279879799, 8220837590246510135740250),
@@ -213,12 +214,18 @@ const NUMBERS: [(u128, u128); 100] = [
 ];
 const DECIMAL_LENGTH: u128 = 10000000000000000000000000;
 
-pub fn p0013() -> i128 {
+pub fn p0013() -> Answer {
     let (mut sum_high, mut sum_low) = (0, 0);
     for (high, low) in NUMBERS {
         sum_low += low;
         sum_high += high + sum_low / DECIMAL_LENGTH;
         sum_low %= DECIMAL_LENGTH;
     }
-    return sum_high.to_string()[0..10].parse::<u64>().unwrap().into();
+    return Answer::Int(
+        sum_high
+            .to_string()[0..10]
+            .parse::<u64>()
+            .unwrap()
+            .into()
+    );
 }

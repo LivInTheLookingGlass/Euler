@@ -17,6 +17,7 @@ forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20
 letters. The use of "and" when writing out numbers is in compliance with
 British usage.
 */
+use crate::include::utils::Answer;
 
 fn to_string(n: u16) -> String {
     if n >= 1000 {
@@ -88,11 +89,11 @@ fn to_string(n: u16) -> String {
 }
 
 
-pub fn p0017() -> i128 {
+pub fn p0017() -> Answer {
     let mut answer: u16 = 0;
     for x in 1..=1000 {
         let string = to_string(x);
         answer += string.replace(" ", "").replace("-", "").len() as u16;
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

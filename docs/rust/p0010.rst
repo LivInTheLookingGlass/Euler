@@ -11,7 +11,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0010::p0010() -> i128
+.. rust:fn:: p0010::p0010() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0010.rs
    :language: rust

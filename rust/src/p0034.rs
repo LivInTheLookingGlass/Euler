@@ -15,8 +15,9 @@ their digits.
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 */
 use crate::math::factorial;
+use crate::include::utils::Answer;
 
-pub fn p0034() -> i128 {
+pub fn p0034() -> Answer {
     let mut answer: u32 = 0;
     for x in 10..100000 {
         let sum = x.to_string()
@@ -26,5 +27,5 @@ pub fn p0034() -> i128 {
             answer += x;
         }
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

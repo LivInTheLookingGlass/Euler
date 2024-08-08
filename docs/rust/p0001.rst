@@ -3,7 +3,7 @@ Rust Implementation of Problem 1
 
 View source code :source:`rust/src/p0001.rs`
 
-.. rust:fn:: p0001::p0001() -> i128
+.. rust:fn:: p0001::p0001() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0001.rs
    :language: rust

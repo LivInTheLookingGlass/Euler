@@ -11,7 +11,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0077::p0077() -> i128
+.. rust:fn:: p0077::p0077() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0077.rs
    :language: rust

@@ -11,7 +11,9 @@ get 3, 5, 6 and 9. The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 */
-pub fn p0001() -> i128 {
+use crate::include::utils::Answer;
+
+pub fn p0001() -> Answer {
     let mut answer: u32 = 0;
     for i in (0..1000).step_by(3) {
         answer += i;
@@ -22,5 +24,5 @@ pub fn p0001() -> i128 {
     for i in (0..1000).step_by(15) {
         answer -= i;
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

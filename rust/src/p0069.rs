@@ -26,8 +26,9 @@ It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
 Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
 */
 use crate::primes::primes;
+use crate::include::utils::Answer;
 
-pub fn p0069() -> i128 {
+pub fn p0069() -> Answer {
     let mut answer: u32 = 1;
     for p in primes::<u32>() {
         let new = answer * p;
@@ -38,5 +39,5 @@ pub fn p0069() -> i128 {
             break;
         }
     }
-    return answer.into();
+    return Answer::Int(answer.into());
 }

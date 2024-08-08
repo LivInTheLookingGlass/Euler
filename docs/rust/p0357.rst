@@ -16,7 +16,7 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: p0357::p0357() -> i128
+.. rust:fn:: p0357::p0357() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0357.rs
    :language: rust

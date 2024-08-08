@@ -13,8 +13,9 @@ For example, 3**2 + 4**2 = 9 + 16 = 25 = 5**2.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 */
+use crate::include::utils::Answer;
 
-pub fn p0009() -> i128 {
+pub fn p0009() -> Answer {
     for c in 3.. {
         let c_square = c * c;
         for b in 2..c {
@@ -22,7 +23,7 @@ pub fn p0009() -> i128 {
             for a in 1..b {
                 let a_square = a * a;
                 if a_square + b_square == c_square && a + b + c == 1000 {
-                    return (a * b * c).into();
+                    return Answer::Int((a * b * c).into());
                 }
             }
         }

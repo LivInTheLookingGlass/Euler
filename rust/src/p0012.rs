@@ -28,13 +28,14 @@ What is the value of the first triangle number to have over five hundred
 divisors?
 */
 use crate::primes;
+use crate::include::utils::Answer;
 
-pub fn p0012() -> i128 {
+pub fn p0012() -> Answer {
     let mut num: u64 = 0;
     for x in 1.. {
         num += x;
         if primes::proper_divisors(num).len() > 500 {
-            return num.into();
+            return Answer::Int(num.into());
         }
     }
     unreachable!();

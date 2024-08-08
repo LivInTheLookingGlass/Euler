@@ -6,7 +6,7 @@ View source code :source:`rust/src/p0076.rs`
 Problem Solution
 ----------------
 
-.. rust:fn:: p0076::p0076() -> i128
+.. rust:fn:: p0076::p0076() -> utils::Answer
 
 .. literalinclude:: ../../rust/src/p0076.rs
    :language: rust

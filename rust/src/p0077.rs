@@ -18,6 +18,7 @@ What is the first value which can be written as the sum of primes in over five t
 use core::iter::zip;
 
 use crate::primes::primes_until;
+use crate::include::utils::Answer;
 
 
 fn prime_summations(n: u64) -> u64 {
@@ -54,10 +55,10 @@ fn prime_summations(n: u64) -> u64 {
 
 
 
-pub fn p0077() -> i128 {
+pub fn p0077() -> Answer {
     for x in 11.. {
         if prime_summations(x) > 5_000 {
-            return x.into();
+            return Answer::Int(x.into());
         }
     }
     unreachable!();
