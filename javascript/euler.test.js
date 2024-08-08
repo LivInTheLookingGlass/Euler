@@ -21,6 +21,7 @@ describe('Mathematics', ()=>{
 const answers = {
     1: [require('./src/p0001.js'), false],
     2: [require('./src/p0002.js'), false],
+    3: [require('./src/p0003.js'), false],
     4: [require('./src/p0004.js'), false],
     6: [require('./src/p0006.js'), false],
     7: [require('./src/p0007.js'), false],

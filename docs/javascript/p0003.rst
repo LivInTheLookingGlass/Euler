@@ -1,0 +1,18 @@
+JavaScript Implementation of Problem 3
+======================================
+
+View source code :source:`javascript/src/p0003.js`
+
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. js:autofunction:: p0003
+
+.. literalinclude:: ../../javascript/src/p0003.js
+   :language: javascript
+   :linenos:

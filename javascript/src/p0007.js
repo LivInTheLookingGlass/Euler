@@ -13,14 +13,13 @@
  * @return {number}
  */
 exports.p0007 = function() {
-    let pgen = primes.modifiedEratosthenes();
+    const pgen = primes.modifiedEratosthenes();
     for (let idx = 1; ; idx++) {
-        let num = pgen.next().value;
+        const num = pgen.next().value;
         if (idx === 10001) {
             return num;
         }
     }
-    return -1;
 };
 
 const primes = require('./lib/primes.js');
