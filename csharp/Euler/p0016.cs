@@ -15,16 +15,16 @@ namespace Euler
     {
         public object Answer()
         {
-            ulong[] numbers = new ulong[16];
+            ulong[] numbers = new ulong[18];
             const ulong ten17 = 100000000000000000;
             numbers[0] = 1;
             for (ushort i = 0; i < 1000; i++)
             {
-                for (byte j = 0; j < 16; j++)
+                for (byte j = 0; j < 18; j++)
                 {
                     numbers[j] *= 2;
                 }
-                for (byte j = 0; j < 15; j++)
+                for (byte j = 0; j < 17; j++)
                 {
                     if (numbers[j] > ten17)
                     {
@@ -37,7 +37,7 @@ namespace Euler
             ulong power = 1;
             for (byte i = 0; i < 19; i++)
             {
-                for (byte j = 0; j < 16; j++)
+                for (byte j = 0; j < 18; j++)
                 {
                     ulong value = numbers[j] / power;
                     answer += value % 10;

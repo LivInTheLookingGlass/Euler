@@ -14,7 +14,7 @@ What is the sum of the digits of the number 2**1000?
 
 
 unsigned long long p0016() {
-    std::vector<unsigned long long> numbers(16, 0);
+    std::vector<unsigned long long> numbers(18, 0);
     const unsigned long long ten17 = 100000000000000000;
     numbers[0] = 1;
     for (unsigned short i = 0; i < 1000; i++) {
