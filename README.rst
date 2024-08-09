@@ -57,17 +57,17 @@ Olivia's Project Euler Solutions
 |            | C11+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
 |            |                          |        | |C-lint|          |
 +------------+--------------------------+--------+-------------------+
-| C++        | C++98+ in: |br| |clang|  | 16     | |Cpi| |br|        |
+| C++        | C++98+ in: |br| |clang|  | 17     | |Cpi| |br|        |
 |            | |gcc| |br|               |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_   |        | |CodeQL| |br|     |
 |            |                          |        | |Cp-lint|         |
 +------------+--------------------------+--------+-------------------+
-| C#         | .NET 2+                  | 16     | |C#i| |br|        |
+| C#         | .NET 2+                  | 17     | |C#i| |br|        |
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL| |br|     |
 |            |                          |        | |C#-lint|         |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 19     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 20     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |
