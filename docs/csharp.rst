@@ -5,8 +5,8 @@ Euler C# Implementation
     :start-line: 2
     :end-before: Makefile
 
-.. include:: ../rust/README.rst
-    :start-after: Alias for ``cargo clean``
+.. include:: ../csharp/README.rst
+    :start-after: dependencies for this section.
     :end-before: Problems Solved
 
 Usage

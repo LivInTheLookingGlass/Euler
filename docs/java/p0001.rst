@@ -1,0 +1,12 @@
+Java Implementation of Problem 1
+================================
+
+View source code :source:`java/src/main/java/euler/p0001.java`
+
+.. java:class:: p0001 implements Euler.IEuler
+
+   .. java:method:: Object answer()
+
+.. literalinclude:: ../../java/src/main/java/euler/p0001.java
+   :language: java
+   :linenos:

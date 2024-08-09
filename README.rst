@@ -13,6 +13,10 @@ Olivia's Project Euler Solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
 .. |C#-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp-lint.yml?logo=github&label=Linting
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp-lint.yml
+.. |Javai| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/java.yml?logo=github&label=Java%20Tests
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/java.yml
+.. |Java-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/java-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/java-lint.yml
 .. |JavaScript| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/javascript.yml?logo=github&label=Js%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
 .. |ESLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/eslint.yml?logo=github&label=ESLint
@@ -33,6 +37,8 @@ Olivia's Project Euler Solutions
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Cpp
 .. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&label=C%23%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Csharp
+.. |Ja-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Java&logo=codecov&label=Java%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Java
 .. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&label=Js%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=JavaScript
 .. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&label=Py%20Cov
@@ -66,6 +72,11 @@ Olivia's Project Euler Solutions
 |            |                          |        | |Cs-Cov| |br|     |
 |            |                          |        | |CodeQL| |br|     |
 |            |                          |        | |C#-lint|         |
++------------+--------------------------+--------+-------------------+
+| Java       | Java 8+                  |  2     | |Javai| |br|      |
+|            |                          |        | |Ja-Cov| |br|     |
+|            |                          |        | |CodeQL| |br|     |
+|            |                          |        | |Java-lint|       |
 +------------+--------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|            | 20     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
@@ -124,6 +135,7 @@ Makefile will direct recipes using prefixes
 -  ``make cp_*`` will go to the csharp Makefile
 -  ``make cs_*`` will go to the csharp Makefile
 -  ``make docs_*`` will go to the docs Makefile
+-  ``make ja_*`` will go to the java Makefile
 -  ``make js_*`` will go to the javascript Makefile
 -  ``make py_*`` will go to the python Makefile
 -  ``make rs_*`` will go to the rust Makefile
@@ -131,14 +143,3 @@ Makefile will direct recipes using prefixes
 -  All other recipes will be run for all languages
 
 For more information, please see the README documents in each section.
-
-Roadmap
--------
-
-1. Make sure no language is below Makefile in code percentage
-2. For each language in: Ruby, ...
-  a. Create a new section
-  b. Make stubs for test code
-  c. Write minimal documentation
-  d. Port problems 1-n, until higher than Makefile percentage
-  e. Repeat step 1

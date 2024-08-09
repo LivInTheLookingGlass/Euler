@@ -208,3 +208,15 @@ def setup(app):
         }
     ))
 
+    app.add_domain(custom_domain(
+        'JavaDomain',
+        'java',
+        'Java',
+        {
+            'class': {
+            },
+            'method': {
+            },
+        }
+    ))
+

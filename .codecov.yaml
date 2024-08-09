@@ -18,6 +18,10 @@ component_management:
       name: C#
       paths:
         - csharp/**
+    - component_id: module_java
+      name: Java
+      paths:
+        - java/**
     - component_id: module_javascript
       name: JavaScript
       paths:

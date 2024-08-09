@@ -21,6 +21,7 @@ on:
       - 'c/**'
       - 'cplusplus/**'
       - 'csharp/**'
+      - 'java/**'
       - 'javascript/**'
       - 'python/**'
       - '!*/README.rst'
@@ -59,6 +60,9 @@ jobs:
           build-mode: manual
         - name: csharp
           language: csharp
+          build-mode: none
+        - name: java
+          language: java-kotlin
           build-mode: none
         - name: javascript
           language: javascript-typescript

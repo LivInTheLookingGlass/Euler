@@ -1,0 +1,44 @@
+name: Java Lint
+
+on:
+  push:
+    paths:
+      - 'java/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Git
+      run: git config --global user.email "actions@github.com" && git config --global user.name "GitHub Actions"
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: 'adopt'
+
+    - name: Build with Maven
+      run: make ja_dependencies
+
+    - name: Run linter
+      run: make ja_lint
+
+    - name: Check for differences
+      run: |
+        # Get the diff from the last commit to the current working tree
+        if [ -n "$(git diff HEAD)" ]; then
+          echo "There are changes detected:"
+          git diff HEAD
+          exit 1
+        else
+          echo "No changes detected."
+        fi

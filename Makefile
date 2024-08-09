@@ -23,9 +23,9 @@ help:
 	@echo
 	@echo "The following jobs are available under the cs_ prefix"
 	@$(MAKE) cs_help $(MFLAGS) --no-print-directory
-#	@echo
-#	@echo "The following jobs are available under the ja_ prefix"
-#	@$(MAKE) ja_help $(MFLAGS) --no-print-directory
+	@echo
+	@echo "The following jobs are available under the ja_ prefix"
+	@$(MAKE) ja_help $(MFLAGS) --no-print-directory
 	@echo
 	@echo "The following jobs are available under the js_ prefix"
 	@$(MAKE) js_help $(MFLAGS) --no-print-directory
@@ -54,8 +54,8 @@ c_%:
 docs_%:
 	@cd docs && $(MAKE) $* $(MFLAGS)
 
-# ja_%:
-# 	@cd java && $(MAKE) $* $(MFLAGS)
+ja_%:
+	@cd java && $(MAKE) $* $(MFLAGS)
 
 js_%:
 	@cd javascript && $(MAKE) $* $(MFLAGS)
