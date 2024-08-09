@@ -16,11 +16,11 @@ public class EulerTest {
         return Stream.of(
             new Object[]{p0000.class, false, 0},
             new Object[]{p0001.class, false, 233168},
-            // new Object[]{p0002.class, false, Utilities.getAnswer(2)},
-            // new Object[]{p0004.class, false, Utilities.getAnswer(4)},
-            // new Object[]{p0006.class, false, Utilities.getAnswer(6)},
+            new Object[]{p0002.class, false, 4613732},
+            new Object[]{p0004.class, false, 906609},
+            new Object[]{p0006.class, false, 25164150},
             // new Object[]{p0008.class, false, Utilities.getAnswer(8)},
-            // new Object[]{p0009.class, false, Utilities.getAnswer(9)},
+            new Object[]{p0009.class, false, 31875000},
             // new Object[]{p0011.class, false, Utilities.getAnswer(11)},
             // new Object[]{p0013.class, false, Utilities.getAnswer(13)},
             // new Object[]{p0014.class, false, Utilities.getAnswer(14)},
@@ -28,7 +28,7 @@ public class EulerTest {
             // new Object[]{p0016.class, false, Utilities.getAnswer(16)},
             // new Object[]{p0017.class, false, Utilities.getAnswer(17)},
             // new Object[]{p0020.class, false, Utilities.getAnswer(20)},
-            // new Object[]{p0022.class, false, Utilities.getAnswer(22)},
+            // new Object[]{p0022.class, false, 871198282},
             // new Object[]{p0034.class, false, Utilities.getAnswer(34)},
             // new Object[]{p0076.class, true, Utilities.getAnswer(76)},
             new Object[]{p0836.class, false, "aprilfoolsjoke"}
@@ -43,7 +43,7 @@ public class EulerTest {
         Method answerMethod = problemClass.getMethod("answer");
         IEuler instance = (IEuler)problemClass.getDeclaredConstructor().newInstance();
         long startTime = System.nanoTime();
-        Object result = answerMethod.invoke(instance); // Instance method invocation
+        Object result = answerMethod.invoke(instance);
         long elapsedTime = System.nanoTime() - startTime;
         Assertions.assertEquals(expected, result);
         if (!isSlow) {

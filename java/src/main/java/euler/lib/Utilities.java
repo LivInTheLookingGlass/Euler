@@ -28,14 +28,13 @@ public class Utilities {
         return filePath.toAbsolutePath();
     }
 
-    public static String getDataFileText(String name) throws IOException {
-        Path filePath = getDataPath(name);
-        return new String(Files.readAllBytes(filePath));
-    }
-
     public static byte[] getDataFileBytes(String name) throws IOException {
         Path filePath = getDataPath(name);
         return Files.readAllBytes(filePath);
+    }
+
+    public static String getDataFileText(String name) throws IOException {
+        return new String(getDataFileBytes(name));
     }
 
     public static Object getAnswer(long n) throws IOException {

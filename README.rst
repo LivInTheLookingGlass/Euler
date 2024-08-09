@@ -73,7 +73,7 @@ Olivia's Project Euler Solutions
 |            |                          |        | |CodeQL| |br|     |
 |            |                          |        | |C#-lint|         |
 +------------+--------------------------+--------+-------------------+
-| Java       | Java 8+                  |  2     | |Javai| |br|      |
+| Java       | Java 8+                  |  6     | |Javai| |br|      |
 |            |                          |        | |Ja-Cov| |br|     |
 |            |                          |        | |CodeQL| |br|     |
 |            |                          |        | |Java-lint|       |

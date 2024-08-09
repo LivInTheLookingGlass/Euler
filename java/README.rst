@@ -75,4 +75,10 @@ dependencies for this section.
 Problems Solved
 ---------------
 
--  ☒ `1 <./src/main/p0001.java>`__
+-  ☒ `1 <./src/main/java/p0001.java>`__
+-  ☒ `2 <./src/main/java/p0002.java>`__
+-  ☒ `4 <./src/main/java/p0004.java>`__
+-  ☒ `6 <./src/main/java/p0006.java>`__
+-  ☒ `9 <./src/main/java/p0009.java>`__
+-  ☒ `22 <./src/main/java/p0022.java>`__
+-  ☒ `836 <./src/main/java/p0836.java>`__
