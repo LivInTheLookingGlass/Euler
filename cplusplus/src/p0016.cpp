@@ -17,7 +17,7 @@ unsigned long long p0016() {
     std::vector<unsigned long long> numbers(16, 0);
     const unsigned long long ten17 = 100000000000000000;
     numbers[0] = 1;
-    for (unsigned char i = 0; i < 1000; i++) {
+    for (unsigned short i = 0; i < 1000; i++) {
         for (size_t j = 0; j < numbers.size(); j++) {
             numbers[j] *= 2;
         }
@@ -41,7 +41,7 @@ unsigned long long p0016() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[])  {
-    std::cout << p0020() << std::endl;
+    std::cout << p0016() << std::endl;
     return 0;
 }
 #endif

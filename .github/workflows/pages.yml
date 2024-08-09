@@ -4,10 +4,15 @@ on:
   push:
     paths:
       - 'docs/**'
-      - 'javascript/**'
-      - 'python/**'
       - 'README.rst'
       - '**/*.rst'
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.cs'
+      - '**/*.h'
+      - '**/*.js'
+      - '**/*.py'
+      - '**/*.rs'
   workflow_dispatch:
   schedule:
   - cron: "0 0 * * 1"

@@ -18,7 +18,7 @@ namespace Euler
             ulong[] numbers = new ulong[16];
             const ulong ten17 = 100000000000000000;
             numbers[0] = 1;
-            for (byte i = 0; i < 1000; i++)
+            for (ushort i = 0; i < 1000; i++)
             {
                 for (byte j = 0; j < 16; j++)
                 {
