@@ -15,7 +15,7 @@
 #include "src/p0013.cpp"
 #include "src/p0014.cpp"
 #include "src/p0015.cpp"
-// #include "src/p0016.cpp"
+#include "src/p0016.cpp"
 #include "src/p0017.cpp"
 #include "src/p0020.cpp"
 #include "src/p0022.cpp"
@@ -45,7 +45,7 @@ static const Answer answers[] = {
 	{13,	5537376230,		p0013},
 	{14,	837799,			p0014},
 	{15,	137846528820,	p0015},
-	// {16,	1366,			p0016},
+	{16,	1366,			p0016},
 	{17,	21124,			p0017},
 	{20,	648,			p0020},
 	{22,	871198282,		p0022},

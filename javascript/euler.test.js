@@ -32,6 +32,7 @@ const answers = {
     13: [require('./src/p0013.js'), false],
     14: [require('./src/p0014.js'), false],
     15: [require('./src/p0015.js'), false],
+    16: [require('./src/p0016.js'), false],
     17: [require('./src/p0017.js'), false],
     20: [require('./src/p0020.js'), false],
     22: [require('./src/p0022.js'), false],
