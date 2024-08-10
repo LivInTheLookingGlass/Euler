@@ -13,7 +13,7 @@ public class Utilities {
         Path classPath = Paths.get(Utilities.class.getProtectionDomain().getCodeSource().getLocation().getPath());
         Path classDir = classPath.getParent();
         Path filePath = classDir.getParent().getParent().resolve("_data").resolve(name);
-        return filePath.toAbsolutePath();
+        return filePath;
     }
 
     public static byte[] getDataFileBytes(String name) throws IOException {

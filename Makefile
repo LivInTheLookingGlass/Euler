@@ -40,7 +40,7 @@ help:
 html dirhtml singlehtml epub latex:
 	@$(MAKE) docs_$@ $(MFLAGS)
 
-clean: cs_clean cp_clean c_clean js_clean py_clean rs_clean docs_clean
+clean: cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean
 
 cs_%:
 	@cd csharp && $(MAKE) $* $(MFLAGS)
@@ -67,4 +67,4 @@ rs_%:
 	@cd rust && $(MAKE) $* $(MFLAGS)
 
 %:
-	@$(MAKE) c_$* cp_$* cs_$* js_$* py_$* rs_$* $(MFLAGS)
+	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* py_$* rs_$* $(MFLAGS)

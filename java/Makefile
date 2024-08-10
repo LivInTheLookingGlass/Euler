@@ -16,13 +16,13 @@ dependencies:
 	$(MVN) install -B
 
 test: dependencies
-	$(MVN) test -e -Dtest.single
+	$(MVN) -e test -Dtest.single
 
 test_auto: dependencies
-	$(MVN) test -e -T 1C
+	$(MVN) -e test -T 1C
 
 test_%: dependencies
-	$(MVN) test -e -T $*
+	$(MVN) -e test -T $*
 
 lint:
 	$(MVN) formatter:format
