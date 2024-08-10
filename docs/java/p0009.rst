@@ -3,9 +3,11 @@ Java Implementation of Problem 9
 
 View source code :source:`java/src/main/java/euler/p0009.java`
 
-.. java:class:: p0009 implements Euler.IEuler
+.. java:type:: public class p0009 implements IEuler
 
    .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 9
 
 .. literalinclude:: ../../java/src/main/java/euler/p0009.java
    :language: java

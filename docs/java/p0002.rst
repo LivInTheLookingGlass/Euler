@@ -3,9 +3,11 @@ Java Implementation of Problem 2
 
 View source code :source:`java/src/main/java/euler/p0002.java`
 
-.. java:class:: p0002 implements Euler.IEuler
+.. java:type:: public class p0002 implements IEuler
 
    .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 2
 
 .. literalinclude:: ../../java/src/main/java/euler/p0002.java
    :language: java

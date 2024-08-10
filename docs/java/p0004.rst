@@ -3,9 +3,11 @@ Java Implementation of Problem 4
 
 View source code :source:`java/src/main/java/euler/p0004.java`
 
-.. java:class:: p0004 implements Euler.IEuler
+.. java:type:: public class p0004 implements IEuler
 
    .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 4
 
 .. literalinclude:: ../../java/src/main/java/euler/p0004.java
    :language: java

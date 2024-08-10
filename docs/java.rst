@@ -1,5 +1,5 @@
 Euler Java Implementation
-=======================
+=========================
 
 .. include:: ../java/README.rst
     :start-line: 2
@@ -49,11 +49,13 @@ build or test processes.
 Test Infrastructure
 -------------------
 
-.. java:class:: IEuler
+.. java:type:: public interface IEuler
 
    .. java:method:: Object answer()
 
-.. java:class:: EulerTest
+    :return: The answer to a Project Euler problem
+
+.. java:type:: public class EulerTest
 
    .. java:method:: void eulerTestProblem()
 

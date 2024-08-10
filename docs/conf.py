@@ -43,7 +43,7 @@ extensions = [
     'sphinx_favicon',
     'notfound.extension',
     # 'breathe',
-    # 'javasphinx',
+    'javasphinx',
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
 ]
@@ -208,15 +208,15 @@ def setup(app):
         }
     ))
 
-    app.add_domain(custom_domain(
-        'JavaDomain',
-        'java',
-        'Java',
-        {
-            'class': {
-            },
-            'method': {
-            },
-        }
-    ))
+    # app.add_domain(custom_domain(
+    #     'JavaDomain',
+    #     'java',
+    #     'Java',
+    #     {
+    #         'class': {
+    #         },
+    #         'method': {
+    #         },
+    #     }
+    # ))
 
