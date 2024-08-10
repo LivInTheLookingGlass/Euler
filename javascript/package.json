@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Olivia Appleton",
-  "license": "ISC",
+  "license": "GPLv3",
   "dependencies": {
     "chai": "^4.3.6",
     "istanbul": "^0.4.5",

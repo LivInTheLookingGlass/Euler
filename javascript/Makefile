@@ -10,6 +10,7 @@ endif
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 
+.PHONY: help
 help:
 	@echo "  $(BLUE)test$(NC)   	run through all tests in sequence. Utilizes the Mocha test runner"
 	@echo "  $(BLUE)test_*$(NC) 	run through all tests in parallel with the given number of threads. Use auto to allow the test runner to determine it. Utilizes the Mocha test runner"
@@ -20,26 +21,31 @@ help:
 	@echo "  $(BLUE)webpack$(NC)	Packages these tests for use in browsers"
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
-test: dependencies
+.PHONY: test
+test: ../LICENSE dependencies
 	$(MOCHA) euler.test.js
 
 test_auto: dependencies
 	$(MOCHA) --parallel euler.test.js
 
-test_%: dependencies
+.PHONY: test_%
+test_%: ../LICENSE dependencies
 	$(MOCHA) --parallel -j $* euler.test.js
 
+.PHONY: bun_dependencies
 bun_dependencies:
 	if ! command -v bun; then npm -g install bun; fi
 	bun install
 
-bun_test: bun_dependencies
+.PHONY: bun_test
+bun_test: ../LICENSE bun_dependencies
 ifeq ($(COV),true)
 	bun test --coverage --coverage-reporter lcov
 else
 	bun test
 endif
 
+.PHONY: dependencies
 ifneq ($(HAS_NPM),0)
 ifeq ($(OS),Windows_NT)  # if no NPM and Windows
 dependencies:
@@ -63,19 +69,23 @@ else  # has NPM
 dependencies: _dependencies
 endif
 
+.PHONY: _dependencies
 _dependencies:
 ifeq ($(COV),true)
 	npm install -g istanbul
 endif
 	npm install --include=dev
 
+.PHONY: lint
 lint: dependencies
 	npx eslint *.js src/*.js src/lib/*.js --ignore-pattern "dist/*"
 
+.PHONY: clean
 clean:
 	rm -r node_modules dist src/lib/fallbacks || echo
 
-webpack: dependencies
+.PHONY: webpack
+webpack: ../LICENSE dependencies
 	mkdir -p src/lib/fallbacks
 	for f in ../_data/*; do \
 	  bf=$$(echo $$f | sed "s/.*\///"); \

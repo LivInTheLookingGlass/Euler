@@ -3,6 +3,8 @@ package euler.lib;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,10 +12,17 @@ import java.nio.file.Paths;
 public class Utilities {
 
     private static Path getDataPath(String name) throws IOException {
-        Path classPath = Paths.get(Utilities.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+try {
+        URI classUri = Utilities.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+        Path classPath = Paths.get(classUri);
+//        Path classPath = Paths.get(Utilities.class.getProtectionDomain().getCodeSource().getLocation().getPath());
         Path classDir = classPath.getParent();
         Path filePath = classDir.getParent().getParent().resolve("_data").resolve(name);
         return filePath;
+}
+catch (URISyntaxException e) {
+throw new IOException("Invalid syntax in class path");
+}
     }
 
     public static byte[] getDataFileBytes(String name) throws IOException {

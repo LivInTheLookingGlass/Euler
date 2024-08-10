@@ -3,7 +3,8 @@ PROXY?=
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 
-help:
+.PHONY: help
+help: LICENSE
 	@echo "This project has a number of recipes that are delegated to other Makefiles. The following jobs are available with no prefix"
 	@echo "  $(BLUE)clean$(NC)"
 	@echo "  $(BLUE)html$(NC)"
@@ -36,34 +37,43 @@ help:
 	@echo "The following jobs are available under the rs_ prefix"
 	@$(MAKE) rs_help $(MFLAGS) --no-print-directory
 
-
-html dirhtml singlehtml epub latex:
+.PHONY: html dirhtml singlehtml epub latex
+html dirhtml singlehtml epub latex: LICENSE
 	@$(MAKE) docs_$@ $(MFLAGS)
 
-clean: cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean
+.PHONY: clean
+clean: LICENSE cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean
 
-cs_%:
+.PHONY: cs_%
+cs_%: LICENSE
 	@cd csharp && $(MAKE) $* $(MFLAGS)
 
-cp_%:
+.PHONY: cp_%
+cp_%: LICENSE
 	@cd cplusplus && $(MAKE) $* $(MFLAGS)
 
-c_%:
+.PHONY: c_%
+c_%: LICENSE
 	@cd c && $(MAKE) $* $(MFLAGS)
 
-docs_%:
+.PHONY: docs_%
+docs_%: LICENSE
 	@cd docs && $(MAKE) $* $(MFLAGS)
 
-ja_%:
+.PHONY: ja_%
+ja_%: LICENSE
 	@cd java && $(MAKE) $* $(MFLAGS)
 
-js_%:
+.PHONY: js_%
+js_%: LICENSE
 	@cd javascript && $(MAKE) $* $(MFLAGS)
 
-py_%:
+.PHONY: py_%
+py_%: LICENSE
 	@cd python && $(MAKE) $* $(MFLAGS)
 
-rs_%:
+.PHONY: rs_%
+rs_%: LICENSE
 	@cd rust && $(MAKE) $* $(MFLAGS)
 
 %:

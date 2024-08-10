@@ -21,14 +21,15 @@ endif
 endif
 
 # Put it first so that "make" without argument is like "make help".
+.PHONY: help
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
-
+.PHONY: clean
 clean:
 	rm -r _build _static/test-*.html _static/dist || echo
 
+.PHONY: dependencies
 dependencies:
 	$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	npm install -g jsdoc
@@ -65,10 +66,11 @@ _static/test-rs.html:
 	cp ../rust/dist/bundle-rs.js _static/dist/bundle-rs.js
 	cat _static/dist/test-js.html | sed s#_static/bundle-js.js#_static/bundle-rs.js > _static/test-rs.html
 
-html: _static/dist/bundle.js _static/dist/python.tar.gz
+.PHONY: html
+html: ../LICENSE _static/dist/bundle.js _static/dist/python.tar.gz
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%:
+%: ../LICENSE
 	$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

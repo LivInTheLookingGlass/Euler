@@ -41,20 +41,22 @@ endif
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 
+.PHONY: help
 help:
 	@echo "  $(BLUE)test$(NC)   	run through all tests in sequence. Utilizes the pytest test runner infrastructure"
 	@echo "  $(BLUE)test_*$(NC) 	run through all tests in parallel with the given number of threads. Use auto to allow the test runner to determine it. Utilizes the pytest runner"
 	@echo "  $(BLUE)dependencies$(NC)	grabs all dependencies through pip"
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
-test: dependencies _test
+.PHONY: test
+test: ../LICENSE dependencies _test
 	$(PY) -m pytest $(pytest_args) $(benchmark_flags)
 
-test_%: dependencies
+.PHONY: test_%
+test_%: ../LICENSE dependencies
 	$(PY) -m pytest $(pytest_args) -d -n$*
 
-_test:
-
+.PHONY: dependencies
 ifeq ($(MYPY),true)
 dependencies:
 	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
@@ -64,10 +66,12 @@ dependencies:
 	$(PIP) install -r .requirements.txt $(USER_FLAG) $(PROXY_ARG)
 endif
 
+.PHONY: clean
 clean:
 	rm -r ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
 
-webpack:
+.PHONY: webpack
+webpack: ../LICENSE
 	# Create temporary directory for the archive content
 	mkdir -p ../docs/_static/dist/tmp/euler
 	cp -r ../_data ../docs/_static/dist/tmp/euler/_data
@@ -76,7 +80,7 @@ webpack:
 	# Add __init__.py files to the temporary directory
 	echo "# init file" > ../docs/_static/dist/tmp/euler/__init__.py
 	echo "# init file" > ../docs/_static/dist/tmp/euler/python/__init__.py
-	
+
 	# Exclude unwanted directories and create tarball
 	cd ../docs/_static/dist/tmp && \
 		tar --exclude='__pycache__' --exclude='*/__pycache__' \
