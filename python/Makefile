@@ -49,7 +49,7 @@ help:
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 .PHONY: test
-test: ../LICENSE dependencies _test
+test: ../LICENSE dependencies
 	$(PY) -m pytest $(pytest_args) $(benchmark_flags)
 
 .PHONY: test_%
