@@ -11,18 +11,18 @@ help:
 
 clean:
 	$(MVN) clean || echo
-	
+
 dependencies:
 	$(MVN) install -B
 
 test: dependencies
-	$(MVN) test -Dtest.single
+	$(MVN) test -e -Dtest.single
 
 test_auto: dependencies
-	$(MVN) test -T 1C
+	$(MVN) test -e -T 1C
 
 test_%: dependencies
-	$(MVN) test -T $*
+	$(MVN) test -e -T $*
 
 lint:
 	$(MVN) formatter:format
