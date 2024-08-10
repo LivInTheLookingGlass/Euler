@@ -25,3 +25,4 @@ rust/target
 **/dist/*
 docs/_static/test-js.html
 javascript/src/lib/fallbacks
+java/target

@@ -22,7 +22,7 @@ package euler;
 import java.io.IOException;
 import java.util.Arrays;
 
-import euler.Utilities;
+import euler.lib.Utilities;
 
 public class p0022 implements IEuler {
     @Override

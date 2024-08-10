@@ -1,10 +1,8 @@
-package euler;
+package euler.lib;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,19 +10,9 @@ import java.nio.file.Paths;
 public class Utilities {
 
     private static Path getDataPath(String name) throws IOException {
-        String absolutePath;
-        try {
-            ClassLoader classLoader = Utilities.class.getClassLoader();
-            File file = new File(classLoader.getResource("Utilities.class").toURI());
-            absolutePath = file.getAbsolutePath();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            throw new IOException();
-        }
-        if (absolutePath == null) {
-            throw new IOException("Unable to determine file path.");
-        }
-        Path filePath = Paths.get(absolutePath).getParent().resolve("../../../../../_data").resolve(name);
+        Path classPath = Paths.get(Utilities.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+        Path classDir = classPath.getParent();
+        Path filePath = classDir.getParent().getParent().resolve("_data").resolve(name);
         return filePath.toAbsolutePath();
     }
 
@@ -41,6 +29,7 @@ public class Utilities {
         String csvContent = getDataFileText("answers.csv");
         try (BufferedReader reader = new BufferedReader(new StringReader(csvContent))) {
             String line;
+            reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] arr = line.split("\t");
                 if (arr.length < 4) continue;
