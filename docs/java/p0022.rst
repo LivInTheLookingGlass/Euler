@@ -3,6 +3,13 @@ Java Implementation of Problem 22
 
 View source code :source:`java/src/main/java/euler/p0022.java`
 
+Includes
+--------
+
+- `Utilities.java <./utils.html>`_
+
+Problem Solution
+----------------
 .. java:type:: public class p0022 implements IEuler
 
    .. java:method:: Object answer()

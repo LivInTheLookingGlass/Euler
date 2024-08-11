@@ -30,7 +30,9 @@ public class p0022 implements IEuler {
         int answer = 0;
         String[] names;
         try {
-            names = Utilities.getDataFileText("p0022_names.txt").replace("\"", "").split(",", 0);
+            names = Utilities.getDataFileText("p0022_names.txt")
+                             .replace("\"", "")
+                             .split(",", 0);
         } catch (IOException e) {
             return null;
         }
