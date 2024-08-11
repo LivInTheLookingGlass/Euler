@@ -1,5 +1,6 @@
 NOT_TERMUX?=$(shell command -v termux-setup-storage > /dev/null 2>&1 ; echo $$?)
 HAS_NPM?=$(shell command -v npm > /dev/null 2>&1 ; echo $$?)
+HAS_BUN?=$(shell command -v bun > /dev/null 2>&1 ; echo $$?)
 COV?=false
 
 ifeq ($(COV),true)
@@ -34,21 +35,17 @@ test_%: ../LICENSE dependencies bun_test
 
 .PHONY: bun_dependencies
 bun_dependencies:
-ifeq ($(NOT_TERMUX),1)
-ifneq ($(HAS_NPM),0)
+ifeq ($(HAS_BUN)$(HAS_NPM),01)
 	@if ! command -v bun; then npm -g install bun; fi
 endif
-	@bun install
-endif
+	@if ! command -v bun; then bun install; fi
 
 .PHONY: bun_test
 bun_test: ../LICENSE bun_dependencies
-ifeq ($(NOT_TERMUX),1)
 ifeq ($(COV),true)
-	@bun test --coverage --coverage-reporter lcov
+	@if ! command -v bun; then bun test --coverage --coverage-reporter lcov; fi
 else
-	@bun test
-endif
+	@if ! command -v bun; then bun test; fi
 endif
 
 .PHONY: dependencies
