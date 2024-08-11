@@ -31,8 +31,7 @@ public class p0022 implements IEuler {
         String[] names;
         try {
             names = Utilities.getDataFileText("p0022_names.txt").replace("\"", "").split(",", 0);
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             return null;
         }
         Arrays.sort(names);

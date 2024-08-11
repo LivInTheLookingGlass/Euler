@@ -23,75 +23,92 @@ public class p0017 implements IEuler {
     @Override
     public Object answer() {
         int answer = 0;
-            for (int x = 1; x < 1001; x += 1) {
-                String str = to_string(x);
-                answer += str.replace(" ", "").replace("-", "").length();
-            }
-            return (short)answer;
-        }
+        for (int x = 1; x < 1001; x += 1)
+            answer += to_string(x).replace(" ", "")
+                                  .replace("-", "")
+                                  .length();
+        return (short) answer;
+    }
 
     String to_string(int n) {
         if (n >= 1000) {
             return to_string(n / 1000 % 100) + " thousand";
-        }
-        else if (n >= 100) {
+        } else if (n >= 100) {
             String hundreds = to_string(n / 100 % 10) + " hundred";
             if (n % 100 != 0)
                 return hundreds + " and " + to_string(n % 100);
             return hundreds;
-        }
-        else if (n >= 20) {
+        } else if (n >= 20) {
             String tens = "";
             switch (n / 10) {
-                case 2:
-                    tens = "twenty";
-                    break;
-                case 3:
-                    tens = "thirty";
-                    break;
-                case 4:
-                    tens = "forty";
-                    break;
-                case 5:
-                    tens = "fifty";
-                    break;
-                case 6:
-                    tens = "sixty";
-                    break;
-                case 7:
-                    tens = "seventy";
-                    break;
-                case 8:
-                    tens = "eighty";
-                    break;
-                case 9:
-                    tens = "ninety";
-                    break;
+            case 2:
+                tens = "twenty";
+                break;
+            case 3:
+                tens = "thirty";
+                break;
+            case 4:
+                tens = "forty";
+                break;
+            case 5:
+                tens = "fifty";
+                break;
+            case 6:
+                tens = "sixty";
+                break;
+            case 7:
+                tens = "seventy";
+                break;
+            case 8:
+                tens = "eighty";
+                break;
+            case 9:
+                tens = "ninety";
+                break;
             }
             if (n % 10 != 0)
                 return tens + "-" + to_string(n % 10);
             return tens;
         }
         switch (n) {
-            case 1: return "one";
-            case 2: return "two";
-            case 3: return "three";
-            case 4: return "four";
-            case 5: return "five";
-            case 6: return "six";
-            case 7: return "seven";
-            case 8: return "eight";
-            case 9: return "nine";
-            case 10: return "ten";
-            case 11: return "eleven";
-            case 12: return "twelve";
-            case 13: return "thirteen";
-            case 14: return "fourteen";
-            case 15: return "fifteen";
-            case 16: return "sixteen";
-            case 17: return "seventeen";
-            case 18: return "eighteen";
-            case 19: return "nineteen";
+        case 1:
+            return "one";
+        case 2:
+            return "two";
+        case 3:
+            return "three";
+        case 4:
+            return "four";
+        case 5:
+            return "five";
+        case 6:
+            return "six";
+        case 7:
+            return "seven";
+        case 8:
+            return "eight";
+        case 9:
+            return "nine";
+        case 10:
+            return "ten";
+        case 11:
+            return "eleven";
+        case 12:
+            return "twelve";
+        case 13:
+            return "thirteen";
+        case 14:
+            return "fourteen";
+        case 15:
+            return "fifteen";
+        case 16:
+            return "sixteen";
+        case 17:
+            return "seventeen";
+        case 18:
+            return "eighteen";
+        case 19:
+            return "nineteen";
         }
         return "";
     }

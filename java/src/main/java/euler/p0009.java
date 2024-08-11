@@ -18,7 +18,7 @@ package euler;
 public class p0009 implements IEuler {
     @Override
     public Object answer() {
-        for (int c = 3; ; c++) {
+        for (int c = 3;; c++) {
             int c_square = c * c;
             for (int b = 2; b < c; b++) {
                 int b_square = b * b;

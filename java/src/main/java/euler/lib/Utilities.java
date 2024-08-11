@@ -16,8 +16,7 @@ public class Utilities {
             URI classUri = Utilities.class.getProtectionDomain().getCodeSource().getLocation().toURI();
             Path classPath = Paths.get(classUri);
             return classPath.getParent().getParent().getParent().resolve("_data").resolve(name);
-        }
-        catch (URISyntaxException e) {
+        } catch (URISyntaxException e) {
             throw new IOException("Invalid syntax in class path");
         }
     }
@@ -38,46 +37,47 @@ public class Utilities {
             while ((line = reader.readLine()) != null) {
                 String[] arr = line.split("\t");
                 long key = Long.parseLong(arr[0]);
-                if (key != n) continue;
-                
+                if (key != n)
+                    continue;
+
                 String type = arr[1];
                 int bitLength = Integer.parseInt(arr[2]);
                 String value = arr[3];
-                
+
                 switch (type) {
-                    case "str":
-                        return value;
-                    case "int":
-                        switch (bitLength) {
-                            case 8:
-                                return (byte)Integer.parseInt(value);
-                            case 16:
-                                return (short)Integer.parseInt(value);
-                            case 32:
-                                return Integer.parseInt(value);
-                            case 64:
-                                return Long.parseLong(value);
-                            default:
-                                // no return, just continue
-                        }
-                        break;
-                    case "uint":
-                        switch (bitLength) {
-                            case 8:
-                                return (byte)Integer.parseUnsignedInt(value);
-                            case 16:
-                                return (short)Integer.parseUnsignedInt(value);
-                            case 32:
-                                return Integer.parseUnsignedInt(value);
-                            case 64:
-                                return Long.parseUnsignedLong(value);
-                            default:
-                                // no return, just continue
-                        }
+                case "str":
+                    return value;
+                case "int":
+                    switch (bitLength) {
+                    case 8:
+                        return (byte) Integer.parseInt(value);
+                    case 16:
+                        return (short) Integer.parseInt(value);
+                    case 32:
+                        return Integer.parseInt(value);
+                    case 64:
+                        return Long.parseLong(value);
                     default:
                         // no return, just continue
+                    }
+                    break;
+                case "uint":
+                    switch (bitLength) {
+                    case 8:
+                        return (byte) Integer.parseUnsignedInt(value);
+                    case 16:
+                        return (short) Integer.parseUnsignedInt(value);
+                    case 32:
+                        return Integer.parseUnsignedInt(value);
+                    case 64:
+                        return Long.parseUnsignedLong(value);
+                    default:
+                        // no return, just continue
+                    }
+                default:
+                    // no return, just continue
                 }
-                
+
                 // If no valid type or bit length was found
                 throw new IOException("Unsupported type/length: " + type + ", " + bitLength);
             }

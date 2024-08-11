@@ -22,8 +22,7 @@ package euler;
 public class p0006 implements IEuler {
     @Override
     public Object answer() {
-        int sum_of_squares = 0,
-                sum = 0;
+        int sum_of_squares = 0, sum = 0;
         for (int i = 1; i < 101; i++) {
             sum += i;
             sum_of_squares += i * i;

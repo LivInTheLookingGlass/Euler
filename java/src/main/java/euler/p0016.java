@@ -35,6 +35,6 @@ public class p0016 implements IEuler {
             }
             power *= 10;
         }
-        return (short)answer;
+        return (short) answer;
     }
 }

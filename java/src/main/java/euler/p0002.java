@@ -19,10 +19,7 @@ package euler;
 public class p0002 implements IEuler {
     @Override
     public Object answer() {
-        int answer = 0,
-                i = 2,
-                j = 8,
-                tmp = 0;
+        int answer = 0, i = 2, j = 8, tmp = 0;
 
         while (i < 4000000) {
             answer += i;

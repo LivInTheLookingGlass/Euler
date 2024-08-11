@@ -37,7 +37,7 @@ public class p0014 implements IEuler {
                 biggestIdx = x;
             }
         }
-        return (int)biggestIdx;
+        return (int) biggestIdx;
     }
 
     int collatzLen(long n, HashMap<Long, Integer> cache) {

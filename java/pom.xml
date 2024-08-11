@@ -69,6 +69,25 @@
 					</execution>
 				</executions>
 			</plugin>
+				<plugin>
+				<groupId>net.revelc.code.formatter</groupId>
+				<artifactId>formatter-maven-plugin</artifactId>
+				<version>2.24.1</version>
+				<configuration>
+					<javaExclusionPattern>(\W+\.?[^\W]+\(.*\);?\n)+</javaExclusionPattern>
+					<lineSeparator>\n</lineSeparator>
+					<indentationSize>4</indentationSize>
+					<tabSize>4</tabSize>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>

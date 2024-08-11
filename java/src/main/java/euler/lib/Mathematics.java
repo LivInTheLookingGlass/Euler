@@ -8,8 +8,7 @@ public class Mathematics {
         return answer;
     }
 
-    public static long nChooseR(long n, long r)
-    {
+    public static long nChooseR(long n, long r) {
         if (n <= 20)
             return factorial(n) / factorial(r) / factorial(n - r);
         long answer, tmp;
@@ -26,7 +25,7 @@ public class Mathematics {
             factors[i] -= 1;
 
         // this loop reduces to prime factors only
-        for (i = (int)n; i > 1; i -= 1) {
+        for (i = (int) n; i > 1; i -= 1) {
             for (j = 2; j < i; j += 1) {
                 if (i % j == 0) {
                     factors[j] += factors[i];
@@ -52,7 +51,7 @@ public class Mathematics {
                     answer = tmp * i;
                 }
                 if (answer < tmp)
-                    return -1;  // this indicates an overflow
+                    return -1; // this indicates an overflow
                 factors[i] -= 1;
             }
             i += 1;
