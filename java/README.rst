@@ -79,6 +79,9 @@ Problems Solved
 -  ☒ `2 <./src/main/java/p0002.java>`__
 -  ☒ `4 <./src/main/java/p0004.java>`__
 -  ☒ `6 <./src/main/java/p0006.java>`__
+-  ☒ `8 <./src/main/java/p0008.java>`__
 -  ☒ `9 <./src/main/java/p0009.java>`__
+-  ☒ `11 <./src/main/java/p0011.java>`__
+-  ☒ `13 <./src/main/java/p0013.java>`__
 -  ☒ `22 <./src/main/java/p0022.java>`__
 -  ☒ `836 <./src/main/java/p0836.java>`__

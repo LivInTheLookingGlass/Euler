@@ -12,22 +12,18 @@ import java.nio.file.Paths;
 public class Utilities {
 
     private static Path getDataPath(String name) throws IOException {
-try {
-        URI classUri = Utilities.class.getProtectionDomain().getCodeSource().getLocation().toURI();
-        Path classPath = Paths.get(classUri);
-//        Path classPath = Paths.get(Utilities.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-        Path classDir = classPath.getParent();
-        Path filePath = classDir.getParent().getParent().resolve("_data").resolve(name);
-        return filePath;
-}
-catch (URISyntaxException e) {
-throw new IOException("Invalid syntax in class path");
-}
+        try {
+            URI classUri = Utilities.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+            Path classPath = Paths.get(classUri);
+            return classPath.getParent().getParent().getParent().resolve("_data").resolve(name);
+        }
+        catch (URISyntaxException e) {
+            throw new IOException("Invalid syntax in class path");
+        }
     }
 
     public static byte[] getDataFileBytes(String name) throws IOException {
-        Path filePath = getDataPath(name);
-        return Files.readAllBytes(filePath);
+        return Files.readAllBytes(getDataPath(name));
     }
 
     public static String getDataFileText(String name) throws IOException {
@@ -41,7 +37,6 @@ throw new IOException("Invalid syntax in class path");
             reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] arr = line.split("\t");
-                if (arr.length < 4) continue;
                 long key = Long.parseLong(arr[0]);
                 if (key != n) continue;
                 

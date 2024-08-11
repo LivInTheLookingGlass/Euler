@@ -39,7 +39,6 @@ namespace Euler
 {
     public class p0008 : IEuler
     {
-        private const int MAX = 500;
         public object Answer()
         {
             String str = String.Concat(
