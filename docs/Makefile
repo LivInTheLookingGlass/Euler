@@ -35,12 +35,12 @@ dependencies:
 	@npm install -g jsdoc
 
 _static/dist/bundle.js:
-	@$(MAKE) -C javascript webpack $(MFLAGS)
+	@$(MAKE) -C ../javascript webpack $(MFLAGS)
 	@mkdir -p _static/dist
 	@cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 
 _static/dist/python.tar.gz:
-	@cd ../python && $(MAKE) webpack $(MFLAGS)
+	@$(MAKE) -C ../python webpack $(MFLAGS)
 
 .PHONY: html
 html:
