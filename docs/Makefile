@@ -27,7 +27,7 @@ help:
 
 .PHONY: clean
 clean:
-	rm -r _build _static/test-*.html _static/dist || echo
+	rm -r _build _static/dist || echo
 
 .PHONY: dependencies
 dependencies:
