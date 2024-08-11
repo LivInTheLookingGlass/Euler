@@ -45,7 +45,7 @@ public class Mathematics {
                 while (answer < tmp && j <= n) {
                     while (factors[j] < 0) {
                         tmp /= j;
-                        factors[j] += 1;
+                        factors[j] += (byte) 1;
                     }
                     j += 1;
                     answer = tmp * i;
@@ -60,7 +60,7 @@ public class Mathematics {
         while (j <= n) {
             while (factors[j] < 0) {
                 answer /= j;
-                factors[j] += 1;
+                factors[j] += (byte) 1;
             }
             j += 1;
         }

@@ -28,21 +28,21 @@ public class p0076 implements IEuler {
         byte[] counts = new byte[101];
         counts[2] = 100;
         while (counts[100] == 0) {
-            counts[2] += 2;
+            counts[2] += (byte) 2;
             if (sum >= 100) {
                 answer += (100 + counts[2] - sum) / 2;
                 idx = 2;
                 do {
                     counts[idx] = 0;
-                    idx += 1;
+                    idx++;
                     counts[idx] += idx;
                     sum = 0;
-                    for (byte i = (byte) (idx - 1); i < 101; i += 1)
+                    for (byte i = (byte) (idx - 1); i < 101; i++)
                         sum += counts[i];
                 } while (sum > 100);
             }
             sum = 0;
-            for (byte i = 0; i < 101; i += 1)
+            for (byte i = 0; i < 101; i++)
                 sum += counts[i];
         }
         return answer;

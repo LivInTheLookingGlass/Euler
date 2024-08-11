@@ -18,7 +18,7 @@ public class p0004 implements IEuler {
     private boolean IsPalindrome(int x) {
         String rep = Integer.toString(x);
         int length = rep.length();
-        for (int i = 0; i < length; i += 1) {
+        for (int i = 0; i < length; i++) {
             if (rep.charAt(i) != rep.charAt(length - i - 1))
                 return false;
         }

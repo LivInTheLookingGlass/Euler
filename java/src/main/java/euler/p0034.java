@@ -22,10 +22,10 @@ public class p0034 implements IEuler {
     @Override
     public Object answer() {
         int answer = 0;
-        for (int x = 10; x < 100000; x += 1) {
+        for (int x = 10; x < 100000; x++) {
             String xs = Integer.toString(x);
             int sum = 0;
-            for (byte i = 0; i < xs.length(); i += 1)
+            for (byte i = 0; i < xs.length(); i++)
                 sum += (int) Mathematics.factorial(xs.charAt(i) - '0');
             if (sum == x)
                 answer += x;
