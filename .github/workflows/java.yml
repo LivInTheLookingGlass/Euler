@@ -35,7 +35,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Run tests
-      run: make ja_test ${{ matrix.java-version > 17 || 'MVN_FLAGS="-e -nf"' }}
+      run: make ja_test ${{ matrix.java-version > 17 || 'MVN_FLAGS="-e -fn"' }}
 
     - name: Upload code coverage to Codecov
       uses: codecov/codecov-action@v3

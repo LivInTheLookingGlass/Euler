@@ -12,7 +12,7 @@ help:
 
 .PHONY: clean
 clean:
-	@$(MVN) clean || echo "Maven not installed"
+	@$(MVN) clean || echo
 
 .PHONY: test
 test: ../LICENSE
