@@ -19,17 +19,17 @@ package euler;
 public class p0020 implements IEuler {
     @Override
     public Object answer() {
-        long[] numbers = new long[10];
-        long ten17 = 100000000000000000L;
+        long[] numbers = new long[11];
+        long ten16 = 10000000000000000L;
         numbers[0] = 1;
         for (byte i = 2; i <= 100; i++) {
             for (byte j = 0; j < 10; j++) {
                 numbers[j] *= i;
             }
             for (byte j = 0; j < 9; j++) {
-                if (numbers[j] > ten17) {
-                    numbers[j + 1] += numbers[j] / ten17;
-                    numbers[j] %= ten17;
+                if (numbers[j] > ten16) {
+                    numbers[j + 1] += numbers[j] / ten16;
+                    numbers[j] %= ten16;
                 }
             }
         }
