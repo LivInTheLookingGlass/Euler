@@ -30,7 +30,7 @@ test_%: ../LICENSE dependencies
 test: ../LICENSE dependencies
 	@$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
-Unity:
+Unity/src/unity.c:
 	@git submodule init
 	@git submodule update
 
@@ -48,7 +48,7 @@ lint:
 	fi
 
 .PHONY: native
-native: ../LICENSE submodules
+native: ../LICENSE Unity/src/unity.c
 	@$(CXX) test.cpp Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
 
 .PHONY: clean
