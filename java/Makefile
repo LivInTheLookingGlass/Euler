@@ -11,19 +11,19 @@ help:
 
 .PHONY: clean
 clean:
-	$(MVN) clean || echo "Maven not installed"
+	@$(MVN) clean || echo "Maven not installed"
 
 .PHONY: test
 test: ../LICENSE
-	$(MVN) -e test -Dtest.single
+	@$(MVN) -e test -Dtest.single
 
 test_auto: ../LICENSE
-	$(MVN) -e test -T 1C
+	@$(MVN) -e test -T 1C
 
 .PHONY: test_%
 test_%: ../LICENSE
-	$(MVN) -e test -T $*
+	@$(MVN) -e test -T $*
 
 .PHONY: lint
 lint:
-	$(MVN) formatter:format
+	@$(MVN) formatter:format

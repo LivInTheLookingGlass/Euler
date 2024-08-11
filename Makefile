@@ -42,39 +42,39 @@ html dirhtml singlehtml epub latex: LICENSE
 	@$(MAKE) docs_$@ $(MFLAGS)
 
 .PHONY: clean
-clean: LICENSE cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean
+clean: cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean
 
 .PHONY: cs_%
 cs_%: LICENSE
-	@cd csharp && $(MAKE) $* $(MFLAGS)
+	@cd csharp && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: cp_%
 cp_%: LICENSE
-	@cd cplusplus && $(MAKE) $* $(MFLAGS)
+	@cd cplusplus && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: c_%
 c_%: LICENSE
-	@cd c && $(MAKE) $* $(MFLAGS)
+	@cd c && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: docs_%
 docs_%: LICENSE
-	@cd docs && $(MAKE) $* $(MFLAGS)
+	@cd docs && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: ja_%
 ja_%: LICENSE
-	@cd java && $(MAKE) $* $(MFLAGS)
+	@cd java && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: js_%
 js_%: LICENSE
-	@cd javascript && $(MAKE) $* $(MFLAGS)
+	@cd javascript && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: py_%
 py_%: LICENSE
-	@cd python && $(MAKE) $* $(MFLAGS)
+	@cd python && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 .PHONY: rs_%
 rs_%: LICENSE
-	@cd rust && $(MAKE) $* $(MFLAGS)
+	@cd rust && $(MAKE) $* $(MFLAGS) --no-print-directory
 
 %:
-	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* py_$* rs_$* $(MFLAGS)
+	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* py_$* rs_$* $(MFLAGS) --no-print-directory

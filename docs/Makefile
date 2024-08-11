@@ -27,50 +27,26 @@ help:
 
 .PHONY: clean
 clean:
-	rm -r _build _static/dist || echo
+	@rm -rf _build _static/dist || echo
 
 .PHONY: dependencies
 dependencies:
-	$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
-	npm install -g jsdoc
-
-_static/test-c.html:
-	cd ../c && $(MAKE) webpack $(MFLAGS)
-	mkdir -p _static/dist
-	cp ../c/dist/bundle-c.js _static/dist/bundle-c.js
-	cat _static/test-js.html | sed s#_static/bundle-js.js#_static/bundle-c.js > _static/test-c.html
-
-_static/test-cp.html:
-	cd ../cplusplus && $(MAKE) webpack $(MFLAGS)
-	mkdir -p _static/dist
-	cp ../cplusplus/dist/bundle-cp.js _static/dist/bundle-cp.js
-	cat _static/test-js.html | sed s#_static/bundle-js.js#_static/bundle-cp.js > _static/test-cp.html
-
-_static/test-cs.html:
-	cd ../csharp && $(MAKE) webpack $(MFLAGS)
-	mkdir -p _static/dist
-	cp ../csharp/dist/bundle-cs.js _static/dist/bundle-cs.js
-	cat _static/dist/test-js.html | sed s#_static/bundle-js.js#_static/bundle-cs.js > _static/test-cs.html
+	@$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
+	@npm install -g jsdoc
 
 _static/dist/bundle.js:
-	cd ../javascript && $(MAKE) webpack $(MFLAGS)
-	mkdir -p _static/dist
-	cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
+	@cd ../javascript && $(MAKE) webpack $(MFLAGS)
+	@mkdir -p _static/dist
+	@cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 
 _static/dist/python.tar.gz:
-	cd ../python && $(MAKE) webpack $(MFLAGS)
-
-_static/test-rs.html:
-	cd ../rust && $(MAKE) webpack $(MFLAGS)
-	mkdir -p _static/dist
-	cp ../rust/dist/bundle-rs.js _static/dist/bundle-rs.js
-	cat _static/dist/test-js.html | sed s#_static/bundle-js.js#_static/bundle-rs.js > _static/test-rs.html
+	@cd ../python && $(MAKE) webpack $(MFLAGS)
 
 .PHONY: html
-html: ../LICENSE _static/dist/bundle.js _static/dist/python.tar.gz
-	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+html: _static/dist/bundle.js _static/dist/python.tar.gz
+	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: ../LICENSE
-	$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+%:
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

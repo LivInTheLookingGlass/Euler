@@ -24,25 +24,25 @@ help:
 
 .PHONY: test_%
 test_%: ../LICENSE dependencies
-	cd ../python; $(MAKE) dependencies $(MFLAGS)
-	$(PY) -m pytest -dvl -n$* test_euler.py --cov
+	@cd ../python; $(MAKE) dependencies $(MFLAGS)
+	@$(PY) -m pytest -dvl -n$* test_euler.py --cov
 
 .PHONY: test
 test: ../LICENSE dependencies
-	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
+	@$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
 .PHONY: submodules
 submodules:
-	git submodule init
-	git submodule update
+	@git submodule init
+	@git submodule update
 
 .PHONY: dependencies
 dependencies:
-	$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
+	@$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 .PHONY: lint
 lint:
-	if test -z "$(clang-tidy src/p0000_template.cpp -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
+	@if test -z "$(clang-tidy src/p0000_template.cpp -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
 		clang-tidy src/*.cpp -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
 	else \
 		clang-tidy src/*.cpp; \
@@ -50,8 +50,8 @@ lint:
 
 .PHONY: native
 native: ../LICENSE submodules
-	$(CXX) test.cpp Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
+	@$(CXX) test.cpp Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
 
 .PHONY: clean
 clean:
-	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
+	@rm -rf build {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo

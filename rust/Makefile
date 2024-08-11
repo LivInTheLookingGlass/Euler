@@ -10,15 +10,15 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	cargo test -j 1
+	@cargo test -j 1
 
 test_auto: ../LICENSE
-	cargo test
+	@cargo test
 
 .PHONY: test_%
 test_%: ../LICENSE
-	cargo test -j $*
+	@cargo test -j $*
 
 .PHONY: clean
 clean:
-	cargo clean || echo
+	@cargo clean || echo

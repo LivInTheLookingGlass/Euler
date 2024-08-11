@@ -25,25 +25,25 @@ help:
 
 .PHONY: test_%
 test_%: ../LICENSE submodules dependencies
-	cd ../python; $(MAKE) dependencies $(MFLAGS)
-	$(PY) -m pytest -dvl -n$* test_euler.py --cov
+	@cd ../python; $(MAKE) dependencies $(MFLAGS)
+	@$(PY) -m pytest -dvl -n$* test_euler.py --cov
 
 .PHONY: test
 test: ../LICENSE submodules dependencies
-	$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
+	@$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
 .PHONY: submodules
 submodules:
-	git submodule init
-	git submodule update
+	@git submodule init
+	@git submodule update
 
 .PHONY: dependencies
 dependencies: submodules
-	$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
+	@$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 .PHONY: lint
 lint:
-	if test -z "$(clang-tidy src/p0000_template.c -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
+	@if test -z "$(clang-tidy src/p0000_template.c -warnings-as-errors=* 2>&1 | grep "Unknown command line argument")"; then \
 		clang-tidy src/*.c -warnings-as-errors=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling; \
 	else \
 		clang-tidy src/*.c; \
@@ -51,14 +51,14 @@ lint:
 
 .PHONY: native
 native: ../LICENSE submodules
-	$(CC) test.c Unity/src/unity.c -O2 -lm -lc -Wall -Werror -march=native -flto -DAMD_COMPILER=0
+	@$(CC) test.c Unity/src/unity.c -O2 -lm -lc -Wall -Werror -march=native -flto -DAMD_COMPILER=0
 
 .PHONY: clean
 clean:
-	rm -r build ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
+	@rm -rf build {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
 .PHONY: wasm
 wasm: ../LICENSE submodules
-	wget https://github.com/jedisct1/libclang_rt.builtins-wasm32.a -O wasm32.a
-	mkdir -p build
-	clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c
+	@wget https://github.com/jedisct1/libclang_rt.builtins-wasm32.a -O wasm32.a
+	@mkdir -p build
+	@clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c

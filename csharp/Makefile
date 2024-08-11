@@ -18,26 +18,26 @@ help:
 
 .PHONY: clean
 clean:
-	dotnet clean || rm ./*/{bin,obj,TestResults} || echo
+	@dotnet clean || rm -rf ./*/{bin,obj,TestResults} || echo
 
 .PHONY: test
 test: ../LICENSE
 ifneq ($(NOT_TERMUX),0)
-	dotnet test --nologo $(cov_args)
+	@dotnet test --nologo $(cov_args)
 endif
 
 .PHONY: test_%
-test_%: ../LICENSE
-	$(MAKE) test $(MFLAGS)
+test_%:
+	@$(MAKE) test $(MFLAGS) --no-print-directory
 
 .PHONY: dependencies
 dependencies:
 ifneq ($(NOT_TERMUX),0)
-	dotnet restore
+	@dotnet restore
 endif
 
 .PHONY: lint
 lint:
 ifneq ($(NOT_TERMUX),0)
-	dotnet format --verify-no-changes
+	@dotnet format --verify-no-changes
 endif

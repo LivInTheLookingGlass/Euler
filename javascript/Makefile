@@ -22,75 +22,80 @@ help:
 	@echo "  $(BLUE)clean$(NC)  	clean up any stray files"
 
 .PHONY: test
-test: ../LICENSE dependencies
-	$(MOCHA) euler.test.js
+test: ../LICENSE dependencies bun_test
+	@$(MOCHA) euler.test.js
 
-test_auto: dependencies
-	$(MOCHA) --parallel euler.test.js
+test_auto: dependencies bun_test
+	@$(MOCHA) --parallel euler.test.js
 
 .PHONY: test_%
-test_%: ../LICENSE dependencies
-	$(MOCHA) --parallel -j $* euler.test.js
+test_%: ../LICENSE dependencies bun_test
+	@$(MOCHA) --parallel -j $* euler.test.js
 
 .PHONY: bun_dependencies
 bun_dependencies:
-	if ! command -v bun; then npm -g install bun; fi
-	bun install
+ifeq ($(NOT_TERMUX),1)
+ifneq ($(HAS_NPM),0)
+	@if ! command -v bun; then npm -g install bun; fi
+endif
+	@bun install
+endif
 
 .PHONY: bun_test
 bun_test: ../LICENSE bun_dependencies
+ifeq ($(NOT_TERMUX),1)
 ifeq ($(COV),true)
-	bun test --coverage --coverage-reporter lcov
+	@bun test --coverage --coverage-reporter lcov
 else
-	bun test
+	@bun test
+endif
 endif
 
 .PHONY: dependencies
 ifneq ($(HAS_NPM),0)
 ifeq ($(OS),Windows_NT)  # if no NPM and Windows
 dependencies:
-	1>&2 echo "Windows not yet supported"
-	exit /b -1
+	@1>&2 echo "Windows not yet supported"
+	@exit /b -1
 else
 ifeq ($(NOT_TERMUX),0)  # if no NPM and Termux
 dependencies:
-	pkg install -y nodejs;
-	$(MAKE) _dependencies $(MFLAGS)
+	@pkg install -y nodejs;
+	@$(MAKE) node_modules $(MFLAGS)
 else  # if no NPM and not Termux
 dependencies:
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
-	export NVM_DIR="$$HOME/.nvm"; \
-	[ -s "$$NVM_DIR/nvm.sh" ] && \. "$$NVM_DIR/nvm.sh" \
-	nvm install --lts
-	$(MAKE) _dependencies $(MFLAGS)
+	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
+	@export NVM_DIR="$$HOME/.nvm"; \
+	@[ -s "$$NVM_DIR/nvm.sh" ] && \. "$$NVM_DIR/nvm.sh" \
+	@nvm install --lts
+	@$(MAKE) node_modules $(MFLAGS)
 endif
 endif
 else  # has NPM
-dependencies: _dependencies
+dependencies: node_modules
 endif
 
-.PHONY: _dependencies
-_dependencies:
+node_modules:
 ifeq ($(COV),true)
-	npm install -g istanbul
+	@npm install -g istanbul
 endif
-	npm install --include=dev
+	@npm install --include=dev
 
 .PHONY: lint
 lint: dependencies
-	npx eslint *.js src/*.js src/lib/*.js --ignore-pattern "dist/*"
+	@npx eslint *.js src/*.js src/lib/*.js --ignore-pattern "dist/*"
 
 .PHONY: clean
 clean:
-	rm -r node_modules dist src/lib/fallbacks || echo
+	@rm -rf node_modules dist src/lib/fallbacks || echo
 
 .PHONY: webpack
 webpack: ../LICENSE dependencies
-	mkdir -p src/lib/fallbacks
-	for f in ../_data/*; do \
+	@mkdir -p src/lib/fallbacks
+	@for f in ../_data/*; do \
 	  bf=$$(echo $$f | sed "s/.*\///"); \
 	  echo -n "exports.value = '" > ./src/lib/fallbacks/$$bf.js; \
 	  base64 -w0 $$f | head --bytes -1 >> ./src/lib/fallbacks/$$bf.js; \
 	  echo "';" >> ./src/lib/fallbacks/$$bf.js; \
 	done
-	npx webpack
+	@npx webpack

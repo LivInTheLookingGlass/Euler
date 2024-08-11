@@ -49,15 +49,15 @@ jobs:
         cache-dependency-path: 'javascript/package-lock.json'
 
     - name: Install dependencies
-      run: make js_dependencies
+      run: make js_dependencies COV=true
 
     - name: Run tests (serially)
       if: ${{ matrix.version == 22 && matrix.os == 'ubuntu-latest' }}
-      run: make js_test COV=true
+      run: make js_test COV=true HAS_NPM=0
 
     - name: Run tests (in parallel)
       if: ${{ !(matrix.version == 22 && matrix.os == 'ubuntu-latest') }}
-      run: make js_test_auto COV=true
+      run: make js_test_auto COV=true HAS_NPM=0
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1

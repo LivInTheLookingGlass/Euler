@@ -50,41 +50,35 @@ help:
 
 .PHONY: test
 test: ../LICENSE dependencies
-	$(PY) -m pytest $(pytest_args) $(benchmark_flags)
+	@$(PY) -m pytest $(pytest_args) $(benchmark_flags)
 
 .PHONY: test_%
 test_%: ../LICENSE dependencies
-	$(PY) -m pytest $(pytest_args) -d -n$*
+	@$(PY) -m pytest $(pytest_args) -d -n$*
 
 .PHONY: dependencies
 ifeq ($(MYPY),true)
 dependencies:
-	$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
+	@$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
 else
 dependencies:
-	cat requirements.txt | grep -v "mypy" > .requirements.txt
-	$(PIP) install -r .requirements.txt $(USER_FLAG) $(PROXY_ARG)
+	@cat requirements.txt | grep -v "mypy" > .requirements.txt
+	@$(PIP) install -r .requirements.txt $(USER_FLAG) $(PROXY_ARG)
 endif
 
 .PHONY: clean
+clean: SHELL := bash
 clean:
-	rm -r ./{*,*/*}{.pyc,__pycache__,.mypy_cache} || echo
+	@rm -rf {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
 .PHONY: webpack
-webpack: ../LICENSE
-	# Create temporary directory for the archive content
-	mkdir -p ../docs/_static/dist/tmp/euler
-	cp -r ../_data ../docs/_static/dist/tmp/euler/_data
-	cp -r ../python ../docs/_static/dist/tmp/euler/python
-
-	# Add __init__.py files to the temporary directory
-	echo "# init file" > ../docs/_static/dist/tmp/euler/__init__.py
-	echo "# init file" > ../docs/_static/dist/tmp/euler/python/__init__.py
-
-	# Exclude unwanted directories and create tarball
-	cd ../docs/_static/dist/tmp && \
-		tar --exclude='__pycache__' --exclude='*/__pycache__' \
-			-czvf ../python.tar.gz euler
-
-	# Clean up temporary directory
-	rm -rf ../docs/_static/dist/tmp
+webpack: SHELL := bash
+webpack: TMPDIR := ../docs/_static/dist/tmp-python-webpack
+webpack: ../LICENSE clean
+	@mkdir -p $(TMPDIR)/euler
+	@cp -r ../{_data,python} $(TMPDIR)/euler/
+	@touch $(TMPDIR)/euler{,/python}/__init__.py
+	@cd $(TMPDIR) && tar -czv \
+	  --exclude=euler/python/{Makefile,README.rst,primes.mpack,requirements.txt,setup.cfg,src/lib/primes_cache.mpack} \
+	  -f ../python.tar.gz euler
+	@rm -rf $(TMPDIR)
