@@ -38,14 +38,14 @@ bun_dependencies:
 ifeq ($(HAS_BUN)$(HAS_NPM),01)
 	@if ! command -v bun; then npm -g install bun; fi
 endif
-	@if ! command -v bun; then bun install; fi
+	@if command -v bun; then bun install; fi
 
 .PHONY: bun_test
 bun_test: ../LICENSE bun_dependencies
 ifeq ($(COV),true)
-	@if ! command -v bun; then bun test --coverage --coverage-reporter lcov; fi
+	@if command -v bun; then bun test --coverage --coverage-reporter lcov; fi
 else
-	@if ! command -v bun; then bun test; fi
+	@if command -v bun; then bun test; fi
 endif
 
 .PHONY: dependencies
