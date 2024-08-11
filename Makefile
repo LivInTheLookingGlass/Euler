@@ -39,42 +39,43 @@ help: LICENSE
 
 .PHONY: html dirhtml singlehtml epub latex
 html dirhtml singlehtml epub latex: LICENSE
-	@$(MAKE) docs_$@ $(MFLAGS)
+	@$(MAKE) docs_$@ $(MFLAGS) --no-print-directory
 
 .PHONY: clean
-clean: cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean
+clean:
+	@$(MAKE) cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean $(MFLAGS) -j --no-print-directory
 
 .PHONY: cs_%
 cs_%: LICENSE
-	@cd csharp && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C csharp $* $(MFLAGS) --no-print-directory
 
 .PHONY: cp_%
 cp_%: LICENSE
-	@cd cplusplus && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C cplusplus $* $(MFLAGS) --no-print-directory
 
 .PHONY: c_%
 c_%: LICENSE
-	@cd c && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C c $* $(MFLAGS) --no-print-directory
 
 .PHONY: docs_%
 docs_%: LICENSE
-	@cd docs && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C docs $* $(MFLAGS) --no-print-directory
 
 .PHONY: ja_%
 ja_%: LICENSE
-	@cd java && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C java $* $(MFLAGS) --no-print-directory
 
 .PHONY: js_%
 js_%: LICENSE
-	@cd javascript && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C javascript $* $(MFLAGS) --no-print-directory
 
 .PHONY: py_%
 py_%: LICENSE
-	@cd python && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C python $* $(MFLAGS) --no-print-directory
 
 .PHONY: rs_%
 rs_%: LICENSE
-	@cd rust && $(MAKE) $* $(MFLAGS) --no-print-directory
+	@$(MAKE) -C rust $* $(MFLAGS) --no-print-directory
 
 %:
 	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* py_$* rs_$* $(MFLAGS) --no-print-directory

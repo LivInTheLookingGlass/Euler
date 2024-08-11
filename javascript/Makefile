@@ -25,7 +25,7 @@ help:
 test: ../LICENSE dependencies bun_test
 	@$(MOCHA) euler.test.js
 
-test_auto: dependencies bun_test
+test_auto:../LICENSE  dependencies bun_test
 	@$(MOCHA) --parallel euler.test.js
 
 .PHONY: test_%
@@ -61,21 +61,21 @@ else
 ifeq ($(NOT_TERMUX),0)  # if no NPM and Termux
 dependencies:
 	@pkg install -y nodejs;
-	@$(MAKE) node_modules $(MFLAGS)
+	@$(MAKE) node_modules/chai/LICENSE $(MFLAGS) --no-print-directory
 else  # if no NPM and not Termux
 dependencies:
 	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
 	@export NVM_DIR="$$HOME/.nvm"; \
 	@[ -s "$$NVM_DIR/nvm.sh" ] && \. "$$NVM_DIR/nvm.sh" \
 	@nvm install --lts
-	@$(MAKE) node_modules $(MFLAGS)
+	@$(MAKE) node_modules/chai/LICENSE $(MFLAGS) --no-print-directory
 endif
 endif
 else  # has NPM
-dependencies: node_modules
+dependencies: node_modules/chai/LICENSE
 endif
 
-node_modules:
+node_modules/chai/LICENSE:
 ifeq ($(COV),true)
 	@npm install -g istanbul
 endif

@@ -24,21 +24,20 @@ help:
 	@echo "  $(BLUE)clean$(NC) 	clean up any stray files"
 
 .PHONY: test_%
-test_%: ../LICENSE submodules dependencies
-	@cd ../python; $(MAKE) dependencies $(MFLAGS)
+test_%: ../LICENSE dependencies
 	@$(PY) -m pytest -dvl -n$* test_euler.py --cov
 
 .PHONY: test
-test: ../LICENSE submodules dependencies
+test: ../LICENSE dependencies
 	@$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
-.PHONY: submodules
-submodules:
+Unity/src/unity.c:
 	@git submodule init
 	@git submodule update
 
 .PHONY: dependencies
-dependencies: submodules
+dependencies: Unity/src/unity.c
+	@$(MAKE) -C ../python dependencies $(MFLAGS)
 	@$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 .PHONY: lint
@@ -50,7 +49,7 @@ lint:
 	fi
 
 .PHONY: native
-native: ../LICENSE submodules
+native: ../LICENSE Unity/src/unity.c
 	@$(CC) test.c Unity/src/unity.c -O2 -lm -lc -Wall -Werror -march=native -flto -DAMD_COMPILER=0
 
 .PHONY: clean
@@ -58,7 +57,7 @@ clean:
 	@rm -rf build {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
 .PHONY: wasm
-wasm: ../LICENSE submodules
+wasm: ../LICENSE
 	@wget https://github.com/jedisct1/libclang_rt.builtins-wasm32.a -O wasm32.a
 	@mkdir -p build
 	@clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c

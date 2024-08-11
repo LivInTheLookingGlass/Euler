@@ -35,7 +35,7 @@ dependencies:
 	@npm install -g jsdoc
 
 _static/dist/bundle.js:
-	@cd ../javascript && $(MAKE) webpack $(MFLAGS)
+	@$(MAKE) -C javascript webpack $(MFLAGS)
 	@mkdir -p _static/dist
 	@cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 
@@ -43,7 +43,8 @@ _static/dist/python.tar.gz:
 	@cd ../python && $(MAKE) webpack $(MFLAGS)
 
 .PHONY: html
-html: _static/dist/bundle.js _static/dist/python.tar.gz
+html:
+	@$(MAKE) _static/dist/bundle.js _static/dist/python.tar.gz $(MFLAGS) -j
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new

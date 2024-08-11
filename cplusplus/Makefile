@@ -24,20 +24,19 @@ help:
 
 .PHONY: test_%
 test_%: ../LICENSE dependencies
-	@cd ../python; $(MAKE) dependencies $(MFLAGS)
 	@$(PY) -m pytest -dvl -n$* test_euler.py --cov
 
 .PHONY: test
 test: ../LICENSE dependencies
 	@$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
 
-.PHONY: submodules
-submodules:
+Unity:
 	@git submodule init
 	@git submodule update
 
 .PHONY: dependencies
-dependencies:
+dependencies: Unity
+	@$(MAKE) -C ../python dependencies $(MFLAGS)
 	@$(PIP) install -r requirements.txt -r ../python/requirements.txt $(USER_FLAG) $(PROXY_ARG)
 
 .PHONY: lint
