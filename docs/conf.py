@@ -46,6 +46,10 @@ extensions = [
     'javasphinx',
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
+    "sphinx_rust",
+]
+rust_crates = [
+    "../rust",
 ]
 
 try:
