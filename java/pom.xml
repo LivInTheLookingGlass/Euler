@@ -73,7 +73,6 @@
 				<groupId>net.revelc.code.formatter</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>
 				<version>2.24.1</version>
-				<optional>true</optional>
 				<configuration>
 					<javaExclusionPattern>(\W+\.?[^\W]+\(.*\);?\n)+</javaExclusionPattern>
 					<lineSeparator>\n</lineSeparator>

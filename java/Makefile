@@ -1,4 +1,5 @@
 MVN?=mvn
+MVN_FLAGS?= -e
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 
@@ -15,15 +16,15 @@ clean:
 
 .PHONY: test
 test: ../LICENSE
-	@$(MVN) -e test -Dtest.single
+	@$(MVN) $(MVN_FLAGS) test -Dtest.single
 
 test_auto: ../LICENSE
-	@$(MVN) -e test -T 1C
+	@$(MVN) $(MVN_FLAGS) test -T 1C
 
 .PHONY: test_%
 test_%: ../LICENSE
-	@$(MVN) -e test -T $*
+	@$(MVN) $(MVN_FLAGS) test -T $*
 
 .PHONY: lint
 lint:
-	@$(MVN) formatter:format
+	@$(MVN) $(MVN_FLAGS) formatter:format
