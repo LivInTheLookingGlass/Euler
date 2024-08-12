@@ -165,5 +165,8 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 pub fn is_prime<I>(x: I) -> bool
 where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {
+    if x < (one() + one()) {
+        return false;
+    }
     return is_composite(x) == zero();
 }

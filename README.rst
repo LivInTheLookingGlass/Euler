@@ -78,7 +78,7 @@ Olivia's Project Euler Solutions
 |            |                          |        | |CodeQL| |br|     |
 |            |                          |        | |Java-lint|       |
 +------------+--------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|            | 20     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|            | 21     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
 |            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
 |            | Chrome [2]_              |        | |ESLint|          |
@@ -88,7 +88,7 @@ Olivia's Project Euler Solutions
 |            | GraalPy 23.1+ |br|       |        | |CodeQL| |br|     |
 |            | Pyodide 0.26.2+ [3]_     |        | |PythonLint|      |
 +------------+--------------------------+--------+-------------------+
-| Rust       | 1.69+                    | 27     | |Rust| |br|       |
+| Rust       | 1.69+                    | 28     | |Rust| |br|       |
 |            |                          |        | |Rs-Cov| |br|     |
 |            |                          |        | |RustClippy|      |
 +------------+--------------------------+--------+-------------------+

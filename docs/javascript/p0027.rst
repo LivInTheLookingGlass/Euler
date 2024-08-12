@@ -1,0 +1,18 @@
+JavaScript Implementation of Problem 27
+=======================================
+
+View source code :source:`javascript/src/p0027.js`
+
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. js:autofunction:: p0027
+
+.. literalinclude:: ../../javascript/src/p0027.js
+   :language: javascript
+   :linenos:

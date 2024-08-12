@@ -36,6 +36,7 @@ const answers = {
     17: [require('./src/p0017.js'), false],
     20: [require('./src/p0020.js'), false],
     22: [require('./src/p0022.js'), false],
+    27: [require('./src/p0027.js'), false],
     34: [require('./src/p0034.js'), false],
     76: [require('./src/p0076.js'), true],
     836: [require('./src/p0836.js'), false],

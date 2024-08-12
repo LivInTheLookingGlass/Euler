@@ -128,3 +128,46 @@ function* primeFactors(num) {
     }
 }
 exports.primeFactors = primeFactors;
+
+/**
+ * Iterates over the prime numbers (and their negatives) up to an (optional) limit, with caching.
+ *
+ * This iterator leverages the :js:func:`primes.primes` iterator.
+ * @param {number | null} stop
+ * @yield {number}
+ */
+function* primesAndNegatives(stop = null) {
+    for (p of primes(stop)) {
+        yield p;
+        yield -p;
+    }
+}
+exports.primesAndNegatives = primesAndNegatives;
+
+/**
+ * Tests if a number is composite
+ * @param {number} n
+ * @return {number} 0 if prime, or the first prime factor if not
+ */
+function isComposite(n) {
+    const factors = primeFactors(n);
+    const first = factors.next().value;
+    if (factors.next().done) {
+        return 0;
+    }
+    return first;
+}
+exports.isComposite = isComposite;
+
+/**
+ * Tests if a number is prime
+ * @param {number} n
+ * @return {boolean}
+ */
+function isPrime(n) {
+    if (n < 2) {
+        return false;
+    }
+    return !isComposite(n);
+}
+exports.isPrime = isPrime;

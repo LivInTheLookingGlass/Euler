@@ -20,6 +20,7 @@ mod p~N;
 });
 mod p0022;
 mod p0024;
+mod p0027;
 mod p0034;
 mod p0069;
 mod p0076;
@@ -55,6 +56,7 @@ fn get_problem<'b>(n: usize) -> ProblemRef<'b> {
         20 =>  ( &20, p0020::p0020, false),
         22 =>  ( &22, p0022::p0022, false),
         24 =>  ( &24, p0024::p0024, false),
+        27 =>  ( &27, p0027::p0027, false),
         34 =>  ( &34, p0034::p0034, false),
         69 =>  ( &69, p0069::p0069, false),
         76 =>  ( &76, p0076::p0076, false),
@@ -75,6 +77,7 @@ fn main() {
     let mut answers: Vec<usize> = (1..=20).collect();
     answers.push(22);
     answers.push(24);
+    answers.push(27);
     answers.push(34);
     answers.push(69);
     answers.push(76);
@@ -102,6 +105,7 @@ seq!(N in 01..=20 {
 )*
 #[case::problem_22(22)]
 #[case::problem_24(24)]
+#[case::problem_27(27)]
 #[case::problem_34(34)]
 #[case::problem_69(69)]
 #[case::problem_76(76)]
