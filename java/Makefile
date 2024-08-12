@@ -14,15 +14,18 @@ help:
 clean:
 	@$(MVN) clean || echo
 
-.PHONY: test
-test: ../LICENSE
+target/jacoco.exec: ../LICENSE
 	@$(MVN) $(MVN_FLAGS) test -Dtest.single
 
-test_auto: ../LICENSE
+.PHONY: test
+test: target/jacoco.exec
+	@$(MVN) $(MVN_FLAGS) test -Dtest.single
+
+test_auto: target/jacoco.exec
 	@$(MVN) $(MVN_FLAGS) test -T 1C
 
 .PHONY: test_%
-test_%: ../LICENSE
+test_%: target/jacoco.exec
 	@$(MVN) $(MVN_FLAGS) test -T $*
 
 .PHONY: lint
