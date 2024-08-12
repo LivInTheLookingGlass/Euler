@@ -23,12 +23,11 @@ package euler;
 public class p0076 implements IEuler {
     @Override
     public Object answer() {
-        byte idx, sum = 100;
-        int answer = 0;
-        byte[] counts = new byte[101];
+        int idx, sum = 100, answer = 0;
+        int[] counts = new int[101];
         counts[2] = 100;
         while (counts[100] == 0) {
-            counts[2] += (byte) 2;
+            counts[2] += 2;
             if (sum >= 100) {
                 answer += (100 + counts[2] - sum) / 2;
                 idx = 2;
@@ -37,12 +36,12 @@ public class p0076 implements IEuler {
                     idx++;
                     counts[idx] += idx;
                     sum = 0;
-                    for (byte i = (byte) (idx - 1); i < 101; i++)
+                    for (int i = idx - 1; i < 101; i++)
                         sum += counts[i];
                 } while (sum > 100);
             }
             sum = 0;
-            for (byte i = 0; i < 101; i++)
+            for (int i = 0; i < 101; i++)
                 sum += counts[i];
         }
         return answer;

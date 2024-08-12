@@ -30,7 +30,7 @@ public class EulerTest {
                 new Object[] { p0020.class, false, Utilities.getAnswer(20) },
                 new Object[] { p0022.class, false, Utilities.getAnswer(22) },
                 new Object[] { p0034.class, false, Utilities.getAnswer(34) },
-                // new Object[] { p0076.class, true, Utilities.getAnswer(76) },
+                new Object[] { p0076.class, true, Utilities.getAnswer(76) },
                 new Object[] { p0836.class, false, Utilities.getAnswer(836) });
     }
 
