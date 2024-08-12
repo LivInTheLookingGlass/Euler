@@ -46,7 +46,7 @@ extensions = [
     'javasphinx',
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
-    "sphinx_rust",
+#    "sphinx_rust",
 ]
 rust_crates = [
     "../rust",
