@@ -198,7 +198,7 @@ def countfiles(lang):
         'Makefile': ['Unity', 'wasi-libc', 'node_modules'],
         'Python': ['Unity', 'docs'],
         'C': ['c/Unity', 'c/wasi-libc', 'cplusplus'],
-        'C++': ['c', 'cplusplus/Unity'],
+        'C++': ['c/', 'cplusplus/Unity'],
         'C#': [],
         'Java': [],
         'JavaScript': ['node_modules', 'dist', 'target'],
