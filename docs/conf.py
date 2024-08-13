@@ -194,7 +194,7 @@ def countfiles(lang):
         'Python': 'find .. -name "*.py" -not -path "*/Unity/*" -not -path "*/docs/*"',
         'Rust': 'find .. -name "*.rs" -not -path "*/Unity/*"'
     }
-    return check_output(templates[lang]).count(b'\n')
+    return check_output(templates[lang].split()).count(b'\n')
 
 
 def setup(app):
