@@ -1,7 +1,7 @@
 MVN?=mvn
 MVN_FLAGS?= -e
 BLUE=\033[0;34m
-NC=\033[0m  # No Color
+NC=\033[0m # No Color
 
 .PHONY: help
 help:

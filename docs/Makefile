@@ -30,8 +30,9 @@ clean:
 	@rm -rf _build _static/dist || echo
 
 .PHONY: dependencies
+dependencies: SHELL := bash
 dependencies:
-	@$(PIP) install -r requirements.txt -r ../c/requirements.txt -r ../python/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
+	@$(PIP) install --requirement={.,../{c,cplusplus,python}}/requirements.txt --upgrade $(USER_FLAG) $(PROXY_ARG)
 	@npm install -g jsdoc
 
 _static/dist/bundle.js:

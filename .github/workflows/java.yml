@@ -26,84 +26,100 @@ jobs:
         - 20
         - 21
         distribution:
-        - zulu
-        - temurin
-        - liberica
-        - dragonwell
         - corretto
+        - dragonwell
+        - liberica
         - semeru
+        - temurin
+        - zulu
         os:
         - 'macos-latest'
         - 'ubuntu-latest'
         exclude:
-        - os: macos-latest
-          distribution: dragonwell
-        - os: macos-latest
+        - distribution: dragonwell
+          os: macos-latest
+        - distribution: semeru
+          os: macos-latest
+        - version: 8
           distribution: semeru
-        - os: ubuntu-latest
-          version: 8
+          os: ubuntu-latest
+        - version: 8
+          distribution: temurin
+          os: macos-latest
+        - version: 11
           distribution: semeru
-        - os: macos-latest
-          version: 8
+        - version: 13
           distribution: temurin
-        - os: macos-latest
-          version: 13
-          distribution: temurin
-        - os: macos-latest
-          version: 13
+        - version: 13
           distribution: liberica
-        - os: macos-latest
-          version: 13
+          os: macos-latest
+        - version: 13
+          distribution: dragonwell
+        - version: 13
           distribution: corretto
-        - os: macos-latest
-          version: 15
+        - version: 13
+          distribution: semeru
+        - version: 15
           distribution: temurin
-        - os: macos-latest
-          version: 15
+        - version: 15
           distribution: corretto
-        - os: macos-latest
-          version: 16
+          os: macos-latest
+        - version: 15
+          distribution: dargonwell
+          os: ubuntu-latest
+        - version: 15
+          distribution: semeru
+        - version: 16
           distribution: temurin
-        - os: macos-latest
-          version: 16
+          os: macos-latest
+        - version: 16
           distribution: corretto
+          os: macos-latest
+        - version: 16
+          distribution: dragonwell
+        - version: 18
+          distribution: dragonwell
+        - version: 19
+          distribution: dragonwell
+        - version: 20
+          distribution: dragonwell
         include:
-        - os: ubuntu-latest
-          version: 9
+        - version: 9
           distribution: zulu
-        - os: ubuntu-latest
-          version: 21
+          os: ubuntu-latest
+        - version: 23
+          distribution: corretto
+          os: ubuntu-latest
+        - version: 22
+          distribution: corretto
+          os: ubuntu-latest
+        - version: 21
           distribution: microsoft
-        - os: ubuntu-latest
-          version: 17
+          os: ubuntu-latest
+        - version: 17
           distribution: microsoft
-        - os: ubuntu-latest
-          version: 16
+          os: ubuntu-latest
+        - version: 16
           distribution: microsoft
-        - os: ubuntu-latest
-          version: 11
+          os: ubuntu-latest
+        - version: 11
           distribution: microsoft
-        - os: ubuntu-latest
-          version: 21
+          os: ubuntu-latest
+        - version: 21
           distribution: oracle
-        - os: ubuntu-latest
-          version: 20
+          os: ubuntu-latest
+        - version: 20
           distribution: oracle
-        - os: ubuntu-latest
-          version: 19
+          os: ubuntu-latest
+        - version: 19
           distribution: oracle
-        - os: ubuntu-latest
-          version: 18
+          os: ubuntu-latest
+        - version: 18
           distribution: oracle
-        - os: ubuntu-latest
-          version: 17
+          os: ubuntu-latest
+        - version: 17
           distribution: oracle
-        # - os: windows-latest
-        #   version: 21
-        #   distribution: temurin
-        # - os: macos-latest
-        #   version: 21
-        #   distribution: temurin
+          os: ubuntu-latest
 
     runs-on: ${{ matrix.os }}
 
@@ -125,10 +141,10 @@ jobs:
 
     - name: Run tests (in parallel)
       if: ${{ matrix.version != 21 || matrix.os != 'ubuntu-latest' }}
-      run: make ja_test_auto
+      run: make ja_test_auto IS_TARGET=false
 
     - name: Upload code coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         flags: Java

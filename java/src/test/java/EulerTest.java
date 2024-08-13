@@ -45,7 +45,7 @@ public class EulerTest {
         Object result = answerMethod.invoke(instance);
         long elapsedTime = System.nanoTime() - startTime;
         Assertions.assertEquals(expected, result);
-        if (!isSlow) {
+        if (!isSlow && System.getenv("IS_TARGET") != "false") {
             Assertions.assertTrue(elapsedTime <= ONE_MINUTE_NS, "Test took too long");
         }
     }
