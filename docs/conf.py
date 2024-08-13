@@ -7,7 +7,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-from os import environ, path, sep
+from fnmatch import fnmatch
+from os import environ, path, sep, walk
 from subprocess import check_call, check_output
 from sys import path as sys_path
 
@@ -184,21 +185,34 @@ js_source_path = [
 
 def countfiles(lang):
     templates = {
-        'Makefile': f'find {basedir} -name Makefile -not -path "*/Unity/*" -not -path "*/wasi-libc/*" -not -path "*/node_modules/*"',
-        'Python': f'find {basedir} -name "*.py" -not -path "*/docs/*"',
-        'C': f'find {basedir} -name "*.c" -name "*.h" -not -path "*/c/Unity/*" -not -path "*/c/wasi-libc/*" -not -path "*/cplusplus/*"',
-        'C++': f'find {basedir} -name "*.cpp" -name "*.h" -not -path "*/c/*" -not -path "*/cplusplus/Unity/*',
-        'C#': f'find {basedir} -name "*.cs"',
-        'Java': f'find {basedir} -name "*.java',
-        'JavaScript': f'find {basedir} -name "*.js" -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/target/*',
-        'Python': f'find {basedir} -name "*.py" -not -path "*/Unity/*" -not -path "*/docs/*"',
-        'Rust': f'find {basedir} -name "*.rs" -not -path "*/Unity/*"'
+        'Makefile': lambda root, filename: filename == 'Makefile',
+        'Python': lambda root, filename: fnmatch(filename, '*.py') and 'docs' not in root,
+        'C': lambda root, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
+        'C++': lambda root, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.h'),
+        'C#': lambda root, filename: fnmatch(filename, '*.cs'),
+        'Java': lambda root, filename: fnmatch(filename, '*.java'),
+        'JavaScript': lambda root, filename: fnmatch(filename, '*.js'),
+        'Rust': lambda root, filename: fnmatch(filename, '*.rs'),
     }
-    retstr = check_output(templates[lang].split())
-    print(retstr)
-    ret = retstr.count(b'\n')
-    print(lang, ret)
-    return ret
+    exclude_patterns = {
+        'Makefile': ['Unity', 'wasi-libc', 'node_modules'],
+        'Python': ['Unity', 'docs'],
+        'C': ['c/Unity', 'c/wasi-libc', 'cplusplus'],
+        'C++': ['c', 'cplusplus/Unity'],
+        'C#': [],
+        'Java': [],
+        'JavaScript': ['node_modules', 'dist', 'target'],
+        'Rust': ['Unity'],
+    }
+    count = 0
+
+    for root, dirs, files in walk(basedir):
+        if any(excluded in root for excluded in exclude_patterns.get(lang, [])):
+            continue
+        for filename in files:
+            if templates[lang](root, filename):
+                count += 1
+    return count
 
 
 def setup(app):
