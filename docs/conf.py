@@ -208,7 +208,7 @@ def setup(app):
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
         counts = [countfiles(lang) for lang in labels]
-        sizes = [size / count for size, count in zip(sizes, counts)]
+        sizes = [float(size) / count for size, count in zip(sizes, counts)]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages (Normalized)', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
