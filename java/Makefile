@@ -1,7 +1,7 @@
 MVN?=mvn
 MVN_FLAGS?= -e
 BLUE=\033[0;34m
-NC=\033[0m # No Color
+NC=\033[0m  # No Color
 
 .PHONY: help
 help:
@@ -21,7 +21,8 @@ target/jacoco.exec: ../LICENSE
 test: target/jacoco.exec
 	@$(MVN) $(MVN_FLAGS) test -Dtest.single
 
-test_auto: test_1C
+test_auto: target/jacoco.exec
+	@$(MVN) $(MVN_FLAGS) test -T 1C
 
 .PHONY: test_%
 test_%: target/jacoco.exec

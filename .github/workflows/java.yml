@@ -14,15 +14,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ['ubuntu-latest']
         version:
         - 8
-        - 9
-        - 10
         - 11
-        - 12
         - 13
-        - 14
         - 15
         - 16
         - 17
@@ -31,21 +26,84 @@ jobs:
         - 20
         - 21
         distribution:
-        - temurin
         - zulu
+        - temurin
         - liberica
-        - microsoft
+        - dragonwell
         - corretto
         - semeru
-        - oracle
-        - dragonwell
-        include:
-        - os: windows-latest
-          version: 21
+        os:
+        - 'macos-latest'
+        - 'ubuntu-latest'
+        exclude:
+        - os: macos-latest
+          distribution: dragonwell
+        - os: macos-latest
+          distribution: semeru
+        - os: ubuntu-latest
+          version: 8
+          distribution: semeru
+        - os: macos-latest
+          version: 8
           distribution: temurin
         - os: macos-latest
-          version: 21
+          version: 13
           distribution: temurin
+        - os: macos-latest
+          version: 13
+          distribution: liberica
+        - os: macos-latest
+          version: 13
+          distribution: corretto
+        - os: macos-latest
+          version: 15
+          distribution: temurin
+        - os: macos-latest
+          version: 15
+          distribution: corretto
+        - os: macos-latest
+          version: 16
+          distribution: temurin
+        - os: macos-latest
+          version: 16
+          distribution: corretto
+        include:
+        - os: ubuntu-latest
+          version: 9
+          distribution: zulu
+        - os: ubuntu-latest
+          version: 21
+          distribution: microsoft
+        - os: ubuntu-latest
+          version: 17
+          distribution: microsoft
+        - os: ubuntu-latest
+          version: 16
+          distribution: microsoft
+        - os: ubuntu-latest
+          version: 11
+          distribution: microsoft
+        - os: ubuntu-latest
+          version: 21
+          distribution: oracle
+        - os: ubuntu-latest
+          version: 20
+          distribution: oracle
+        - os: ubuntu-latest
+          version: 19
+          distribution: oracle
+        - os: ubuntu-latest
+          version: 18
+          distribution: oracle
+        - os: ubuntu-latest
+          version: 17
+          distribution: oracle
+        # - os: windows-latest
+        #   version: 21
+        #   distribution: temurin
+        # - os: macos-latest
+        #   version: 21
+        #   distribution: temurin
 
     runs-on: ${{ matrix.os }}
 
