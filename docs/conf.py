@@ -227,9 +227,9 @@ def setup(app):
 
         counts = [countfiles(lang) for lang in labels]
         sizes = [float(size) / count for size, count in zip(sizes, counts)]
-        pairs = sorted(zip(labels, sizes))
-        labels = [lang[0] for lang in pairs]
-        sizes = [lang[1] for lang in pairs]
+        pairs = sorted(zip(sizes, labels), reverse=True)
+        labels = [lang[1] for lang in pairs]
+        sizes = [lang[0] for lang in pairs]
         pos = labels.index('Makefile')
         labels.pop(pos)
         sizes.pop(pos)
