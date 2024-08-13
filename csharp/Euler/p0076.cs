@@ -27,7 +27,7 @@ namespace Euler
         public object Answer()
         {
             byte idx;
-            uint answer = 0;
+            int answer = 0;
             byte sum = 100;
             byte[] counts = new byte[101];
             counts[2] = 100;
@@ -36,7 +36,7 @@ namespace Euler
                 counts[2] += 2;
                 if (sum >= 100)
                 {
-                    answer += (uint)(100 + counts[2] - sum) / 2;
+                    answer += (100 + counts[2] - sum) / 2;
                     idx = 2;
                     do
                     {

@@ -22,10 +22,10 @@ namespace Euler
     {
         public object Answer()
         {
-            uint answer = 0,
-                  i = 2,
-                  j = 8,
-                  tmp = 0;
+            int answer = 0,
+                i = 2,
+                j = 8,
+                tmp = 0;
 
             while (i < 4000000)
             {

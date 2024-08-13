@@ -31,7 +31,7 @@ namespace Euler
                     {
                         uint a_square = a * a;
                         if (a_square + b_square == c_square && a + b + c == 1000)
-                            return a * b * c;
+                            return (int)(a * b * c);
                     }
                 }
             }

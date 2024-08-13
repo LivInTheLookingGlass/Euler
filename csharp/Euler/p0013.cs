@@ -236,7 +236,7 @@ namespace Euler
             }
             while (high > ten10)
                 high /= 10;
-            return high;
+            return (long)high;
         }
     }
 }

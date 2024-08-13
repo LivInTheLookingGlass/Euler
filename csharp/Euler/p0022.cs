@@ -26,15 +26,15 @@ namespace Euler
     {
         public object Answer()
         {
-            uint answer = 0;
+            int answer = 0;
             string[] names = Utilities.GetDataFileText("p0022_names.txt").Replace("\"", "").Split(',');
             Array.Sort(names);
-            for (uint i = 0; i < names.Length; i += 1)
+            for (int i = 0; i < names.Length; i += 1)
             {
-                uint sum = 0;
+                int sum = 0;
                 foreach (char c in names[i])
                 {
-                    sum += (ushort)c & 0x3Fu;
+                    sum += c & 0x3F;
                 }
                 answer += sum * (i + 1);
             }

@@ -25,7 +25,7 @@ namespace Euler
             return new string(charArray);
         }
 
-        private static bool IsPalindrome(uint x)
+        private static bool IsPalindrome(int x)
         {
             string rep = x.ToString();
             return rep == Reverse(rep);
@@ -33,12 +33,12 @@ namespace Euler
 
         public object Answer()
         {
-            uint answer = 0;
-            for (uint v = 101; v < 1000; v++)
+            int answer = 0;
+            for (int v = 101; v < 1000; v++)
             {
-                for (uint u = 100; u < v; u++)
+                for (int u = 100; u < v; u++)
                 {
-                    uint p = u * v;
+                    int p = u * v;
                     if (IsPalindrome(p) && p > answer)
                         answer = p;
                 }

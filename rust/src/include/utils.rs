@@ -13,7 +13,7 @@ pub fn get_data_file(name: &str) -> String {
 }
 
 pub fn get_answer(n: usize) -> Answer {
-    let csv = get_data_file("answers.csv");
+    let csv = get_data_file("answers.tsv");
     let mut lines = csv.lines();
     lines.next();
     for line in lines {

@@ -28,29 +28,29 @@ namespace Euler
     {
         public object Answer()
         {
-            uint biggestSeen = 0;
+            int biggestSeen = 0;
             ulong biggestIdx = 0;
-            Dictionary<ulong, uint> cache = new();
+            Dictionary<ulong, int> cache = new();
             for (ulong x = 1; x < 1000000; x += 1)
             {
-                uint result = CollatzLen(x, cache);
+                int result = CollatzLen(x, cache);
                 if (result > biggestSeen)
                 {
                     biggestSeen = result;
                     biggestIdx = x;
                 }
             }
-            return (uint)biggestIdx;
+            return (int)biggestIdx;
         }
 
-        static uint CollatzLen(ulong n, IDictionary<ulong, uint> cache)
+        static int CollatzLen(ulong n, IDictionary<ulong, int> cache)
         {
             if (n == 1)
                 return 0;
             else if (cache.ContainsKey(n))
                 return cache[n];
 
-            uint result;
+            int result;
             if (n % 2 == 0)
                 result = 1 + CollatzLen(n / 2, cache);
             else

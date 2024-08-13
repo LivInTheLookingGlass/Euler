@@ -31,7 +31,7 @@ namespace Euler
                 string str = to_string(x);
                 answer += str.Replace(" ", "").Replace("-", "").Length;
             }
-            return (ushort)answer;
+            return (short)answer;
         }
 
         static String to_string(int n)

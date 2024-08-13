@@ -25,7 +25,7 @@ def get_data_file(name: str, mode: str = 'r') -> Any:
 
 
 def get_answer(n: int) -> Union[int, str]:
-    for line in get_data_file('answers.csv').splitlines()[1:]:
+    for line in get_data_file('answers.tsv').splitlines()[1:]:
         id_, type, size, value = line.split('\t')
         if int(id_) != n:
             continue

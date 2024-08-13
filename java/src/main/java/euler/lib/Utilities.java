@@ -30,7 +30,7 @@ public class Utilities {
     }
 
     public static Object getAnswer(long n) throws IOException {
-        String csvContent = getDataFileText("answers.csv");
+        String csvContent = getDataFileText("answers.tsv");
         try (BufferedReader reader = new BufferedReader(new StringReader(csvContent))) {
             String line;
             reader.readLine();

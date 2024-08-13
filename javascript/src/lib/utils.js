@@ -43,7 +43,7 @@ exports.get_data_file = function(name, encoding = 'utf8') {
  * @return {number | string}
  */
 exports.get_answer = function(n) {
-    for (const line of exports.get_data_file('answers.csv').split(new RegExp('\\r?\\n'))) {
+    for (const line of exports.get_data_file('answers.tsv').split(new RegExp('\\r?\\n'))) {
         const [id_, type, size, value] = line.split('\t');
         if (id_ !== n.toString()) {
             continue;

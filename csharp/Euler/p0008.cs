@@ -63,13 +63,13 @@ namespace Euler
                 "05886116467109405077541002256983155200055935729725",
                 "71636269561882670428252483600823257530420752963450"
             );
-            ulong answer = 0;
+            long answer = 0;
             for (int i = 0; i < str.Length - 13; i++)
             {
                 String slice = str.Substring(i, 13);
-                ulong prod = 1;
+                long prod = 1;
                 foreach (char c in slice)
-                    prod *= (ulong)c - '0';
+                    prod *= (long)c - '0';
 
                 if (prod > answer)
                     answer = prod;

@@ -29,7 +29,7 @@ namespace Euler
 
         public static object GetAnswer(ulong n)
         {
-            foreach (string line in GetDataFileText("answers.csv").Split(new[] { '\r', '\n' }))
+            foreach (string line in GetDataFileText("answers.tsv").Split(new[] { '\r', '\n' }))
             {
                 var arr = line.Split("\t");
                 if (arr[0] != n.ToString()) continue;

@@ -44,7 +44,7 @@ namespace Euler
                 }
                 power *= 10;
             }
-            return (ushort)answer;
+            return (short)answer;
         }
     }
 }
