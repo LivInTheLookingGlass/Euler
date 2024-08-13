@@ -230,7 +230,7 @@ def setup(app):
         pairs = sorted(zip(labels, sizes))
         labels = [lang[0] for lang in pairs]
         sizes = [lang[1] for lang in pairs]
-        pos = labels.find('Makefile')
+        pos = labels.index('Makefile')
         labels.pop(pos)
         sizes.pop(pos)
         _, ax = plt.subplots()
