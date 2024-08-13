@@ -13,11 +13,11 @@ let lastCached = 7;
  */
 function* primes(stop = null) {
     if (stop === null) {
-        for (p of cache) {
+        for (const p of cache) {
             yield p;
         }
     } else {
-        for (p of cache) {
+        for (const p of cache) {
             if (p < stop) {
                 yield p;
             } else {
@@ -28,7 +28,7 @@ function* primes(stop = null) {
     if (stop !== null && lastCached > stop) {
         return;
     }
-    for (p of modifiedEratosthenes()) {
+    for (const p of modifiedEratosthenes()) {
         if (p <= lastCached) {
             continue;
         }
@@ -107,7 +107,7 @@ function* primeFactors(num) {
         yield 0;
     } else {
         let root = Math.ceil(Math.sqrt(num));
-        for (factor of primes()) {
+        for (const factor of primes()) {
             let modulo = num % factor;
             if (modulo == 0) {
                 while (modulo == 0) { // double-check to call sqrt once
@@ -137,7 +137,7 @@ exports.primeFactors = primeFactors;
  * @yield {number}
  */
 function* primesAndNegatives(stop = null) {
-    for (p of primes(stop)) {
+    for (const p of primes(stop)) {
         yield p;
         yield -p;
     }

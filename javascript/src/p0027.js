@@ -33,7 +33,7 @@ exports.p0027 = function() {
     let streak = 0;
     let answer = 0;
     for (let a = -999; a < 1000; a++) {
-        for (b of primes.primesAndNegatives(1001)) {
+        for (const b of primes.primesAndNegatives(1001)) {
             let i = 0;
             while (primes.isPrime((i + a) * i + b)) {
                 i++;

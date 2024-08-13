@@ -111,7 +111,7 @@ exports.p0013 = function() {
     let mhigh = 0;
     let mlow = 0;
     let low = 0;
-    for (number of numbers) {
+    for (const number of numbers) {
         const substrings = [
             parseInt(number.substring(0, 11)),
             parseInt(number.substring(11, 24)),

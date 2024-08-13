@@ -1,0 +1,18 @@
+JavaScript Implementation of Problem 41
+=======================================
+
+View source code :source:`javascript/src/p0041.js`
+
+Includes
+--------
+
+- `primes <./primes.html>`_
+
+Problem Solution
+----------------
+
+.. js:autofunction:: p0041
+
+.. literalinclude:: ../../javascript/src/p0041.js
+   :language: javascript
+   :linenos:

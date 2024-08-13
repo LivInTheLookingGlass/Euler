@@ -13,7 +13,7 @@
  */
 exports.p0010 = function() {
     let answer = 0;
-    for (p of primes.primes(2000000)) {
+    for (const p of primes.primes(2000000)) {
         answer += p;
     }
     return answer;
