@@ -194,7 +194,7 @@ def countfiles(lang):
         'Python': f'find {basedir} -name "*.py" -not -path "*/Unity/*" -not -path "*/docs/*"',
         'Rust': f'find {basedir} -name "*.rs" -not -path "*/Unity/*"'
     }
-    retstr = check_output(templates[lang].split()).count(b'\n')
+    retstr = check_output(templates[lang].split())
     print(retstr)
     ret = retstr.count(b'\n')
     print(lang, ret)
