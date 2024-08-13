@@ -184,17 +184,19 @@ js_source_path = [
 
 def countfiles(lang):
     templates = {
-        'Makefile': 'find .. -name Makefile -not -path "*/Unity/*" -not -path "*/wasi-libc/*" -not -path "*/node_modules/*"',
-        'Python': 'find .. -name "*.py" -not -path "*/docs/*"',
-        'C': 'find .. -name "*.c" -name "*.h" -not -path "*/c/Unity/*" -not -path "*/c/wasi-libc/*" -not -path "*/cplusplus/*"',
-        'C++': 'find .. -name "*.cpp" -name "*.h" -not -path "*/c/*" -not -path "*/cplusplus/Unity/*',
-        'C#': 'find .. -name "*.cs"',
-        'Java': 'find .. -name "*.java',
-        'JavaScript': 'find .. -name "*.js" -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/target/*',
-        'Python': 'find .. -name "*.py" -not -path "*/Unity/*" -not -path "*/docs/*"',
-        'Rust': 'find .. -name "*.rs" -not -path "*/Unity/*"'
+        'Makefile': f'find {basedir} -name Makefile -not -path "*/Unity/*" -not -path "*/wasi-libc/*" -not -path "*/node_modules/*"',
+        'Python': f'find {basedir} -name "*.py" -not -path "*/docs/*"',
+        'C': f'find {basedir} -name "*.c" -name "*.h" -not -path "*/c/Unity/*" -not -path "*/c/wasi-libc/*" -not -path "*/cplusplus/*"',
+        'C++': f'find {basedir} -name "*.cpp" -name "*.h" -not -path "*/c/*" -not -path "*/cplusplus/Unity/*',
+        'C#': f'find {basedir} -name "*.cs"',
+        'Java': f'find {basedir} -name "*.java',
+        'JavaScript': f'find {basedir} -name "*.js" -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/target/*',
+        'Python': f'find {basedir} -name "*.py" -not -path "*/Unity/*" -not -path "*/docs/*"',
+        'Rust': f'find {basedir} -name "*.rs" -not -path "*/Unity/*"'
     }
-    ret = check_output(templates[lang].split()).count(b'\n')
+    retstr = check_output(templates[lang].split()).count(b'\n')
+    print(retstr)
+    ret = retstr.count(b'\n')
     print(lang, ret)
     return ret
 
