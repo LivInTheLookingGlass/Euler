@@ -65,8 +65,7 @@ jobs:
           distribution: corretto
           os: macos-latest
         - version: 15
-          distribution: dargonwell
-          os: ubuntu-latest
+          distribution: dragonwell
         - version: 15
           distribution: semeru
         - version: 16

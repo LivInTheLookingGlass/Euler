@@ -80,13 +80,13 @@ Olivia's Project Euler Solutions
 +------------+--------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|            | 25     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|            |        | |Js-Cov| |br|     |
-|            | Firefox [2]_ |br|        |        | |CodeQL| |br|     |
-|            | Chrome [2]_              |        | |ESLint|          |
+|            | Browser [2]_             |        | |CodeQL| |br|     |
+|            |                          |        | |ESLint|          |
 +------------+--------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|        | 79     | |Python| |br|     |
 |            | Pypy 3.6+ |br|           |        | |Py-Cov| |br|     |
 |            | GraalPy 23.1+ |br|       |        | |CodeQL| |br|     |
-|            | Pyodide 0.26.2+ [3]_     |        | |PythonLint|      |
+|            | Browser [3]_             |        | |PythonLint|      |
 +------------+--------------------------+--------+-------------------+
 | Rust       | 1.69+                    | 28     | |Rust| |br|       |
 |            |                          |        | |Rs-Cov| |br|     |
@@ -102,9 +102,9 @@ Olivia's Project Euler Solutions
    <a href="https://euler.oliviaappleton.com/_static/test-py.html" target="_blank">click here!</a>
 
 .. [1] This is the earliest standard the MSVC explicitly supports.
-.. [2] While these solutions do run on Chrome and Firefox, they need to be bundled with WebPack + Babel first, and
-   these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
-.. [3] While these solutions do run on Chrome and Firefox, they need to be bundled with Pyodide first, and these
+.. [2] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
+   and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
+.. [3] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
 
 Coverage
