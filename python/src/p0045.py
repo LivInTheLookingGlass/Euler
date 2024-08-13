@@ -45,7 +45,3 @@ def main() -> int:
             H_idx += 1
             H_val = H(H_idx)
     return T_val
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

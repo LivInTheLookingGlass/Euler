@@ -28,7 +28,3 @@ def score(name: str, idx: int) -> int:
 def main() -> int:
     names = sorted(get_data_file('p0022_names.txt').upper().replace('"', '').split(','))
     return sum(score(name, idx) for idx, name in enumerate(names, 1))
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

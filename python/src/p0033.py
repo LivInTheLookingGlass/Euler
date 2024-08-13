@@ -39,7 +39,3 @@ def main() -> int:
                         answer *= frac
                         counter += 1
     return answer.denominator
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

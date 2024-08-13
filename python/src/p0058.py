@@ -37,7 +37,3 @@ def main() -> int:
         if primes < total / 10:
             return 2 * x + 1
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

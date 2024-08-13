@@ -38,7 +38,3 @@ def main() -> int:
             if is_pentagonal(j + k) and is_pentagonal(k - j):
                 D = min((D, abs(k - j)))
     return D
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

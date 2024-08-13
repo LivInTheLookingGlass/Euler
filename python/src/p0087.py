@@ -43,7 +43,3 @@ def main() -> int:
                 else:
                     break
     return len(seen)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

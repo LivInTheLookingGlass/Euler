@@ -48,7 +48,3 @@ def main() -> int:
         if len([*digits(frac.numerator)]) > len([*digits(frac.denominator)]):
             answer += 1
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

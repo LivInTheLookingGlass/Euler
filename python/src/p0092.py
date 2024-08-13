@@ -42,7 +42,3 @@ def main() -> int:
         if x == 89:
             answer += 1
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

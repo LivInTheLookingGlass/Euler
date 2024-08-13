@@ -55,7 +55,3 @@ def main() -> int:
         else:  # read as: if you didn't break
             answer += n
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

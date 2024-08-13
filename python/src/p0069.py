@@ -37,7 +37,3 @@ def main() -> int:
         else:
             break
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

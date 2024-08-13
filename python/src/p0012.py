@@ -41,7 +41,3 @@ def main() -> int:
         if sum(1 for _ in proper_divisors(num)) > 500:
             return num
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

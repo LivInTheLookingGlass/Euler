@@ -35,7 +35,3 @@ def monthly_iterator(years: range, months: range = range(1, 13), day: int = 1) -
 
 def main() -> int:
     return sum(1 for _ in monthly_iterator(years=range(1901, 2001)))
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

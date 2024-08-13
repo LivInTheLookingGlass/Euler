@@ -23,7 +23,3 @@ def main() -> int:
         if idx == 999999:
             return int("".join(repr(i) for i in x))
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

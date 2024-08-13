@@ -28,7 +28,3 @@ def main() -> int:
         if x == sum(int(y)**5 for y in repr(x)):
             ret += x
     return ret
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

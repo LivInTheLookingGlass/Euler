@@ -76,7 +76,3 @@ def main() -> int:
         string = to_string(x)
         answer += len(string.replace(" ", "").replace("-", ""))
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

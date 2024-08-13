@@ -44,7 +44,3 @@ def main() -> int:
                 streak = test
                 answer = a * b
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

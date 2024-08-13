@@ -36,7 +36,3 @@ def main() -> int:
         if not steps_to_palindrome(x):
             answer += 1
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

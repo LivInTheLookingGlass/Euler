@@ -31,7 +31,3 @@ def main() -> int:
     for line in get_data_file("p0067_triangle.txt").splitlines():
         rows.append([int(x) for x in line.split()])
     return reduce_triangle(rows)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -20,7 +20,3 @@ from .lib.math import lattice_paths
 
 def main() -> int:
     return lattice_paths(20, 20)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

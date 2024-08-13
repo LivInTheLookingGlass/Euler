@@ -38,7 +38,3 @@ def main() -> int:
         if x > check:
             return idx
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

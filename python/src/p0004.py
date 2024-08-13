@@ -29,7 +29,3 @@ def main() -> int:
         if num > result and is_palindrome(num):
             result = num
     return result
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

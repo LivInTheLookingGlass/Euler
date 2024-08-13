@@ -39,7 +39,3 @@ def main() -> int:
         if all(digit in odd_digits for digit in repr(x + inverse)):
             seen_update((x, inverse))
     return len(seen)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

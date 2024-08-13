@@ -36,7 +36,3 @@ def main() -> int:
             if is_prime(total):
                 return total
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

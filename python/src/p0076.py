@@ -65,7 +65,3 @@ def main() -> int:
             counts[2] = 100 - total - (total % 2)
         total = sum(counts.values())
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

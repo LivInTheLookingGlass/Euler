@@ -34,7 +34,3 @@ def main() -> int:
             f = Fraction(y, x)
             seen.add((f.numerator, f.denominator))
     return len(seen)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

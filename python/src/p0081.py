@@ -39,7 +39,3 @@ def main() -> int:
         line = raw_line.rstrip('\n')
         setup.append(tuple(int(x) for x in line.split(',')))
     return min_path_sum(tuple(setup), {})
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

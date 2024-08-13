@@ -17,7 +17,3 @@ def main() -> int:
         for y in range(1, 100):
             answer = max((answer, sum(digits(x**y))))
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

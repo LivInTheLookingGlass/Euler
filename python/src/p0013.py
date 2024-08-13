@@ -213,7 +213,3 @@ def main() -> int:
         53503534226472524250874054075591789781264330331690
     )
     return int(repr(sum(numbers))[:10])
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

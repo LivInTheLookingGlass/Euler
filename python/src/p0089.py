@@ -70,7 +70,3 @@ def main() -> int:
         line = raw_line.rstrip('\n')
         saved += len(line) - len(to_minimal(line))
     return saved
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

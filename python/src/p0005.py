@@ -27,7 +27,3 @@ def main() -> int:
             if num < answer and all(num % divisor == 0 for divisor in group):
                 answer = num
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

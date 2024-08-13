@@ -36,7 +36,3 @@ def main() -> int:
         for x in takewhile((ten_8 // y).__ge__, cached_primes)
     }
     return len(seen)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

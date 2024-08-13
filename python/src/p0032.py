@@ -39,7 +39,3 @@ def main() -> int:
                 answer += product
                 break
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

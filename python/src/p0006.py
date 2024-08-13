@@ -24,7 +24,3 @@ def main() -> int:
     sum_of_squares = sum(x**2 for x in group)
     square_of_sum = sum(group)**2
     return square_of_sum - sum_of_squares
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

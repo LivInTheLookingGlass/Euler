@@ -32,7 +32,3 @@ def main() -> int:
         elif p > answer:
             answer = p
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -23,7 +23,3 @@ def main() -> int:
         if sum(factorial(int(y)) for y in repr(x)) == x:
             answer += x
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -33,7 +33,3 @@ def main() -> int:
         if sum(triple) == 1000:
             return reduce(mul, triple, 1)
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

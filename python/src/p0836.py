@@ -18,7 +18,3 @@ Find f(20230401, 57). Give as your answer the concatenation of the first letters
 
 def main() -> str:
     return "aprilfoolsjoke"
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

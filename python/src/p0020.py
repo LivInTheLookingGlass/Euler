@@ -18,7 +18,3 @@ from math import factorial
 
 def main() -> int:
     return sum(int(x) for x in repr(factorial(100)))
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

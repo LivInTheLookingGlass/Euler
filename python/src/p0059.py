@@ -45,7 +45,3 @@ def main() -> int:
         if b'beginning' in plaintext:
             return sum(plaintext)
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -18,7 +18,3 @@ def main() -> int:
             if len(str(x**n)) == n:
                 seen[x, n] = x**n
     return len(seen)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

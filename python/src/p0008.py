@@ -74,7 +74,3 @@ def main() -> int:
         num = reduce(mul, operands, 1)
         answer = max(answer, num)
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

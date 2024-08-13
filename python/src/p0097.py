@@ -20,7 +20,3 @@ Find the last ten digits of this prime number.
 
 def main() -> int:
     return ((28433 << 7830457) + 1) % 10**10
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

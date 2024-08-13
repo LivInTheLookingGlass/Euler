@@ -35,7 +35,3 @@ def main() -> int:
         answer += val
         val = next(f)
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

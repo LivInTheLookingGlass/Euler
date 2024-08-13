@@ -23,7 +23,3 @@ def main() -> int:
         if all({*digits(x * y)} == orig for y in range(2, 7)):
             return x
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -25,7 +25,3 @@ def summation(up_to: int, factor: int) -> int:
 
 def main() -> int:
     return summation(999, 3) + summation(999, 5) - summation(999, 15)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -34,7 +34,3 @@ def main() -> int:
     for x, y in combinations_with_replacement(abundants(stop=28112), 2):
         abundant_sums.add(x + y)
     return sum(filterfalse(abundant_sums.__contains__, range(1, 28124)))
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

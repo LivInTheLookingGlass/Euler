@@ -37,7 +37,3 @@ def main() -> int:
         x, y = line.rstrip('\n').split(',')
         candidates.append((int(x), int(y)))
     return max(enumerate(candidates, 1), key=lambda x: cmp_to_key(cmp_two_exp)(x[1]))[0]
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

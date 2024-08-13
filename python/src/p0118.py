@@ -67,7 +67,3 @@ def main() -> int:
         a_digits = int(ceil(log10(a)))
         answer += nest(cached_primes, (a, ), a_digits)
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

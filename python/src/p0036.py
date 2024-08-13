@@ -27,7 +27,3 @@ def main() -> int:
         if is_palindrome(x) and is_palindrome(x, rep_func=bin_repr):
             answer += x
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

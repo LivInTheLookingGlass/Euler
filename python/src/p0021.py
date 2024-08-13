@@ -40,7 +40,3 @@ def main() -> int:
             ret += a + b
             skip.add(b)
     return ret
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

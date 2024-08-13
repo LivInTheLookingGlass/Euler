@@ -47,7 +47,3 @@ def main() -> int:
     return max(
         (collatz_len(x, cache), x) for x in range(1, 1000000)
     )[1]
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

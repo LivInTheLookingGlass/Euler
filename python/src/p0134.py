@@ -40,7 +40,3 @@ def main() -> int:
         # simplified Chinese Remainder Theorem
         p1 = p2
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

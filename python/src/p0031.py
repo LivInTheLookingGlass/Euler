@@ -50,7 +50,3 @@ def main() -> int:
     units = (200, 100, 50, 20, 10, 5, 2, 1)
     counts = [0 for _ in units]
     return coin_combinations(200, units, counts)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -22,7 +22,3 @@ def main() -> int:
         if pattern.match(repr(x * x)):
             return x
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

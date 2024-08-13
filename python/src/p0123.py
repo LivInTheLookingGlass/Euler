@@ -34,7 +34,3 @@ def main() -> int:
         if base % (p * p) > ten_ten:
             return n
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

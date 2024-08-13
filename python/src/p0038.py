@@ -43,7 +43,3 @@ def main() -> int:
                 break
             cur_digits = cur_digits + tuple(digits(x * num))[::-1]
     return reduce(lambda x, y: x * 10 + y, answer)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

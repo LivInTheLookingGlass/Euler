@@ -38,10 +38,7 @@ def main() -> int:
                 left %= x // 10
             if left != 0:
                 continue
+            print(p)
             answer += p
             count += 1
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

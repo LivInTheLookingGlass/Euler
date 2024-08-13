@@ -32,7 +32,3 @@ def main() -> int:
         if all(is_prime(r) for r in rotations(x)):
             answer += 1
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

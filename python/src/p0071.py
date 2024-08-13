@@ -30,7 +30,3 @@ def main() -> int:
         for y in range(1, 1_000_000)
         for x in range((y - 1) * 3 // 7, y * 3 // 7)
     ).numerator
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

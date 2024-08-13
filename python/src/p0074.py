@@ -69,7 +69,3 @@ def main() -> int:
             answer += 1
         seen.clear()
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

@@ -46,7 +46,3 @@ def main() -> int:
         if all(cached_is_prime((x, 4, True), cache) for x in group):
             return group[0]
     return -1  # pragma: no cover
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

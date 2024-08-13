@@ -34,7 +34,3 @@ def main() -> int:
             if n_choose_r(n, r) > 1_000_000:
                 answer += 1
     return answer
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

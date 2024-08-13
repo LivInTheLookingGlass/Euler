@@ -29,7 +29,3 @@ def main() -> int:
             biggest_size = num_solutions
             biggest = p
     return biggest
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover

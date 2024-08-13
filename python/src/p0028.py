@@ -63,7 +63,3 @@ def spiral_diagonal_sum(size: int) -> int:
 
 def main() -> int:
     return spiral_diagonal_sum(1001)
-
-
-if __name__ == '__main__':
-    print(main())  # pragma: no cover
