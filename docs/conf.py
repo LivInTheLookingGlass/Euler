@@ -8,7 +8,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 from os import environ, path, sep
-from subprocess import check_call
+from subprocess import check_call, check_output
 from sys import path as sys_path
 
 from sphinxcontrib.domaintools import custom_domain
@@ -181,6 +181,22 @@ js_source_path = [
     root_for_relative_js_paths + sep + 'src' + sep + 'lib'
 ]
 
+
+def countfiles(lang):
+    templates = {
+        'Makefile': 'find .. -name Makefile -not -path "*/Unity/*" -not -path "*/wasi-libc/*" -not -path "*/node_modules/*"',
+        'Python': 'find .. -name "*.py" -not -path "*/docs/*"',
+        'C': 'find .. -name "*.c" -name "*.h" -not -path "*/c/Unity/*" -not -path "*/c/wasi-libc/*" -not -path "*/cplusplus/*"',
+        'C++': 'find .. -name "*.cpp" -name "*.h" -not -path "*/c/*" -not -path "*/cplusplus/Unity/*',
+        'C#': 'find .. -name "*.cs"',
+        'Java': 'find .. -name "*.java',
+        'JavaScript': 'find .. -name "*.js" -not -path "*/node_modules/*" -not -path "*/dist/*" -not -path "*/target/*',
+        'Python': 'find .. -name "*.py" -not -path "*/Unity/*" -not -path "*/docs/*"',
+        'Rust': 'find .. -name "*.rs" -not -path "*/Unity/*"'
+    }
+    return int(check_output(f"{template[lang]} | wc -l".split(), shell=True))
+
+
 def setup(app):
     try:
         langs = linguist(basedir)
@@ -190,6 +206,16 @@ def setup(app):
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
+
+
+        langs = linguist(basedir)
+        labels = [lang[0] for lang in langs]
+        counts = [countfiles(lang) for lang in labels]
+        sizes = [lang[1] / count for lan,  count in zip(langs, counts)]
+        _, ax = plt.subplots()
+        ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
+        plt.legend(title='Languages (Normalized)', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
+        plt.savefig('languages-normalized.svg', transparent=True, bbox_inches='tight')
     except Exception:
         if 'GITHUB_ACTION' in environ:
             raise

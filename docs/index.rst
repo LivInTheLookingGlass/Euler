@@ -25,6 +25,11 @@ Code Size By Language
 
 .. image:: ./languages.svg
 
+Code Size By Language (Normalized)
+----------------------------------
+
+.. image:: ./languages-normalized.svg
+
 Problems Solved
 ---------------
 
