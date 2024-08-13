@@ -10,7 +10,15 @@ cplusplus/*.h linguist-language=c++
 cplusplus/*/*.cpp linguist-language=c++
 cplusplus/*/*.h linguist-language=c++
 
-javascript/index.html linguist-vendored
+*.rst linguist-language=reStructuredText
+*/*.rst linguist-language=reStructuredText
+*/*/*.rst linguist-language=reStructuredText
 
-* linguist-detectable
-**/* linguist-detectable
+*.yml linguist-language=yaml
+*.yaml linguist-language=yaml
+*/*.yml linguist-language=yaml
+*/*.yaml linguist-language=yaml
+*/*/*.yml linguist-language=yaml
+*/*/*.yaml linguist-language=yaml
+
+javascript/index.html linguist-vendored
