@@ -227,9 +227,12 @@ def setup(app):
 
         counts = [countfiles(lang) for lang in labels]
         sizes = [float(size) / count for size, count in zip(sizes, counts)]
-        pairs = sorted(zip(labels, sizes), reverse=True)
+        pairs = sorted(zip(labels, sizes))
         labels = [lang[0] for lang in pairs]
         sizes = [lang[1] for lang in pairs]
+        pos = labels.find('Makefile')
+        labels.pop(pos)
+        sizes.pop(pos)
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
