@@ -229,7 +229,7 @@ def setup(app):
         sizes = [float(size) / count for size, count in zip(sizes, counts)]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
-        plt.legend(title='Languages (Normalized)', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
+        plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages-normalized.svg', transparent=True, bbox_inches='tight')
     except Exception:
         if 'GITHUB_ACTION' in environ:
