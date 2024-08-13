@@ -52,6 +52,6 @@ public class EulerTest {
 
     public static boolean isSemeru() {
         return System.getProperty("java.runtime.name", "").contains("Semeru")
-            || System.getProperty("java.vm.vendor", "").contains("IBM");
+                || System.getProperty("java.vm.vendor", "").contains("IBM");
     }
 }
