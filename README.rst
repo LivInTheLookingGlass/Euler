@@ -73,10 +73,10 @@ Olivia's Project Euler Solutions
 |            |                           |        | |CodeQL| |br|     |
 |            |                           |        | |C#-lint|         |
 +------------+---------------------------+--------+-------------------+
-| Java       | Java 8+ in Corretto, |br| | 17     | |Javai| |br|      |
+| Java       |Java 8+ in Corretto, |br|  | 17     | |Javai| |br|      |
 |            |Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
-|            | Microsoft, Oracle, |br|   |        | |CodeQL| |br|     |
-|            | Semeru, Temurin, Zulu     |        | |Java-lint|       |
+|            |Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
+|            |Semeru, Temurin, Zulu      |        | |Java-lint|       |
 +------------+---------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|             | 25     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|             |        | |Js-Cov| |br|     |
