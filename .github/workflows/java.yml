@@ -15,31 +15,58 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest']
-        java-version: [8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        version:
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        distribution:
+        - temurin
+        - zulu
+        - liberica
+        - microsoft
+        - corretto
+        - semeru
+        - oracle
+        - dragonwell
         include:
-          - os: windows-latest
-            java-version: 21
-          - os: macos-latest
-            java-version: 21
+        - os: windows-latest
+          version: 21
+          distribution: temurin
+        - os: macos-latest
+          version: 21
+          distribution: temurin
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Java
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
-        java-version: ${{ matrix.java-version }}
-        distribution: 'adopt'
+        java-version: ${{ matrix.version }}
+        distribution: ${{ matrix.distribution }}
+        cache: maven
+        cache-dependency-path: "java/pom.xml"
 
     - name: Run tests (serially)
-      if: ${{ matrix.java-version == 21 && matrix.os == 'ubuntu-latest' }}
+      if: ${{ matrix.version == 21 && matrix.os == 'ubuntu-latest' }}
       run: make ja_test
 
     - name: Run tests (in parallel)
-      if: ${{ matrix.java-version != 21 || matrix.os != 'ubuntu-latest' }}
+      if: ${{ matrix.version != 21 || matrix.os != 'ubuntu-latest' }}
       run: make ja_test_auto
 
     - name: Upload code coverage to Codecov
