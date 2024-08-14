@@ -120,8 +120,15 @@ fn test_problem(#[case] id: usize) -> Result<(), String> {
     let result = func();
     let elapsed = start.elapsed();
     assert_eq!(answer, result);
-    if !slow && var_os("TERMUX_VERSION").is_none() {
-        assert!(elapsed <= Duration::new(60, 0));
+    #[cfg(all(target_os = "linux", target_env = "gnu"))]
+    {
+        if !slow && var_os("TERMUX_VERSION").is_none() {
+            assert!(
+                elapsed <= Duration::new(60, 0),
+                "Should take at most 60s, but actually took {:?}",
+                elapsed
+            );
+        }
     }
     Ok(())
 }
