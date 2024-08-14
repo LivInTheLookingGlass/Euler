@@ -1,9 +1,10 @@
 #[cfg(test)]
-use std::env::var_os;
-#[cfg(test)]
 use std::iter::zip;
+
+#[cfg(all(test, target_os = "linux", target_env = "gnu"))]
+use std::time::Duration;
 #[cfg(test)]
-use std::time::{Duration,Instant};
+use std::time::Instant;
 
 use seq_macro::seq;
 #[cfg(test)]
@@ -114,19 +115,19 @@ seq!(N in 01..=20 {
 // #[case::problem_357(357)]
 #[case::problem_836(836)]
 fn test_problem(#[case] id: usize) -> Result<(), String> {
-    let (_, func, slow) = get_problem(id);
+    let (_, func, _slow) = get_problem(id);
     let answer = get_answer(id);
     let start = Instant::now();
     let result = func();
-    let elapsed = start.elapsed();
+    let _elapsed = start.elapsed();
     assert_eq!(answer, result);
     #[cfg(all(target_os = "linux", target_env = "gnu"))]
     {
-        if !slow && var_os("TERMUX_VERSION").is_none() {
+        if !_slow {
             assert!(
-                elapsed <= Duration::new(60, 0),
+                _elapsed <= Duration::new(60, 0),
                 "Should take at most 60s, but actually took {:?}",
-                elapsed
+                _elapsed
             );
         }
     }
