@@ -1,4 +1,6 @@
+#[cfg(not(feature = "wasm"))]
 use std::fs::read_to_string;
+#[cfg(not(feature = "wasm"))]
 use std::path::Path;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -7,6 +9,27 @@ pub enum Answer {
     Int(i128),
 }
 
+#[cfg(feature = "wasm")]
+const ANSWERS_TSV: &str = include_str!("../../../_data/answers.tsv");
+#[cfg(feature = "wasm")]
+const P0022_NAMES_TXT: &str = include_str!("../../../_data/p0022_names.txt");
+#[cfg(feature = "wasm")]
+const P0042_WORDS_TXT: &str = include_str!("../../../_data/p0042_words.txt");
+#[cfg(feature = "wasm")]
+const P0067_TRIANGLE_TXT: &str = include_str!("../../../_data/p0067_triangle.txt");
+
+#[cfg(feature = "wasm")]
+pub fn get_data_file(name: &str) -> String {
+    return match name {
+        "answers.tsv" => ANSWERS_TSV.to_string(),
+        "p0022_names.txt" => P0022_NAMES_TXT.to_string(),
+        "p0042_words.txt" => P0042_WORDS_TXT.to_string(),
+        "p0067_triangle.txt" => P0067_TRIANGLE_TXT.to_string(),
+        _ => panic!("Unknown file name: {}", name),
+    }
+}
+
+#[cfg(not(feature = "wasm"))]
 pub fn get_data_file(name: &str) -> String {
     let data_file = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap().join("_data").join(name);
     return read_to_string(&data_file).unwrap();

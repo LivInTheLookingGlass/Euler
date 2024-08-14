@@ -13,7 +13,7 @@ such that for every divisor d of n, d+n/d is prime.
 */
 use std::collections::HashSet;
 
-use crate::primes::{is_prime,primes_until,proper_divisors};
+use crate::include::primes::{is_prime,primes_until,proper_divisors};
 use crate::include::utils::Answer;
 
 pub fn p0357() -> Answer {

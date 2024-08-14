@@ -40,12 +40,15 @@ _static/dist/bundle.js:
 	@mkdir -p _static/dist
 	@cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 
+_static/dist/rust.js:
+	@cd ../rust && wasm-pack build --target web --out-dir ../docs/_static/dist/
+
 _static/dist/python.tar.gz:
 	@$(MAKE) -C ../python webpack $(MFLAGS)
 
 .PHONY: html
 html:
-	@$(MAKE) _static/dist/bundle.js _static/dist/python.tar.gz $(MFLAGS) -j
+	@$(MAKE) _static/dist/bundle.js _static/dist/python.tar.gz _static/dist/rust.js $(MFLAGS) -j
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new

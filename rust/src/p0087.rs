@@ -26,7 +26,7 @@ square, prime cube, and prime fourth power?
 */
 use std::collections::HashSet;
 
-use crate::primes::primes_until;
+use crate::include::primes::primes_until;
 use crate::include::utils::Answer;
 
 

@@ -14,7 +14,7 @@ their digits.
 
 Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 */
-use crate::math::factorial;
+use crate::include::math::factorial;
 use crate::include::utils::Answer;
 
 pub fn p0034() -> Answer {

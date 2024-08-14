@@ -43,6 +43,15 @@ jobs:
       with:
         node-version: 22
 
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+
+    - run: |
+        rustup default stable
+        rustup target add wasm32-unknown-unknown
+        cargo install wasm-pack
+
     - name: Install git, linguist
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:

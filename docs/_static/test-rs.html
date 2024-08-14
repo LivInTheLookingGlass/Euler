@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-	<head>
+  <head>
 		<meta charset="utf-8">
-		<title>JavaScript Tests (Packaged with WebPack + Babel)</title>
+		<title>Rust Tests (Packaged with wasm-pack)</title>
 		<link href="https://npmcdn.com/mocha@10.6.0/mocha.css" rel="stylesheet" />
 		<script src="https://npmcdn.com/mocha@10.6.0/mocha.js"></script>
-	</head>
-	<body>
+  </head>
+  <body>
 		<!-- A container element for the visual Mocha results -->
 		<div id="mocha"></div>
 		<!-- Mocha setup and initiation code -->
@@ -41,6 +41,25 @@
 				});
 			};
 		</script>
-		<script src="./dist/bundle-js.js"></script>
-	</body>
+		<script type="module">
+			import init, { get_problems, run_problem, get_js_answer } from './dist/rust.js';
+			async function runTests() {
+				await init();
+				for (const p of get_problems()) {
+					const expected = await get_js_answer(p);
+					describe(`run test ${p}`, function() {
+						this.timeout(Infinity);
+						it(`should return ${expected}`, async () => {
+							const answer = await run_problem(p);
+							console.log(p, answer, expected);
+							if (answer !== expected) {
+								throw new Error();
+							}
+						});
+					});
+				}
+			}
+			runTests();
+		</script>
+  </body>
 </html>

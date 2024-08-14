@@ -88,8 +88,8 @@ Olivia's Project Euler Solutions
 |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
 |            | Browser [3]_               |        | |PythonLint|      |
 +------------+----------------------------+--------+-------------------+
-| Rust       | 1.69+                      | 28     | |Rust| |br|       |
-|            |                            |        | |Rs-Cov| |br|     |
+| Rust       | 1.69+ |br|                 | 28     | |Rust| |br|       |
+|            | Browser [4]_               |        | |Rs-Cov| |br|     |
 |            |                            |        | |RustClippy|      |
 +------------+----------------------------+--------+-------------------+
 
@@ -101,11 +101,17 @@ Olivia's Project Euler Solutions
 
    <a href="https://euler.oliviaappleton.com/_static/test-py.html" target="_blank">click here!</a>
 
+.. |test-rs-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-rs.html" target="_blank">click here!</a>
+
 .. [1] This is the earliest standard the MSVC explicitly supports.
 .. [2] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 .. [3] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
+.. [4] This feature is in progress. While these solutions will run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
+   tests are not yet automated as on non-web platforms. To run these tests yourself, |test-rs-link|
 
 Coverage
 --------

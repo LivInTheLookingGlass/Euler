@@ -27,7 +27,7 @@ Find the product of the coefficients, a and b, for the quadratic expression
 that produces the maximum number of primes for consecutive values of n,
 starting with n=0.
 */
-use crate::primes::{is_prime,primes_until};
+use crate::include::primes::{is_prime,primes_until};
 use crate::include::utils::Answer;
 
 pub fn p0027() -> Answer {

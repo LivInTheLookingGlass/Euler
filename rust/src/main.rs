@@ -13,61 +13,27 @@ use rstest::rstest;
 use itertools::Itertools;
 
 pub mod include;
-use include::math;
 use include::primes;
-use include::utils::{Answer,get_answer};
+#[cfg(not(test))]
+use include::problems::generate_supported_problems;
+use include::problems::get_problem;
+#[cfg(not(test))]
+use include::utils::Answer;
+use include::utils::get_answer;
 seq!(N in 0001..=0020 {
-mod p~N;
+pub mod p~N;
 });
-mod p0022;
-mod p0024;
-mod p0027;
-mod p0034;
-mod p0069;
-mod p0076;
-mod p0077;
-mod p0087;
-mod p0357;
-mod p0836;
+pub mod p0022;
+pub mod p0024;
+pub mod p0027;
+pub mod p0034;
+pub mod p0069;
+pub mod p0076;
+pub mod p0077;
+pub mod p0087;
+pub mod p0357;
+pub mod p0836;
 
-type ProblemType = fn() -> Answer;
-type ProblemRef<'a> = (&'a usize, ProblemType, bool);
-
-fn get_problem<'b>(n: usize) -> ProblemRef<'b> {
-    return match n {
-        1 =>   (  &1, p0001::p0001, false),
-        2 =>   (  &2, p0002::p0002, false),
-        3 =>   (  &3, p0003::p0003, false),
-        4 =>   (  &4, p0004::p0004, false),
-        5 =>   (  &5, p0005::p0005, false),
-        6 =>   (  &6, p0006::p0006, false),
-        7 =>   (  &7, p0007::p0007, false),
-        8 =>   (  &8, p0008::p0008, false),
-        9 =>   (  &9, p0009::p0009, false),
-        10 =>  ( &10, p0010::p0010, false),
-        11 =>  ( &11, p0011::p0011, false),
-        12 =>  ( &12, p0012::p0012, false),
-        13 =>  ( &13, p0013::p0013, false),
-        14 =>  ( &14, p0014::p0014, false),
-        15 =>  ( &15, p0015::p0015, false),
-        16 =>  ( &16, p0016::p0016, false),
-        17 =>  ( &17, p0017::p0017, false),
-        18 =>  ( &18, p0018::p0018, false),
-        19 =>  ( &19, p0019::p0019, false),
-        20 =>  ( &20, p0020::p0020, false),
-        22 =>  ( &22, p0022::p0022, false),
-        24 =>  ( &24, p0024::p0024, false),
-        27 =>  ( &27, p0027::p0027, false),
-        34 =>  ( &34, p0034::p0034, false),
-        69 =>  ( &69, p0069::p0069, false),
-        76 =>  ( &76, p0076::p0076, false),
-        77 =>  ( &77, p0077::p0077, false),
-        87 =>  ( &87, p0087::p0087, false),
-        357 => (&357, p0357::p0357, true),
-        836 => (&836, p0836::p0836, false),
-        _ => panic!(),
-    };
-}
 
 #[cfg(not(test))]
 fn main() {
@@ -75,25 +41,20 @@ fn main() {
     for i in sieve {
         println!("{}", i);
     }
-    let mut answers: Vec<usize> = (1..=20).collect();
-    answers.push(22);
-    answers.push(24);
-    answers.push(27);
-    answers.push(34);
-    answers.push(69);
-    answers.push(76);
-    answers.push(77);
-    answers.push(87);
-    answers.push(357);
+    let supported = generate_supported_problems();
 
-    for id  in answers {
-        let (_, func, _) = get_problem(id);
-        let answer = get_answer(id);
-        let result = func();
-        match (answer, result) {
-            (Answer::String(e), Answer::String(r)) => println!("Problem {} should return {}. Returned {}!", id, e, r),
-            (Answer::Int(e), Answer::Int(r)) => println!("Problem {} should return {}. Returned {}!", id, e, r),
-            _ => panic!("Type mismatch in answer return"),
+    for id in supported {
+        match get_problem(id) {
+            Some((_, func, _)) => {
+                let answer = get_answer(id);
+                let result = func();
+                match (answer, result) {
+                    (Answer::String(e), Answer::String(r)) => println!("Problem {} should return {}. Returned {}!", id, e, r),
+                    (Answer::Int(e), Answer::Int(r)) => println!("Problem {} should return {}. Returned {}!", id, e, r),
+                    _ => panic!("Type mismatch in answer return"),
+                }
+            }
+            None => panic!("Problem not found"),
         }
     }
 }
@@ -115,7 +76,7 @@ seq!(N in 01..=20 {
 // #[case::problem_357(357)]
 #[case::problem_836(836)]
 fn test_problem(#[case] id: usize) -> Result<(), String> {
-    let (_, func, _slow) = get_problem(id);
+    let Some((_, func, _slow)) = get_problem(id) else { panic!() };
     let answer = get_answer(id);
     let start = Instant::now();
     let result = func();
