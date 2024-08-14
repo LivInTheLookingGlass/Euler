@@ -1,6 +1,5 @@
 BLUE=\033[0;34m
 NC=\033[0m # No Color
-RUSTFLAGS?="-Copt-level=2"
 
 .PHONY: help
 help:

@@ -9,3 +9,14 @@ itertools = "0.13.0"
 num-traits = "0.2.19"
 rstest = "0.21.0"
 seq-macro = "0.3.5"
+
+[profile.dev.package."*"]
+# Set the default for dependencies in Development mode.
+opt-level = 3
+debug = true
+
+[profile.dev]
+# Turn on a small amount of optimisation in Development mode.
+opt-level = 1
+debug = true
+lto = "thin"
