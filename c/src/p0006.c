@@ -23,11 +23,10 @@ natural numbers and the square of the sum.
 #define EULER_P0006
 #include <stdio.h>
 
-unsigned long long p0006() {
-    unsigned long long sum = 100 * 101 / 2, sum_of_squares = 0;
-    for (unsigned long long i = 1; i < 101; i++) {
+uint64_t p0006() {
+    uint64_t sum = 100 * 101 / 2, sum_of_squares = 0;
+    for (uint64_t i = 1; i < 101; i++)
         sum_of_squares += i * i;
-    }
     return sum * sum - sum_of_squares;
 }
 

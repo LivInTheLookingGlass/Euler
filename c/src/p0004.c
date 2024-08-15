@@ -15,8 +15,8 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 #include <stdio.h>
 #include "include/digits.h"
 
-unsigned int p0004() {
-    unsigned int answer = 0, i, j, a, z, prod;
+uint32_t p0004() {
+    uint32_t answer = 0, i, j, a, z, prod;
     bool broken;
     digit_counter dc;
     for (i = 100; i < 1000; i++) {
@@ -30,9 +30,8 @@ unsigned int p0004() {
                     break;
                 }
             }
-            if (!broken) {
+            if (!broken)
                 answer = max(answer, prod);
-            }
             free_digit_counter(dc);
         }
     }

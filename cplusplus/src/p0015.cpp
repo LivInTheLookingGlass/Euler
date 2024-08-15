@@ -21,7 +21,7 @@ How many such routes are there through a 20×20 grid?
 
 #define lattice_paths(height, width) (n_choose_r(height + width, height))
 
-unsigned long long p0015() {
+uint64_t p0015() {
     return lattice_paths(20, 20);
 }
 

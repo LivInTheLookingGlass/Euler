@@ -15,7 +15,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
 .. c:namespace-push:: bcd
 
-.. c:type:: unsigned char packed_BCD_pair
+.. c:type:: uint8_t packed_BCD_pair
 
     This is an alias to distinguish BCD digit-pairs from normal characters.
 
@@ -46,7 +46,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
 .. c:function:: BCD_int new_BCD_int(uintmax_t a, bool negative)
 
-.. c:function:: BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bool little_endian)
+.. c:function:: BCD_int BCD_from_bytes(const uint8_t *str, size_t chars, bool negative, bool little_endian)
 
     Takes in an arbitrary-sized encoded integer (like in Python's :external:py:meth:`int.from_bytes`) to a
     :c:type:`BCD_int`.
@@ -104,7 +104,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
 .. c:function:: uintmax_t bcd_to_unsigned(BCD_int a)
 
-    Converts a :c:type:`BCD_int` to an unsigned integer.
+    Converts a :c:type:`BCD_int` to an uint32_teger.
 
     .. warning::
 
@@ -118,7 +118,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
         This method DOES NOT guard against overflow.
 
-.. c:function:: unsigned short mul_dig_pair(packed_BCD_pair ab, packed_BCD_pair cd)
+.. c:function:: uint16_t mul_dig_pair(packed_BCD_pair ab, packed_BCD_pair cd)
 
     Convenience method to multiply a digit pair.
 

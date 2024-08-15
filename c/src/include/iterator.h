@@ -94,9 +94,8 @@ inline uintmax_t iterate_counter(counter *i) {
     uintmax_t ret = i->idx;
     intmax_t step = i->step;
     i->idx += step;
-    if ((step > 0 && i->idx >= i->stop) || (step < 0 && i->idx <= i->stop)) {
+    if ((step > 0 && i->idx >= i->stop) || (step < 0 && i->idx <= i->stop))
         i->exhausted = 1;
-    }
     return ret;
 }
 

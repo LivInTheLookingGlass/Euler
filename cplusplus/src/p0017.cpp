@@ -23,8 +23,8 @@ British usage.
 #include <stdexcept>
 #include <string>
 
-std::string ToString(unsigned long long n);
-std::string ToString(unsigned long long n) {
+std::string ToString(uint64_t n);
+std::string ToString(uint64_t n) {
     if (n >= 1000) {
         return ToString(n / 1000 % 100) + " thousand";
     }
@@ -92,9 +92,9 @@ std::string ToString(unsigned long long n) {
     }
 }
 
-unsigned long long p0017() {
-    unsigned long long answer = 0;
-    for (unsigned int x = 1; x < 1001; x += 1) {
+uint64_t p0017() {
+    uint64_t answer = 0;
+    for (uint32_t x = 1; x < 1001; x += 1) {
         std::string str = ToString(x);
         size_t pos = str.find(" ");
         while (pos != std::string::npos) {

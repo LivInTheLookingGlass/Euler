@@ -12,9 +12,8 @@ struct fibonacci    {
 };
 
 uintmax_t advance_fibonacci(fibonacci *fib) {
-    if (fib->exhausted) {
+    if (fib->exhausted)
         return 0;
-    }
     IterationHead(fib);
     uintmax_t tmp = fib->a + fib->b;
     fib->a = fib->b;

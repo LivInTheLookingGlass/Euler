@@ -17,7 +17,7 @@ Includes
     Implements the :c:macro:`Iterator <c.iterator.IteratorHead>` API
     and yields successive decimal digits of a given number.
 
-    .. c:member:: unsigned char (*iterator_function)(digit_counter *dc)
+    .. c:member:: uint8_t (*iterator_function)(digit_counter *dc)
 
         The function to advance the iterator and return the next element.
 
@@ -33,7 +33,7 @@ Includes
 
         An indicator that flips every time the iterator moves.
 
-    .. c:member:: unsigned char *digits
+    .. c:member:: uint8_t *digits
 
         This array holds the individual digits of a parsed integer.
 

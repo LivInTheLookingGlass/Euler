@@ -26,29 +26,26 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 #include "include/macros.h"
 
 #define CACHE_SIZE 1000000
-static unsigned int collatz_len_cache[CACHE_SIZE] = {0, 1, 0};
+static uint32_t collatz_len_cache[CACHE_SIZE] = {0, 1, 0};
 
-unsigned int collatz_len(unsigned long long n);
+uint32_t collatz_len(uint64_t n);
 
-unsigned int collatz_len(unsigned long long n) {
-    if (n < CACHE_SIZE && collatz_len_cache[n]) {
+uint32_t collatz_len(uint64_t n) {
+    if (n < CACHE_SIZE && collatz_len_cache[n])
         return collatz_len_cache[n];
-    }
-    unsigned int ret = 0;
-    if (n % 2) {
+    uint32_t ret = 0;
+    if (n % 2)
         ret = 2 + collatz_len((3 * n + 1) / 2);
-    } else {
+    else
         ret = 1 + collatz_len(n / 2);
-    }
-    if (n < CACHE_SIZE) {
+    if (n < CACHE_SIZE)
         collatz_len_cache[n] = ret;
-    }
     return ret;
 }
 
-unsigned long long p0014() {
-    unsigned long long answer = 2, length = 2, tmp;
-    for (unsigned long long test = 3; test < 1000000; test++) {
+uint64_t p0014() {
+    uint64_t answer = 2, length = 2, tmp;
+    for (uint64_t test = 3; test < 1000000; test++) {
         tmp = collatz_len(test);
         if (tmp > length) {
             answer = test;

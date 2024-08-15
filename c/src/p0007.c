@@ -14,8 +14,8 @@ What is the 10 001st prime number?
 #include <stdio.h>
 #include "include/primes.h"
 
-unsigned long long p0007() {
-    unsigned int answer, count = 0;
+uint64_t p0007() {
+    uint32_t answer, count = 0;
     prime_sieve ps = prime_sieve0();
     while (true) {
         answer = next(ps);

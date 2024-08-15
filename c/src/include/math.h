@@ -9,40 +9,34 @@
 
 #include <stdint.h>
 
-uintmax_t factorial(unsigned int n);
-inline uintmax_t factorial(unsigned int n) {
+uintmax_t factorial(uint32_t n);
+inline uintmax_t factorial(uint32_t n) {
     // note that this function only works for numbers smaller than MAX_FACTORIAL_64
     if ((sizeof(uintmax_t) == 8 && n > MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n > MAX_FACTORIAL_128))
         return -1;
     uintmax_t ret = 1;
-    for (unsigned int i = 2; i <= n; ++i) {
+    for (uint32_t i = 2; i <= n; ++i)
         ret *= i;
-    }
     return ret;
 }
 
-uintmax_t n_choose_r(unsigned int n, unsigned int r) {
+uintmax_t n_choose_r(uint32_t n, uint32_t r) {
     // function returns -1 if it overflows
-    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128)) {
-        // fast path if small enough
-        return factorial(n) / factorial(r) / factorial(n-r);
-    }
+    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128))
+        return factorial(n) / factorial(r) / factorial(n-r);  // fast path if small enough
     // slow path for larger numbers
     int *factors;
     uintmax_t answer, tmp;
-    unsigned int i, j;
+    uint32_t i, j;
     factors = (int *) malloc(sizeof(int) * (n + 1));
     // collect factors of final number
-    for (i = 2; i <= n; i++) {
+    for (i = 2; i <= n; i++)
         factors[i] = 1;
-    }
     // negative factor values indicate need to divide
-    for (i = 2; i <= r; i++) {
+    for (i = 2; i <= r; i++)
         factors[i] -= 1;
-    }
-    for (i = 2; i <= n - r; i++) {
+    for (i = 2; i <= n - r; i++)
         factors[i] -= 1;
-    }
     // this loop reduces to prime factors only
     for (i = n; i > 1; i--) {
         for (j = 2; j < i; j++) {
@@ -68,9 +62,8 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r) {
                 j++;
                 answer = tmp * i;
             }
-            if (answer < tmp) {
+            if (answer < tmp)
                 return -1;  // this indicates an overflow
-            }
             factors[i]--;
         }
         i++;
@@ -87,9 +80,9 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r) {
 }
 
 #if PCC_COMPILER
-    unsigned char imprecise_log10(uintmax_t x);
-    inline unsigned char imprecise_log10(uintmax_t x) {
-        unsigned char answer = 0;
+    uint8_t imprecise_log10(uintmax_t x);
+    inline uint8_t imprecise_log10(uintmax_t x) {
+        uint8_t answer = 0;
         while (x) {
             x /= 10;
             ++answer;
@@ -101,7 +94,7 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r) {
     inline double sqrt(double S) {
         // implements the Bakhshali method of square root computation to fix a PCC error
         double a, x = S / 2;
-        unsigned int i;
+        uint32_t i;
         for (i = 0; i < PCC_SQRT_ACCURACY; i++) {
             a = (S - x*x) / (2 * x);
             x = x + a - (a * a) / (2 * (x + a));
@@ -112,9 +105,8 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r) {
     uintmax_t ceil(double x);
     inline uintmax_t ceil(double x) {
         uintmax_t ret = (uintmax_t) x;
-        if (x == (double) ret) {
+        if (x == (double) ret)
             return ret;
-        }
         return ret + 1;
     }
 #endif

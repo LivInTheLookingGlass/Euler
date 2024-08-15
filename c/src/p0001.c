@@ -17,20 +17,17 @@
 #include <stdio.h>
 #include "include/iterator.h"
 
-unsigned long long p0001() {
-    unsigned long long answer = 0;
+uint64_t p0001() {
+    uint64_t answer = 0;
     counter c = counter3(0, 1000, 3);
-    while (!c.exhausted) {
+    while (!c.exhausted)
         answer += next(c);
-    }
     c = counter3(0, 1000, 5);
-    while (!c.exhausted) {
+    while (!c.exhausted)
         answer += next(c);
-    }
     c = counter3(0, 1000, 15);
-    while (!c.exhausted) {
+    while (!c.exhausted)
         answer -= next(c);
-    }
     return answer;
 }
 

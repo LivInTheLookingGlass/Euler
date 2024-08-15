@@ -31,8 +31,8 @@ What is the index of the first term in the Fibonacci sequence to contain 1000 di
 #include <stdio.h>
 #include "include/bcd.h"
 
-unsigned long long p0025() {
-    unsigned long long answer = 2;
+uint64_t p0025() {
+    uint64_t answer = 2;
     BCD_int a = BCD_one, b = BCD_one;
     while (b.decimal_digits < 1000) {
         iadd_bcd(&a, b);

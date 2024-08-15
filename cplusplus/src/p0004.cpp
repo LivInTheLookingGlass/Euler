@@ -16,8 +16,8 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 #include <cstdio>
 #include <iostream>
 
-unsigned int p0004() {
-    unsigned int answer = 0, i, j, prod;
+uint32_t p0004() {
+    uint32_t answer = 0, i, j, prod;
     for (i = 100; i < 1000; i++) {
         for (j = 100; j < 1000; j++) {
             prod = i * j;
@@ -28,9 +28,8 @@ unsigned int p0004() {
             std::string forward(buf);
             std::string reverse = forward;
             std::reverse(reverse.begin(), reverse.end());
-            if (forward == reverse) {
+            if (forward == reverse)
                 answer = std::max(answer, prod);
-            }
         }
     }
     return answer;

@@ -109,7 +109,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 #define EULER_P0013
 #include <iostream>
 
-static const unsigned long long numbers[100][3] = {
+static const uint64_t numbers[100][3] = {
     { 37107287533902, 102798797998220837, 590246510135740250 },
     { 46376937677490,   9712648124896970,  78050417018260538 },
     { 74324986199524, 741059474233309513,  58123726617309629 },
@@ -211,12 +211,12 @@ static const unsigned long long numbers[100][3] = {
     { 20849603980134,   1723930671666823, 555245252804609722 },
     { 53503534226472, 524250874054075591, 789781264330331690 },
 };
-static const unsigned long long ten18 = 1000000000000000000;
-static const unsigned long long ten10 = 10000000000;
+static const uint64_t ten18 = 1000000000000000000;
+static const uint64_t ten10 = 10000000000;
 
-unsigned long long p0013() {
-    unsigned long long high = 0, med = 0, low = 0;
-    for (unsigned char i = 0; i < 100; ++i) {
+uint64_t p0013() {
+    uint64_t high = 0, med = 0, low = 0;
+    for (uint8_t i = 0; i < 100; ++i) {
         low += numbers[i][2];
         med += numbers[i][1];
         high += numbers[i][0];

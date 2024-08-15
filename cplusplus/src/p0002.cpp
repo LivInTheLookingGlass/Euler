@@ -18,15 +18,15 @@ four million, find the sum of the even-valued terms.
 #define EULER_P0002
 #include <iostream>
 
-unsigned long long p0002() {
-    unsigned long long answer = 0,
+uint64_t p0002() {
+    uint64_t answer = 0,
     a = 1, b = 2, t;
     while (b < 4000000) {
         // odd (1, 3, 13, 55, ...)
         // odd (1, 5, 21, 89, ...)
         // even (2, 8, 34, 144, ...)
         answer += b;
-        for (unsigned char z = 0; z < 3; z++) {
+        for (uint8_t z = 0; z < 3; z++) {
             t = b;
             b = a + b;
             a = t;

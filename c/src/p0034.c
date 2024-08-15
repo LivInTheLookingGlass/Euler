@@ -16,18 +16,16 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 #include "include/digits.h"
 #include "include/math.h"
 
-unsigned long long p0034() {
-    unsigned long long answer = 0, sum;
+uint64_t p0034() {
+    uint64_t answer = 0, sum;
     digit_counter dc;
-    for (unsigned long i = 10; i < 100000; i++) {
+    for (uint64_t i = 10; i < 100000; i++) {
         sum = 0;
         dc = digits(i);
-        while (!dc.exhausted) {
+        while (!dc.exhausted)
             sum += factorial(next(dc));
-        }
-        if (sum == i) {
+        if (sum == i)
             answer += i;
-        }
         free_digit_counter(dc);
     }
     return answer;

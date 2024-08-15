@@ -13,14 +13,14 @@
 
 typedef struct digit_counter digit_counter;
 struct digit_counter    {
-    IteratorHead(unsigned char, digit_counter);
-    unsigned char *digits;
+    IteratorHead(uint8_t, digit_counter);
+    uint8_t *digits;
     size_t idx;
 };
 
-unsigned char advance_digit_counter(digit_counter *dc) {
+uint8_t advance_digit_counter(digit_counter *dc) {
     IterationHead(dc);
-    unsigned char ret = dc->digits[dc->idx--];
+    uint8_t ret = dc->digits[dc->idx--];
     dc->exhausted = (dc->idx == -1);
     return ret;
 }
@@ -33,7 +33,7 @@ digit_counter digits(uintmax_t n) {
 #else
     size_t digit_len = imprecise_log10(n + 1);
 #endif
-    ret.digits = (unsigned char *) malloc(digit_len * sizeof(unsigned char));
+    ret.digits = (uint8_t *) malloc(digit_len * sizeof(uint8_t));
     for (size_t i = 0; i < digit_len; i++) {
         ret.digits[i] = n % 10;
         n /= 10;
@@ -43,9 +43,8 @@ digit_counter digits(uintmax_t n) {
 }
 
 void free_digit_counter(digit_counter dc) {
-    if (dc.digits != NULL) {
+    if (dc.digits != NULL)
         free(dc.digits);
-    }
 }
 
 #endif

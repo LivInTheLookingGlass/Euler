@@ -19,10 +19,10 @@
 #include <algorithm>
 #include "include/utils.h"
 
-unsigned long long p0022() {
-    unsigned long long answer = 0;
+uint64_t p0022() {
+    uint64_t answer = 0;
     std::string fstring = get_data_file("p0022_names.txt");
-    const unsigned int name_count = 5163;
+    const uint32_t name_count = 5163;
     std::vector<std::string> names(5163, "");
     size_t idx = 0, i = 0, pi = 0;
     do {
@@ -35,10 +35,9 @@ unsigned long long p0022() {
     } while (i < fstring.length());
     std::sort(names.begin(), names.end());
     for (idx = 0; idx < name_count; idx++) {
-        unsigned long score = 0;
-        for (i = 0; names[idx][i]; i++) {
+        uint64_t score = 0;
+        for (i = 0; names[idx][i]; i++)
             score += names[idx][i] & 0x3F;
-        }
         answer += score * (idx + 1);
     }
     return answer;

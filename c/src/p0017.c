@@ -20,19 +20,19 @@ British usage.
 #define EULER_P0017
 #include <stdio.h>
 
-unsigned int to_string_len(unsigned long long n);
-unsigned int to_string_len(unsigned long long n) {
+uint32_t to_string_len(uint64_t n);
+uint32_t to_string_len(uint64_t n) {
     if (n >= 1000) {
         return to_string_len(n / 1000 % 100) + 8;  //len("thousand")
     }
     else if (n >= 100) {
-        unsigned int hundreds = to_string_len(n / 100 % 10) + 7;  // len("hundred")
+        uint32_t hundreds = to_string_len(n / 100 % 10) + 7;  // len("hundred")
         if (n % 100)
             return hundreds + 3 /* len("and") */ + to_string_len(n % 100);
         return hundreds;
     }
     else if (n >= 20) {
-        unsigned int tens = 0;
+        uint32_t tens = 0;
         switch (n / 10) {
             case 4:
                 tens = 5;  // len("forty")
@@ -78,11 +78,10 @@ unsigned int to_string_len(unsigned long long n) {
     }
 }
 
-unsigned long long p0017() {
-    unsigned long long answer = 0;
-    for (unsigned int x = 1; x < 1001; x += 1) {
+uint64_t p0017() {
+    uint64_t answer = 0;
+    for (uint32_t x = 1; x < 1001; x += 1)
         answer += to_string_len(x);
-    }
     return answer;
 }
 

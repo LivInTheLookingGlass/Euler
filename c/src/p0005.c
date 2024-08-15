@@ -17,26 +17,23 @@ What is the smallest positive number that is evenly divisible by all of the numb
 #include "include/macros.h"
 #include "include/primes.h"
 
-unsigned long long p0005() {
-    unsigned long long answer = 1;
-    unsigned char factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
+uint64_t p0005() {
+    uint64_t answer = 1;
+    uint8_t factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
     prime_factor_counter pfc;
-    for (unsigned char i = 2; i < 21; i++) {
+    for (uint8_t i = 2; i < 21; i++) {
         pfc = prime_factors(i);
-        while (!pfc.exhausted) {
+        while (!pfc.exhausted)
             local_factor_tracker[next(pfc)]++;
-        }
-        for (unsigned char i = 2; i < 20; i++) {
+        for (uint8_t i = 2; i < 20; i++) {
             factor_tracker[i] = max(factor_tracker[i], local_factor_tracker[i]);
             local_factor_tracker[i] = 0;
         }
         free_prime_factor_counter(pfc);
     }
-    for (unsigned char i = 2; i < 20; i++) {
-        for (unsigned char j = 0; j < factor_tracker[i]; j++) {
+    for (uint8_t i = 2; i < 20; i++)
+        for (uint8_t j = 0; j < factor_tracker[i]; j++)
             answer *= i;
-        }
-    }
     return answer;
 }
 

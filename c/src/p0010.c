@@ -14,12 +14,11 @@ Find the sum of all the primes below two million.
 #include <stdio.h>
 #include "include/primes.h"
 
-unsigned long long p0010() {
-    unsigned long long tmp, answer = 0;
+uint64_t p0010() {
+    uint64_t tmp, answer = 0;
     prime_sieve ps = prime_sieve0();
-    while ((tmp = next(ps)) < 2000000) {
+    while ((tmp = next(ps)) < 2000000)
         answer += tmp;
-    }
     free_prime_sieve(ps);
     return answer;
 }

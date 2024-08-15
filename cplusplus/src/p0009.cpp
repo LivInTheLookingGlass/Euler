@@ -17,13 +17,13 @@ Find the product abc.
 #define EULER_P0009
 #include <iostream>
 
-unsigned long long p0009() {
-    unsigned long long answer = 0;
-    for (unsigned int c = 3; !answer && c < 1000; c++) {
-        for (unsigned int b = 2; b < c; b++) {
-            unsigned int a = 1000 - c - b;
+uint64_t p0009() {
+    uint64_t answer = 0;
+    for (uint32_t c = 3; !answer && c < 1000; c++) {
+        for (uint32_t b = 2; b < c; b++) {
+            uint32_t a = 1000 - c - b;
             if (a < b && a*a + b*b == c*c) {
-                answer = (unsigned long long) a * b * c;
+                answer = (uint64_t) a * b * c;
                 break;
             }
         }

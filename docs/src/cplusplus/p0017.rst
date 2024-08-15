@@ -6,7 +6,7 @@ View source code :source:`cplusplus/src/p0017.cpp`
 Solution
 --------
 
-.. cpp:function:: unsigned long long p0017()
+.. cpp:function:: uint64_t p0017()
 
 .. cpp:function:: int main(int argc, char const *argv[])
 

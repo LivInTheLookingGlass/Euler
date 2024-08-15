@@ -16,17 +16,14 @@
 #define EULER_P0001
 #include <iostream>
 
-unsigned long long p0001() {
-    unsigned long long answer = 0;
-    for (int i = 0; i < 1000; i += 3) {
+uint64_t p0001() {
+    uint64_t answer = 0;
+    for (int i = 0; i < 1000; i += 3)
         answer += i;
-    }
-    for (int i = 0; i < 1000; i += 5) {
+    for (int i = 0; i < 1000; i += 5)
         answer += i;
-    }
-    for (int i = 0; i < 1000; i += 15) {
+    for (int i = 0; i < 1000; i += 15)
         answer -= i;
-    }
     return answer;
 }
 

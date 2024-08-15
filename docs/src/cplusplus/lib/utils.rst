@@ -9,7 +9,7 @@ View source code :source:`cplusplus/src/include/utils.h`
 
     Return a character array containing the whole contents of a file found in _data.
 
-.. cpp:function:: char *get_parent_directory(const char *name, const unsigned int levels)
+.. cpp:function:: char *get_parent_directory(const char *name, const uint32_t levels)
 
 .. cpp:namespace-pop::
 

@@ -217,7 +217,7 @@ static const char numbers[100][50] = {
     "53503534226472524250874054075591789781264330331690"
 };
 
-unsigned long long p0013() {
+uint64_t p0013() {
     BCD_int answer, tmp1, tmp2 = new_BCD_int(0, false);
     uintmax_t ret;
     for (size_t i = 0; i < 100; i++) {

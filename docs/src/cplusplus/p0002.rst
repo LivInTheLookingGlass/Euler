@@ -3,7 +3,7 @@ C++ Implementation of Problem 2
 
 View source code :source:`cplusplus/src/p0002.cpp`
 
-.. cpp:function:: unsigned long long p0002()
+.. cpp:function:: uint64_t p0002()
 
 .. literalinclude:: ../../../cplusplus/src/p0002.cpp
    :language: C++

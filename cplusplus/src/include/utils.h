@@ -12,12 +12,12 @@
 #define PATH_SEPARATOR "/"
 #endif
 
-char* get_parent_directory(char* path, const unsigned int levels) {
+char* get_parent_directory(char* path, const uint32_t levels) {
 #ifdef _WIN32
     static char drive[_MAX_DRIVE];
     static char dir[_MAX_DIR];
     _splitpath(path, drive, dir, NULL, NULL);
-    for (unsigned int i = 0; i < levels; ++i) {
+    for (uint32_t i = 0; i < levels; ++i) {
         size_t len = strlen(dir);
         if (len > 1 && (dir[len - 1] == '\\' || dir[len - 1] == '/')) {
             dir[len - 1] = '\0';
@@ -31,7 +31,7 @@ char* get_parent_directory(char* path, const unsigned int levels) {
     return parent_dir;
 #else
     char* dir = dirname(path);
-    for (unsigned int i = 0; i < levels; ++i) {
+    for (uint32_t i = 0; i < levels; ++i) {
         dir = dirname(dir);
         if (strcmp(dir, "/") == 0 || strcmp(dir, ".") == 0) {
             break;
@@ -89,7 +89,7 @@ std::string get_data_file(const char *name) {
     const size_t ret_code = fread(buffer, 1, length, file);
     if (ret_code != length) {
         if (feof(file))
-            printf("Error reading %s: unexpected end of file, read %llu of %llu bytes expected\n", name, (unsigned long long)ret_code, (unsigned long long)length);
+            printf("Error reading %s: unexpected end of file, read %llu of %llu bytes expected\n", name, (uint64_t)ret_code, (uint64_t)length);
         else if (ferror(file))
             perror("Error reading data file");
     }

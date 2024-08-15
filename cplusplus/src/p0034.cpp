@@ -16,20 +16,18 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 #include <cstdio>
 #include "include/math.h"
 
-unsigned long long p0034() {
-    unsigned long long answer = 0, sum;
-    for (unsigned long i = 10; i < 100000; i++) {
+uint64_t p0034() {
+    uint64_t answer = 0, sum;
+    for (uint64_t i = 10; i < 100000; i++) {
         sum = 0;
         char buf[8] = {};
         // I know snprintf exists, but it isn't defined in C++98,
         // and this isn't taking in user input
         sprintf(buf, "%lu", i);
-        for (unsigned char j = 0; j < 8 && buf[j]; j++) {
+        for (uint8_t j = 0; j < 8 && buf[j]; j++)
             sum += factorial(buf[j] - '0');
-        }
-        if (sum == i) {
+        if (sum == i)
             answer += i;
-        }
     }
     return answer;
 }

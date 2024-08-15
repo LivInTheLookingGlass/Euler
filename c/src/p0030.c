@@ -20,18 +20,17 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 #include <stdio.h>
 #include "include/digits.h"
 
-unsigned long long p0030() {
-    unsigned long long answer = 0, sum, tmp;
-    for (unsigned long long i = 2; i < 1000000; i++) {
+uint64_t p0030() {
+    uint64_t answer = 0, sum, tmp;
+    for (uint64_t i = 2; i < 1000000; i++) {
         digit_counter dc = digits(i);
         sum = 0;
         while (!dc.exhausted) {
             tmp = next(dc);
             sum += tmp * tmp * tmp * tmp * tmp;
         }
-        if (sum == i) {
+        if (sum == i)
             answer += i;
-        }
         free_digit_counter(dc);
     }
     return answer;

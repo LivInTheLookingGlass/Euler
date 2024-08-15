@@ -31,9 +31,9 @@ divisors?
 #include <stdio.h>
 #include "include/factors.h"
 
-unsigned long long p0012() {
-    unsigned long long current = 1;
-    unsigned int i = 2;
+uint64_t p0012() {
+    uint64_t current = 1;
+    uint32_t i = 2;
     while (true) {
         current += i;  // 3, 21, ...
         ++i;

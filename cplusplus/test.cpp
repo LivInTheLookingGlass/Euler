@@ -24,9 +24,9 @@
 #include "src/p0836.cpp"
 
 typedef struct {
-	unsigned int id;
-	unsigned long long answer;
-	unsigned long long (*func)();
+	uint32_t id;
+	uint64_t answer;
+	uint64_t (*func)();
 } Answer;
 
 #define ANSWERS_LEN (sizeof(answers) / sizeof(answers[0]))
@@ -34,7 +34,7 @@ static const Answer answers[] = {
 	{1,		233168,			p0001},
 	{2,		4613732, 		p0002},
 	// {3,		6857,			p0003},
-	{4,		906609,			(unsigned long long (*)()) p0004},
+	{4,		906609,			(uint64_t (*)()) p0004},
 	// {5,		232792560,		p0005},
 	{6,		25164150,		p0006},
 	// {7,		104743,			p0007},
@@ -50,21 +50,17 @@ static const Answer answers[] = {
 	{20,	648,			p0020},
 	{22,	871198282,		p0022},
 	{34,	40730,			p0034},
-	{76,	190569291,		(unsigned long long (*)()) p0076},
+	{76,	190569291,		(uint64_t (*)()) p0076},
 };
-static unsigned long long current_index = 0;
+static uint64_t current_index = 0;
 
-void setUp(void) {
-	// set stuff up here
-}
+void setUp(void) {}
 
-void tearDown(void) {
-	// clean stuff up here
-}
+void tearDown(void) {}
 
 void test_euler_answer() {
 	Answer key = answers[current_index];
-	unsigned long long result = key.func();
+	uint64_t result = key.func();
 	char *msg = (char*)malloc(256 * sizeof(char));
 	snprintf(msg, 256, "Euler problem %u should have an answer of %llu, but we actually got %llu", key.id, key.answer, result);
 	TEST_ASSERT_EQUAL_INT64_MESSAGE(key.answer, result, msg);

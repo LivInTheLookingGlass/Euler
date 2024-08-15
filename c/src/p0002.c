@@ -19,8 +19,8 @@ four million, find the sum of the even-valued terms.
 #include <stdio.h>
 #include "include/fibonacci.h"
 
-unsigned long long p0002() {
-    unsigned long long answer = 0;
+uint64_t p0002() {
+    uint64_t answer = 0;
     fibonacci fib = fibonacci1(3999999);
     while (!fib.exhausted) {
         next(fib);  // odd (1, 3, 13, 55, ...)

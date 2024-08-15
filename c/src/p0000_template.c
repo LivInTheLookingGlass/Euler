@@ -11,7 +11,7 @@ This paragraph should be replaced by the problem description, excluding images.
 #define EULER_P0000
 #include <stdio.h>
 
-unsigned long long p0000() {
+uint64_t p0000() {
     return 0;
 }
 

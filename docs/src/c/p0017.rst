@@ -6,7 +6,7 @@ View source code :source:`c/src/p0017.c`
 Solution
 --------
 
-.. c:function:: unsigned long long p0017()
+.. c:function:: uint64_t p0017()
 
 .. c:function:: int main(int argc, char const *argv[])
 

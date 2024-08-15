@@ -22,7 +22,7 @@ Solution
 
   A wrapper around ``strcmp()`` to adapt it for ``qsort()``
 
-.. c:function:: unsigned long long p0022()
+.. c:function:: uint64_t p0022()
 
 .. c:function:: int main(int argc, char const *argv[])
 

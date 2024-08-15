@@ -14,27 +14,25 @@ Find the sum of the digits in the number 100!
 #define EULER_P0020
 #include <stdio.h>
 
-unsigned long long p0020() {
-    unsigned long long numbers[10] = {};
-    const unsigned long long ten17 = 100000000000000000;
+uint64_t p0020() {
+    uint64_t numbers[10] = {};
+    const uint64_t ten17 = 100000000000000000;
     numbers[0] = 1;
-    for (unsigned char i = 2; i <= 100; i++) {
-        for (unsigned char j = 0; j < 10; j++) {
+    for (uint8_t i = 2; i <= 100; i++) {
+        for (uint8_t j = 0; j < 10; j++)
             numbers[j] *= i;
-        }
-        for (unsigned char j = 0; j < 9; j++) {
+        for (uint8_t j = 0; j < 9; j++) {
             if (numbers[j] > ten17) {
                 numbers[j + 1] += numbers[j] / ten17;
                 numbers[j] %= ten17;
             }
         }
     }
-    unsigned long long answer = 0;
-    unsigned long long power = 1;
+    uint64_t answer = 0;
+    uint64_t power = 1;
     while (power < ten17) {
-        for (unsigned char j = 0; j < 10; j++) {
+        for (uint8_t j = 0; j < 10; j++)
             answer += (numbers[j] / power) % 10;
-        }
         power *= 10;
     }
     return answer;

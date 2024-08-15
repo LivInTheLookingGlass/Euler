@@ -43,9 +43,9 @@ positive integers?
 #include <stdio.h>
 #include "include/macros.h"
 
-unsigned int p0076() {
-    unsigned int answer = 0;
-    unsigned char idx, i, sum = 100, counts[101] = {0, 0, 100, 0};
+uint32_t p0076() {
+    uint32_t answer = 0;
+    uint8_t idx, i, sum = 100, counts[101] = {0, 0, 100, 0};
     while (!counts[100]) {
         counts[2] += 2;
         if (sum >= 100) {
@@ -56,16 +56,14 @@ unsigned int p0076() {
                 ++idx;
                 counts[idx] += idx;
                 sum = counts[2];
-                for (i = 3; i < 100; ++i) {
+                for (i = 3; i < 100; ++i)
                     sum += counts[i];
-                }
             } while (sum > 100);
             counts[2] = 100 - sum - (sum % 2);
         }
         sum = counts[2];
-        for (i = 3; i < 100; ++i) {
+        for (i = 3; i < 100; ++i)
             sum += counts[i];
-        }
     }
 
     return answer;

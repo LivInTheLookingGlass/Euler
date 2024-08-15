@@ -60,9 +60,8 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
     }
     if (pc->idx < prime_cache_idx) {
         uintmax_t p = prime_cache[pc->idx++];
-        if ((pc->exhausted = (p >= pc->stop))) {
+        if ((pc->exhausted = (p >= pc->stop)))
             return 0;
-        }
         return p;
     }
     for (uintmax_t p = prime_cache[pc->idx - 1] + 2; p < pc->stop; p += 2) {
@@ -91,9 +90,8 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
 #endif
                     size_t new_size = prime_cache_size * 2;
 #ifdef PRIME_CACHE_SIZE_LIMIT
-                    if (new_size > PRIME_CACHE_SIZE_LIMIT) {
+                    if (new_size > PRIME_CACHE_SIZE_LIMIT)
                         new_size = PRIME_CACHE_SIZE_LIMIT;
-                    }
 #endif
                     void *tmp = realloc(prime_cache, new_size * sizeof(uintmax_t));
                     if (tmp != NULL) {
@@ -101,14 +99,13 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
                         prime_cache_size = new_size;
                         prime_cache[prime_cache_idx++] = prime_cache_max = p;
                     }
-                } else  {
-                    prime_cache[prime_cache_idx++] = p;
                 }
+                else
+                    prime_cache[prime_cache_idx++] = p;
             }
             pc->idx++;
-            if ((pc->exhausted = (p >= pc->stop))) {
+            if ((pc->exhausted = (p >= pc->stop)))
                 return 0;
-            }
             return p;
         }
     }
@@ -214,9 +211,9 @@ uintmax_t advance_prime_sieve(prime_sieve *ps) {
                 }
             }
         } while (candidate_in_sieve);
-        if (candidate_index != -1) {
+        if (candidate_index != -1)
             ps->sieve[candidate_index] = candidate;
-        } else  {
+        else  {
             ps->sieve_len++;
             ps->sieve = (uintmax_t *) realloc(ps->sieve, ps->sieve_len * 2 * sizeof(uintmax_t));
             ps->sieve[(ps->sieve_len - 1) * 2] = candidate;
@@ -247,9 +244,8 @@ prime_sieve prime_sieve0() {
 void free_prime_counter(prime_counter pc);
 void free_prime_sieve(prime_sieve ps) {
     free_prime_counter(ps.source);
-    if (ps.sieve != NULL) {
+    if (ps.sieve != NULL)
         free(ps.sieve);
-    }
 }
 
 void free_prime_counter(prime_counter pc) {
@@ -325,14 +321,12 @@ uintmax_t is_composite(uintmax_t n) {
      *
      * See prime_factor_counter
      */
-    if (!n || n == 1) {
+    if (!n || n == 1)
         return 0;
-    }
     prime_factor_counter iter = prime_factors(n);
     uintmax_t ret = next(iter);
-    if (ret == n) {
+    if (ret == n)
         return 0;
-    }
     return ret;
 }
 

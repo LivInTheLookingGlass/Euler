@@ -11,7 +11,7 @@ Includes
 Solution
 --------
 
-.. cpp:function:: unsigned long long p0011()
+.. cpp:function:: uint64_t p0011()
 
 .. cpp:function:: int main(int argc, char const *argv[])
 

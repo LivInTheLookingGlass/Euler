@@ -15,8 +15,8 @@ What is the sum of the digits of the number 21000?
 #include <stdio.h>
 #include "include/bcd.h"
 
-unsigned long long p0016() {
-    unsigned long long answer = 0;
+uint64_t p0016() {
+    uint64_t answer = 0;
     BCD_int power = pow_cuint_cuint(256, 125);
     for (size_t i = 0; i < power.bcd_digits; i++) {
         answer += power.digits[i] & 0x0F;
