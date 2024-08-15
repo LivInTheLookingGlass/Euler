@@ -37,8 +37,8 @@ pub fn run_problem(n: usize) -> JsValue {
 
 #[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 #[wasm_bindgen]
-pub fn get_problems() -> JsValue {
-    let problems = generate_supported_problems();
+pub fn get_problems(include_slow: bool) -> JsValue {
+    let problems = generate_supported_problems(include_slow);
     let js_array = Array::new_with_length(problems.len() as u32);
 
     for (i, &item) in problems.iter().enumerate() {

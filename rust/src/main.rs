@@ -41,7 +41,7 @@ fn main() {
     for i in sieve {
         println!("{}", i);
     }
-    let supported = generate_supported_problems();
+    let supported = generate_supported_problems(false);
 
     for id in supported {
         match get_problem(id) {

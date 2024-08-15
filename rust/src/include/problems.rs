@@ -42,7 +42,7 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
         20 =>  Some(( &20, p0020, false)),
         22 =>  Some(( &22, p0022, false)),
         24 =>  Some(( &24, p0024, false)),
-        27 =>  Some(( &27, p0027, false)),
+        27 =>  Some(( &27, p0027, true)),
         34 =>  Some(( &34, p0034, false)),
         69 =>  Some(( &69, p0069, false)),
         76 =>  Some(( &76, p0076, false)),
@@ -55,11 +55,13 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
 }
 
 
-pub fn generate_supported_problems() -> Vec<usize> {
+pub fn generate_supported_problems(include_slow: bool) -> Vec<usize> {
     let mut supported_problems = Vec::new();
     for n in 1..10000 {
-        if get_problem(n).is_some() {
-            supported_problems.push(n);
+        if let Some((_, _, slow)) = get_problem(n) { 
+            if !slow || include_slow {
+                supported_problems.push(n);
+            }
         }
     }
 

@@ -110,7 +110,7 @@ Olivia's Project Euler Solutions
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 .. [3] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
-.. [4] This feature is in progress. While these solutions will run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
+.. [4] While these solutions will run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
    tests are not yet automated as on non-web platforms. To run these tests yourself, |test-rs-link|
 
 Coverage

@@ -34,6 +34,11 @@ build or test processes.
 
   Alias for ``cargo clean``.
 
+Live Tests
+----------
+
+To run these problems in your browser, :live-test:`rs`
+
 Library Code
 ------------
 
