@@ -1,8 +1,8 @@
 #![allow(unused_imports)]
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch = "wasm32", target_arch = "wasm64"))]
 use wasm_bindgen::prelude::*;
 
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch = "wasm32", target_arch = "wasm64"))]
 use js_sys::Array;
 
 use seq_macro::seq;
@@ -24,7 +24,7 @@ pub mod include;
 pub use crate::include::problems::{generate_supported_problems,get_problem};
 pub use crate::include::utils::{Answer,get_answer};
 
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch = "wasm32", target_arch = "wasm64"))]
 #[wasm_bindgen]
 pub fn run_problem(n: usize) -> JsValue {
     let Some((_, problem_function, _)) = get_problem(n) else { panic!() };
@@ -35,7 +35,7 @@ pub fn run_problem(n: usize) -> JsValue {
     }
 }
 
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch = "wasm32", target_arch = "wasm64"))]
 #[wasm_bindgen]
 pub fn get_problems() -> JsValue {
     let problems = generate_supported_problems();
@@ -48,7 +48,7 @@ pub fn get_problems() -> JsValue {
     return JsValue::from(js_array);
 }
 
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch = "wasm32", target_arch = "wasm64"))]
 #[wasm_bindgen]
 pub fn get_js_answer(n: usize) -> JsValue {
     let answer = get_answer(n);
