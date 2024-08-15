@@ -36,7 +36,7 @@ unsigned long long p0025() {
     BCD_int a = BCD_one, b = BCD_one;
     while (b.decimal_digits < 1000) {
         iadd_bcd(&a, b);
-        swap(a, b, BCD_int);
+        swap(a, b);
         answer++;
     }
     free_BCD_int(a);

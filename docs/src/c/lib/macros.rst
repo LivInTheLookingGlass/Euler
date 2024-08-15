@@ -30,7 +30,11 @@ View source code :source:`c/src/include/macros.h`
 .. c:macro:: max(a, b)
              min(a, b)
 
-    If these were not already defined, this header makes them
+    If these were not already defined, this header makes them.
+
+.. c:macro:: swap(x, y)
+
+    Swap the names of two variables of the same type.
 
 .. c:macro:: likely(x)
              unlikely(x)

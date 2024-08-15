@@ -66,7 +66,7 @@
 #endif
 
 #ifndef swap
-    #define swap(x, y, T) do { T SWAP = x; x = y; y = SWAP; } while (0)
+    #define swap(x, y) do { typeof(x) SWAP = x; x = y; y = SWAP; } while (0)
 #endif
 
 #if !(CL_COMPILER || TCC_COMPILER)
