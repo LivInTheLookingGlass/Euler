@@ -3,6 +3,12 @@ fibonacci.h
 
 View source code :source:`c/src/include/fibonacci.h`
 
+Includes
+--------
+
+- `iterator.h <./iterator.html>`__
+- `macros.h <./macros.html>`__ (implicitly)
+
 .. c:namespace-push:: fibonacci
 
 .. c:type:: fibonacci

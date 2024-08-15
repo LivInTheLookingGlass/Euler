@@ -211,11 +211,9 @@ def test_compiler_macros(compiler):
     assert flags[0] == compiler.startswith("CL+")
     assert flags[1] == compiler.startswith("CLANG")
     assert flags[2] == compiler.startswith("GCC")
-    assert flags[3] == compiler.startswith("ICC")
-    assert flags[4] == compiler.startswith("AOCC")
-    assert flags[5] == (EXE_EXT == "x86" or expect_32)
-    assert flags[6] == (EXE_EXT == "x86_64" and not expect_32)
-    assert flags[7] == (EXE_EXT not in ("x86", "x86_64", "exe"))
+    assert flags[3] == (EXE_EXT == "x86" or expect_32)
+    assert flags[4] == (EXE_EXT == "x86_64" and not expect_32)
+    assert flags[5] == (EXE_EXT not in ("x86", "x86_64", "exe"))
 
 
 # @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')

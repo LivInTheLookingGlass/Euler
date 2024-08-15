@@ -3,6 +3,11 @@ math.h
 
 View source code :source:`cplusplus/src/include/math.h`
 
+Includes
+--------
+
+- `macros.h <./macros.html>`__
+
 .. c:namespace-push:: math
     
 .. c:function:: uintmax_t factorial(unsigned int n)

@@ -3,6 +3,11 @@ math.h
 
 View source code :source:`c/src/include/math.h`
 
+Includes
+--------
+
+- `macros.h <./macros.html>`__
+
 .. c:namespace-push:: math
     
 .. c:function:: uintmax_t factorial(unsigned int n)
@@ -11,7 +16,7 @@ View source code :source:`c/src/include/math.h`
         
         This function only works for numbers smaller than
         :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAX_FACTORIAL_128`,
-        depending on the size of ``uintmax_t``.
+        depending on the size of :c:expr:`uintmax_t`.
 
 .. c:function:: uintmax_t n_choose_r(unsigned int n, unsigned int r)
 
@@ -21,7 +26,7 @@ View source code :source:`c/src/include/math.h`
         
         This function only works for numbers smaller than
         :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAX_FACTORIAL_128`,
-        depending on the size of ``uintmax_t``.
+        depending on the size of :c:expr:`uintmax_t`.
 
 .. note::
 

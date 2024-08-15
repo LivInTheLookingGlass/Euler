@@ -3,6 +3,16 @@ iterator.h
 
 View source code :source:`c/src/include/iterator.h`
 
+Includes
+--------
+
+- `macros.h <./macros.html>`__
+
+Includes
+--------
+
+- `macros.h <./macros.html>`__
+
 .. c:namespace-push:: iterator
 
 .. c:macro:: IteratorHead(return_type, struct_type)

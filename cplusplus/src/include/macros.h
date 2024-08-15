@@ -8,26 +8,15 @@
 #else
     #define CL_COMPILER 0
 #endif
-#if (defined(__clang__) && (!defined(AMD_COMPILER) || !AMD_COMPILER))
+#if (defined(__clang__))
     #define CLANG_COMPILER 1
 #else
     #define CLANG_COMPILER 0
 #endif
-#if (defined(__GNUC__) && !defined(__clang__)) && !defined(__INTEL_COMPILER)
+#if (defined(__GNUC__) && !defined(__clang__))
     #define GCC_COMPILER 1
 #else
     #define GCC_COMPILER 0
-#endif
-#ifdef __INTEL_COMPILER
-    #define INTEL_COMPILER 1
-#else
-    #define INTEL_COMPILER 0
-#endif
-#ifndef AMD_COMPILER
-    #if CLANG_COMPILER
-        #warning "This suite can't detect the difference between clang and aocc. You need to specify -DAMD_COMPILER={0 or 1}"
-    #endif
-    #define AMD_COMPILER 0
 #endif
 
 #if (defined(_M_X64) || defined(_M_AMD64) || defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64))
@@ -52,6 +41,10 @@
 #endif
 
 // helper macro function section
+
+#ifndef swap
+    #define swap(x, y) do { typeof(x) SWAP = x; x = y; y = SWAP; } while (0)
+#endif
 
 #if !(CL_COMPILER)
     #define likely(x)   __builtin_expect(!!(x), 1)

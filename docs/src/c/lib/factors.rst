@@ -3,6 +3,12 @@ factors.h
 
 View source code :source:`c/src/include/factors.h`
 
+Includes
+--------
+
+- `iterator.h <./iterator.html>`__
+- `macros.h <./macros.html>`__ (implicitly)
+
 This file implements an :c:macro:`Iterator <IteratorHead>` that yields proper
 factors for a given number. It is generally used by first calling
 :c:func:`proper_divisor_count` and the :c:macro:`next`/:c:macro:`next_p` functions.

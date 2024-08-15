@@ -14,12 +14,6 @@ View source code :source:`c/src/include/macros.h`
     These macros detect which compiler the program is being made with. They will be 1
     if it is that compiler, and 0 otherwise.
 
-    .. warning::
-
-        This suite is not able to detect the difference between ``clang`` and ``aocc``
-        without assistance. Please define :c:macro:`AMD_COMPILER` manually if on
-        ``clang`` or ``aocc``.
-
 .. c:macro:: X64_COMPILER
              X86_COMPILER
              ARM_COMPILER
@@ -39,8 +33,9 @@ View source code :source:`c/src/include/macros.h`
 .. c:macro:: likely(x)
              unlikely(x)
 
-    These macros implement the ``likely()`` and ``unlikely()`` flags, as in the Linux kernel to
-    assist in branch prediction. On ``tcc`` and ``cl`` it has no effect.
+    These macros implement the ``likely()`` and ``unlikely()`` flags, as in the
+    `Linux kernel <https://stackoverflow.com/q/109710>`__ to assist in branch prediction. On ``tcc`` and ``cl`` it has
+    no effect.
 
 .. c:macro:: MAX_FACTORIAL_64
              MAX_FACTORIAL_128

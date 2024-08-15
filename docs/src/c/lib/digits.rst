@@ -3,6 +3,13 @@ digits.h
 
 View source code :source:`c/src/include/digits.h`
 
+Includes
+--------
+
+- `iterator.h <./iterator.html>`__
+- `macros.h <./macros.html>`__
+- `math.h <./math.html>`__ (if compiled on PCC)
+
 .. c:namespace-push:: digits
 
 .. c:type:: digit_counter

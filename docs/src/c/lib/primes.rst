@@ -3,6 +3,13 @@ primes.h
 
 View source code :source:`c/src/include/primes.h`
 
+Includes
+--------
+
+- `iterator.h <./iterator.html>`__
+- `macros.h <./macros.html>`__
+- `math.h <./math.html>`__ (if compiled on PCC)
+
 .. c:namespace-push:: primes
 
 .. c:type:: prime_counter

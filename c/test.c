@@ -58,13 +58,9 @@ const Answer answers[] = {
 const size_t ANSWERS_LEN = sizeof(answers) / sizeof(answers[0]);
 static size_t current_index = 0;
 
-void setUp(void) {
-	// set stuff up here
-}
+void setUp(void) {}
 
-void tearDown(void) {
-	// clean stuff up here
-}
+void tearDown(void) {}
 
 void test_euler_answer() {
 	Answer key = answers[current_index];
