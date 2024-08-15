@@ -18,7 +18,7 @@ What is the largest prime factor of the number 600851475143 ?
 unsigned long long p0003() {
     unsigned long long answer = 0;
     prime_factor_counter pfc = prime_factors(600851475143);
-    while (!pfc.exhausted)   {
+    while (!pfc.exhausted) {
         answer = next(pfc);
     }
     free_prime_factor_counter(pfc);
@@ -26,9 +26,8 @@ unsigned long long p0003() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0003();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0003());
     return 0;
 }
 #endif

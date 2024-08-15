@@ -11,7 +11,7 @@ struct fibonacci    {
     uintmax_t limit;
 };
 
-uintmax_t advance_fibonacci(fibonacci *fib)    {
+uintmax_t advance_fibonacci(fibonacci *fib) {
     if (fib->exhausted) {
         return 0;
     }
@@ -23,7 +23,7 @@ uintmax_t advance_fibonacci(fibonacci *fib)    {
     return fib->a;
 }
 
-fibonacci fibonacci1(uintmax_t limit)  {
+fibonacci fibonacci1(uintmax_t limit) {
     fibonacci ret;
     IteratorInitHead(ret, advance_fibonacci);
     ret.a = 0;
@@ -33,7 +33,7 @@ fibonacci fibonacci1(uintmax_t limit)  {
 }
 
 fibonacci fibonacci0();
-inline fibonacci fibonacci0()   {
+inline fibonacci fibonacci0() {
     return fibonacci1(-1);
 }
 

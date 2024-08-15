@@ -34,7 +34,7 @@ divisors?
 unsigned long long p0012() {
     unsigned long long current = 1;
     unsigned int i = 2;
-    while (true)    {
+    while (true) {
         current += i;  // 3, 21, ...
         ++i;
         current += i;  // 6, 28, ...
@@ -52,9 +52,8 @@ unsigned long long p0012() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0012();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0012());
     return 0;
 }
 #endif

@@ -235,7 +235,7 @@ unsigned long long p0013() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0013() << std::endl;
     return 0;
 }

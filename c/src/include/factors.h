@@ -13,9 +13,9 @@ struct factor_counter   {
 uintmax_t advance_factor_counter(factor_counter *fc);
 inline uintmax_t advance_factor_counter(factor_counter *fc) {
     IterationHead(fc);
-    while (fc->target > fc->current)   {
+    while (fc->target > fc->current) {
         fc->current++;
-        if (fc->target % fc->current == 0)  {
+        if (fc->target % fc->current == 0) {
             fc->exhausted = (fc->target == fc->current);
             return fc->current;
         }
@@ -36,7 +36,7 @@ uintmax_t proper_divisor_count(uintmax_t target);
 inline uintmax_t proper_divisor_count(uintmax_t target) {
     uintmax_t ret = 0;
     factor_counter fc = proper_divisors(target);
-    while (!fc.exhausted)   {
+    while (!fc.exhausted) {
         next(fc);
         ret++;
     }

@@ -10,7 +10,7 @@
 #include <stdint.h>
 
 uintmax_t factorial(unsigned int n);
-inline uintmax_t factorial(unsigned int n)  {
+inline uintmax_t factorial(unsigned int n) {
     // note that this function only works for numbers smaller than MAX_FACTORIAL_64
     if ((sizeof(uintmax_t) == 8 && n > MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n > MAX_FACTORIAL_128))
         return -1;
@@ -21,9 +21,9 @@ inline uintmax_t factorial(unsigned int n)  {
     return ret;
 }
 
-uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
+uintmax_t n_choose_r(unsigned int n, unsigned int r) {
     // function returns -1 if it overflows
-    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128))   {
+    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128)) {
         // fast path if small enough
         return factorial(n) / factorial(r) / factorial(n-r);
     }
@@ -56,27 +56,27 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
     }
     i = j = 2;
     answer = 1;
-    while (i <= n)  {
-        while (factors[i] > 0)  {
+    while (i <= n) {
+        while (factors[i] > 0) {
             tmp = answer;
             answer *= i;
-            while (answer < tmp && j <= n)  {
-                while (factors[j] < 0)  {
+            while (answer < tmp && j <= n) {
+                while (factors[j] < 0) {
                     tmp /= j;
                     factors[j]++;
                 }
                 j++;
                 answer = tmp * i;
             }
-            if (answer < tmp)   {
+            if (answer < tmp) {
                 return -1;  // this indicates an overflow
             }
             factors[i]--;
         }
         i++;
     }
-    while (j <= n)  {
-        while (factors[j] < 0)  {
+    while (j <= n) {
+        while (factors[j] < 0) {
             answer /= j;
             factors[j]++;
         }
@@ -88,9 +88,9 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
 
 #if PCC_COMPILER
     unsigned char imprecise_log10(uintmax_t x);
-    inline unsigned char imprecise_log10(uintmax_t x)  {
+    inline unsigned char imprecise_log10(uintmax_t x) {
         unsigned char answer = 0;
-        while (x)   {
+        while (x) {
             x /= 10;
             ++answer;
         }
@@ -98,7 +98,7 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
     }
 
     double sqrt(double S);
-    inline double sqrt(double S)   {
+    inline double sqrt(double S) {
         // implements the Bakhshali method of square root computation to fix a PCC error
         double a, x = S / 2;
         unsigned int i;
@@ -110,9 +110,9 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
     }
 
     uintmax_t ceil(double x);
-    inline uintmax_t ceil(double x)   {
+    inline uintmax_t ceil(double x) {
         uintmax_t ret = (uintmax_t) x;
-        if (x == (double) ret)  {
+        if (x == (double) ret) {
             return ret;
         }
         return ret + 1;

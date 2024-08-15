@@ -31,7 +31,7 @@ unsigned long long p0001() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0001() << std::endl;
     return 0;
 }

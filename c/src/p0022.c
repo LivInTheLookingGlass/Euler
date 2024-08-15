@@ -15,6 +15,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 #ifndef EULER_P0022
 #define EULER_P0022
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/utils.h"
 
 int cmpstr(const void* a, const void* b) {
@@ -31,6 +32,8 @@ unsigned long long p0022() {
         while (fstring[i] && fstring[i] != ',')
             i++;
         const size_t len = i - pi - 2;
+        if (unlikely(len == 0))
+            continue;
         names[idx] = (char *)malloc(len);
         memcpy(names[idx], fstring + pi + 1, len);
         names[idx++][len] = 0;
@@ -48,9 +51,8 @@ unsigned long long p0022() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0022();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0022());
     return 0;
 }
 #endif

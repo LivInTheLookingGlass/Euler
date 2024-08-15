@@ -25,10 +25,6 @@ View source code :source:`cplusplus/src/include/macros.h`
     These macros implement the ``likely()`` and ``unlikely()`` flags, as in the
     `Linux kernel <https://stackoverflow.com/q/109710>`__ to assist in branch prediction. On ``cl`` it has no effect.
 
-.. c:macro:: swap(x, y)
-
-    Swap the names of two variables of the same type.
-
 .. c:macro:: MAX_FACTORIAL_64
              MAX_FACTORIAL_128
 

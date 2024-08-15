@@ -83,7 +83,7 @@ struct counter {
 };
 
 uintmax_t iterate_counter(counter *i);
-inline uintmax_t iterate_counter(counter *i)    {
+inline uintmax_t iterate_counter(counter *i) {
     /**
      * The function to advance a counter
      * @i the counter you want to advance
@@ -94,7 +94,7 @@ inline uintmax_t iterate_counter(counter *i)    {
     uintmax_t ret = i->idx;
     intmax_t step = i->step;
     i->idx += step;
-    if ((step > 0 && i->idx >= i->stop) || (step < 0 && i->idx <= i->stop))   {
+    if ((step > 0 && i->idx >= i->stop) || (step < 0 && i->idx <= i->stop)) {
         i->exhausted = 1;
     }
     return ret;
@@ -119,7 +119,7 @@ inline counter counter3(uintmax_t start, uintmax_t stop, intmax_t step) {
 }
 
 counter counter2(uintmax_t start, uintmax_t stop);
-inline counter counter2(uintmax_t start, uintmax_t stop)  {
+inline counter counter2(uintmax_t start, uintmax_t stop) {
     /**
      * The simpler constructor for the counter iterator
      * @start: The beginning position of the counter
@@ -131,7 +131,7 @@ inline counter counter2(uintmax_t start, uintmax_t stop)  {
 }
 
 counter counter1(uintmax_t stop);
-inline counter counter1(uintmax_t stop)    {
+inline counter counter1(uintmax_t stop) {
     /**
      * The simplest constructor for the counter iterator
      * @stop: The point where the counter is exhausted

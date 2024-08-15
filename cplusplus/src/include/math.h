@@ -9,7 +9,7 @@
 using namespace std;
 
 uintmax_t factorial(unsigned int n);
-inline uintmax_t factorial(unsigned int n)  {
+inline uintmax_t factorial(unsigned int n) {
     // note that this function only works for numbers smaller than MAX_FACTORIAL_64
     if ((sizeof(uintmax_t) == 8 && n > MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n > MAX_FACTORIAL_128))
         return -1;
@@ -20,9 +20,9 @@ inline uintmax_t factorial(unsigned int n)  {
     return ret;
 }
 
-uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
+uintmax_t n_choose_r(unsigned int n, unsigned int r) {
     // function returns -1 if it overflows
-    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128))   {
+    if ((sizeof(uintmax_t) == 8 && n <= MAX_FACTORIAL_64) || (sizeof(uintmax_t) == 16 && n <= MAX_FACTORIAL_128)) {
         // fast path if small enough
         return factorial(n) / factorial(r) / factorial(n-r);
     }
@@ -55,27 +55,27 @@ uintmax_t n_choose_r(unsigned int n, unsigned int r)    {
     }
     i = j = 2;
     answer = 1;
-    while (i <= n)  {
-        while (factors[i] > 0)  {
+    while (i <= n) {
+        while (factors[i] > 0) {
             tmp = answer;
             answer *= i;
-            while (answer < tmp && j <= n)  {
-                while (factors[j] < 0)  {
+            while (answer < tmp && j <= n) {
+                while (factors[j] < 0) {
                     tmp /= j;
                     factors[j]++;
                 }
                 j++;
                 answer = tmp * i;
             }
-            if (answer < tmp)   {
+            if (answer < tmp) {
                 return -1;  // this indicates an overflow
             }
             factors[i]--;
         }
         i++;
     }
-    while (j <= n)  {
-        while (factors[j] < 0)  {
+    while (j <= n) {
+        while (factors[j] < 0) {
             answer /= j;
             factors[j]++;
         }

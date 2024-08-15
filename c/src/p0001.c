@@ -20,24 +20,23 @@
 unsigned long long p0001() {
     unsigned long long answer = 0;
     counter c = counter3(0, 1000, 3);
-    while (!c.exhausted)    {
+    while (!c.exhausted) {
         answer += next(c);
     }
     c = counter3(0, 1000, 5);
-    while (!c.exhausted)    {
+    while (!c.exhausted) {
         answer += next(c);
     }
     c = counter3(0, 1000, 15);
-    while (!c.exhausted)    {
+    while (!c.exhausted) {
         answer -= next(c);
     }
     return answer;
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0001();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0001());
     return 0;
 }
 #endif

@@ -26,7 +26,7 @@ unsigned long long p0015() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0015() << std::endl;
     return 0;
 }

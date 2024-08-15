@@ -21,19 +21,19 @@ unsigned long long p0005() {
     unsigned long long answer = 1;
     unsigned char factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
     prime_factor_counter pfc;
-    for (unsigned char i = 2; i < 21; i++)  {
+    for (unsigned char i = 2; i < 21; i++) {
         pfc = prime_factors(i);
-        while (!pfc.exhausted)  {
+        while (!pfc.exhausted) {
             local_factor_tracker[next(pfc)]++;
         }
-        for (unsigned char i = 2; i < 20; i++)  {
+        for (unsigned char i = 2; i < 20; i++) {
             factor_tracker[i] = max(factor_tracker[i], local_factor_tracker[i]);
             local_factor_tracker[i] = 0;
         }
         free_prime_factor_counter(pfc);
     }
-    for (unsigned char i = 2; i < 20; i++)  {
-        for (unsigned char j = 0; j < factor_tracker[i]; j++)   {
+    for (unsigned char i = 2; i < 20; i++) {
+        for (unsigned char j = 0; j < factor_tracker[i]; j++) {
             answer *= i;
         }
     }
@@ -41,9 +41,8 @@ unsigned long long p0005() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0005();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0005());
     return 0;
 }
 #endif

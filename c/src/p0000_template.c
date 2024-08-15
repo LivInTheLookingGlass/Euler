@@ -16,9 +16,8 @@ unsigned long long p0000() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0000();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0000());
     return 0;
 }
 #endif

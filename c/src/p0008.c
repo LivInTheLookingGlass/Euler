@@ -59,12 +59,12 @@ unsigned long long p0008() {
                                 "05886116467109405077541002256983155200055935729725"
                                 "71636269561882670428252483600823257530420752963450");
     char digits[1000];
-    for (i = 0; i < 1000; i++)  {
+    for (i = 0; i < 1000; i++) {
         digits[i] = plain_digits[i] - 0x30;
     }
     for (i = 0; i < 1000 - 13; i++) {
         tmp = digits[i];
-        for (j = i + 1; j < i + 13; j++)    {
+        for (j = i + 1; j < i + 13; j++) {
             tmp *= digits[j];
         }
         answer = max(answer, tmp);
@@ -73,9 +73,8 @@ unsigned long long p0008() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0008();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0008());
     return 0;
 }
 #endif

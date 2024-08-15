@@ -62,8 +62,8 @@ static const unsigned char grid[20][20] = {
 unsigned long long p0011() {
     unsigned long answer = 0, tmp;
     unsigned char i, j;
-    for (i = 0; i < 20; i++)    {
-        for (j = 0; j < 17; j++)    {
+    for (i = 0; i < 20; i++) {
+        for (j = 0; j < 17; j++) {
             // horizontal section
             tmp = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
             answer = max(answer, tmp);
@@ -72,8 +72,8 @@ unsigned long long p0011() {
             answer = max(answer, tmp);
         }
     }
-    for (i = 0; i < 17; i++)    {
-        for (j = 0; j < 17; j++)    {
+    for (i = 0; i < 17; i++) {
+        for (j = 0; j < 17; j++) {
             // right diagonal section
             tmp = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
             answer = max(answer, tmp);
@@ -86,9 +86,8 @@ unsigned long long p0011() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0011();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0011());
     return 0;
 }
 #endif

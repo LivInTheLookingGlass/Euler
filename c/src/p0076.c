@@ -72,9 +72,8 @@ unsigned int p0076() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned int answer = p0076();
-    printf("%u", answer);
+int main(int argc, char const *argv[]) {
+    printf("%u", p0076());
     return 0;
 }
 #endif

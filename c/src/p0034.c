@@ -22,10 +22,10 @@ unsigned long long p0034() {
     for (unsigned long i = 10; i < 100000; i++) {
         sum = 0;
         dc = digits(i);
-        while (!dc.exhausted)   {
+        while (!dc.exhausted) {
             sum += factorial(next(dc));
         }
-        if (sum == i)   {
+        if (sum == i) {
             answer += i;
         }
         free_digit_counter(dc);
@@ -34,9 +34,8 @@ unsigned long long p0034() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0034();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0034());
     return 0;
 }
 #endif

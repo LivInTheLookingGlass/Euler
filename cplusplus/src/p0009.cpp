@@ -19,10 +19,10 @@ Find the product abc.
 
 unsigned long long p0009() {
     unsigned long long answer = 0;
-    for (unsigned int c = 3; !answer && c < 1000; c++)  {
-        for (unsigned int b = 2; b < c; b++)    {
+    for (unsigned int c = 3; !answer && c < 1000; c++) {
+        for (unsigned int b = 2; b < c; b++) {
             unsigned int a = 1000 - c - b;
-            if (a < b && a*a + b*b == c*c)  {
+            if (a < b && a*a + b*b == c*c) {
                 answer = (unsigned long long) a * b * c;
                 break;
             }
@@ -32,7 +32,7 @@ unsigned long long p0009() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0009() << std::endl;
     return 0;
 }

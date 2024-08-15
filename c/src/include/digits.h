@@ -18,14 +18,14 @@ struct digit_counter    {
     size_t idx;
 };
 
-unsigned char advance_digit_counter(digit_counter *dc)  {
+unsigned char advance_digit_counter(digit_counter *dc) {
     IterationHead(dc);
     unsigned char ret = dc->digits[dc->idx--];
     dc->exhausted = (dc->idx == -1);
     return ret;
 }
 
-digit_counter digits(uintmax_t n)  {
+digit_counter digits(uintmax_t n) {
     digit_counter ret;
     IteratorInitHead(ret, advance_digit_counter);
 #if !PCC_COMPILER
@@ -34,7 +34,7 @@ digit_counter digits(uintmax_t n)  {
     size_t digit_len = imprecise_log10(n + 1);
 #endif
     ret.digits = (unsigned char *) malloc(digit_len * sizeof(unsigned char));
-    for (size_t i = 0; i < digit_len; i++)    {
+    for (size_t i = 0; i < digit_len; i++) {
         ret.digits[i] = n % 10;
         n /= 10;
     }
@@ -42,8 +42,8 @@ digit_counter digits(uintmax_t n)  {
     return ret;
 }
 
-void free_digit_counter(digit_counter dc)   {
-    if (dc.digits != NULL)  {
+void free_digit_counter(digit_counter dc) {
+    if (dc.digits != NULL) {
         free(dc.digits);
     }
 }

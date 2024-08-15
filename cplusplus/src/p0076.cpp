@@ -72,7 +72,7 @@ unsigned int p0076() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0076() << std::endl;
     return 0;
 }

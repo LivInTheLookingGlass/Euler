@@ -25,16 +25,15 @@ natural numbers and the square of the sum.
 
 unsigned long long p0006() {
     unsigned long long sum = 100 * 101 / 2, sum_of_squares = 0;
-    for (unsigned long long i = 1; i < 101; i++)    {
+    for (unsigned long long i = 1; i < 101; i++) {
         sum_of_squares += i * i;
     }
     return sum * sum - sum_of_squares;
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0006();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0006());
     return 0;
 }
 #endif

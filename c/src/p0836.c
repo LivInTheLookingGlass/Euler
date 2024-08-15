@@ -23,9 +23,8 @@ char *p0836() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    char *answer = p0836();
-    printf("%s", answer);
+int main(int argc, char const *argv[]) {
+    printf("%s", p0836());
     return 0;
 }
 #endif

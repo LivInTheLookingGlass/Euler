@@ -112,7 +112,7 @@ unsigned long long p0017() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0017() << std::endl;
     return 0;
 }

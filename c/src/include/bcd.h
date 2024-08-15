@@ -57,7 +57,7 @@ inline void free_BCD_int(BCD_int x) {
     }
 }
 
-BCD_int new_BCD_int(uintmax_t a, bool negative)   {
+BCD_int new_BCD_int(uintmax_t a, bool negative) {
     BCD_int c;
     #if !PCC_COMPILER
         c.decimal_digits = ceil(log10(a + 1));
@@ -68,7 +68,7 @@ BCD_int new_BCD_int(uintmax_t a, bool negative)   {
     c.digits = (packed_BCD_pair *) malloc(sizeof(packed_BCD_pair) * c.bcd_digits);
     c.negative = negative;
     c.zero = !a;
-    for (size_t i = 0; i < c.bcd_digits; i++)   {
+    for (size_t i = 0; i < c.bcd_digits; i++) {
         c.digits[i] = (((a % 100) / 10) << 4) | (a % 10);
         a /= 100;
     }
@@ -76,17 +76,17 @@ BCD_int new_BCD_int(uintmax_t a, bool negative)   {
 }
 
 BCD_int copy_BCD_int(BCD_int a);
-inline BCD_int copy_BCD_int(BCD_int a)  {
+inline BCD_int copy_BCD_int(BCD_int a) {
     BCD_int b = a;
     b.digits = (packed_BCD_pair *) malloc(sizeof(packed_BCD_pair) * b.bcd_digits);
     memcpy(b.digits, a.digits, b.bcd_digits);
     return b;
 }
 
-BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bool little_endian)   {
+BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bool little_endian) {
     // converts a bytestring to a little-endian BCD int
     BCD_int c;
-    if (!chars || str == NULL)  {
+    if (!chars || str == NULL) {
         c.zero = true;
         c.bcd_digits = c.decimal_digits = c.negative = 0;
         c.digits = NULL;
@@ -96,7 +96,7 @@ BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bo
     c.zero = false;
     c.negative = negative;
     c.digits = (packed_BCD_pair *) malloc(sizeof(packed_BCD_pair) * chars);
-    if (little_endian)  {
+    if (little_endian) {
         for (i = 0; i < chars; i++) {
             c.digits[i] = str[i];
         }
@@ -107,7 +107,7 @@ BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bo
             c.digits[i] = str[j];
         }
     }
-    for (i = chars - 1; i != -1; i--)   {
+    for (i = chars - 1; i != -1; i--) {
         if (c.digits[i] & 0xF0) {
             c.decimal_digits = i * 2 + 1;
             c.bcd_digits = i + 1;
@@ -119,7 +119,7 @@ BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bo
             break;
         }
     }
-    if (unlikely(i == -1))  {
+    if (unlikely(i == -1)) {
         c.zero = true;
         c.bcd_digits = c.decimal_digits = c.negative = 0;
         free(c.digits);
@@ -129,12 +129,12 @@ BCD_int BCD_from_bytes(const unsigned char *str, size_t chars, bool negative, bo
 }
 
 BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative);
-inline BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative)    {
+inline BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative) {
     // packs an ASCII digit string into big-endian bytes, then runs through BCD_from_bytes()
     size_t length = (digits + 1) / 2, i, j;
     unsigned char *bytes = (unsigned char *) malloc(sizeof(unsigned char) * length);
     j = i = digits % 2;
-    if (i)  {
+    if (i) {
         bytes[0] = str[0] - '0';
     }
     for (; i < length; i++, j += 2) {
@@ -147,15 +147,15 @@ inline BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative)    
 
 BCD_int sub_bcd(BCD_int x, BCD_int y);
 
-BCD_int add_bcd(BCD_int x, BCD_int y)   {
+BCD_int add_bcd(BCD_int x, BCD_int y) {
     // performing this on two n-digit numbers will take O(n) time
-    if (unlikely(x.zero))   {
+    if (unlikely(x.zero)) {
         return copy_BCD_int(y);
     }
-    if (unlikely(y.zero))   {
+    if (unlikely(y.zero)) {
         return copy_BCD_int(x);
     }
-    if (x.negative != y.negative)   {
+    if (x.negative != y.negative) {
         // if signs don't match, absolute value would go down.
         // that means we need to flip y's sign and move through sub_bcd()
         y.negative = !y.negative;
@@ -171,11 +171,11 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
     for (i = 0; i < min_digits; i++) {
         a = x.digits[i];
         b = y.digits[i];
-        if (!(overflow || a))   {
+        if (!(overflow || a)) {
             c = b;
             overflow = false;
         }
-        else if (!(overflow || b))  {
+        else if (!(overflow || b)) {
             c = a;
             overflow = false;
         }
@@ -213,17 +213,17 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
             #else
                 // otherwise fall back to doing it in C
                 c = a + b;                             // set c to be the result of (a + b) % 0x100
-                if ((overflow = (a > 0x99 - b)))    {  // if c would overflow the decimal range
+                if ((overflow = (a > 0x99 - b))) {  // if c would overflow the decimal range
                     c += 0x60;                         // and add 0x60 to make a decimal digit
                 }
-                if (((a & 0xF) + (b & 0xF)) > 9)    {  // if the lower nibble be bigger than 9
+                if (((a & 0xF) + (b & 0xF)) > 9) {  // if the lower nibble be bigger than 9
                     c += 0x06;                         // add 6 to make a decimal digit
                 }
             #endif
             }
         z.digits[i] = c;
     }
-    if (x.bcd_digits < y.bcd_digits)    {
+    if (x.bcd_digits < y.bcd_digits) {
         x = y;
     }
     for (; overflow && i < max_digits; i++) {  // while there's overflow and digits, continue adding
@@ -231,7 +231,7 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
         if ((a & 0x0F) == 0x0A) {  // since all that's left is overflow, we don't need to check ranges
             a += 0x06;
         }
-        if ((overflow = ((a & 0xF0) == 0xA0)))  {
+        if ((overflow = ((a & 0xF0) == 0xA0))) {
             a += 0x60;
         }
         z.digits[i] = a;
@@ -241,10 +241,10 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
     }
     z.digits[max_digits] = overflow;
     z.bcd_digits = max_digits + overflow;
-    if (overflow)   {
+    if (overflow) {
         z.decimal_digits = max_digits * 2 + 1;
     }
-    else if (z.digits[max_digits - 1] & 0xF0)   {
+    else if (z.digits[max_digits - 1] & 0xF0) {
         z.decimal_digits = max_digits * 2;
     }
     else    {
@@ -253,11 +253,11 @@ BCD_int add_bcd(BCD_int x, BCD_int y)   {
     return z;
 }
 
-BCD_int mul_bcd_pow_10(BCD_int x, uintmax_t tens)   {
+BCD_int mul_bcd_pow_10(BCD_int x, uintmax_t tens) {
     // this takes O(log_100(x)) time. Note that it's significantly faster if tens is even
     // returns x * 10^tens
     BCD_int ret;
-    if (unlikely(x.zero))   {
+    if (unlikely(x.zero)) {
         return new_BCD_int(0, false);
     }
     ret.zero = false;
@@ -265,7 +265,7 @@ BCD_int mul_bcd_pow_10(BCD_int x, uintmax_t tens)   {
     ret.decimal_digits = x.decimal_digits + tens;
     ret.bcd_digits = (ret.decimal_digits + 1) / 2;
     ret.digits = (packed_BCD_pair *) calloc(ret.bcd_digits, sizeof(packed_BCD_pair));
-    if (tens % 2 == 0)  {
+    if (tens % 2 == 0) {
         // +--+--+    +--+--+--+
         // |23|01| -> ...|23|01|
         // +--+--+    +--+--+--+
@@ -282,7 +282,7 @@ BCD_int mul_bcd_pow_10(BCD_int x, uintmax_t tens)   {
         const size_t digit_diff = ret.bcd_digits - x.bcd_digits - ret.decimal_digits % 2;
         // note that digit_diff needs to be adjusted on this branch, so it can't be common
         ret.digits[digit_diff] = x.digits[0] << 4;
-        for (size_t i = 1; i < x.bcd_digits; i++)   {
+        for (size_t i = 1; i < x.bcd_digits; i++) {
             ret.digits[i + digit_diff] = x.digits[i] << 4;
             ret.digits[i + digit_diff] |= x.digits[i - 1] >> 4;
         }
@@ -292,11 +292,11 @@ BCD_int mul_bcd_pow_10(BCD_int x, uintmax_t tens)   {
 }
 
 BCD_int shift_bcd_left(BCD_int x, uintmax_t tens);
-inline BCD_int shift_bcd_left(BCD_int x, uintmax_t tens)    {
+inline BCD_int shift_bcd_left(BCD_int x, uintmax_t tens) {
     return mul_bcd_pow_10(x, tens);
 }
 
-BCD_int mul_bcd_cuint(BCD_int x, uintmax_t y)   {
+BCD_int mul_bcd_cuint(BCD_int x, uintmax_t y) {
     // this takes roughly O(log(y) * log(x)) time, and is nearly linear if y is a multiple of 10
     // it works by breaking the multiplication down into groups of addition
     // full formula for performance is something like:
@@ -314,7 +314,7 @@ BCD_int mul_bcd_cuint(BCD_int x, uintmax_t y)   {
         y /= 10;
         ++tens;
     }
-    if (tens)   {
+    if (tens) {
         ret = mul_bcd_pow_10(x, tens);
     }
     else    {
@@ -323,8 +323,8 @@ BCD_int mul_bcd_cuint(BCD_int x, uintmax_t y)   {
     // then for decreasing powers of ten, batch additions
     uintmax_t p = (sizeof(uintmax_t) == 16) ? MAX_POW_10_128 : MAX_POW_10_64;
     tens = (sizeof(uintmax_t) == 16) ? POW_OF_MAX_POW_10_128 : POW_OF_MAX_POW_10_64;
-    for (; p > 1; p /= 10, --tens)  {
-        while (y >= p)  {
+    for (; p > 1; p /= 10, --tens) {
+        while (y >= p) {
             mul_by_power_10 = mul_bcd_pow_10(x, tens);
             sum = add_bcd(ret, mul_by_power_10);
             free_BCD_int(mul_by_power_10);
@@ -343,7 +343,7 @@ BCD_int mul_bcd_cuint(BCD_int x, uintmax_t y)   {
 }
 
 BCD_int pow_cuint_cuint(uintmax_t x, uintmax_t y);
-inline BCD_int pow_cuint_cuint(uintmax_t x, uintmax_t y)    {
+inline BCD_int pow_cuint_cuint(uintmax_t x, uintmax_t y) {
     // this takes roughly O(xylog_100(xy)) time
     BCD_int answer = new_BCD_int(1, false), tmp;
     while (y--) {
@@ -355,7 +355,7 @@ inline BCD_int pow_cuint_cuint(uintmax_t x, uintmax_t y)    {
 }
 
 unsigned short mul_dig_pair(packed_BCD_pair ab, packed_BCD_pair cd);
-inline unsigned short mul_dig_pair(packed_BCD_pair ab, packed_BCD_pair cd)  {
+inline unsigned short mul_dig_pair(packed_BCD_pair ab, packed_BCD_pair cd) {
     // multiplies two digits pairs and returns an unsigned C short. valid range is 0 thru 9801
     unsigned char a, b, c, d;
     // first unpack the digits
@@ -367,7 +367,7 @@ inline unsigned short mul_dig_pair(packed_BCD_pair ab, packed_BCD_pair cd)  {
     return 100 * a * c + 10 * (a * d + b * c) + b * d;
 }
 
-BCD_int mul_bcd(BCD_int x, BCD_int y)   {
+BCD_int mul_bcd(BCD_int x, BCD_int y) {
     // multiplies two BCD ints by breaking them down into their component bytes and adding the results
     // this takes O(log_100(x) * log_100(y) * log_100(xy)) time
     BCD_int answer = new_BCD_int(0, false), addend, tmp;
@@ -377,10 +377,10 @@ BCD_int mul_bcd(BCD_int x, BCD_int y)   {
     size_t i, j;
     unsigned short staging;
     uintmax_t ipow_10 = 0, pow_10;
-    for (i = 0; i < x.bcd_digits; i++, ipow_10 += 2)  {
+    for (i = 0; i < x.bcd_digits; i++, ipow_10 += 2) {
         for (j = 0, pow_10 = ipow_10; j < y.bcd_digits; j++, pow_10 += 2) {
             staging = mul_dig_pair(x.digits[i], y.digits[j]);
-            if (staging == 0)   {
+            if (staging == 0) {
                 continue;
             }
             if (likely(pow_10)) {
@@ -401,7 +401,7 @@ BCD_int mul_bcd(BCD_int x, BCD_int y)   {
     return answer;
 }
 
-BCD_int pow_bcd(BCD_int x, BCD_int y)   {
+BCD_int pow_bcd(BCD_int x, BCD_int y) {
     // this takes O(y * 2log_100(x) * log_100(x)^2) time
     BCD_int answer = new_BCD_int(1, false), tmp, one = new_BCD_int(1, false);
     while (!y.zero) {
@@ -416,16 +416,16 @@ BCD_int pow_bcd(BCD_int x, BCD_int y)   {
     return answer;
 }
 
-signed char cmp_bcd(BCD_int x, BCD_int y)   {
+signed char cmp_bcd(BCD_int x, BCD_int y) {
     // returns:
     // 1 if x > y
     // -1 if y > x
     // else 0
-    if (x.negative != y.negative)   {
+    if (x.negative != y.negative) {
         return (x.negative) ? -1 : 1;
     }
-    if (x.decimal_digits != y.decimal_digits)  {
-        if (x.decimal_digits > y.decimal_digits)    {
+    if (x.decimal_digits != y.decimal_digits) {
+        if (x.decimal_digits > y.decimal_digits) {
             return (x.negative) ? -1 : 1;
         }
         return (x.negative) ? 1 : -1;
@@ -439,16 +439,16 @@ signed char cmp_bcd(BCD_int x, BCD_int y)   {
     return 0;
 }
 
-BCD_int sub_bcd(BCD_int x, BCD_int y)   {
-    if (unlikely(x.zero))   {
+BCD_int sub_bcd(BCD_int x, BCD_int y) {
+    if (unlikely(x.zero)) {
         BCD_int ret = copy_BCD_int(y);
         ret.negative = !ret.negative;
         return ret;
     }
-    if (unlikely(y.zero))   {
+    if (unlikely(y.zero)) {
         return copy_BCD_int(x);
     }
-    if (x.negative != y.negative)   {
+    if (x.negative != y.negative) {
         // if signs don't match, absolute value would go up.
         // that means we need to flip y's sign and move through add_bcd()
         y.negative = !y.negative;
@@ -456,7 +456,7 @@ BCD_int sub_bcd(BCD_int x, BCD_int y)   {
     }
     signed char cmp = cmp_bcd(x, y);
     BCD_int z;
-    if ((z.zero = !cmp))    {
+    if ((z.zero = !cmp)) {
         return new_BCD_int(0, false);
     }
     z.negative = (cmp == -1);
@@ -467,11 +467,11 @@ BCD_int sub_bcd(BCD_int x, BCD_int y)   {
     for (i = 0; i < min_digits; i++) {
         a = x.digits[i];
         b = y.digits[i];
-        if (!(carry || a))   {
+        if (!(carry || a)) {
             c = b;
             carry = false;
         }
-        else if (!(carry || b))  {
+        else if (!(carry || b)) {
             c = a;
             carry = false;
         }
@@ -509,17 +509,17 @@ BCD_int sub_bcd(BCD_int x, BCD_int y)   {
             #else
                 // otherwise fall back to doing it in C
                 c = a - b;                             // set c to be the result of (a - b) % 0x100
-                if ((carry = (c & 0xF0) > 0x99))    {  // if c would overflow the decimal range
+                if ((carry = (c & 0xF0) > 0x99)) {  // if c would overflow the decimal range
                     c -= 0x60;                         // and subtract 0x60 to make a decimal digit
                 }
-                if ((c & 0x0F) > 9)  {                 // if the lower nibble be bigger than 9
+                if ((c & 0x0F) > 9) {                 // if the lower nibble be bigger than 9
                     c -= 0x06;                         // subtract 6 to make a decimal digit
                 }
             #endif
             }
         z.digits[i] = c;
     }
-    if (x.bcd_digits < y.bcd_digits)    {
+    if (x.bcd_digits < y.bcd_digits) {
         x = y;
     }
     for (; carry && i < max_digits; i++) {  // while there's carry and digits, continue adding
@@ -527,7 +527,7 @@ BCD_int sub_bcd(BCD_int x, BCD_int y)   {
         if ((a & 0x0F) == 0x0F) {  // since all that's left is carry, we don't need to check ranges
             a -= 0x06;
         }
-        if ((carry = ((a & 0xF0) == 0xF0)))  {
+        if ((carry = ((a & 0xF0) == 0xF0))) {
             a -= 0x60;
         }
         z.digits[i] = a;
@@ -537,21 +537,21 @@ BCD_int sub_bcd(BCD_int x, BCD_int y)   {
     }
     z.bcd_digits = i;
     z.decimal_digits = z.bcd_digits / 2;
-    if (!(z.digits[i - 1] & 0xF0))  {
+    if (!(z.digits[i - 1] & 0xF0)) {
         z.decimal_digits--;
     }
     return z;
 }
 
-BCD_int div_bcd_pow_10(BCD_int a, uintmax_t tens)   {
-    if (unlikely(a.zero))   {
+BCD_int div_bcd_pow_10(BCD_int a, uintmax_t tens) {
+    if (unlikely(a.zero)) {
         return copy_BCD_int(a);
     }
     BCD_int ret;
     ret.negative = a.negative;
     ret.zero = false;
     ret.decimal_digits = a.decimal_digits - tens;
-    if (tens % 2 == 0)  {
+    if (tens % 2 == 0) {
         ret.bcd_digits = a.bcd_digits - tens / 2;
         ret.digits = (packed_BCD_pair *) malloc(sizeof(packed_BCD_pair) * ret.bcd_digits);
         memcpy(ret.digits, a.digits + tens / 2, ret.bcd_digits);
@@ -563,7 +563,7 @@ BCD_int div_bcd_pow_10(BCD_int a, uintmax_t tens)   {
 }
 
 BCD_int shift_bcd_right(BCD_int a, uintmax_t tens);
-inline BCD_int shift_bcd_right(BCD_int a, uintmax_t tens)   {
+inline BCD_int shift_bcd_right(BCD_int a, uintmax_t tens) {
     return div_bcd_pow_10(a, tens);
 }
 
@@ -592,8 +592,8 @@ inline intmax_t bcd_to_signed(BCD_int a) {
     return answer;
 }
 
-void print_bcd(BCD_int x)   {
-    if (unlikely(x.zero))   {
+void print_bcd(BCD_int x) {
+    if (unlikely(x.zero)) {
         printf("0");
         return;
     }
@@ -602,8 +602,8 @@ void print_bcd(BCD_int x)   {
     }
     size_t i = x.bcd_digits - 1;
     printf("%x", x.digits[i]);
-    if (i--)    {
-        for (; i != -1; i--)  {
+    if (i--) {
+        for (; i != -1; i--) {
             printf("%02x", x.digits[i]);
         }
     }

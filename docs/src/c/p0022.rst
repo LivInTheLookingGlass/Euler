@@ -12,6 +12,7 @@ View source code :source:`c/src/p0022.c`
 Includes
 --------
 
+- `macros.h <./lib/macros.html>`__
 - `utils.h <./lib/utils.html>`__
 
 Solution

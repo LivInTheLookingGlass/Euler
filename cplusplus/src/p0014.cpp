@@ -29,12 +29,12 @@ static unsigned int collatz_len_cache[CACHE_SIZE] = {0, 1, 0};
 
 unsigned int collatz_len(unsigned long long n);
 
-unsigned int collatz_len(unsigned long long n)    {
+unsigned int collatz_len(unsigned long long n) {
     if (n < CACHE_SIZE && collatz_len_cache[n]) {
         return collatz_len_cache[n];
     }
     unsigned int ret = 0;
-    if (n % 2)  {
+    if (n % 2) {
         ret = 2 + collatz_len((3 * n + 1) / 2);
     } else {
         ret = 1 + collatz_len(n / 2);
@@ -47,9 +47,9 @@ unsigned int collatz_len(unsigned long long n)    {
 
 unsigned long long p0014() {
     unsigned long long answer = 2, length = 2, tmp;
-    for (unsigned long long test = 3; test < 1000000; test++)   {
+    for (unsigned long long test = 3; test < 1000000; test++) {
         tmp = collatz_len(test);
-        if (tmp > length)   {
+        if (tmp > length) {
             answer = test;
             length = tmp;
         }
@@ -58,7 +58,7 @@ unsigned long long p0014() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
+int main(int argc, char const *argv[]) {
     std::cout << p0014() << std::endl;
     return 0;
 }

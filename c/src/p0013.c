@@ -220,7 +220,7 @@ static const char numbers[100][50] = {
 unsigned long long p0013() {
     BCD_int answer, tmp1, tmp2 = new_BCD_int(0, false);
     uintmax_t ret;
-    for (size_t i = 0; i < 100; i++)    {
+    for (size_t i = 0; i < 100; i++) {
         tmp1 = BCD_from_ascii(numbers[i], 50, false);
         answer = add_bcd(tmp1, tmp2);
         free_BCD_int(tmp1);
@@ -235,9 +235,8 @@ unsigned long long p0013() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0013();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0013());
     return 0;
 }
 #endif

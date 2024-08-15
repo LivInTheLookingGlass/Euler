@@ -17,7 +17,7 @@ Find the sum of all the primes below two million.
 unsigned long long p0010() {
     unsigned long long tmp, answer = 0;
     prime_sieve ps = prime_sieve0();
-    while ((tmp = next(ps)) < 2000000)  {
+    while ((tmp = next(ps)) < 2000000) {
         answer += tmp;
     }
     free_prime_sieve(ps);
@@ -25,9 +25,8 @@ unsigned long long p0010() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0010();
-    printf("%llu", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu", p0010());
     return 0;
 }
 #endif

@@ -22,7 +22,7 @@ four million, find the sum of the even-valued terms.
 unsigned long long p0002() {
     unsigned long long answer = 0;
     fibonacci fib = fibonacci1(3999999);
-    while (!fib.exhausted)   {
+    while (!fib.exhausted) {
         next(fib);  // odd (1, 3, 13, 55, ...)
         next(fib);  // odd (1, 5, 21, 89, ...)
         answer += next(fib);  // even (2, 8, 34, 144, ...)
@@ -31,9 +31,8 @@ unsigned long long p0002() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0002();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0002());
     return 0;
 }
 #endif

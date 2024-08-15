@@ -22,14 +22,14 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 unsigned long long p0030() {
     unsigned long long answer = 0, sum, tmp;
-    for (unsigned long long i = 2; i < 1000000; i++)    {
+    for (unsigned long long i = 2; i < 1000000; i++) {
         digit_counter dc = digits(i);
         sum = 0;
-        while (!dc.exhausted)   {
+        while (!dc.exhausted) {
             tmp = next(dc);
             sum += tmp * tmp * tmp * tmp * tmp;
         }
-        if (sum == i)   {
+        if (sum == i) {
             answer += i;
         }
         free_digit_counter(dc);
@@ -38,9 +38,8 @@ unsigned long long p0030() {
 }
 
 #ifndef UNITY_END
-int main(int argc, char const *argv[])  {
-    unsigned long long answer = p0030();
-    printf("%llu\n", answer);
+int main(int argc, char const *argv[]) {
+    printf("%llu\n", p0030());
     return 0;
 }
 #endif
