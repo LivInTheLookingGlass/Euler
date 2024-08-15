@@ -1,6 +1,6 @@
-#[cfg(not(feature = "wasm"))]
+#[cfg(not(any(target_arch="wasm32", target_arch="wasm64")))]
 use std::fs::read_to_string;
-#[cfg(not(feature = "wasm"))]
+#[cfg(not(any(target_arch="wasm32", target_arch="wasm64")))]
 use std::path::Path;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -9,16 +9,16 @@ pub enum Answer {
     Int(i128),
 }
 
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 const ANSWERS_TSV: &str = include_str!("../../../_data/answers.tsv");
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 const P0022_NAMES_TXT: &str = include_str!("../../../_data/p0022_names.txt");
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 const P0042_WORDS_TXT: &str = include_str!("../../../_data/p0042_words.txt");
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 const P0067_TRIANGLE_TXT: &str = include_str!("../../../_data/p0067_triangle.txt");
 
-#[cfg(feature = "wasm")]
+#[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 pub fn get_data_file(name: &str) -> String {
     return match name {
         "answers.tsv" => ANSWERS_TSV.to_string(),
@@ -29,7 +29,7 @@ pub fn get_data_file(name: &str) -> String {
     }
 }
 
-#[cfg(not(feature = "wasm"))]
+#[cfg(not(any(target_arch="wasm32", target_arch="wasm64")))]
 pub fn get_data_file(name: &str) -> String {
     let data_file = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap().join("_data").join(name);
     return read_to_string(&data_file).unwrap();

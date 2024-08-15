@@ -11,9 +11,9 @@
 		<div id="mocha"></div>
 		<!-- Mocha setup and initiation code -->
 		<script type="module">
+			import initSync, { get_problems, run_problem, get_js_answer } from './dist/rust.js';
 			mocha.setup('bdd');
 			window.onload = function() {
-				import initSync, { get_problems, run_problem, get_js_answer } from './dist/rust.js';
 				initSync();
 				var runner = mocha.run();
 				var failedTests = [];
