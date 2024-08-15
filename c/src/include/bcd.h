@@ -20,13 +20,41 @@ typedef struct {
     size_t decimal_digits;
     bool negative : 1;
     bool zero : 1;
+    bool even : 1;
+    bool constant : 1;
 } BCD_int;
+
+
+const BCD_int BCD_two = {
+    .digits = (packed_BCD_pair[]) {2},
+    .bcd_digits = 1,
+    .decimal_digits = 1,
+    .even = true,
+    .constant = true
+};  // note that non-specified values are initialized to NULL or 0
+
+
+const BCD_int BCD_one = {
+    .digits = (packed_BCD_pair[]) {1},
+    .bcd_digits = 1,
+    .decimal_digits = 1,
+    .constant = true
+};  // note that non-specified values are initialized to NULL or 0
+
+
+const BCD_int BCD_zero = {
+    .zero = true,
+    .even = true,
+    .constant = true
+};  // note that non-specified values are initialized to NULL or 0
 
 void free_BCD_int(BCD_int x);
 inline void free_BCD_int(BCD_int x) {
-    free(x.digits);
-    x.digits = NULL;
-    x.bcd_digits = x.decimal_digits = x.negative = x.zero = 0;
+    if (!x.constant) {
+        free(x.digits);
+        x.digits = NULL;
+        x.bcd_digits = x.decimal_digits = x.negative = x.zero = 0;
+    }
 }
 
 BCD_int new_BCD_int(uintmax_t a, bool negative)   {
@@ -537,6 +565,12 @@ BCD_int div_bcd_pow_10(BCD_int a, uintmax_t tens)   {
 BCD_int shift_bcd_right(BCD_int a, uintmax_t tens);
 inline BCD_int shift_bcd_right(BCD_int a, uintmax_t tens)   {
     return div_bcd_pow_10(a, tens);
+}
+
+void iadd_bcd(BCD_int *const x, const BCD_int y) {
+    BCD_int ret = add_bcd(*x, y);
+    free_BCD_int(*x);
+    *x = ret;
 }
 
 uintmax_t bcd_to_unsigned(BCD_int a) {

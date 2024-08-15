@@ -83,6 +83,10 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
     Returns ``x // 10**tens``.
 
+.. c:function:: void iadd_bcd(BCD_int *const x, const BCD_int y)
+
+    Transforms ``x`` to be ``x + y`` without needing to make a new assignment.
+
 .. c:function:: signed char cmp_bcd(BCD_int x, BCD_int y)
 
     Returns 1 if ``x > y``, -1 if ``y > x``, and otherwise 0.

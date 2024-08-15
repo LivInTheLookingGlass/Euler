@@ -65,6 +65,10 @@
     #define min(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
+#ifndef swap
+    #define swap(x, y, T) do { T SWAP = x; x = y; y = SWAP; } while (0)
+#endif
+
 #if !(CL_COMPILER || TCC_COMPILER)
     #define likely(x)   __builtin_expect(!!(x), 1)
     #define unlikely(x) __builtin_expect(!!(x), 0)

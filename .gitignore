@@ -18,11 +18,10 @@ csharp/*/obj
 csharp/*/bin
 **/TestResults
 docs/_build
-rust/target
+*/target
 **/.coverage
 **/.coverage.*
 **/coverage
 **/dist/*
-docs/_static/test-js.html
 javascript/src/lib/fallbacks
-java/target
+docs/languages*.svg

@@ -58,7 +58,7 @@ Olivia's Project Euler Solutions
 +------------+----------------------------+--------+-------------------+
 | Language   | Version                    | Solved | Status            |
 +============+============================+========+===================+
-| C          | C99+ in: |clang|, |br|     | 22     | |Ci| |br|         |
+| C          | C99+ in: |clang|, |br|     | 24     | |Ci| |br|         |
 |            | |gcc|, |pcc|, & |tcc| |br| |        | |C-Cov| |br|      |
 |            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
 |            |                            |        | |C-lint|          |
@@ -80,16 +80,16 @@ Olivia's Project Euler Solutions
 +------------+----------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|              | 25     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
-|            | Browser [2]_               |        | |CodeQL| |br|     |
+|            | Browser [#]_               |        | |CodeQL| |br|     |
 |            |                            |        | |ESLint|          |
 +------------+----------------------------+--------+-------------------+
 | Python     | CPython 3.6+ |br|          | 79     | |Python| |br|     |
 |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
 |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
-|            | Browser [3]_               |        | |PythonLint|      |
+|            | Browser [#]_               |        | |PythonLint|      |
 +------------+----------------------------+--------+-------------------+
 | Rust       | 1.69+ |br|                 | 28     | |Rust| |br|       |
-|            | Browser [4]_               |        | |Rs-Cov| |br|     |
+|            | Browser [#]_               |        | |Rs-Cov| |br|     |
 |            |                            |        | |RustClippy|      |
 +------------+----------------------------+--------+-------------------+
 
@@ -106,11 +106,11 @@ Olivia's Project Euler Solutions
    <a href="https://euler.oliviaappleton.com/_static/test-rs.html" target="_blank">click here!</a>
 
 .. [1] This is the earliest standard the MSVC explicitly supports.
-.. [2] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
+.. [#] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
-.. [3] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
+.. [#] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
-.. [4] While these solutions will run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
+.. [#] While these solutions will run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
    tests are not yet automated as on non-web platforms. To run these tests yourself, |test-rs-link|
 
 Coverage
