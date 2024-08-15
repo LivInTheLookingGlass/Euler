@@ -1,0 +1,15 @@
+Python Implementation of Problem 76
+===================================
+
+View source code :source:`python/src/p0076.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0076
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0076.py
+   :language: python
+   :linenos:

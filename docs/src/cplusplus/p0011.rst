@@ -1,0 +1,24 @@
+C++ Implementation of Problem 11
+================================
+
+View source code :source:`cplusplus/src/p0011.cpp`
+
+Includes
+--------
+
+- `macros.h <./lib/macros.html>`__
+
+Solution
+--------
+
+.. cpp:function:: unsigned long long p0011()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../../cplusplus/src/p0011.cpp
+   :language: C++
+   :linenos:

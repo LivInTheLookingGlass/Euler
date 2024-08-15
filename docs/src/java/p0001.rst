@@ -1,0 +1,14 @@
+Java Implementation of Problem 1
+================================
+
+View source code :source:`java/src/main/java/euler/p0001.java`
+
+.. java:type:: public class p0001 implements IEuler
+
+   .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 1
+
+.. literalinclude:: ../../../java/src/main/java/euler/p0001.java
+   :language: java
+   :linenos:

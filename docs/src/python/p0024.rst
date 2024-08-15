@@ -1,0 +1,15 @@
+Python Implementation of Problem 24
+===================================
+
+View source code :source:`python/src/p0024.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0024
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0024.py
+   :language: python
+   :linenos:

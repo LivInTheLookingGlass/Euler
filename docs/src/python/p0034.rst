@@ -1,0 +1,15 @@
+Python Implementation of Problem 34
+===================================
+
+View source code :source:`python/src/p0034.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0034
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0034.py
+   :language: python
+   :linenos:

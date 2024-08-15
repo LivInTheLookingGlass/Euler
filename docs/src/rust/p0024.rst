@@ -1,0 +1,13 @@
+Rust Implementation of Problem 24
+=================================
+
+View source code :source:`rust/src/p0024.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0024::p0024() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0024.rs
+   :language: rust
+   :linenos:

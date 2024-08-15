@@ -1,0 +1,21 @@
+Python Implementation of Problem 27
+===================================
+
+View source code :source:`python/src/p0027.py`
+
+Includes
+--------
+
+- `math <./lib/math.html>`_
+- `primes <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0027
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0027.py
+   :language: python
+   :linenos:

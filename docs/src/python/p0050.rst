@@ -1,0 +1,21 @@
+Python Implementation of Problem 50
+===================================
+
+View source code :source:`python/src/p0050.py`
+
+Includes
+--------
+
+- `primes <./lib/primes.html>`_
+- `iters <./lib/iters.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0050
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0050.py
+   :language: python
+   :linenos:

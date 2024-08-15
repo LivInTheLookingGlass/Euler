@@ -1,0 +1,21 @@
+Python Implementation of Problem 43
+===================================
+
+View source code :source:`python/src/p0043.py`
+
+Includes
+--------
+
+- `iters <./lib/iters.html>`_
+- `math <./lib/math.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0043
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0043.py
+   :language: python
+   :linenos:

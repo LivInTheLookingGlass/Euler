@@ -1,0 +1,14 @@
+Java Implementation of Problem 11
+=================================
+
+View source code :source:`java/src/main/java/euler/p0011.java`
+
+.. java:type:: public class p0011 implements IEuler
+
+   .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 11
+
+.. literalinclude:: ../../../java/src/main/java/euler/p0011.java
+   :language: java
+   :linenos:

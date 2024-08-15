@@ -1,0 +1,20 @@
+Python Implementation of Problem 18
+===================================
+
+View source code :source:`python/src/p0018.py`
+
+Includes
+--------
+
+- `triangles <./lib/triangles.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0018
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0018.py
+   :language: python
+   :linenos:

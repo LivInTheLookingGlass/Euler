@@ -1,0 +1,24 @@
+C++ Implementation of Problem 22
+================================
+
+View source code :source:`cplusplus/src/p0022.cpp`
+
+Includes
+--------
+
+- `utils.h <./lib/utils.html>`__
+
+Solution
+--------
+
+.. cpp:function:: unsigned long long p0022()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../../cplusplus/src/p0022.cpp
+   :language: C++
+   :linenos:

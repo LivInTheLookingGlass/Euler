@@ -1,0 +1,18 @@
+Rust Implementation of Problem 87
+=================================
+
+View source code :source:`rust/src/p0087.rs`
+
+Includes
+--------
+
+- `primes <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0087::p0087() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0087.rs
+   :language: rust
+   :linenos:

@@ -1,0 +1,18 @@
+Rust Implementation of Problem 18
+=================================
+
+View source code :source:`rust/src/p0018.rs`
+
+Includes
+--------
+
+- `triangles <./lib/triangles.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0018::p0018() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0018.rs
+   :language: rust
+   :linenos:

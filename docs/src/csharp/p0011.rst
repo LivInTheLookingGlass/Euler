@@ -1,0 +1,16 @@
+C# Implementation of Problem 11
+===============================
+
+View source code :source:`csharp/Euler/p0011.cs`
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0011
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: object Answer()
+
+.. literalinclude:: ../../../csharp/Euler/p0011.cs
+   :language: csharp
+   :linenos:

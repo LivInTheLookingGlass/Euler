@@ -1,0 +1,16 @@
+Python Implementation of Problem 63
+===================================
+
+View source code :source:`python/src/p0063.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0063
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0063.py
+   :language: python
+   :linenos:
+

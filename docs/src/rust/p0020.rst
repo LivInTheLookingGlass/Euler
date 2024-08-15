@@ -1,0 +1,13 @@
+Rust Implementation of Problem 20
+=================================
+
+View source code :source:`rust/src/p0020.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0020::p0020() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0020.rs
+   :language: rust
+   :linenos:

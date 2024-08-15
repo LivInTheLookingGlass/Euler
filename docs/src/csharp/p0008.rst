@@ -1,0 +1,16 @@
+C# Implementation of Problem 8
+==============================
+
+View source code :source:`csharp/Euler/p0008.cs`
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0008
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: object Answer()
+
+.. literalinclude:: ../../../csharp/Euler/p0008.cs
+   :language: csharp
+   :linenos:

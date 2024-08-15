@@ -1,0 +1,20 @@
+Python Implementation of Problem 22
+===================================
+
+View source code :source:`python/src/p0022.py`
+
+Includes
+--------
+
+- `utils <./lib/utils.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0022
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0022.py
+   :language: python
+   :linenos:

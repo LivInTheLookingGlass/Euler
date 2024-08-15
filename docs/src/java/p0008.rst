@@ -1,0 +1,14 @@
+Java Implementation of Problem 8
+================================
+
+View source code :source:`java/src/main/java/euler/p0008.java`
+
+.. java:type:: public class p0008 implements IEuler
+
+   .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 8
+
+.. literalinclude:: ../../../java/src/main/java/euler/p0008.java
+   :language: java
+   :linenos:

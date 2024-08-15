@@ -1,0 +1,15 @@
+Python Implementation of Problem 5
+==================================
+
+View source code :source:`python/src/p0005.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0005
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0005.py
+   :language: python
+   :linenos:

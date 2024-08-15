@@ -1,0 +1,20 @@
+C Implementation of Problem 836
+===============================
+
+View source code :source:`c/src/p0836.c`
+
+Solution
+--------
+
+.. c:function:: char *p0836()
+
+.. c:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+      It is not present when compiling for the Unity test runner.
+
+.. literalinclude:: ../../../c/src/p0836.c
+   :language: C
+   :linenos:

@@ -134,11 +134,11 @@ extlinks = {
     'live-test': ('/_static/test-%s.html',
                   'click here!%.0s'),
 } | {
-    f'{code}-d': (f'./{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
+    f'{code}-d': (f'./src/{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
 } | {
-    f'{code}-s': (f'./{lang}/p%s.html', '⏱%.0s') for (code, lang) in langcodes
+    f'{code}-s': (f'./src/{lang}/p%s.html', '⏱%.0s') for (code, lang) in langcodes
 } | {
-    f'{code}-i': (f'./{lang}/p%s.html', '🛠%.0s') for (code, lang) in langcodes
+    f'{code}-i': (f'./src/{lang}/p%s.html', '🛠%.0s') for (code, lang) in langcodes
 }
 extlinks_detect_hardcoded_links = True
 

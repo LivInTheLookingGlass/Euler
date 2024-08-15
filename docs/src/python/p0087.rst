@@ -1,0 +1,20 @@
+Python Implementation of Problem 87
+===================================
+
+View source code :source:`python/src/p0087.py`
+
+Includes
+--------
+
+- `primes <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0087
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0087.py
+   :language: python
+   :linenos:

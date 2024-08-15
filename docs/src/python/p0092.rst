@@ -1,0 +1,20 @@
+Python Implementation of Problem 92
+===================================
+
+View source code :source:`python/src/p0092.py`
+
+Includes
+--------
+
+- `iters <./lib/iters.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0092
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0092.py
+   :language: python
+   :linenos:

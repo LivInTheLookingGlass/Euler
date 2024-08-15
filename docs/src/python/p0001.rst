@@ -1,0 +1,16 @@
+Python Implementation of Problem 1
+==================================
+
+View source code :source:`python/src/p0001.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0001
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0001.py
+   :language: python
+   :linenos:
+

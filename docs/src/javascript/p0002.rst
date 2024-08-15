@@ -1,0 +1,11 @@
+JavaScript Implementation of Problem 2
+======================================
+
+View source code :source:`javascript/src/p0002.js`
+
+.. js:autofunction:: p0002
+
+.. literalinclude:: ../../../javascript/src/p0002.js
+   :language: javascript
+   :linenos:
+

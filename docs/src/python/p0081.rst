@@ -1,0 +1,21 @@
+Python Implementation of Problem 81
+===================================
+
+View source code :source:`python/src/p0081.py`
+
+Includes
+--------
+
+- `utils <./lib/utils.html>`_
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0081
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0081.py
+   :language: python
+   :linenos:
+

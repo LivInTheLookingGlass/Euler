@@ -1,0 +1,15 @@
+Rust Implementation of Problem 4
+================================
+
+View source code :source:`rust/src/p0004.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: fn p0004::is_palindrome(x: u32) -> bool
+
+.. rust:fn:: pub fn p0004::p0004() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0004.rs
+   :language: rust
+   :linenos:

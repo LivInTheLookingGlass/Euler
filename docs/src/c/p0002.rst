@@ -1,0 +1,25 @@
+C Implementation of Problem 2
+=============================
+
+View source code :source:`c/src/p0002.c`
+
+Includes
+--------
+
+- `fibonacci.h <./lib/fibonacci.html>`__
+
+Solution
+--------
+
+.. c:function:: unsigned long long p0002()
+
+.. c:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+      It is not present when compiling for the Unity test runner.
+
+.. literalinclude:: ../../../c/src/p0002.c
+   :language: C
+   :linenos:

@@ -1,0 +1,15 @@
+Python Implementation of Problem 13
+===================================
+
+View source code :source:`python/src/p0013.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0013
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0013.py
+   :language: python
+   :linenos:

@@ -1,0 +1,15 @@
+Python Implementation of Problem 39
+===================================
+
+View source code :source:`python/src/p0039.py`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0039
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0039.py
+   :language: python
+   :linenos:

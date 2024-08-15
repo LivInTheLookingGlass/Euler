@@ -1,0 +1,10 @@
+JavaScript Implementation of Problem 8
+======================================
+
+View source code :source:`javascript/src/p0008.js`
+
+.. js:autofunction:: p0008
+
+.. literalinclude:: ../../../javascript/src/p0008.js
+   :language: javascript
+   :linenos:

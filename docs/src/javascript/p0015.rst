@@ -1,0 +1,18 @@
+JavaScript Implementation of Problem 15
+=======================================
+
+View source code :source:`javascript/src/p0015.js`
+
+Includes
+--------
+
+- `math <./lib/math.html>`_
+
+Problem Solution
+----------------
+
+.. js:autofunction:: p0015
+
+.. literalinclude:: ../../../javascript/src/p0015.js
+   :language: javascript
+   :linenos:
