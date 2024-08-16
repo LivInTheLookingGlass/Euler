@@ -8,3 +8,5 @@ View source code :source:`cplusplus/src/p0001.cpp`
 .. literalinclude:: ../../../cplusplus/src/p0001.cpp
    :language: C++
    :linenos:
+
+.. tags:: divisibility

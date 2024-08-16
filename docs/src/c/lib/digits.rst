@@ -50,3 +50,5 @@ Includes
 .. literalinclude:: ../../../../c/src/include/digits.h
    :language: C
    :linenos:
+
+.. tags:: c-iterator

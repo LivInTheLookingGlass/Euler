@@ -12,3 +12,5 @@ View source code :source:`java/src/main/java/euler/p0014.java`
 .. literalinclude:: ../../../java/src/main/java/euler/p0014.java
    :language: java
    :linenos:
+
+.. tags:: collatz, recursion, longest-path

@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0050.py
    :language: python
    :linenos:
+
+.. tags:: prime-number, sequence-summation, python-iterator

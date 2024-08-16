@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0018.py
    :language: python
    :linenos:
+
+.. tags:: combinatorics, path-finding

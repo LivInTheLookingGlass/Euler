@@ -9,3 +9,4 @@ View source code :source:`javascript/src/p0002.js`
    :language: javascript
    :linenos:
 
+.. tags:: fibonacci-number, divisibility

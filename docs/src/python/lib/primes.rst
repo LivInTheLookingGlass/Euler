@@ -11,3 +11,4 @@ View source code :source:`python/src/lib/primes.py`
    :language: python
    :linenos:
 
+.. tags:: python-iterator, prime-number

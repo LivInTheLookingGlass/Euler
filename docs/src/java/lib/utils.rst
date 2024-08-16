@@ -23,3 +23,5 @@ View source code :source:`java/src/main/java/euler/lib/Utilities.java`
 .. literalinclude:: ../../../../java/src/main/java/euler/lib/Utilities.java
    :language: java
    :linenos:
+
+.. tags:: file-io

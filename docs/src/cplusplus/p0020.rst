@@ -17,3 +17,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0020.cpp
    :language: C++
    :linenos:
+
+.. tags:: large-numbers, digit-sum, factorial

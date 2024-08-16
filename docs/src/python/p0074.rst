@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0074.py
    :language: python
    :linenos:
+
+.. tags:: factorial, digit-sum, sequence-generator, periodicity, python-iterator

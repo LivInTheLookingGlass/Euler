@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0077.py
    :language: python
    :linenos:
+
+.. tags:: partition, prime-number, python-iterator

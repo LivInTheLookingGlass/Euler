@@ -8,3 +8,5 @@ View source code :source:`cplusplus/src/p0004.cpp`
 .. literalinclude:: ../../../cplusplus/src/p0004.cpp
    :language: C++
    :linenos:
+
+.. tags:: palindrome

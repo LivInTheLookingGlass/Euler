@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0024.py
    :language: python
    :linenos:
+
+.. tags:: permutation, lexicographic-ordering, combinatorics

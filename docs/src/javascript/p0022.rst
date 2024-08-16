@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../javascript/src/p0022.js
    :language: javascript
    :linenos:
+
+.. tags:: word-problem, sorting, file-io

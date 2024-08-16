@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0087.rs
    :language: rust
    :linenos:
+
+.. tags:: prime-number, cube-number, square-number, power, rust-iterator

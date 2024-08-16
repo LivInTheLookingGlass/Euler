@@ -14,3 +14,5 @@ View source code :source:`csharp/Euler/p0002.cs`
 .. literalinclude:: ../../../csharp/Euler/p0002.cs
    :language: csharp
    :linenos:
+
+.. tags:: fibonacci-number, divisibility

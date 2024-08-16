@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0067.py
    :language: python
    :linenos:
+
+.. tags:: combinatorics, path-finding, file-io

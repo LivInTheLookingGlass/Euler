@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../javascript/src/p0007.js
    :language: javascript
    :linenos:
+
+.. tags:: prime-number, js-iterator

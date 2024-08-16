@@ -11,3 +11,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0016.rs
    :language: rust
    :linenos:
+
+.. tags:: large-numbers, digit-sum, power

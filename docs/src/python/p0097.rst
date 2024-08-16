@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0097.py
    :language: python
    :linenos:
+
+.. tags:: prime-number, large-numbers

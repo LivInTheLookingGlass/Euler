@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0206.py
    :language: python
    :linenos:
+
+.. tags:: square-number, square-root

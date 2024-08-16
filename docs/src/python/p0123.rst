@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0123.py
    :language: python
    :linenos:
+
+.. tags:: polynomial, modular-arithmetic, prime-number, python-iterator

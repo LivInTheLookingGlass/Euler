@@ -14,3 +14,5 @@ View source code :source:`csharp/Euler/p0017.cs`
 .. literalinclude:: ../../../csharp/Euler/p0017.cs
    :language: csharp
    :linenos:
+
+.. tags:: word-problem, combinatorics

@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0076.py
    :language: python
    :linenos:
+
+.. tags:: partition

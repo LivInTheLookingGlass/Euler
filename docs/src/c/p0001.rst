@@ -23,3 +23,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0001.c
    :language: C
    :linenos:
+
+.. tags:: c-iterator, divisibility

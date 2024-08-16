@@ -57,3 +57,5 @@ View source code :source:`rust/src/include/primes.rs`
 .. literalinclude:: ../../../../rust/src/include/primes.rs
    :language: rust
    :linenos:
+
+.. tags:: rust-iterator, prime-number, divisor-count, divisibility

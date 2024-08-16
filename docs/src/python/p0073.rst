@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0073.py
    :language: python
    :linenos:
+
+.. tags:: fraction, gcd, stern-brocot-tree

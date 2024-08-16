@@ -25,3 +25,4 @@ docs/_build
 **/dist/*
 javascript/src/lib/fallbacks
 docs/languages*.svg
+docs/_tags

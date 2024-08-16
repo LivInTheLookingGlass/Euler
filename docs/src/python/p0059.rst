@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0059.py
    :language: python
    :linenos:
+
+.. tags:: cryptography, binary-operator, xor, file-io

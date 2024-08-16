@@ -22,3 +22,5 @@ Problem Solution
 .. literalinclude:: ../../../csharp/Euler/p0034.cs
    :language: csharp
    :linenos:
+
+.. tags:: factorial, digit-sum

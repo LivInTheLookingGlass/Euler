@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0042.py
    :language: python
    :linenos:
+
+.. tags:: triangle-number, figurate-number, word-problem, file-io

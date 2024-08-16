@@ -23,3 +23,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0014.c
    :language: C
    :linenos:
+
+.. tags:: collatz, recursion, longest-path

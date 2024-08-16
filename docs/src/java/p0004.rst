@@ -12,3 +12,5 @@ View source code :source:`java/src/main/java/euler/p0004.java`
 .. literalinclude:: ../../../java/src/main/java/euler/p0004.java
    :language: java
    :linenos:
+
+.. tags:: palindrome

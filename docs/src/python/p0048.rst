@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0048.py
    :language: python
    :linenos:
+
+.. tags:: sequence-summation, power, modular-arithmetic, large-numbers

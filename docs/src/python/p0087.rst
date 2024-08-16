@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0087.py
    :language: python
    :linenos:
+
+.. tags:: prime-number, cube-number, square-number, power, python-iterator

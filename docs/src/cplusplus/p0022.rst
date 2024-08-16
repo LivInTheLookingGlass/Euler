@@ -6,7 +6,7 @@ View source code :source:`cplusplus/src/p0022.cpp`
 Includes
 --------
 
-- `utils.h <./lib/utils.html>`__
+- `utils.hpp <./lib/utils.html>`__
 
 Solution
 --------
@@ -22,3 +22,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0022.cpp
    :language: C++
    :linenos:
+
+.. tags:: word-problem, sorting, file-io

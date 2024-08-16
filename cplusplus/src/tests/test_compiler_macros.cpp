@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../include/macros.h"
+#include "../include/macros.hpp"
 
 int main(int argc, char const *argv[]) {
     printf(

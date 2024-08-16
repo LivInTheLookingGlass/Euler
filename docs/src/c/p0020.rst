@@ -18,3 +18,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0020.c
    :language: C
    :linenos:
+
+.. tags:: large-numbers, digit-sum, factorial

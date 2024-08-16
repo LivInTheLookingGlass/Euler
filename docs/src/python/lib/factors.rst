@@ -11,3 +11,4 @@ View source code :source:`python/src/lib/factors.py`
    :language: python
    :linenos:
 
+.. tags:: python-iterator, divisor-count, divisibility

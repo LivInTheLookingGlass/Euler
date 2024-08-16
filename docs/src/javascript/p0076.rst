@@ -8,3 +8,5 @@ View source code :source:`javascript/src/p0076.js`
 .. literalinclude:: ../../../javascript/src/p0076.js
    :language: javascript
    :linenos:
+
+.. tags:: partition, marked-slow

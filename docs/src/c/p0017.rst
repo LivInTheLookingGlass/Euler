@@ -18,3 +18,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0017.c
    :language: C
    :linenos:
+
+.. tags:: word-problem, combinatorics

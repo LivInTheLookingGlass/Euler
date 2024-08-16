@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0092.py
    :language: python
    :linenos:
+
+.. tags:: digit-sum, sequence-generator, python-iterator

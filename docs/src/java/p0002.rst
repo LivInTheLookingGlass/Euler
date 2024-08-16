@@ -12,3 +12,5 @@ View source code :source:`java/src/main/java/euler/p0002.java`
 .. literalinclude:: ../../../java/src/main/java/euler/p0002.java
    :language: java
    :linenos:
+
+.. tags:: fibonacci-number, divisibility

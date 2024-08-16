@@ -10,3 +10,5 @@ View source code :source:`python/src/p0016.py`
 .. literalinclude:: ../../../python/src/p0016.py
    :language: python
    :linenos:
+
+.. tags:: large-numbers, digit-sum, power

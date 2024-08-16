@@ -3,12 +3,6 @@ Python Implementation of Problem 836
 
 View source code :source:`python/src/p0836.py`
 
-Includes
---------
-
-- `factors <./lib/factors.html>`_
-- `primes <./lib/primes.html>`_
-
 Problem Solution
 ----------------
 
@@ -20,3 +14,4 @@ Problem Solution
    :language: python
    :linenos:
 
+.. tags:: word-problem

@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0049.py
    :language: python
    :linenos:
+
+.. tags:: arithmetic-progression, prime-number, permutation, python-iterator

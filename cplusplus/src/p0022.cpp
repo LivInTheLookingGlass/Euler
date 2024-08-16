@@ -18,7 +18,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "include/utils.h"
+#include "include/utils.hpp"
 
 uint64_t p0022() {
     uint64_t answer = 0;

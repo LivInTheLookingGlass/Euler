@@ -12,3 +12,5 @@ View source code :source:`java/src/main/java/euler/p0016.java`
 .. literalinclude:: ../../../java/src/main/java/euler/p0016.java
    :language: java
    :linenos:
+
+.. tags:: large-numbers, digit-sum, power

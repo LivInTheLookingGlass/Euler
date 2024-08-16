@@ -14,3 +14,5 @@ View source code :source:`csharp/Euler/p0013.cs`
 .. literalinclude:: ../../../csharp/Euler/p0013.cs
    :language: csharp
    :linenos:
+
+.. tags:: large-numbers

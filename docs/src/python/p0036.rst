@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0036.py
    :language: python
    :linenos:
+
+.. tags:: palindrome, number-base

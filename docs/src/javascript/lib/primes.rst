@@ -18,3 +18,5 @@ View source code :source:`javascript/src/lib/primes.js`
 .. literalinclude:: ../../../../javascript/src/lib/primes.js
    :language: javascript
    :linenos:
+
+.. tags:: prime-number, divisibility, factorization, js-iterator

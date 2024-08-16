@@ -1,7 +1,7 @@
-macros.h
-========
+macros.hpp
+==========
 
-View source code :source:`cplusplus/src/include/macros.h`
+View source code :source:`cplusplus/src/include/macros.hpp`
 
 .. c:namespace-push:: cppmacros
 

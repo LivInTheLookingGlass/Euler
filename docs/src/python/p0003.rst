@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0003.py
    :language: python
    :linenos:
+
+.. tags:: prime-number, factorization, python-iterator

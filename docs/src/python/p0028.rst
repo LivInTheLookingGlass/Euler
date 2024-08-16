@@ -14,3 +14,4 @@ Problem Solution
    :language: python
    :linenos:
 
+.. tags:: grid-pattern

@@ -12,3 +12,5 @@ View source code :source:`java/src/main/java/euler/p0006.java`
 .. literalinclude:: ../../../java/src/main/java/euler/p0006.java
    :language: java
    :linenos:
+
+.. tags:: arithmetic-progression, sequence-summation

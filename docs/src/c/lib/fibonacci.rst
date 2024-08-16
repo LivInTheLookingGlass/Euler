@@ -48,3 +48,5 @@ Includes
 .. literalinclude:: ../../../../c/src/include/fibonacci.h
    :language: C
    :linenos:
+
+.. tags:: c-iterator, fibonacci-number

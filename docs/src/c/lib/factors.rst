@@ -40,3 +40,5 @@ factors for a given number. It is generally used by first calling
 .. literalinclude:: ../../../../c/src/include/factors.h
    :language: C
    :linenos:
+
+.. tags:: factorization, divisor-count, c-iterator

@@ -11,3 +11,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0005.rs
    :language: rust
    :linenos:
+
+.. tags:: divisibility, factorization

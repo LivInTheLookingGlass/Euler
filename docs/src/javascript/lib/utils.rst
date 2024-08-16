@@ -8,3 +8,5 @@ View source code :source:`javascript/src/lib/utils.js`
 .. literalinclude:: ../../../../javascript/src/lib/utils.js
    :language: javascript
    :linenos:
+
+.. tags:: file-io

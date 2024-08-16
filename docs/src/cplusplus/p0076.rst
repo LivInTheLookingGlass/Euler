@@ -6,7 +6,7 @@ View source code :source:`cplusplus/src/p0076.cpp`
 Includes
 --------
 
-- `macros.h <./lib/macros.html>`__
+- `macros.hpp <./lib/macros.html>`__
 
 Solution
 --------
@@ -22,3 +22,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0076.cpp
    :language: C++
    :linenos:
+
+.. tags:: partition

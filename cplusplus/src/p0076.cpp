@@ -42,7 +42,7 @@ positive integers?
 #define EULER_P0076
 #include <stdint.h>
 #include <iostream>
-#include "include/macros.h"
+#include "include/macros.hpp"
 
 uint32_t p0076() {
     uint32_t answer = 0;

@@ -6,7 +6,7 @@ View source code :source:`c/src/p0004.c`
 Includes
 --------
 
-- `iterator.h <./lib/digits.html>`__
+- `digits.h <./lib/digits.html>`__
 
 Solution
 --------
@@ -23,3 +23,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0004.c
    :language: C
    :linenos:
+
+.. tags:: c-iterator, palindrome

@@ -17,3 +17,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0009.cpp
    :language: C++
    :linenos:
+
+.. tags:: pythagorean-triple

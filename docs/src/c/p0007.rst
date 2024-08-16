@@ -23,3 +23,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0007.c
    :language: C
    :linenos:
+
+.. tags:: c-iterator, prime-number

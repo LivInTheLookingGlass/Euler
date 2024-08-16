@@ -23,3 +23,5 @@ View source code :source:`rust/src/include/utils.rs`
 .. literalinclude:: ../../../../rust/src/include/utils.rs
    :language: rust
    :linenos:
+
+.. tags:: file-io

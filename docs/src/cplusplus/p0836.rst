@@ -17,3 +17,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0836.cpp
    :language: C++
    :linenos:
+
+.. tags:: word-problem

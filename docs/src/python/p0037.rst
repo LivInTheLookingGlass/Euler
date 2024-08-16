@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0037.py
    :language: python
    :linenos:
+
+.. tags:: prime-number, digit-manipulation, python-iterator

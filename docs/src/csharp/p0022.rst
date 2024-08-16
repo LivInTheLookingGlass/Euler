@@ -22,3 +22,5 @@ Problem Solution
 .. literalinclude:: ../../../csharp/Euler/p0022.cs
    :language: csharp
    :linenos:
+
+.. tags:: word-problem, sorting, file-io

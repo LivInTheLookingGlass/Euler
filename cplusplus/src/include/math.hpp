@@ -1,7 +1,7 @@
 #ifndef EULER_MATH_H
 #define EULER_MATH_H
 
-#include "macros.h"
+#include "macros.hpp"
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>

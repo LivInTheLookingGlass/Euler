@@ -12,3 +12,5 @@ View source code :source:`java/src/main/java/euler/p0011.java`
 .. literalinclude:: ../../../java/src/main/java/euler/p0011.java
    :language: java
    :linenos:
+
+.. tags:: optimization

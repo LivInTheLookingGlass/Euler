@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0056.py
    :language: python
    :linenos:
+
+.. tags:: large-numbers, digit-sum, python-iterator

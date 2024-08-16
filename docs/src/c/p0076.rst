@@ -23,3 +23,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0076.c
    :language: C
    :linenos:
+
+.. tags:: partition

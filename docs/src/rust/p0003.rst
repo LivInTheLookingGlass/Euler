@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0003.rs
    :language: rust
    :linenos:
+
+.. tags:: factorization, prime-number, rust-iterator

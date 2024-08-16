@@ -68,7 +68,6 @@ Library Code
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    csharp/lib/*
@@ -78,7 +77,6 @@ Problems Solved
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    csharp/p[0-9][0-9][0-9][0-9]

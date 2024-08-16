@@ -18,3 +18,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0836.c
    :language: C
    :linenos:
+
+.. tags:: word-problem

@@ -19,3 +19,4 @@ Problem Solution
    :language: python
    :linenos:
 
+.. tags:: path-finding, shortest-path, file-io

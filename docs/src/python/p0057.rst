@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0057.py
    :language: python
    :linenos:
+
+.. tags:: continued-fraction, square-root, python-iterator

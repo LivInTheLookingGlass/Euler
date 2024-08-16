@@ -14,3 +14,5 @@ View source code :source:`csharp/Euler/p0014.cs`
 .. literalinclude:: ../../../csharp/Euler/p0014.cs
    :language: csharp
    :linenos:
+
+.. tags:: collatz, recursion, longest-path

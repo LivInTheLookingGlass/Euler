@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0052.py
    :language: python
    :linenos:
+
+.. tags:: digit-manipulation, python-iterator

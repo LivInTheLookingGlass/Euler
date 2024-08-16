@@ -20,3 +20,5 @@ Problem Solution
 .. literalinclude:: ../../../java/src/main/java/euler/p0015.java
    :language: java
    :linenos:
+
+.. tags:: combinatorics

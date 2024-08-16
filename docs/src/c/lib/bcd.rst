@@ -127,3 +127,5 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 .. literalinclude:: ../../../../c/src/include/bcd.h
    :language: C
    :linenos:
+
+.. tags:: large-numbers

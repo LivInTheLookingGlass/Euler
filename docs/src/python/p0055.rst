@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0055.py
    :language: python
    :linenos:
+
+.. tags:: palindrome, python-iterator

@@ -17,3 +17,5 @@ Problem Solution
 .. literalinclude:: ../../../csharp/Euler/p0016.cs
    :language: csharp
    :linenos:
+
+.. tags:: large-numbers, digit-sum, power

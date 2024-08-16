@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0046.py
    :language: python
    :linenos:
+
+.. tags:: prime-number, square-number, python-iterator

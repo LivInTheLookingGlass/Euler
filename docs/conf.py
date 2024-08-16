@@ -53,6 +53,9 @@ extensions = [
 rust_crates = [
     "../rust",
 ]
+html_css_files = [
+    'style.css',
+]
 
 try:
     check_call(['rpm-ostree', '--version'])

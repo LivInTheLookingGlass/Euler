@@ -20,3 +20,4 @@ Problem Solution
    :language: python
    :linenos:
 
+.. tags:: factorization, divisibility, prime-number, python-iterator, marked-slow

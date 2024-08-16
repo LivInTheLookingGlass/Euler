@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0015.py
    :language: python
    :linenos:
+
+.. tags:: combinatorics

@@ -14,3 +14,5 @@ View source code :source:`csharp/Euler/p0001.cs`
 .. literalinclude:: ../../../csharp/Euler/p0001.cs
    :language: csharp
    :linenos:
+
+.. tags:: divisibility

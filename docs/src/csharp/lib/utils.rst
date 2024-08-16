@@ -16,3 +16,5 @@ View source code :source:`csharp/include/utils.cs`
 .. literalinclude:: ../../../../csharp/Euler/include/utils.cs
    :language: csharp
    :linenos:
+
+.. tags:: file-io

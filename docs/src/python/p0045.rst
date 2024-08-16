@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0045.py
    :language: python
    :linenos:
+
+.. tags:: figurate-number, triangle-number

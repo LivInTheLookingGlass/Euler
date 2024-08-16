@@ -10,7 +10,6 @@ Library Code
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    cplusplus/lib/*
@@ -20,7 +19,6 @@ Problems Solved
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    cplusplus/p[0-9][0-9][0-9][0-9]

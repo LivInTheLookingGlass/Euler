@@ -18,3 +18,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0009.c
    :language: C
    :linenos:
+
+.. tags:: pythagorean-triple

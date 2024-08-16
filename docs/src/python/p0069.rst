@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0069.py
    :language: python
    :linenos:
+
+.. tags:: coprime-numbers, totient-function, prime-number, python-iterator

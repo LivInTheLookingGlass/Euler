@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0031.py
    :language: python
    :linenos:
+
+.. tags:: partition, combinatorics

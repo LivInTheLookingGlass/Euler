@@ -11,3 +11,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0836.rs
    :language: rust
    :linenos:
+
+.. tags:: word-problem

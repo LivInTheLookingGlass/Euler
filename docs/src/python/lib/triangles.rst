@@ -11,3 +11,5 @@ View source code :source:`python/src/lib/triangles.py`
    :language: python
    :linenos:
 
+.. tags:: combinatorics, path-finding
+

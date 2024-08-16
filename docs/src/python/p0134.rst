@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0134.py
    :language: python
    :linenos:
+
+.. tags:: modular-inverse, chinese-remainder-theorem, python-iterator, prime-number

@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0077.rs
    :language: rust
    :linenos:
+
+.. tags:: partition, prime-number, rust-iterator

@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0022.py
    :language: python
    :linenos:
+
+.. tags:: word-problem, sorting, file-io

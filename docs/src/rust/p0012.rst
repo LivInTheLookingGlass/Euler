@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0012.rs
    :language: rust
    :linenos:
+
+.. tags:: divisor-count

@@ -11,3 +11,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0013.rs
    :language: rust
    :linenos:
+
+.. tags:: large-numbers

@@ -241,6 +241,10 @@ Problems Solved
 
    usage
    src/*
+
+.. toctree::
+   :maxdepth: 1
+
    _tags/tagsindex
 
 Indices and tables

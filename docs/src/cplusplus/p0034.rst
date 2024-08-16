@@ -6,7 +6,7 @@ View source code :source:`cplusplus/src/p0034.cpp`
 Includes
 --------
 
-- `math.h <./lib/math.html>`__
+- `math.hpp <./lib/math.html>`__
 
 Solution
 --------
@@ -22,3 +22,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0034.cpp
    :language: C++
    :linenos:
+
+.. tags:: factorial, digit-sum

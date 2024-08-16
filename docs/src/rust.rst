@@ -44,7 +44,6 @@ Library Code
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    rust/lib/*
@@ -54,7 +53,6 @@ Problems Solved
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    rust/p[0-9][0-9][0-9][0-9]

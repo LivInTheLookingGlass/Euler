@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0038.py
    :language: python
    :linenos:
+
+.. tags:: pandigital, digit-manipulation, python-iterator

@@ -16,3 +16,5 @@ View source code :source:`c/src/include/utils.h`
 .. literalinclude:: ../../../../c/src/include/utils.h
    :language: C
    :linenos:
+
+.. tags:: file-io

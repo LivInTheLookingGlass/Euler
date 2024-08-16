@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0043.py
    :language: python
    :linenos:
+
+.. tags:: pandigital, divisibility, python-iterator

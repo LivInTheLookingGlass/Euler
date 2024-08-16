@@ -146,3 +146,5 @@ Includes
 .. literalinclude:: ../../../../c/src/include/primes.h
    :language: C
    :linenos:
+
+.. tags:: prime-number, divisibility, factorization, c-iterator

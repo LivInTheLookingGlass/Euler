@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../javascript/src/p0046.js
    :language: javascript
    :linenos:
+
+.. tags:: prime-number, square-number

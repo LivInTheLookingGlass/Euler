@@ -11,3 +11,4 @@ View source code :source:`python/src/lib/iters.py`
    :language: python
    :linenos:
 
+.. tags:: python-iterator

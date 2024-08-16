@@ -8,3 +8,5 @@ View source code :source:`javascript/src/p0014.js`
 .. literalinclude:: ../../../javascript/src/p0014.js
    :language: javascript
    :linenos:
+
+.. tags:: collatz, recursion, longest-path

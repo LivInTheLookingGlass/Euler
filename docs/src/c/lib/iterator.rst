@@ -115,3 +115,5 @@ Includes
 .. literalinclude:: ../../../../c/src/include/iterator.h
    :language: C
    :linenos:
+
+.. tags:: c-iterator

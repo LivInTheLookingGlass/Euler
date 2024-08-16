@@ -21,3 +21,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0357.rs
    :language: rust
    :linenos:
+
+.. tags:: factorization, divisibility, prime-number, rust-iterator, marked-slow

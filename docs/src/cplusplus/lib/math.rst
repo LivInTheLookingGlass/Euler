@@ -1,7 +1,7 @@
-math.h
-======
+math.hpp
+========
 
-View source code :source:`cplusplus/src/include/math.h`
+View source code :source:`cplusplus/src/include/math.hpp`
 
 Includes
 --------

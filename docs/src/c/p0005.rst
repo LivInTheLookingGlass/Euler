@@ -24,3 +24,5 @@ Solution
 .. literalinclude:: ../../../c/src/p0005.c
    :language: C
    :linenos:
+
+.. tags:: c-iterator, divisibility, factorization, prime-number

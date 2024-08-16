@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0020.py
    :language: python
    :linenos:
+
+.. tags:: large-numbers, digit-sum, factorial

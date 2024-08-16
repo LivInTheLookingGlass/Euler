@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0010.rs
    :language: rust
    :linenos:
+
+.. tags:: prime-number, rust-iterator

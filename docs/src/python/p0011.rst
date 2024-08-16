@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0011.py
    :language: python
    :linenos:
+
+.. tags:: optimization, python-iterator

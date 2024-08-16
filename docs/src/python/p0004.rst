@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0004.py
    :language: python
    :linenos:
+
+.. tags:: palindrome

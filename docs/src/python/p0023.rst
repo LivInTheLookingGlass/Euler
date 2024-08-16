@@ -18,3 +18,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0023.py
    :language: python
    :linenos:
+
+.. tags:: divisor-sum, python-iterator

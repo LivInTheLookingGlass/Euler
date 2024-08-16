@@ -66,7 +66,6 @@ Library Code
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    java/lib/*
@@ -76,7 +75,6 @@ Problems Solved
 
 .. toctree::
    :glob:
-   :numbered:
    :maxdepth: 1
 
    java/p[0-9][0-9][0-9][0-9]

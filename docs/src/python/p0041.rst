@@ -19,3 +19,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0041.py
    :language: python
    :linenos:
+
+.. tags:: pandigital, prime-number, python-iterator

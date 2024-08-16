@@ -8,3 +8,5 @@ View source code :source:`javascript/src/p0836.js`
 .. literalinclude:: ../../../javascript/src/p0836.js
    :language: javascript
    :linenos:
+
+.. tags:: word-problem

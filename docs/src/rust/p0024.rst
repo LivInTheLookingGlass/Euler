@@ -11,3 +11,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0024.rs
    :language: rust
    :linenos:
+
+.. tags:: permutation, lexicographic-ordering, combinatorics

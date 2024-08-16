@@ -1,0 +1,3 @@
+.rst-content .toctree-wrapper:not(:last-child) ul {
+    margin-bottom: 10px;
+}

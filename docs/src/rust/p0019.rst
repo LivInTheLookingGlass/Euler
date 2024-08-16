@@ -16,3 +16,5 @@ Problem Solution
 .. literalinclude:: ../../../rust/src/p0019.rs
    :language: rust
    :linenos:
+
+.. tags:: calendar, combinatorics

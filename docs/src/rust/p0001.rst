@@ -8,3 +8,5 @@ View source code :source:`rust/src/p0001.rs`
 .. literalinclude:: ../../../rust/src/p0001.rs
    :language: rust
    :linenos:
+
+.. tags:: divisibility

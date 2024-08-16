@@ -13,3 +13,5 @@ Problem Solution
 .. literalinclude:: ../../../python/src/p0039.py
    :language: python
    :linenos:
+
+.. tags:: geometry, partition, pythagorean-triple

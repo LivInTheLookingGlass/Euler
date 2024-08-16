@@ -8,3 +8,5 @@ View source code :source:`rust/src/p0002.rs`
 .. literalinclude:: ../../../rust/src/p0002.rs
    :language: rust
    :linenos:
+
+.. tags:: fibonacci-number, divisibility

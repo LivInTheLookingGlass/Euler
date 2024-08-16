@@ -8,3 +8,5 @@ View source code :source:`cplusplus/src/p0002.cpp`
 .. literalinclude:: ../../../cplusplus/src/p0002.cpp
    :language: C++
    :linenos:
+
+.. tags:: fibonacci-number, divisibility

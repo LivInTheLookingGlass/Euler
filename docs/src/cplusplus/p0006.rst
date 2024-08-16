@@ -17,3 +17,5 @@ Solution
 .. literalinclude:: ../../../cplusplus/src/p0006.cpp
    :language: C++
    :linenos:
+
+.. tags:: arithmetic-progression, sequence-summation
