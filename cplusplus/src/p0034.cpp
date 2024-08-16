@@ -24,7 +24,7 @@ uint64_t p0034() {
         char buf[8] = {};
         // I know snprintf exists, but it isn't defined in C++98,
         // and this isn't taking in user input
-        sprintf(buf, "%lu", i);
+        sprintf(buf, "%" PRIu64, i);
         for (uint8_t j = 0; j < 8 && buf[j]; j++)
             sum += factorial(buf[j] - '0');
         if (sum == i)
