@@ -14,6 +14,13 @@ PROXY_ARG=
 endif
 endif
 
+COV?=false
+ifneq ($(COV),false)
+pytest_args= -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose --cov
+else
+pytest_args= -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
+endif
+
 .PHONY: help
 help:
 	@echo "  $(BLUE)test$(NC)  	run through all tests in sequence. Utilizes the Python test runner infrastructure"
@@ -25,11 +32,11 @@ help:
 
 .PHONY: test_%
 test_%: ../LICENSE dependencies
-	@$(PY) -m pytest -dvl -n$* test_euler.py --cov
+	@$(PY) -m pytest $(pytest_args) -d -n$* test_euler.py
 
 .PHONY: test
 test: ../LICENSE dependencies
-	@$(PY) -m pytest -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose test_euler.py --cov
+	@$(PY) -m pytest $(pytest_args) test_euler.py
 
 Unity/src/unity.c:
 	@git submodule init

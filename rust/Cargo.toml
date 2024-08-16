@@ -1,7 +1,15 @@
 [package]
+authors = ["Olivia Appleton"]
 name = "rust"
+description = "Project Euler solutions in Rust"
+documentation = "https://euler.oliviaappleton.com"
+homepage = "https://euler.oliviaappleton.com"
+repository = "https://github.com/LivInTheLookingGlass/Euler"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.69"
+license = "GPL-3.0"
+license-file = "../LICENSE"
 
 [dependencies]
 chrono = "0.4.38"
