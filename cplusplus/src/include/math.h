@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <inttypes.h>
 
 using namespace std;
 

@@ -12,6 +12,7 @@ What is the 10 001st prime number?
 #ifndef EULER_P0007
 #define EULER_P0007
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/primes.h"
 
@@ -29,7 +30,7 @@ uint64_t p0007() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu", p0007());
+    printf("%" PRIu64 "\n", p0007());
     return 0;
 }
 #endif

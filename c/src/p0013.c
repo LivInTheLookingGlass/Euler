@@ -111,6 +111,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 #ifndef EULER_P0013
 #define EULER_P0013
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/bcd.h"
 
@@ -237,7 +238,7 @@ uint64_t p0013() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0013());
+    printf("%" PRIu64 "\n", p0013());
     return 0;
 }
 #endif

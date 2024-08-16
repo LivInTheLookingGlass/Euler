@@ -29,6 +29,7 @@ What is the index of the first term in the Fibonacci sequence to contain 1000 di
 #ifndef EULER_P0025
 #define EULER_P0025
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/bcd.h"
 
@@ -47,7 +48,7 @@ uint64_t p0025() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0025());
+    printf("%" PRIu64 "\n", p0025());
     return 0;
 }
 #endif

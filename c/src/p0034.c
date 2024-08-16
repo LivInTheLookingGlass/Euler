@@ -13,6 +13,7 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 #ifndef EULER_P0034
 #define EULER_P0034
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/digits.h"
 #include "include/math.h"
@@ -34,7 +35,7 @@ uint64_t p0034() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu", p0034());
+    printf("%" PRIu64 "\n", p0034());
     return 0;
 }
 #endif

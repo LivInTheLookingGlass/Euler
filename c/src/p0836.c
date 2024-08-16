@@ -17,6 +17,7 @@ Find f(20230401, 57). Give as your answer the concatenation of the first letters
 #ifndef EULER_P0836
 #define EULER_P0836
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 
 char *p0836() {

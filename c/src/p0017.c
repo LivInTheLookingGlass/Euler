@@ -19,6 +19,7 @@ British usage.
 #ifndef EULER_P0017
 #define EULER_P0017
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 
 uint32_t to_string_len(uint64_t n);
@@ -89,7 +90,7 @@ uint64_t p0017() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0017());
+    printf("%" PRIu64 "\n", p0017());
     return 0;
 }
 #endif

@@ -41,6 +41,7 @@ positive integers?
 #ifndef EULER_P0076
 #define EULER_P0076
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -72,7 +73,7 @@ uint32_t p0076() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%u", p0076());
+    printf("%" PRIu32 "\n", p0076());
     return 0;
 }
 #endif

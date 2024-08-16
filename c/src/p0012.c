@@ -29,6 +29,7 @@ divisors?
 #ifndef EULER_P0012
 #define EULER_P0012
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/factors.h"
 
@@ -54,7 +55,7 @@ uint64_t p0012() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu", p0012());
+    printf("%" PRIu64 "\n", p0012());
     return 0;
 }
 #endif

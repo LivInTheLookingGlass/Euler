@@ -1,6 +1,7 @@
 #pragma once
 #include <stdlib.h>
 #include <stdint.h>
+#include <inttypes.h>
 #include <string.h>
 #ifdef _WIN32
 #include <direct.h>
@@ -90,7 +91,7 @@ std::string get_data_file(const char *name) {
     const size_t ret_code = fread(buffer, 1, length, file);
     if (ret_code != length) {
         if (feof(file))
-            printf("Error reading %s: unexpected end of file, read %lu of %lu bytes expected\n", name, (uint64_t)ret_code, (uint64_t)length);
+            printf("Error reading %s: unexpected end of file, read %"PRIu64" of %"PRIu64" bytes expected\n", name, (uint64_t)ret_code, (uint64_t)length);
         else if (ferror(file))
             perror("Error reading data file");
     }

@@ -34,6 +34,7 @@ the 20×20 grid?
 #ifndef EULER_P0011
 #define EULER_P0011
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -88,7 +89,7 @@ uint64_t p0011() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu", p0011());
+    printf("%" PRIu64 "\n", p0011());
     return 0;
 }
 #endif

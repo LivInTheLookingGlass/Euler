@@ -15,6 +15,7 @@
 #ifndef EULER_P0001
 #define EULER_P0001
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/iterator.h"
 
@@ -34,7 +35,7 @@ uint64_t p0001() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0001());
+    printf("%" PRIu64 "\n", p0001());
     return 0;
 }
 #endif

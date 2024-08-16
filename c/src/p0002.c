@@ -17,6 +17,7 @@ four million, find the sum of the even-valued terms.
 #ifndef EULER_P0002
 #define EULER_P0002
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/fibonacci.h"
 
@@ -33,7 +34,7 @@ uint64_t p0002() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0002());
+    printf("%" PRIu64 "\n", p0002());
     return 0;
 }
 #endif

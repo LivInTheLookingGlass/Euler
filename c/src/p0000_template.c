@@ -10,6 +10,7 @@ This paragraph should be replaced by the problem description, excluding images.
 #ifndef EULER_P0000
 #define EULER_P0000
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 
 uint64_t p0000() {
@@ -18,7 +19,7 @@ uint64_t p0000() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0000());
+    printf("%" PRIu64 "\n", p0000());
     return 0;
 }
 #endif

@@ -12,6 +12,7 @@ Find the sum of all the primes below two million.
 #ifndef EULER_P0010
 #define EULER_P0010
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/primes.h"
 
@@ -26,7 +27,7 @@ uint64_t p0010() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu", p0010());
+    printf("%" PRIu64 "\n", p0010());
     return 0;
 }
 #endif

@@ -13,6 +13,7 @@ Find the sum of the digits in the number 100!
 #ifndef EULER_P0020
 #define EULER_P0020
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 
 uint64_t p0020() {
@@ -41,7 +42,7 @@ uint64_t p0020() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0020());
+    printf("%" PRIu64 "\n", p0020());
     return 0;
 }
 #endif

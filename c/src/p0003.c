@@ -13,6 +13,7 @@ What is the largest prime factor of the number 600851475143 ?
 #ifndef EULER_P0003
 #define EULER_P0003
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include "include/primes.h"
 
@@ -27,7 +28,7 @@ uint64_t p0003() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%lu\n", p0003());
+    printf("%" PRIu64 "\n", p0003());
     return 0;
 }
 #endif
