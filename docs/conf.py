@@ -9,14 +9,13 @@
 
 from fnmatch import fnmatch
 from os import environ, path, sep, walk
-from subprocess import check_call, check_output
+from subprocess import check_call
 from sys import path as sys_path
 
 from sphinxcontrib.domaintools import custom_domain
 try:
     from ghlinguist import linguist
     import matplotlib.pyplot as plt
-    from matplotlib import colormaps
 except Exception:
     pass
 
@@ -226,19 +225,17 @@ def setup(app):
     try:
         langs = linguist(basedir)
         labels = [lang[0] for lang in langs]
+        sizes = [float(lang[1]) for lang in langs]
         counts = [countfiles(lang) for lang in labels]
-        sizes = [lang[1] for lang in langs]
-        colors = [plt.get_cmap('viridis')(idx / len(labels)) for idx, _ in enumerate(labels)]
+        colormap = plt.get_cmap('tab10' if len(labels) <= 10 else 'tab20')
+        colors = [colormap(idx / len(labels)) for idx, _ in enumerate(labels)]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
-        sizes = [float(size) / count for size, count in zip(sizes, counts)]
-        triples = sorted(zip(sizes, labels, colors), reverse=True)
-        labels = [lang[1] for lang in triples]
-        sizes = [lang[0] for lang in triples]
-        colors = [lang[2] for lang in triples]
+        sizes = [size / count for size, count in zip(sizes, counts)]
+        sizes, labels, colors = zip(*sorted(zip(sizes, labels, colors), reverse=True))
         pos = labels.index('Makefile')
         labels.pop(pos)
         sizes.pop(pos)
