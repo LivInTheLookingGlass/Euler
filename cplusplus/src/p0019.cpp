@@ -23,27 +23,58 @@ How many Sundays fell on the first of the month during the twentieth century
 */
 #ifndef EULER_P0019
 #define EULER_P0019
-#include <ctime>
 #include <iostream>
 #include <stdexcept>
 #include <stdint.h>
 
+#ifdef _WIN32
+#include <cstring>
+#include <windows.h>
+#else
+#include <ctime>
+#endif
+
 uint16_t p0019() {
     uint16_t answer = 0;
-    struct tm date = {0};
+
+#ifdef _WIN32
+    SYSTEMTIME systemTime;
+    FILETIME fileTime;
+    SYSTEMTIME normalizedTime;
+#else
+    std::tm date = {0};
+#endif
 
     for (int year = 1901; year <= 2000; ++year) {
-        for (int month = 0; month < 12; ++month) {
+        for (int month = 0; month <= 11; ++month) {
+#ifdef _WIN32
+            std::memset(&systemTime, 0, sizeof(systemTime));
+            systemTime.wYear = year;
+            systemTime.wMonth = month + 1;
+            systemTime.wDay = 1;
+
+            if (!SystemTimeToFileTime(&systemTime, &fileTime)) {
+                throw std::runtime_error("SystemTimeToFileTime failed.");
+            }
+            if (!FileTimeToSystemTime(&fileTime, &normalizedTime)) {
+                throw std::runtime_error("FileTimeToSystemTime failed.");
+            }
+
+            if (normalizedTime.wDayOfWeek == 0) {
+                ++answer;
+            }
+#else
             date.tm_year = year - 1900;
             date.tm_mon = month;
             date.tm_mday = 1;
 
-            if (mktime(&date) == -1) {
-                throw std::runtime_error("mkdtime failed to normalize the date.");
+            if (std::mktime(&date) == -1) {
+                throw std::runtime_error("mktime failed to normalize the date.");
             }
             if (date.tm_wday == 0) {
                 ++answer;
             }
+#endif
         }
     }
     return answer;
