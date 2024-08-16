@@ -25,8 +25,8 @@ How many Sundays fell on the first of the month during the twentieth century
 #define EULER_P0019
 #include <ctime>
 #include <iostream>
-#include <cstdint>
 #include <stdexcept>
+#include <stdint.h>
 
 uint16_t p0019() {
     uint16_t answer = 0;
