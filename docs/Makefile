@@ -27,7 +27,7 @@ help:
 
 .PHONY: clean
 clean:
-	@rm -rf _build _static/dist || echo
+	@rm -rf _build _static/dist _tags || echo
 
 .PHONY: dependencies
 dependencies: SHELL := bash

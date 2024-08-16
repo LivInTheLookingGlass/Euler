@@ -16,6 +16,7 @@ from sphinxcontrib.domaintools import custom_domain
 try:
     from ghlinguist import linguist
     import matplotlib.pyplot as plt
+    from matplotlib import colormaps
 except Exception:
     pass
 
@@ -227,30 +228,20 @@ def setup(app):
         labels = [lang[0] for lang in langs]
         counts = [countfiles(lang) for lang in labels]
         sizes = [lang[1] for lang in langs]
-        color_map = {
-            'C': "#555555",
-            'C++': "#f34b7d",
-            'C#': "#178600",
-            'Java': "#b07219",
-            'JavaScript': "#f1e05a",
-            'Python': "#3572A5",
-            'Rust': "#dea584",
-            'Makefile': "#427819",
-        }
-        colors = [color_map[lang] for lang in labels]
+        colors = [plt.get_cmap('viridis')(idx / len(labels)) for idx, _ in enumerate(labels)]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
         sizes = [float(size) / count for size, count in zip(sizes, counts)]
-        pairs = sorted(zip(sizes, labels), reverse=True)
-        labels = [lang[1] for lang in pairs]
-        sizes = [lang[0] for lang in pairs]
+        triples = sorted(zip(sizes, labels, colors), reverse=True)
+        labels = [lang[1] for lang in triples]
+        sizes = [lang[0] for lang in triples]
+        colors = [lang[2] for lang in triples]
         pos = labels.index('Makefile')
         labels.pop(pos)
         sizes.pop(pos)
-        colors = [color_map[lang] for lang in labels]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
