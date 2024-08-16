@@ -1,0 +1,12 @@
+JavaScript Implementation of Problem 19
+=======================================
+
+View source code :source:`javascript/src/p0019.js`
+
+.. js:autofunction:: p0019
+
+.. literalinclude:: ../../../javascript/src/p0019.js
+   :language: javascript
+   :linenos:
+
+.. tags:: calendar, combinatorics
