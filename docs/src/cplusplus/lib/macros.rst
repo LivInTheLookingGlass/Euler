@@ -44,6 +44,6 @@ View source code :source:`cplusplus/src/include/macros.hpp`
 
 .. c:namespace-pop::
 
-.. literalinclude:: ../../../../cplusplus/src/include/macros.h
+.. literalinclude:: ../../../../cplusplus/src/include/macros.hpp
    :language: C++
    :linenos:

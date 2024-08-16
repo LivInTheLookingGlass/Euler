@@ -30,6 +30,6 @@ Includes
 
 .. c:namespace-pop::
 
-.. literalinclude:: ../../../../cplusplus/src/include/math.h
+.. literalinclude:: ../../../../cplusplus/src/include/math.hpp
    :language: C++
    :linenos:

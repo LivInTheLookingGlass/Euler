@@ -227,8 +227,9 @@ def setup(app):
         labels = [lang[0] for lang in langs]
         sizes = [float(lang[1]) for lang in langs]
         counts = [countfiles(lang) for lang in labels]
+        size = max(10, len(labels))
         colormap = plt.get_cmap('tab10' if len(labels) <= 10 else 'tab20')
-        colors = [colormap(idx / len(labels)) for idx, _ in enumerate(labels)]
+        colors = [colormap(idx / size) for idx, _ in enumerate(labels)]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
