@@ -241,6 +241,7 @@ Problems Solved
 
    usage
    src/*
+   _tags/tagsindex
 
 Indices and tables
 ==================
