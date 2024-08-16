@@ -242,6 +242,7 @@ def setup(app):
         pos = labels.index('Makefile')
         labels.pop(pos)
         sizes.pop(pos)
+        colors.pop(pos)
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
