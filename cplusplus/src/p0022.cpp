@@ -14,6 +14,7 @@
  */
 #ifndef EULER_P0022
 #define EULER_P0022
+#include <stdint.h>
 #include <iostream>
 #include <vector>
 #include <algorithm>

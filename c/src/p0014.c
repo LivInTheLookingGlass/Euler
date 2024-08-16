@@ -22,6 +22,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 #ifndef EULER_P0014
 #define EULER_P0014
+#include <stdint.h>
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -57,7 +58,7 @@ uint64_t p0014() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu", p0014());
+    printf("%lu", p0014());
     return 0;
 }
 #endif

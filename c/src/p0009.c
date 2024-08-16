@@ -15,6 +15,7 @@ Find the product abc.
 */
 #ifndef EULER_P0009
 #define EULER_P0009
+#include <stdint.h>
 #include <stdio.h>
 
 uint64_t p0009() {
@@ -33,7 +34,7 @@ uint64_t p0009() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu", p0009());
+    printf("%lu", p0009());
     return 0;
 }
 #endif

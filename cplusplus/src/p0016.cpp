@@ -9,6 +9,7 @@ What is the sum of the digits of the number 2**1000?
 */
 #ifndef EULER_P0016
 #define EULER_P0016
+#include <stdint.h>
 #include <iostream>
 #include <vector>
 

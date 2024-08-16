@@ -21,6 +21,7 @@ natural numbers and the square of the sum.
 */
 #ifndef EULER_P0006
 #define EULER_P0006
+#include <stdint.h>
 #include <stdio.h>
 
 uint64_t p0006() {
@@ -32,7 +33,7 @@ uint64_t p0006() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu", p0006());
+    printf("%lu", p0006());
     return 0;
 }
 #endif

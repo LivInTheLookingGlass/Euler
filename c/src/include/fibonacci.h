@@ -1,6 +1,7 @@
 #ifndef FIBONACCI_H
 #define FIBONACCI_H
 
+#include <stdint.h>
 #include "iterator.h"
 
 typedef struct fibonacci fibonacci;

@@ -16,6 +16,7 @@ How many such routes are there through a 20×20 grid?
 */
 #ifndef EULER_P0015
 #define EULER_P0015
+#include <stdint.h>
 #include <stdio.h>
 #include "include/math.h"
 
@@ -27,7 +28,7 @@ uint64_t p0015() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu", p0015());
+    printf("%lu", p0015());
     return 0;
 }
 #endif

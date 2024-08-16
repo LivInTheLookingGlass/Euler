@@ -1,6 +1,7 @@
 #ifndef DIVISORS_H
 #define DIVISORS_H
 
+#include <stdint.h>
 #include "iterator.h"
 
 typedef struct factor_counter factor_counter;

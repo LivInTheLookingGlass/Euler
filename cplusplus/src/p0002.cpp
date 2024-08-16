@@ -16,6 +16,7 @@ four million, find the sum of the even-valued terms.
 
 #ifndef EULER_P0002
 #define EULER_P0002
+#include <stdint.h>
 #include <iostream>
 
 uint64_t p0002() {

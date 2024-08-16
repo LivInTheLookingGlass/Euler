@@ -19,6 +19,7 @@ British usage.
 */
 #ifndef EULER_P0017
 #define EULER_P0017
+#include <stdint.h>
 #include <iostream>
 #include <stdexcept>
 #include <string>

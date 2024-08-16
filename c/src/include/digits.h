@@ -1,6 +1,7 @@
 #ifndef DIGITS_H
 #define DIGITS_H
 
+#include <stdint.h>
 #include "macros.h"
 #include "iterator.h"
 

@@ -40,6 +40,7 @@ positive integers?
 */
 #ifndef EULER_P0076
 #define EULER_P0076
+#include <stdint.h>
 #include <stdio.h>
 #include "include/macros.h"
 

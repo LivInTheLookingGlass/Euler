@@ -12,6 +12,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 */
 #ifndef EULER_P0004
 #define EULER_P0004
+#include <stdint.h>
 #include <stdio.h>
 #include "include/digits.h"
 

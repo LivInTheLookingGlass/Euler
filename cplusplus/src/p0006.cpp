@@ -21,6 +21,7 @@ natural numbers and the square of the sum.
 */
 #ifndef EULER_P0006
 #define EULER_P0006
+#include <stdint.h>
 #include <iostream>
 
 uint64_t p0006() {

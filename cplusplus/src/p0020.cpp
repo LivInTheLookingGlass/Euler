@@ -12,6 +12,7 @@ Find the sum of the digits in the number 100!
 */
 #ifndef EULER_P0020
 #define EULER_P0020
+#include <stdint.h>
 #include <iostream>
 #include <vector>
 

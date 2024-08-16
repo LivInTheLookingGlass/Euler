@@ -383,9 +383,11 @@ version = "0.1.0"
 dependencies = [
  "chrono",
  "itertools",
+ "js-sys",
  "num-traits",
  "rstest",
  "seq-macro",
+ "wasm-bindgen",
 ]
 
 [[package]]

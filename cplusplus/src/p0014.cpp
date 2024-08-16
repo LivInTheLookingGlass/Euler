@@ -22,6 +22,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 #ifndef EULER_P0014
 #define EULER_P0014
+#include <stdint.h>
 #include <iostream>
 
 #define CACHE_SIZE 1000000

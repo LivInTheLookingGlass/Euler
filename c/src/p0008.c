@@ -32,6 +32,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 */
 #ifndef EULER_P0008
 #define EULER_P0008
+#include <stdint.h>
 #include <stdio.h>
 #include "include/macros.h"
 
@@ -72,7 +73,7 @@ uint64_t p0008() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu", p0008());
+    printf("%lu", p0008());
     return 0;
 }
 #endif

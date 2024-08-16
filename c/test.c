@@ -66,7 +66,7 @@ void test_euler_answer() {
 	Answer key = answers[current_index];
 	uint64_t result = key.func();
 	char *msg = (char*)malloc(256 * sizeof(char));
-	snprintf(msg, 256, "Euler problem %u should have an answer of %llu, but we actually got %llu", key.id, key.answer, result);
+	snprintf(msg, 256, "Euler problem %u should have an answer of %lu, but we actually got %lu", key.id, key.answer, result);
 	TEST_ASSERT_EQUAL_INT64_MESSAGE(key.answer, result, msg);
 	free(msg);
 }

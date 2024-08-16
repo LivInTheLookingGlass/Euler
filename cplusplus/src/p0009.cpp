@@ -15,6 +15,7 @@ Find the product abc.
 */
 #ifndef EULER_P0009
 #define EULER_P0009
+#include <stdint.h>
 #include <iostream>
 
 uint64_t p0009() {

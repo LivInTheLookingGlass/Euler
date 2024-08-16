@@ -9,7 +9,8 @@ This paragraph should be replaced by the problem description, excluding images.
 */
 #ifndef EULER_P0000
 #define EULER_P0000
-#include <stdio.h>
+#include <stdint.h>
+#include <iostream>
 
 uint64_t p0000() {
     return 0;
@@ -17,8 +18,7 @@ uint64_t p0000() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    uint64_t answer = p0000();
-    printf("%llu\n", answer);
+    std::cout << p0000() << std::endl;
     return 0;
 }
 #endif

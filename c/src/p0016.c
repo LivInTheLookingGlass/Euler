@@ -12,6 +12,7 @@ What is the sum of the digits of the number 21000?
 */
 #ifndef EULER_P0016
 #define EULER_P0016
+#include <stdint.h>
 #include <stdio.h>
 #include "include/bcd.h"
 
@@ -27,7 +28,7 @@ uint64_t p0016() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu\n", p0016());
+    printf("%lu\n", p0016());
     return 0;
 }
 #endif

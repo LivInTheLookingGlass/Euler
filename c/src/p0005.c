@@ -13,6 +13,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 */
 #ifndef EULER_P0005
 #define EULER_P0005
+#include <stdint.h>
 #include <stdio.h>
 #include "include/macros.h"
 #include "include/primes.h"
@@ -39,7 +40,7 @@ uint64_t p0005() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu", p0005());
+    printf("%lu", p0005());
     return 0;
 }
 #endif

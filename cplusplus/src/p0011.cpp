@@ -33,6 +33,7 @@ the 20×20 grid?
 */
 #ifndef EULER_P0011
 #define EULER_P0011
+#include <stdint.h>
 #include <iostream>
 
 static const uint8_t grid[20][20] = {

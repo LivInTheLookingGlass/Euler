@@ -17,6 +17,7 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 */
 #ifndef EULER_P0030
 #define EULER_P0030
+#include <stdint.h>
 #include <stdio.h>
 #include "include/digits.h"
 
@@ -38,7 +39,7 @@ uint64_t p0030() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu\n", p0030());
+    printf("%lu\n", p0030());
     return 0;
 }
 #endif

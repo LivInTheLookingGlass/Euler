@@ -14,6 +14,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 */
 #ifndef EULER_P0022
 #define EULER_P0022
+#include <stdint.h>
 #include <stdio.h>
 #include "include/macros.h"
 #include "include/utils.h"
@@ -51,7 +52,7 @@ uint64_t p0022() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%llu\n", p0022());
+    printf("%lu\n", p0022());
     return 0;
 }
 #endif

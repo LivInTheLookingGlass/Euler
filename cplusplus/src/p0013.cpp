@@ -107,6 +107,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 */
 #ifndef EULER_P0013
 #define EULER_P0013
+#include <stdint.h>
 #include <iostream>
 
 static const uint64_t numbers[100][3] = {

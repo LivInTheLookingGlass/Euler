@@ -16,6 +16,7 @@ How many such routes are there through a 20×20 grid?
 */
 #ifndef EULER_P0015
 #define EULER_P0015
+#include <stdint.h>
 #include <iostream>
 #include "include/math.h"
 
