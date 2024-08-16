@@ -58,12 +58,12 @@ Olivia's Project Euler Solutions
 +------------+----------------------------+--------+-------------------+
 | Language   | Version                    | Solved | Status            |
 +============+============================+========+===================+
-| C          | C99+ in: |clang|, |br|     | 24     | |Ci| |br|         |
+| C          | C99+ in: |clang|, |br|     | 25     | |Ci| |br|         |
 |            | |gcc|, |pcc|, & |tcc| |br| |        | |C-Cov| |br|      |
 |            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
 |            |                            |        | |C-lint|          |
 +------------+----------------------------+--------+-------------------+
-| C++        | C++98+ in: |br| |clang|, & | 17     | |Cpi| |br|        |
+| C++        | C++98+ in: |br| |clang|, & | 18     | |Cpi| |br|        |
 |            | |gcc| |br|                 |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
 |            |                            |        | |Cp-lint|         |

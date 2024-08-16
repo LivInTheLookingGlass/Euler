@@ -1,0 +1,22 @@
+C Implementation of Problem 19
+==============================
+
+View source code :source:`c/src/p0019.c`
+
+Solution
+--------
+
+.. c:function:: uint16_t p0019()
+
+.. c:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+      It is not present when compiling for the Unity test runner.
+
+.. literalinclude:: ../../../c/src/p0019.c
+   :language: C
+   :linenos:
+
+.. tags:: calendar, combinatorics

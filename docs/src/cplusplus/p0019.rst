@@ -1,0 +1,21 @@
+C++ Implementation of Problem 19
+================================
+
+View source code :source:`cplusplus/src/p0019.cpp`
+
+Solution
+--------
+
+.. cpp:function:: uint16_t p0019()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../../cplusplus/src/p0019.cpp
+   :language: C++
+   :linenos:
+
+.. tags:: calendar, combinatorics
