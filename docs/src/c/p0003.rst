@@ -23,3 +23,6 @@ Solution
 .. literalinclude:: ../../../c/src/p0003.c
    :language: C
    :linenos:
+
+.. tags:: primes
+

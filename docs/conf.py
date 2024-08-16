@@ -47,6 +47,7 @@ extensions = [
     'javasphinx',
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
+    'sphinx_tags',
 #    "sphinx_rust",
 ]
 rust_crates = [
@@ -64,6 +65,8 @@ if 'TERMUX_VERSION' not in environ and not IS_SILVERBLUE:
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+
+tags_create_tags = True
 
 language = 'english'
 

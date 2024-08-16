@@ -9,3 +9,4 @@ matplotlib
 sphinx-favicon
 sphinx-notfound-page
 javasphinx-workaround
+sphinx-tags
