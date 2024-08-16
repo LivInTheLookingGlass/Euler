@@ -235,11 +235,7 @@ def setup(app):
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
         sizes = [size / count for size, count in zip(sizes, counts)]
-        sizes, labels, colors = zip(*sorted(zip(sizes, labels, colors), reverse=True))
-        pos = labels.index('Makefile')
-        labels.pop(pos)
-        sizes.pop(pos)
-        colors.pop(pos)
+        sizes, labels, colors = [z for z in zip(*sorted(zip(sizes, labels, colors), reverse=True)) if 'Makefile' not in z]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
