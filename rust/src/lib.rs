@@ -27,7 +27,7 @@ pub use crate::include::utils::{Answer,get_answer};
 #[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 #[wasm_bindgen]
 pub fn run_problem(n: usize) -> JsValue {
-    let Some((_, problem_function, _)) = get_problem(n) else { panic!() };
+    let Some((_, problem_function, _)) = get_problem(n) else { return JsValue::UNDEFINED };
     let answer = problem_function();
     return match answer {
         Answer::String(e) => JsValue::from_str(&e),
