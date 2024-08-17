@@ -194,7 +194,7 @@ def countfiles(lang):
         'Makefile': lambda root, filename: filename == 'Makefile',
         'Python': lambda root, filename: fnmatch(filename, '*.py') and 'docs' not in root,
         'C': lambda root, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
-        'C++': lambda root, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.h'),
+        'C++': lambda root, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.hpp'),
         'C#': lambda root, filename: fnmatch(filename, '*.cs'),
         'Java': lambda root, filename: fnmatch(filename, '*.java'),
         'JavaScript': lambda root, filename: fnmatch(filename, '*.js'),
