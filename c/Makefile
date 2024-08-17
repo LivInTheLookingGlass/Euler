@@ -3,6 +3,7 @@ USER_FLAG?=--user
 PIP?=$(PY) -m pip
 BLUE=\033[0;34m
 NC=\033[0m # No Color
+O?=2
 
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
@@ -57,7 +58,7 @@ lint:
 
 .PHONY: native
 native: ../LICENSE Unity/src/unity.c
-	@$(CC) test.c Unity/src/unity.c -O2 -g -lm -lc -Wall -Werror -std=gnu99 -march=native -flto
+	@$(CC) test.c Unity/src/unity.c -O$(O) -g -lm -lc -Wall -Werror -std=gnu99 -march=native -flto
 
 .PHONY: clean
 clean:
