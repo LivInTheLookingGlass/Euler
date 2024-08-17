@@ -49,7 +49,7 @@ lint:
 
 .PHONY: native
 native: ../LICENSE Unity/src/unity.c
-	@$(CXX) test.cpp Unity/src/unity.c -O2 -lm -Wall -Werror -std=c++11 -march=native -flto -DAMD_COMPILER=0 -Wno-deprecated
+	@$(CXX) test.cpp Unity/src/unity.c -O2 -g -lm -lstdc++ -Wall -Werror -std=gnu++98 -march=native -flto
 
 .PHONY: clean
 clean:
