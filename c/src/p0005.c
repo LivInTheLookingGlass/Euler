@@ -19,8 +19,8 @@ What is the smallest positive number that is evenly divisible by all of the numb
 #include "include/macros.h"
 #include "include/primes.h"
 
-uint64_t p0005() {
-    uint64_t answer = 1;
+uint32_t p0005() {
+    uint32_t answer = 1;
     uint8_t factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
     prime_factor_counter pfc;
     for (uint8_t i = 2; i < 21; i++) {
@@ -41,7 +41,7 @@ uint64_t p0005() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0005());
+    printf("%" PRIu32 "\n", p0005());
     return 0;
 }
 #endif

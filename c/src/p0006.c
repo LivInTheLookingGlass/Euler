@@ -25,16 +25,16 @@ natural numbers and the square of the sum.
 #include <inttypes.h>
 #include <stdio.h>
 
-uint64_t p0006() {
-    uint64_t sum = 100 * 101 / 2, sum_of_squares = 0;
-    for (uint64_t i = 1; i < 101; i++)
+uint32_t p0006() {
+    uint32_t sum = 100 * 101 / 2, sum_of_squares = 0;
+    for (uint32_t i = 1; i < 101; i++)
         sum_of_squares += i * i;
     return sum * sum - sum_of_squares;
 }
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0006());
+    printf("%" PRIu32 "\n", p0006());
     return 0;
 }
 #endif

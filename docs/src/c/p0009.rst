@@ -6,7 +6,7 @@ View source code :source:`c/src/p0009.c`
 Solution
 --------
 
-.. c:function:: uint64_t p0009()
+.. c:function:: uint32_t p0009()
 
 .. c:function:: int main(int argc, char const *argv[])
 

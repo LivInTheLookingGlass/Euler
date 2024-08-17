@@ -11,7 +11,7 @@ Includes
 Solution
 --------
 
-.. c:function:: uint64_t p0003()
+.. c:function:: uint16_t p0003()
 
 .. c:function:: int main(int argc, char const *argv[])
 

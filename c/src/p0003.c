@@ -17,8 +17,8 @@ What is the largest prime factor of the number 600851475143 ?
 #include <stdio.h>
 #include "include/primes.h"
 
-uint64_t p0003() {
-    uint64_t answer = 0;
+uint16_t p0003() {
+    uint16_t answer = 0;
     prime_factor_counter pfc = prime_factors(600851475143);
     while (!pfc.exhausted)
         answer = next(pfc);
@@ -28,7 +28,7 @@ uint64_t p0003() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0003());
+    printf("%" PRIu16 "\n", p0003());
     return 0;
 }
 #endif

@@ -16,7 +16,7 @@ What is the 10 001st prime number?
 #include <stdio.h>
 #include "include/primes.h"
 
-uint64_t p0007() {
+uint32_t p0007() {
     uint32_t answer, count = 0;
     prime_sieve ps = prime_sieve0();
     while (true) {
@@ -30,7 +30,7 @@ uint64_t p0007() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0007());
+    printf("%" PRIu32 "\n", p0007());
     return 0;
 }
 #endif

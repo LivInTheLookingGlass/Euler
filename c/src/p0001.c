@@ -19,8 +19,8 @@
 #include <stdio.h>
 #include "include/iterator.h"
 
-uint64_t p0001() {
-    uint64_t answer = 0;
+uint32_t p0001() {
+    uint32_t answer = 0;
     counter c = counter3(0, 1000, 3);
     while (!c.exhausted)
         answer += next(c);
@@ -35,7 +35,7 @@ uint64_t p0001() {
 
 #ifndef UNITY_END
 int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0001());
+    printf("%" PRIu32 "\n", p0001());
     return 0;
 }
 #endif
