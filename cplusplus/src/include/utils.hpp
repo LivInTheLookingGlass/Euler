@@ -96,8 +96,8 @@ typedef struct {
         int64_t int64;
         char *string;
     } value;
-	uint16_t id : 12;
-	AnswerType type : 4;
+	uint16_t id;
+	AnswerType type;
 } Answer;
 
 Answer get_answer(const uint16_t id) {
