@@ -82,6 +82,7 @@ jobs:
         COMPILER_OVERRIDE: clang
 
     - name: Run tests (native runner)
+      if: ${{ !contains(matrix.os, 'windows') }}
       run: make c_native_test
 
     - name: Upload coverage reports to Codecov

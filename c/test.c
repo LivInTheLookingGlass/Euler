@@ -30,8 +30,8 @@
 #include "src/p0836.c"
 
 typedef struct {
-	uint16_t id;
-	void *(*func)();
+    uint16_t id;
+    void *(*func)();
 } ProblemRef;
 
 ProblemRef answers[] = {
