@@ -72,7 +72,7 @@ std::string get_data_file(const std::string &name) {
 }
 
 typedef enum {
-    ERROR,
+	ERR,
 	INT8,
 	INT16,
 	INT32,

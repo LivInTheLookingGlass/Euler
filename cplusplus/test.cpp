@@ -76,7 +76,7 @@ void test_euler_answer() {
 	std::string sresult;
 	std::ostringstream oss;
 	switch (answer.type) {
-		case ERROR:
+		case ERR:
 			TEST_FAIL_MESSAGE("Unknown answer type. This should be unreachable.");
 		case INT8:
 			iresult = ((int8_t (*)()) key.func)();
