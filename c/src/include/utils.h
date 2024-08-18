@@ -137,9 +137,6 @@ Answer get_answer(uint16_t id) {
     };
     char *answers = get_data_file("answers.tsv");
     char *linepointer, *tabpointer;
-#ifdef _WIN32
-    rsize_t linemax = strlen(answers) + 1, tabmax;
-#endif
 
     if (!answers) {
         fprintf(stderr, "Error: Unable to get data from file\n");
@@ -150,15 +147,15 @@ Answer get_answer(uint16_t id) {
     snprintf(s_id, sizeof(s_id), "%" PRIu16, id);
 
 #ifdef _WIN32
-    char *line = strtok_s(answers, &linemax, "\n", &linepointer);  // skip header
-    while ((line = strtok_s(NULL, &linemax, "\n", &linepointer)) != NULL) {
+    char *line = strtok_s(answers, "\n", &linepointer);  // skip header
+    while ((line = strtok_s(NULL, "\n", &linepointer)) != NULL) {
         tabmax = strlen(line) + 1;
 #else
     char *line = strtok_r(answers, "\n", &linepointer);  // skip header
     while ((line = strtok_r(NULL, "\n", &linepointer)) != NULL) {
 #endif
 #ifdef _WIN32
-        char *token = strtok_s(line, &tabmax, "\t", &tabpointer);
+        char *token = strtok_s(line, "\t", &tabpointer);
 #else
         char *token = strtok_r(line, "\t", &tabpointer);
 #endif
@@ -166,7 +163,7 @@ Answer get_answer(uint16_t id) {
             continue;
 
 #ifdef _WIN32
-        token = strtok_s(NULL, &tabmax, "\t", &tabpointer);
+        token = strtok_s(NULL, "\t", &tabpointer);
 #else
         token = strtok_r(NULL, "\t", &tabpointer);
 #endif
@@ -185,7 +182,7 @@ Answer get_answer(uint16_t id) {
         }
 
 #ifdef _WIN32
-        token = strtok_s(NULL, &tabmax, "\t", &tabpointer);
+        token = strtok_s(NULL, "\t", &tabpointer);
 #else
         token = strtok_r(NULL, "\t", &tabpointer);
 #endif
@@ -194,7 +191,7 @@ Answer get_answer(uint16_t id) {
         size_t size = strtoull(token, NULL, 10);
 
 #ifdef _WIN32
-        token = strtok_s(NULL, &tabmax, "\t", &tabpointer);
+        token = strtok_s(NULL, "\t", &tabpointer);
 #else
         token = strtok_r(NULL, "\t", &tabpointer);
 #endif
