@@ -76,6 +76,9 @@ jobs:
         NO_OPTIONAL_TESTS: true
         COMPILER_OVERRIDE: clang
 
+    - name: Run tests (native test runner)
+      run: make cp_native_test
+
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
       with:

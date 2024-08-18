@@ -58,7 +58,11 @@ lint:
 
 .PHONY: native
 native: ../LICENSE Unity/src/unity.c
-	@$(CC) test.c Unity/src/unity.c -O$(O) -g -lm -lc -Wall -Werror -std=gnu99 -march=native -flto
+	@$(CC) test.c Unity/src/unity.c -O$(O) -g -lm -lc -Wall -Werror -std=gnu99 -march=native -flto --coverage -o native_test_runner
+
+.PHONY: native_test
+native_test: native
+	@./native_test_runner
 
 .PHONY: clean
 clean:

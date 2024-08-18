@@ -168,7 +168,7 @@ Answer get_answer(const uint16_t id) {
                         break;
                     default:
                         std::cerr << "Error: Unsupported int size " << size << "'\n";
-                        Answer err = {0};
+                        Answer err = {{0}};
                         return err;
                 }
                 break;
@@ -191,7 +191,7 @@ Answer get_answer(const uint16_t id) {
                         break;
                     default:
                         std::cerr << "Error: Unsupported uint size " << size << "'\n";
-                        Answer err = {0};
+                        Answer err = {{0}};
                         return err;
                 }
                 break;
@@ -202,13 +202,13 @@ Answer get_answer(const uint16_t id) {
                     answer.value.STR[size] = 0;
                 } else {
                         std::cerr << "Error: Memory allocation failed for string\n";
-                    Answer err = {0};
+                    Answer err = {{0}};
                     return err;
                 }
                 break;
             default:
                 std::cerr << "Error: Unknown type (should be unreachable)\n";
-                Answer err = {0};
+                Answer err = {{0}};
                 return err;
         }
     }

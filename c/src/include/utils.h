@@ -135,7 +135,7 @@ Answer get_answer(uint16_t id) {
     char *linepointer;
     char *tabpointer;
     Answer ret = {
-        id: id,
+        .id = id,
     };
     char *answers = get_data_file("answers.tsv");
     
