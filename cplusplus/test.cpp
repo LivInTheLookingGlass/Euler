@@ -34,7 +34,7 @@ typedef struct {
 	void *(*func)();
 } ProblemRef;
 
-ProblemRef answers[] = {	
+ProblemRef answers[] = {
 	{   1,	(void *(*)())p0001 },
 	{   2, 	(void *(*)())p0002 },
 	// {   3,	(void *(*)())p0003 },
@@ -76,52 +76,52 @@ void test_euler_answer() {
 	std::string sresult;
 	std::ostringstream oss;
 	switch (answer.type) {
-		case ERR:
+		case ERRORT:
 			TEST_FAIL_MESSAGE("Unknown answer type. This should be unreachable.");
-		case INT8:
+		case INT8T:
 			iresult = ((int8_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.INT8 << ", but we actually got " << iresult;
-			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.INT8, (int8_t)iresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.int8 << ", but we actually got " << iresult;
+			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.int8, (int8_t)iresult, oss.str().c_str());
 			break;
-		case INT16:
+		case INT16T:
 			iresult = ((int16_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.INT16 << ", but we actually got " << iresult;
-			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.INT16, (int16_t)iresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.int16 << ", but we actually got " << iresult;
+			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.int16, (int16_t)iresult, oss.str().c_str());
 			break;
-		case INT32:
+		case INT32T:
 			iresult = ((int32_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.INT32 << ", but we actually got " << iresult;
-			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.INT32, (int32_t)iresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.int32 << ", but we actually got " << iresult;
+			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.int32, (int32_t)iresult, oss.str().c_str());
 			break;
-		case INT64:
+		case INT64T:
 			iresult = ((int64_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.INT64 << ", but we actually got " << iresult;
-			TEST_ASSERT_EQUAL_INT64_MESSAGE(answer.value.INT64, iresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.int64 << ", but we actually got " << iresult;
+			TEST_ASSERT_EQUAL_INT64_MESSAGE(answer.value.int64, iresult, oss.str().c_str());
 			break;
-		case UINT8:
+		case UINT8T:
 			uresult = ((uint8_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.UINT8 << ", but we actually got " << uresult;
-			TEST_ASSERT_EQUAL_UINT8_MESSAGE(answer.value.UINT8, (uint8_t) uresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.uint8 << ", but we actually got " << uresult;
+			TEST_ASSERT_EQUAL_UINT8_MESSAGE(answer.value.uint8, (uint8_t) uresult, oss.str().c_str());
 			break;
-		case UINT16:
+		case UINT16T:
 			uresult = ((uint16_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.UINT16 << ", but we actually got " << uresult;
-			TEST_ASSERT_EQUAL_UINT16_MESSAGE(answer.value.UINT16, (uint16_t) uresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.uint16 << ", but we actually got " << uresult;
+			TEST_ASSERT_EQUAL_UINT16_MESSAGE(answer.value.uint16, (uint16_t) uresult, oss.str().c_str());
 			break;
-		case UINT32:
+		case UINT32T:
 			uresult = ((uint32_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.UINT32 << ", but we actually got " << uresult;
-			TEST_ASSERT_EQUAL_UINT32_MESSAGE(answer.value.UINT32, (uint32_t) uresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.uint32 << ", but we actually got " << uresult;
+			TEST_ASSERT_EQUAL_UINT32_MESSAGE(answer.value.uint32, (uint32_t) uresult, oss.str().c_str());
 			break;
-		case UINT64:
+		case UINT64T:
 			uresult = ((uint64_t (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.UINT64 << ", but we actually got " << uresult;
-			TEST_ASSERT_EQUAL_UINT64_MESSAGE(answer.value.UINT64, uresult, oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.uint64 << ", but we actually got " << uresult;
+			TEST_ASSERT_EQUAL_UINT64_MESSAGE(answer.value.uint64, uresult, oss.str().c_str());
 			break;
-		case STR:
+		case STRINGT:
 			sresult = ((std::string (*)()) key.func)();
-			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.STR << ", but we actually got " << sresult;
-			TEST_ASSERT_EQUAL_STRING_MESSAGE(answer.value.STR, sresult.c_str(), oss.str().c_str());
+			oss << "Euler problem " << key.id << " should have an answer of " << answer.value.string << ", but we actually got " << sresult;
+			TEST_ASSERT_EQUAL_STRING_MESSAGE(answer.value.string, sresult.c_str(), oss.str().c_str());
 	}
 }
 

@@ -72,29 +72,29 @@ std::string get_data_file(const std::string &name) {
 }
 
 typedef enum {
-	ERR,
-	INT8,
-	INT16,
-	INT32,
-	INT64,
-	UINT8,
-	UINT16,
-	UINT32,
-	UINT64,
-	STR,
+	ERRORT,
+	INT8T,
+	INT16T,
+	INT32T,
+	INT64T,
+	UINT8T,
+	UINT16T,
+	UINT32T,
+	UINT64T,
+	STRINGT
 } AnswerType;
 
 typedef struct {
     union {
-        uint8_t UINT8;
-        uint16_t UINT16;
-        uint32_t UINT32;
-        uint64_t UINT64;
-        int8_t INT8;
-        int16_t INT16;
-        int32_t INT32;
-        int64_t INT64;
-        char *STR;
+        uint8_t uint8;
+        uint16_t uint16;
+        uint32_t uint32;
+        uint64_t uint64;
+        int8_t int8;
+        int16_t int16;
+        int32_t int32;
+        int64_t int64;
+        char *string;
     } value;
 	uint16_t id : 12;
 	AnswerType type : 4;
@@ -131,11 +131,11 @@ Answer get_answer(const uint16_t id) {
             continue;
 
         if (token == "uint") {
-            answer.type = UINT8;  // will adjust size later
+            answer.type = UINT8T;  // will adjust size later
         } else if (token == "int") {
-            answer.type = INT8;  // will adjust size later
+            answer.type = INT8T;  // will adjust size later
         } else if (token == "str") {
-            answer.type = STR;
+            answer.type = STRINGT;
         } else {
             std::cerr << "Error: Unknown type '" << token << "'\n";
             return answer;
@@ -149,22 +149,22 @@ Answer get_answer(const uint16_t id) {
             continue;
 
         switch (answer.type) {
-            case UINT8:
+            case UINT8T:
                 switch (size) {
                     case 8:
-                        answer.value.UINT8 = (uint8_t)strtoul(token.c_str(), NULL, 10);
+                        answer.value.uint8 = (uint8_t)strtoul(token.c_str(), NULL, 10);
                         break;
                     case 16:
-                        answer.value.UINT16 = (uint16_t)strtoul(token.c_str(), NULL, 10);
-                        answer.type = UINT16;
+                        answer.value.uint16 = (uint16_t)strtoul(token.c_str(), NULL, 10);
+                        answer.type = UINT16T;
                         break;
                     case 32:
-                        answer.value.UINT32 = strtoul(token.c_str(), NULL, 10);
-                        answer.type = UINT32;
+                        answer.value.uint32 = strtoul(token.c_str(), NULL, 10);
+                        answer.type = UINT32T;
                         break;
                     case 64:
-                        answer.value.UINT64 = strtoull(token.c_str(), NULL, 10);
-                        answer.type = UINT64;
+                        answer.value.uint64 = strtoull(token.c_str(), NULL, 10);
+                        answer.type = UINT64T;
                         break;
                     default:
                         std::cerr << "Error: Unsupported int size " << size << "'\n";
@@ -172,22 +172,22 @@ Answer get_answer(const uint16_t id) {
                         return err;
                 }
                 break;
-            case INT8:
+            case INT8T:
                 switch (size) {
                     case 8:
-                        answer.value.INT8 = (int8_t)strtol(token.c_str(), NULL, 10);
+                        answer.value.int8 = (int8_t)strtol(token.c_str(), NULL, 10);
                         break;
                     case 16:
-                        answer.value.INT16 = (int16_t)strtol(token.c_str(), NULL, 10);
-                        answer.type = INT16;
+                        answer.value.int16 = (int16_t)strtol(token.c_str(), NULL, 10);
+                        answer.type = INT16T;
                         break;
                     case 32:
-                        answer.value.INT32 = strtol(token.c_str(), NULL, 10);
-                        answer.type = INT32;
+                        answer.value.int32 = strtol(token.c_str(), NULL, 10);
+                        answer.type = INT32T;
                         break;
                     case 64:
-                        answer.value.INT64 = strtoll(token.c_str(), NULL, 10);
-                        answer.type = INT64;
+                        answer.value.int64 = strtoll(token.c_str(), NULL, 10);
+                        answer.type = INT64T;
                         break;
                     default:
                         std::cerr << "Error: Unsupported uint size " << size << "'\n";
@@ -195,11 +195,11 @@ Answer get_answer(const uint16_t id) {
                         return err;
                 }
                 break;
-            case STR:
-                answer.value.STR = (char *)malloc(size + 1);
-                if (answer.value.STR) {
-                    strncpy(answer.value.STR, token.c_str(), size);
-                    answer.value.STR[size] = 0;
+            case STRINGT:
+                answer.value.string = (char *)malloc(size + 1);
+                if (answer.value.string) {
+                    strncpy(answer.value.string, token.c_str(), size);
+                    answer.value.string[size] = 0;
                 } else {
                         std::cerr << "Error: Memory allocation failed for string\n";
                     Answer err = {{0}};
