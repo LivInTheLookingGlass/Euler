@@ -22,91 +22,91 @@ View source code :source:`c/src/include/utils.h`
 
    .. c:union:: value
 
-      .. c:member:: uint8_t INT8
+      .. c:member:: uint8_t int8
 
         Represents an 8-bit signed integer.
 
-      .. c:member:: uint16_t INT16
+      .. c:member:: uint16_t int16
 
         Represents a 16-bit signed integer.
 
-      .. c:member:: uint32_t INT32
+      .. c:member:: uint32_t int32
 
         Represents a 32-bit signed integer.
 
-      .. c:member:: uint64_t INT64
+      .. c:member:: uint64_t int64
 
         Represents a 64-bit signed integer.
 
-      .. c:member:: uint8_t UINT8
+      .. c:member:: uint8_t uint8
 
         Represents an 8-bit unsigned integer.
 
-      .. c:member:: uint16_t UINT16
+      .. c:member:: uint16_t uint16
 
         Represents a 16-bit unsigned integer.
 
-      .. c:member:: uint32_t UINT32
+      .. c:member:: uint32_t uint32
 
         Represents a 32-bit unsigned integer.
 
-      .. c:member:: uint64_t UINT64
+      .. c:member:: uint64_t uint64
 
         Represents a 64-bit unsigned integer.
 
-      .. c:member:: char *STR
+      .. c:member:: char *string
 
         Represents a string value.
 
-   .. c:member:: uint16_t id : 12
+   .. c:member:: uint16_t id
 
-      A 12-bit integer field used to store the problem ID.
+      Represents the problem ID.
 
-   .. c:member:: AnswerType type : 4
+   .. c:member:: AnswerType type
 
-      A 4-bit field that specifies the type of value stored in the ``value`` union. It is of type :c:enum:`AnswerType`.
+      Specifies the type of value stored in the ``value`` union. It is of type :c:enum:`AnswerType`.
 
 .. c:enum:: AnswerType
 
    The `AnswerType` enum defines various types of values that can be stored in an `Answer`.
 
-   .. c:enumerator:: ERROR
+   .. c:enumerator:: ERRORT
 
       Represents an error state.
 
-   .. c:enumerator:: INT8
+   .. c:enumerator:: INT8T
 
       Represents an 8-bit signed integer.
 
-   .. c:enumerator:: INT16
+   .. c:enumerator:: INT16T
 
       Represents a 16-bit signed integer.
 
-   .. c:enumerator:: INT32
+   .. c:enumerator:: INT32T
 
       Represents a 32-bit signed integer.
 
-   .. c:enumerator:: INT64
+   .. c:enumerator:: INT64T
 
       Represents a 64-bit signed integer.
 
-   .. c:enumerator:: UINT8
+   .. c:enumerator:: UINT8T
 
       Represents an 8-bit unsigned integer.
 
-   .. c:enumerator:: UINT16
+   .. c:enumerator:: UINT16T
 
       Represents a 16-bit unsigned integer.
 
-   .. c:enumerator:: UINT32
+   .. c:enumerator:: UINT32T
 
       Represents a 32-bit unsigned integer.
 
-   .. c:enumerator:: UINT64
+   .. c:enumerator:: UINT64T
 
       Represents a 64-bit unsigned integer.
 
-   .. c:enumerator:: STR
+   .. c:enumerator:: STRINGT
 
       Represents a string value.
 

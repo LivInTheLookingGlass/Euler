@@ -22,49 +22,49 @@ View source code :source:`cplusplus/src/include/utils.hpp`
 
    .. cpp:union:: value
 
-      .. cpp:member:: uint8_t INT8
+      .. cpp:member:: uint8_t int8
 
         Represents an 8-bit signed integer.
 
-      .. cpp:member:: uint16_t INT16
+      .. cpp:member:: uint16_t int16
 
         Represents a 16-bit signed integer.
 
-      .. cpp:member:: uint32_t INT32
+      .. cpp:member:: uint32_t int32
 
         Represents a 32-bit signed integer.
 
-      .. cpp:member:: uint64_t INT64
+      .. cpp:member:: uint64_t int64
 
         Represents a 64-bit signed integer.
 
-      .. cpp:member:: uint8_t UINT8
+      .. cpp:member:: uint8_t uint8
 
         Represents an 8-bit unsigned integer.
 
-      .. cpp:member:: uint16_t UINT16
+      .. cpp:member:: uint16_t uint16
 
         Represents a 16-bit unsigned integer.
 
-      .. cpp:member:: uint32_t UINT32
+      .. cpp:member:: uint32_t uint32
 
         Represents a 32-bit unsigned integer.
 
-      .. cpp:member:: uint64_t UINT64
+      .. cpp:member:: uint64_t uint64
 
         Represents a 64-bit unsigned integer.
 
-      .. cpp:member:: char *STR
+      .. cpp:member:: char *string
 
         Represents a c-string value.
 
-   .. cpp:member:: uint16_t id : 12
+   .. cpp:member:: uint16_t id
 
-      A 12-bit integer field used to store the problem ID.
+      Represents the problem ID.
 
-   .. cpp:member:: AnswerType type : 4
+   .. cpp:member:: AnswerType type
 
-      A 4-bit field that specifies the type of value stored in the ``value`` union. It is of type :cpp:enum:`AnswerType`.
+      Specifies the type of value stored in the ``value`` union. It is of type :cpp:enum:`AnswerType`.
 
 .. cpp:enum-struct:: AnswerType
 
