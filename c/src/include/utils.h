@@ -103,29 +103,29 @@ char *get_data_file(const char *name) {
 }
 
 typedef enum {
-    ERROR,
-	INT8,
-	INT16,
-	INT32,
-	INT64,
-	UINT8,
-	UINT16,
-	UINT32,
-	UINT64,
-	STR,
+	ERRORT,
+	INT8T,
+	INT16T,
+	INT32T,
+	INT64T,
+	UINT8T,
+	UINT16T,
+	UINT32T,
+	UINT64T,
+	STRINGT,
 } AnswerType;
 
 typedef struct {
     union {
-        uint8_t UINT8;
-        uint16_t UINT16;
-        uint32_t UINT32;
-        uint64_t UINT64;
-        int8_t INT8;
-        int16_t INT16;
-        int32_t INT32;
-        int64_t INT64;
-        char *STR;
+        uint8_t uint8;
+        uint16_t uint16;
+        uint32_t uint32;
+        uint64_t uint64;
+        int8_t int8;
+        int16_t int16;
+        int32_t int32;
+        int64_t int64;
+        char *string;
     } value;
 	uint16_t id : 12;
 	AnswerType type : 4;
@@ -138,7 +138,7 @@ Answer get_answer(uint16_t id) {
         .id = id,
     };
     char *answers = get_data_file("answers.tsv");
-    
+
     if (!answers) {
         fprintf(stderr, "Error: Unable to get data from file\n");
         return ret;
@@ -158,11 +158,11 @@ Answer get_answer(uint16_t id) {
             continue;
 
         if (strcmp(token, "uint") == 0) {
-            ret.type = UINT8;  // will adjust size later
+            ret.type = UINT8T;  // will adjust size later
         } else if (strcmp(token, "int") == 0) {
-            ret.type = INT8;  // will adjust size later
+            ret.type = INT8T;  // will adjust size later
         } else if (strcmp(token, "str") == 0) {
-            ret.type = STR;
+            ret.type = STRINGT;
         } else {
             fprintf(stderr, "Error: Unknown type '%s'\n", token);
             return ret;
@@ -178,25 +178,25 @@ Answer get_answer(uint16_t id) {
             continue;
 
         switch (ret.type) {
-            case UINT8:
-            case UINT16:
-            case UINT32:
-            case UINT64:
+            case UINT8T:
+            case UINT16T:
+            case UINT32T:
+            case UINT64T:
                 switch (size) {
                     case 8:
-                        ret.value.UINT8 = (uint8_t)strtoul(token, NULL, 10);
+                        ret.value.uint8 = (uint8_t)strtoul(token, NULL, 10);
                         break;
                     case 16:
-                        ret.value.UINT16 = (uint16_t)strtoul(token, NULL, 10);
-                        ret.type = UINT16;
+                        ret.value.uint16 = (uint16_t)strtoul(token, NULL, 10);
+                        ret.type = UINT16T;
                         break;
                     case 32:
-                        ret.value.UINT32 = strtoul(token, NULL, 10);
-                        ret.type = UINT32;
+                        ret.value.uint32 = strtoul(token, NULL, 10);
+                        ret.type = UINT32T;
                         break;
                     case 64:
-                        ret.value.UINT64 = strtoull(token, NULL, 10);
-                        ret.type = UINT64;
+                        ret.value.uint64 = strtoull(token, NULL, 10);
+                        ret.type = UINT64T;
                         break;
                     default:
                         fprintf(stderr, "Error: Unsupported uint size %" PRIu64 "\n", (uint64_t)size);
@@ -204,25 +204,25 @@ Answer get_answer(uint16_t id) {
                         return err;
                 }
                 break;
-            case INT8:
-            case INT16:
-            case INT32:
-            case INT64:
+            case INT8T:
+            case INT16T:
+            case INT32T:
+            case INT64T:
                 switch (size) {
                     case 8:
-                        ret.value.INT8 = (int8_t)strtol(token, NULL, 10);
+                        ret.value.int8 = (int8_t)strtol(token, NULL, 10);
                         break;
                     case 16:
-                        ret.value.INT16 = (int16_t)strtol(token, NULL, 10);
-                        ret.type = INT16;
+                        ret.value.int16 = (int16_t)strtol(token, NULL, 10);
+                        ret.type = INT16T;
                         break;
                     case 32:
-                        ret.value.INT32 = strtol(token, NULL, 10);
-                        ret.type = INT32;
+                        ret.value.int32 = strtol(token, NULL, 10);
+                        ret.type = INT32T;
                         break;
                     case 64:
-                        ret.value.INT64 = strtoll(token, NULL, 10);
-                        ret.type = INT64;
+                        ret.value.int64 = strtoll(token, NULL, 10);
+                        ret.type = INT64T;
                         break;
                     default:
                         fprintf(stderr, "Error: Unsupported int size %" PRIu64 "\n", (uint64_t)size);
@@ -230,18 +230,18 @@ Answer get_answer(uint16_t id) {
                         return err;
                 }
                 break;
-            case STR:
-                ret.value.STR = (char *)malloc(size + 1);
-                if (ret.value.STR) {
-                    strncpy(ret.value.STR, token, size);
-                    ret.value.STR[size] = 0;
+            case STRINGT:
+                ret.value.string = (char *)malloc(size + 1);
+                if (ret.value.string) {
+                    strncpy(ret.value.string, token, size);
+                    ret.value.string[size] = 0;
                 } else {
                     fprintf(stderr, "Error: Memory allocation failed for string\n");
                     Answer err = {0};
                     return err;
                 }
                 break;
-            case ERROR:
+            case ERRORT:
                 fprintf(stderr, "Error: Unknown type (should be unreachable)\n");
                 Answer err = {0};
                 return err;

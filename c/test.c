@@ -34,7 +34,7 @@ typedef struct {
 	void *(*func)();
 } ProblemRef;
 
-ProblemRef answers[] = {	
+ProblemRef answers[] = {
 	{   1,	(void *(*)())p0001 },
 	{   2, 	(void *(*)())p0002 },
 	{   3,	(void *(*)())p0003 },
@@ -46,7 +46,6 @@ ProblemRef answers[] = {
 	{   9,	(void *(*)())p0009 },
 	{  10,	(void *(*)())p0010 },
 	{  11,	(void *(*)())p0011 },
-	// {  12,	(void *(*)())p0012 },
 	{  13,	(void *(*)())p0013 },
 	{  14,	(void *(*)())p0014 },
 	{  15,	(void *(*)())p0015 },
@@ -60,6 +59,7 @@ ProblemRef answers[] = {
 	{  34,	(void *(*)())p0034 },
 	{  76,	(void *(*)())p0076 },
 	{ 836,	(void *(*)())p0836 },
+	{  12,	(void *(*)())p0012 },
 };
 const size_t ANSWERS_LEN = sizeof(answers) / sizeof(answers[0]);
 static size_t current_index = 0;
@@ -75,52 +75,52 @@ void test_euler_answer() {
 	int64_t iresult;
 	uint64_t uresult;
 	switch (answer.type) {
-		case ERROR:
+		case ERRORT:
 			TEST_FAIL_MESSAGE("Unknown answer type. This should be unreachable.");
-		case INT8:
+		case INT8T:
 			iresult = ((int8_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId8 ", but we actually got %" PRId8, key.id, answer.value.INT8, (int8_t)iresult);
-			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.INT8, iresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId8 ", but we actually got %" PRId8, key.id, answer.value.int8, (int8_t)iresult);
+			TEST_ASSERT_EQUAL_INT8_MESSAGE(answer.value.int8, iresult, msg);
 			break;
-		case INT16:
+		case INT16T:
 			iresult = ((int16_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId16 ", but we actually got %" PRId16, key.id, answer.value.INT16, (int16_t)iresult);
-			TEST_ASSERT_EQUAL_INT16_MESSAGE(answer.value.INT16, iresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId16 ", but we actually got %" PRId16, key.id, answer.value.int16, (int16_t)iresult);
+			TEST_ASSERT_EQUAL_INT16_MESSAGE(answer.value.int16, iresult, msg);
 			break;
-		case INT32:
+		case INT32T:
 			iresult = ((int32_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId32 ", but we actually got %" PRId32, key.id, answer.value.INT32, (int32_t)iresult);
-			TEST_ASSERT_EQUAL_INT32_MESSAGE(answer.value.INT32, iresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId32 ", but we actually got %" PRId32, key.id, answer.value.int32, (int32_t)iresult);
+			TEST_ASSERT_EQUAL_INT32_MESSAGE(answer.value.int32, iresult, msg);
 			break;
-		case INT64:
+		case INT64T:
 			iresult = ((int64_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId64 ", but we actually got %" PRId64, key.id, answer.value.UINT64, iresult);
-			TEST_ASSERT_EQUAL_INT64_MESSAGE(answer.value.INT64, iresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRId64 ", but we actually got %" PRId64, key.id, answer.value.int64, iresult);
+			TEST_ASSERT_EQUAL_INT64_MESSAGE(answer.value.int64, iresult, msg);
 			break;
-		case UINT8:
+		case UINT8T:
 			uresult = ((uint8_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu8 ", but we actually got %" PRIu8, key.id, answer.value.UINT8, (uint8_t)uresult);
-			TEST_ASSERT_EQUAL_UINT8_MESSAGE(answer.value.UINT8, uresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu8 ", but we actually got %" PRIu8, key.id, answer.value.uint8, (uint8_t)uresult);
+			TEST_ASSERT_EQUAL_UINT8_MESSAGE(answer.value.uint8, uresult, msg);
 			break;
-		case UINT16:
+		case UINT16T:
 			uresult = ((uint16_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu16 ", but we actually got %" PRIu16, key.id, answer.value.UINT16, (uint16_t)uresult);
-			TEST_ASSERT_EQUAL_UINT16_MESSAGE(answer.value.UINT16, uresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu16 ", but we actually got %" PRIu16, key.id, answer.value.uint16, (uint16_t)uresult);
+			TEST_ASSERT_EQUAL_UINT16_MESSAGE(answer.value.uint16, uresult, msg);
 			break;
-		case UINT32:
+		case UINT32T:
 			uresult = ((uint32_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu32 ", but we actually got %" PRIu32, key.id, answer.value.UINT32, (uint32_t)uresult);
-			TEST_ASSERT_EQUAL_UINT32_MESSAGE(answer.value.UINT32, uresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu32 ", but we actually got %" PRIu32, key.id, answer.value.uint32, (uint32_t)uresult);
+			TEST_ASSERT_EQUAL_UINT32_MESSAGE(answer.value.uint32, uresult, msg);
 			break;
-		case UINT64:
+		case UINT64T:
 			uresult = ((uint64_t (*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu64 ", but we actually got %" PRIu64, key.id, answer.value.UINT64, uresult);
-			TEST_ASSERT_EQUAL_UINT64_MESSAGE(answer.value.UINT64, uresult, msg);
+			snprintf(msg, 256, "Euler problem %" PRIu16 " should have an answer of %" PRIu64 ", but we actually got %" PRIu64, key.id, answer.value.uint64, uresult);
+			TEST_ASSERT_EQUAL_UINT64_MESSAGE(answer.value.uint64, uresult, msg);
 			break;
-		case STR:
+		case STRINGT:
 			sresult = ((char *(*)()) key.func)();
-			snprintf(msg, 256, "Euler problem %u should have an answer of %s, but we actually got %s", key.id, answer.value.STR, sresult);
-			TEST_ASSERT_EQUAL_STRING_MESSAGE(answer.value.STR, sresult, msg);
+			snprintf(msg, 256, "Euler problem %u should have an answer of %s, but we actually got %s", key.id, answer.value.string, sresult);
+			TEST_ASSERT_EQUAL_STRING_MESSAGE(answer.value.string, sresult, msg);
 	}
 }
 
