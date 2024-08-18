@@ -149,7 +149,6 @@ Answer get_answer(uint16_t id) {
 #ifdef _WIN32
     char *line = strtok_s(answers, "\n", &linepointer);  // skip header
     while ((line = strtok_s(NULL, "\n", &linepointer)) != NULL) {
-        tabmax = strlen(line) + 1;
 #else
     char *line = strtok_r(answers, "\n", &linepointer);  // skip header
     while ((line = strtok_r(NULL, "\n", &linepointer)) != NULL) {
