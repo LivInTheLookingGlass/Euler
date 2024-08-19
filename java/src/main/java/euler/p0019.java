@@ -32,7 +32,7 @@ public class p0019 implements IEuler {
         byte answer = 0;
         for (short x = 1901; x < 2001; x += 1) {
             for (byte y = 0; y < 12; y += 1) {
-                if (LocalDate.of(x, y, 1).DayOfWeek == DayOfWeek.Sunday) {
+                if (LocalDate.of(x, y, 1).getDayOfWeek() == DayOfWeek.SUNDAY) {
                     answer += 1;
                 }
             }
