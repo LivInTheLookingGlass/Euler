@@ -6,7 +6,8 @@ View source code :source:`python/src/p0134.py`
 Includes
 --------
 
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.math.mul_inv`
+- :py:func:`~python.src.lib.primes.primes`
 
 Problem Solution
 ----------------

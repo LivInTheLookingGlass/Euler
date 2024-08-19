@@ -6,7 +6,7 @@ View source code :source:`python/src/p0015.py`
 Includes
 --------
 
-- `math <./lib/math.html>`_
+- :py:func:`~python.src.lib.math.lattice_paths`
 
 Problem Solution
 ----------------

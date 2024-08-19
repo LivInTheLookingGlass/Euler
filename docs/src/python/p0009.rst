@@ -3,6 +3,13 @@ Python Implementation of Problem 9
 
 View source code :source:`python/src/p0009.py`
 
+Includes
+--------
+
+- :external:py:func:`functools.reduce`
+- :external:py:func:`itertools.takewhile`
+- :external:py:func:`operator.mul`
+
 Problem Solution
 ----------------
 

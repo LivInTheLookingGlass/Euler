@@ -3,6 +3,12 @@ Python Implementation of Problem 44
 
 View source code :source:`python/src/p0044.py`
 
+Includes
+--------
+
+- :external:py:func:`itertools.islice`
+- :external:py:func:`math.sqrt`
+
 Problem Solution
 ----------------
 

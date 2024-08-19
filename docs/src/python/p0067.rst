@@ -6,8 +6,8 @@ View source code :source:`python/src/p0067.py`
 Includes
 --------
 
-- `triangles <./lib/triangles.html>`_
-- `utils <./lib/utils.html>`_
+- :py:func:`~python.src.lib.triangles.reduce_triangle`
+- :py:func:`~python.src.lib.utils.get_data_file`
 
 Problem Solution
 ----------------

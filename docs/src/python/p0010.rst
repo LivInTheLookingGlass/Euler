@@ -6,7 +6,8 @@ View source code :source:`python/src/p0010.py`
 Includes
 --------
 
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.primes.primes`
+- :external:py:func:`itertools.takewhile`
 
 Problem Solution
 ----------------

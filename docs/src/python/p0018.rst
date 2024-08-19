@@ -6,7 +6,8 @@ View source code :source:`python/src/p0018.py`
 Includes
 --------
 
-- `triangles <./lib/triangles.html>`_
+- :py:func:`~python.src.lib.triangles.reduce_triangle`
+- :external:py:func:`itertools.takewhile`
 
 Problem Solution
 ----------------

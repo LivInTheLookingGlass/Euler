@@ -3,6 +3,11 @@ Python Implementation of Problem 2
 
 View source code :source:`python/src/p0002.py`
 
+Includes
+--------
+
+- :py:func:`~python.src.lib.fibonacci.fib_by_3`
+
 Problem Solution
 ----------------
 

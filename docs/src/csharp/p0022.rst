@@ -6,7 +6,10 @@ View source code :source:`csharp/Euler/p0022.cs`
 Includes
 --------
 
-- `utils <./lib/utils.html>`_
+- `Utilities <./lib/utils.html>`_
+- :csref:`System.IO` (via Utilities.cs)
+- :csref:`System.Runtime.InteropServices` (via Utilities.cs)
+- :csref:`System.Diagnostics.StackTrace` (via Utilities.cs)
 
 Problem Solution
 ----------------

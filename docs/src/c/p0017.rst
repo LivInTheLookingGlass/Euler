@@ -3,6 +3,13 @@ C Implementation of Problem 17
 
 View source code :source:`c/src/p0017.c`
 
+Includes
+--------
+
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+
 Solution
 --------
 

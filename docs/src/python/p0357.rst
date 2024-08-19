@@ -6,8 +6,9 @@ View source code :source:`python/src/p0357.py`
 Includes
 --------
 
-- `factors <./lib/factors.html>`_
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.factors.proper_divisors`
+- :py:func:`~python.src.lib.primes.is_prime`
+- :py:func:`~python.src.lib.primes.primes`
 
 Problem Solution
 ----------------

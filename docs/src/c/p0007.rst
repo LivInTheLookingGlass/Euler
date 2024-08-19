@@ -6,7 +6,15 @@ View source code :source:`c/src/p0007.c`
 Includes
 --------
 
-- `primes.h <./lib/primes.html>`__
+- `"primes.h" <./lib/primes.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly, via primes.h)
+- `"math.h" <./math.html>`__ (implicitly, via primes.h & if compiled on PCC)
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<stdlib.h\> <program>` (implicitly, via primes.h & if not compiled on PCC)
+- :cref:`\<math.h\> <numeric/math>` (implicitly, via primes.h & if not compiled on PCC)
+- :cref:`\<stdbool.h\> <types>` (implicitly, via primes.h)
 
 Solution
 --------

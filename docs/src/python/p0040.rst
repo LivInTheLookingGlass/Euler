@@ -3,6 +3,14 @@ Python Implementation of Problem 40
 
 View source code :source:`python/src/p0040.py`
 
+Includes
+--------
+
+- :external:py:func:`functools.reduce`
+- :external:py:func:`itertools.count`
+- :external:py:func:`math.log10`
+- :external:py:func:`operator.mul`
+
 Problem Solution
 ----------------
 

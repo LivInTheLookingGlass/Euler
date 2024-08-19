@@ -6,7 +6,9 @@ View source code :source:`c/src/include/math.h`
 Includes
 --------
 
-- `macros.h <./macros.html>`__
+- `"macros.h" <./macros.html>`__
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdlib.h\> <program>` (if not compiled on PCC)
 
 .. c:namespace-push:: math
     

@@ -3,6 +3,11 @@ Python Implementation of Problem 36
 
 View source code :source:`python/src/p0036.py`
 
+Includes
+--------
+
+- :py:func:`~python.src.lib.utils.is_palindrome`
+
 Problem Solution
 ----------------
 

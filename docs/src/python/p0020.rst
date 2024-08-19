@@ -3,6 +3,11 @@ Python Implementation of Problem 20
 
 View source code :source:`python/src/p0020.py`
 
+Includes
+--------
+
+- :external:py:func:`math.factorial`
+
 Problem Solution
 ----------------
 

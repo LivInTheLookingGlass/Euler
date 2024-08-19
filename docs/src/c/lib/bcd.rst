@@ -6,8 +6,14 @@ View source code :source:`c/src/include/bcd.h`
 Includes
 --------
 
-- `macros.h <./macros.html>`__
-- `math.h <./math.html>`__ (if compiled on PCC)
+- `"macros.h" <./macros.html>`__
+- `"math.h" <./math.html>`__ (if compiled on PCC)
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdbool.h\> <types>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<string.h\> <string/byte>`
+- :cref:`\<stdlib.h\> <program>` (if not compiled on PCC)
+- :cref:`\<math.h\> <numeric/math>` (if not compiled on PCC)
 
 This library implements a `Binary Coded Decimal <https://en.wikipedia.org/wiki/Binary-coded_decimal>`__ object in C. Mostly
 this is done to prove that I could, but also because it allows for incredibly easy printing of arbitrary-sized integers.

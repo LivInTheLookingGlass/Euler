@@ -6,7 +6,12 @@ View source code :source:`c/src/p0015.c`
 Includes
 --------
 
-- `math.h <./lib/math.html>`__
+- `"math.h" <./lib/math.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly via math.h)
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<stdlib.h\> <program>` (implicitly via math.h & if not compiled on PCC)
 
 Solution
 --------

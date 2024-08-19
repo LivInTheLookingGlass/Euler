@@ -6,7 +6,14 @@ View source code :source:`cplusplus/src/p0034.cpp`
 Includes
 --------
 
-- `math.hpp <./lib/math.html>`__
+- `"math.hpp" <./lib/math.html>`__
+- `"macros.hpp" <./macros.html>`__ (implicitly, via math.hpp)
+- :cref:`\<stdint.h\> <types/integer>`
+- :cppref:`iostream`
+- :cref:`\<math.h\> <numeric/math>` (implicitly, via math.hpp)
+- :cref:`\<stdlib.h\> <program>` (implicitly, via math.hpp)
+- :cref:`\<stdint.h\> <types/integer>` (implicitly, via math.hpp)
+- :cref:`\<inttypes.h\> <types/integer>` (implicitly, via math.hpp)
 
 Solution
 --------

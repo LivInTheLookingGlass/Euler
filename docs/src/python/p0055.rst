@@ -6,8 +6,7 @@ View source code :source:`python/src/p0055.py`
 Includes
 --------
 
-- `iters <./lib/iters.html>`_
-- `math <./lib/math.html>`_
+- :py:func:`~python.src.lib.utils.steps_to_palindrome`
 
 Problem Solution
 ----------------

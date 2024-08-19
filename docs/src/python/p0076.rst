@@ -3,6 +3,11 @@ Python Implementation of Problem 76
 
 View source code :source:`python/src/p0076.py`
 
+Includes
+--------
+
+- :external:py:class:`collections.defaultdict`
+
 Problem Solution
 ----------------
 

@@ -6,7 +6,9 @@ View source code :source:`python/src/p0023.py`
 Includes
 --------
 
-- `iters <./lib/iters.html>`_
+- :py:func:`~python.src.lib.iters.abundants`
+- :external:py:func:`itertools.combinations_with_replacement`
+- :external:py:func:`itertools.filterfalse`
 
 Problem Solution
 ----------------

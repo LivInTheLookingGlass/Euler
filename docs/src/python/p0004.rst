@@ -3,6 +3,12 @@ Python Implementation of Problem 4
 
 View source code :source:`python/src/p0004.py`
 
+Includes
+--------
+
+- :py:func:`~python.src.lib.utils.is_palindrome`
+- :external:py:func:`itertools.combinations`
+
 Problem Solution
 ----------------
 

@@ -1,11 +1,11 @@
 Euler Java Implementation
 =========================
 
-.. include:: ../java/README.rst
+.. include:: ../../java/README.rst
     :start-line: 2
     :end-before: Makefile
 
-.. include:: ../java/README.rst
+.. include:: ../../java/README.rst
     :start-after: dependencies for this section.
     :end-before: Problems Solved
 

@@ -3,6 +3,11 @@ Python Implementation of Problem 28
 
 View source code :source:`python/src/p0028.py`
 
+Includes
+--------
+
+- :py:func:`~python.src.lib.iters.spiral_corners`
+
 Problem Solution
 ----------------
 

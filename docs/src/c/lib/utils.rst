@@ -3,6 +3,19 @@ utils.h
 
 View source code :source:`c/src/include/utils.h`
 
+Includes
+--------
+
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdlib.h\> <program>`
+- :cref:`\<string.h\> <string/byte>`
+- :cref:`\<stdio.h\> <io>`
+- `\<direct.h\> <https://en.wikipedia.org/wiki/Direct.h>`__ (if compiled for Windows)
+- `\<windows.h\> <https://en.wikipedia.org/wiki/Windows.h>`__ (if compiled for Windows)
+- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/libgen.h.0p.html>`__ (if not compiled for Windows)
+- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/unistd.h.0p.html>`__ (if not compiled for Windows)
+
 .. c:namespace-push:: utils
     
 .. c:function:: char *get_data_file(const char *name)

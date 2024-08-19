@@ -6,7 +6,9 @@ View source code :source:`cplusplus/src/p0015.cpp`
 Includes
 --------
 
-- `math.hpp <./lib/math.html>`__
+- `"math.hpp" <./lib/math.html>`__
+- :cref:`\<stdint.h\> <types/integer>`
+- :cppref:`iostream`
 
 Solution
 --------

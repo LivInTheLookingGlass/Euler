@@ -3,6 +3,12 @@ Python Implementation of Problem 33
 
 View source code :source:`python/src/p0033.py`
 
+Includes
+--------
+
+- :external:py:class:`fractions.Fraction`
+- :external:py:func:`itertools.combinations`
+
 Problem Solution
 ----------------
 

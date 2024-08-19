@@ -3,6 +3,15 @@ C++ Implementation of Problem 1
 
 View source code :source:`cplusplus/src/p0001.cpp`
 
+Includes
+--------
+
+- :cref:`\<stdint.h\> <types/integer>`
+- :cppref:`iostream`
+
+Solution
+--------
+
 .. cpp:function:: uint64_t p0001()
 
 .. literalinclude:: ../../../cplusplus/src/p0001.cpp

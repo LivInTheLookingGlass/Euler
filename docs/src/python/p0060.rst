@@ -6,7 +6,10 @@ View source code :source:`python/src/p0060.py`
 Includes
 --------
 
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.primes.is_prime`
+- :py:func:`~python.src.lib.primes.primes`
+- :external:py:class:`collections.defaultdict`
+- :external:py:func:`itertools.combinations`
 
 Problem Solution
 ----------------

@@ -6,7 +6,7 @@ View source code :source:`python/src/p0053.py`
 Includes
 --------
 
-- `math <./lib/math.html>`_
+- :py:func:`~python.src.lib.math.n_choose_r`
 
 Problem Solution
 ----------------

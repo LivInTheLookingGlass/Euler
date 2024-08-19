@@ -3,6 +3,11 @@ Python Implementation of Problem 19
 
 View source code :source:`python/src/p0019.py`
 
+Includes
+--------
+
+- :external:py:func:`datetime.date`
+
 Problem Solution
 ----------------
 

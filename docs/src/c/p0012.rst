@@ -11,7 +11,15 @@ View source code :source:`c/src/p0012.c`
 Includes
 --------
 
-- `factors.h <./lib/factors.html>`__
+- `"factors.h" <./lib/factors.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly, via factors.h)
+- `"math.h" <./math.html>`__ (implicitly, via factors.h & if compiled on PCC)
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<stdlib.h\> <program>` (implicitly, via factors.h & if not compiled on PCC)
+- :cref:`\<math.h\> <numeric/math>` (implicitly, via factors.h & if not compiled on PCC)
+- :cref:`\<stdbool.h\> <types>` (implicitly, via factors.h)
 
 Solution
 --------

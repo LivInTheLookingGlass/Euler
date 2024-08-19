@@ -3,6 +3,11 @@ Python Implementation of Problem 73
 
 View source code :source:`python/src/p0073.py`
 
+Includes
+--------
+
+- :external:py:class:`fractions.Fraction`
+
 Problem Solution
 ----------------
 

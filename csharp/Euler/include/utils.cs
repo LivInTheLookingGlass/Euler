@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -7,7 +8,7 @@ namespace Euler
     {
         private static string GetDataPath(string name)
         {
-            string? thisFile = new System.Diagnostics.StackTrace(true).GetFrame(0)?.GetFileName();
+            string? thisFile = new StackTrace(true).GetFrame(0)?.GetFileName();
             if (thisFile is null)
                 throw new IOException();
             return Path.Join(thisFile, "..", "..", "..", "..", "_data", name);

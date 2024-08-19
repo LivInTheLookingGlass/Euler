@@ -6,7 +6,11 @@ View source code :source:`cplusplus/src/include/math.hpp`
 Includes
 --------
 
-- `macros.h <./macros.html>`__
+- `"macros.hpp" <./macros.html>`__
+- :cref:`\<math.h\> <numeric/math>`
+- :cref:`\<stdlib.h\> <program>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<inttypes.h\> <types/integer>`
 
 .. c:namespace-push:: math
     

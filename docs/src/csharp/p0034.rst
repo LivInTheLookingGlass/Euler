@@ -6,7 +6,7 @@ View source code :source:`csharp/Euler/p0034.cs`
 Includes
 --------
 
-- `math <./lib/math.html>`_
+- `Mathematics <./lib/math.html>`_
 
 Problem Solution
 ----------------

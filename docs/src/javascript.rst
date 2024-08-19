@@ -1,7 +1,7 @@
 Euler JavaScript Implementation
 ===============================
 
-.. include:: ../javascript/README.rst
+.. include:: ../../javascript/README.rst
     :start-line: 2
     :end-before: Problems Solved
 

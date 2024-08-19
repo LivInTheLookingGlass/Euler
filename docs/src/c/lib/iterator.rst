@@ -6,12 +6,9 @@ View source code :source:`c/src/include/iterator.h`
 Includes
 --------
 
-- `macros.h <./macros.html>`__
-
-Includes
---------
-
-- `macros.h <./macros.html>`__
+- `"macros.h" <./macros.html>`__
+- :cref:`\<stdbool.h\> <types>`
+- :cref:`\<stdint.h\> <types/integer>`
 
 .. c:namespace-push:: iterator
 

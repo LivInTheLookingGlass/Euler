@@ -6,7 +6,9 @@ View source code :source:`python/src/p0099.py`
 Includes
 --------
 
-- `utils <./lib/utils.html>`_
+- :py:func:`~python.src.lib.utils.get_data_file`
+- :external:py:func:`functools.cmp_to_key`
+- :external:py:func:`math.log`
 
 Problem Solution
 ----------------

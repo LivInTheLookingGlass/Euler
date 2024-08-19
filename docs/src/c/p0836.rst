@@ -3,6 +3,13 @@ C Implementation of Problem 836
 
 View source code :source:`c/src/p0836.c`
 
+Includes
+--------
+
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+
 Solution
 --------
 

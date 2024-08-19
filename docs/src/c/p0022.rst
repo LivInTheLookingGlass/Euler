@@ -3,17 +3,23 @@ C Implementation of Problem 22
 
 View source code :source:`c/src/p0022.c`
 
-.. note::
-
-   Because this proble requires file I/O, it includes the standard library.
-   Unfortunately, I have never been able to make ``pcc`` compile while including that.
-   This may change in futute releases. All other compilers are supported.
-
 Includes
 --------
 
-- `macros.h <./lib/macros.html>`__
-- `utils.h <./lib/utils.html>`__
+- `"macros.h" <./lib/macros.html>`__
+- `"utils.h" <./lib/utils.html>`__
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<inttypes.h\> <types/integer>` (implicitly, via utils.h)
+- :cref:`\<stdint.h\> <types/integer>` (implicitly, via utils.h)
+- :cref:`\<stdlib.h\> <program>` (implicitly, via utils.h)
+- :cref:`\<string.h\> <string/byte>` (implicitly, via utils.h)
+- :cref:`\<stdio.h\> <io>` (implicitly, via utils.h)
+- `\<direct.h\> <https://en.wikipedia.org/wiki/Direct.h>`__ (implicitly, via utils.h & if compiled for Windows)
+- `\<windows.h\> <https://en.wikipedia.org/wiki/Windows.h>`__ (implicitly, via utils.h & if compiled for Windows)
+- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/libgen.h.0p.html>`__ (implicitly, via utils.h & if not compiled for Windows)
+- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/unistd.h.0p.html>`__ (implicitly, via utils.h & if not compiled for Windows)
 
 Solution
 --------

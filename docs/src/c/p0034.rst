@@ -6,8 +6,16 @@ View source code :source:`c/src/p0034.c`
 Includes
 --------
 
-- `digits.h <./lib/digits.html>`__
-- `math.h <./lib/math.html>`__
+- `"math.h" <./lib/math.html>`__
+- `"digits.h" <./lib/digits.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly via math.h)
+- `"iterator.h" <./iterator.html>`__ (implicitly, via digits.h)
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<stdlib.h\> <program>` (implicitly via math.h & if not compiled on PCC)
+- :cref:`\<stdbool.h\> <types>` (implicitly, via digits.h)
+- :cref:`\<math.h\> <numeric/math>` (implicitly, via digits.h & if not compiled on PCC)
 
 Solution
 --------

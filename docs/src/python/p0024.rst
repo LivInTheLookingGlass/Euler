@@ -3,6 +3,11 @@ Python Implementation of Problem 24
 
 View source code :source:`python/src/p0024.py`
 
+Includes
+--------
+
+- :external:py:func:`itertools.permutations`
+
 Problem Solution
 ----------------
 

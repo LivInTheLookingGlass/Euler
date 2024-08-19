@@ -1,7 +1,7 @@
 Euler Python Implementation
 ===========================
 
-.. include:: ../python/README.rst
+.. include:: ../../python/README.rst
    :start-line: 2
    :end-before: Problems Solved
 

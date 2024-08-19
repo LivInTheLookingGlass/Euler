@@ -6,8 +6,10 @@ View source code :source:`python/src/p0043.py`
 Includes
 --------
 
-- `iters <./lib/iters.html>`_
-- `math <./lib/math.html>`_
+- :py:func:`~python.src.lib.iters.groupwise`
+- :py:func:`~python.src.lib.math.from_digits`
+- :external:py:func:`itertools.islice`
+- :external:py:func:`itertools.permutations`
 
 Problem Solution
 ----------------

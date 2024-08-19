@@ -6,7 +6,9 @@ View source code :source:`cplusplus/src/p0076.cpp`
 Includes
 --------
 
-- `macros.hpp <./lib/macros.html>`__
+- `"macros.hpp" <./lib/macros.html>`__
+- :cref:`\<stdint.h\> <types/integer>`
+- :cppref:`iostream`
 
 Solution
 --------

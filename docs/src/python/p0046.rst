@@ -6,7 +6,12 @@ View source code :source:`python/src/p0046.py`
 Includes
 --------
 
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.primes.is_primes`
+- :py:func:`~python.src.lib.primes.primes`
+- :external:py:func:`itertools.count`
+- :external:py:func:`itertools.takewhile`
+- :external:py:func:`math.ceil`
+- :external:py:func:`math.sqrt`
 
 Problem Solution
 ----------------

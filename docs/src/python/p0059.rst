@@ -6,7 +6,9 @@ View source code :source:`python/src/p0059.py`
 Includes
 --------
 
-- `utils <./lib/utils.html>`_
+- :py:func:`~python.src.lib.utils.get_data_file`
+- :external:py:func:`itertools.cycle`
+- :external:py:func:`itertools.permutations`
 
 Problem Solution
 ----------------

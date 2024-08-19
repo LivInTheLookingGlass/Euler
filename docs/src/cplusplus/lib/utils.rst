@@ -3,6 +3,22 @@ utils.hpp
 
 View source code :source:`cplusplus/src/include/utils.hpp`
 
+Includes
+--------
+
+- :cppref:`cerrno`
+- :cppref:`iostream`
+- :cppref:`stdexcept`
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cppref:`cstring`
+- :cppref:`string`
+- :cppref:`sstream`
+- :cppref:`fstream`
+- `\<windows.h\> <https://en.wikipedia.org/wiki/Windows.h>`__ (if compiled for Windows)
+- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/libgen.h.0p.html>`__ (if not compiled for Windows)
+- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/unistd.h.0p.html>`__ (if not compiled for Windows)
+
 .. cpp:namespace-push:: utils
     
 .. cpp:function:: std::string get_data_file(const std::string name)

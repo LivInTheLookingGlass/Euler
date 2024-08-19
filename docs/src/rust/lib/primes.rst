@@ -3,6 +3,22 @@ primes.rs
 
 View source code :source:`rust/src/include/primes.rs`
 
+Includes
+--------
+
+- `num_traits::One <https://docs.rs/num-traits/latest/num_traits/identities/trait.One.html>`_
+- `num_traits::Zero <https://docs.rs/num-traits/latest/num_traits/identities/trait.Zero.html>`_
+- `num_traits::one <https://docs.rs/num-traits/latest/num_traits/identities/fn.one.html>`_
+- `num_traits::zero <https://docs.rs/num-traits/latest/num_traits/identities/fn.zero.html>`_
+- `itertools::Itertools <https://docs.rs/itertools/latest/itertools/trait.Itertools.html>`_
+- :rsref:`std::collections::HashMap <std/collections/struct.HashMap>`
+- :rsref:`std::cmp::Ord <std/cmp/trait.Ord>`
+- :rsref:`std::hash::Hash <std/cmp/trait.Hash>`
+- :rsref:`std::ops::Add <std/ops/trait.Add>`
+- :rsref:`std::ops::Div <std/ops/trait.Div>`
+- :rsref:`std::ops::Mul <std/ops/trait.Mul>`
+- :rsref:`std::ops::Rem <std/ops/trait.Rem>`
+
 .. rust:fn:: pub fn primes::primes<I>() -> Eratosthenes<I> where I: Hash + One + Zero + Add
 
   A convenience method that returns an iterator over the prime numbers.

@@ -6,7 +6,16 @@ View source code :source:`c/src/p0025.c`
 Includes
 --------
 
-- `bcd.h <./lib/bcd.html>`__
+- `"bcd.h" <./lib/bcd.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly via bcd.h)
+- `"math.h" <./math.html>`__ (implicitly via bcd.h & if compiled on PCC)
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
+- :cref:`\<stdbool.h\> <types>` (implicitly via bcd.h)
+- :cref:`\<string.h\> <string/byte>` (implicitly via bcd.h)
+- :cref:`\<stdlib.h\> <program>` (implicitly via bcd.h & if not compiled on PCC)
+- :cref:`\<math.h\> <numeric/math>` (implicitly via bcd.h & if not compiled on PCC)
 
 Solution
 --------

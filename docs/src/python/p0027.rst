@@ -6,8 +6,12 @@ View source code :source:`python/src/p0027.py`
 Includes
 --------
 
-- `math <./lib/math.html>`_
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.math.quadratic`
+- :py:func:`~python.src.lib.primes.is_primes`
+- :py:func:`~python.src.lib.primes.primes_and_negatives`
+- :external:py:func:`functools.partial`
+- :external:py:func:`itertools.count`
+- :external:py:func:`itertools.takewhile`
 
 Problem Solution
 ----------------

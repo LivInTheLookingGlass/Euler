@@ -1,11 +1,11 @@
 Euler Rust Implementation
 =========================
 
-.. include:: ../rust/README.rst
+.. include:: ../../rust/README.rst
     :start-line: 2
     :end-before: Makefile
 
-.. include:: ../rust/README.rst
+.. include:: ../../rust/README.rst
     :start-after: Alias for ``cargo clean``
     :end-before: Problems Solved
 

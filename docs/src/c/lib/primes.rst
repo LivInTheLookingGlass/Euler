@@ -6,9 +6,14 @@ View source code :source:`c/src/include/primes.h`
 Includes
 --------
 
-- `iterator.h <./iterator.html>`__
-- `macros.h <./macros.html>`__
-- `math.h <./math.html>`__ (if compiled on PCC)
+- `"math.h" <./math.html>`__ (if compiled on PCC)
+- `"iterator.h" <./iterator.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
+- :cref:`\<stdbool.h\> <types>` (implicitly, via iterator.h)
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdlib.h\> <program>` (if not compiled on PCC)
+- :cref:`\<math.h\> <numeric/math>` (if not compiled on PCC)
 
 .. c:namespace-push:: primes
 

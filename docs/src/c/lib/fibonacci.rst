@@ -6,8 +6,10 @@ View source code :source:`c/src/include/fibonacci.h`
 Includes
 --------
 
-- `iterator.h <./iterator.html>`__
-- `macros.h <./macros.html>`__ (implicitly)
+- `"iterator.h" <./iterator.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
+- :cref:`\<stdbool.h\> <types>` (implicitly, via iterator.h)
+- :cref:`\<stdint.h\> <types/integer>`
 
 .. c:namespace-push:: fibonacci
 

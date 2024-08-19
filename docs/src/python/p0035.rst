@@ -6,7 +6,7 @@ View source code :source:`python/src/p0035.py`
 Includes
 --------
 
-- `primes <./lib/primes.html>`_
+- :py:func:`~python.src.lib.primes.is_primes`
 
 Problem Solution
 ----------------

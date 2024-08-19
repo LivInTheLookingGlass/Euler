@@ -3,6 +3,11 @@ Python Implementation of Problem 145
 
 View source code :source:`python/src/p0145.py`
 
+Includes
+--------
+
+- :external:py:func:`itertools.chain`
+
 Problem Solution
 ----------------
 

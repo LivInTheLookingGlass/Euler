@@ -6,8 +6,9 @@ View source code :source:`python/src/p0032.py`
 Includes
 --------
 
-- `factors <./lib/factors.html>`_
-- `iters <./lib/iters.html>`_
+- :py:func:`~python.src.lib.factors.proper_divisors`
+- :py:func:`~python.src.lib.iters.digits`
+- :external:py:func:`itertools.chain`
 
 Problem Solution
 ----------------

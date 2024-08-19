@@ -3,6 +3,13 @@ Python Implementation of Problem 5
 
 View source code :source:`python/src/p0005.py`
 
+Includes
+--------
+
+- :external:py:func:`functools.reduce`
+- :external:py:func:`itertools.combinations`
+- :external:py:func:`operator.mul`
+
 Problem Solution
 ----------------
 

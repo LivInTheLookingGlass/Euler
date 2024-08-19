@@ -1,11 +1,11 @@
 Euler C# Implementation
 =======================
 
-.. include:: ../csharp/README.rst
+.. include:: ../../csharp/README.rst
     :start-line: 2
     :end-before: Makefile
 
-.. include:: ../csharp/README.rst
+.. include:: ../../csharp/README.rst
     :start-after: dependencies for this section.
     :end-before: Problems Solved
 

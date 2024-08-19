@@ -3,6 +3,12 @@ C++ Implementation of Problem 20
 
 View source code :source:`cplusplus/src/p0020.cpp`
 
+Includes
+--------
+
+- :cref:`\<stdint.h\> <types/integer>`
+- :cppref:`iostream`
+
 Solution
 --------
 

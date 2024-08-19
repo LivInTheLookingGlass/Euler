@@ -6,7 +6,10 @@ View source code :source:`python/src/p0011.py`
 Includes
 --------
 
-- `iters <./lib/iters.html>`_
+- :py:func:`~python.src.lib.iters.groupwise`
+- :external:py:func:`functools.reduce`
+- :external:py:func:`itertools.chain`
+- :external:py:func:`operator.mul`
 
 Problem Solution
 ----------------

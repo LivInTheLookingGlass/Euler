@@ -6,7 +6,7 @@ View source code :source:`python/src/p0056.py`
 Includes
 --------
 
-- `iters <./lib/iters.html>`_
+- :py:func:`~python.src.lib.iters.digits`
 
 Problem Solution
 ----------------

@@ -6,7 +6,8 @@ View source code :source:`python/src/p0012.py`
 Includes
 --------
 
-- `factors <./lib/factors.html>`_
+- :py:func:`~python.src.lib.factors.proper_divisors`
+- :external:py:func:`itertools.count`
 
 Problem Solution
 ----------------

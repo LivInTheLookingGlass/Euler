@@ -6,7 +6,10 @@ View source code :source:`c/src/p0011.c`
 Includes
 --------
 
-- `macros.h <./lib/macros.html>`__
+- `"macros.h" <./lib/macros.html>`__
+- :cref:`\<inttypes.h\> <types/integer>`
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdio.h\> <io>`
 
 Solution
 --------

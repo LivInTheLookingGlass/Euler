@@ -6,9 +6,13 @@ View source code :source:`c/src/include/digits.h`
 Includes
 --------
 
-- `iterator.h <./iterator.html>`__
-- `macros.h <./macros.html>`__
-- `math.h <./math.html>`__ (if compiled on PCC)
+- `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
+- `"iterator.h" <./iterator.html>`__
+- `"math.h" <./math.html>`__ (if compiled on PCC)
+- :cref:`\<stdint.h\> <types/integer>`
+- :cref:`\<stdbool.h\> <types>` (implicitly, via iterator.h)
+- :cref:`\<stdlib.h\> <program>` (if not compiled on PCC)
+- :cref:`\<math.h\> <numeric/math>` (if not compiled on PCC)
 
 .. c:namespace-push:: digits
 

@@ -3,6 +3,13 @@ utils.cs
 
 View source code :source:`csharp/include/utils.cs`
 
+Includes
+--------
+
+- :csref:`System.Diagnostics`
+- :csref:`System.IO`
+- :csref:`System.Runtime.InteropServices`
+
 .. csharp:namespace:: Euler
 
 .. csharp:class:: Utilities

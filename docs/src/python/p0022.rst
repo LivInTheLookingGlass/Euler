@@ -6,7 +6,7 @@ View source code :source:`python/src/p0022.py`
 Includes
 --------
 
-- `utils <./lib/utils.html>`_
+- :py:func:`~python.src.lib.utils.get_data_file`
 
 Problem Solution
 ----------------

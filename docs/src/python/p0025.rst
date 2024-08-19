@@ -3,6 +3,11 @@ Python Implementation of Problem 25
 
 View source code :source:`python/src/p0025.py`
 
+Includes
+--------
+
+- :py:func:`~python.src.lib.fobinacci.fib`
+
 Problem Solution
 ----------------
 

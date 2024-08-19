@@ -6,8 +6,9 @@ View source code :source:`python/src/p0050.py`
 Includes
 --------
 
-- `primes <./lib/primes.html>`_
-- `iters <./lib/iters.html>`_
+- :py:func:`~python.src.lib.iters.groupwise`
+- :py:func:`~python.src.lib.primes.is_prime`
+- :py:func:`~python.src.lib.primes.primes`
 
 Problem Solution
 ----------------

@@ -6,7 +6,8 @@ View source code :source:`python/src/p0038.py`
 Includes
 --------
 
-- `iters <./lib/iters.html>`_
+- :py:func:`~python.src.lib.iters.digits`
+- :external:py:func:`functools.reduce`
 
 Problem Solution
 ----------------

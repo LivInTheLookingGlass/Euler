@@ -139,6 +139,10 @@ extlinks = {
                'here on GitHub!%.0s'),
     'live-test': ('/_static/test-%s.html',
                   'click here!%.0s'),
+    'cppref': ('https://en.cppreference.com/w/cpp/header/%s', '<%s>'),
+    'cref': ('https://en.cppreference.com/w/c/%s', '%s'),
+    'csref': ('https://learn.microsoft.com/en-us/dotnet/api/%s', '%s'),
+    'rsref': ('https://doc.rust-lang.org/stable/%s.html', '%s'),
 } | {
     f'{code}-d': (f'./src/{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
 } | {
