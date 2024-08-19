@@ -68,12 +68,12 @@ Olivia's Project Euler Solutions
 |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
 |            |                            |        | |Cp-lint|         |
 +------------+----------------------------+--------+-------------------+
-| C#         | .NET 2+                    | 17     | |C#i| |br|        |
+| C#         | .NET 2+                    | 18     | |C#i| |br|        |
 |            |                            |        | |Cs-Cov| |br|     |
 |            |                            |        | |CodeQL| |br|     |
 |            |                            |        | |C#-lint|         |
 +------------+----------------------------+--------+-------------------+
-| Java       | Java 8+ in Corretto, |br|  | 17     | |Javai| |br|      |
+| Java       | Java 8+ in Corretto, |br|  | 18     | |Javai| |br|      |
 |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
 |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
 |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |

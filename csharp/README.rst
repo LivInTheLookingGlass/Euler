@@ -88,6 +88,7 @@ Problems Solved
 -  ☒ `15 <./Euler/p0015.cs>`__
 -  ☒ `16 <./Euler/p0016.cs>`__
 -  ☒ `17 <./Euler/p0017.cs>`__
+-  ☒ `19 <./Euler/p0019.cs>`__
 -  ☒ `20 <./Euler/p0020.cs>`__
 -  ☒ `22 <./Euler/p0022.cs>`__
 -  ☒ `34 <./Euler/p0034.cs>`__

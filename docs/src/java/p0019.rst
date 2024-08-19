@@ -1,0 +1,16 @@
+Java Implementation of Problem 19
+=================================
+
+View source code :source:`java/src/main/java/euler/p0019.java`
+
+.. java:type:: public class p0019 implements IEuler
+
+   .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 19
+
+.. literalinclude:: ../../../java/src/main/java/euler/p0019.java
+   :language: java
+   :linenos:
+
+.. tags:: calendar, combinatorics

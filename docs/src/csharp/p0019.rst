@@ -1,0 +1,18 @@
+C# Implementation of Problem 19
+===============================
+
+View source code :source:`csharp/Euler/p0019.cs`
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0019
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: object Answer()
+
+.. literalinclude:: ../../../csharp/Euler/p0019.cs
+   :language: csharp
+   :linenos:
+
+.. tags:: calendar, combinatorics

@@ -87,6 +87,7 @@ Problems Solved
 -  ☒ `15 <./src/main/java/p0015.java>`__
 -  ☒ `16 <./src/main/java/p0016.java>`__
 -  ☒ `17 <./src/main/java/p0017.java>`__
+-  ☒ `19 <./src/main/java/p0019.java>`__
 -  ☒ `20 <./src/main/java/p0020.java>`__
 -  ☒ `22 <./src/main/java/p0022.java>`__
 -  ☒ `34 <./src/main/java/p0034.java>`__
