@@ -203,8 +203,7 @@ def test_compiler_macros(compiler):
     exename = EXE_TEMPLATE.format("test_compiler_macros", compiler)
     test_path = C_FOLDER.joinpath("src", "tests", "test_compiler_macros.c")
     check_call(templates[compiler].format(test_path, exename).split())
-    buff = check_output([exename])
-    flags = [bool(int(x)) for x in buff.split()]
+    flags = [bool(int(x)) for x in check_output([exename]).split()]
     expect_32 = (compiler == 'GCC' and GCC_NO_64) or (compiler == 'CL' and CL_NO_64)
     assert flags[0] == compiler.startswith("CL+")
     assert flags[1] == compiler.startswith("CLANG")
