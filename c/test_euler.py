@@ -214,8 +214,8 @@ def test_compiler_macros(compiler):
     assert flags[5] == compiler.startswith("EMCC")
     assert flags[6] == (EXE_EXT == "x86" or expect_32)
     assert flags[7] == (EXE_EXT == "x86_64" and not expect_32)
-    assert flags[8] == (EXE_EXT not in ("x86", "x86_64", "exe"))
-    assert flags[9] == (EXE_EXT not in ("wasm", "wasm32", "wasm64"))
+    assert flags[8] == ("arm" in EXE_EXT.lower())
+    assert flags[9] == ("wasm" in EXE_EXT.lower())
 
 
 @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
