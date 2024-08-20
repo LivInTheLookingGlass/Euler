@@ -77,7 +77,7 @@ Olivia's Project Euler Solutions
 |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
 |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
 |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
-|            | |br| Browser [#]_          |        | |Java-lint|       |
+|            | |br| Browser [#]_          |        |                   |
 +------------+----------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|              | 26     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
