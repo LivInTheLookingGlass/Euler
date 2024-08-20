@@ -15,7 +15,7 @@ Find the sum of the digits in the number 100!
 #include <stdint.h>
 #include <iostream>
 #include <vector>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0020() {

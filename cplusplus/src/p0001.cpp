@@ -16,7 +16,7 @@
 #define EULER_P0001
 #include <stdint.h>
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0001() {
     uint64_t answer = 0;

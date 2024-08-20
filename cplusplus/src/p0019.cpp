@@ -26,7 +26,7 @@ How many Sundays fell on the first of the month during the twentieth century
 #include <iostream>
 #include <stdexcept>
 #include <stdint.h>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 #ifdef _WIN32
 #include <cstring>

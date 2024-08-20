@@ -24,7 +24,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 #define EULER_P0014
 #include <stdint.h>
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 #define CACHE_SIZE 1000000
 static uint32_t collatz_len_cache[CACHE_SIZE] = {0, 1, 0};

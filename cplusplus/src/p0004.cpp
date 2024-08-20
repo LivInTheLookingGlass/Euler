@@ -16,7 +16,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 #include <algorithm>
 #include <cstdio>
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 uint32_t EMSCRIPTEN_KEEPALIVE p0004() {
     uint32_t answer = 0, i, j, prod;

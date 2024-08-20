@@ -15,7 +15,7 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 #include <stdint.h>
 #include <iostream>
 #include <cstdio>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 #include "include/math.hpp"
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0034() {

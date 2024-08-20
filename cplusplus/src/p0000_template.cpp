@@ -11,7 +11,7 @@ This paragraph should be replaced by the problem description, excluding images.
 #define EULER_P0000
 #include <stdint.h>
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0000() {
     return 0;

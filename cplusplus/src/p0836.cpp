@@ -17,7 +17,7 @@ Find f(20230401, 57). Give as your answer the concatenation of the first letters
 #ifndef EULER_P0836
 #define EULER_P0836
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 std::string EMSCRIPTEN_KEEPALIVE p0836() {
     return "aprilfoolsjoke";

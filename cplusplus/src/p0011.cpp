@@ -35,7 +35,7 @@ the 20×20 grid?
 #define EULER_P0011
 #include <stdint.h>
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 static const uint8_t grid[20][20] = {
     { 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8},

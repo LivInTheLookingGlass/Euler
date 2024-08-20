@@ -18,7 +18,7 @@ four million, find the sum of the even-valued terms.
 #define EULER_P0002
 #include <stdint.h>
 #include <iostream>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0002() {
     uint64_t answer = 0,

@@ -12,7 +12,7 @@ What is the sum of the digits of the number 2**1000?
 #include <stdint.h>
 #include <iostream>
 #include <vector>
-#include "../macros.hpp"
+#include "include/macros.hpp"
 
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0016() {
