@@ -24,6 +24,8 @@ Includes
 Solution
 --------
 
+.. cpp:namespace-push:: p0022
+
 .. cpp:function:: uint64_t p0022()
 
 .. cpp:function:: int main(int argc, char const *argv[])

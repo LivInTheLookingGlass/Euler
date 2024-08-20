@@ -13,7 +13,7 @@ Includes
 - :external:py:func:`math.sqrt`
 - :external:py:class:`pathlib.Path`
 - :external:py:class:`sortedcontainers.SortedSet`
-- :external:py:func:`umsgpack.load`
+- :external:py:func:`umsgpack.load <umsgpack.unpack>`
 
 .. automodule:: python.src.lib.primes
    :members:

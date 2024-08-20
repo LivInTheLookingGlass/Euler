@@ -18,6 +18,8 @@ Includes
 Solution
 --------
 
+.. cpp:namespace-push:: p0034
+
 .. cpp:function:: uint64_t p0034()
 
 .. cpp:function:: int main(int argc, char const *argv[])

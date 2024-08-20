@@ -20,6 +20,8 @@ Includes
 Solution
 --------
 
+.. c:namespace-push:: p0001
+
 .. c:function:: uint32_t p0001()
 
 .. c:function:: int main(int argc, char const *argv[])

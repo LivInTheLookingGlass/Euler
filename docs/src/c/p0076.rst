@@ -14,6 +14,8 @@ Includes
 Solution
 --------
 
+.. c:namespace-push:: p0076
+
 .. c:function:: uint64_t p0076()
 
 .. c:function:: int main(int argc, char const *argv[])

@@ -12,7 +12,15 @@ Includes
 Solution
 --------
 
+.. cpp:namespace-push:: p0001
+
 .. cpp:function:: uint64_t p0001()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
 
 .. literalinclude:: ../../../cplusplus/src/p0001.cpp
    :language: C++

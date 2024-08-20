@@ -19,6 +19,8 @@ Includes
 Solution
 --------
 
+.. c:namespace-push:: p0007
+
 .. c:function:: uint32_t p0007()
 
 .. c:function:: int main(int argc, char const *argv[])

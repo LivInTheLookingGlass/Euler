@@ -9,6 +9,8 @@
 
 from fnmatch import fnmatch
 from os import environ, path, sep, walk
+from pathlib import Path
+from zlib import compress
 from subprocess import check_call
 from sys import path as sys_path
 
@@ -155,6 +157,11 @@ extlinks_detect_hardcoded_links = True
 # -- Options for intersphinx extension ---------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
 
+for p in Path(__file__).parent.joinpath('inv').glob('*'):
+    with p.joinpath('inv_raw.txt').open('rb') as f, p.joinpath('objects.inv').open('wb') as g:
+        g.writelines(f.readline() for _ in range(4))
+        g.write(compress(f.read()))
+
 intersphinx_mapping = {
     'python':           ('https://docs.python.org/3', None),
     'matplotlib':       ('https://matplotlib.org/stable/', None),
@@ -162,7 +169,8 @@ intersphinx_mapping = {
     'sortedcontainers': ('https://grantjenks.com/docs/sortedcontainers/', None),
     'u-msgpack-python': ('https://u-msgpack-python.readthedocs.io/en/latest/', None),
     'pytest':           ('https://docs.pytest.org/en/stable/', None),
-    'coverage':         ('https://coverage.readthedocs.io/en/latest/', None)
+    'coverage':         ('https://coverage.readthedocs.io/en/latest/', None),
+    'rust':             ('', './inv/rust/objects.inv'),
 }
 
 # -- Options for todo extension ----------------------------------------------
@@ -240,14 +248,7 @@ def setup(app):
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
         sizes = [float(size) / count for size, count in zip(sizes, counts)]
-        triples = sorted(zip(sizes, labels, colors), reverse=True)
-        sizes = [lang[0] for lang in triples]
-        labels = [lang[1] for lang in triples]
-        colors = [lang[2] for lang in triples]
-        pos = labels.index('Makefile')
-        labels.pop(pos)
-        sizes.pop(pos)
-        colors.pop(pos)
+        sizes, labels, colors = zip(*sorted(zip(sizes, labels, colors), reverse=True))
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
@@ -261,28 +262,10 @@ def setup(app):
         'rust',
         'Rust',
         {
-            'fn': {
-            },
-            'enum': {
-            },
-            'struct': {
-            },
-            'var': {
-            },
-            'crate': {
-            }
+            'fn': {},
+            'enum': {},
+            'struct': {},
+            'trait': {},
+            'macro': {},
         }
     ))
-
-    # app.add_domain(custom_domain(
-    #     'JavaDomain',
-    #     'java',
-    #     'Java',
-    #     {
-    #         'class': {
-    #         },
-    #         'method': {
-    #         },
-    #     }
-    # ))
-

@@ -13,6 +13,8 @@ Includes
 Solution
 --------
 
+.. c:namespace-push:: p0019
+
 .. c:function:: uint16_t p0019()
 
 .. c:function:: int main(int argc, char const *argv[])

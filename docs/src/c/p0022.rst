@@ -24,6 +24,8 @@ Includes
 Solution
 --------
 
+.. c:namespace-push:: p0022
+
 .. c:function:: int cmpstr(const void *a, const void *b)
 
   A wrapper around ``strcmp()`` to adapt it for ``qsort()``

@@ -12,6 +12,8 @@ Includes
 Solution
 --------
 
+.. cpp:namespace-push:: p0019
+
 .. cpp:function:: uint16_t p0019()
 
 .. cpp:function:: int main(int argc, char const *argv[])

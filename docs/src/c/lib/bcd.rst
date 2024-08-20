@@ -29,7 +29,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
     .. c:member:: packed_BCD_pair *digits
 
-        This array holds the digit-pairs that encode the number. Because of this, you must use :c:ref:`free_bcd` to destroy
+        This array holds the digit-pairs that encode the number. Because of this, you must use :c:func:`~c.bcd.free_bcd` to destroy
         these objects without leaking memory.
 
     .. c:member:: size_t bcd_digits
@@ -59,7 +59,7 @@ It was also a good exercise in x86 assembly, as several portions are accellerate
 
 .. c:function:: BCD_int BCD_from_ascii(const char *str, size_t digits, bool negative)
 
-    From an ASCII-encoded integer to a :c:ref:`BCD_int`.
+    From an ASCII-encoded integer to a :c:func:`~c.bcd.BCD_int`.
 
 .. c:function:: BCD_int add_bcd(BCD_int x, BCD_int y)
 

@@ -12,7 +12,9 @@ Includes
 Solution
 --------
 
-.. cpp:function:: char *p0836()
+.. cpp:namespace-push:: p0836
+
+.. cpp:function:: std::string p0836()
 
 .. cpp:function:: int main(int argc, char const *argv[])
 

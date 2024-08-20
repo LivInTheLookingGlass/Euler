@@ -6,7 +6,7 @@ View source code :source:`rust/src/include/problems.rs`
 Includes
 --------
 
-- `seq_macro::seq <https://docs.rs/seq-macro/latest/seq_macro/macro.seq.html>`_
+- :external:rust:macro:`seq_macro::seq`
 
 .. rust:fn:: pub fn get_problem(n: usize) -> Option<(usize, fn() -> utils::Answer, bool)>
 

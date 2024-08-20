@@ -6,10 +6,10 @@ View source code :source:`rust/src/include/math.rs`
 Includes
 --------
 
-- `num_traits::NumAssign <https://docs.rs/num-traits/latest/num_traits/trait.NumAssign.html>`_
-- `num_traits::one <https://docs.rs/num-traits/latest/num_traits/identities/fn.one.html>`_
-- :rsref:`std::cmp::PartialOrd <std/cmp/trait.PartialOrd>`
-- :rsref:`std::cmp::PartialOrd <std/mem/fn.size_of>`
+- :external:rust:trait:`num_traits::NumAssign`
+- :external:rust:fn:`num_traits::one`
+- :external:rust:trait:`std::cmp::PartialOrd`
+- :external:rust:fn:`std::mem::size_of`
 
 .. rust:fn:: pub fn math::factorial<I>(n: u8) -> I where I: NumAssign + From<u8>
 

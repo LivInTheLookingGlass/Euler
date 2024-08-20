@@ -13,6 +13,8 @@ Includes
 Solution
 --------
 
+.. c:namespace-push:: p0836
+
 .. c:function:: char *p0836()
 
 .. c:function:: int main(int argc, char const *argv[])

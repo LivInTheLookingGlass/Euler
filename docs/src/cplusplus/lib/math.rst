@@ -12,9 +12,9 @@ Includes
 - :cref:`\<stdint.h\> <types/integer>`
 - :cref:`\<inttypes.h\> <types/integer>`
 
-.. c:namespace-push:: math
+.. cpp:namespace-push:: math
     
-.. c:function:: uintmax_t factorial(uint32_t n)
+.. cpp:function:: uintmax_t factorial(uint32_t n)
 
     .. warning::
         
@@ -22,7 +22,7 @@ Includes
         :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAX_FACTORIAL_128`,
         depending on the size of ``uintmax_t``.
 
-.. c:function:: uintmax_t n_choose_r(uint32_t n, uint32_t r)
+.. cpp:function:: uintmax_t n_choose_r(uint32_t n, uint32_t r)
 
     Returns -1 if there is an overflow. Otherwise returns n choose r.
 
@@ -32,7 +32,7 @@ Includes
         :c:macro:`MAX_FACTORIAL_64` or :c:macro:`MAX_FACTORIAL_128`,
         depending on the size of ``uintmax_t``.
 
-.. c:namespace-pop::
+.. cpp:namespace-pop::
 
 .. literalinclude:: ../../../../cplusplus/src/include/math.hpp
    :language: C++

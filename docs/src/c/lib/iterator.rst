@@ -93,11 +93,11 @@ Includes
 
     .. c:member:: uintmax_t stop
 
-        The point before which the counter will stop (as in :external:py:ref:`range`).
+        The point before which the counter will stop (as in :external:py:class:`range`).
 
     .. c:member:: intmax_t step
 
-        The amount by which the counter will move in each iteration (as in :external:py:ref:`range`).
+        The amount by which the counter will move in each iteration (as in :external:py:class:`range`).
 
 .. c:function:: uintmax_t iterate_counter(counter *i)
 
