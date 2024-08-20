@@ -43,7 +43,7 @@
     #define ARM_THUMB 1
 #else
     #define ARM_THUMB 0
-#
+#endif
 #if (defined(__wasm__) || defined(__wasm32__) || defined(__wasm64__))
     #define WASM_COMPILER 1
     #include <emscripten.h>
