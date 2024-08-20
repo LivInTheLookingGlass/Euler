@@ -26,6 +26,7 @@ How many Sundays fell on the first of the month during the twentieth century
 #include <stdio.h>
 #include <stdint.h>
 #include <inttypes.h>
+#include "include/macros.h"
 
 #ifdef _WIN32
 #include <string.h>
@@ -34,7 +35,7 @@ How many Sundays fell on the first of the month during the twentieth century
 #include <time.h>
 #endif
 
-uint16_t p0019() {
+uint16_t EMSCRIPTEN_KEEPALIVE p0019() {
     uint16_t answer = 0;
 
 #ifdef _WIN32

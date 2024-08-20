@@ -17,9 +17,10 @@
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/iterator.h"
 
-uint32_t p0001() {
+uint32_t EMSCRIPTEN_KEEPALIVE p0001() {
     uint32_t answer = 0;
     counter c = counter3(0, 1000, 3);
     while (!c.exhausted)

@@ -31,9 +31,10 @@ divisors?
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/factors.h"
 
-uint64_t p0012() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0012() {
     uint64_t current = 1;
     uint32_t i = 2;
     while (true) {

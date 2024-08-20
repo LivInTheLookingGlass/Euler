@@ -23,7 +23,12 @@
 #else
     #define PCC_COMPILER 0
 #endif
-#define TCC_COMPILER (!(CL_COMPILER || CLANG_COMPILER || GCC_COMPILER || PCC_COMPILER))
+#ifdef __EMSCRIPTEN__
+    #define EMCC_COMPILER 1
+#else
+    #define EMCC_COMPILER 0
+#endif
+#define TCC_COMPILER (!(CL_COMPILER || CLANG_COMPILER || GCC_COMPILER || PCC_COMPILER || EMCC_COMPILER))
 
 #if (defined(_M_X64) || defined(_M_AMD64) || defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64))
     #define X64_COMPILER 1
@@ -44,6 +49,13 @@
     #define ARM_THUMB 1
 #else
     #define ARM_THUMB 0
+#endif
+#if (defined(__wasm__) || defined(__wasm32__) || defined(__wasm64__))
+    #define WASM_COMPILER 1
+    #include <emscripten.h>
+#else
+    #define WASM_COMPILER 0
+    #define EMSCRIPTEN_KEEPALIVE
 #endif
 
 // compiler workaround section

@@ -24,8 +24,9 @@ natural numbers and the square of the sum.
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 
-uint32_t p0006() {
+uint32_t EMSCRIPTEN_KEEPALIVE p0006() {
     uint32_t sum = 100 * 101 / 2, sum_of_squares = 0;
     for (uint32_t i = 1; i < 101; i++)
         sum_of_squares += i * i;

@@ -37,7 +37,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 #include <stdio.h>
 #include "include/macros.h"
 
-uint64_t p0008() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
     size_t i, j;
     uint64_t answer = 0, tmp;
     const char *plain_digits = ("73167176531330624919225119674426574742355349194934"

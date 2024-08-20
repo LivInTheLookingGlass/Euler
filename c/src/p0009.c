@@ -18,8 +18,9 @@ Find the product abc.
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 
-uint32_t p0009() {
+uint32_t EMSCRIPTEN_KEEPALIVE p0009() {
     uint32_t answer = 0;
     for (uint32_t c = 3; !answer && c < 1000; c++) {
         for (uint32_t b = 2; b < c; b++) {

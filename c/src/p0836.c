@@ -19,8 +19,9 @@ Find f(20230401, 57). Give as your answer the concatenation of the first letters
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 
-char *p0836() {
+const char *EMSCRIPTEN_KEEPALIVE p0836() {
     return "aprilfoolsjoke";
 }
 

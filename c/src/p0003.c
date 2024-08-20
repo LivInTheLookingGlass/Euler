@@ -15,9 +15,10 @@ What is the largest prime factor of the number 600851475143 ?
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/primes.h"
 
-uint16_t p0003() {
+uint16_t EMSCRIPTEN_KEEPALIVE p0003() {
     uint16_t answer = 0;
     prime_factor_counter pfc = prime_factors(600851475143);
     while (!pfc.exhausted)

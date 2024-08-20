@@ -19,9 +19,10 @@ four million, find the sum of the even-valued terms.
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/fibonacci.h"
 
-uint32_t p0002() {
+uint32_t EMSCRIPTEN_KEEPALIVE p0002() {
     uint32_t answer = 0;
     fibonacci fib = fibonacci1(3999999);
     while (!fib.exhausted) {

@@ -45,7 +45,7 @@ uint32_t collatz_len(uint64_t n) {
     return ret;
 }
 
-uint64_t p0014() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0014() {
     uint64_t answer = 2, length = 2, tmp;
     for (uint64_t test = 3; test < 1000000; test++) {
         tmp = collatz_len(test);

@@ -12,8 +12,9 @@ This paragraph should be replaced by the problem description, excluding images.
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 
-uint64_t p0000() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0000() {
     return 0;
 }
 

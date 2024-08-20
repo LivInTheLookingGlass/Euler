@@ -15,8 +15,9 @@ Find the sum of the digits in the number 100!
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 
-uint64_t p0020() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0020() {
     uint64_t numbers[10] = {};
     const uint64_t ten17 = 100000000000000000;
     numbers[0] = 1;

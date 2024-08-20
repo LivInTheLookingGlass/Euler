@@ -19,7 +19,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 #include "include/macros.h"
 #include "include/primes.h"
 
-uint32_t p0005() {
+uint32_t EMSCRIPTEN_KEEPALIVE p0005() {
     uint32_t answer = 1;
     uint8_t factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
     prime_factor_counter pfc;

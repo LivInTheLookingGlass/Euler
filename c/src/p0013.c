@@ -113,6 +113,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/bcd.h"
 
 
@@ -219,7 +220,7 @@ static const char numbers[100][50] = {
     "53503534226472524250874054075591789781264330331690"
 };
 
-uint64_t p0013() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0013() {
     BCD_int answer, tmp1, tmp2 = new_BCD_int(0, false);
     uintmax_t ret;
     for (size_t i = 0; i < 100; i++) {

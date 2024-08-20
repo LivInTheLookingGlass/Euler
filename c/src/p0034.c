@@ -15,10 +15,11 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 #include "include/digits.h"
 #include "include/math.h"
 
-uint64_t p0034() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0034() {
     uint64_t answer = 0, sum;
     digit_counter dc;
     for (uint64_t i = 10; i < 100000; i++) {

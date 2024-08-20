@@ -24,7 +24,7 @@ int cmpstr(const void* a, const void* b) {
     return strcmp(*(const char**)a, *(const char**)b);
 }
 
-uint64_t p0022() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0022() {
     uint64_t answer = 0;
     char *fstring = get_data_file("p0022_names.txt");
     const uint32_t name_count = 5163;

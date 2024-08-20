@@ -21,6 +21,7 @@ British usage.
 #include <stdint.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include "include/macros.h"
 
 uint32_t to_string_len(uint64_t n);
 uint32_t to_string_len(uint64_t n) {
@@ -80,7 +81,7 @@ uint32_t to_string_len(uint64_t n) {
     }
 }
 
-uint64_t p0017() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0017() {
     uint64_t answer = 0;
     for (uint32_t x = 1; x < 1001; x += 1)
         answer += to_string_len(x);
