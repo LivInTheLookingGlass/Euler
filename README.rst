@@ -123,13 +123,13 @@ Olivia's Project Euler Solutions
    <a href="https://euler.oliviaappleton.com/_static/test-rs.html" target="_blank">click here!</a>
 
 .. [1] This is the earliest standard the MSVC explicitly supports.
-.. [2] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
+.. [2] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-c-link|
-.. [3] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
+.. [3] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-cp-link|
-.. [#] While these solutions do run in most browsers, they need to be bundled with DotNetAnywhere first,
+.. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with DotNetAnywhere first,
    and these tests not yet automated as in mainline .NET. To run these tests yourself, |test-cs-link|
-.. [#] While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
+.. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
    and these tests not yet automated as in mainline Java. To run these tests yourself, |test-ja-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
