@@ -18,9 +18,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "../macros.hpp"
 #include "include/utils.hpp"
 
-uint64_t p0022() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0022() {
     uint64_t answer = 0;
     std::string fstring = get_data_file("p0022_names.txt");
     const uint32_t name_count = 5163;

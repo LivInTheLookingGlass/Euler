@@ -44,7 +44,7 @@ positive integers?
 #include <iostream>
 #include "include/macros.hpp"
 
-uint32_t p0076() {
+uint32_t EMSCRIPTEN_KEEPALIVE p0076() {
     uint32_t answer = 0;
     uint8_t idx, i, sum = 100, counts[101] = {0, 0, 100, 0};
     while (!counts[100]) {

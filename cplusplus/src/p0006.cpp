@@ -23,8 +23,9 @@ natural numbers and the square of the sum.
 #define EULER_P0006
 #include <stdint.h>
 #include <iostream>
+#include "../macros.hpp"
 
-uint64_t p0006() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0006() {
     uint64_t sum = 100 * 101 / 2, sum_of_squares = 0;
     for (uint64_t i = 1; i < 101; i++)
         sum_of_squares += i * i;

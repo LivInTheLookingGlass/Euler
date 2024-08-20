@@ -18,11 +18,12 @@ How many such routes are there through a 20×20 grid?
 #define EULER_P0015
 #include <stdint.h>
 #include <iostream>
+#include "../macros.hpp"
 #include "include/math.hpp"
 
 #define lattice_paths(height, width) (n_choose_r(height + width, height))
 
-uint64_t p0015() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0015() {
     return lattice_paths(20, 20);
 }
 

@@ -18,6 +18,11 @@
 #else
     #define GCC_COMPILER 0
 #endif
+#ifdef __EMSCRIPTEN__
+    #define EMCC_COMPILER 1
+#else
+    #define EMCC_COMPILER 0
+#endif
 
 #if (defined(_M_X64) || defined(_M_AMD64) || defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64))
     #define X64_COMPILER 1
@@ -38,6 +43,13 @@
     #define ARM_THUMB 1
 #else
     #define ARM_THUMB 0
+#
+#if (defined(__wasm__) || defined(__wasm32__) || defined(__wasm64__))
+    #define WASM_COMPILER 1
+    #include <emscripten.h>
+#else
+    #define WASM_COMPILER 0
+    #define EMSCRIPTEN_KEEPALIVE
 #endif
 
 // helper macro function section

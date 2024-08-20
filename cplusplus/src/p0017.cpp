@@ -23,6 +23,7 @@ British usage.
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "../macros.hpp"
 
 std::string ToString(uint64_t n);
 std::string ToString(uint64_t n) {
@@ -93,7 +94,7 @@ std::string ToString(uint64_t n) {
     }
 }
 
-uint64_t p0017() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0017() {
     uint64_t answer = 0;
     for (uint32_t x = 1; x < 1001; x += 1) {
         std::string str = ToString(x);

@@ -211,9 +211,11 @@ def test_compiler_macros(compiler):
     assert flags[0] == compiler.startswith("CL+")
     assert flags[1] == compiler.startswith("CLANG")
     assert flags[2] == compiler.startswith("GCC")
-    assert flags[3] == (EXE_EXT == "x86" or expect_32)
-    assert flags[4] == (EXE_EXT == "x86_64" and not expect_32)
-    assert flags[5] == (EXE_EXT not in ("x86", "x86_64", "exe"))
+    assert flags[3] == compiler.startswith("EMCC")
+    assert flags[4] == (EXE_EXT == "x86" or expect_32)
+    assert flags[5] == (EXE_EXT == "x86_64" and not expect_32)
+    assert flags[6] == ("arm" in EXE_EXT.lower())
+    assert flags[7] == ("wasm" in EXE_EXT.lower())
 
 
 # @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')

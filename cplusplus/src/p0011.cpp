@@ -35,6 +35,7 @@ the 20×20 grid?
 #define EULER_P0011
 #include <stdint.h>
 #include <iostream>
+#include "../macros.hpp"
 
 static const uint8_t grid[20][20] = {
     { 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8},
@@ -59,7 +60,7 @@ static const uint8_t grid[20][20] = {
     { 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48}
 };
 
-uint64_t p0011() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0011() {
     uint64_t answer = 0, tmp;
     uint8_t i, j;
     for (i = 0; i < 20; i++) {

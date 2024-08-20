@@ -17,8 +17,9 @@ Find the product abc.
 #define EULER_P0009
 #include <stdint.h>
 #include <iostream>
+#include "../macros.hpp"
 
-uint64_t p0009() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0009() {
     uint64_t answer = 0;
     for (uint32_t c = 3; !answer && c < 1000; c++) {
         for (uint32_t b = 2; b < c; b++) {

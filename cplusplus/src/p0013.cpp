@@ -109,6 +109,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 #define EULER_P0013
 #include <stdint.h>
 #include <iostream>
+#include "../macros.hpp"
 
 static const uint64_t numbers[100][3] = {
     { 37107287533902, 102798797998220837, 590246510135740250 },
@@ -215,7 +216,7 @@ static const uint64_t numbers[100][3] = {
 static const uint64_t ten18 = 1000000000000000000;
 static const uint64_t ten10 = 10000000000;
 
-uint64_t p0013() {
+uint64_t EMSCRIPTEN_KEEPALIVE p0013() {
     uint64_t high = 0, med = 0, low = 0;
     for (uint8_t i = 0; i < 100; ++i) {
         low += numbers[i][2];

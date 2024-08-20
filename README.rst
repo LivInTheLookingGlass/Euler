@@ -60,16 +60,16 @@ Olivia's Project Euler Solutions
 +============+============================+========+===================+
 | C          | C99+ in: |clang|, |br|     | 25     | |Ci| |br|         |
 |            | |gcc|, |pcc|, & |tcc| |br| |        | |C-Cov| |br|      |
-|            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
-|            |                            |        | |C-lint|          |
+|            | C11+ in: |msvc| [1]_ |br|  |        | |CodeQL| |br|     |
+|            | Browser [2]_               |        | |C-lint|          |
 +------------+----------------------------+--------+-------------------+
 | C++        | C++98+ in: |br| |clang|, & | 18     | |Cpi| |br|        |
 |            | |gcc| |br|                 |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
-|            |                            |        | |Cp-lint|         |
+|            | |br| Browser [3]_          |        | |Cp-lint|         |
 +------------+----------------------------+--------+-------------------+
-| C#         | .NET 2+                    | 18     | |C#i| |br|        |
-|            |                            |        | |Cs-Cov| |br|     |
+| C#         | .NET 2+ |br|               | 18     | |C#i| |br|        |
+|            | Browser [#]_               |        | |Cs-Cov| |br|     |
 |            |                            |        | |CodeQL| |br|     |
 |            |                            |        | |C#-lint|         |
 +------------+----------------------------+--------+-------------------+
@@ -77,6 +77,7 @@ Olivia's Project Euler Solutions
 |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
 |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
 |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
+|            | |br| Browser [#]_          |        | |Java-lint|       |
 +------------+----------------------------+--------+-------------------+
 | JavaScript | Node 12+ |br|              | 26     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
@@ -93,6 +94,22 @@ Olivia's Project Euler Solutions
 |            |                            |        | |RustClippy|      |
 +------------+----------------------------+--------+-------------------+
 
+.. |test-c-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-c.html" target="_blank">click here!</a>
+
+.. |test-cp-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-cp.html" target="_blank">click here!</a>
+
+.. |test-cs-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-cs.html" target="_blank">click here!</a>
+
+.. |test-ja-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-ja.html" target="_blank">click here!</a>
+
 .. |test-js-link| raw:: html
 
    <a href="https://euler.oliviaappleton.com/_static/test-js.html" target="_blank">click here!</a>
@@ -106,6 +123,14 @@ Olivia's Project Euler Solutions
    <a href="https://euler.oliviaappleton.com/_static/test-rs.html" target="_blank">click here!</a>
 
 .. [1] This is the earliest standard the MSVC explicitly supports.
+.. [2] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
+   and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-c-link|
+.. [3] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
+   and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-cp-link|
+.. [#] While these solutions do run in most browsers, they need to be bundled with DotNetAnywhere first,
+   and these tests not yet automated as in mainline .NET. To run these tests yourself, |test-cs-link|
+.. [#] While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
+   and these tests not yet automated as in mainline Java. To run these tests yourself, |test-ja-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
