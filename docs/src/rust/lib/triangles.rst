@@ -1,7 +1,7 @@
-triangle.rs
-===========
+triangles.rs
+============
 
-View source code :source:`rust/src/include/triangle.rs`
+View source code :source:`rust/src/include/triangles.rs`
 
 Includes
 --------
@@ -12,6 +12,6 @@ Includes
 
   Returns the highest value path in a given triangle-shaped vector.
 
-.. literalinclude:: ../../../../rust/src/include/triangle.rs
+.. literalinclude:: ../../../../rust/src/include/triangles.rs
    :language: rust
    :linenos:

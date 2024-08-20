@@ -1,12 +1,3 @@
-
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
 from fnmatch import fnmatch
 from os import environ, path, sep, walk
 from pathlib import Path
@@ -25,6 +16,11 @@ basedir = path.abspath(path.join(path.dirname(__file__), '..'))
 sys_path.insert(0, basedir)
 sys_path.insert(0, basedir + sep + 'python')
 
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
 project = 'Euler'
 copyright = '2024, Olivia Appleton'
 author = 'Olivia Appleton'
@@ -38,11 +34,11 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.extlinks',
     'sphinx.ext.githubpages',
-    'sphinx.ext.graphviz',
-    'sphinx.ext.inheritance_diagram',
+    # 'sphinx.ext.graphviz',
+    # 'sphinx.ext.inheritance_diagram',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.todo',
+    # 'sphinx.ext.mathjax',
+    # 'sphinx.ext.todo',
     'sphinx_favicon',
     'notfound.extension',
     # 'breathe',
@@ -50,13 +46,10 @@ extensions = [
     'sphinx_csharp.csharp',
     'sphinxcontrib.makedomain',
     'sphinx_tags',
-#    "sphinx_rust",
-]
-rust_crates = [
-    "../rust",
-]
-html_css_files = [
-    'style.css',
+    # 'sphinx-disqus',
+    # 'sphinx-computron',
+    # 'sphinx-compendia',
+    # 'sphinx-navtree',
 ]
 
 try:
@@ -71,15 +64,21 @@ if 'TERMUX_VERSION' not in environ and not IS_SILVERBLUE:
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-tags_create_tags = True
-
 language = 'english'
+trim_footnote_reference_space = True
+
+# -- Options for Python domain -----------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-python-domain
+
+add_module_name = False
+python_display_short_literal_types = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = ['style.css']
 
 # -- Options for autodoc extension -------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
@@ -97,54 +96,51 @@ autosectionlabel_prefix_document = True
 langcodes = [
     # ('a', 'ada'),
     # ('ba', 'batch'),
-    ('c', 'c'),
+    ('c', 'c'),                 # built-in
     # ('cb', 'cobol'),
     # ('cl', 'clojure'),
-    ('cp', 'cplusplus'),
-    ('cs', 'csharp'),
+    ('cp', 'cplusplus'),        # built-in
+    ('cs', 'csharp'),           # sphinx_csharp.csharp
     # ('d', 'd'),
-    # ('da', 'dart'),
+    # ('da', 'dart'),           # sphinxcontrib-dartdomain
     # ('el', 'elixir'),
     # ('ev', 'eiffel'),
     # ('fr', 'fortran'),
-    # ('fs', 'fsharp'),
-    # ('go', 'go'),
+    # ('fs', 'fsharp'),         # sphinx-fortran
+    # ('go', 'go'),             # sphinxcontrib-golangdomain
     # ('hs', 'haskell'),
-    ('ja', 'java'),
-    ('js', 'javascript'),
+    ('ja', 'java'),             # javasphinx
+    ('js', 'javascript'),       # sphinx_js
     # ('ju', 'julia'),
     # ('kt', 'kotlin'),
-    # ('ls', 'lisp'),
-    # ('lu', 'lua'),
-    # ('ma', 'matlab'),
-    # ('oc', 'ocaml'),
+    # ('ls', 'lisp'),           # sphinxcontrib-cldomain
+    # ('lu', 'lua'),            # sphinx-lua or sphinxcontrib-luadomain
+    # ('ma', 'matlab'),         # sphinxcontrib-matlabdomain
+    # ('mk', 'makefile'),       # hacked together with sphinxcontrib-domaintools
+    # ('oc', 'ocaml'),          # sphinxcontrib-ocaml
     # ('pe', 'perl'),
-    # ('ph', 'php'),
-    # ('pr', 'prolog'),
-    ('py', 'python'),
+    # ('ph', 'php'),            # sphinxcontrib-phpdomain
+    # ('pr', 'prolog'),         # sphinx-prolog
+    ('py', 'python'),           # built-in
     # ('r', 'r'),
     # ('rb', 'ruby'),
-    ('rs', 'rust'),
-    # ('sa', 'scala'),
+    ('rs', 'rust'),             # hacked together with sphinxcontrib-domaintools, but sphinxcontrib-rust might work
+    # ('sa', 'scala'),          # sphinxcontrib-scaladomain
     # ('se', 'scheme'),
     # ('sh', 'bash'),
     # ('sm', 'smalltalk'),
     # ('sq', 'sql'),
     # ('sw', 'swift'),
-    # ('ts', 'typescript'),
+    # ('ts', 'typescript'),     # sphinx_js
     # ('vb', 'visualbasic'),
 ]
 extlinks = {
-    'prob': ('https://projecteuler.net/problem=%s',
-             'Problem #%s'),
-    'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s',
-               'here on GitHub!%.0s'),
-    'live-test': ('/_static/test-%s.html',
-                  'click here!%.0s'),
+    'prob': ('https://projecteuler.net/problem=%s', 'Problem #%s'),
+    'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s', 'here on GitHub!%.0s'),
+    'live-test': ('/_static/test-%s.html', 'click here!%.0s'),
     'cppref': ('https://en.cppreference.com/w/cpp/header/%s', '<%s>'),
     'cref': ('https://en.cppreference.com/w/c/%s', '%s'),
     'csref': ('https://learn.microsoft.com/en-us/dotnet/api/%s', '%s'),
-    'rsref': ('https://doc.rust-lang.org/stable/%s.html', '%s'),
 } | {
     f'{code}-d': (f'./src/{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
 } | {
@@ -171,6 +167,11 @@ intersphinx_mapping = {
     'pytest':           ('https://docs.pytest.org/en/stable/', None),
     'coverage':         ('https://coverage.readthedocs.io/en/latest/', None),
     'rust':             ('', './inv/rust/objects.inv'),
+    # 'c':                ('', './inv/c/objects.inv'),
+    # 'cplusplus':        ('', './inv/cplusplus/objects.inv'),
+    # 'csharp':           ('', './inv/csharp/objects.inv'),
+    # 'java':             ('', './inv/java/objects.inv'),
+    # 'javascript':       ('', './inv/javascript/objects.inv'),
 }
 
 # -- Options for todo extension ----------------------------------------------
@@ -200,17 +201,23 @@ js_source_path = [
     root_for_relative_js_paths + sep + 'src' + sep + 'lib'
 ]
 
+# -- Options for sphinx-tags extension ---------------------------------------
+# https://sphinx-tags.readthedocs.io/en/latest/configuration.html
+
+tags_create_tags = True
+tags_page_title = 'Tags'
+
 
 def countfiles(lang):
     templates = {
-        'Makefile': lambda root, filename: filename == 'Makefile',
+        'Makefile': lambda _, filename: filename == 'Makefile',
         'Python': lambda root, filename: fnmatch(filename, '*.py') and 'docs' not in root,
-        'C': lambda root, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
-        'C++': lambda root, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.hpp'),
-        'C#': lambda root, filename: fnmatch(filename, '*.cs'),
-        'Java': lambda root, filename: fnmatch(filename, '*.java'),
-        'JavaScript': lambda root, filename: fnmatch(filename, '*.js'),
-        'Rust': lambda root, filename: fnmatch(filename, '*.rs'),
+        'C': lambda _, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
+        'C++': lambda _, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.hpp'),
+        'C#': lambda _, filename: fnmatch(filename, '*.cs'),
+        'Java': lambda _, filename: fnmatch(filename, '*.java'),
+        'JavaScript': lambda _, filename: fnmatch(filename, '*.js'),
+        'Rust': lambda _, filename: fnmatch(filename, '*.rs'),
     }
     exclude_patterns = {
         'Makefile': ['Unity', 'wasi-libc', 'node_modules'],
@@ -224,7 +231,7 @@ def countfiles(lang):
     }
     count = 0
 
-    for root, dirs, files in walk(basedir):
+    for root, _, files in walk(basedir):
         if any(excluded in root for excluded in exclude_patterns.get(lang, [])):
             continue
         for filename in files:
@@ -235,10 +242,7 @@ def countfiles(lang):
 
 def setup(app):
     try:
-        langs = linguist(basedir)
-        labels = [lang[0] for lang in langs]
-        sizes = [float(lang[1]) for lang in langs]
-        counts = [countfiles(lang) for lang in labels]
+        labels, sizes, counts = zip(*((lang, float(size), countfiles(lang)) for lang, size in linguist(basedir)))
         size = max(10, len(labels))
         colormap = plt.get_cmap('tab10' if len(labels) <= 10 else 'tab20')
         colors = [colormap(idx / size) for idx, _ in enumerate(labels)]
@@ -247,8 +251,10 @@ def setup(app):
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages.svg', transparent=True, bbox_inches='tight')
 
-        sizes = [float(size) / count for size, count in zip(sizes, counts)]
-        sizes, labels, colors = zip(*sorted(zip(sizes, labels, colors), reverse=True))
+        sizes = [size / count for size, count in zip(sizes, counts)]
+        sizes, labels, colors = zip(
+            *sorted(filter(lambda x: x[1] != "Makefile", zip(sizes, labels, colors)), reverse=True)
+        )
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
