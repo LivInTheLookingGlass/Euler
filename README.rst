@@ -61,12 +61,12 @@ Olivia's Project Euler Solutions
 | C          | C99+ in: |clang|, |br|     | 25     | |Ci| |br|         |
 |            | |gcc|, |pcc|, & |tcc| |br| |        | |C-Cov| |br|      |
 |            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
-|            |                            |        | |C-lint|          |
+|            | |br| Browser [2]_          |        | |C-lint|          |
 +------------+----------------------------+--------+-------------------+
 | C++        | C++98+ in: |br| |clang|, & | 18     | |Cpi| |br|        |
 |            | |gcc| |br|                 |        | |Cp-Cov| |br|     |
 |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
-|            |                            |        | |Cp-lint|         |
+|            | |br| Browser [3]_          |        | |Cp-lint|         |
 +------------+----------------------------+--------+-------------------+
 | C#         | .NET 2+                    | 18     | |C#i| |br|        |
 |            |                            |        | |Cs-Cov| |br|     |
@@ -93,21 +93,21 @@ Olivia's Project Euler Solutions
 |            |                            |        | |RustClippy|      |
 +------------+----------------------------+--------+-------------------+
 
-.. .. |test-c-link| raw:: html
+.. |test-c-link| raw:: html
 
-..    <a href="https://euler.oliviaappleton.com/_static/test-c.html" target="_blank">click here!</a>
+   <a href="https://euler.oliviaappleton.com/_static/test-c.html" target="_blank">click here!</a>
 
-.. .. |test-cp-link| raw:: html
+.. |test-cp-link| raw:: html
 
-..    <a href="https://euler.oliviaappleton.com/_static/test-cp.html" target="_blank">click here!</a>
+   <a href="https://euler.oliviaappleton.com/_static/test-cp.html" target="_blank">click here!</a>
 
-.. .. |test-cs-link| raw:: html
+.. |test-cs-link| raw:: html
 
-..    <a href="https://euler.oliviaappleton.com/_static/test-cs.html" target="_blank">click here!</a>
+   <a href="https://euler.oliviaappleton.com/_static/test-cs.html" target="_blank">click here!</a>
 
-.. .. |test-ja-link| raw:: html
+.. |test-ja-link| raw:: html
 
-..    <a href="https://euler.oliviaappleton.com/_static/test-ja.html" target="_blank">click here!</a>
+   <a href="https://euler.oliviaappleton.com/_static/test-ja.html" target="_blank">click here!</a>
 
 .. |test-js-link| raw:: html
 
@@ -134,7 +134,7 @@ Olivia's Project Euler Solutions
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
-.. [#] While these solutions will run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
+.. [#] While these solutions do run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
    tests are not yet automated as on non-web platforms. To run these tests yourself, |test-rs-link|
 
 Coverage
