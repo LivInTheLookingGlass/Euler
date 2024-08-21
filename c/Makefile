@@ -66,10 +66,17 @@ native_test: native
 
 .PHONY: clean
 clean:
-	@rm -rf build {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
+	@rm -rf build dist {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
-.PHONY: wasm
-wasm: ../LICENSE
-	@wget https://github.com/jedisct1/libclang_rt.builtins-wasm32.a -O wasm32.a
+dist/lib.wasm: build/lib.c
+	@mkdir -p dist
+	@emcc build/lib.c -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/lib.js
+
+build/lib.c: ../LICENSE
 	@mkdir -p build
-	@clang -DUNITY_END --target=wasm32-unknown-wasi --sysroot /tmp/wasi-libc -nostartfiles -Wl,--import-memory -Wl,--no-entry -Wl,--export-all -o build/c.wasm test.c
+	@> build/lib.c
+	@for file in src/p*.c; do \
+		if [ -f "$$file" ]; then \
+			echo "#include \"../$$file\"" >> build/lib.c; \
+		fi \
+	done

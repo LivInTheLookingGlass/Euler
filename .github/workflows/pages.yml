@@ -55,8 +55,8 @@ jobs:
     - name: Install git, linguist
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: git ruby-github-linguist
-        version: docs
+        packages: git ruby-github-linguist emscripten
+        version: docs2
 
     - name: Build sphinx docs
       run: make docs_dependencies html

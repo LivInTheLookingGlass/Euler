@@ -58,4 +58,17 @@ native_test: native
 
 .PHONY: clean
 clean:
-	@rm -rf build {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
+	@rm -rf build dist {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
+
+dist/lib.wasm: build/lib.cpp
+        @mkdir -p dist
+        @emc++ build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/lib.js
+
+build/lib.cpp: ../LICENSE
+        @mkdir -p build
+        @> build/lib.cpp
+        @for file in src/p*.cpp; do \
+                if [ -f "$$file" ]; then \
+                        echo "#include \"../$$file\"" >> build/lib.c; \
+                fi \
+        done
