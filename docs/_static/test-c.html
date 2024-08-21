@@ -11,49 +11,53 @@
     <div id="mocha"></div>
     <!-- Mocha setup and initiation code -->
     <script type="module">
-      import * as wasm from './dist/c/lib.js';
+      import Module from './dist/c-lib.mjs';
+			import init, { get_js_answer } from './dist/rust.js';
       mocha.setup('bdd');
       window.onload = function() {
-        for (let p = 1; p < 10000; p++) {
-          const formattedQuestion = `${p}`.padStart(4, '0');
-          const func = wasm[`_p${formattedQuestion}`];
-          if (func === undefined) continue;
-          const expected = wasm._get_answer(p);
-          describe(`run test ${p}`, function() {
-            this.timeout(Infinity);
-            it(`should return ${expected}`, async () => {
-              const answer = func();
-              console.log(p, answer, expected);
-              if (answer !== expected) {
-                throw new Error();
-              }
+        Module().then(async (wasm) => {
+          await init();
+          for (let p = 1; p < 10000; p++) {
+            const formattedQuestion = `${p}`.padStart(4, '0');
+            const func = wasm[`_p${formattedQuestion}`];
+            if (func === undefined) continue;
+            const expected = get_js_answer(p);
+            describe(`run test ${p}`, function() {
+              this.timeout(Infinity);
+              it(`should return ${expected}`, async () => {
+                const answer = func();
+                console.log(p, answer, expected);
+                if (answer !== expected) {
+                  throw new Error();
+                }
+              });
             });
+          }
+          const runner = mocha.run();
+          let failedTests = [];
+
+          runner.on('end', function() {
+            window.mochaResults = runner.stats;
+            window.mochaResults.reports = failedTests;
           });
-        }
-        const runner = mocha.run();
-        let failedTests = [];
 
-        runner.on('end', function() {
-          window.mochaResults = runner.stats;
-          window.mochaResults.reports = failedTests;
-        });
+          runner.on('fail', function(test, err){
+            const flattenTitles = function(test){
+              let titles = [];
+              while (test.parent.title){
+                titles.push(test.parent.title);
+                test = test.parent;
+              }
+              return titles.reverse();
+            };
 
-        runner.on('fail', function(test, err){
-          const flattenTitles = function(test){
-            let titles = [];
-            while (test.parent.title){
-              titles.push(test.parent.title);
-              test = test.parent;
-            }
-            return titles.reverse();
-          };
-
-          failedTests.push({
-            name: test.title,
-            result: false,
-            message: err.message,
-            stack: err.stack,
-            titles: flattenTitles(test)
+            failedTests.push({
+              name: test.title,
+              result: false,
+              message: err.message,
+              stack: err.stack,
+              titles: flattenTitles(test)
+            });
           });
         });
       };

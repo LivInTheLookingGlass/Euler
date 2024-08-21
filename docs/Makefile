@@ -42,13 +42,16 @@ _static/dist/bundle.js:
 
 _static/dist/c-lib.js:
 	@$(MAKE) -C ../c dist/c-lib.wasm $(MFLAGS)
+	@mkdir -p _static/dist
 	@cp ../c/dist/c-lib.* _static/dist/
 
 _static/dist/cp-lib.js:
 	@$(MAKE) -C ../cplusplus dist/cp-lib.wasm $(MFLAGS)
-	@cp ../c/dist/cp-lib.* _static/dist/
+	@mkdir -p _static/dist
+	@cp ../cplusplus/dist/cp-lib.* _static/dist/
 
 _static/dist/rust.js:
+	@mkdir -p _static/dist
 	@cd ../rust && wasm-pack build --target web --out-dir ../docs/_static/dist/
 
 _static/dist/python.tar.gz:

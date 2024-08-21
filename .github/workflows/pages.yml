@@ -47,11 +47,10 @@ jobs:
     - uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
+        default: true
+        target: wasm32-unknown-unknown
 
-    - run: |
-        rustup default stable
-        rustup target add wasm32-unknown-unknown
-        cargo install wasm-pack
+    - run: cargo install wasm-pack
 
     - uses: mymindstorm/setup-emsdk@v14
       with:
