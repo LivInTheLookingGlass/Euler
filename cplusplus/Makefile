@@ -62,7 +62,7 @@ clean:
 
 dist/lib.wasm: build/lib.cpp
 	@mkdir -p dist
-	@emc++ build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/lib.js
+	@emcc build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/lib.js
 
 build/lib.cpp: ../LICENSE
 	@mkdir -p build
