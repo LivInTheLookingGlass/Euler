@@ -21,7 +21,7 @@
             const formattedQuestion = `${p}`.padStart(4, '0');
             const func = wasm[`_p${formattedQuestion}`];
             if (func === undefined) continue;
-            const expected = get_js_answer(p);
+            const expected = Number(get_js_answer(p));
             describe(`run test ${p}`, function() {
               this.timeout(Infinity);
               it(`should return ${expected}`, async () => {
