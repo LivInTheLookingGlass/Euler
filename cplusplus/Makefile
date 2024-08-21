@@ -60,9 +60,9 @@ native_test: native
 clean:
 	@rm -rf build dist {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
-dist/lib.wasm: build/lib.cpp
+dist/cp-lib.wasm: build/lib.cpp
 	@mkdir -p dist
-	@emcc build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/lib.js
+	@emcc build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/cp-lib.js
 
 build/lib.cpp: ../LICENSE
 	@mkdir -p build

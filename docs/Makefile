@@ -40,17 +40,13 @@ _static/dist/bundle.js:
 	@mkdir -p _static/dist
 	@cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 
-_static/dist/c/lib.js:
-	@mkdir -p _static/dist/c
-	@$(MAKE) -C ../c dist/lib.wasm $(MFLAGS)
-	@cp ../c/dist/lib.js _static/dist/c-lib.js
-	@cp ../c/dist/lib.wasm _static/dist/c-lib.wasm
+_static/dist/c-lib.js:
+	@$(MAKE) -C ../c dist/c-lib.wasm $(MFLAGS)
+	@cp ../c/dist/c-lib.* _static/dist/
 
-_static/dist/cp/lib.js:
-	@mkdir -p _static/dist/cp
-	@$(MAKE) -C ../cplusplus dist/lib.wasm $(MFLAGS)
-	@cp ../c/dist/lib.js _static/dist/cp/lib.js
-	@cp ../c/dist/lib.wasm _static/dist/cp/lib.wasm
+_static/dist/cp-lib.js:
+	@$(MAKE) -C ../cplusplus dist/cp-lib.wasm $(MFLAGS)
+	@cp ../c/dist/cp-lib.* _static/dist/
 
 _static/dist/rust.js:
 	@cd ../rust && wasm-pack build --target web --out-dir ../docs/_static/dist/
@@ -60,7 +56,7 @@ _static/dist/python.tar.gz:
 
 .PHONY: html
 html:
-	@$(MAKE) _static/dist/bundle.js _static/dist/c/lib.js _static/dist/cp/lib.js _static/dist/python.tar.gz _static/dist/rust.js $(MFLAGS)
+	@$(MAKE) _static/dist/bundle.js _static/dist/c-lib.js _static/dist/cp-lib.js _static/dist/python.tar.gz _static/dist/rust.js $(MFLAGS)
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
