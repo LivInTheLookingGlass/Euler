@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include "macros.h"
+#include "macros.hpp"
 
 #ifdef _WIN32
 #include <windows.h>
