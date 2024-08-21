@@ -40,8 +40,13 @@ _static/dist/bundle.js:
 	@mkdir -p _static/dist
 	@cp ../javascript/dist/bundle-js.js _static/dist/bundle-js.js
 
+_static/dist/c-lib.js:
+	@$(MAKE) -C ../c dist/lib.wasm $(MFLAGS)
+	@cp ../c/dist/lib.js _static/dist/c-lib.js
+	@cp ../c/dist/lib.wasm _static/dist/c-lib.wasm
+
 _static/dist/cplusplus-lib.js:
-	@$(MAKE) -C ../cplusplus dist/lib.js $(MFLAGS)
+	@$(MAKE) -C ../cplusplus dist/lib.wasm $(MFLAGS)
 	@cp ../c/dist/lib.js _static/dist/cp-lib.js
 	@cp ../c/dist/lib.wasm _static/dist/cp-lib.wasm
 
