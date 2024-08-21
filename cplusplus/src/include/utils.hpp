@@ -9,6 +9,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include "macros.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -100,7 +101,7 @@ typedef struct {
 	AnswerType type;
 } Answer;
 
-Answer get_answer(const uint16_t id) {
+Answer EMSCRIPTEN_KEEPALIVE get_answer(const uint16_t id) {
     Answer answer;
     char c_id[6];
     snprintf(c_id, sizeof(c_id), "%" PRIu16, id);

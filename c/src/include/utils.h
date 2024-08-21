@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "macros.h"
 #ifdef _WIN32
 #include <direct.h>
 #include <windows.h>
@@ -131,7 +132,7 @@ typedef struct {
 	AnswerType type;
 } Answer;
 
-Answer get_answer(uint16_t id) {
+Answer EMSCRIPTEN_KEEPALIVE get_answer(uint16_t id) {
     Answer ret = {
         .id = id,
     };
