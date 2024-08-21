@@ -58,7 +58,7 @@ _static/dist/python.tar.gz:
 
 .PHONY: html
 html:
-	@$(MAKE) _static/dist/bundle.js _static/dist/c-lib.js _static/dist/cplusplus-lib.js _static/dist/python.tar.gz _static/dist/rust.js $(MFLAGS) -j
+	@$(MAKE) _static/dist/bundle.js _static/dist/c-lib.js _static/dist/cplusplus-lib.js _static/dist/python.tar.gz _static/dist/rust.js $(MFLAGS)
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
