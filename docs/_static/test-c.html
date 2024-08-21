@@ -11,7 +11,7 @@
     <div id="mocha"></div>
     <!-- Mocha setup and initiation code -->
     <script type="module">
-      import * as wasm from './dist/c-lib.js';
+      import * as wasm from './dist/c/lib.js';
       mocha.setup('bdd');
       window.onload = function() {
         for (let p = 1; p < 10000; p++) {
