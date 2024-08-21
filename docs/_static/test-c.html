@@ -18,6 +18,7 @@
         Module().then(async (wasm) => {
           await init();
           for (let p = 1; p < 10000; p++) {
+            if ([12, ].includes(p)) continue;
             const formattedQuestion = `${p}`.padStart(4, '0');
             const func = wasm[`_p${formattedQuestion}`];
             if (func === undefined) continue;

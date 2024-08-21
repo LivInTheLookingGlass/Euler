@@ -124,8 +124,10 @@ Olivia's Project Euler Solutions
 .. [1] This is the earliest standard the MSVC explicitly supports.
 .. [2] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-c-link|
+   Note that there are a few problems that return the wrong answer only in WebAssembly, and need to be debugged
 .. [3] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-cp-link|
+   Note that there are a few problems that return the wrong answer only in WebAssembly, and need to be debugged
 .. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with DotNetAnywhere first,
 ..    and these tests not yet automated as in mainline .NET. To run these tests yourself, |test-cs-link|
 .. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
