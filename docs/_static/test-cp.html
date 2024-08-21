@@ -14,48 +14,46 @@
       import * as wasm from './dist/cp-lib.js';
       mocha.setup('bdd');
       window.onload = function() {
-        init().then(() => {
-          for (let p = 1; p < 10000; p++) {
-            const formattedQuestion = `${p}`.padStart(4, '0');
-            const func = wasm[`_p${formattedQuestion}`];
-            if (func === undefined) continue;
-            const expected = wasm._get_answer(p);
-            describe(`run test ${p}`, function() {
-              this.timeout(Infinity);
-              it(`should return ${expected}`, async () => {
-                const answer = func();
-                console.log(p, answer, expected);
-                if (answer !== expected) {
-                  throw new Error();
-                }
-              });
-            });
-          }
-          const runner = mocha.run();
-          let failedTests = [];
-
-          runner.on('end', function() {
-            window.mochaResults = runner.stats;
-            window.mochaResults.reports = failedTests;
-          });
-
-          runner.on('fail', function(test, err){
-            const flattenTitles = function(test){
-              let titles = [];
-              while (test.parent.title){
-                titles.push(test.parent.title);
-                test = test.parent;
+        for (let p = 1; p < 10000; p++) {
+          const formattedQuestion = `${p}`.padStart(4, '0');
+          const func = wasm[`_p${formattedQuestion}`];
+          if (func === undefined) continue;
+          const expected = wasm._get_answer(p);
+          describe(`run test ${p}`, function() {
+            this.timeout(Infinity);
+            it(`should return ${expected}`, async () => {
+              const answer = func();
+              console.log(p, answer, expected);
+              if (answer !== expected) {
+                throw new Error();
               }
-              return titles.reverse();
-            };
-
-            failedTests.push({
-              name: test.title,
-              result: false,
-              message: err.message,
-              stack: err.stack,
-              titles: flattenTitles(test)
             });
+          });
+        }
+        const runner = mocha.run();
+        let failedTests = [];
+
+        runner.on('end', function() {
+          window.mochaResults = runner.stats;
+          window.mochaResults.reports = failedTests;
+        });
+
+        runner.on('fail', function(test, err){
+          const flattenTitles = function(test){
+            let titles = [];
+            while (test.parent.title){
+              titles.push(test.parent.title);
+              test = test.parent;
+            }
+            return titles.reverse();
+          };
+
+          failedTests.push({
+            name: test.title,
+            result: false,
+            message: err.message,
+            stack: err.stack,
+            titles: flattenTitles(test)
           });
         });
       };
