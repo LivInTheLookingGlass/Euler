@@ -52,11 +52,15 @@ jobs:
         rustup target add wasm32-unknown-unknown
         cargo install wasm-pack
 
+    - uses: mymindstorm/setup-emsdk@v14
+      with:
+        version: latest
+
     - name: Install git, linguist
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: git ruby-github-linguist emscripten
-        version: docs2
+        packages: git ruby-github-linguist llvm
+        version: docs3
 
     - name: Build sphinx docs
       run: make docs_dependencies html
