@@ -12,7 +12,7 @@ exports.combinations = function* combinations(iterable, r) {
     if (r > n) {
         return;
     }
-    indices = [...Array(r).keys()];
+    const indices = [...Array(r).keys()];
 
     yield Array.from(indices.map((i) => pool[i]));
     while (true) {
@@ -49,7 +49,7 @@ exports.combinationsWithReplacement = function* combinationsWithReplacement(iter
     if (r > n) {
         return;
     }
-    indices = [...Array(r).keys()];
+    const indices = [...Array(r).keys()];
 
     yield Array.from(indices.map((i) => pool[i]));
     while (true) {

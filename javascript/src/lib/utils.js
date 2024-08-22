@@ -49,12 +49,12 @@ exports.get_answer = function(n) {
             continue;
         }
         if (type === 'str') {
-            if (value.length !== parseInt(size)) {
+            if (value.length !== Number(size)) {
                 throw new Error('string length does not match');
             }
             return value;
         }
-        return parseInt(value);
+        return Number(value);
     }
     throw new Error('Answer not found');
 };
