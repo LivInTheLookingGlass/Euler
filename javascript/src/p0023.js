@@ -24,20 +24,20 @@
  * @return {number}
  **/
 exports.p0023 = function() {
-    const abundant_sums = new Set([24]);
+    const abundantSums = new Set([24]);
     const abundants = [...iters.abundants(28112)];
     for (const x of abundants) {
         for (const y of abundants) {
-            abundant_sums.add(x + y);
+            abundantSums.add(x + y);
         }
     }
     let sum = 0;
     for (let x = 1; x < 28124; x++) {
-        if (abundant_sums.has(x)) {
+        if (abundantSums.has(x)) {
             sum += x;
         }
     }
-    return sum
+    return sum;
 };
 
 const iters = require('./lib/iters.js');

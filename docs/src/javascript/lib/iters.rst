@@ -5,7 +5,7 @@ View source code :source:`javascript/src/lib/iters.js`
 
 .. js:autofunction:: iters.combinations
 
-.. js:autofunction:: iters.combinations_with_replacement
+.. js:autofunction:: iters.combinationsWithReplacement
 
 .. js:autofunction:: iters.abundants
 

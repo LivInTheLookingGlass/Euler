@@ -17,7 +17,7 @@
  **/
 exports.p0005 = function() {
     const group = [...Array(21).keys()].slice(1);
-    let answer = 1_000_000_000_000;
+    let answer = 1000000000000;
     for (const x of group) {
         for (const multiples of iters.combinations(group, x)) {
             const num = multiples.reduce((a, x) => a * x, 1);

@@ -1,20 +1,20 @@
 /**
  * Iterate over the different combinations of the elements in a given iterable
- * 
+ *
  * Note that this is a direct port of the recipe given in python's itertools
  * @param {Iterable.<T>} iterable
  * @param {number} r
  * @yield {T}
  */
-exports.combinations = function*(iterable, r) {
-    let pool = Array.from(iterable);
+exports.combinations = function* combinations(iterable, r) {
+    const pool = Array.from(iterable);
     const n = pool.length;
     if (r > n) {
         return;
     }
     indices = [...Array(r).keys()];
 
-    yield Array.from(indices.map(i => pool[i]));
+    yield Array.from(indices.map((i) => pool[i]));
     while (true) {
         let broken = false;
         let i = r - 1;
@@ -31,27 +31,27 @@ exports.combinations = function*(iterable, r) {
         for (let j = i + 1; j < r; j += 1) {
             indices[j] = indices[j-1] + 1;
         }
-        yield Array.from(indices.map(i => pool[i]));
+        yield Array.from(indices.map((i) => pool[i]));
     }
 };
 
 /**
  * Iterate over the different combinations of the elements in a given iterable
- * 
+ *
  * Note that this is a direct port of the recipe given in python's itertools
  * @param {Iterable.<T>} iterable
  * @param {number} r
  * @yield {T}
  */
-exports.combinations_with_replacement = function*(iterable, r) {
-    let pool = Array.from(iterable);
+exports.combinationsWithReplacement = function* combinationsWithReplacement(iterable, r) {
+    const pool = Array.from(iterable);
     const n = pool.length;
     if (r > n) {
         return;
     }
     indices = [...Array(r).keys()];
 
-    yield Array.from(indices.map(i => pool[i]));
+    yield Array.from(indices.map((i) => pool[i]));
     while (true) {
         let broken = false;
         let i = r - 1;
@@ -65,7 +65,7 @@ exports.combinations_with_replacement = function*(iterable, r) {
             return;
         }
         indices.fill(indices[i] + 1, i, r);
-        yield Array.from(indices.map(i => pool[i]));
+        yield Array.from(indices.map((i) => pool[i]));
     }
 };
 
@@ -74,7 +74,7 @@ exports.combinations_with_replacement = function*(iterable, r) {
  * @param {null | number} stop
  * @yield {number}
  */
-exports.abundants = function*(stop = null) {
+exports.abundants = function* abundants(stop = null) {
     for (let x = 12; !stop || x < stop; x++) {
         let sum = 0;
         for (const y of factors.properDivisors(x)) {
@@ -84,6 +84,6 @@ exports.abundants = function*(stop = null) {
             yield x;
         }
     }
-}
+};
 
 const factors = require('./factors.js');

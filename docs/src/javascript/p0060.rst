@@ -5,7 +5,7 @@ View source code :source:`javascript/src/p0060.js`
 
 .. js:autofunction:: p0060
 
-.. js:autofunction:: is_concat_prime
+.. js:autofunction:: isConcatPrime
 
 .. literalinclude:: ../../../javascript/src/p0060.js
    :language: javascript
