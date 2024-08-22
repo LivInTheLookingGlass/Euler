@@ -21,7 +21,7 @@ exports.p0005 = function() {
     for (const x of group) {
         for (const multiples of iters.combinations(group, x)) {
             const num = multiples.reduce((a, x) => a * x, 1);
-            if (num < answer && group.every(divisor => num % divisor == 0)) {
+            if (num < answer && group.every((divisor) => num % divisor == 0)) {
                 answer = num;
             }
         }
