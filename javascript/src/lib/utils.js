@@ -49,9 +49,6 @@ exports.get_answer = function(n) {
             continue;
         }
         if (type === 'str') {
-            if (value.length !== Number(size)) {
-                throw new Error('string length does not match');
-            }
             return value;
         }
         return Number(value);
