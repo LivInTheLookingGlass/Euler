@@ -2,6 +2,10 @@ const chai = require('chai');
 const expect = chai.expect;
 const Mathematics = require('./src/lib/math.js');
 const Utilities = require('./src/lib/utils.js');
+const oldNodeJs = typeof process !== 'undefined' &&
+                  process.version &&
+                  process.version.match(/^v(\d+)/)[1] <= 15 &&
+                  typeof window === 'undefined';
 
 describe('Data Files', ()=>{
     it('Should be able to fetch files as utf8', function() {
@@ -59,7 +63,7 @@ for (question in answers) {
         describe(`Problem ${formattedQuestion}`, ()=>{
             it(`Should equal ${answer}`, function() {
                 if (typeof this.timeout !== 'undefined') {
-                    if (isSlow) {
+                    if (isSlow || oldNodeJs) {
                         this.timeout(Infinity);
                     } else {
                         this.timeout(60 * 1000);
