@@ -19,12 +19,24 @@ exports.p0060 = function() {
     iterator.next(); // 5 is excluded because if a number ends with 5, it's divisible by 5
     const compat = new Map();
     for (const x of iterator) {
+        const strX = String(x);
         for (const y of cachedPrimes) {
-            if (isConcatPrime(x, y)) {
+            if (primes.isPrime(Number(`${strX}${y}`)) && primes.isPrime(Number(`${y}${strX}`))) {
                 for (const [a, b, c] of iters.combinations(compat.get(y) || new Set(), 3)) {
                     // remember these checks are commutative
                     if (compat.get(b).has(a) && compat.get(c).has(a) && compat.get(c).has(b)) {
-                        if (isConcatPrime(a, x) && isConcatPrime(b, x) && isConcatPrime(c, x)) {
+                        const strA = String(a);
+                        const strB = String(b);
+                        const strC = String(c);
+                        const concatenations = [
+                            Number(`${strA}${strX}`),
+                            Number(`${strX}${strA}`),
+                            Number(`${strB}${strX}`),
+                            Number(`${strX}${strB}`),
+                            Number(`${strC}${strX}`),
+                            Number(`${strX}${strC}`)
+                        ];
+                        if (concatenations.every(primes.isPrime)) {
                             return x + y + a + b + c;
                         }
                     }
@@ -42,19 +54,6 @@ exports.p0060 = function() {
         cachedPrimes.push(x);
     }
     return -1;
-};
-
-/**
- * Tests if a pair of numbers generates a prime if concatenated in both orders.
- *
- * @param {number} x
- * @param {number} y
- * @return {number}
- */
-const isConcatPrime = function(x, y) {
-    const sx = x.toString();
-    const sy = y.toString();
-    return primes.isPrime(parseInt(sx + sy)) && primes.isPrime(parseInt(sy + sx));
 };
 
 const iters = require('./lib/iters.js');
