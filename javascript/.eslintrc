@@ -16,6 +16,7 @@
     },
     "rules": {
         "max-len": ["error", {"code": 120}],
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }]
     }
 }
