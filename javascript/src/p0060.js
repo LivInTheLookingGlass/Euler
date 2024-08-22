@@ -34,7 +34,7 @@ exports.p0060 = function() {
                             Number(`${strB}${strX}`),
                             Number(`${strX}${strB}`),
                             Number(`${strC}${strX}`),
-                            Number(`${strX}${strC}`)
+                            Number(`${strX}${strC}`),
                         ];
                         if (concatenations.every(primes.isPrime)) {
                             return x + y + a + b + c;
