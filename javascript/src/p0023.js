@@ -25,15 +25,12 @@
  **/
 exports.p0023 = function() {
     const abundantSums = new Set([24]);
-    const abundants = [...iters.abundants(28112)];
-    for (const x of abundants) {
-        for (const y of abundants) {
-            abundantSums.add(x + y);
-        }
+    for (const [x, y] of iters.combinationsWithReplacement(iters.abundants(28112), 2)) {
+        abundantSums.add(x + y);
     }
     let sum = 0;
     for (let x = 1; x < 28124; x++) {
-        if (abundantSums.has(x)) {
+        if (!abundantSums.has(x)) {
             sum += x;
         }
     }
