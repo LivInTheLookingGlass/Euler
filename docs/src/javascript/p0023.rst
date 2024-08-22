@@ -1,0 +1,12 @@
+JavaScript Implementation of Problem 23
+=======================================
+
+View source code :source:`javascript/src/p0023.js`
+
+.. js:autofunction:: p0023
+
+.. literalinclude:: ../../../javascript/src/p0023.js
+   :language: javascript
+   :linenos:
+
+.. tags:: optimization

@@ -1,0 +1,12 @@
+JavaScript Implementation of Problem 5
+======================================
+
+View source code :source:`javascript/src/p0005.js`
+
+.. js:autofunction:: p0005
+
+.. literalinclude:: ../../../javascript/src/p0005.js
+   :language: javascript
+   :linenos:
+
+.. tags:: palindrome

@@ -1,0 +1,14 @@
+JavaScript Implementation of Problem 60
+=======================================
+
+View source code :source:`javascript/src/p0060.js`
+
+.. js:autofunction:: p0060
+
+.. js:autofunction:: is_concat_prime
+
+.. literalinclude:: ../../../javascript/src/p0060.js
+   :language: javascript
+   :linenos:
+
+.. tags:: optimization

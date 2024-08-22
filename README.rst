@@ -78,7 +78,7 @@ Olivia's Project Euler Solutions
 |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
 |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
 +------------+----------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|              | 26     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|              | 30     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
 |            | Browser [#]_               |        | |CodeQL| |br|     |
 |            |                            |        | |ESLint|          |
@@ -128,16 +128,16 @@ Olivia's Project Euler Solutions
 .. [3] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-cp-link|
    Note that there are a few problems that return the wrong answer only in WebAssembly, and need to be debugged
-.. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with DotNetAnywhere first,
-..    and these tests not yet automated as in mainline .NET. To run these tests yourself, |test-cs-link|
-.. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
-..    and these tests not yet automated as in mainline Java. To run these tests yourself, |test-ja-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
    tests are not yet automated as on non-web platforms. To run these tests yourself, |test-rs-link|
+.. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with DotNetAnywhere first,
+..    and these tests not yet automated as in mainline .NET. To run these tests yourself, |test-cs-link|
+.. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
+..    and these tests not yet automated as in mainline Java. To run these tests yourself, |test-ja-link|
 
 Coverage
 --------
