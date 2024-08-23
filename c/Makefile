@@ -70,7 +70,7 @@ clean:
 
 dist/c-lib.wasm: build/lib.c
 	@mkdir -p dist
-	@emcc build/lib.c -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/c-lib.mjs
+	@emcc build/lib.c -Wl,--whole-archive -DUNITY_END -O$(O) -s EXPORTED_RUNTIME_METHODS="['UTF8ToString']" -o dist/c-lib.mjs
 
 build/lib.c: ../LICENSE
 	@mkdir -p build

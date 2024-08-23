@@ -28,7 +28,10 @@
             describe(`run test ${p}`, function() {
               this.timeout(Infinity);
               it(`should return ${expected}`, () => {
-                const answer = func();
+                let answer = func();
+                if (typeof expected === 'string') {
+                  answer = Module.UTF8ToString(answer);
+                }
                 console.log(p, answer, expected);
                 if (answer !== expected) {
                   throw new Error();

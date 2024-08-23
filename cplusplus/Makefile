@@ -62,7 +62,7 @@ clean:
 
 dist/cp-lib.wasm: build/lib.cpp
 	@mkdir -p dist
-	@emcc build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -o dist/cp-lib.mjs
+	@emcc build/lib.cpp -Wl,--whole-archive -DUNITY_END -O$(O) -s EXPORTED_RUNTIME_METHODS="['UTF8ToString']" -o dist/cp-lib.mjs
 
 build/lib.cpp: ../LICENSE
 	@mkdir -p build
