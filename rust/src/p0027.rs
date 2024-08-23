@@ -33,18 +33,17 @@ use crate::include::utils::Answer;
 pub fn p0027() -> Answer {
     let mut streak: i64 = 0;
     let mut answer: i64 = 0;
+    let cached_primes = primes_until::<i64>(1001).flat_map(|&x| vec![x, -x]).collect();
 
     for a in (-999)..1000 {
-        for b in primes_until::<i64>(1001) {
-            for &bp in &[b, -b] {
-                let mut i = 0;
-                while is_prime((i + a) * i + bp) {
-                    i += 1;
-                }
-                if i > streak {
-                    streak = i;
-                    answer = a * bp;
-                }
+        for &b in &cached_primes {
+            let mut i = 0;
+            while is_prime((i + a) * i + b) {
+                i += 1;
+            }
+            if i > streak {
+                streak = i;
+                answer = a * b;
             }
         }
     }
