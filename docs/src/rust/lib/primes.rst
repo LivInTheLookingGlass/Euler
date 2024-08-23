@@ -6,12 +6,14 @@ View source code :source:`rust/src/include/primes.rs`
 Includes
 --------
 
+- `iter_cache.rs <./iter_cache.html>`_
 - :external:rust:trait:`num_traits::One`
 - :external:rust:trait:`num_traits::Zero`
 - :external:rust:fn:`num_traits::one`
 - :external:rust:fn:`num_traits::zero`
 - :external:rust:trait:`itertools::Itertools`
 - :external:rust:struct:`std::collections::HashMap`
+- :external:rust:struct:`std::iter::TakeWhile`
 - :external:rust:trait:`std::cmp::Ord`
 - :external:rust:trait:`std::hash::Hash`
 - :external:rust:trait:`std::ops::Add`
@@ -19,11 +21,11 @@ Includes
 - :external:rust:trait:`std::ops::Mul`
 - :external:rust:trait:`std::ops::Rem`
 
-.. rust:fn:: pub fn primes::primes<I>() -> Eratosthenes<I> where I: Hash + One + Zero + Add
+.. rust:fn:: pub fn primes::primes<I>() -> impl Iterator<Item = I>
 
   A convenience method that returns an iterator over the prime numbers.
 
-.. rust:fn:: pub fn primes::primes_until<I>(x: I) -> Eratosthenes<I> where I: Hash + One + Zero + Add
+.. rust:fn:: pub fn primes::primes_until<I>(x: I) -> impl Iterator<Item = I>
 
   A convenience method that returns an iterator over the prime numbers until a given limit.
 
@@ -40,8 +42,6 @@ Includes
   .. rust:fn:: pub fn primes::Eratosthenes::new() -> Eratosthenes<I> where I: Hash + One + Zero + Add
 
   .. rust:fn:: pub fn primes::Eratosthenes::default() -> Eratosthenes<I> where I: Hash + One + Zero + Add
-
-  .. rust:fn:: pub fn primes::Eratosthenes::with_limit(limit: I) -> Eratosthenes<I> where I: Hash + One + Zero + Add
 
   .. rust:fn:: pub fn primes::Eratosthenes::next() -> Option<I> where I: Hash + One + Zero + Add + Mul + Ord + Copy
 

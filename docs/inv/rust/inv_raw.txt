@@ -19,3 +19,8 @@ std::ops::Div rust:trait 1 https://doc.rust-lang.org/stable/std/ops/trait.Div.ht
 std::ops::Mul rust:trait 1 https://doc.rust-lang.org/stable/std/ops/trait.Mul.html std::ops::Mul
 std::ops::Rem rust:trait 1 https://doc.rust-lang.org/stable/std/ops/trait.Rem.html std::ops::Rem
 seq_macro::seq rust:macro 1 https://docs.rs/seq-macro/latest/seq_macro/macro.seq.html seq_macro::seq
+std::iter::TakeWhile rust:Struct 1 https://doc.rust-lang.org/beta/std/iter/struct.TakeWhile.html std::iter::TakeWhile
+std::any::TypeId rust:Struct 1 https://doc.rust-lang.org/beta/std/any/struct.TypeId.html std::any::TypeId
+std::sync::Mutex rust:Struct 1 https://doc.rust-lang.org/beta/std/sync/struct.Mutex.html std::sync::Mutex
+std::sync::RwLock rust:Struct 1 https://doc.rust-lang.org/beta/std/sync/struct.RwLock.html std::sync::RwLock
+std::sync::Once rust:Struct 1 https://doc.rust-lang.org/beta/std/sync/struct.Once.html std::sync::Once

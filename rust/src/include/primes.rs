@@ -1,9 +1,11 @@
-use std::collections::HashMap;
 use std::cmp::Ord;
+use std::collections::HashMap;
 use std::hash::Hash;
 use std::ops::{Add,Div,Mul,Rem};
 
 use num_traits::{one,zero,One,Zero};
+
+use crate::include::iter_cache::CachingIterator;
 
 pub struct Eratosthenes<I>
 where I: Hash
@@ -11,7 +13,6 @@ where I: Hash
     sieve: HashMap<I, Vec<I>>,
     prime: I,
     candidate: I,
-    limit: Option<I>,
 }
 
 impl<I> Default for Eratosthenes<I>
@@ -22,7 +23,6 @@ where I: Hash + One + Zero + Add
             sieve: HashMap::new(),
             prime: zero::<I>(),
             candidate: one::<I>() + one(),
-            limit: None,
         };
     }
 }
@@ -32,13 +32,6 @@ where I: Hash + One + Zero + Add
 {
     pub fn new() -> Eratosthenes<I> {
         return Default::default();
-    }
-
-    pub fn with_limit(limit: I) -> Eratosthenes<I> {
-        return Eratosthenes{
-            limit: Some(limit),
-            ..Default::default()
-        };
     }
 }
 
@@ -71,24 +64,20 @@ where I: Hash + One + Zero + Add + Mul + Ord + Copy
 
         self.prime = next_prime::<I>(&mut self.sieve, self.candidate);
         self.candidate = self.prime + one();
-
-        if self.limit.is_some() && self.prime > self.limit? {
-            return None;
-        }
         return Some(self.prime);
     }
 }
 
-pub fn primes<I>() -> Eratosthenes<I>
-where I: Hash + One + Zero + Add
+pub fn primes<I>() -> impl Iterator<Item = I>
+where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static
 {
-    return Eratosthenes::new();
+    return CachingIterator::new(Eratosthenes::new());
 }
 
-pub fn primes_until<I>(x: I) -> Eratosthenes<I>
-where I: Hash + One + Zero + Add
+pub fn primes_until<I>(x: I) -> impl Iterator<Item = I>
+where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static
 {
-    return Eratosthenes::with_limit(x);
+    return primes::<I>().take_while(move |n| *n < x);
 }
 
 pub struct PrimeFactors<I>
@@ -106,12 +95,12 @@ impl<I> PrimeFactors<I>
 }
 
 impl<I> Iterator for PrimeFactors<I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     type Item = I;
 
     fn next(&mut self) -> Option<Self::Item> {
-        for p in Eratosthenes::new() {
+        for p in primes() {
             if self.number % p == zero() {
                 self.number = self.number / p;
                 return Some(p);
@@ -130,7 +119,7 @@ pub fn prime_factors<I>(x: I) -> PrimeFactors<I>
 }
 
 pub fn is_composite<I>(x: I) -> I
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     match prime_factors(x).next() {
         None => {
@@ -146,7 +135,7 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 }
 
 pub fn is_prime<I>(x: I) -> bool
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     if x < (one::<I>() + one::<I>()) {
         return false;

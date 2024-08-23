@@ -18,13 +18,13 @@ pub struct ProperDivisors<I>
 }
 
 pub fn proper_divisors<I>(num: I) -> ProperDivisors<I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     return ProperDivisors::<I>::new(num);
 }
 
 impl<I> ProperDivisors<I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     pub fn new(num: I) -> Self {
         return ProperDivisors::<I>{
