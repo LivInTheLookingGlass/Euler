@@ -18,6 +18,7 @@ pub struct ProperDivisors<I>
 }
 
 pub fn proper_divisors<I>(num: I) -> ProperDivisors<I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {
     return ProperDivisors::<I>::new(num);
 }

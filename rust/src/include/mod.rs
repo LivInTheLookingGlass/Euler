@@ -1,3 +1,4 @@
+pub mod factors;
 pub mod math;
 pub mod primes;
 pub mod problems;
