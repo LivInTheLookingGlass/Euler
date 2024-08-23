@@ -4,7 +4,6 @@ use std::hash::Hash;
 use std::ops::{Add,Div,Mul,Rem};
 
 use num_traits::{one,zero,One,Zero};
-use itertools::Itertools;
 
 pub struct Eratosthenes<I>
 where I: Hash
