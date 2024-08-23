@@ -31,7 +31,7 @@
               it(`should return ${expected}`, () => {
                 let answer = func();
                 if (typeof expected === 'string') {
-                  answer = Module.UTF8ToString(answer);
+                  answer = wasm.UTF8ToString(answer);
                 }
                 console.log(p, answer, expected);
                 if (answer !== expected) {
