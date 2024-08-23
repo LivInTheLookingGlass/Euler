@@ -1,0 +1,15 @@
+Rust Implementation of Problem 21
+=================================
+
+View source code :source:`rust/src/p0021.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0021::p0021() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0021.rs
+   :language: rust
+   :linenos:
+
+.. tags:: large-numbers, digit-sum, factorial

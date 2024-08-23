@@ -1,11 +1,9 @@
 use seq_macro::seq;
 
 use crate::include::utils::Answer;
-seq!(N in 0001..=0020 {
+seq!(N in 0001..=0024 {
 use crate::p~N::p~N;
 });
-use crate::p0022::p0022;
-use crate::p0024::p0024;
 use crate::p0027::p0027;
 use crate::p0034::p0034;
 use crate::p0069::p0069;
@@ -40,9 +38,11 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
         18 =>  Some(( &18, p0018, false)),
         19 =>  Some(( &19, p0019, false)),
         20 =>  Some(( &20, p0020, false)),
+        21 =>  Some(( &21, p0021, true)),
         22 =>  Some(( &22, p0022, false)),
+        23 =>  Some(( &23, p0023, true)),
         24 =>  Some(( &24, p0024, false)),
-        27 =>  Some(( &27, p0027, false)),
+        27 =>  Some(( &27, p0027, true)),
         34 =>  Some(( &34, p0034, false)),
         69 =>  Some(( &69, p0069, false)),
         76 =>  Some(( &76, p0076, false)),
