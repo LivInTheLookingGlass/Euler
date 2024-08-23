@@ -130,22 +130,6 @@ pub fn prime_factors<I>(x: I) -> PrimeFactors<I>
     return PrimeFactors::new(x);
 }
 
-pub fn proper_divisors<I>(x: I) -> Vec<I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
-{
-    let mut ret: Vec<I> = vec![];
-    let factors: Vec<I> = PrimeFactors::new(x).collect();
-    ret.extend(factors.clone());
-    for i in 2..(factors.len()) {
-        for v in factors.iter().combinations(i) {
-            ret.push(v.into_iter().fold(one(), |x, y| x * (*y)));
-        }
-    }
-    ret.sort();
-    ret.dedup();
-    return ret;
-}
-
 pub fn is_composite<I>(x: I) -> I
 where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 {

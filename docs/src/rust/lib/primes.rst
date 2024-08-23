@@ -58,10 +58,6 @@ Includes
 
   .. rust:fn:: pub fn primes::PrimeFactors::next() -> Option<I> where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 
-.. rust:fn:: pub fn primes::proper_divisors<I>(x: I) -> Vec<I> where I: NumAssign + Bounded + Ord + Eq + Hash + Copy
-
-  This function returns a vector of the proper divisors of a number.
-
 .. rust:fn:: pub fn is_composite<I>(x: I) -> I where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I>
 
   Returns ``0`` if the number is prime, and the smallest prime factor otherwise.
