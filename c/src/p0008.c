@@ -39,8 +39,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
     size_t i, j;
-    uint64_t answer = 0;
-    uintmax_t tmp;  // possibly necessary for wasm to work well
+    uint64_t answer = 0, tmp;
     const char *plain_digits = ("73167176531330624919225119674426574742355349194934"
                                 "96983520312774506326239578318016984801869478851843"
                                 "85861560789112949495459501737958331952853208805511"
@@ -66,9 +65,11 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
         digits[i] = plain_digits[i] - '0';
     for (i = 0; i < 1000 - 13; i++) {
         tmp = digits[i];
-        for (j = i + 1; j < i + 13; j++)
+        for (j = i + 1; j < i + 13; j++) {
+            printf("%" PRIu64 "* %" PRIu64 "\n", tmp);
             tmp *= digits[j];
-        answer = max(answer, (uint64_t) tmp);
+        }
+        answer = max(answer, tmp);
     }
     return answer;
 }
