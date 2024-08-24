@@ -14,6 +14,7 @@ use itertools::Itertools;
 
 pub mod include;
 use include::primes;
+use include::factors;
 #[cfg(not(test))]
 use include::problems::generate_supported_problems;
 use include::problems::get_problem;
@@ -39,6 +40,9 @@ fn main() {
     for i in sieve {
         println!("{}", i);
     }
+for i in 4..100 {
+println!("{}: {:?}", i, factors::proper_divisors(i).collect::<Vec<u16>>());
+}
     let supported = generate_supported_problems(false);
 
     for id in supported {
@@ -63,9 +67,9 @@ seq!(N in 01..=20 {
 #(
 #[case::problem_~N(N)]
 )*
-// #[case::problem_21(21)]
+//#[case::problem_21(21)]
 #[case::problem_22(22)]
-// #[case::problem_23(23)]
+#[case::problem_23(23)]
 #[case::problem_24(24)]
 #[case::problem_27(27)]
 #[case::problem_34(34)]

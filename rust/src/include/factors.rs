@@ -32,7 +32,7 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
             factors: prime_factors(num).collect(),
             current_batch: vec![],
             curr_index: 0,
-            next_size: 1,
+            next_size: 0,
         };
     }
 }
@@ -47,16 +47,10 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
             if self.next_size > self.factors.len() {
                 return None;
             }
-            if self.curr_index == self.current_batch.len() {
-                self.current_batch = self.factors
-                                        .iter()
-                                        .cloned()
-                                        .combinations(self.next_size)
-                                        .map(|v| v.into_iter().fold(one(), |x, y| x * y))
-                                        .collect();
-                self.next_size += 1;
-                self.curr_index = 0;
-            }
+            if self.next_size == 0 {
+self.next_size += 1;
+return Some(one());
+}
             while self.curr_index < self.current_batch.len() {
                 let result = self.current_batch[self.curr_index];
                 self.curr_index += 1;
@@ -65,7 +59,13 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
                     return Some(result);
                 }
             }
-            self.current_batch.clear();
+            self.current_batch = self.factors
+                                     .iter()
+                                     .cloned()
+                                     .combinations(self.next_size)
+                                     .map(|v| v.into_iter().fold(one(), |x, y| x * y))
+                                     .collect();
+            self.next_size += 1;
             self.curr_index = 0;
         }
     }

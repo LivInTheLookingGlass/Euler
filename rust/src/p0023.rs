@@ -26,8 +26,6 @@ two abundant numbers.
 */
 use std::collections::HashSet;
 
-use itertools::Itertools;
-
 use crate::include::factors::proper_divisors;
 use crate::include::utils::Answer;
 
@@ -37,14 +35,14 @@ pub fn p0023() -> Answer {
     let mut abundants: Vec<u64> = vec![];
     
     for x in 12..28112 {
-        if proper_divisors(x).sum::<u64>() > x {
+        if proper_divisors::<u64>(x).sum::<u64>() > x {
             abundants.push(x);
         }
     }
-    for v in abundants.into_iter().combinations_with_replacement(2) {
-        let x = v[0];
-        let y = v[1];
-        abundant_sums.insert(x + y);
+    for x in abundants.clone().into_iter() {
+        for y in &abundants {
+            abundant_sums.insert(x + y);
+        }
     }
     let mut sum = 0;
     for x in 1..28124 {

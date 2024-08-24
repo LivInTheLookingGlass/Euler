@@ -40,7 +40,7 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
         20 =>  Some(( &20, p0020, false)),
         21 =>  Some(( &21, p0021, true)),
         22 =>  Some(( &22, p0022, false)),
-        23 =>  Some(( &23, p0023, true)),
+        23 =>  Some(( &23, p0023, false)),
         24 =>  Some(( &24, p0024, false)),
         27 =>  Some(( &27, p0027, true)),
         34 =>  Some(( &34, p0034, false)),
