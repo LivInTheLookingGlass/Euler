@@ -88,7 +88,7 @@ Olivia's Project Euler Solutions
 |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
 |            | Browser [#]_               |        | |PythonLint|      |
 +------------+----------------------------+--------+-------------------+
-| Rust       | 1.69+ |br|                 | 30     | |Rust| |br|       |
+| Rust       | 1.69+ |br|                 | 28     | |Rust| |br|       |
 |            | Browser [#]_               |        | |Rs-Cov| |br|     |
 |            |                            |        | |RustClippy|      |
 +------------+----------------------------+--------+-------------------+

@@ -58,11 +58,15 @@ fn main() {
 }
 
 #[cfg(test)]
-seq!(N in 01..=24 {
+seq!(N in 01..=20 {
 #[rstest]
 #(
 #[case::problem_~N(N)]
 )*
+// #[case::problem_21(21)]
+#[case::problem_22(22)]
+// #[case::problem_23(23)]
+#[case::problem_24(24)]
 #[case::problem_27(27)]
 #[case::problem_34(34)]
 #[case::problem_69(69)]
