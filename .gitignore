@@ -26,4 +26,4 @@ docs/_build
 javascript/src/lib/fallbacks
 docs/languages*.svg
 docs/_tags
-docs/inv/*/objects.inv
+docs/objects.inv

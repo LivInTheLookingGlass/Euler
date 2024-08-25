@@ -8,8 +8,8 @@ Includes
 
 - `"iterator.h" <./iterator.html>`__
 - `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
-- :cref:`\<stdbool.h\> <types>` (implicitly, via iterator.h)
-- :cref:`\<stdint.h\> <types/integer>`
+- :external:c:type:`stdbool` (implicitly, via iterator.h)
+- :external:c:type:`stdint`
 
 .. c:namespace-push:: fibonacci
 

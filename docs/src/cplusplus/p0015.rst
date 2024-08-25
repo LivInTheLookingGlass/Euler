@@ -7,8 +7,8 @@ Includes
 --------
 
 - `"math.hpp" <./lib/math.html>`__
-- :cref:`\<stdint.h\> <types/integer>`
-- :cppref:`iostream`
+- :external:c:type:`stdint`
+- :external:cpp:type:`iostream`
 
 Solution
 --------

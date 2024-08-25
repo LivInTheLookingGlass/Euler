@@ -6,18 +6,18 @@ View source code :source:`cplusplus/src/include/utils.hpp`
 Includes
 --------
 
-- :cppref:`cerrno`
-- :cppref:`iostream`
-- :cppref:`stdexcept`
-- :cref:`\<inttypes.h\> <types/integer>`
-- :cref:`\<stdint.h\> <types/integer>`
-- :cppref:`cstring`
-- :cppref:`string`
-- :cppref:`sstream`
-- :cppref:`fstream`
-- `\<windows.h\> <https://en.wikipedia.org/wiki/Windows.h>`__ (if compiled for Windows)
-- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/libgen.h.0p.html>`__ (if not compiled for Windows)
-- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/unistd.h.0p.html>`__ (if not compiled for Windows)
+- :external:cpp:type:`cerrno`
+- :external:cpp:type:`iostream`
+- :external:cpp:type:`stdexcept`
+- :external:c:type:`inttypes`
+- :external:c:type:`stdint`
+- :external:cpp:type:`cstring`
+- :external:cpp:type:`string`
+- :external:cpp:type:`sstream`
+- :external:cpp:type:`fstream`
+- :external:c:type:`windows` (if compiled for Windows)
+- :external:c:type:`libgen` (if not compiled for Windows)
+- :external:c:type:`unistd` (if not compiled for Windows)
 
 .. cpp:namespace-push:: utils
     

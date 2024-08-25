@@ -8,9 +8,9 @@ Includes
 
 - :external:rust:struct:`std::any::TypeId`
 - :external:rust:struct:`std::collections::HashMap`
-- :external:rust:trait:`std::sync::Mutex`
+- :external:rust:struct:`std::sync::Mutex`
 - :external:rust:struct:`std::sync::RwLock`
-- :external:rust:fn:`std::sync::Once`
+- :external:rust:struct:`std::sync::Once`
 
 .. rust:struct:: pub struct iter_cache::CachingIterator<I, T> where I: Iterator<Item = T> + 'static, T: Clone + 'static
 

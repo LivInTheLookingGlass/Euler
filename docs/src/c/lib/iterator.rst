@@ -7,8 +7,8 @@ Includes
 --------
 
 - `"macros.h" <./macros.html>`__
-- :cref:`\<stdbool.h\> <types>`
-- :cref:`\<stdint.h\> <types/integer>`
+- :external:c:type:`stdbool`
+- :external:c:type:`stdint`
 
 .. c:namespace-push:: iterator
 

@@ -6,9 +6,9 @@ View source code :source:`c/src/p0019.c`
 Includes
 --------
 
-- :cref:`\<inttypes.h\> <types/integer>`
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<stdio.h\> <io>`
+- :external:c:type:`inttypes`
+- :external:c:type:`stdint`
+- :external:c:type:`stdio`
 
 Solution
 --------

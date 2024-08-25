@@ -10,12 +10,12 @@ Includes
 - `"digits.h" <./lib/digits.html>`__
 - `"macros.h" <./macros.html>`__ (implicitly via math.h)
 - `"iterator.h" <./iterator.html>`__ (implicitly, via digits.h)
-- :cref:`\<inttypes.h\> <types/integer>`
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<stdio.h\> <io>`
-- :cref:`\<stdlib.h\> <program>` (implicitly via math.h & if not compiled on PCC)
-- :cref:`\<stdbool.h\> <types>` (implicitly, via digits.h)
-- :cref:`\<math.h\> <numeric/math>` (implicitly, via digits.h & if not compiled on PCC)
+- :external:c:type:`inttypes`
+- :external:c:type:`stdint`
+- :external:c:type:`stdio`
+- :external:c:type:`stdlib` (implicitly via math.h & if not compiled on PCC)
+- :external:c:type:`stdbool` (implicitly, via digits.h)
+- :external:c:type:`math` (implicitly, via digits.h & if not compiled on PCC)
 
 Solution
 --------

@@ -8,12 +8,12 @@ Includes
 
 - `"math.hpp" <./lib/math.html>`__
 - `"macros.hpp" <./macros.html>`__ (implicitly, via math.hpp)
-- :cref:`\<stdint.h\> <types/integer>`
-- :cppref:`iostream`
-- :cref:`\<math.h\> <numeric/math>` (implicitly, via math.hpp)
-- :cref:`\<stdlib.h\> <program>` (implicitly, via math.hpp)
-- :cref:`\<stdint.h\> <types/integer>` (implicitly, via math.hpp)
-- :cref:`\<inttypes.h\> <types/integer>` (implicitly, via math.hpp)
+- :external:c:type:`stdint`
+- :external:cpp:type:`iostream`
+- :external:c:type:`math` (implicitly, via math.hpp)
+- :external:c:type:`stdlib` (implicitly, via math.hpp)
+- :external:c:type:`stdint` (implicitly, via math.hpp)
+- :external:c:type:`inttypes` (implicitly, via math.hpp)
 
 Solution
 --------

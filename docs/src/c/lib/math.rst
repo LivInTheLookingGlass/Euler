@@ -7,8 +7,8 @@ Includes
 --------
 
 - `"macros.h" <./macros.html>`__
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<stdlib.h\> <program>` (if not compiled on PCC)
+- :external:c:type:`stdint`
+- :external:c:type:`stdlib` (if not compiled on PCC)
 
 .. c:namespace-push:: math
     

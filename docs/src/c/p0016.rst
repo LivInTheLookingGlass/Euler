@@ -9,13 +9,13 @@ Includes
 - `"bcd.h" <./lib/bcd.html>`__
 - `"macros.h" <./macros.html>`__ (implicitly via bcd.h)
 - `"math.h" <./math.html>`__ (implicitly via bcd.h & if compiled on PCC)
-- :cref:`\<inttypes.h\> <types/integer>`
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<stdio.h\> <io>`
-- :cref:`\<stdbool.h\> <types>` (implicitly via bcd.h)
-- :cref:`\<string.h\> <string/byte>` (implicitly via bcd.h)
-- :cref:`\<stdlib.h\> <program>` (implicitly via bcd.h & if not compiled on PCC)
-- :cref:`\<math.h\> <numeric/math>` (implicitly via bcd.h & if not compiled on PCC)
+- :external:c:type:`inttypes`
+- :external:c:type:`stdint`
+- :external:c:type:`stdio`
+- :external:c:type:`stdbool` (implicitly via bcd.h)
+- :external:c:type:`string` (implicitly via bcd.h)
+- :external:c:type:`stdlib` (implicitly via bcd.h & if not compiled on PCC)
+- :external:c:type:`math` (implicitly via bcd.h & if not compiled on PCC)
 
 Solution
 --------

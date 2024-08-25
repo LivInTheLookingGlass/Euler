@@ -138,8 +138,6 @@ extlinks = {
     'prob': ('https://projecteuler.net/problem=%s', 'Problem #%s'),
     'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s', 'here on GitHub!%.0s'),
     'live-test': ('/_static/test-%s.html', 'click here!%.0s'),
-    'cppref': ('https://en.cppreference.com/w/cpp/header/%s', '<%s>'),
-    'cref': ('https://en.cppreference.com/w/c/%s', '%s'),
     'csref': ('https://learn.microsoft.com/en-us/dotnet/api/%s', '%s'),
 } | {
     f'{code}-d': (f'./src/{lang}/p%s.html', '✔%.0s') for (code, lang) in langcodes
@@ -153,10 +151,9 @@ extlinks_detect_hardcoded_links = True
 # -- Options for intersphinx extension ---------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
 
-for p in Path(__file__).parent.joinpath('inv').glob('*'):
-    with p.joinpath('inv_raw.txt').open('rb') as f, p.joinpath('objects.inv').open('wb') as g:
-        g.writelines(f.readline() for _ in range(4))
-        g.write(compress(f.read()))
+with Path(__file__).parent.joinpath('raw_inv.txt').open('rb') as f, Path(__file__).parent.joinpath('objects.inv').open('wb') as g:
+    g.writelines(f.readline() for _ in range(4))
+    g.write(compress(f.read()))
 
 intersphinx_mapping = {
     'python':           ('https://docs.python.org/3', None),
@@ -166,12 +163,7 @@ intersphinx_mapping = {
     'u-msgpack-python': ('https://u-msgpack-python.readthedocs.io/en/latest/', None),
     'pytest':           ('https://docs.pytest.org/en/stable/', None),
     'coverage':         ('https://coverage.readthedocs.io/en/latest/', None),
-    'rust':             ('', './inv/rust/objects.inv'),
-    # 'c':                ('', './inv/c/objects.inv'),
-    # 'cplusplus':        ('', './inv/cplusplus/objects.inv'),
-    # 'csharp':           ('', './inv/csharp/objects.inv'),
-    # 'java':             ('', './inv/java/objects.inv'),
-    # 'javascript':       ('', './inv/javascript/objects.inv'),
+    'misc':             ('', './objects.inv'),
 }
 
 # -- Options for todo extension ----------------------------------------------
@@ -207,13 +199,14 @@ js_source_path = [
 tags_create_tags = True
 tags_page_title = 'Tags'
 
+# Language chart generation + custom domains
 
 def countfiles(lang):
     templates = {
         'Makefile': lambda _, filename: filename == 'Makefile',
         'Python': lambda root, filename: fnmatch(filename, '*.py') and 'docs' not in root,
         'C': lambda _, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
-        'C++': lambda _, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.hpp'),
+        'C++': lambda _, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.h') or fnmatch(filename, '*.hpp'),
         'C#': lambda _, filename: fnmatch(filename, '*.cs'),
         'Java': lambda _, filename: fnmatch(filename, '*.java'),
         'JavaScript': lambda _, filename: fnmatch(filename, '*.js'),
@@ -222,10 +215,8 @@ def countfiles(lang):
     exclude_patterns = {
         'Makefile': ['Unity', 'wasi-libc', 'node_modules'],
         'Python': ['Unity', 'docs'],
-        'C': ['c/Unity', 'c/wasi-libc', 'cplusplus'],
+        'C': ['c/Unity', 'cplusplus'],
         'C++': ['c/', 'cplusplus/Unity'],
-        'C#': [],
-        'Java': [],
         'JavaScript': ['node_modules', 'dist', 'target'],
         'Rust': ['Unity'],
     }

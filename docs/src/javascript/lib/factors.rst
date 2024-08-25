@@ -1,5 +1,5 @@
 factors.js
-========
+==========
 
 View source code :source:`javascript/src/lib/factors.js`
 

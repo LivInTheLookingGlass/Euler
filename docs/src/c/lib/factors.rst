@@ -8,8 +8,8 @@ Includes
 
 - `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
 - `"iterator.h" <./iterator.html>`__
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<stdbool.h\> <types>` (implicitly, via iterator.h)
+- :external:c:type:`stdint`
+- :external:c:type:`stdbool` (implicitly, via iterator.h)
 
 This file implements an :c:macro:`Iterator <IteratorHead>` that yields proper
 factors for a given number. It is generally used by first calling

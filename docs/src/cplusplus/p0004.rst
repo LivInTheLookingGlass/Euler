@@ -6,8 +6,8 @@ View source code :source:`cplusplus/src/p0004.cpp`
 Includes
 --------
 
-- :cref:`\<stdint.h\> <types/integer>`
-- :cppref:`iostream`
+- :external:c:type:`stdint`
+- :external:cpp:type:`iostream`
 
 Solution
 --------

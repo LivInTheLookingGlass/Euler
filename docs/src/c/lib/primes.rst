@@ -9,11 +9,11 @@ Includes
 - `"math.h" <./math.html>`__ (if compiled on PCC)
 - `"iterator.h" <./iterator.html>`__
 - `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
-- :cref:`\<stdbool.h\> <types>` (implicitly, via iterator.h)
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<inttypes.h\> <types/integer>`
-- :cref:`\<stdlib.h\> <program>` (if not compiled on PCC)
-- :cref:`\<math.h\> <numeric/math>` (if not compiled on PCC)
+- :external:c:type:`stdbool` (implicitly, via iterator.h)
+- :external:c:type:`stdint`
+- :external:c:type:`inttypes`
+- :external:c:type:`stdlib` (if not compiled on PCC)
+- :external:c:type:`math` (if not compiled on PCC)
 
 .. c:namespace-push:: primes
 

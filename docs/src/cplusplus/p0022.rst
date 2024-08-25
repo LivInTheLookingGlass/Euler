@@ -7,16 +7,16 @@ Includes
 --------
 
 - `"utils.hpp" <./lib/utils.html>`__
-- :cref:`\<stdint.h\> <types/integer>`
-- :cppref:`iostream` (implicitly, via utils.hpp)
-- :cppref:`cerrno` (implicitly, via utils.hpp)
-- :cppref:`iostream` (implicitly, via utils.hpp)
-- :cppref:`stdexcept` (implicitly, via utils.hpp)
-- :cref:`\<inttypes.h\> <types/integer>` (implicitly, via utils.hpp)
-- :cppref:`cstring` (implicitly, via utils.hpp)
-- :cppref:`string` (implicitly, via utils.hpp)
-- :cppref:`sstream` (implicitly, via utils.hpp)
-- :cppref:`fstream` (implicitly, via utils.hpp)
+- :external:c:type:`stdint`
+- :external:cpp:type:`iostream` (implicitly, via utils.hpp)
+- :external:cpp:type:`cerrno` (implicitly, via utils.hpp)
+- :external:cpp:type:`iostream` (implicitly, via utils.hpp)
+- :external:cpp:type:`stdexcept` (implicitly, via utils.hpp)
+- :external:c:type:`inttypes` (implicitly, via utils.hpp)
+- :external:cpp:type:`cstring` (implicitly, via utils.hpp)
+- :external:cpp:type:`string` (implicitly, via utils.hpp)
+- :external:cpp:type:`sstream` (implicitly, via utils.hpp)
+- :external:cpp:type:`fstream` (implicitly, via utils.hpp)
 - `\<windows.h\> <https://en.wikipedia.org/wiki/Windows.h>`__ (implicitly, via utils.hpp & if compiled for Windows)
 - `\<libgen.h\> <https://man7.org/linux/man-pages/man0/libgen.h.0p.html>`__ (implicitly, via utils.hpp & if not compiled for Windows)
 - `\<libgen.h\> <https://man7.org/linux/man-pages/man0/unistd.h.0p.html>`__ (implicitly, via utils.hpp & if not compiled for Windows)

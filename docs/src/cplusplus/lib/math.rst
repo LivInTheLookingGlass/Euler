@@ -7,10 +7,10 @@ Includes
 --------
 
 - `"macros.hpp" <./macros.html>`__
-- :cref:`\<math.h\> <numeric/math>`
-- :cref:`\<stdlib.h\> <program>`
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<inttypes.h\> <types/integer>`
+- :external:c:type:`math`
+- :external:c:type:`stdlib`
+- :external:c:type:`stdint`
+- :external:c:type:`inttypes`
 
 .. cpp:namespace-push:: math
     

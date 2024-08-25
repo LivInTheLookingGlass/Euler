@@ -6,15 +6,15 @@ View source code :source:`c/src/include/utils.h`
 Includes
 --------
 
-- :cref:`\<inttypes.h\> <types/integer>`
-- :cref:`\<stdint.h\> <types/integer>`
-- :cref:`\<stdlib.h\> <program>`
-- :cref:`\<string.h\> <string/byte>`
-- :cref:`\<stdio.h\> <io>`
-- `\<direct.h\> <https://en.wikipedia.org/wiki/Direct.h>`__ (if compiled for Windows)
-- `\<windows.h\> <https://en.wikipedia.org/wiki/Windows.h>`__ (if compiled for Windows)
-- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/libgen.h.0p.html>`__ (if not compiled for Windows)
-- `\<libgen.h\> <https://man7.org/linux/man-pages/man0/unistd.h.0p.html>`__ (if not compiled for Windows)
+- :external:c:type:`inttypes`
+- :external:c:type:`stdint`
+- :external:c:type:`stdlib`
+- :external:c:type:`string`
+- :external:c:type:`stdio`
+- :external:c:type:`direct` (if compiled for Windows)
+- :external:c:type:`windows` (if compiled for Windows)
+- :external:c:type:`libgen` (if not compiled for Windows)
+- :external:c:type:`unistd` (if not compiled for Windows)
 
 .. c:namespace-push:: utils
     
