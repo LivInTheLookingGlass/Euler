@@ -14,17 +14,9 @@ terms. By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 */
+use crate::include::fibonacci::fib_by_3;
 use crate::include::utils::Answer;
 
 pub fn p0002() -> Answer {
-    let mut answer: u64 = 0;
-    let mut i = 2;
-    let mut j = 8;
-    while i < 4000000 {
-        answer += i;
-        let tmp = 4 * j + i;
-        i = j;
-        j = tmp;
-    }
-    return Answer::Int(answer.into());
+    return Answer::Int(fib_by_3::<u64>().take_while(|x| *x < 4000000).sum::<u64>().into());
 }

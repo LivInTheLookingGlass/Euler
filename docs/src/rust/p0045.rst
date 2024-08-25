@@ -1,0 +1,20 @@
+Rust Implementation of Problem 45
+=================================
+
+View source code :source:`rust/src/p0045.rs`
+
+Includes
+--------
+
+- `math <./lib/math.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0045::p0045() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0045.rs
+   :language: rust
+   :linenos:
+
+.. tags:: figurate-number, triangle-number

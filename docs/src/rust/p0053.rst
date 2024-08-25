@@ -1,0 +1,20 @@
+Rust Implementation of Problem 53
+=================================
+
+View source code :source:`rust/src/p0053.rs`
+
+Includes
+--------
+
+- `math <./lib/math.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0053::p0053() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0053.rs
+   :language: rust
+   :linenos:
+
+.. tags:: combinatorics, factorial, binomial-coefficient

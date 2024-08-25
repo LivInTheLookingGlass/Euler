@@ -17,7 +17,7 @@ pub struct ProperDivisors<I>
     next_size: usize,
 }
 
-pub fn proper_divisors<I>(num: I) -> ProperDivisors<I>
+pub fn proper_divisors<I>(num: I) -> impl Iterator<Item = I>
 where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     return ProperDivisors::<I>::new(num);
@@ -48,9 +48,9 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
                 return None;
             }
             if self.next_size == 0 {
-self.next_size += 1;
-return Some(one());
-}
+                self.next_size += 1;
+                return Some(one());
+            }
             while self.curr_index < self.current_batch.len() {
                 let result = self.current_batch[self.curr_index];
                 self.curr_index += 1;

@@ -6,6 +6,10 @@ use crate::p~N::p~N;
 });
 use crate::p0027::p0027;
 use crate::p0034::p0034;
+use crate::p0036::p0036;
+use crate::p0037::p0037;
+use crate::p0045::p0045;
+use crate::p0053::p0053;
 use crate::p0069::p0069;
 use crate::p0076::p0076;
 use crate::p0077::p0077;
@@ -44,6 +48,10 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
         24 =>  Some(( &24, p0024, false)),
         27 =>  Some(( &27, p0027, true)),
         34 =>  Some(( &34, p0034, false)),
+        36 =>  Some(( &36, p0036, false)),
+        37 =>  Some(( &37, p0037, true)),
+        45 =>  Some(( &45, p0045, false)),
+        53 =>  Some(( &53, p0053, false)),
         69 =>  Some(( &69, p0069, false)),
         76 =>  Some(( &76, p0076, false)),
         77 =>  Some(( &77, p0077, false)),

@@ -26,6 +26,10 @@ pub mod p~N;
 });
 pub mod p0027;
 pub mod p0034;
+pub mod p0036;
+pub mod p0037;
+pub mod p0045;
+pub mod p0053;
 pub mod p0069;
 pub mod p0076;
 pub mod p0077;
@@ -40,9 +44,9 @@ fn main() {
     for i in sieve {
         println!("{}", i);
     }
-for i in 4..100 {
-println!("{}: {:?}", i, factors::proper_divisors(i).collect::<Vec<u16>>());
-}
+    for i in 4..100 {
+        println!("{}: {:?}", i, factors::proper_divisors(i).collect::<Vec<u16>>());
+    }
     let supported = generate_supported_problems(false);
 
     for id in supported {
@@ -73,6 +77,10 @@ seq!(N in 01..=20 {
 #[case::problem_24(24)]
 #[case::problem_27(27)]
 #[case::problem_34(34)]
+#[case::problem_36(36)]
+#[case::problem_37(37)]
+#[case::problem_45(45)]
+#[case::problem_53(53)]
 #[case::problem_69(69)]
 #[case::problem_76(76)]
 #[case::problem_77(77)]
@@ -100,7 +108,6 @@ fn test_problem(#[case] id: usize) -> Result<(), String> {
 }
 });
 
-
 #[cfg(test)]
 #[test]
 fn test_primes() -> Result<(), String> {
@@ -124,6 +131,21 @@ fn test_prime_factors() -> Result<(), String> {
         for f in primes::prime_factors(p * s) {
             assert!(primes::is_prime(f));
             assert!(f == p || f == s);
+        }
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+#[test]
+fn test_proper_divisors() -> Result<(), String> {
+    for i in 4..1024 {
+        let divisors = factors::proper_divisors(i).collect::<Vec<u32>>();
+        for &factor in divisors.iter() {
+            if factor == 1 {
+                continue;
+            }
+            assert!(divisors.iter().any(|&x| x * factor == i));
         }
     }
     Ok(())

@@ -28,8 +28,8 @@ where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
     if n < r {
         panic!("Out of function's bounds");
     }
-    if n < MAX_FACTORIAL[size_of::<I>()] as usize {
-        return factorial::<I>(n as u8) / factorial::<I>(r as u8);
+    if n < MAX_FACTORIAL[size_of::<I>() - 1] as usize {
+        return factorial::<I>(n as u8) / factorial::<I>(r as u8) / factorial::<I>((n - r) as u8);
     }
     // slow path for larger numbers
     let mut answer: I = one();

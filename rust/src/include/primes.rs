@@ -5,19 +5,15 @@ use std::ops::{Add,Div,Mul,Rem};
 
 use num_traits::{one,zero,One,Zero};
 
-use crate::include::iter_cache::CachingIterator;
+use crate::include::iter_cache::cache_iterator;
 
-pub struct Eratosthenes<I>
-where I: Hash
-{
+pub struct Eratosthenes<I> where I: Hash {
     sieve: HashMap<I, Vec<I>>,
     prime: I,
     candidate: I,
 }
 
-impl<I> Default for Eratosthenes<I>
-where I: Hash + One + Zero + Add
-{
+impl<I> Default for Eratosthenes<I> where I: Hash + One + Zero + Add {
     fn default() -> Self {
         return Eratosthenes::<I>{
             sieve: HashMap::new(),
@@ -27,17 +23,13 @@ where I: Hash + One + Zero + Add
     }
 }
 
-impl<I> Eratosthenes<I>
-where I: Hash + One + Zero + Add
-{
+impl<I> Eratosthenes<I> where I: Hash + One + Zero + Add {
     pub fn new() -> Eratosthenes<I> {
         return Default::default();
     }
 }
 
-impl<I> Iterator for Eratosthenes<I>
-where I: Hash + One + Zero + Add + Mul + Ord + Copy
-{
+impl<I> Iterator for Eratosthenes<I> where I: Hash + One + Zero + Add + Mul + Ord + Copy {
     type Item = I;
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -68,25 +60,19 @@ where I: Hash + One + Zero + Add + Mul + Ord + Copy
     }
 }
 
-pub fn primes<I>() -> impl Iterator<Item = I>
-where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static
-{
-    return CachingIterator::new(Eratosthenes::new());
+pub fn primes<I>() -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static {
+    return cache_iterator(Eratosthenes::new());
 }
 
-pub fn primes_until<I>(x: I) -> impl Iterator<Item = I>
-where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static
-{
+pub fn primes_until<I>(x: I) -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static {
     return primes::<I>().take_while(move |n| *n < x);
 }
 
-pub struct PrimeFactors<I>
-{
+pub struct PrimeFactors<I> {
     number: I
 }
 
-impl<I> PrimeFactors<I>
-{
+impl<I> PrimeFactors<I> {
     pub fn new(x: I) -> PrimeFactors<I> {
         return PrimeFactors{
             number: x
@@ -113,7 +99,8 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
     }
 }
 
-pub fn prime_factors<I>(x: I) -> PrimeFactors<I>
+pub fn prime_factors<I>(x: I) -> impl Iterator<Item = I>
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
     return PrimeFactors::new(x);
 }

@@ -6,6 +6,14 @@ use std::sync::Once;
 static INIT: Once = Once::new();
 static mut CACHE_MAP: Option<RwLock<HashMap<(TypeId, TypeId), Mutex<Vec<Box<dyn std::any::Any>>>>>> = None;
 
+pub fn cache_iterator<I, T>(iterator: I) -> impl Iterator<Item = T>
+where
+    I: Iterator<Item = T> + 'static,
+    T: Copy + 'static
+{
+    return CachingIterator::new(iterator);
+}
+
 pub struct CachingIterator<I, T>
 where
     I: Iterator<Item = T> + 'static,

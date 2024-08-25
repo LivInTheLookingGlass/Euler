@@ -1,3 +1,5 @@
+use std::string::ToString;
+
 #[cfg(not(any(target_arch="wasm32", target_arch="wasm64")))]
 use std::fs::read_to_string;
 #[cfg(not(any(target_arch="wasm32", target_arch="wasm64")))]
@@ -53,4 +55,9 @@ pub fn get_answer(n: usize) -> Answer {
         }
     }
     panic!("Answer not found");
+}
+
+pub fn is_palindrome<I>(x: I) -> bool where I: ToString {
+    let s = x.to_string();
+    return s == s.chars().rev().collect::<String>();
 }
