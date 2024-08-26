@@ -126,8 +126,16 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
 pub fn is_prime<I>(x: I) -> bool
 where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
 {
-    if x < (one::<I>() + one::<I>()) {
+    let two = one::<I>() + one::<I>();
+    if x < two  {
         return false;
     }
-    return is_composite(x) == zero();
+    let three = two + one();
+    if x <= three  {
+        return true;
+    }
+    let five = (two * two) + one();
+    let six = (two + one()) * two;
+    let check = x % six;
+    return (check == one() || check == five) && is_composite(x) == zero();
 }
