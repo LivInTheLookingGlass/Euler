@@ -39,7 +39,7 @@ pub fn p0059() -> Answer {
                                                   .split(',')
                                                   .map(|x| x.parse::<u8>().unwrap())
                                                   .collect::<Vec<u8>>();
-    for key in b"abcdefghijklmnopqrtsuvwxyz".into_iter().permutations(3) {
+    for key in b"abcdefghijklmnopqrtsuvwxyz".iter().permutations(3) {
         let plaintext = tokens.iter()
                               .enumerate()
                               .map(|(i, x)| *x ^ key[i % 3])
@@ -47,7 +47,7 @@ pub fn p0059() -> Answer {
         if plaintext.windows(keyword.len()).any(|w| w == keyword) {
             return Answer::Int(
                 plaintext.into_iter()
-                         .map(|x| Into::<u64>::into(x))
+                         .map(Into::<u64>::into)
                          .sum::<u64>()
                          .into()
             );

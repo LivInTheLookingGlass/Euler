@@ -1,0 +1,21 @@
+Rust Implementation of Problem 67
+=================================
+
+View source code :source:`rust/src/p0067.rs`
+
+Includes
+--------
+
+- `triangles <./lib/triangles.html>`_
+- `utils <./lib/utils.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0067::p0067() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0067.rs
+   :language: rust
+   :linenos:
+
+.. tags:: combinatorics, path-finding, file-io

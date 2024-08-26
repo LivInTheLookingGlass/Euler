@@ -1,0 +1,20 @@
+Rust Implementation of Problem 59
+=================================
+
+View source code :source:`rust/src/p0059.rs`
+
+Includes
+--------
+
+- `utils <./lib/utils.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0059::p0059() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0059.rs
+   :language: rust
+   :linenos:
+
+.. tags:: cryptography, binary-operator, xor, file-io
