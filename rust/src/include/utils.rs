@@ -18,6 +18,8 @@ const P0022_NAMES_TXT: &str = include_str!("../../../_data/p0022_names.txt");
 #[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 const P0042_WORDS_TXT: &str = include_str!("../../../_data/p0042_words.txt");
 #[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
+const P0059_CIPHER_TXT: &str = include_str!("../../../_data/p0059_cipher.txt");
+#[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 const P0067_TRIANGLE_TXT: &str = include_str!("../../../_data/p0067_triangle.txt");
 
 #[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
@@ -26,6 +28,7 @@ pub fn get_data_file(name: &str) -> String {
         "answers.tsv" => ANSWERS_TSV.to_string(),
         "p0022_names.txt" => P0022_NAMES_TXT.to_string(),
         "p0042_words.txt" => P0042_WORDS_TXT.to_string(),
+        "p0059_cipher.txt" => P0059_CIPHER_TXT.to_string(),
         "p0067_triangle.txt" => P0067_TRIANGLE_TXT.to_string(),
         _ => panic!("Unknown file name: {}", name),
     }
