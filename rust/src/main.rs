@@ -15,6 +15,8 @@ use itertools::Itertools;
 pub mod include;
 use include::primes;
 use include::factors;
+#[cfg(test)]
+use include::math;
 #[cfg(not(test))]
 use include::problems::generate_supported_problems;
 use include::problems::get_problem;
@@ -146,6 +148,17 @@ fn test_proper_divisors() -> Result<(), String> {
                 continue;
             }
             assert!(divisors.iter().any(|&x| x * factor == i));
+        }
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+#[test]
+fn test_n_choose_r() -> Result<(), String> {
+    for i in 0..68usize {
+        for j in 0..i {
+            assert_eq!((0..i).combinations(j).count() as u128, math::n_choose_r::<u128>(i, j));
         }
     }
     Ok(())

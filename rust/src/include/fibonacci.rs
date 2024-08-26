@@ -12,6 +12,7 @@ pub fn fib_by_3<I>() -> impl Iterator<Item = I> where I: Copy + Zero + One + Add
     return cache_iterator(FibonacciBy3::<I>::new());
 }
 
+#[derive(Clone, Copy, Debug, Hash)]
 pub struct Fibonacci<I> {
     a: I,
     b: I,
@@ -44,6 +45,7 @@ impl<I> Iterator for Fibonacci<I> where I: Zero + One + Add + Copy {
     }
 }
 
+#[derive(Clone, Copy, Debug, Hash)]
 pub struct FibonacciBy3<I> {
     a: I,
     b: I,

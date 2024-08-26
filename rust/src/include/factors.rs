@@ -8,6 +8,7 @@ use itertools::Itertools;
 
 use crate::include::primes::prime_factors;
 
+#[derive(Clone, Debug)]
 pub struct ProperDivisors<I>
 {
     seen: HashSet<I>,

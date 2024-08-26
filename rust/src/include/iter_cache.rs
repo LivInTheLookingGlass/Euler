@@ -14,6 +14,7 @@ where
     return CachingIterator::new(iterator);
 }
 
+#[derive(Clone, Copy, Debug, Hash)]
 pub struct CachingIterator<I, T>
 where
     I: Iterator<Item = T> + 'static,

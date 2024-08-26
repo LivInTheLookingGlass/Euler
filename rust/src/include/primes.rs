@@ -7,6 +7,7 @@ use num_traits::{one,zero,One,Zero};
 
 use crate::include::iter_cache::cache_iterator;
 
+#[derive(Clone, Debug)]
 pub struct Eratosthenes<I> where I: Hash {
     sieve: HashMap<I, Vec<I>>,
     prime: I,
@@ -68,6 +69,7 @@ pub fn primes_until<I>(x: I) -> impl Iterator<Item = I> where I: Hash + One + Ze
     return primes::<I>().take_while(move |n| *n < x);
 }
 
+#[derive(Clone, Copy, Debug, Hash)]
 pub struct PrimeFactors<I> {
     number: I
 }

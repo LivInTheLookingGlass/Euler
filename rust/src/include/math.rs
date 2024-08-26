@@ -1,8 +1,10 @@
 use std::cmp::PartialOrd;
+use std::fmt::Debug;
 use std::mem::size_of;
 
 use num_traits::NumAssign;
 use num_traits::one;
+use num_traits::CheckedMul;
 
 const MAX_FACTORIAL: [u8; 16] = [
     5, // u8
@@ -23,7 +25,7 @@ where I: NumAssign + From<u8>
 }
 
 pub fn n_choose_r<I>(n: usize, r: usize) -> I
-where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
+where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd + CheckedMul + Debug
 {
     if n < r {
         panic!("Out of function's bounds");
@@ -33,7 +35,6 @@ where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
     }
     // slow path for larger numbers
     let mut answer: I = one();
-    let mut tmp: I;
     let mut factors: Vec<i8> = vec![1; n + 1];
     factors[0] = 0;
     factors[1] = 0;
@@ -59,17 +60,17 @@ where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd
     let mut j: usize = 2;
     while i <= n {
         while factors[i] > 0 {
-            tmp = answer;
-            answer *= (i as u64).into();
-            while answer < tmp && j <= n {
+            let mut result = answer.checked_mul(&(i as u64).into());
+            while result.is_none() && j <= n {
                 while factors[j] < 0 {
-                    tmp /= (j as u64).into();
+                    answer /= (j as u64).into();
                     factors[j] += 1;
                 }
                 j += 1;
-                answer = tmp * (i as u64).into();
+                result = answer.checked_mul(&(i as u64).into());
             }
             factors[i] -= 1;
+            answer = result.unwrap_or_else(|| panic!("nCr overflow: {:?} * {}", answer, i));
         }
         i += 1;
     }

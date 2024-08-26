@@ -31,7 +31,7 @@ pub fn p0053() -> Answer {
     let mut answer: u64 = 0;
     for n in 1..101 {
         for r in 2..(n-1) {
-            if n_choose_r::<u64>(n, r) > 1_000_000 {
+            if n_choose_r::<u128>(n, r) > 1_000_000 {
                 answer += 1;
             }
         }
