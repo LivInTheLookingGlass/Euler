@@ -1,0 +1,20 @@
+Rust Implementation of Problem 187
+==================================
+
+View source code :source:`rust/src/p0187.rs`
+
+Includes
+--------
+
+- `primes <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0187::p0187() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0187.rs
+   :language: rust
+   :linenos:
+
+.. tags:: factorization, prime-number, rust-iterator

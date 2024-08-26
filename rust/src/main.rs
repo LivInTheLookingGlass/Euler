@@ -30,6 +30,7 @@ pub mod p0027;
 pub mod p0034;
 pub mod p0036;
 pub mod p0037;
+pub mod p0044;
 pub mod p0045;
 pub mod p0053;
 pub mod p0059;
@@ -38,6 +39,7 @@ pub mod p0069;
 pub mod p0076;
 pub mod p0077;
 pub mod p0087;
+pub mod p0187;
 pub mod p0357;
 pub mod p0836;
 
@@ -83,6 +85,7 @@ seq!(N in 01..=20 {
 #[case::problem_34(34)]
 #[case::problem_36(36)]
 #[case::problem_37(37)]
+#[case::problem_44(44)]
 #[case::problem_45(45)]
 #[case::problem_53(53)]
 #[case::problem_59(59)]
@@ -91,6 +94,7 @@ seq!(N in 01..=20 {
 #[case::problem_76(76)]
 #[case::problem_77(77)]
 #[case::problem_87(87)]
+#[case::problem_187(187)]
 // #[case::problem_357(357)]
 #[case::problem_836(836)]
 fn test_problem(#[case] id: usize) -> Result<(), String> {

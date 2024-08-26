@@ -8,6 +8,7 @@ use crate::p0027::p0027;
 use crate::p0034::p0034;
 use crate::p0036::p0036;
 use crate::p0037::p0037;
+use crate::p0044::p0044;
 use crate::p0045::p0045;
 use crate::p0053::p0053;
 use crate::p0059::p0059;
@@ -16,6 +17,7 @@ use crate::p0069::p0069;
 use crate::p0076::p0076;
 use crate::p0077::p0077;
 use crate::p0087::p0087;
+use crate::p0187::p0187;
 use crate::p0357::p0357;
 use crate::p0836::p0836;
 
@@ -52,6 +54,7 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
         34 =>  Some(( &34, p0034, false)),
         36 =>  Some(( &36, p0036, false)),
         37 =>  Some(( &37, p0037, true)),
+        44 =>  Some(( &44, p0044, false)),
         45 =>  Some(( &45, p0045, false)),
         53 =>  Some(( &53, p0053, false)),
         59 =>  Some(( &59, p0059, false)),
@@ -60,6 +63,7 @@ pub fn get_problem<'b>(n: usize) -> Option<ProblemRef<'b>> {
         76 =>  Some(( &76, p0076, false)),
         77 =>  Some(( &77, p0077, false)),
         87 =>  Some(( &87, p0087, false)),
+        187 => Some((&187, p0187, false)),
         357 => Some((&357, p0357, true)),
         836 => Some((&836, p0836, false)),
         _ => None,

@@ -10,39 +10,28 @@ Hexagonal 	  	Hn=n(2n−1) 	      	1, 6, 15, 28, 45, ...
 
 It can be verified that T285 = P165 = H143 = 40755.
 */
+use crate::include::math::{hexagonal,pentagonal,triangle};
 use crate::include::utils::Answer;
-
-fn t(n: u64) -> u64 {
-    return n * (n + 1) / 2;
-}
-
-fn p(n: u64) -> u64 {
-    return n * (3 * n - 1) / 2;
-}
-
-fn h(n: u64) -> u64 {
-    return n * (2 * n - 1);
-}
 
 pub fn p0045() -> Answer {
     let mut t_idx: u64 = 286;
     let mut p_idx: u64 = 166;
     let mut h_idx: u64 = 144;
-    let mut t_val = t(t_idx);
-    let mut p_val = p(p_idx);
-    let mut h_val = h(h_idx);
+    let mut t_val = triangle(t_idx);
+    let mut p_val = pentagonal(p_idx);
+    let mut h_val = hexagonal(h_idx);
     while !(t_val == p_val && p_val == h_val) {
         while t_val < p_val || t_val < h_val {
             t_idx += 1;
-            t_val = t(t_idx);
+            t_val = triangle(t_idx);
         }
         while p_val < t_val || p_val < h_val {
             p_idx += 1;
-            p_val = p(p_idx);
+            p_val = pentagonal(p_idx);
         }
         while h_val < p_val || h_val < t_val {
             h_idx += 1;
-            h_val = h(h_idx);
+            h_val = hexagonal(h_idx);
         }
     }
     return Answer::Int(t_val.into());

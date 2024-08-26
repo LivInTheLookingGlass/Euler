@@ -73,7 +73,7 @@ pub fn get_data_file(name: &str) -> String {
         "p0098_words.txt" =>             P0098_WORDS_TXT.to_string(),
         "p0099_base_exp.txt" =>          P0099_BASE_EXP_TXT.to_string(),
         "p0102_triangles.txt" =>         P0102_TRIANGLES_TXT.to_string(),
-        "p0105_sets.txt" =>              P0102_SETS_TXT.to_string(),
+        "p0105_sets.txt" =>              P0105_SETS_TXT.to_string(),
         "p0107_network.txt" =>           P0107_NETWORK_TXT.to_string(),
         "p0424_kakuro200.txt" =>         P0424_KAKURO200_TXT.to_string(),
         "p0673_beds.txt" =>              P0673_BEDS_TXT.to_string(),

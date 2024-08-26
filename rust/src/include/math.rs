@@ -83,3 +83,19 @@ where I: Copy + From<u8> + From<u64> + NumAssign + PartialOrd + CheckedMul + Deb
     }
     return answer;
 }
+
+pub fn triangle<I>(n: I) -> I where I: NumAssign + Copy {
+    let two = one::<I>() + one();
+    return n * (n + one()) / two;
+}
+
+pub fn pentagonal<I>(n: I) -> I where I: NumAssign + Copy {
+    let two = one::<I>() + one();
+    let three = two + one();
+    return n * (three * n - one()) / two;
+}
+
+pub fn hexagonal<I>(n: I) -> I where I: NumAssign + Copy {
+    let two = one::<I>() + one();
+    return n * (two * n - one());
+}
