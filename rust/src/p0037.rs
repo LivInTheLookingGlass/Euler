@@ -25,31 +25,25 @@ pub fn p0037() -> Answer {
         if count == 11 {
             break;
         }
-        else if p < 10 {
+        if p < 10 {
             continue;
         }
-        else {
-            let mut left = p;
-            let mut right = p;
-            while is_prime(right) {
-                right /= 10;
-            }
-            if right != 0 {
-                continue;
-            }
-            while is_prime(left) {
-                let mut x = 10;
-                while x < left {
-                    x *= 10;
-                }
-                left %= x / 10;
-            }
-            if left != 0 {
-                continue;
-            }
-            answer += p;
-            count += 1;
+        let mut left = p;
+        let mut right = p;
+        while is_prime(right) {
+            right /= 10;
         }
+        if right != 0 {
+            continue;
+        }
+        while is_prime(left) {
+            left %= 10u64.pow(left.ilog10());
+        }
+        if left != 0 {
+            continue;
+        }
+        answer += p;
+        count += 1;
     }
     return Answer::Int(answer.into());
 }
