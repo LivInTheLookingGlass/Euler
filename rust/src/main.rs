@@ -24,7 +24,7 @@ use include::problems::get_problem;
 use include::utils::Answer;
 use include::utils::get_answer;
 seq!(N in 0001..=0024 {
-pub mod p~N;
+    pub mod p~N;
 });
 pub mod p0027;
 pub mod p0034;
@@ -75,7 +75,7 @@ fn main() {
 seq!(N in 01..=20 {
 #[rstest]
 #(
-#[case::problem_~N(N)]
+    #[case::problem_~N(N)]
 )*
 //#[case::problem_21(21)]
 #[case::problem_22(22)]

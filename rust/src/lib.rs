@@ -7,7 +7,7 @@ use js_sys::Array;
 
 use seq_macro::seq;
 seq!(N in 0001..=0024 {
-pub mod p~N;
+    pub mod p~N;
 });
 pub mod p0027;
 pub mod p0034;
