@@ -25,7 +25,7 @@ pub fn p0037() -> Answer {
         if count == 11 {
             break;
         }
-        if p < 10 {
+        else if p < 10 {
             continue;
         }
         let mut left = p;
@@ -37,7 +37,11 @@ pub fn p0037() -> Answer {
             continue;
         }
         while is_prime(left) {
-            left %= 10u64.pow(left.ilog10());
+            let mut x = 10;
+            while x < left {
+                x *= 10;
+            }
+            left %= x / 10;
         }
         if left != 0 {
             continue;
