@@ -1,0 +1,20 @@
+Rust Implementation of Problem 35
+=================================
+
+View source code :source:`rust/src/p0035.rs`
+
+Includes
+--------
+
+- `primes <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0035::p0035() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0035.rs
+   :language: rust
+   :linenos:
+
+.. tags:: prime-number, digit-manipulation, rust-iterator

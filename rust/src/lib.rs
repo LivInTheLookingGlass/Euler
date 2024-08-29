@@ -10,9 +10,10 @@ seq!(N in 0001..=0024 {
     pub mod p~N;
 });
 pub mod p0027;
-pub mod p0034;
-pub mod p0036;
-pub mod p0037;
+seq!(N in 0034..=0037 {
+    pub mod p~N;
+});
+pub mod p0041;
 pub mod p0044;
 pub mod p0045;
 pub mod p0053;
