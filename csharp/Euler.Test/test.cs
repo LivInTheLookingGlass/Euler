@@ -10,6 +10,7 @@ namespace Tests
             yield return new object[] { typeof(p0000), false, 0 };
             yield return new object[] { typeof(p0001), false, Utilities.GetAnswer(1) };
             yield return new object[] { typeof(p0002), false, Utilities.GetAnswer(2) };
+            yield return new object[] { typeof(p0003), false, Utilities.GetAnswer(3) };
             yield return new object[] { typeof(p0004), false, Utilities.GetAnswer(4) };
             yield return new object[] { typeof(p0006), false, Utilities.GetAnswer(6) };
             yield return new object[] { typeof(p0008), false, Utilities.GetAnswer(8) };
@@ -55,6 +56,38 @@ namespace Tests
             {
                 ulong expected = results[i];
                 Assert.Equal(expected, Mathematics.Factorial(i));
+            }
+        }
+
+        [Fact]
+        public void EulerTest_Prime_Primes()
+        {
+            List<long> results = new() {
+                2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+            };
+            var comparison = Prime.Primes().GetEnumerator();
+            for (byte i = 0; i < results.Count; i += 1)
+            {
+                long expected = results[i];
+                comparison.MoveNext();
+                Assert.Equal(expected, comparison.Current);
+            }
+        }
+
+        [Fact]
+        public void EulerTest_Prime_PrimeFactors()
+        {
+            List<long> candidates = new() {
+                2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+            };
+            foreach (long x in candidates)
+            {
+                foreach (long y in candidates)
+                {
+                    List<long> result = new(Prime.PrimeFactors(x * y));
+                    Assert.Contains(x, result);
+                    Assert.Contains(y, result);
+                }
             }
         }
 
