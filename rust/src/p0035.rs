@@ -15,7 +15,7 @@ use crate::include::primes::is_prime;
 use crate::include::utils::Answer;
 
 pub fn p0035() -> Answer {
-    let mut answer: u32 = 0;
+    let mut answer: u64 = 0;
     for x in 0..1000000 {
         if Rotations::new(x).all(is_prime) {
             answer += 1;
@@ -27,11 +27,11 @@ pub fn p0035() -> Answer {
 struct Rotations {
     x: String,
     i: usize,
-    n: u32,
+    n: u64,
 }
 
 impl Rotations {
-    pub fn new(x: u32) -> Self {
+    pub fn new(x: u64) -> Self {
         return Rotations{
             x: x.to_string(),
             i: 0,
@@ -41,7 +41,7 @@ impl Rotations {
 }
 
 impl Iterator for Rotations {
-    type Item = u32;
+    type Item = u64;
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.i == 0 {
@@ -49,7 +49,7 @@ impl Iterator for Rotations {
             return Some(self.n);
         }
         if self.i < self.x.len() {
-            let result = format!("{}{}", &self.x[self.i..], &self.x[..self.i]).parse::<u32>().unwrap();
+            let result = format!("{}{}", &self.x[self.i..], &self.x[..self.i]).parse::<u64>().unwrap();
             self.i += 1;
             return Some(result);
         }
