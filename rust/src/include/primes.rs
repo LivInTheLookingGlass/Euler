@@ -5,8 +5,6 @@ use std::ops::{Add,Div,Mul,Rem};
 
 use num_traits::{one,zero,One,Zero};
 
-use crate::include::iter_cache::cache_iterator;
-
 #[derive(Clone, Debug)]
 pub struct Eratosthenes<I> where I: Hash {
     sieve: HashMap<I, Vec<I>>,
@@ -62,7 +60,7 @@ impl<I> Iterator for Eratosthenes<I> where I: Hash + One + Zero + Add + Mul + Or
 }
 
 pub fn primes<I>() -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static {
-    return cache_iterator(Eratosthenes::new());
+    return Eratosthenes::new();
 }
 
 pub fn primes_until<I>(x: I) -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static {

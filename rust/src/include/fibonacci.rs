@@ -2,14 +2,12 @@ use std::ops::{Add,Mul};
 
 use num_traits::{one,zero,One,Zero};
 
-use crate::include::iter_cache::cache_iterator;
-
 pub fn fib<I>() -> impl Iterator<Item = I> where I: Copy + Zero + One + Add + 'static {
-    return cache_iterator(Fibonacci::<I>::new());
+    return Fibonacci::<I>::new();
 }
 
 pub fn fib_by_3<I>() -> impl Iterator<Item = I> where I: Copy + Zero + One + Add + Mul + 'static {
-    return cache_iterator(FibonacciBy3::<I>::new());
+    return FibonacciBy3::<I>::new();
 }
 
 #[derive(Clone, Copy, Debug, Hash)]
