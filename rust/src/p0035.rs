@@ -43,7 +43,7 @@ impl Iterator for Rotations {
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.i < self.x.len() {
-            let result = (self.x[self.i..] + self.x[..self.i]).parse::<u64>().unwrap();
+            let result = (format!("{self.x[self.i..]}{self.x[..self.i]}")).parse::<u64>().unwrap();
             self.i += 1;
             return Some(result);
         }
