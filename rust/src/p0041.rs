@@ -22,7 +22,7 @@ pub fn p0041() -> Answer {
         if num_digits > 7 {
             break;
         }
-        if cur_digits.bytes().any(|b| ((b - b'0').into() > num_digits || cur_digits.bytes().filter(|c| *c == b).count() != 1)) {
+        if cur_digits.bytes().any(|b| ((b - b'0') as usize > num_digits || cur_digits.bytes().filter(|c| *c == b).count() != 1)) {
             continue;
         }
         if p > answer {
