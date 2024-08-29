@@ -19,13 +19,13 @@ pub struct ProperDivisors<I>
 }
 
 pub fn proper_divisors<I>(num: I) -> impl Iterator<Item = I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + Send + 'static
 {
     return ProperDivisors::<I>::new(num);
 }
 
 impl<I> ProperDivisors<I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + Send + 'static
 {
     pub fn new(num: I) -> Self {
         return ProperDivisors::<I>{

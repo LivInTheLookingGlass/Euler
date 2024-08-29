@@ -5,6 +5,8 @@ use std::ops::{Add,Div,Mul,Rem};
 
 use num_traits::{one,zero,One,Zero};
 
+use crate::include::iter_cache::cache_iterator;
+
 #[derive(Clone, Debug)]
 pub struct Eratosthenes<I> where I: Hash {
     sieve: HashMap<I, Vec<I>>,
@@ -59,11 +61,13 @@ impl<I> Iterator for Eratosthenes<I> where I: Hash + One + Zero + Add + Mul + Or
     }
 }
 
-pub fn primes<I>() -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static {
-    return Eratosthenes::new();
+pub fn primes<I>() -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + Send + 'static {
+    return cache_iterator(Eratosthenes::new());
 }
 
-pub fn primes_until<I>(x: I) -> impl Iterator<Item = I> where I: Hash + One + Zero + Add + Mul + Ord + Copy + 'static {
+pub fn primes_until<I>(x: I) -> impl Iterator<Item = I>
+where I: Hash + One + Zero + Add + Mul + Ord + Copy + Send + 'static
+{
     return primes::<I>().take_while(move |n| *n < x);
 }
 
@@ -81,7 +85,7 @@ impl<I> PrimeFactors<I> {
 }
 
 impl<I> Iterator for PrimeFactors<I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + Send + 'static
 {
     type Item = I;
 
@@ -100,13 +104,13 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
 }
 
 pub fn prime_factors<I>(x: I) -> impl Iterator<Item = I>
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + Send + 'static
 {
     return PrimeFactors::new(x);
 }
 
 pub fn is_composite<I>(x: I) -> I
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + Send + 'static
 {
     match prime_factors(x).next() {
         None => {
@@ -122,7 +126,7 @@ where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 
 }
 
 pub fn is_prime<I>(x: I) -> bool
-where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + 'static
+where I: Hash + Zero + One + Add + Ord + Copy + Div<Output=I> + Rem<Output=I> + Send + 'static
 {
     let two = one::<I>() + one::<I>();
     if x < two  {
