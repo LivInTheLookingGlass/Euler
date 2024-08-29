@@ -15,7 +15,7 @@ use crate::include::primes::primes;
 use crate::include::utils::Answer;
 
 pub fn p0041() -> Answer {
-    let answer: i64 = -1;
+    let mut answer: i64 = -1;
     for p in primes::<i64>() {
         let cur_digits = p.to_string();
         let num_digits = cur_digits.len();
