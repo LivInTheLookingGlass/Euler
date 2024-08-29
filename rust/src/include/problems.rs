@@ -5,9 +5,10 @@ seq!(N in 0001..=0024 {
     use crate::p~N::p~N;
 });
 use crate::p0027::p0027;
-use crate::p0034::p0034;
-use crate::p0036::p0036;
-use crate::p0037::p0037;
+seq!(N in 0034..=0037 {
+    use crate::p~N::p~N;
+});
+use crate::p0041::p0041;
 use crate::p0044::p0044;
 use crate::p0045::p0045;
 use crate::p0053::p0053;
