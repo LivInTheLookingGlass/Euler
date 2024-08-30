@@ -15,4 +15,4 @@ View source code :source:`csharp/Euler/p0003.cs`
    :language: csharp
    :linenos:
 
-.. tags:: fibonacci-number, divisibility
+.. tags:: prime-number, factorization, csharp-iterator

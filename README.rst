@@ -68,7 +68,7 @@ Olivia's Project Euler Solutions
 |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
 |            | |br| Browser [3]_          |        | |Cp-lint|         |
 +------------+----------------------------+--------+-------------------+
-| C#         | .NET 2+                    | 19     | |C#i| |br|        |
+| C#         | .NET 2+                    | 21     | |C#i| |br|        |
 |            |                            |        | |Cs-Cov| |br|     |
 |            |                            |        | |CodeQL| |br|     |
 |            |                            |        | |C#-lint|         |

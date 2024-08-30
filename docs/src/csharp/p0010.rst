@@ -1,0 +1,18 @@
+C# Implementation of Problem 10
+===============================
+
+View source code :source:`csharp/Euler/p0010.cs`
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0010
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: object Answer()
+
+.. literalinclude:: ../../../csharp/Euler/p0010.cs
+   :language: csharp
+   :linenos:
+
+.. tags:: prime-number, csharp-iterator

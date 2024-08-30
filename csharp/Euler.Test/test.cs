@@ -13,8 +13,10 @@ namespace Tests
             yield return new object[] { typeof(p0003), false, Utilities.GetAnswer(3) };
             yield return new object[] { typeof(p0004), false, Utilities.GetAnswer(4) };
             yield return new object[] { typeof(p0006), false, Utilities.GetAnswer(6) };
+            yield return new object[] { typeof(p0007), false, Utilities.GetAnswer(7) };
             yield return new object[] { typeof(p0008), false, Utilities.GetAnswer(8) };
             yield return new object[] { typeof(p0009), false, Utilities.GetAnswer(9) };
+            yield return new object[] { typeof(p0010), false, Utilities.GetAnswer(10) };
             yield return new object[] { typeof(p0011), false, Utilities.GetAnswer(11) };
             yield return new object[] { typeof(p0013), false, Utilities.GetAnswer(13) };
             yield return new object[] { typeof(p0014), false, Utilities.GetAnswer(14) };
@@ -65,7 +67,7 @@ namespace Tests
             List<long> results = new() {
                 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
             };
-            var comparison = Prime.Primes().GetEnumerator();
+            var comparison = Prime.Primes<long>().GetEnumerator();
             for (byte i = 0; i < results.Count; i += 1)
             {
                 long expected = results[i];
@@ -84,7 +86,7 @@ namespace Tests
             {
                 foreach (long y in candidates)
                 {
-                    List<long> result = new(Prime.PrimeFactors(x * y));
+                    List<long> result = new(Prime.PrimeFactors<long>(x * y));
                     Assert.Contains(x, result);
                     Assert.Contains(y, result);
                 }

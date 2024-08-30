@@ -23,7 +23,7 @@ clean:
 .PHONY: test
 test: ../LICENSE
 ifneq ($(NOT_TERMUX),0)
-	@dotnet test --nologo $(cov_args)
+	@dotnet test --nologo -l "console;verbosity=normal" $(cov_args)
 endif
 
 .PHONY: test_%
