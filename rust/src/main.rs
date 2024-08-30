@@ -40,6 +40,7 @@ pub mod p0069;
 pub mod p0076;
 pub mod p0077;
 pub mod p0087;
+pub mod p0111;
 pub mod p0187;
 pub mod p0357;
 pub mod p0836;
@@ -97,6 +98,7 @@ seq!(N in 01..=20 {
 #[case::problem_76(76)]
 #[case::problem_77(77)]
 #[case::problem_87(87)]
+#[case::problem_111(111)]
 #[case::problem_187(187)]
 // #[case::problem_357(357)]
 #[case::problem_836(836)]

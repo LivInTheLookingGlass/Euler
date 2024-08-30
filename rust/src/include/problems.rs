@@ -18,6 +18,7 @@ use crate::p0069::p0069;
 use crate::p0076::p0076;
 use crate::p0077::p0077;
 use crate::p0087::p0087;
+use crate::p0111::p0111;
 use crate::p0187::p0187;
 use crate::p0357::p0357;
 use crate::p0836::p0836;
@@ -50,6 +51,7 @@ seq!(N in 0001..=0020 {
             76 =>  Some(( &76, p0076, false)),
             77 =>  Some(( &77, p0077, false)),
             87 =>  Some(( &87, p0087, false)),
+            111 => Some((&111, p0111, false)),
             187 => Some((&187, p0187, false)),
             357 => Some((&357, p0357, true)),
             836 => Some((&836, p0836, false)),
