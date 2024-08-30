@@ -125,7 +125,7 @@ namespace Euler
         {
             var factors = PrimeFactors(n).GetEnumerator();
             factors.MoveNext();
-            long first = factors.current;
+            long first = factors.Current;
             if (first == n)
                 return 0;
             return first;
