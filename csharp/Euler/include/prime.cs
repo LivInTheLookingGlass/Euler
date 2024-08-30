@@ -11,7 +11,7 @@ namespace Euler
         {
             foreach (dynamic p in _Primes(stop))
             {
-                yield return (T) p;
+                yield return (T)p;
             }
         }
 
@@ -109,7 +109,7 @@ namespace Euler
         {
             foreach (dynamic f in _PrimeFactors(n))
             {
-                yield return (T) f;
+                yield return (T)f;
             }
         }
 
