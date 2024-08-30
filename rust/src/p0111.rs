@@ -16,12 +16,13 @@ pub fn p0111() -> Answer {
     for p in primes_until::<u64>(ten_10).filter(|x| *x > ten_9) {
         let s = p.to_string();
         for digit in 0..=9 {
+            let idx = digit as usize;
             let count = s.bytes().filter(|b| *b == digit + b'0').count();
-            if count > current[digit] {
-                current[digit] = count;
-                subanswer[digit] = p;
-            } else if count == current[digit] {
-                subanswer[digit] += p;
+            if count > current[idx] {
+                current[idx] = count;
+                subanswer[idx] = p;
+            } else if count == current[idx] {
+                subanswer[idx] += p;
             }
         }
     }
