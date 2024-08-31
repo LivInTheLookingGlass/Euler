@@ -10,3 +10,4 @@ sphinx-favicon
 sphinx-notfound-page
 javasphinx-workaround
 sphinx-tags
+sphinx-mathjax-offline

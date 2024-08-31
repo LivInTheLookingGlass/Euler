@@ -37,7 +37,7 @@ extensions = [
     # 'sphinx.ext.graphviz',
     # 'sphinx.ext.inheritance_diagram',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.mathjax',
+    'sphinx-mathjax-offline',
     # 'sphinx.ext.todo',
     'sphinx_favicon',
     'notfound.extension',
