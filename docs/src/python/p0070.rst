@@ -1,0 +1,23 @@
+Python Implementation of Problem 70
+===================================
+
+View source code :source:`python/src/p0070.py`
+
+Includes
+--------
+
+- :external:py:class:`itertools.chain`
+- :external:py:func:`functools.reduce`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0070
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0070.py
+   :language: python
+   :linenos:
+
+.. tags:: coprime-numbers, totient-function, digit-manipulation

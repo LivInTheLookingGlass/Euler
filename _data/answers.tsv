@@ -59,6 +59,7 @@ ID	type	size	answer
 63	int	8	49
 67	int	16	7273
 69	int	32	510510
+70	int	64	8319823
 71	int	32	428570
 73	int	32	7295372
 74	int	16	402

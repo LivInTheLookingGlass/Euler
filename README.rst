@@ -83,7 +83,7 @@ Olivia's Project Euler Solutions
 |            | Browser [#]_               |        | |CodeQL| |br|     |
 |            |                            |        | |ESLint|          |
 +------------+----------------------------+--------+-------------------+
-| Python     | CPython 3.6+ |br|          | 79     | |Python| |br|     |
+| Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
 |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
 |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
 |            | Browser [#]_               |        | |PythonLint|      |
