@@ -15,8 +15,8 @@ Interestingly, $\\phi(87109)=79180$, and it can be seen that $87109$ is a permut
 Find the value of $n$, $1 \\lt n \\lt 10^7$, for which $\\phi(n)$ is a permutation of $n$ and the ratio $n/\\phi(n)$
 produces a minimum.
 """
-from itertools import chain
 from functools import reduce
+from itertools import chain
 
 from .lib.primes import prime_factors
 
