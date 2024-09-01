@@ -42,11 +42,7 @@ def groupwise(iterable: Iterable[T], size: int) -> Iterator[Tuple[T, ...]]:
     for idx, x in enumerate(iters):
         for _ in range(idx):
             next(x, None)
-    try:
-        while True:
-            yield tuple(next(x) for x in iters)
-    except RuntimeError:
-        pass
+    return zip(*iters)
 
 
 def spiral_corners(i: int) -> Tuple[int, int, int, int]:
