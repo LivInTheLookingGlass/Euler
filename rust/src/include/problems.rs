@@ -1,7 +1,7 @@
 use seq_macro::seq;
 
 use crate::include::utils::Answer;
-seq!(N in 0001..=0024 {
+seq!(N in 0001..=0025 {
     use crate::p~N::p~N;
 });
 use crate::p0027::p0027;
@@ -35,6 +35,7 @@ seq!(N in 0001..=0020 {
             22 =>  Some(( &22, p0022, false)),
             23 =>  Some(( &23, p0023, false)),
             24 =>  Some(( &24, p0024, false)),
+            25 =>  Some(( &25, p0025, false)),
             27 =>  Some(( &27, p0027, true)),
             34 =>  Some(( &34, p0034, false)),
             35 =>  Some(( &35, p0035, true)),

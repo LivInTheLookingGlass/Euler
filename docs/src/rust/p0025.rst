@@ -1,0 +1,15 @@
+Rust Implementation of Problem 25
+=================================
+
+View source code :source:`rust/src/p0025.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn p0025::p0025() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/p0025.rs
+   :language: rust
+   :linenos:
+
+.. tags:: permutation, lexicographic-ordering, combinatorics

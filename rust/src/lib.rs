@@ -6,7 +6,7 @@ use wasm_bindgen::prelude::*;
 use js_sys::Array;
 
 use seq_macro::seq;
-seq!(N in 0001..=0024 {
+seq!(N in 0001..=0025 {
     pub mod p~N;
 });
 pub mod p0027;
