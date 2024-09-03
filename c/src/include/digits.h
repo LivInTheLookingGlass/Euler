@@ -1,5 +1,4 @@
-#ifndef DIGITS_H
-#define DIGITS_H
+#pragma once
 
 #include <stdint.h>
 #include "macros.h"
@@ -47,5 +46,3 @@ void free_digit_counter(digit_counter dc) {
     if (dc.digits != NULL)
         free(dc.digits);
 }
-
-#endif

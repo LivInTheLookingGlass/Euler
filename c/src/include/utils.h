@@ -132,6 +132,10 @@ typedef struct {
 	AnswerType type;
 } Answer;
 
+#ifdef _WIN32
+#define strtok_r strtok_s
+#endif
+
 Answer EMSCRIPTEN_KEEPALIVE get_answer(uint16_t id) {
     Answer ret = {
         .id = id,
@@ -147,54 +151,33 @@ Answer EMSCRIPTEN_KEEPALIVE get_answer(uint16_t id) {
     char s_id[6];
     snprintf(s_id, sizeof(s_id), "%" PRIu16, id);
 
-#ifdef _WIN32
-    char *line = strtok_s(answers, "\n", &linepointer);  // skip header
-    while ((line = strtok_s(NULL, "\n", &linepointer)) != NULL) {
-#else
     char *line = strtok_r(answers, "\n", &linepointer);  // skip header
     while ((line = strtok_r(NULL, "\n", &linepointer)) != NULL) {
-#endif
-#ifdef _WIN32
-        char *token = strtok_s(line, "\t", &tabpointer);
-#else
         char *token = strtok_r(line, "\t", &tabpointer);
-#endif
         if (strcmp(token, s_id) != 0)
             continue;
 
-#ifdef _WIN32
-        token = strtok_s(NULL, "\t", &tabpointer);
-#else
         token = strtok_r(NULL, "\t", &tabpointer);
-#endif
         if (!token)
             continue;
 
-        if (strcmp(token, "uint") == 0) {
+        if (strcmp(token, "uint") == 0)
             ret.type = UINT8T;  // will adjust size later
-        } else if (strcmp(token, "int") == 0) {
+        else if (strcmp(token, "int") == 0)
             ret.type = INT8T;  // will adjust size later
-        } else if (strcmp(token, "str") == 0) {
+        else if (strcmp(token, "str") == 0)
             ret.type = STRINGT;
-        } else {
+        else {
             fprintf(stderr, "Error: Unknown type '%s'\n", token);
             return ret;
         }
 
-#ifdef _WIN32
-        token = strtok_s(NULL, "\t", &tabpointer);
-#else
         token = strtok_r(NULL, "\t", &tabpointer);
-#endif
         if (!token)
             continue;
         size_t size = strtoull(token, NULL, 10);
 
-#ifdef _WIN32
-        token = strtok_s(NULL, "\t", &tabpointer);
-#else
         token = strtok_r(NULL, "\t", &tabpointer);
-#endif
         if (!token)
             continue;
 
@@ -273,3 +256,7 @@ Answer EMSCRIPTEN_KEEPALIVE get_answer(uint16_t id) {
     free(answers);
     return ret;
 }
+
+#ifdef _WIN32
+#undef strtok_r
+#endif

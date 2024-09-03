@@ -1,5 +1,4 @@
-#ifndef DIVISORS_H
-#define DIVISORS_H
+#pragma once
 
 #include <stdint.h>
 #include "iterator.h"
@@ -43,5 +42,3 @@ inline uintmax_t proper_divisor_count(uintmax_t target) {
     }
     return ret;
 }
-
-#endif

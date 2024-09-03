@@ -23,17 +23,13 @@ four million, find the sum of the even-valued terms.
 uint64_t EMSCRIPTEN_KEEPALIVE p0002() {
     uint64_t answer = 0,
     a = 1, b = 2, t;
-    while (b < 4000000) {
-        // odd (1, 3, 13, 55, ...)
-        // odd (1, 5, 21, 89, ...)
-        // even (2, 8, 34, 144, ...)
+    do {
         answer += b;
-        for (uint8_t z = 0; z < 3; z++) {
-            t = b;
-            b = a + b;
-            a = t;
-        }
-    }
+        // see python fibonacci file for proof this works
+        t = b;
+        b = a + b * 4;
+        a = t;
+    } while (b < 4000000);
     return answer;
 }
 

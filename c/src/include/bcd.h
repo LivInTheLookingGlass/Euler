@@ -96,16 +96,13 @@ BCD_int BCD_from_bytes(const uint8_t *str, size_t chars, bool negative, bool lit
     c.zero = false;
     c.negative = negative;
     c.digits = (packed_BCD_pair *) malloc(sizeof(packed_BCD_pair) * chars);
-    if (little_endian) {
-        for (i = 0; i < chars; i++) {
+    if (little_endian)
+        for (i = 0; i < chars; i++)
             c.digits[i] = str[i];
-        }
-    }
     else    {
         size_t j;
-        for (i = 0, j = chars - 1; i < chars; i++, j--) {
+        for (i = 0, j = chars - 1; i < chars; i++, j--)
             c.digits[i] = str[j];
-        }
     }
     for (i = chars - 1; i != -1; i--) {
         if (c.digits[i] & 0xF0) {
@@ -371,9 +368,8 @@ BCD_int mul_bcd(BCD_int x, BCD_int y) {
                 addend = mul_bcd_pow_10(tmp, pow_10);  // this was not added to performance analysis
                 free_BCD_int(tmp);
             }
-            else {
-                addend = new_BCD_int(staging, false);;
-            }
+            else
+                addend = new_BCD_int(staging, false);
             tmp = add_bcd(answer, addend);
             free_BCD_int(addend);
             free_BCD_int(answer);

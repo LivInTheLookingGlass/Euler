@@ -28,26 +28,24 @@ std::string get_parent_directory(const std::string &path, const uint32_t levels)
     std::string dir = path;
     for (uint32_t i = 0; i < levels; ++i) {
         size_t pos = dir.find_last_of(PATH_SEPARATOR);
-        if (pos != std::string::npos) {
+        if (pos != std::string::npos)
             dir.erase(pos);
-        } else {
+        else
             break;
-        }
     }
     return dir;
 }
 
 std::string get_data_file(const std::string &name) {
     char absolute_path[MAX_PATH];
+    std::ostringstream oss;
 #ifdef _WIN32
     if (!_fullpath(absolute_path, __FILE__, sizeof(absolute_path))) {
-        std::ostringstream oss;
         oss << "_fullpath failed with error code " << GetLastError();
         throw std::runtime_error(oss.str());
     }
 #else
     if (!realpath(__FILE__, absolute_path)) {
-        std::ostringstream oss;
         oss << "realpath failed with error code " << errno;
         throw std::runtime_error(oss.str());
     }
@@ -56,7 +54,6 @@ std::string get_data_file(const std::string &name) {
     std::string file_path = get_parent_directory(std::string(absolute_path), 4) + PATH_SEPARATOR "_data" PATH_SEPARATOR + name;
     std::ifstream file(file_path.c_str(), std::ios::in | std::ios::binary);
     if (!file) {
-        std::ostringstream oss;
         oss << "Failed to open file: " << file_path << " with error code " << errno;
         throw std::runtime_error(oss.str());
     }
@@ -64,7 +61,6 @@ std::string get_data_file(const std::string &name) {
     std::ostringstream content_stream;
     content_stream << file.rdbuf();
     if (!file) {
-        std::ostringstream oss;
         oss << "Error reading file: " << file_path << " with error code " << errno;
         throw std::runtime_error(oss.str());
     }
@@ -131,13 +127,13 @@ Answer EMSCRIPTEN_KEEPALIVE get_answer(const uint16_t id) {
         if (!std::getline(lineStream, token, '\t'))
             continue;
 
-        if (token == "uint") {
+        if (token == "uint")
             answer.type = UINT8T;  // will adjust size later
-        } else if (token == "int") {
+        else if (token == "int")
             answer.type = INT8T;  // will adjust size later
-        } else if (token == "str") {
+        else if (token == "str")
             answer.type = STRINGT;
-        } else {
+        else {
             std::cerr << "Error: Unknown type '" << token << "'\n";
             return answer;
         }
@@ -202,7 +198,7 @@ Answer EMSCRIPTEN_KEEPALIVE get_answer(const uint16_t id) {
                     strncpy(answer.value.string, token.c_str(), size);
                     answer.value.string[size] = 0;
                 } else {
-                        std::cerr << "Error: Memory allocation failed for string\n";
+                    std::cerr << "Error: Memory allocation failed for string\n";
                     Answer err = {{0}};
                     return err;
                 }

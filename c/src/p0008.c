@@ -65,10 +65,8 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
         digits[i] = plain_digits[i] - '0';
     for (i = 0; i < 1000 - 13; i++) {
         tmp = digits[i];
-        for (j = i + 1; j < i + 13; j++) {
-            // printf("%" PRIu64 " * %d\n", tmp, digits[j]);
+        for (j = i + 1; j < i + 13; j++)
             tmp *= digits[j];
-        }
         answer = max(answer, tmp);
     }
     return answer;

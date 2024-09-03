@@ -25,9 +25,8 @@ British usage.
 
 uint32_t to_string_len(uint64_t n);
 uint32_t to_string_len(uint64_t n) {
-    if (n >= 1000) {
+    if (n >= 1000)
         return to_string_len(n / 1000 % 100) + 8;  //len("thousand")
-    }
     else if (n >= 100) {
         uint32_t hundreds = to_string_len(n / 100 % 10) + 7;  // len("hundred")
         if (n % 100)

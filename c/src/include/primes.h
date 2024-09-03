@@ -1,5 +1,4 @@
-#ifndef PRIMES_H
-#define PRIMES_H
+#pragma once
 
 #include <stdint.h>
 #include <inttypes.h>
@@ -84,10 +83,11 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
         if (!broken) {  // is prime
             if (pc->idx == prime_cache_idx) {
 #ifdef PRIME_CACHE_SIZE_LIMIT
-                if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT) {
+                if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT)
 #else
-                if (prime_cache_size == prime_cache_idx) {
+                if (prime_cache_size == prime_cache_idx)
 #endif
+                {
                     size_t new_size = prime_cache_size * 2;
 #ifdef PRIME_CACHE_SIZE_LIMIT
                     if (new_size > PRIME_CACHE_SIZE_LIMIT)
@@ -340,5 +340,3 @@ inline bool is_prime(uintmax_t n) {
      */
     return n && n != 1 && !is_composite(n);
 }
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef MACROS_H
-#define MACROS_H
+#pragma once
 
 // compiler info section
 
@@ -74,5 +73,3 @@
 #define POW_OF_MAX_POW_10_64 19
 #define MAX_POW_10_128 ((uintmax_t) MAX_POW_10_64 * (uintmax_t) MAX_POW_10_64)
 #define POW_OF_MAX_POW_10_128 38
-
-#endif

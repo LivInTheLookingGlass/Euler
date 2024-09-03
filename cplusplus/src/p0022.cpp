@@ -31,8 +31,7 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0022() {
         while (i < fstring.length() && fstring[i] != ',')
             i++;
         const size_t len = i - pi - 2;
-        names[idx] = fstring.substr(pi + 1, len);
-        idx++;
+        names[idx++] = fstring.substr(pi + 1, len);
         pi = ++i;
     } while (i < fstring.length());
     std::sort(names.begin(), names.end());

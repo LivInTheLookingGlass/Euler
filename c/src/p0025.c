@@ -37,11 +37,11 @@ What is the index of the first term in the Fibonacci sequence to contain 1000 di
 uint64_t EMSCRIPTEN_KEEPALIVE p0025() {
     uint64_t answer = 2;
     BCD_int a = BCD_one, b = BCD_one;
-    while (b.decimal_digits < 1000) {
+    do {
         iadd_bcd(&a, b);
         swap(a, b);
         answer++;
-    }
+    } while (b.decimal_digits < 1000)
     free_BCD_int(a);
     free_BCD_int(b);
     return answer;

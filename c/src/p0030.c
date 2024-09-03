@@ -28,10 +28,10 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0030() {
     for (uint64_t i = 2; i < 1000000; i++) {
         digit_counter dc = digits(i);
         sum = 0;
-        while (!dc.exhausted) {
+        do {
             tmp = next(dc);
             sum += tmp * tmp * tmp * tmp * tmp;
-        }
+        } while (!dc.exhausted);
         if (sum == i)
             answer += i;
         free_digit_counter(dc);

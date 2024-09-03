@@ -30,7 +30,6 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 static uint32_t collatz_len_cache[CACHE_SIZE] = {0, 1, 0};
 
 uint32_t collatz_len(uint64_t n);
-
 uint32_t collatz_len(uint64_t n) {
     if (n < CACHE_SIZE && collatz_len_cache[n])
         return collatz_len_cache[n];

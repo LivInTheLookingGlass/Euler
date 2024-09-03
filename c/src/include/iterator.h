@@ -1,5 +1,4 @@
-#ifndef ITERATOR_H
-#define ITERATOR_H
+#pragma once
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -139,5 +138,3 @@ inline counter counter1(uintmax_t stop) {
      */
     return counter2(0, stop);
 }
-
-#endif

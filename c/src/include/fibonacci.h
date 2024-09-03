@@ -1,5 +1,4 @@
-#ifndef FIBONACCI_H
-#define FIBONACCI_H
+#pragma once
 
 #include <stdint.h>
 #include "iterator.h"
@@ -36,5 +35,3 @@ fibonacci fibonacci0();
 inline fibonacci fibonacci0() {
     return fibonacci1(-1);
 }
-
-#endif

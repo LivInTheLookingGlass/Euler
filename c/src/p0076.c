@@ -54,8 +54,7 @@ uint32_t EMSCRIPTEN_KEEPALIVE p0076() {
             answer += (100 + counts[2] - sum) / 2;
             idx = 2;
             do {
-                counts[idx] = 0;
-                ++idx;
+                counts[idx++] = 0;
                 counts[idx] += idx;
                 sum = counts[2];
                 for (i = 3; i < 100; ++i)
