@@ -1,7 +1,7 @@
 Rust Implementation of Problem 41
 =================================
 
-View source code :source:`rust/src/p0041.rs`
+View source code :source:`rust/src/problems/p0041.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0041::p0041() -> utils::Answer
+.. rust:fn:: pub fn problems::p0041::p0041() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0041.rs
+.. literalinclude:: ../../../rust/src/problems/p0041.rs
    :language: rust
    :linenos:
 

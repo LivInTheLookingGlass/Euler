@@ -1,14 +1,14 @@
 Rust Implementation of Problem 76
 =================================
 
-View source code :source:`rust/src/p0076.rs`
+View source code :source:`rust/src/problems/p0076.rs`
 
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0076::p0076() -> utils::Answer
+.. rust:fn:: pub fn problems::p0076::p0076() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0076.rs
+.. literalinclude:: ../../../rust/src/problems/p0076.rs
    :language: rust
    :linenos:
 

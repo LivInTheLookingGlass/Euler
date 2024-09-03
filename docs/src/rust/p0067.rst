@@ -1,7 +1,7 @@
 Rust Implementation of Problem 67
 =================================
 
-View source code :source:`rust/src/p0067.rs`
+View source code :source:`rust/src/problems/p0067.rs`
 
 Includes
 --------
@@ -12,9 +12,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0067::p0067() -> utils::Answer
+.. rust:fn:: pub fn problems::p0067::p0067() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0067.rs
+.. literalinclude:: ../../../rust/src/problems/p0067.rs
    :language: rust
    :linenos:
 

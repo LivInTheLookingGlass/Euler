@@ -1,14 +1,14 @@
 Rust Implementation of Problem 836
 ==================================
 
-View source code :source:`rust/src/p0836.rs`
+View source code :source:`rust/src/problems/p0836.rs`
 
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0836::p0836() -> utils::Answer
+.. rust:fn:: pub fn problems::p0836::p0836() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0836.rs
+.. literalinclude:: ../../../rust/src/problems/p0836.rs
    :language: rust
    :linenos:
 

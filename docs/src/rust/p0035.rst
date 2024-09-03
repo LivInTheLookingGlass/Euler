@@ -1,7 +1,7 @@
 Rust Implementation of Problem 35
 =================================
 
-View source code :source:`rust/src/p0035.rs`
+View source code :source:`rust/src/problems/p0035.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0035::p0035() -> utils::Answer
+.. rust:fn:: pub fn problems::p0035::p0035() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0035.rs
+.. literalinclude:: ../../../rust/src/problems/p0035.rs
    :language: rust
    :linenos:
 

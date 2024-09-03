@@ -1,7 +1,7 @@
 Rust Implementation of Problem 27
 =================================
 
-View source code :source:`rust/src/p0027.rs`
+View source code :source:`rust/src/problems/p0027.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0027::p0027() -> utils::Answer
+.. rust:fn:: pub fn problems::p0027::p0027() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0027.rs
+.. literalinclude:: ../../../rust/src/problems/p0027.rs
    :language: rust
    :linenos:
 

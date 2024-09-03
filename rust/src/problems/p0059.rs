@@ -41,8 +41,8 @@ pub fn p0059() -> Answer {
                                                   .collect::<Vec<u8>>();
     for key in b"abcdefghijklmnopqrtsuvwxyz".iter().permutations(3) {
         let plaintext = tokens.iter()
-                              .enumerate()
-                              .map(|(i, x)| *x ^ key[i % 3])
+                              .zip(key.into_iter().cycle())
+                              .map(|(&x, k)| x ^ k)
                               .collect::<Vec<u8>>();
         if plaintext.windows(keyword.len()).any(|w| w == keyword) {
             return Answer::Int(

@@ -16,4 +16,4 @@ Includes
    :language: python
    :linenos:
 
-.. tags:: python-iterator, fibonacci
+.. tags:: python-iterator, fibonacci-number

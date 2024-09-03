@@ -1,7 +1,7 @@
 Rust Implementation of Problem 59
 =================================
 
-View source code :source:`rust/src/p0059.rs`
+View source code :source:`rust/src/problems/p0059.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0059::p0059() -> utils::Answer
+.. rust:fn:: pub fn problems::p0059::p0059() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0059.rs
+.. literalinclude:: ../../../rust/src/problems/p0059.rs
    :language: rust
    :linenos:
 

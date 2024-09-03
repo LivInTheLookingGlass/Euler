@@ -1,7 +1,7 @@
 Rust Implementation of Problem 18
 =================================
 
-View source code :source:`rust/src/p0018.rs`
+View source code :source:`rust/src/problems/p0018.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0018::p0018() -> utils::Answer
+.. rust:fn:: pub fn problems::p0018::p0018() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0018.rs
+.. literalinclude:: ../../../rust/src/problems/p0018.rs
    :language: rust
    :linenos:
 

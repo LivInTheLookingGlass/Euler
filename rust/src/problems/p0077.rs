@@ -31,7 +31,7 @@ fn prime_summations(n: u64) -> u64 {
     // so for 5 + 5 + 3 + 2 it would be [1, 1, 2]
     counts[0] = n / 2;  // primes[0] = 2
     loop {
-        let mut total: u64= zip(counts.clone(), cached_primes.clone()).map(|(x, y)| x * y).sum();
+        let mut total: u64 = zip(counts.clone(), cached_primes.clone()).map(|(x, y)| x * y).sum();
         counts[0] += 1;
         if total > n {
             let mut idx: usize = 0;

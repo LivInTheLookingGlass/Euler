@@ -1,7 +1,7 @@
 Rust Implementation of Problem 19
 =================================
 
-View source code :source:`rust/src/p0019.rs`
+View source code :source:`rust/src/problems/p0019.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0019::p0019() -> utils::Answer
+.. rust:fn:: pub fn problems::p0019::p0019() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0019.rs
+.. literalinclude:: ../../../rust/src/problems/p0019.rs
    :language: rust
    :linenos:
 

@@ -217,7 +217,7 @@ def countfiles(lang):
         'Python': ['Unity', 'docs'],
         'C': ['c/Unity', 'cplusplus'],
         'C++': ['c/', 'cplusplus/Unity'],
-        'JavaScript': ['node_modules', 'dist', 'target'],
+        'JavaScript': ['node_modules', 'dist', 'target', 'docs'],
         'Rust': ['Unity'],
     }
     count = 0

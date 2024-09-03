@@ -1,7 +1,7 @@
 Rust Implementation of Problem 37
 =================================
 
-View source code :source:`rust/src/p0037.rs`
+View source code :source:`rust/src/problems/p0037.rs`
 
 Includes
 --------
@@ -11,9 +11,9 @@ Includes
 Problem Solution
 ----------------
 
-.. rust:fn:: pub fn p0037::p0037() -> utils::Answer
+.. rust:fn:: pub fn problems::p0037::p0037() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0037.rs
+.. literalinclude:: ../../../rust/src/problems/p0037.rs
    :language: rust
    :linenos:
 

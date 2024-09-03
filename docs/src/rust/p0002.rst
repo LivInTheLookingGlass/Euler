@@ -1,11 +1,11 @@
 Rust Implementation of Problem 2
 ================================
 
-View source code :source:`rust/src/p0002.rs`
+View source code :source:`rust/src/problems/p0002.rs`
 
-.. rust:fn:: pub fn p0002::p0002() -> utils::Answer
+.. rust:fn:: pub fn problems::p0002::p0002() -> utils::Answer
 
-.. literalinclude:: ../../../rust/src/p0002.rs
+.. literalinclude:: ../../../rust/src/problems/p0002.rs
    :language: rust
    :linenos:
 

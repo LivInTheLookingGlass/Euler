@@ -19,29 +19,9 @@ use rstest::rstest;
 #[cfg(test)]
 use itertools::Itertools;
 
-
 use seq_macro::seq;
-seq!(N in 0001..=0025 {
-    pub mod p~N;
-});
-pub mod p0027;
-seq!(N in 0034..=0037 {
-    pub mod p~N;
-});
-pub mod p0041;
-pub mod p0044;
-pub mod p0045;
-pub mod p0053;
-pub mod p0059;
-pub mod p0067;
-pub mod p0069;
-pub mod p0076;
-pub mod p0077;
-pub mod p0087;
-pub mod p0187;
-pub mod p0357;
-pub mod p0836;
 
+pub mod problems;
 pub mod include;
 pub use crate::include::*;
 pub use crate::include::problems::{generate_supported_problems,get_problem};
@@ -51,8 +31,7 @@ pub use crate::include::utils::*;
 #[wasm_bindgen]
 pub fn run_problem(n: usize) -> JsValue {
     let Some((_, problem_function, _)) = get_problem(n) else { return JsValue::UNDEFINED };
-    let answer = problem_function();
-    return match answer {
+    return match problem_function() {
         Answer::String(e) => JsValue::from_str(&e),
         Answer::Int(e) => JsValue::from(e),
     }
@@ -74,8 +53,7 @@ pub fn get_problems(include_slow: bool) -> JsValue {
 #[cfg(any(target_arch="wasm32", target_arch="wasm64"))]
 #[wasm_bindgen]
 pub fn get_js_answer(n: usize) -> JsValue {
-    let answer = get_answer(n);
-    return match answer {
+    return match get_answer(n) {
         Answer::String(e) => JsValue::from_str(&e),
         Answer::Int(e) => JsValue::from(e),
     }
@@ -112,20 +90,17 @@ seq!(N in 01..=20 {
 #[case::problem_836(836)]
 fn test_problem(#[case] id: usize) -> Result<(), String> {
     let Some((_, func, _slow)) = get_problem(id) else { panic!() };
-    let answer = get_answer(id);
     let start = Instant::now();
     let result = func();
     let _elapsed = start.elapsed();
-    assert_eq!(answer, result);
+    assert_eq!(get_answer(id), result);
     #[cfg(all(target_os = "linux", target_env = "gnu"))]
     {
-        if !_slow {
-            assert!(
-                _elapsed <= Duration::new(60, 0),
-                "Should take at most 60s, but actually took {:?}",
-                _elapsed
-            );
-        }
+        assert!(
+            !_slow && _elapsed <= Duration::new(60, 0),
+            "Should take at most 60s, but actually took {:?}",
+            _elapsed
+        );
     }
     Ok(())
 }
@@ -146,8 +121,7 @@ fn test_primes() -> Result<(), String> {
 #[test]
 fn test_prime_factors() -> Result<(), String> {
     for v in primes::primes_until::<u32>(256).combinations(2) {
-        let p = v[0];
-        let s = v[1];
+        let &[p, s] = &v[..];
         assert!(primes::is_prime(p));
         assert!(primes::is_prime(s));
         assert!(primes::is_composite(p * s) != 0);
@@ -179,7 +153,10 @@ fn test_proper_divisors() -> Result<(), String> {
 fn test_n_choose_r() -> Result<(), String> {
     for i in 0..68usize {
         for j in 0..i {
-            assert_eq!((0..i).combinations(j).count() as u128, math::n_choose_r::<u128>(i, j));
+            assert_eq!(
+                (0..i).combinations(j).count() as u128,
+                math::n_choose_r::<u128>(i, j)
+            );
         }
     }
     Ok(())
