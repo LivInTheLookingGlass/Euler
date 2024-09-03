@@ -78,7 +78,7 @@ Olivia's Project Euler Solutions
 |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
 |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
 +------------+----------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|              | 30     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|              | 32     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
 |            | Browser [#]_               |        | |CodeQL| |br|     |
 |            |                            |        | |ESLint|          |

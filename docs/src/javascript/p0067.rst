@@ -1,0 +1,12 @@
+JavaScript Implementation of Problem 67
+=======================================
+
+View source code :source:`javascript/src/p0067.js`
+
+.. js:autofunction:: p0067
+
+.. literalinclude:: ../../../javascript/src/p0067.js
+   :language: javascript
+   :linenos:
+
+.. tags:: combinatorics, path-finding, file-io

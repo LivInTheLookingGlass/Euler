@@ -1,0 +1,12 @@
+JavaScript Implementation of Problem 18
+=======================================
+
+View source code :source:`javascript/src/p0018.js`
+
+.. js:autofunction:: p0018
+
+.. literalinclude:: ../../../javascript/src/p0018.js
+   :language: javascript
+   :linenos:
+
+.. tags:: combinatorics, path-finding

@@ -40,6 +40,8 @@ const answers = {
     15: [require('./src/p0015.js'), false],
     16: [require('./src/p0016.js'), false],
     17: [require('./src/p0017.js'), false],
+    18: [require('./src/p0018.js'), false],
+    19: [require('./src/p0019.js'), false],
     20: [require('./src/p0020.js'), false],
     22: [require('./src/p0022.js'), false],
     23: [require('./src/p0023.js'), false],
@@ -50,6 +52,7 @@ const answers = {
     41: [require('./src/p0041.js'), false],
     46: [require('./src/p0046.js'), false],
     60: [require('./src/p0060.js'), false],
+    67: [require('./src/p0067.js'), false],
     836: [require('./src/p0836.js'), false],
     76: [require('./src/p0076.js'), true],
 };
