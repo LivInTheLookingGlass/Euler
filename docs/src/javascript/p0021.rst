@@ -1,0 +1,20 @@
+JavaScript Implementation of Problem 21
+=======================================
+
+Includes
+--------
+
+- `factors <./lib/factors.html>`_
+
+Problem Solution
+----------------
+
+View source code :source:`javascript/src/p0021.js`
+
+.. js:autofunction:: p0021
+
+.. literalinclude:: ../../../javascript/src/p0021.js
+   :language: javascript
+   :linenos:
+
+.. tags:: divisor-sum, prime-number, factorization, divisibility, js-iterator

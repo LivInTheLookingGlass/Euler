@@ -12,4 +12,4 @@ Problem Solution
    :language: rust
    :linenos:
 
-.. tags:: large-numbers, digit-sum, factorial
+.. tags:: divisor-sum, prime-number, factorization, divisibility, rust-iterator

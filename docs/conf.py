@@ -78,7 +78,14 @@ python_display_short_literal_types = True
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
-html_css_files = ['style.css']
+html_css_files = [
+    'https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css',
+    'style.css'
+]
+html_js_files = [
+    'https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js',
+    'main.js',
+]
 
 # -- Options for autodoc extension -------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration

@@ -55,6 +55,9 @@ Olivia's Project Euler Solutions
 .. |pcc| replace:: ``pcc``
 .. |tcc| replace:: ``tcc``
 
+.. table::
+   :class: datatable
+
 +------------+----------------------------+--------+-------------------+
 | Language   | Version                    | Solved | Status            |
 +============+============================+========+===================+
@@ -78,7 +81,7 @@ Olivia's Project Euler Solutions
 |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
 |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
 +------------+----------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|              | 32     | |JavaScript| |br| |
+| JavaScript | Node 12+ |br|              | 33     | |JavaScript| |br| |
 |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
 |            | Browser [#]_               |        | |CodeQL| |br|     |
 |            |                            |        | |ESLint|          |
