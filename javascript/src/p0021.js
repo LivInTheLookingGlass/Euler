@@ -6,7 +6,7 @@
 */
 exports.p0021 = function() {
     let answer = 0;
-    const toCheck = Array.from(...Array(10000).keys());
+    const toCheck = [...Array(10000).keys()];
     for (const a of toCheck) {
         const b = d(a);
         if (a !== b && d(b) === a) {

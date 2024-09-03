@@ -21,6 +21,9 @@ cstring cpp:type 1 https://en.cppreference.com/w/cpp/header/cstring <cstring>
 string cpp:type 1 https://en.cppreference.com/w/cpp/header/string <string>
 sstream cpp:type 1 https://en.cppreference.com/w/cpp/header/sstream <sstream>
 fstream cpp:type 1 https://en.cppreference.com/w/cpp/header/fstream <fstream>
+vector cpp:type 1 https://en.cppreference.com/w/cpp/header/vector <vector>
+map cpp:type 1 https://en.cppreference.com/w/cpp/header/map <map>
+limits cpp:type 1 https://en.cppreference.com/w/cpp/header/limits <limits>
 
 itertools::Itertools rust:trait 1 https://docs.rs/itertools/latest/itertools/trait.Itertools.html itertools::Itertools
 num_traits::NumAssign rust:trait 1 https://docs.rs/num-traits/latest/num_traits/trait.NumAssign.html num_traits::NumAssign
