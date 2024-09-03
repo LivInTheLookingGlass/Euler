@@ -121,7 +121,7 @@ fn test_primes() -> Result<(), String> {
 #[test]
 fn test_prime_factors() -> Result<(), String> {
     for v in primes::primes_until::<u32>(256).combinations(2) {
-        let &[p, s] = &v[..];
+        let &[p, s] = &v[..] else { panic!() };
         assert!(primes::is_prime(p));
         assert!(primes::is_prime(s));
         assert!(primes::is_composite(p * s) != 0);

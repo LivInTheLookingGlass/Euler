@@ -1,0 +1,31 @@
+C++ Implementation of Problem 7
+===============================
+
+View source code :source:`cplusplus/src/p0007.cpp`
+
+Includes
+--------
+
+- `"macros.hpp" <./lib/macros.html>`__
+- `"primes.hpp" <./lib/primes.html>`__
+- :external:c:type:`stdint`
+- :external:cpp:type:`iostream`
+
+Solution
+--------
+
+.. cpp:namespace-push:: p0007
+
+.. cpp:function:: uint32_t p0007()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../../cplusplus/src/p0007.cpp
+   :language: C++
+   :linenos:
+
+.. tags:: cpp-iterator, prime-number

@@ -41,7 +41,7 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0025() {
         iadd_bcd(&a, b);
         swap(a, b);
         answer++;
-    } while (b.decimal_digits < 1000)
+    } while (b.decimal_digits < 1000);
     free_BCD_int(a);
     free_BCD_int(b);
     return answer;

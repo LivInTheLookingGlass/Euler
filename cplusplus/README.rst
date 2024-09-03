@@ -169,6 +169,7 @@ Problems Solved
 -  ☒ `2 <./src/p0002.cpp>`__
 -  ☒ `4 <./src/p0004.cpp>`__
 -  ☒ `6 <./src/p0006.cpp>`__
+-  ☒ `7 <./src/p0007.cpp>`__
 -  ☒ `8 <./src/p0008.cpp>`__
 -  ☒ `9 <./src/p0009.cpp>`__
 -  ☒ `11 <./src/p0011.cpp>`__
