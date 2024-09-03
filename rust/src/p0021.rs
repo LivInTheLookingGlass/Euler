@@ -21,26 +21,22 @@ and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and
 
 Evaluate the sum of all the amicable numbers under 10000.
 */
-use std::collections::HashSet;
-
 use crate::include::factors::proper_divisors;
 use crate::include::utils::Answer;
 
-fn d(n: u64) -> u64 {
-    return proper_divisors(n).sum::<u64>();
+fn d(n: u16) -> u16 {
+    return proper_divisors(n).sum::<u16>();
 }
 
 pub fn p0021() -> Answer {
     let mut answer = 0;
-    let mut skip: HashSet<u64> = HashSet::new();
-    for a in 0..10000 {
-        if skip.contains(&a) {
-            continue;
-        }
+    let mut collection: Vec<u16> = (0..10000).collect();
+    for i in 0..collection.len() {
+        let a = collection[i];
         let b = d(a);
         if a != b && d(b) == a {
             answer += a + b;
-            skip.insert(b);
+            collection.retain(|&x| x != b);
         }
     }
     return Answer::Int(answer.into());
