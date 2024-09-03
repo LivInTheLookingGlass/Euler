@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EULER_MATH_H
+#define EULER_MATH_H
 
 #include "macros.h"
 
@@ -108,4 +109,6 @@ uintmax_t n_choose_r(uint32_t n, uint32_t r) {
             return ret;
         return ret + 1;
     }
+#endif
+
 #endif

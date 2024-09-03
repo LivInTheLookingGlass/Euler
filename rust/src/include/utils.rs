@@ -62,6 +62,7 @@ pub fn get_data_file(name: &str) -> String {
         "answers.tsv" =>                 ANSWERS_TSV.to_string(),
         "p0022_names.txt" =>             P0022_NAMES_TXT.to_string(),
         "p0042_words.txt" =>             P0042_WORDS_TXT.to_string(),
+        "p0054_poker.txt" =>             P0054_POKER_TXT.to_string(),
         "p0059_cipher.txt" =>            P0059_CIPHER_TXT.to_string(),
         "p0067_triangle.txt" =>          P0067_TRIANGLE_TXT.to_string(),
         "p0079_keylog.txt" =>            P0079_KEYLOG_TXT.to_string(),

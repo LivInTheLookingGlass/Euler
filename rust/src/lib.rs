@@ -18,7 +18,7 @@ use js_sys::Array;
 use rstest::rstest;
 #[cfg(test)]
 use itertools::Itertools;
-
+#[cfg(test)]
 use seq_macro::seq;
 
 pub mod problems;
@@ -97,7 +97,7 @@ fn test_problem(#[case] id: usize) -> Result<(), String> {
     #[cfg(all(target_os = "linux", target_env = "gnu"))]
     {
         assert!(
-            !_slow && _elapsed <= Duration::new(60, 0),
+            _slow || _elapsed <= Duration::new(60, 0),
             "Should take at most 60s, but actually took {:?}",
             _elapsed
         );
