@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('table.datatable').DataTable({
         autoWidth: true,
         paging: false,
+        scrollX: false,
         searching: false,
     });
 });
