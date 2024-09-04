@@ -80,7 +80,7 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
             }
         }
         if (!broken) {  // is prime
-            if (pc->idx == prime_cache_idx)
+            if (pc->idx == prime_cache_idx) {
 #ifdef PRIME_CACHE_SIZE_LIMIT
                 if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT)
 #else
@@ -101,6 +101,7 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
                 }
                 else
                     prime_cache[prime_cache_idx++] = p;
+            }
             pc->idx++;
             if ((pc->exhausted = (p >= pc->stop)))
                 return 0;
