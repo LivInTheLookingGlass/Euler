@@ -55,8 +55,7 @@ Olivia's Project Euler Solutions
 .. |pcc| replace:: ``pcc``
 .. |tcc| replace:: ``tcc``
 
-.. table::
-   :class: datatable
+.. rst-class:: centertable
 
 +------------+----------------------------+--------+-------------------+
 | Language   | Version                    | Solved | Status            |
