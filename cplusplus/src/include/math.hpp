@@ -37,16 +37,14 @@ uintmax_t n_choose_r(uint32_t n, uint32_t r) {
     for (i = 2; i <= n - r; i++)
         factors[i] -= 1;
     // this loop reduces to prime factors only
-    for (i = n; i > 1; i--) {
-        for (j = 2; j < i; j++) {
+    for (i = n; i > 1; i--)
+        for (j = 2; j < i; j++)
             if (i % j == 0) {
                 factors[j] += factors[i];
                 factors[i / j] += factors[i];
                 factors[i] = 0;
                 break;
             }
-        }
-    }
     i = j = 2;
     answer = 1;
     while (i <= n) {

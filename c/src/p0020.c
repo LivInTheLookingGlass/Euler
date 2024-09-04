@@ -24,12 +24,11 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0020() {
     for (uint8_t i = 2; i <= 100; i++) {
         for (uint8_t j = 0; j < 10; j++)
             numbers[j] *= i;
-        for (uint8_t j = 0; j < 9; j++) {
+        for (uint8_t j = 0; j < 9; j++)
             if (numbers[j] > ten17) {
                 numbers[j + 1] += numbers[j] / ten17;
                 numbers[j] %= ten17;
             }
-        }
     }
     uint64_t answer = 0;
     uint64_t power = 1;
@@ -41,10 +40,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0020() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0020());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu64, p0020)
 #endif

@@ -31,15 +31,9 @@ namespace Euler
         {
             byte answer = 0;
             for (ushort x = 1901; x < 2001; x += 1)
-            {
                 for (byte y = 1; y < 13; y += 1)
-                {
                     if (new DateTime(x, y, 1).DayOfWeek == DayOfWeek.Sunday)
-                    {
                         answer += 1;
-                    }
-                }
-            }
             return answer;
         }
     }

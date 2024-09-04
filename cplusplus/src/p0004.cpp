@@ -20,7 +20,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 uint32_t EMSCRIPTEN_KEEPALIVE p0004() {
     uint32_t answer = 0, i, j, prod;
-    for (i = 100; i < 1000; i++) {
+    for (i = 100; i < 1000; i++)
         for (j = 100; j < 1000; j++) {
             prod = i * j;
             char buf[8] = {};
@@ -33,14 +33,8 @@ uint32_t EMSCRIPTEN_KEEPALIVE p0004() {
             if (forward == reverse)
                 answer = std::max(answer, prod);
         }
-    }
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0004() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0004)
 #endif

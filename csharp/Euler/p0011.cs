@@ -43,7 +43,6 @@ namespace Euler
         {
             int answer = 0, tmp;
             for (byte i = 0; i < 20; i++)
-            {
                 for (byte j = 0; j < 17; j++)
                 {
                     // horizontal section
@@ -53,9 +52,7 @@ namespace Euler
                     tmp = (int)grid[j][i] * grid[j + 1][i] * grid[j + 2][i] * grid[j + 3][i];
                     answer = Math.Max(answer, tmp);
                 }
-            }
             for (byte i = 0; i < 17; i++)
-            {
                 for (byte j = 0; j < 17; j++)
                 {
                     // right diagonal section
@@ -65,7 +62,6 @@ namespace Euler
                     tmp = (int)grid[i][j + 3] * grid[i + 1][j + 2] * grid[i + 2][j + 1] * grid[i + 3][j];
                     answer = Math.Max(answer, tmp);
                 }
-            }
             return answer;
         }
 

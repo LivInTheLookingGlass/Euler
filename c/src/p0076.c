@@ -70,10 +70,5 @@ uint32_t EMSCRIPTEN_KEEPALIVE p0076() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu32 "\n", p0076());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu32, p0076)
 #endif

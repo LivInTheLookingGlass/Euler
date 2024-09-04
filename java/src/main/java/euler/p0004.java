@@ -18,23 +18,21 @@ public class p0004 implements IEuler {
     private boolean IsPalindrome(int x) {
         String rep = Integer.toString(x);
         int length = rep.length();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++)
             if (rep.charAt(i) != rep.charAt(length - i - 1))
                 return false;
-        }
         return true;
     }
 
     @Override
     public Object answer() {
         int answer = 0;
-        for (int v = 101; v < 1000; v++) {
+        for (int v = 101; v < 1000; v++)
             for (int u = 100; u < v; u++) {
                 int p = u * v;
                 if (IsPalindrome(p) && p > answer)
                     answer = p;
             }
-        }
 
         return answer;
     }

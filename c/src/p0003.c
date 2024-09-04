@@ -27,10 +27,5 @@ uint16_t EMSCRIPTEN_KEEPALIVE p0003() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu16 "\n", p0003());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu16, p0003)
 #endif

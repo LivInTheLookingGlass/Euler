@@ -43,7 +43,7 @@ function* rotations(x) {
     yield x;
     const xs = x.toString();
     for (let i = 1; i < xs.length; i++) {
-        yield parseInt(xs.substring(i) + xs.substring(0, i));
+        yield Number(xs.substring(i) + xs.substring(0, i));
     }
 }
 

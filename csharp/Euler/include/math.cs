@@ -31,9 +31,7 @@ namespace Euler
 
             // this loop reduces to prime factors only
             for (i = (uint)n; i > 1; i -= 1)
-            {
                 for (j = 2; j < i; j += 1)
-                {
                     if (i % j == 0)
                     {
                         factors[j] += factors[i];
@@ -41,8 +39,6 @@ namespace Euler
                         factors[i] = 0;
                         break;
                     }
-                }
-            }
 
             i = j = 2;
             answer = 1;

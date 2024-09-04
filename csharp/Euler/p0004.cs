@@ -35,14 +35,12 @@ namespace Euler
         {
             int answer = 0;
             for (int v = 101; v < 1000; v++)
-            {
                 for (int u = 100; u < v; u++)
                 {
                     int p = u * v;
                     if (IsPalindrome(p) && p > answer)
                         answer = p;
                 }
-            }
 
             return answer;
         }

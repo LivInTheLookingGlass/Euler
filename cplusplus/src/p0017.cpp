@@ -27,9 +27,8 @@ British usage.
 
 std::string ToString(uint64_t n);
 std::string ToString(uint64_t n) {
-    if (n >= 1000) {
+    if (n >= 1000)
         return ToString(n / 1000 % 100) + " thousand";
-    }
     else if (n >= 100) {
         std::string hundreds = ToString(n / 100 % 10) + " hundred";
         if (n % 100)
@@ -113,10 +112,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0017() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0017() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0017)
 #endif

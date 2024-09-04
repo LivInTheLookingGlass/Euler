@@ -71,10 +71,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0008() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0008)
 #endif

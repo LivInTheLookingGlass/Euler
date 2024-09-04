@@ -65,12 +65,11 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
     }
     for (uintmax_t p = prime_cache[pc->idx - 1] + 2; p < pc->stop; p += 2) {
         bool broken = false;
-        for (size_t idx = 1; idx < prime_cache_idx; idx++) {
+        for (size_t idx = 1; idx < prime_cache_idx; idx++)
             if (p % prime_cache[idx] == 0) {  // is not prime
                 broken = true;
                 break;
             }
-        }
         if (!broken) {  // primeness not determined, exceeded cache
             uintmax_t root_p = ceil(sqrt(p));
             for (uintmax_t c = prime_cache_max; c <= root_p; c += 2) {
@@ -81,7 +80,7 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
             }
         }
         if (!broken) {  // is prime
-            if (pc->idx == prime_cache_idx) {
+            if (pc->idx == prime_cache_idx)
 #ifdef PRIME_CACHE_SIZE_LIMIT
                 if (prime_cache_size == prime_cache_idx && prime_cache_size < PRIME_CACHE_SIZE_LIMIT)
 #else
@@ -102,7 +101,6 @@ uintmax_t advance_prime_counter(prime_counter *pc) {
                 }
                 else
                     prime_cache[prime_cache_idx++] = p;
-            }
             pc->idx++;
             if ((pc->exhausted = (p >= pc->stop)))
                 return 0;
@@ -180,14 +178,13 @@ uintmax_t advance_prime_sieve(prime_sieve *ps) {
         uintmax_t step;
         bool candidate_in_sieve = false;
         size_t candidate_index = -1;
-        for (size_t i = 0; i < ps->sieve_len * 2; i += 2) {
+        for (size_t i = 0; i < ps->sieve_len * 2; i += 2)
             if (ps->sieve[i] == ps->candidate) {
                 step = ps->sieve[i + 1];
                 candidate_in_sieve = true;
                 candidate_index = i;
                 break;
             }
-        }
         if (!candidate_in_sieve) {
             if (ps->candidate < ps->prime_squared) {  // prime
                 uintmax_t ret = ps->candidate;
@@ -204,12 +201,11 @@ uintmax_t advance_prime_sieve(prime_sieve *ps) {
         do {
             candidate += step;
             candidate_in_sieve = false;
-            for (size_t i = 0; i < ps->sieve_len * 2; i += 2) {
+            for (size_t i = 0; i < ps->sieve_len * 2; i += 2)
                 if (ps->sieve[i] == candidate) {
                     candidate_in_sieve = true;
                     break;
                 }
-            }
         } while (candidate_in_sieve);
         if (candidate_index != -1)
             ps->sieve[candidate_index] = candidate;

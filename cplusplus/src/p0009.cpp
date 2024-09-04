@@ -21,22 +21,15 @@ Find the product abc.
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0009() {
     uint64_t answer = 0;
-    for (uint32_t c = 3; !answer && c < 1000; c++) {
-        for (uint32_t b = 2; b < c; b++) {
+    for (uint32_t c = 3; !answer && c < 1000; c++)
+        for (uint32_t b = 2; b < c; b++)
             uint32_t a = 1000 - c - b;
             if (a < b && a*a + b*b == c*c) {
                 answer = (uint64_t) a * b * c;
                 break;
             }
-        }
-    }
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0009() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0009)
 #endif

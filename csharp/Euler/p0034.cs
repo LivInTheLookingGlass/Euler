@@ -28,13 +28,9 @@ namespace Euler
                 string xs = x.ToString();
                 uint sum = 0;
                 for (byte i = 0; i < xs.Length; i += 1)
-                {
                     sum += (uint)Mathematics.Factorial((ulong)(xs[i] - '0'));
-                }
                 if (sum == x)
-                {
                     answer += x;
-                }
             }
             return (ushort)answer;
         }

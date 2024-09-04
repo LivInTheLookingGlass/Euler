@@ -27,10 +27,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0015() {
     return lattice_paths(20, 20);
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0015() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0015)
 #endif

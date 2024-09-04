@@ -21,17 +21,10 @@ What is the sum of the digits of the number 21000?
 uint64_t EMSCRIPTEN_KEEPALIVE p0016() {
     uint64_t answer = 0;
     BCD_int power = pow_cuint_cuint(256, 125);
-    for (size_t i = 0; i < power.bcd_digits; i++) {
-        answer += power.digits[i] & 0x0F;
-        answer += power.digits[i] >> 4;
-    }
+    for (size_t i = 0; i < power.bcd_digits; i++)
+        answer += (power.digits[i] & 0x0F) + (power.digits[i] >> 4);
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0016());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu64, p0016)
 #endif

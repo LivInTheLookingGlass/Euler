@@ -31,8 +31,7 @@ exports.p0076 = function() {
             answer += 0 | ((100 + counts[2] - sum) / 2);
             let idx = 2;
             while (true) {
-                counts[idx] = 0;
-                idx += 1;
+                counts[idx++] = 0;
                 counts[idx] += idx;
                 sum = 0;
                 for (let i = idx - 1; i < 101; i += 1) {

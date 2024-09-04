@@ -18,11 +18,8 @@ namespace Euler
         {
             int i = 0;
             foreach (long p in Prime.Primes<long>())
-            {
-                if (i == 10000)
+                if (i++ == 10000)
                     return (int)p;
-                i++;
-            }
             return -1;
         }
     }

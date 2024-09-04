@@ -22,12 +22,11 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0016() {
     for (uint16_t i = 0; i < 1000; i++) {
         for (size_t j = 0; j < numbers.size(); j++)
             numbers[j] *= 2;
-        for (size_t j = 0; j < numbers.size() - 1; j++) {
+        for (size_t j = 0; j < numbers.size() - 1; j++)
             if (numbers[j] > ten17) {
                 numbers[j + 1] += numbers[j] / ten17;
                 numbers[j] %= ten17;
             }
-        }
     }
     uint64_t answer = 0;
     uint64_t power = 1;
@@ -39,10 +38,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0016() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0016() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0016)
 #endif

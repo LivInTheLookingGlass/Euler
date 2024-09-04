@@ -16,23 +16,19 @@ public class p0016 implements IEuler {
         long ten17 = 100000000000000000L;
         numbers[0] = 1;
         for (short i = 0; i < 1000; i++) {
-            for (byte j = 0; j < 18; j++) {
+            for (byte j = 0; j < 18; j++)
                 numbers[j] *= 2;
-            }
-            for (byte j = 0; j < 17; j++) {
+            for (byte j = 0; j < 17; j++)
                 if (numbers[j] > ten17) {
                     numbers[j + 1] += numbers[j] / ten17;
                     numbers[j] %= ten17;
                 }
-            }
         }
         long answer = 0;
         long power = 1;
         for (byte i = 0; i < 19; i++) {
-            for (byte j = 0; j < 18; j++) {
-                long value = numbers[j] / power;
-                answer += value % 10;
-            }
+            for (byte j = 0; j < 18; j++)
+                answer += (numbers[j] / power) % 10;
             power *= 10;
         }
         return (short) answer;

@@ -119,6 +119,9 @@ void test_euler_answer() {
 			break;
 		case STRINGT:
 			sresult = ((char *(*)()) key.func)();
+			for (size_t i = 0; sresult[i]; ++i)
+				if (sresult[i] == '\n')
+					sresult[i] = 0;
 			snprintf(msg, 256, "Euler problem %u should have an answer of %s, but we actually got %s", key.id, answer.value.string, sresult);
 			TEST_ASSERT_EQUAL_STRING_MESSAGE(answer.value.string, sresult, msg);
 	}

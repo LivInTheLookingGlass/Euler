@@ -32,10 +32,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0006() {
     return sum * sum - sum_of_squares;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0006() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0006)
 #endif

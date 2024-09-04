@@ -22,7 +22,7 @@ Find the product abc.
 
 uint32_t EMSCRIPTEN_KEEPALIVE p0009() {
     uint32_t answer = 0;
-    for (uint32_t c = 3; !answer && c < 1000; c++) {
+    for (uint32_t c = 3; !answer && c < 1000; c++)
         for (uint32_t b = 2; b < c; b++) {
             uint32_t a = 1000 - c - b;
             if (a < b && a*a + b*b == c*c) {
@@ -30,14 +30,8 @@ uint32_t EMSCRIPTEN_KEEPALIVE p0009() {
                 break;
             }
         }
-    }
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu32 "\n", p0009());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu32, p0009)
 #endif

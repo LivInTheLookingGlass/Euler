@@ -33,10 +33,5 @@ uint32_t EMSCRIPTEN_KEEPALIVE p0006() {
     return sum * sum - sum_of_squares;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu32 "\n", p0006());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu32, p0006)
 #endif

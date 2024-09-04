@@ -27,19 +27,14 @@ namespace Euler
         {
             int answer = 0;
             for (int x = 1; x < 1001; x += 1)
-            {
-                string str = to_string(x);
-                answer += str.Replace(" ", "").Replace("-", "").Length;
-            }
+                answer += to_string(x).Replace(" ", "").Replace("-", "").Length;
             return (short)answer;
         }
 
         static String to_string(int n)
         {
             if (n >= 1000)
-            {
                 return to_string(n / 1000 % 100) + " thousand";
-            }
             else if (n >= 100)
             {
                 string hundreds = to_string(n / 100 % 10) + " hundred";

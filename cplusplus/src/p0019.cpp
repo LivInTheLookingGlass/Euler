@@ -54,27 +54,22 @@ uint16_t EMSCRIPTEN_KEEPALIVE p0019() {
             systemTime.wMonth = month + 1;
             systemTime.wDay = 1;
 
-            if (!SystemTimeToFileTime(&systemTime, &fileTime)) {
+            if (!SystemTimeToFileTime(&systemTime, &fileTime))
                 throw std::runtime_error("SystemTimeToFileTime failed.");
-            }
-            if (!FileTimeToSystemTime(&fileTime, &normalizedTime)) {
+            if (!FileTimeToSystemTime(&fileTime, &normalizedTime))
                 throw std::runtime_error("FileTimeToSystemTime failed.");
-            }
 
-            if (normalizedTime.wDayOfWeek == 0) {
+            if (normalizedTime.wDayOfWeek == 0)
                 ++answer;
-            }
 #else
             date.tm_year = year - 1900;
             date.tm_mon = month;
             date.tm_mday = 1;
 
-            if (std::mktime(&date) == -1) {
+            if (std::mktime(&date) == -1)
                 throw std::runtime_error("mktime failed to normalize the date.");
-            }
-            if (date.tm_wday == 0) {
+            if (date.tm_wday == 0)
                 ++answer;
-            }
 #endif
         }
     }
@@ -82,10 +77,5 @@ uint16_t EMSCRIPTEN_KEEPALIVE p0019() {
 }
 
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0019() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0019)
 #endif

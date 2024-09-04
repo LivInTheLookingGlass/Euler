@@ -39,9 +39,8 @@ public class p0022 implements IEuler {
         Arrays.sort(names);
         for (int i = 0; i < names.length; i += 1) {
             int sum = 0;
-            for (int j = 0; j < names[i].length(); j += 1) {
+            for (int j = 0; j < names[i].length(); j += 1)
                 sum += names[i].charAt(j) & 0x3F;
-            }
             answer += sum * (i + 1);
         }
         return answer;

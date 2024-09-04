@@ -236,10 +236,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0013() {
     return high;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0013() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0013)
 #endif

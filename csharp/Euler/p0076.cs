@@ -40,8 +40,7 @@ namespace Euler
                     idx = 2;
                     do
                     {
-                        counts[idx] = 0;
-                        idx += 1;
+                        counts[idx++] = 0;
                         counts[idx] += idx;
                         sum = 0;
                         for (byte i = (byte)(idx - 1); i < 101; i += 1)

@@ -40,7 +40,7 @@ public class p0011 implements IEuler {
     public Object answer() {
         int answer = 0, tmp;
         byte i, j;
-        for (i = 0; i < 20; i++) {
+        for (i = 0; i < 20; i++)
             for (j = 0; j < 17; j++) {
                 // horizontal section
                 tmp = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
@@ -49,8 +49,7 @@ public class p0011 implements IEuler {
                 tmp = grid[j][i] * grid[j + 1][i] * grid[j + 2][i] * grid[j + 3][i];
                 answer = Math.max(answer, tmp);
             }
-        }
-        for (i = 0; i < 17; i++) {
+        for (i = 0; i < 17; i++)
             for (j = 0; j < 17; j++) {
                 // right diagonal section
                 tmp = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
@@ -59,7 +58,6 @@ public class p0011 implements IEuler {
                 tmp = grid[i][j + 3] * grid[i + 1][j + 2] * grid[i + 2][j + 1] * grid[i + 3][j];
                 answer = Math.max(answer, tmp);
             }
-        }
         return answer;
     }
 

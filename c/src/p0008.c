@@ -72,10 +72,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0008());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu64, p0008)
 #endif

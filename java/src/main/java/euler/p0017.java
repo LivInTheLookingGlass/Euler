@@ -31,9 +31,9 @@ public class p0017 implements IEuler {
     }
 
     String to_string(int n) {
-        if (n >= 1000) {
+        if (n >= 1000)
             return to_string(n / 1000 % 100) + " thousand";
-        } else if (n >= 100) {
+        else if (n >= 100) {
             String hundreds = to_string(n / 100 % 10) + " hundred";
             if (n % 100 != 0)
                 return hundreds + " and " + to_string(n % 100);

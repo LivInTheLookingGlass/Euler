@@ -1,5 +1,9 @@
 using System.Diagnostics;
 
+using Xunit;
+
+using Euler;
+
 namespace Tests
 {
     public class EulerTest
@@ -55,10 +59,7 @@ namespace Tests
                 2432902008176640000
             };
             for (byte i = 0; i < results.Count; i += 1)
-            {
-                ulong expected = results[i];
-                Assert.Equal(expected, Mathematics.Factorial(i));
-            }
+                Assert.Equal(results[i], Mathematics.Factorial(i));
         }
 
         [Fact]
@@ -70,9 +71,8 @@ namespace Tests
             var comparison = Prime.Primes<long>().GetEnumerator();
             for (byte i = 0; i < results.Count; i += 1)
             {
-                long expected = results[i];
                 comparison.MoveNext();
-                Assert.Equal(expected, comparison.Current);
+                Assert.Equal(results[i], comparison.Current);
             }
         }
 
@@ -83,14 +83,12 @@ namespace Tests
                 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
             };
             foreach (long x in candidates)
-            {
                 foreach (long y in candidates)
                 {
                     List<long> result = new(Prime.PrimeFactors<long>(x * y));
                     Assert.Contains(x, result);
                     Assert.Contains(y, result);
                 }
-            }
         }
 
         [Fact]
@@ -118,13 +116,8 @@ namespace Tests
             };
             List<Task> tasks = new();
             for (byte i = 0; i < results.Count; i += 1)
-            {
                 for (byte j = 0; j < results[i].Count; j += 1)
-                {
-                    ulong expected = results[i][j];
-                    tasks.Append(Task.Run(() => Assert.Equal(expected, Mathematics.NChooseR(i, j))));
-                }
-            }
+                    tasks.Append(Task.Run(() => Assert.Equal(results[i][j], Mathematics.NChooseR(i, j))));
             foreach (Task task in tasks)
                 await task;
         }

@@ -42,10 +42,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0020() {
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    std::cout << p0020() << std::endl;
-    return 0;
-}
-#endif
+PROGRAM_TAIL(p0020)
 #endif

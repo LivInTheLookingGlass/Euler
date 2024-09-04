@@ -22,7 +22,7 @@ exports.p0034 = function() {
         const xs = x.toString();
         let sum = 0;
         for (let i = 0; i < xs.length; i += 1) {
-            sum += Mathematics.factorial(parseInt(xs[i]));
+            sum += Mathematics.factorial(Number(xs[i]));
         }
         if (sum == x) {
             answer += x;

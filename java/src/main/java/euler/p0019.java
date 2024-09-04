@@ -30,13 +30,10 @@ public class p0019 implements IEuler {
     @Override
     public Object answer() {
         byte answer = 0;
-        for (short x = 1901; x < 2001; x++) {
-            for (byte y = 1; y < 13; y++) {
-                if (LocalDate.of(x, y, 1).getDayOfWeek() == DayOfWeek.SUNDAY) {
+        for (short x = 1901; x < 2001; x++)
+            for (byte y = 1; y < 13; y++)
+                if (LocalDate.of(x, y, 1).getDayOfWeek() == DayOfWeek.SUNDAY)
                     answer++;
-                }
-            }
-        }
         return answer;
     }
 }

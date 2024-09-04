@@ -66,9 +66,8 @@ namespace Euler
             long answer = 0;
             for (int i = 0; i < str.Length - 13; i++)
             {
-                String slice = str.Substring(i, 13);
                 long prod = 1;
-                foreach (char c in slice)
+                foreach (char c in str.Substring(i, 13))
                     prod *= (long)c - '0';
 
                 if (prod > answer)

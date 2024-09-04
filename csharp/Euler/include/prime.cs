@@ -10,9 +10,7 @@ namespace Euler
         public static IEnumerable<T> Primes<T>(T? stop = null) where T : struct
         {
             foreach (dynamic p in _Primes(stop))
-            {
                 yield return (T)p;
-            }
         }
 
         private static IEnumerable<dynamic> _Primes(dynamic? stop = null)
@@ -27,22 +25,14 @@ namespace Euler
 
             // Yield cached values
             if (stop == null)
-            {
                 foreach (dynamic p in cache)
-                {
                     yield return p;
-                }
-            }
             else
-            {
                 foreach (dynamic p in cache)
-                {
                     if (p < stop)
                         yield return p;
                     else
                         break;
-                }
-            }
 
             // Generate new primes
             if (stop != null && lastCached > stop)
@@ -108,9 +98,7 @@ namespace Euler
         public static IEnumerable<T> PrimeFactors<T>(T n) where T : struct
         {
             foreach (dynamic f in _PrimeFactors(n))
-            {
                 yield return (T)f;
-            }
         }
 
         private static IEnumerable<dynamic> _PrimeFactors(dynamic n)
@@ -121,9 +109,7 @@ namespace Euler
                 n = -n;
             }
             if (n == 0)
-            {
                 yield return 0;
-            }
             else
             {
                 dynamic root = (dynamic)Math.Ceiling(Math.Sqrt((double)n));

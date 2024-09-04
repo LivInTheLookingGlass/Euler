@@ -21,27 +21,20 @@ namespace Euler
             for (ushort i = 0; i < 1000; i++)
             {
                 for (byte j = 0; j < 18; j++)
-                {
                     numbers[j] *= 2;
-                }
                 for (byte j = 0; j < 17; j++)
-                {
                     if (numbers[j] > ten17)
                     {
                         numbers[j + 1] += numbers[j] / ten17;
                         numbers[j] %= ten17;
                     }
-                }
             }
             ulong answer = 0;
             ulong power = 1;
             for (byte i = 0; i < 19; i++)
             {
                 for (byte j = 0; j < 18; j++)
-                {
-                    ulong value = numbers[j] / power;
-                    answer += value % 10;
-                }
+                    answer += (numbers[j] / power) % 10;
                 power *= 10;
             }
             return (short)answer;

@@ -46,9 +46,8 @@ public class EulerTest {
         Object result = answerMethod.invoke(instance);
         long elapsedTime = System.nanoTime() - startTime;
         Assertions.assertEquals(expected, result);
-        if (!isSlow && !isSemeru()) {
+        if (!isSlow && !isSemeru())
             Assertions.assertTrue(elapsedTime <= ONE_MINUTE_NS, "Test took too long");
-        }
     }
 
     public static boolean isSemeru() {

@@ -54,6 +54,12 @@ View source code :source:`c/src/include/macros.h`
 .. c:macro:: MAX_POW_10_128
              POW_OF_MAX_POW_10_128
 
+.. c:macro:: PROGRAM_TAIL(type, prob)
+
+    Conditionally generates a ``main()`` function if running under the Python test runner or compiling as a standalone
+    program. Takes in as an argument ``printf()`` formatting argument and the name of the function which implements
+    this Project Euler solution.
+
 .. c:namespace-pop::
 
 .. literalinclude:: ../../../../c/src/include/macros.h

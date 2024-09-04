@@ -73,3 +73,11 @@
 #define POW_OF_MAX_POW_10_64 19
 #define MAX_POW_10_128 ((uintmax_t) MAX_POW_10_64 * (uintmax_t) MAX_POW_10_64)
 #define POW_OF_MAX_POW_10_128 38
+
+#define PROGRAM_TAIL(prob) \
+#ifndef UNITY_END \
+int main(int argc, char const *argv[]) { \
+    std::cout << prob() << std::endl; \
+    return 0; \
+} \
+#endif

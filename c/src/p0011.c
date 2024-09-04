@@ -64,7 +64,7 @@ static const uint8_t grid[20][20] = {
 uint64_t EMSCRIPTEN_KEEPALIVE p0011() {
     uint64_t answer = 0, tmp;
     uint8_t i, j;
-    for (i = 0; i < 20; i++) {
+    for (i = 0; i < 20; i++)
         for (j = 0; j < 17; j++) {
             // horizontal section
             tmp = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
@@ -73,8 +73,7 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0011() {
             tmp = grid[j][i] * grid[j + 1][i] * grid[j + 2][i] * grid[j + 3][i];
             answer = max(answer, tmp);
         }
-    }
-    for (i = 0; i < 17; i++) {
+    for (i = 0; i < 17; i++)
         for (j = 0; j < 17; j++) {
             // right diagonal section
             tmp = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
@@ -83,14 +82,8 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0011() {
             tmp = grid[i][j + 3] * grid[i + 1][j + 2] * grid[i + 2][j + 1] * grid[i + 3][j];
             answer = max(answer, tmp);
         }
-    }
     return answer;
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%" PRIu64 "\n", p0011());
-    return 0;
-}
-#endif
+PROGRAM_TAIL(PRIu64, p0011)
 #endif

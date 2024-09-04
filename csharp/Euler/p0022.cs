@@ -33,9 +33,7 @@ namespace Euler
             {
                 int sum = 0;
                 foreach (char c in names[i])
-                {
                     sum += c & 0x3F;
-                }
                 answer += sum * (i + 1);
             }
             return answer;

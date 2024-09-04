@@ -24,17 +24,13 @@ namespace Euler
             for (byte i = 2; i <= 100; i++)
             {
                 for (byte j = 0; j < 10; j++)
-                {
                     numbers[j] *= i;
-                }
                 for (byte j = 0; j < 9; j++)
-                {
                     if (numbers[j] > ten17)
                     {
                         numbers[j + 1] += numbers[j] / ten17;
                         numbers[j] %= ten17;
                     }
-                }
             }
             ulong answer = 0;
             ulong power = 1;

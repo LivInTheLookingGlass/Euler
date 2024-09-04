@@ -42,6 +42,11 @@ View source code :source:`cplusplus/src/include/macros.hpp`
 .. c:macro:: MAX_POW_10_128
              POW_OF_MAX_POW_10_128
 
+.. c:macro:: PROGRAM_TAIL(prob)
+
+    Conditionally generates a ``main()`` function if running under the Python test runner or compiling as a standalone
+    program. Takes in as an argument the name of the function which implements this Project Euler solution.
+
 .. c:namespace-pop::
 
 .. literalinclude:: ../../../../cplusplus/src/include/macros.hpp

@@ -25,10 +25,5 @@ const char *EMSCRIPTEN_KEEPALIVE p0836() {
     return "aprilfoolsjoke";
 }
 
-#ifndef UNITY_END
-int main(int argc, char const *argv[]) {
-    printf("%s", p0836());
-    return 0;
-}
-#endif
+PROGRAM_TAIL("%s", p0836)
 #endif
