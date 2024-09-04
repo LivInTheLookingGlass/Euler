@@ -55,6 +55,9 @@ Olivia's Project Euler Solutions
 .. |pcc| replace:: ``pcc``
 .. |tcc| replace:: ``tcc``
 
+.. |nbsp| unicode:: \u200B
+   :trim:
+
 .. table::
    :class: datatable
 
@@ -71,7 +74,7 @@ Olivia's Project Euler Solutions
    |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
    |            | |br| Browser [3]_          |        | |Cp-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | C#         | .NET 2+                    | 21     | |C#i| |br|        |
+   | C |nbsp| # | .NET 2+                    | 21     | |C#i| |br|        |
    |            |                            |        | |Cs-Cov| |br|     |
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
