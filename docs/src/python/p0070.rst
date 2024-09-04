@@ -6,7 +6,7 @@ View source code :source:`python/src/p0070.py`
 Includes
 --------
 
-- :external:py:class:`itertools.chain`
+- :external:py:func:`itertools.chain`
 - :external:py:func:`functools.reduce`
 
 Problem Solution
