@@ -25,5 +25,5 @@ const char *EMSCRIPTEN_KEEPALIVE p0836() {
     return "aprilfoolsjoke";
 }
 
-PROGRAM_TAIL("%s", p0836)
+PROGRAM_TAIL("s", p0836)
 #endif
