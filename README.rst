@@ -55,45 +55,46 @@ Olivia's Project Euler Solutions
 .. |pcc| replace:: ``pcc``
 .. |tcc| replace:: ``tcc``
 
-.. rst-class:: centertable
+.. table::
+   :class: datatable
 
-+------------+----------------------------+--------+-------------------+
-| Language   | Version                    | Solved | Status            |
-+============+============================+========+===================+
-| C          | C99+ in: |clang|, |br|     | 25     | |Ci| |br|         |
-|            | |gcc|, |pcc|, & |tcc| |br| |        | |C-Cov| |br|      |
-|            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
-|            | |br| Browser [2]_          |        | |C-lint|          |
-+------------+----------------------------+--------+-------------------+
-| C++        | C++98+ in: |br| |clang|, & | 19     | |Cpi| |br|        |
-|            | |gcc| |br|                 |        | |Cp-Cov| |br|     |
-|            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
-|            | |br| Browser [3]_          |        | |Cp-lint|         |
-+------------+----------------------------+--------+-------------------+
-| C#         | .NET 2+                    | 21     | |C#i| |br|        |
-|            |                            |        | |Cs-Cov| |br|     |
-|            |                            |        | |CodeQL| |br|     |
-|            |                            |        | |C#-lint|         |
-+------------+----------------------------+--------+-------------------+
-| Java       | Java 8+ in Corretto, |br|  | 18     | |Javai| |br|      |
-|            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
-|            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
-|            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
-+------------+----------------------------+--------+-------------------+
-| JavaScript | Node 12+ |br|              | 33     | |JavaScript| |br| |
-|            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
-|            | Browser [#]_               |        | |CodeQL| |br|     |
-|            |                            |        | |ESLint|          |
-+------------+----------------------------+--------+-------------------+
-| Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
-|            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
-|            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
-|            | Browser [#]_               |        | |PythonLint|      |
-+------------+----------------------------+--------+-------------------+
-| Rust       | 1.69+ |br|                 | 41     | |Rust| |br|       |
-|            | Browser [#]_               |        | |Rs-Cov| |br|     |
-|            |                            |        | |RustClippy|      |
-+------------+----------------------------+--------+-------------------+
+   +------------+----------------------------+--------+-------------------+
+   | Language   | Version                    | Solved | Status            |
+   +============+============================+========+===================+
+   | C          | C99+ in: |clang|, |br|     | 25     | |Ci| |br|         |
+   |            | |gcc|, |pcc|, & |tcc| |br| |        | |C-Cov| |br|      |
+   |            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
+   |            | |br| Browser [2]_          |        | |C-lint|          |
+   +------------+----------------------------+--------+-------------------+
+   | C++        | C++98+ in: |br| |clang|, & | 19     | |Cpi| |br|        |
+   |            | |gcc| |br|                 |        | |Cp-Cov| |br|     |
+   |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
+   |            | |br| Browser [3]_          |        | |Cp-lint|         |
+   +------------+----------------------------+--------+-------------------+
+   | C#         | .NET 2+                    | 21     | |C#i| |br|        |
+   |            |                            |        | |Cs-Cov| |br|     |
+   |            |                            |        | |CodeQL| |br|     |
+   |            |                            |        | |C#-lint|         |
+   +------------+----------------------------+--------+-------------------+
+   | Java       | Java 8+ in Corretto, |br|  | 18     | |Javai| |br|      |
+   |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
+   |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
+   |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
+   +------------+----------------------------+--------+-------------------+
+   | JavaScript | Node 12+ |br|              | 33     | |JavaScript| |br| |
+   |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
+   |            | Browser [#]_               |        | |CodeQL| |br|     |
+   |            |                            |        | |ESLint|          |
+   +------------+----------------------------+--------+-------------------+
+   | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
+   |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
+   |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
+   |            | Browser [#]_               |        | |PythonLint|      |
+   +------------+----------------------------+--------+-------------------+
+   | Rust       | 1.69+ |br|                 | 41     | |Rust| |br|       |
+   |            | Browser [#]_               |        | |Rs-Cov| |br|     |
+   |            |                            |        | |RustClippy|      |
+   +------------+----------------------------+--------+-------------------+
 
 .. |test-c-link| raw:: html
 
