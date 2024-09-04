@@ -12,7 +12,7 @@ exports.p0021 = function() {
         if (a !== b && d(b) === a) {
             answer += a + b;
             if (b < 10000) {
-                toCheck.splice(toCheck.find(b), 1);
+                toCheck.splice(toCheck.indexOf(b), 1);
             }
         }
     }
