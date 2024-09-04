@@ -28,5 +28,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0015() {
     return lattice_paths(20, 20);
 }
 
-PROGRAM_TAIL(PRIu64, p0015)
+PROGRAM_TAIL("%" PRIu64, p0015)
 #endif

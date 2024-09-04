@@ -33,5 +33,5 @@ uint32_t EMSCRIPTEN_KEEPALIVE p0006() {
     return sum * sum - sum_of_squares;
 }
 
-PROGRAM_TAIL(PRIu32, p0006)
+PROGRAM_TAIL("%" PRIu32, p0006)
 #endif

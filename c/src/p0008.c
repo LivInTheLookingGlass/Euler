@@ -72,5 +72,5 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0008() {
     return answer;
 }
 
-PROGRAM_TAIL(PRIu64, p0008)
+PROGRAM_TAIL("%" PRIu64, p0008)
 #endif

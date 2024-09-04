@@ -27,5 +27,5 @@ uint16_t EMSCRIPTEN_KEEPALIVE p0003() {
     return answer;
 }
 
-PROGRAM_TAIL(PRIu16, p0003)
+PROGRAM_TAIL("%" PRIu16, p0003)
 #endif

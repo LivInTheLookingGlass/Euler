@@ -105,7 +105,7 @@
 #ifndef UNITY_END
 #define PROGRAM_TAIL(type, prob) \
 int main(int argc, char const *argv[]) { \
-    printf("%" type "\n", prob());
+    printf(type "\n", prob()); \
     return 0; \
 }
 #else
