@@ -79,15 +79,11 @@ python_display_short_literal_types = True
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_css_files = [
-    'https://cdn.datatables.net/2.1.5/css/jquery.dataTables.css',
-    'https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.css',
+    'https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css',
     'style.css'
 ]
 html_js_files = [
-    'https://code.jquery.com/jquery-3.7.1.js',
-    'https://cdn.datatables.net/2.1.5/js/dataTables.js',
-    'https://cdn.datatables.net/fixedHeader/4.0.1/js/dataTables.fixedHeader.js',
-    'https://cdn.datatables.net/fixedHeader/4.0.1/js/fixedHeader.dataTables.js',
+    'https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js',
     'main.js',
 ]
 
@@ -146,7 +142,7 @@ langcodes = [
     # ('vb', 'visualbasic'),
 ]
 extlinks = {
-    'prob': ('https://projecteuler.net/problem=%s', 'Problem #%s'),
+    'prob': ('https://projecteuler.net/problem=%s', '\u200BProblem #%s'),
     'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s', 'here on GitHub!%.0s'),
     'live-test': ('/_static/test-%s.html', 'click here!%.0s'),
     'csref': ('https://learn.microsoft.com/en-us/dotnet/api/%s', '%s'),
