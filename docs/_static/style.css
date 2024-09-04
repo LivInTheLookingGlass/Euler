@@ -1,3 +1,7 @@
 .rst-content .toctree-wrapper:not(:last-child) ul {
     margin-bottom: 10px;
 }
+
+.dataTables_wrapper.no-footer div.dataTables_info {
+    display: none;
+}
