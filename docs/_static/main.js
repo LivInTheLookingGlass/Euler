@@ -1,7 +1,11 @@
 $(document).ready(function() {
     $('table.datatable').DataTable({
-        columnDefs: [{ width: 'auto', targets: '_all' }],
+        autoWidth: true,
         paging: false,
         searching: false,
     });
+});
+
+$(window).on('resize', function() {
+    $('table.datatable').DataTable().columns.adjust().draw();
 });
