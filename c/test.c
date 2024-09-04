@@ -1,8 +1,8 @@
 #define UNITY_SUPPORT_TEST_CASES
+#include "Unity/src/unity.h"
 #include <stdint.h>
 #include <inttypes.h>
 #include "src/include/utils.h"
-#include "Unity/src/unity.h"
 #include "src/p0001.c"
 #include "src/p0002.c"
 #include "src/p0003.c"
