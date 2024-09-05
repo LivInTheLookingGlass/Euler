@@ -6,10 +6,10 @@ View source code :source:`c/src/include/factors.h`
 Includes
 --------
 
-- `"macros.h" <./macros.html>`__ (implicitly, via iterator.h)
-- `"iterator.h" <./iterator.html>`__
+- `"macros.h" <./macros.html>`__ (implicitly, via primes.h)
+- `"primes.h" <./primes.html>`__
 - :external:c:type:`stdint`
-- :external:c:type:`stdbool` (implicitly, via iterator.h)
+- :external:c:type:`stdbool` (implicitly, via primes.h)
 
 This file implements an :c:macro:`Iterator <IteratorHead>` that yields proper
 factors for a given number. It is generally used by first calling
@@ -32,6 +32,8 @@ factors for a given number. It is generally used by first calling
     .. c:member:: uintmax_t current
 
     .. c:function:: uintmax_t advance_factor_counter(factor_counter *fc)
+
+.. c:function:: free_factor_counter(factor_counter fc)
 
 .. c:function:: factor_counter proper_divisors(uintmax_t target)
 

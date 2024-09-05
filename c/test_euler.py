@@ -34,7 +34,7 @@ answers = {
 }
 
 # this is the set of problems where I have the right answer but wrong solution
-known_slow: Set[int] = {12}
+known_slow: Set[int] = {}
 
 # this is the set of problems where it has to access the filesystem, which pcc does not like
 requires_io: Set[int] = {22}
@@ -213,7 +213,7 @@ def test_compiler_macros(compiler):
     assert flags[5] == compiler.startswith("EMCC")
     assert flags[6] == (EXE_EXT == "x86" or expect_32)
     assert flags[7] == (EXE_EXT == "x86_64" and not expect_32)
-    assert flags[8] == ("arm" in EXE_EXT.lower())
+    assert flags[8] == ("arm" in EXE_EXT.lower() or "aarch" in EXE_EXT.lower())
     assert flags[9] == ("wasm" in EXE_EXT.lower())
 
 
