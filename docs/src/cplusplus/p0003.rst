@@ -27,4 +27,4 @@ Solution
    :language: C++
    :linenos:
 
-.. tags:: fibonacci-number, divisibility
+.. tags:: cpp-iterator, factorization, prime-number
