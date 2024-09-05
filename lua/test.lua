@@ -6,7 +6,7 @@ local function load_problem(file_name)
     end
     local chunk = func()
     if type(chunk) ~= "table" or not chunk.solution then
-        error("File " .. file_name .. " must return a table with a 'solution' function")
+        error("File src/" .. file_name .. " must return a table with a 'solution' function")
     end
     return chunk.solution
 end
