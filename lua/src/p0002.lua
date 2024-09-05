@@ -6,9 +6,9 @@ return {
 
         while b < 4000000
         do
-            answer += b
+            answer = answer + b
         
-            for j = 0,3,1
+            for j = 0,2,1
             do
                 t = b
                 b = a + b

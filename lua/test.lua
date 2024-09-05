@@ -1,6 +1,6 @@
 -- Function to load a problem solution file
 local function load_problem(file_name)
-    local func, err = loadfile(file_name)
+    local func, err = loadfile("src/" .. file_name)
     if not func then
         error("Failed to load file " .. file_name .. ": " .. err)
     end

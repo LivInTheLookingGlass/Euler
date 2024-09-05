@@ -9,7 +9,7 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	@lua test_euler.lua
+	@lua test.lua
 
 test_%: test
 
