@@ -91,14 +91,14 @@ Olivia's Project Euler Solutions
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
-   | Lua        | 5+                         |  2     | |Luai|            |
+   | Lua        | Lua 5+                     |  2     | |Luai|            |
    +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
    |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
    |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
    |            | Browser [#]_               |        | |PythonLint|      |
    +------------+----------------------------+--------+-------------------+
-   | Rust       | 1.69+ |br|                 | 41     | |Rust| |br|       |
+   | Rust       | Rust 1.69+ |br|            | 41     | |Rust| |br|       |
    |            | Browser [#]_               |        | |Rs-Cov| |br|     |
    |            |                            |        | |RustClippy|      |
    +------------+----------------------------+--------+-------------------+
@@ -122,6 +122,10 @@ Olivia's Project Euler Solutions
 .. |test-js-link| raw:: html
 
    <a href="https://euler.oliviaappleton.com/_static/test-js.html" target="_blank">click here!</a>
+
+.. |test-lu-link| raw:: html
+
+   <a href="https://euler.oliviaappleton.com/_static/test-lu.html" target="_blank">click here!</a>
 
 .. |test-py-link| raw:: html
 
@@ -148,6 +152,8 @@ Olivia's Project Euler Solutions
 ..    and these tests not yet automated as in mainline .NET. To run these tests yourself, |test-cs-link|
 .. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with CheerpJ first,
 ..    and these tests not yet automated as in mainline Java. To run these tests yourself, |test-ja-link|
+.. .. [#] (This target is not yet complete.) While these solutions do run in most browsers, they need to be bundled with Fengari-web first,
+..    and these tests not yet automated as in mainline Lua. To run these tests yourself, |test-lu-link|
 
 Coverage
 --------
@@ -179,6 +185,7 @@ Makefile will direct recipes using prefixes
 -  ``make docs_*`` will go to the docs Makefile
 -  ``make ja_*`` will go to the java Makefile
 -  ``make js_*`` will go to the javascript Makefile
+-  ``make lu_*`` will go to the lua Makefile
 -  ``make py_*`` will go to the python Makefile
 -  ``make rs_*`` will go to the rust Makefile
 -  Any make recipes supported by Sphinx will be redirected to the docs Makefile
