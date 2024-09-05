@@ -36,7 +36,6 @@ end
 local problems = {
     ["p0001.lua"] = {233168, 60},
     ["p0002.lua"] = {4613732, 60},
-    -- Add more problems here as needed
 }
 
 -- Main testing loop
