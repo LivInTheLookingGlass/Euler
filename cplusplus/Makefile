@@ -57,6 +57,7 @@ native_test: native
 	@./native_test_runner
 
 .PHONY: clean
+clean: SHELL := bash
 clean:
 	@rm -rf build dist {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
