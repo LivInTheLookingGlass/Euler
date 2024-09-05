@@ -5,7 +5,7 @@
 #include <inttypes.h>
 #include "src/p0001.cpp"
 #include "src/p0002.cpp"
-// #include "src/p0003.cpp"
+#include "src/p0003.cpp"
 #include "src/p0004.cpp"
 // #include "src/p0005.cpp"
 #include "src/p0006.cpp"
@@ -37,7 +37,7 @@ typedef struct {
 ProblemRef answers[] = {
 	{   1,	(void *(*)())p0001 },
 	{   2, 	(void *(*)())p0002 },
-	// {   3,	(void *(*)())p0003 },
+	{   3,	(void *(*)())p0003 },
 	{   4,	(void *(*)())p0004 },
 	// {   5,	(void *(*)())p0005 },
 	{   6,	(void *(*)())p0006 },

@@ -69,7 +69,7 @@ Olivia's Project Euler Solutions
    |            | C11+ in: |msvc| [1]_       |        | |CodeQL| |br|     |
    |            | |br| Browser [2]_          |        | |C-lint|          |
    +------------+----------------------------+--------+-------------------+
-   | C++        | C++98+ in: |br| |clang|, & | 19     | |Cpi| |br|        |
+   | C++        | C++98+ in: |br| |clang|, & | 20     | |Cpi| |br|        |
    |            | |gcc| |br|                 |        | |Cp-Cov| |br|     |
    |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
    |            | |br| Browser [3]_          |        | |Cp-lint|         |

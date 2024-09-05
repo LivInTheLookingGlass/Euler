@@ -10,9 +10,10 @@ Includes
 - :external:cpp:type:`vector`
 - :external:cpp:type:`map`
 - :external:cpp:type:`limits`
+- :external:cpp:type:`stdexcept`
 
 .. cpp:namespace-push:: primes
-    
+
 .. cpp:class:: PrimeGenerator
 
   .. cpp:function:: PrimeGenerator<T> PrimeGenerator<T>()
@@ -26,9 +27,24 @@ Includes
 
     These constructors will return a finite generator of prime numbers, going to ``upper_limit``.
 
-  .. cpp:function:: bool next()
+  .. cpp:function:: T next()
 
-    Returns the next prime, or ``-1`` if it is above the defined limit.
+    Returns the next prime, or ``0`` if it is above the defined limit.
+
+  .. cpp:function:: bool has_next()
+
+    Returns ``true`` if there is a next value to generate.
+    
+.. cpp:class:: PrimeFactors
+
+  .. cpp:function:: PrimeFactors<T> PrimeFactors<T>(T upper_limit)
+  .. cpp:function:: PrimeFactors<T> prime_factors<T>(T upper_limit)
+
+    These constructors will return a finite generator of prime factors of ``target``.
+
+  .. cpp:function:: T next()
+
+    Returns the next prime factor, or ``0`` if it is above the defined limit.
 
   .. cpp:function:: bool has_next()
 
