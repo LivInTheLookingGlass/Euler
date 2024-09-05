@@ -26,7 +26,7 @@ local function check_problem(problem_func, expected_answer, timeout_seconds, pro
     end
 
     if elapsed_time > timeout_seconds then
-        error("Problem " .. problem_name .. " took " .. elapsed_time .. " seconds, exceeding the expected time limit of " .. timeout_seconds .. " seconds.")
+        error("Problem " .. problem_name .. " took " .. elapsed_time .. "s, exceeding the expected time limit of " .. timeout_seconds .. "s.")
     end
 
     print("Problem " .. problem_name .. " passed.")
