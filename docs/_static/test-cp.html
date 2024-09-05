@@ -11,17 +11,17 @@
     <div id="mocha"></div>
     <!-- Mocha setup and initiation code -->
     <script type="module">
-      import Module from './dist/c-lib.mjs';
+      import Module from './dist/cp-lib.mjs';
 			import init, { get_js_answer } from './dist/rust.js';
       mocha.setup('bdd');
       window.onload = function() {
         Module().then(async (wasm) => {
           await init();
           for (let p = 1; p < 10000; p++) {
-            if ([12, ].includes(p)) continue;
             const formattedQuestion = `${p}`.padStart(4, '0');
-            const func = wasm[`_p${formattedQuestion}`];
-            if (func === undefined) continue;
+            if (wasm[`_p${formattedQuestion}`] === undefined) {
+              continue;
+            }
             let expected = get_js_answer(p);
             if (typeof expected === 'bigint') {
               expected = Number(expected);
@@ -29,10 +29,7 @@
             describe(`run test ${p}`, function() {
               this.timeout(Infinity);
               it(`should return ${expected}`, () => {
-                let answer = func();
-                if (typeof expected === 'string') {
-                  answer = wasm.UTF8ToString(answer);
-                }
+                let answer = wasm.ccall(`p${formattedQuestion}`, typeof expected, [], []);
                 console.log(p, answer, expected);
                 if (answer !== expected) {
                   throw new Error();

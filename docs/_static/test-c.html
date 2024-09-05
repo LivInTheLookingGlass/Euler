@@ -18,9 +18,10 @@
         Module().then(async (wasm) => {
           await init();
           for (let p = 1; p < 10000; p++) {
-            if ([12, ].includes(p)) continue;
             const formattedQuestion = `${p}`.padStart(4, '0');
-            if (wasm[`_p${formattedQuestion}`] === undefined) continue;
+            if (wasm[`_p${formattedQuestion}`] === undefined) {
+              continue;
+            }
             let expected = get_js_answer(p);
             if (typeof expected === 'bigint') {
               expected = Number(expected);
