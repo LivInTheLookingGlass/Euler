@@ -36,15 +36,23 @@ jobs:
         - 2.1
         - 1.1
         - 1.0
+        - luajit
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      
+    - name: Setup msvc
+      if: ${{ startsWith(matrix.os, 'windows') && !startsWith(matrix.version, 'luajit') }}
+      uses: ilammy/msvc-dev-cmd@v1
 
-    - uses: leafo/gh-actions-lua@v10
+    - uses: leso-kn/gh-actions-lua@v11-staging
       with:
         luaVersion: ${{ matrix.version }}
+
+    - name: Setup luarocks
+      uses: hishamhm/gh-actions-luarocks@master
 
     - run: make lu_test
