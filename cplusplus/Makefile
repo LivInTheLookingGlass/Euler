@@ -59,7 +59,7 @@ native_test: native
 .PHONY: clean
 clean: SHELL := bash
 clean:
-	@rm -rf build dist {.,*,*/*}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
+	@rm -rf build dist {.,*,*/*{,/*}}/{*.pyc,__pycache__,.mypy_cache,.pytest_cache,.benchmarks} || echo
 
 dist/cp-lib.wasm: build/lib.cpp
 	@mkdir -p dist

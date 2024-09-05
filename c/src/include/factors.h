@@ -23,15 +23,13 @@ void generate_combinations(
     const size_t max_combinations
 ) {
     size_t *indices = (size_t *) malloc(num_factors * sizeof(size_t));
-    for (size_t i = 0; i < num_factors; i++) {
+    for (size_t i = 0; i < num_factors; i++)
         indices[i] = i;
-    }
     size_t batch_index = 0;
     while (batch_index < max_combinations) {
         uintmax_t product = factors[indices[0]];
-        for (size_t i = 1; i < num_factors; i++) {
+        for (size_t i = 1; i < num_factors; i++)
             product *= factors[indices[i]];
-        }
         batch[batch_index++] = product;
 
         size_t i = num_factors - 1;
@@ -43,9 +41,8 @@ void generate_combinations(
             i--;
         }
         indices[i]++;
-        for (size_t j = i + 1; j < num_factors; j++) {
+        for (size_t j = i + 1; j < num_factors; j++)
             indices[j] = indices[j - 1] + 1;
-        }
     }
 }
 
