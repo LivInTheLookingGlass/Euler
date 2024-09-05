@@ -36,23 +36,22 @@ jobs:
         - 2.1
         - 1.1
         - 1.0
-        - luajit
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
-    - name: Setup msvc
-      if: ${{ startsWith(matrix.os, 'windows') && !startsWith(matrix.version, 'luajit') }}
-      uses: ilammy/msvc-dev-cmd@v1
-
-    - uses: leso-kn/gh-actions-lua@v11-staging
-      with:
-        luaVersion: ${{ matrix.version }}
-
-    - name: Setup luarocks
-      uses: hishamhm/gh-actions-luarocks@master
+        
+    - name: Install dependencies
+      run: |
+        if [ $RUNNER_OS = 'Linux' ]; then
+          sudo apt-get update
+          sudo apt-get install -y lua${{ matrix.version }}
+        elif [ $RUNNER_OS = 'macOS' ]; then
+          brew install lua@${{ matrix.version }}
+        elif [ $RUNNER_OS = 'Windows' ]; then
+          choco install lua --version ${{ matrix.version }}
+        fi
 
     - run: make lu_test
