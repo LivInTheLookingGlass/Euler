@@ -1,12 +1,12 @@
 -- Function to load a problem solution file
 local function load_problem(file_name)
-    local func, err = loadfile("src/" .. file_name)
+    local func, err = loadfile(file_name)
     if not func then
         error("Failed to load file " .. file_name .. ": " .. err)
     end
     local chunk = func()
     if type(chunk) ~= "table" or not chunk.solution then
-        error("File src/" .. file_name .. " must return a table with a 'solution' function")
+        error("File " .. file_name .. " must return a table with a 'solution' function")
     end
     return chunk.solution
 end
@@ -41,6 +41,6 @@ local problems = {
 
 -- Main testing loop
 for file_name, config in pairs(problems) do
-    local problem_func = load_problem(file_name)
+    local problem_func = load_problem("src/" .. file_name)
     check_problem(problem_func, config[1], config[2], file_name:match("(%d+)"))
 end

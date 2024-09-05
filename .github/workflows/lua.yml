@@ -19,9 +19,7 @@ jobs:
       matrix:
         os:
         - ubuntu-latest
-        - windows-latest
-        - macos-latest
-        - macos-13
+        - ubuntu-20.04
         version:
         - 5.4
         - 5.3
@@ -37,6 +35,11 @@ jobs:
         - 2.1
         - 1.1
         - 1.0
+        include:
+        - os: macos-latest
+          version: 5.4
+        - os: macos-13
+          version: 5.4
 
     runs-on: ${{ matrix.os }}
 
