@@ -11,7 +11,8 @@ help:
 test: ../LICENSE
 	@lua test.lua
 
-test_%: test
+test_%:
+	@$(MAKE) test $(MFLAGS)
 
 .PHONY: clean
 clean:
