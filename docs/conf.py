@@ -211,13 +211,14 @@ tags_page_title = 'Tags'
 
 def countfiles(lang):
     templates = {
-        'Makefile': lambda _, filename: filename == 'Makefile',
-        'Python': lambda root, filename: fnmatch(filename, '*.py') and 'docs' not in root,
         'C': lambda _, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
         'C++': lambda _, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.h') or fnmatch(filename, '*.hpp'),
         'C#': lambda _, filename: fnmatch(filename, '*.cs'),
         'Java': lambda _, filename: fnmatch(filename, '*.java'),
         'JavaScript': lambda _, filename: fnmatch(filename, '*.js'),
+        'Lua': lambda _, filename: fnmatch(filename, '*.lua'),
+        'Makefile': lambda _, filename: filename == 'Makefile',
+        'Python': lambda root, filename: fnmatch(filename, '*.py'),
         'Rust': lambda _, filename: fnmatch(filename, '*.rs'),
     }
     exclude_patterns = {
