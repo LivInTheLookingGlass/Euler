@@ -1,0 +1,17 @@
+Lua Implementation of Problem 2
+===============================
+
+View source code :source:`lua/src/p0002.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+    :return: The solution to problem 2
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0002.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: divisibility, fibonacci-number

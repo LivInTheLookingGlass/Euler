@@ -89,6 +89,8 @@ Olivia's Project Euler Solutions
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
+   | Lua        | (In Progress)              |  2     | (In Progress)     |
+   +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
    |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
    |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |

@@ -1,0 +1,17 @@
+Lua Implementation of Problem 1
+===============================
+
+View source code :source:`lua/src/p0001.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+    :return: The solution to problem 1
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0001.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: divisibility

@@ -31,6 +31,9 @@ help: LICENSE
 	@echo "The following jobs are available under the js_ prefix"
 	@$(MAKE) js_help $(MFLAGS) --no-print-directory
 	@echo
+	@echo "The following jobs are available under the lu_ prefix"
+	@$(MAKE) lu_help $(MFLAGS) --no-print-directory
+	@echo
 	@echo "The following jobs are available under the py_ prefix"
 	@$(MAKE) py_help $(MFLAGS) --no-print-directory
 	@echo
@@ -69,6 +72,10 @@ ja_%: LICENSE
 js_%: LICENSE
 	@$(MAKE) -C javascript $* $(MFLAGS) --no-print-directory
 
+.PHONY: lu_%
+lu_%: LICENSE
+	@$(MAKE) -C lua $* $(MFLAGS) --no-print-directory
+
 .PHONY: py_%
 py_%: LICENSE
 	@$(MAKE) -C python $* $(MFLAGS) --no-print-directory
@@ -78,4 +85,4 @@ rs_%: LICENSE
 	@$(MAKE) -C rust $* $(MFLAGS) --no-print-directory
 
 %:
-	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* py_$* rs_$* $(MFLAGS) --no-print-directory
+	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* lu_$* py_$* rs_$* $(MFLAGS) --no-print-directory

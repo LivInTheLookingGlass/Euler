@@ -50,6 +50,7 @@ extensions = [
     # 'sphinx-computron',
     # 'sphinx-compendia',
     # 'sphinx-navtree',
+    'sphinxcontrib-luadomain',
 ]
 
 try:
@@ -121,7 +122,7 @@ langcodes = [
     # ('ju', 'julia'),
     # ('kt', 'kotlin'),
     # ('ls', 'lisp'),           # sphinxcontrib-cldomain
-    # ('lu', 'lua'),            # sphinx-lua or sphinxcontrib-luadomain
+    ('lu', 'lua'),            # sphinx-lua or sphinxcontrib-luadomain
     # ('ma', 'matlab'),         # sphinxcontrib-matlabdomain
     # ('mk', 'makefile'),       # hacked together with sphinxcontrib-domaintools
     # ('oc', 'ocaml'),          # sphinxcontrib-ocaml
