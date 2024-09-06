@@ -50,7 +50,7 @@ extensions = [
     # 'sphinx-computron',
     # 'sphinx-compendia',
     # 'sphinx-navtree',
-    'sphinxcontrib-luadomain',
+    'sphinxcontrib.luadomain',
 ]
 
 try:
