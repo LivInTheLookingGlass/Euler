@@ -7,6 +7,7 @@ Solution
 --------
 
 .. lua:function:: solution()
+
     :return: The solution to problem 2
     :rtype: number
 

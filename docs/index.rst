@@ -38,6 +38,7 @@ Problems Solved
 .. |C#| replace:: **C#**
 .. |Ja| replace:: **Java**
 .. |Js| replace:: **JavaScript**
+.. |Lu| replace:: **Lua**
 .. |Py| replace:: **Python**
 .. |Rs| replace:: **Rust**
 .. |d| replace:: ✔
