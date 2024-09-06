@@ -9,10 +9,10 @@
 template<typename T>
 class PrimeGenerator {
 public:
-    PrimeGenerator() 
+    PrimeGenerator()
         : prime(T(0)), candidate(T(1) + T(1)), has_limit(false), limit(std::numeric_limits<T>::max()) {}
 
-    PrimeGenerator(T upper_limit) 
+    PrimeGenerator(T upper_limit)
         : prime(T(0)), candidate(T(1) + T(1)), has_limit(true), limit(upper_limit) {}
 
     T next() {
@@ -76,7 +76,7 @@ PrimeGenerator<T> primes_until(T x) {
 template<typename T>
 class PrimeFactors {
 public:
-    PrimeFactors(T target) 
+    PrimeFactors(T target)
         : target(target), last_prime(T(std::numeric_limits<T>::max())), prime_gen(primes<T>()) {}
 
     T next() {
@@ -108,4 +108,22 @@ private:
 template<typename T>
 PrimeFactors<T> prime_factors(T target) {
     return PrimeFactors<T>(target);
+}
+
+template<typename T>
+T is_composite(T target) {
+    PrimeFactors<T> factors = prime_factors<T>(target);
+    if (!factors.has_next())
+        return target;
+    T first = factors.next();
+    if (first == target)
+        return T(0);
+     return first;
+}
+
+template<typename T>
+bool is_prime(T target) {
+    if (target < T(1) + T(1))
+        return false;
+    return is_composite<T>(target) == T(0);
 }

@@ -210,32 +210,32 @@ def test_compiler_macros(compiler):
     assert flags[3] == compiler.startswith("EMCC")
     assert flags[4] == (EXE_EXT == "x86" or expect_32)
     assert flags[5] == (EXE_EXT == "x86_64" and not expect_32)
-    assert flags[6] == ("arm" in EXE_EXT.lower())
+    assert flags[6] == ("arm" in EXE_EXT.lower() or "aarch" in EXE_EXT.lower())
     assert flags[7] == ("wasm" in EXE_EXT.lower())
 
 
-# @mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
-# def test_is_prime(benchmark, compiler):
-#     from src.lib.primes import is_prime, prime_factors, primes
-#     MAX_PRIME = 1_000_000
-#     exename = EXE_TEMPLATE.format("test_is_prime", compiler)
-#     test_path = CPP_FOLDER.joinpath("src", "tests", "test_is_prime.cpp")
-#     args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
-#     check_call(args.split())
-#     with TemporaryFile('wb+') as f:
-#         run_test = partial(check_call, [exename], stdout=f)
-#         benchmark.pedantic(run_test, iterations=1, rounds=1)
-#         prime_cache = tuple(primes(MAX_PRIME))
-#         for line in f.readlines():
-#             num, prime, composite, idx = (int(x) for x in line.split())
-#             assert bool(prime) == bool(is_prime(num))
-#             assert bool(composite) == (not is_prime(num))
-#             assert composite == 0 or composite == next(iter(prime_factors(num)))
-#             assert idx == -1 or prime_cache[idx] == num
+@mark.skipif('NO_OPTIONAL_TESTS or ONLY_SLOW')
+def test_is_prime(benchmark, compiler):
+    from src.lib.primes import is_prime, prime_factors, primes
+    MAX_PRIME = 10_000
+    exename = EXE_TEMPLATE.format("test_is_prime", compiler)
+    test_path = CPP_FOLDER.joinpath("src", "tests", "test_is_prime.cpp")
+    args = templates[compiler].format(test_path, exename) + " -DMAX_PRIME={}".format(MAX_PRIME)
+    check_call(args.split())
+    with TemporaryFile('wb+') as f:
+        run_test = partial(check_call, [exename], stdout=f)
+        benchmark.pedantic(run_test, iterations=1, rounds=1)
+        prime_cache = tuple(primes(MAX_PRIME))
+        for line in f.readlines():
+            num, prime, composite, idx = (int(x) for x in line.split())
+            assert bool(prime) == bool(is_prime(num))
+            assert bool(composite) == (not is_prime(num))
+            assert composite == 0 or composite == next(iter(prime_factors(num)))
+            assert idx == -1 or prime_cache[idx] == num
 
-#     # sometimes benchmark disables itself, so check for .stats
-#     if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
-#         fail("Exceeding 200ns average! (time={}s)".format(benchmark.stats.stats.max))
+    # sometimes benchmark disables itself, so check for .stats
+#    if 'PYTEST_XDIST_WORKER' not in environ and hasattr(benchmark, 'stats') and benchmark.stats.stats.max > 200 * MAX_PRIME // 1000000:
+#        fail("Exceeding 200ns average! (time={}s)".format(benchmark.stats.stats.max))
 
 
 def test_problem(benchmark, key, compiler):

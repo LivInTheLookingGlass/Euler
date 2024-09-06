@@ -50,6 +50,14 @@ Includes
 
     Returns ``true`` if there is a next value to generate.
 
+.. cpp:function:: T is_composite<T>(T target)
+
+  If ``target`` is composite, this returns its first prime factor (or ``-1``). Otherwise returns ``0``.
+
+.. cpp:function:: bool is_prime<T>(T target)
+
+  Tests if a given number is prime.
+
 .. cpp:namespace-pop::
 
 .. literalinclude:: ../../../../cplusplus/src/include/primes.hpp
