@@ -5,14 +5,14 @@ Euler Lua Implementation
     :start-line: 2
     :end-before: Problems Solved
 
-.. Library Code
-.. ------------
+Library Code
+------------
 
-.. .. toctree::
-..    :glob:
-..    :maxdepth: 1
+.. toctree::
+   :glob:
+   :maxdepth: 1
 
-..    lua/lib/*
+   lua/lib/*
 
 Problems Solved
 ---------------

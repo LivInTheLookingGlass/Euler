@@ -1,0 +1,23 @@
+Lua Implementation of Problem 28
+================================
+
+View source code :source:`lua/src/p0028.lua`
+
+Includes
+--------
+
+- `range.lua <./lib/range.html>`__
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 28
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0028.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: grid-pattern
