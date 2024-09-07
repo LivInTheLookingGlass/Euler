@@ -91,7 +91,7 @@ Olivia's Project Euler Solutions
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
-   | Lua        | Lua 5+                     |  6     | |Luai|            |
+   | Lua        | Lua 5+ [#]_                |  6     | |Luai|            |
    +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
    |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
@@ -138,12 +138,13 @@ Olivia's Project Euler Solutions
 .. [1] This is the earliest standard the MSVC explicitly supports.
 .. [2] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-c-link|
-   Note that there are a few problems that return the wrong answer only in WebAssembly, and need to be debugged
+   Note that this is an in-progress feature, and some solutions do not work under WebAssembly
 .. [3] While these solutions do run in most browsers, they need to be bundled with Emscripten first,
    and these tests not yet automated as in |clang| and |gcc|. To run these tests yourself, |test-cp-link|
-   Note that there are a few problems that return the wrong answer only in WebAssembly, and need to be debugged
+   Note that this is an in-progress feature, and some solutions do not work under WebAssembly
 .. [#] While these solutions do run in most browsers, they need to be bundled with WebPack 5.93+ & Babel 7.25+ first,
    and these tests not yet automated as in Nodejs and Bun. To run these tests yourself, |test-js-link|
+.. [#] Mostly due to difficulty testing against older versions
 .. [#] While these solutions do run in most browsers, they need to be bundled with Pyodide 0.26.2+ first, and these
    tests are not yet automated as in CPython and pypy. To run these tests yourself, |test-py-link|
 .. [#] While these solutions do run in most browsers, they need to be bundled with wasm-pack 0.2+ first, and these
