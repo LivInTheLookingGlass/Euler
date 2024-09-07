@@ -38,6 +38,8 @@ local problems = {
     ["p0002.lua"] = {4613732, 60},
     ["p0006.lua"] = {25164150, 60},
     ["p0009.lua"] = {31875000, 60},
+    ["p0017.lua"] = {21124, 60},
+    ["p0836.lua"] = {"aprilfoolsjoke", 60},
 }
 
 -- Main testing loop

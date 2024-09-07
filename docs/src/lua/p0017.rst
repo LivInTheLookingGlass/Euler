@@ -1,0 +1,18 @@
+Lua Implementation of Problem 17
+================================
+
+View source code :source:`lua/src/p0017.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 17
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0017.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: word-problem, combinatorics

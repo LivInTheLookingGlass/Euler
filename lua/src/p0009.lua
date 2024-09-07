@@ -1,15 +1,15 @@
 return {
     solution = function()
-        c = 3
+        local c = 3
         while true
         do
-            c_square = c * c
+            local c_square = c * c
             for b = 2,c,1
             do
-                b_square = b * b
+                local b_square = b * b
                 for a = 1,b,1
                 do
-                    a_square = a * a
+                    local a_square = a * a
                     if a_square + b_square == c_square and a + b + c == 1000
                     then
                         return a * b * c

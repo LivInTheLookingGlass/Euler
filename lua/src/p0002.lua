@@ -1,18 +1,16 @@
 return {
     solution = function()
-        answer = 0
-        a = 1
-        b = 2
+        local answer = 0
+        local a = 1
+        local b = 2
 
         while b < 4000000
         do
             answer = answer + b
         
-            for j = 0,2,1
+            for j = 1,3,1
             do
-                t = b
-                b = a + b
-                a = t
+                a, b = b, a + b
             end
         end
 

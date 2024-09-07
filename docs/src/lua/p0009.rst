@@ -15,4 +15,4 @@ Solution
    :language: Lua
    :linenos:
 
-.. tags:: divisibility
+.. tags:: pythagorean-triple

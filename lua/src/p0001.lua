@@ -1,6 +1,6 @@
 return {
     solution = function()
-        answer = 0
+        local answer = 0
 
         for i = 3,999,3
         do 
