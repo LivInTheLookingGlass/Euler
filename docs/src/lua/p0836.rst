@@ -1,5 +1,5 @@
 Lua Implementation of Problem 836
-(=================================
+=================================
 
 View source code :source:`lua/src/p0836.lua`
 
