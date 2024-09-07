@@ -1,0 +1,18 @@
+Lua Implementation of Problem 6
+===============================
+
+View source code :source:`lua/src/p0006.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 6
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0006.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: divisibility

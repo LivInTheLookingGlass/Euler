@@ -1,0 +1,18 @@
+Lua Implementation of Problem 9
+===============================
+
+View source code :source:`lua/src/p0009.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 9
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0009.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: divisibility
