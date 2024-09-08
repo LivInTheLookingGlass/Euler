@@ -8,8 +8,9 @@ seq!(N in 0034..=0037 {
     pub mod p~N;
 });
 pub mod p0041;
-pub mod p0044;
-pub mod p0045;
+seq!(N in 0043..=0045 {
+    pub mod p~N;
+});
 pub mod p0053;
 pub mod p0059;
 pub mod p0067;

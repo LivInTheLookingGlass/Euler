@@ -1,0 +1,15 @@
+Rust Implementation of Problem 43
+=================================
+
+View source code :source:`rust/src/problems/p0043.rs`
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn problems::p0043::p0043() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/problems/p0043.rs
+   :language: rust
+   :linenos:
+
+.. tags:: pandigital, divisibility
