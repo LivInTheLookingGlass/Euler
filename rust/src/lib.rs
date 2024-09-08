@@ -87,7 +87,7 @@ seq!(N in 01..=20 {
 #[case::problem_77(77)]
 #[case::problem_87(87)]
 #[case::problem_187(187)]
-// #[case::problem_357(357)]
+#[case::problem_357(357)]
 #[case::problem_836(836)]
 fn test_problem(#[case] id: usize) -> Result<(), String> {
     let Some((_, func, _slow)) = get_problem(id) else { panic!() };
