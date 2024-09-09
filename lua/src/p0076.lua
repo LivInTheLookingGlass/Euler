@@ -36,10 +36,9 @@ return {
                 idx = 2
 
                 repeat
+                    counts[idx + 1] = 0  -- please remember lua is 1-indexed
                     idx = idx + 1
-                    counts[idx] = 0  -- please remember lua is 1-indexed
-                    idx = idx + 1
-                    counts[idx] = counts[idx] + idx - 1
+                    counts[idx + 1] = counts[idx + 1] + idx
 
                     for i = (idx - 1),101,1
                     do

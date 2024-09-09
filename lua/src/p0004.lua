@@ -18,7 +18,7 @@ return {
                 local p = u * v
                 local ps = tostring(p)
 
-                if ps == ps.reverse() and p > answer
+                if ps == string.reverse(ps) and p > answer
                 then
                     answer = p
                 end
