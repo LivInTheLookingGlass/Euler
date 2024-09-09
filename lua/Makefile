@@ -2,11 +2,6 @@ BLUE=\033[0;34m
 NC=\033[0m # No Color
 
 COV?=false
-ifneq ($(COV),false)
-cov_args= -lluacov && luacov
-else
-cov_args=
-endif
 
 .PHONY: help
 help:
@@ -16,7 +11,11 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	@lua test.lua $(cov_args)
+ifneq ($(COV),false)
+	@lua -lluacov test.lua && luacov
+else
+	@lua test.lua
+endif
 
 test_%:
 	@$(MAKE) test $(MFLAGS)
