@@ -1,0 +1,20 @@
+Rust Implementation of Problem 28
+=================================
+
+View source code :source:`rust/src/problems/p0028.rs`
+
+Includes
+--------
+
+- `ranges <./lib/ranges.html>`_
+
+Problem Solution
+----------------
+
+.. rust:fn:: pub fn problems::p0028::p0028() -> utils::Answer
+
+.. literalinclude:: ../../../rust/src/problems/p0028.rs
+   :language: rust
+   :linenos:
+
+.. tags:: grid-pattern

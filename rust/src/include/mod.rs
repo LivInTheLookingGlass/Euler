@@ -4,5 +4,6 @@ pub mod fibonacci;
 pub mod math;
 pub mod primes;
 pub mod problems;
+pub mod ranges;
 pub mod triangles;
 pub mod utils;

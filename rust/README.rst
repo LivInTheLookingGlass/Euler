@@ -83,6 +83,7 @@ Problems Solved
 -  ☒ `24 <./src/problems/p0024.rs>`__
 -  ☒ `25 <./src/problems/p0025.rs>`__
 -  ☒ `27 <./src/problems/p0027.rs>`__
+-  ☒ `28 <./src/problems/p0028.rs>`__
 -  ☒ `34 <./src/problems/p0034.rs>`__
 -  ☒ `35 <./src/problems/p0035.rs>`__
 -  ☒ `36 <./src/problems/p0036.rs>`__

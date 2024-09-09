@@ -71,6 +71,7 @@ seq!(N in 01..=20 {
 #[case::problem_24(24)]
 #[case::problem_25(25)]
 #[case::problem_27(27)]
+#[case::problem_28(28)]
 #[case::problem_34(34)]
 #[case::problem_35(35)]
 #[case::problem_36(36)]

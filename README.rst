@@ -86,7 +86,7 @@ Olivia's Project Euler Solutions
    |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
    |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
    +------------+----------------------------+--------+-------------------+
-   | JavaScript | Node 12+ |br|              | 33     | |JavaScript| |br| |
+   | JavaScript | Node 12+ |br|              | 34     | |JavaScript| |br| |
    |            | Bun 1.0+ |br|              |        | |Js-Cov| |br|     |
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
@@ -98,7 +98,7 @@ Olivia's Project Euler Solutions
    |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
    |            | Browser [#]_               |        | |PythonLint|      |
    +------------+----------------------------+--------+-------------------+
-   | Rust       | Rust 1.69+ |br|            | 43     | |Rust| |br|       |
+   | Rust       | Rust 1.69+ |br|            | 44     | |Rust| |br|       |
    |            | Browser [#]_               |        | |Rs-Cov| |br|     |
    |            |                            |        | |RustClippy|      |
    +------------+----------------------------+--------+-------------------+

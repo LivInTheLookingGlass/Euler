@@ -1,0 +1,20 @@
+JavaScript Implementation of Problem 28
+=======================================
+
+View source code :source:`javascript/src/p0028.js`
+
+Includes
+--------
+
+- `ranges <./lib/ranges.html>`_
+
+Problem Solution
+----------------
+
+.. js:autofunction:: p0028
+
+.. literalinclude:: ../../../javascript/src/p0028.js
+   :language: javascript
+   :linenos:
+
+.. tags:: grid-pattern

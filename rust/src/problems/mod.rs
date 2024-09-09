@@ -4,6 +4,7 @@ seq!(N in 0001..=0025 {
     pub mod p~N;
 });
 pub mod p0027;
+pub mod p0028;
 seq!(N in 0034..=0037 {
     pub mod p~N;
 });
