@@ -23,4 +23,4 @@ test_%:
 
 .PHONY: clean
 clean:
-	@echo "No files to clean."
+	@echo

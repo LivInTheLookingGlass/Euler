@@ -49,5 +49,7 @@ jobs:
 
     - run: lua -v && make lu_test ${{ matrix.version == '5.4' && 'COV=true' || '' }}
 
-    - run: cd lua && bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -F Lua
+    - run: find ./lua -print | sort
+
+    - run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -F Lua
       if: ${{ matrix.version == '5.4' }}
