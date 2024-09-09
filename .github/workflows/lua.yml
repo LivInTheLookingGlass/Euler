@@ -19,15 +19,15 @@ jobs:
         os:
         - ubuntu-latest
         version:
-        - 5.4
-        - 5.3
-        - 5.2
-        - 5.1
+        - '5.4'
+        - '5.3'
+        - '5.2'
+        - '5.1'
         include:
         - os: macos-latest
-          version: 5.4
+          version: '5.4'
         - os: macos-13
-          version: 5.4
+          version: '5.4'
 
     runs-on: ${{ matrix.os }}
 
@@ -39,7 +39,7 @@ jobs:
       run: |
         if [ $RUNNER_OS = 'Linux' ]; then
           sudo apt-get update
-          sudo apt-get install -y lua${{ matrix.version }} luarocks
+          sudo apt-get install -y lua${{ matrix.version }} ${{ matrix.version == '5.4' && 'luarocks' || '' }}
         elif [ $RUNNER_OS = 'macOS' ]; then
           brew install lua@${{ matrix.version }} luarocks
         fi
@@ -48,7 +48,7 @@ jobs:
 
     - run: sudo luarocks install luacov
 
-    - run: make lu_test COV=true
+    - run: make lu_test ${{ matrix.version == '5.4' && 'COV=true' || '' }}
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
