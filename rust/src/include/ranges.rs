@@ -14,7 +14,7 @@ where I: NumAssign + PartialOrd
     let length = if step > zero() && start < stop {
         one::<I>() + (stop - one() - start) / step
     } else if step < zero() && start > stop {
-        one::<I>() + (start - one() - stop) / (-step)
+        one::<I>() + (stop + one() - start) / step
     } else {
         zero::<I>()
     };
