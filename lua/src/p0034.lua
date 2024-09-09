@@ -28,7 +28,7 @@ return {
             end
 
             if sum == x
-            do
+            then
                 answer = answer + 1
             end
         end

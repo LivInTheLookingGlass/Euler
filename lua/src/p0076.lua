@@ -13,6 +13,8 @@
 --
 -- Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
+local factorial = loadfile('src/lib/math.lua')().factorial
+
 return {
     solution = function()
         local answer = 0
@@ -58,5 +60,3 @@ return {
         return answer
     end
 }
-
-local factorial = loadfile('src/lib/math.lua')().factorial
