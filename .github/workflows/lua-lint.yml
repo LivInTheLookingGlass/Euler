@@ -1,0 +1,23 @@
+name: Lua Lint
+
+on:
+  push:
+    paths:
+    - 'lua/**'
+    - '!lua/README.rst'
+  schedule:
+  - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  luacheck:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Luacheck linter
+      uses: lunarmodules/luacheck@v1

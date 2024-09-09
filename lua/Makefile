@@ -1,6 +1,13 @@
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 
+COV?=false
+ifneq ($(COV),false)
+cov_args= -lluacov 
+else
+cov_args=
+endif
+
 .PHONY: help
 help:
 	@echo "  $(BLUE)test$(NC)   	Run through all Lua tests in sequence."
@@ -9,7 +16,7 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	@lua test.lua
+	@lua test.lua $(cov_args)
 
 test_%:
 	@$(MAKE) test $(MFLAGS)

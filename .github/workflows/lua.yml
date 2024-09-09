@@ -10,12 +10,11 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   test:
     strategy:
-      fail-fast: false
       matrix:
         os:
         - ubuntu-latest
@@ -45,4 +44,16 @@ jobs:
           brew install lua@${{ matrix.version }}
         fi
 
-    - run: make lu_test
+    - uses: leafo/gh-actions-luarocks@v4
+      with:
+        withLuaPath: "lua"
+
+    - run: luarocks install luacov
+
+    - run: make lu_test COV=true
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: Lua

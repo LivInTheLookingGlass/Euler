@@ -29,6 +29,10 @@ component_management:
       name: JavaScript
       paths:
         - javascript/**
+    - component_id: module_lua
+      name: Lua
+      paths:
+        - lua/**
     - component_id: module_python
       name: Python
       paths:

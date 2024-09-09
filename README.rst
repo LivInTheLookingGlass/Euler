@@ -23,6 +23,8 @@ Olivia's Project Euler Solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
 .. |Luai| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/lua.yml?logo=github&label=Lua%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/lua.yml
+.. |LuaCheck| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/lua-lint.yml?logo=github&label=LuaCheck
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/lua-lint.yml
 .. |Python| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python.yml?logo=github&label=Py%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml
 .. |PythonLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&label=Linting
@@ -91,7 +93,8 @@ Olivia's Project Euler Solutions
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
-   | Lua        | Lua 5+ [#]_                |  7     | |Luai|            |
+   | Lua        | Lua 5+ [#]_                |  7     | |Luai| |br|       |
+   |            |                            |        | |LuaCheck|        |
    +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
    |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
