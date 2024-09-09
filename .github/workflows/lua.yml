@@ -39,22 +39,14 @@ jobs:
       run: |
         if [ $RUNNER_OS = 'Linux' ]; then
           sudo apt-get update
-          sudo apt-get install -y lua${{ matrix.version }}
+          sudo apt-get install -y lua${{ matrix.version }} luarocks
         elif [ $RUNNER_OS = 'macOS' ]; then
-          brew install lua@${{ matrix.version }}
-          brew install luarocks
+          brew install lua@${{ matrix.version }} luarocks
         fi
 
-    - uses: leafo/gh-actions-luarocks@v4
-      if: ${{ !contains(matrix.os, 'mac') }}
-      with:
-        withLuaPath: "lua"
+    - run: lua --version
 
     - run: sudo luarocks install luacov
-      if: ${{ !contains(matrix.os, 'windows') }}
-
-    - run: luarocks install luacov
-      if: ${{ contains(matrix.os, 'windows') }}
 
     - run: make lu_test COV=true
 
