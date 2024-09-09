@@ -13,12 +13,10 @@
 --
 -- Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
-local factorial = loadfile('src/lib/math.lua')().factorial
-
 return {
     solution = function()
         local answer = 0
-        local idx = 0
+        local idx
         local sum = 100
         local counts = {}
 
@@ -36,7 +34,7 @@ return {
             then
                 answer = answer + (100 + counts[2 + 1] - sum) / 2
                 idx = 2
-                
+
                 repeat
                     idx = idx + 1
                     counts[idx] = 0  -- please remember lua is 1-indexed
