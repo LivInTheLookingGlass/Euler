@@ -30,7 +30,7 @@ return {
 
             if sum == x
             then
-                answer = answer + 1
+                answer = answer + x
             end
         end
 

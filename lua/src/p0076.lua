@@ -41,6 +41,7 @@ return {
                     idx = idx + 1
                     counts[idx] = counts[idx] + idx
 
+                    sum = 0
                     for i = idx,100,1
                     do
                         sum = sum + counts[i]
