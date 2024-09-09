@@ -44,7 +44,7 @@ jobs:
           brew install lua@${{ matrix.version }} luarocks
         fi
 
-    - run: lua --version
+    - run: lua -v
 
     - run: sudo luarocks install luacov
 
