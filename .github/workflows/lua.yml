@@ -42,9 +42,11 @@ jobs:
           sudo apt-get install -y lua${{ matrix.version }}
         elif [ $RUNNER_OS = 'macOS' ]; then
           brew install lua@${{ matrix.version }}
+          brew install luarocks
         fi
 
     - uses: leafo/gh-actions-luarocks@v4
+      if: ${{ !contains(matrix.os, 'mac') }}
       with:
         withLuaPath: "lua"
 
