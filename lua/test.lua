@@ -1,13 +1,17 @@
 -- Function to load a problem solution file
 local function load_problem(file_name)
     local func, err = loadfile(file_name)
+
     if not func then
         error("Failed to load file " .. file_name .. ": " .. err)
     end
+
     local chunk = func()
+
     if type(chunk) ~= "table" or not chunk.solution then
         error("File " .. file_name .. " must return a table with a 'solution' function")
     end
+
     return chunk.solution
 end
 
