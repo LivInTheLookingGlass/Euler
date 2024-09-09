@@ -50,7 +50,11 @@ jobs:
       with:
         withLuaPath: "lua"
 
+    - run: sudo luarocks install luacov
+      if: ${{ !contains(matrix.os, 'windows') }}
+
     - run: luarocks install luacov
+      if: ${{ contains(matrix.os, 'windows') }}
 
     - run: make lu_test COV=true
 

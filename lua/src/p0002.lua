@@ -21,8 +21,8 @@ return {
         while b < 4000000
         do
             answer = answer + b
-        
-            for j = 1,3,1
+
+            for _ = 1,3,1
             do
                 a, b = b, a + b
             end

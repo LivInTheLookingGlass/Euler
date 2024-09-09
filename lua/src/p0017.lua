@@ -83,7 +83,7 @@ return {
         local answer = 0
 
         for x = 1,1000,1
-        do 
+        do
             answer = answer + to_string_len(x)
         end
 
