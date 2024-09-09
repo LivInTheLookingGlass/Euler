@@ -1,0 +1,18 @@
+Lua Implementation of Problem 4
+===============================
+
+View source code :source:`lua/src/p0004.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 4
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0004.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: palindrome

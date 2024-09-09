@@ -48,7 +48,6 @@
 return {
     solution = function()
         local answer = 1
-        local range_entry = loadfile("src/lib/range.lua")().range_entry3
 
         for i = 1,(1000 / 2),1
         do
@@ -62,3 +61,5 @@ return {
         return answer
     end
 }
+
+local range_entry = loadfile("src/lib/range.lua")().range_entry3

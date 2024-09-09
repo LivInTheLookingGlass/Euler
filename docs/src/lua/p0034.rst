@@ -1,0 +1,23 @@
+Lua Implementation of Problem 34
+================================
+
+View source code :source:`lua/src/p0034.lua`
+
+Includes
+--------
+
+- `math.lua <./lib/math.html>`__
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 34
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0034.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: factorial, digit-sum

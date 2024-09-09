@@ -3,7 +3,7 @@ range.lua
 
 View source code :source:`lua/src/lib/range.lua`
 
-This module directly ports some of the logic found in Python's :external:py:func:`range`.
+This module directly ports some of the logic found in Python's :external:py:obj:`range`.
 
 .. lua:function:: range_entry3(start, step, idx)
 

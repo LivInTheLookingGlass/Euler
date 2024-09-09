@@ -1,0 +1,18 @@
+Lua Implementation of Problem 76
+================================
+
+View source code :source:`lua/src/p0076.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 76
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0076.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: partition
