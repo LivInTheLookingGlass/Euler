@@ -36,7 +36,7 @@ pub fn p0043() -> Answer {
             continue;
         }
         let mut broken = false;
-        for ((&a, &b, &c), divisor) in d.iter().tuple_windows::<(_,_,_)>().into_iter().skip(2).take(6).zip(divisibility) {
+        for ((&a, &b, &c), divisor) in d.iter().tuple_windows::<(_,_,_)>().skip(2).take(6).zip(divisibility) {
             if (a * 100 + b * 10 + c) % divisor != 0 {
                 broken = true;
                 break;
