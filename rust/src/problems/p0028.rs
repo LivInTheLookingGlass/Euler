@@ -51,7 +51,7 @@ use crate::include::utils::Answer;
 
 pub fn p0028() -> Answer {
     let mut answer: u32 = 1;
-    for i in 1..(1002 / 2) {
+    for i in 1..(1002u32 / 2) {
         let start = (2 * i - 1).pow(2) + 1;
         answer += range_entry3(start, 1, 1 * 2 * i - 1) +
                   range_entry3(start, 1, 2 * 2 * i - 1) +
