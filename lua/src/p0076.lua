@@ -20,27 +20,28 @@ return {
         local sum = 100
         local counts = {}
 
-        for i = 1, 101 do
+        for i = 0,100,1
+        do
             counts[i] = 0
         end
 
-        counts[2 + 1] = 0
+        counts[2] = 0
 
-        while counts[100 + 1] == 0
+        while counts[100] == 0
         do
-            counts[2 + 1] = counts[2 + 1] + 2
+            counts[2] = counts[2] + 2
 
             if sum >= 100
             then
-                answer = answer + (100 + counts[2 + 1] - sum) / 2
+                answer = answer + (100 + counts[2] - sum) / 2
                 idx = 2
 
                 repeat
-                    counts[idx + 1] = 0  -- please remember lua is 1-indexed
+                    counts[idx] = 0
                     idx = idx + 1
-                    counts[idx + 1] = counts[idx + 1] + idx
+                    counts[idx] = counts[idx] + idx
 
-                    for i = (idx - 1),101,1
+                    for i = idx,100,1
                     do
                         sum = sum + counts[i]
                     end
@@ -48,7 +49,7 @@ return {
             end
 
             sum = 0
-            for i = 1,101,1
+            for i = 0,100,1
             do
                 sum = sum + counts[i]
             end
