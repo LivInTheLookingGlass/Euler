@@ -3,7 +3,7 @@ NC=\033[0m # No Color
 
 COV?=false
 ifneq ($(COV),false)
-cov_args= -lluacov 
+cov_args= -lluacov && luacov
 else
 cov_args=
 endif
