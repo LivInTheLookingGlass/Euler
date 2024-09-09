@@ -35,22 +35,22 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-        
+
     - name: Install dependencies
       run: |
         if [ $RUNNER_OS = 'Linux' ]; then
           sudo apt-get update
-          sudo apt-get install -y lua${{ matrix.version }} ${{ matrix.version == '5.4' && 'luarocks' || '' }}
+          sudo apt-get install -y lua${{ matrix.version }}
         elif [ $RUNNER_OS = 'macOS' ]; then
           brew install lua@${{ matrix.version }} luarocks
         fi
 
     - run: sudo luarocks install luacov
-      if: ${{ matrix.version == '5.4' }}
+      if: ${{ matrix.version == '5.4' && matrix.os == 'macos-latest' }}
 
-    - run: lua -v && make lu_test ${{ matrix.version == '5.4' && 'COV=true' || '' }}
+    - run: lua -v && make lu_test ${{ matrix.version == '5.4' && matrix.os == 'macos-latest' && 'COV=true' || '' }}
 
     - run: find ./lua -print | sort
 
     - run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -F Lua
-      if: ${{ matrix.version == '5.4' }}
+      if: ${{ matrix.version == '5.4' && matrix.os == 'macos-latest' }}
