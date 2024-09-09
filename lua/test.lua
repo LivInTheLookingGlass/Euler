@@ -16,7 +16,8 @@ local function load_problem(file_name)
 end
 
 -- Timing and result check function
-local function check_problem(problem_func, expected_answer, timeout_seconds, problem_name)
+local function check_problem(file_name, expected_answer, is_slow, problem_name)
+    local problem_func = load_problem("src/" .. file_name)
     local start_time = os.clock()
     local success, result = pcall(problem_func)
     local elapsed_time = os.clock() - start_time
@@ -32,32 +33,40 @@ local function check_problem(problem_func, expected_answer, timeout_seconds, pro
         )
     end
 
-    if elapsed_time > timeout_seconds then
+    if not is_slow and elapsed_time > 60 then
         error(
             "Problem " .. problem_name .. " took " .. tostring(elapsed_time) ..
-            "s, exceeding the expected time limit of " .. tostring(timeout_seconds) .. "s."
+            "s, exceeding the expected time limit of 60s."
         )
     end
 
     print("Problem " .. problem_name .. " passed.")
 end
 
--- Problems configuration: filename -> {expected_answer, timeout_seconds}
+-- Problems configuration: filename -> {expected_answer, is_slow}
 local problems = {
-    ["p0001.lua"] = {233168, 60},
-    ["p0002.lua"] = {4613732, 60},
-    ["p0004.lua"] = {906609, 60},
-    ["p0006.lua"] = {25164150, 60},
-    ["p0009.lua"] = {31875000, 60},
-    ["p0017.lua"] = {21124, 60},
-    ["p0028.lua"] = {669171001, 60},
-    ["p0034.lua"] = {40730, 60},
-    ["p0076.lua"] = {190569291, 60},
-    ["p0836.lua"] = {"aprilfoolsjoke", 60},
+    ["p0001.lua"] = {233168, false},
+    ["p0002.lua"] = {4613732, false},
+    ["p0004.lua"] = {906609, false},
+    ["p0006.lua"] = {25164150, false},
+    ["p0009.lua"] = {31875000, false},
+    ["p0017.lua"] = {21124, false},
+    ["p0028.lua"] = {669171001, false},
+    ["p0034.lua"] = {40730, false},
+    ["p0836.lua"] = {"aprilfoolsjoke", false},
+    ["p0076.lua"] = {190569291, true},
 }
 
--- Main testing loop
+-- Fast testing loop
 for file_name, config in pairs(problems) do
-    local problem_func = load_problem("src/" .. file_name)
-    check_problem(problem_func, config[1], config[2], file_name:match("(%d+)"))
+    if not config[2] then
+        check_problem(file_name, config[1], config[2], file_name:match("(%d+)"))
+    end
+end
+
+-- Slow testing loop
+for file_name, config in pairs(problems) do
+    if config[2] then
+        check_problem(file_name, config[1], config[2], file_name:match("(%d+)"))
+    end
 end

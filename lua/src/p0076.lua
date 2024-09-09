@@ -33,7 +33,7 @@ return {
 
             if sum >= 100
             then
-                answer = answer + (100 + counts[2] - sum) / 2
+                answer = answer + math.floor((100 + counts[2] - sum) / 2)
                 idx = 2
 
                 repeat
