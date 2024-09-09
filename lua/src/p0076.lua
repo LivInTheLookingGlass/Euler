@@ -25,7 +25,7 @@ return {
             counts[i] = 0
         end
 
-        counts[2] = 0
+        counts[2] = 100
 
         while counts[100] == 0
         do

@@ -25,7 +25,7 @@ return {
             local sum = 0
             for i = 1,string.len(xs),1
             do
-                sum = sum + factorial(tonumber(xs[i]))
+                sum = sum + factorial(tonumber(xs:sub(i, i)))
             end
 
             if sum == x
