@@ -40,7 +40,7 @@ local function check_problem(file_name, expected_answer, is_slow, problem_name)
         )
     end
 
-    print("Problem " .. problem_name .. " passed.")
+    print("Problem " .. problem_name .. " passed (in " .. tostring(elapsed_time) .. "s).")
 end
 
 -- Problems configuration: filename -> {expected_answer, is_slow}
