@@ -1,5 +1,3 @@
--- This file is a direct port of Python's range functions
-
 local function factorial(n)
     local answer = 1
 
