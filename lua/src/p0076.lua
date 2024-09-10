@@ -20,7 +20,7 @@ return {
         local sum = 100
         local counts = {}
 
-        for i = 0,100,1
+        for i = 2,100,1
         do
             counts[i] = 0
         end
@@ -41,16 +41,16 @@ return {
                     idx = idx + 1
                     counts[idx] = counts[idx] + idx
 
-                    sum = 0
-                    for i = idx,100,1
+                    sum = counts[idx]
+                    for i = (idx+1),100,1
                     do
                         sum = sum + counts[i]
                     end
                 until sum <= 100
             end
 
-            sum = 0
-            for i = 0,100,1
+            sum = counts[2]
+            for i = 3,100,1
             do
                 sum = sum + counts[i]
             end
