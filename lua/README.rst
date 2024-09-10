@@ -59,6 +59,7 @@ Problems Solved
 -  ☒ `2 <./src/p0002.lua>`__
 -  ☒ `4 <./src/p0004.lua>`__
 -  ☒ `6 <./src/p0006.lua>`__
+-  ☒ `8 <./src/p0008.lua>`__
 -  ☒ `9 <./src/p0009.lua>`__
 -  ☒ `17 <./src/p0017.lua>`__
 -  ☒ `28 <./src/p0028.lua>`__

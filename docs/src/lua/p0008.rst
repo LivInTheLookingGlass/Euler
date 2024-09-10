@@ -1,0 +1,16 @@
+Lua Implementation of Problem 8
+===============================
+
+View source code :source:`lua/src/p0008.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 8
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0008.lua
+   :language: Lua
+   :linenos:
