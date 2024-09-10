@@ -23,7 +23,7 @@ return {
         do
             local xs = tostring(x)
             local sum = 0
-            for i = 1,string.len(xs),1
+            for i = 1,#xs,1
             do
                 sum = sum + factorial(tonumber(xs:sub(i, i)))
             end
