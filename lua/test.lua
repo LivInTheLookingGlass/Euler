@@ -1,5 +1,3 @@
-local has_luacov = package.loaded['luacov'] ~= nil
-
 -- Function to load a problem solution file
 local function load_problem(file_name)
     local func, err = loadfile(file_name)
@@ -35,7 +33,7 @@ local function check_problem(file_name, expected_answer, is_slow, problem_name)
         )
     end
 
-    if not is_slow and not has_luacov and elapsed_time > 60 then
+    if not is_slow and elapsed_time > 60 then
         error(
             "Problem " .. problem_name .. " took " .. tostring(elapsed_time) ..
             "s, exceeding the expected time limit of 60s."
