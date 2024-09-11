@@ -217,23 +217,19 @@ static const uint64_t ten18 = 1000000000000000000;
 static const uint64_t ten10 = 10000000000;
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0013() {
-    uint64_t high = 0, med = 0, low = 0;
+    uint64_t arr[3] = { 0 };
     for (uint8_t i = 0; i < 100; ++i) {
-        low += numbers[i][2];
-        med += numbers[i][1];
-        high += numbers[i][0];
-        if (low > ten18) {
-            med += low / ten18;
-            low %= ten18;
-        }
-        if (med > ten18) {
-            high += med / ten18;
-            med %= ten18;
-        }
+        for (uint8_t j = 0; j < 3; ++j)
+            arr[j] += numbers[i][j];
+        for (uint8_t j = 2; j > 0; --j)
+            if (arr[j] > ten18) {
+                arr[j - 1] += arr[j] / ten18;
+                arr[j] %= ten18;
+            }
     }
-    while (high > ten10)
-        high /= 10;
-    return high;
+    while (arr[0] > ten10)
+        arr[0] /= 10;
+    return arr[0];
 }
 
 PROGRAM_TAIL(p0013)

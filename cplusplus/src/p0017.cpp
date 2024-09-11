@@ -95,18 +95,14 @@ std::string ToString(uint64_t n) {
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0017() {
     uint64_t answer = 0;
+    std::string filter[2] = {" ", "-"};
+    size_t pos, i;
     for (uint32_t x = 1; x < 1001; x += 1) {
         std::string str = ToString(x);
-        size_t pos = str.find(" ");
-        while (pos != std::string::npos) {
-            str.replace(pos, 1, "");
-            pos = str.find(" ", pos + 1);
-        }
-        pos = str.find("-");
-        while (pos != std::string::npos) {
-            str.replace(pos, 1, "");
-            pos = str.find("-", pos + 1);
-        }
+        for (pos = 0, i = 0; i < 2; i++)
+            while ((pos = str.find(" ", pos)) != std::string::npos)
+                str.replace(pos, 1, "");
+
         answer += str.length();
     }
     return answer;
