@@ -16,7 +16,7 @@ local function primes(stop)
                 then
                     table.insert(newlist, value)
                 else
-                    sieve[value] = { value }
+                    sieve[value] = { step }
                 end
             end
             sieve[cand] = nil
