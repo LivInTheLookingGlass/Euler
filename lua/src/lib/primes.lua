@@ -1,9 +1,14 @@
 local function primes(stop)
     local prime = 1
-    local candidate
+    local candidate = 2
     local sieve = {}
 
     local function next()
+        if stop ~= nil and candidate > stop
+        then
+            return nil
+        end
+
         while true
         do
             candidate = prime + 1
