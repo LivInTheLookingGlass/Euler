@@ -1,12 +1,11 @@
 function loadlib(...)
     local libname = select(1, ...)
-    local fnames = {}
     local length = select("#", ...)
 
     local lib, err = loadfile("src/lib/" .. select(1, ...) .. ".lua")
     if not lib
     then
-        error("Failed to load lib " .. libname .. ": " .. err)        
+        error("Failed to load lib " .. libname .. ": " .. err)
     end
     lib = lib()
 

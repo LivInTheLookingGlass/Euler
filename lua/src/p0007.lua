@@ -7,8 +7,8 @@ local primes = loadlib("primes").primes
 
 return {
     solution = function()
+        local num
         local idx = 0
-        local num = 0
         local pgen = primes()
 
         repeat
