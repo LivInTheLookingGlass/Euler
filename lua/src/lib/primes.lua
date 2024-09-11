@@ -11,10 +11,9 @@ local function primes(stop)
             for _, step in ipairs(steps)
             do
                 local value = cand + step
-                local newlist = sieve[value]
-                if newlist
+                if sieve[value]
                 then
-                    table.insert(newlist, value)
+                    table.insert(sieve[value], step)
                 else
                     sieve[value] = { step }
                 end
