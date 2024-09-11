@@ -49,8 +49,12 @@ local function prime_factors(n)
     local p = pgen.next()
 
     local function next()
-        print(p .. ", " .. n)
-        while p ~= nil and n % p ~= 0
+        if n == 1
+        then
+            return nil
+        end
+
+        while p and n % p ~= 0
         do
             p = pgen.next()
         end
@@ -66,7 +70,7 @@ local function prime_factors(n)
             return -1
         end
 
-        n = n / p
+        n = math.floor(n / p)
         return p
     end
 
