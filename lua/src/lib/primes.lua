@@ -1,45 +1,33 @@
 local function primes(stop)
-    local p = 2
-    local known_primes = {}
+    local prime = 1
+    local candidate
+    local sieve = {}
 
     local function next()
-        if p < 7
-        then
-            local ret = p
-            local transform = {
-                [2] = 3,
-                [3] = 5,
-                [5] = 7,
-            }
-            p = transform[p]
-            return ret
-        end
-
-        while stop == nil or p < stop
+        while true
         do
-            local broken = false
-            for i = 1,#known_primes,1
-            do
-                if p % known_primes[i] ~= 0
-                then
-                    broken = true
-                    break
-                end
-            end
-
-            local ret = p
-
-            if p % 6 == 1
+            candidate = prime + 1
+            local steps = sieve[candidate]
+            if steps == nil
             then
-                p = p + 4
+                sieve[candidate * candidate] = { candidate }
+                prime = candidate
+                return candidate
             else
-                p = p + 2
-            end
+                for i = 1,#steps,1
+                do
+                    local step = steps[i]
+                    local value = candidate + step
+                    local newlist = sieve[value]
+                    if newlist ~= nil
+                    then
+                        newlist[#newlist + 1] = value
+                    else
+                        sieve[candidate + value] = { value }
+                    end
+                end
 
-            if not broken
-            then
-                known_primes[#known_primes + 1] = ret
-                return ret
+                sieve[candidate] = nil
             end
         end
     end
@@ -58,7 +46,7 @@ local function prime_factors(n)
         while p ~= nil and n % p ~= 0
         do
             p = pgen.next()
-                print(p)
+            print(p)
         end
 
         if p == nil
