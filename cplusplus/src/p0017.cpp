@@ -100,7 +100,7 @@ uint64_t EMSCRIPTEN_KEEPALIVE p0017() {
     for (uint32_t x = 1; x < 1001; x += 1) {
         std::string str = ToString(x);
         for (pos = 0, i = 0; i < 2; i++)
-            while ((pos = str.find(" ", pos)) != std::string::npos)
+            while ((pos = str.find(filter[i], pos)) != std::string::npos)
                 str.replace(pos, 1, "");
 
         answer += str.length();
