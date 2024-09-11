@@ -93,7 +93,7 @@ Olivia's Project Euler Solutions
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
-   | Lua        | Lua 5+ [#]_                | 12     | |Luai| |br|       |
+   | Lua        | Lua 5+ [#]_                | 10     | |Luai| |br|       |
    |            |                            |        | |LuaCheck|        |
    +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |
