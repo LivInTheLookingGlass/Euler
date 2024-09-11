@@ -1,0 +1,23 @@
+Lua Implementation of Problem 7
+===============================
+
+View source code :source:`lua/src/p0007.lua`
+
+Includes
+--------
+
+- `primes.lua <./lib/primes.html>`__
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 7
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0007.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: factorization, prime-number, lua-iterator

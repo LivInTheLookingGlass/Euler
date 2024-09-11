@@ -1,3 +1,29 @@
+function loadlib(...)
+    local libname = select(1, ...)
+    local fnames = {}
+    local length = select("#", ...)
+
+    local lib, err = loadfile("src/lib/" .. select(1, ...) .. ".lua")
+    if not lib
+    then
+        error("Failed to load lib " .. libname .. ": " .. err)        
+    end
+    lib = lib()
+
+    if length == 1
+    then
+        return lib
+    end
+
+    local ret = {}
+    for i = 2,length,1
+    do
+        local fname = select(i, ...)
+        ret[fname] = lib[fname]
+    end
+    return ret
+end
+
 -- Function to load a problem solution file
 local function load_problem(file_name)
     local func, err = loadfile(file_name)
@@ -17,6 +43,7 @@ end
 
 -- Timing and result check function
 local function check_problem(file_name, expected_answer, is_slow, problem_name)
+    print("Starting: " .. file_name)
     local problem_func = load_problem("src/" .. file_name)
     local start_time = os.clock()
     local success, result = pcall(problem_func)
@@ -47,7 +74,6 @@ end
 local problems = {
     ["p0001.lua"] = {233168, false},
     ["p0002.lua"] = {4613732, false},
-    ["p0003.lua"] = {6857, false},
     ["p0004.lua"] = {906609, false},
     ["p0006.lua"] = {25164150, false},
     ["p0008.lua"] = {23514624000, false},
@@ -56,6 +82,8 @@ local problems = {
     ["p0028.lua"] = {669171001, false},
     ["p0034.lua"] = {40730, false},
     ["p0836.lua"] = {"aprilfoolsjoke", false},
+    ["p0003.lua"] = {6857, true},
+    ["p0007.lua"] = {104743, true},
     ["p0076.lua"] = {190569291, true},
 }
 

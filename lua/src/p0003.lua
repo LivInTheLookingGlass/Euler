@@ -6,15 +6,18 @@
 --
 -- What is the largest prime factor of the number 600851475143 ?
 
+local prime_factors = loadlib("primes").prime_factors
+
 return {
     solution = function()
         local fgen = prime_factors(600851475143)
-        local f = 0
+        local f = fgen.next()
         local answer = 0
 
-        while (f = fgen.next()) ~= nil
+        while f ~= nil
         do
             answer = f
+            f = fgen.next()
         end
 
         return answer
