@@ -3,42 +3,44 @@ local function primes(stop)
     local candidate = 2
     local sieve = {}
 
-    local function next()
-        if stop ~= nil and candidate > stop
+    local function next_prime(candidate)
+        local steps = sieve[candidate]
+
+        if steps
         then
-            return nil
-        end
-
-        while true
-        do
-            candidate = prime + 1
-            local steps = sieve[candidate]
-            if steps == nil
-            then
-                sieve[candidate * candidate] = { candidate }
-                prime = candidate
-                return candidate
-            else
-                for i = 1,#steps,1
-                do
-                    local step = steps[i]
-                    local value = candidate + step
-                    local newlist = sieve[value]
-                    if newlist ~= nil
-                    then
-                        newlist[#newlist + 1] = value
-                    else
-                        sieve[candidate + value] = { value }
-                    end
+            for _, step in ipairs(steps)
+            do
+                local value = candidate + step
+                local newlist = sieve[value]
+                if newlist
+                then
+                    table.insert(newlist, value)
+                else
+                    sieve[value] = { value }
                 end
-
-                sieve[candidate] = nil
             end
+            sieve[candidate] = nil
+            return next_prime(candidate + 1)
+        else
+            sieve[candidate * candidate] = { candidate }
+            return candidate
         end
     end
 
+    local function next()
+        if stop ~= nil and prime >= stop
+        then
+            sieve = {}
+            error("Tried to exceed given limit")
+        end
+        
+        prime = next_prime(candidate)
+        candidate = prime + 1
+        return prime
+    end
+
     return {
-        next = next,
+        next = next
     }
 end
 
