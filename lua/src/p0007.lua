@@ -14,7 +14,7 @@ return {
         repeat
             idx = idx + 1
             num = pgen.next()
-        until idx > 10000
+        until idx > 10001
 
         return num
     end
