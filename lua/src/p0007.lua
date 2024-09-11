@@ -14,7 +14,6 @@ return {
         repeat
             idx = idx + 1
             num = pgen.next()
-            print(idx .. ", " .. num)
         until idx > 10000
 
         return num

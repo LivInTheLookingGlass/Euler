@@ -51,7 +51,6 @@ local function prime_factors(n)
         while p ~= nil and n % p ~= 0
         do
             p = pgen.next()
-            print(p)
         end
 
         if p == nil
