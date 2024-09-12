@@ -9,16 +9,8 @@ local function factorial(n)
     return answer
 end
 
-local function n_choose_r(n, r)
-    if n < 20  -- fast path if number is small
-    then
-        return factorial(n) / factorial(r) / factorial(n - r)
-    end
-
-    -- slow path for big numbers// slow path for larger numbers
+local function factor_gen(n, r)
     local factors = {}
-    local answer
-    local tmp
 
     -- collect factors of final number
     for i = 2,n,1
@@ -51,6 +43,19 @@ local function n_choose_r(n, r)
         end
     end
 
+    return factors
+end
+
+local function n_choose_r(n, r)
+    if n < 20  -- fast path if number is small
+    then
+        return factorial(n) / factorial(r) / factorial(n - r)
+    end
+
+    -- slow path for big numbers// slow path for larger numbers
+    local factors = factor_gen(n, r)
+    local answer
+    local tmp
     local i = 2
     local j = 2
     answer = 1;
@@ -95,4 +100,5 @@ end
 
 return {
     factorial = factorial,
+    n_choose_r = n_choose_r,
 }
