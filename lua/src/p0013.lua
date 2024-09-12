@@ -224,7 +224,7 @@ return {
             do
                 if arr[j] > ten18
                 then
-                    arr[j - 1] = arr[j - 1] + arr[j] / ten18
+                    arr[j - 1] = math.floor(arr[j - 1] + arr[j] / ten18)
                     arr[j] = arr[j] % ten18
                 end
             end
@@ -232,7 +232,7 @@ return {
 
         while arr[1] > ten10
         do
-            arr[1] = arr[1] / 10
+            arr[1] = math.floor(arr[1] / 10)
         end
 
         return arr[1]
