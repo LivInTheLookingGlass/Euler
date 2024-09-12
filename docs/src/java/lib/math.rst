@@ -3,7 +3,7 @@ Mathematics.java
 
 View source code :source:`java/src/main/java/euler/lib/Mathematics.java`
 
-.. java:type:: public class Utilities
+.. java:type:: public class Mathematics
 
     .. java:method:: public static long factorial(long n)
 

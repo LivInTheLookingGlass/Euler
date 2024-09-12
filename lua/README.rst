@@ -1,10 +1,12 @@
 Lua Section
 ============
 
-.. .. |Lua Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml/badge.svg
-..    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml
+.. |Luai| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/lua.yml?logo=github&label=Lua%20Tests
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/lua.yml
+.. |LuaCheck| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/lua-lint.yml?logo=github&label=LuaCheck
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/lua-lint.yml
 
-.. |Lua Check|
+|Luai| |LuaCheck|
 
 Organization
 ------------
