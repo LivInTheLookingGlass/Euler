@@ -1,0 +1,18 @@
+Lua Implementation of Problem 13
+================================
+
+View source code :source:`lua/src/p0013.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 13
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0013.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: large-numbers

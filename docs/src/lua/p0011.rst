@@ -1,0 +1,18 @@
+Lua Implementation of Problem 11
+================================
+
+View source code :source:`lua/src/p0011.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 11
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0011.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: optimization
