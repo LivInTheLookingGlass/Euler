@@ -65,7 +65,7 @@ local function check_problem(file_name, expected_answer, is_slow, problem_name)
         )
     end
 
-    if not is_slow and elapsed_time > 60 then
+    if not is_slow and not has_luacov and elapsed_time > 60 then
         error(
             "Problem " .. problem_name .. " took ~" .. string.format("%.3f", elapsed_time) ..
             "s, exceeding the expected time limit of 60s."
