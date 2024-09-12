@@ -96,8 +96,11 @@ for file_name, config in pairs(problems) do
 end
 
 -- Slow testing loop
-for file_name, config in pairs(problems) do
-    if config[2] then
-        check_problem(file_name, config[1], config[2], file_name:match("(%d+)"))
+if not has_luacov
+then
+    for file_name, config in pairs(problems) do
+        if config[2] then
+            check_problem(file_name, config[1], config[2], file_name:match("(%d+)"))
+        end
     end
 end
