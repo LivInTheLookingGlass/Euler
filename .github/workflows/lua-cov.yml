@@ -1,0 +1,32 @@
+name: Lua
+
+on:
+  push:
+    paths:
+    - 'lua/**'
+    - '!lua/README.rst'
+  schedule:
+  - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: brew install lua@5.4 luarocks
+
+    - run: sudo luarocks install luacov
+
+    - run: lua -v && make lu_test COV=true
+
+    - run: find ./lua -print | sort
+
+    - run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -F Lua
