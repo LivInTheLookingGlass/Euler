@@ -1,4 +1,4 @@
--- Project Euler Problem 11
+-- Project Euler Problem 13
 --
 -- Problem:
 --

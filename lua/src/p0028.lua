@@ -45,7 +45,7 @@
 --
 -- What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 
-local range_entry = loadfile("src/lib/range.lua")().range_entry3
+local range_entry = loadlib("range").range_entry3
 
 return {
     solution = function()

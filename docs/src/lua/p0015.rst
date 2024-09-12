@@ -1,0 +1,23 @@
+Lua Implementation of Problem 15
+================================
+
+View source code :source:`lua/src/p0015.lua`
+
+Includes
+--------
+
+- `math <./lib/math.html>`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 15
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0015.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: large-numbers

@@ -13,7 +13,7 @@
 --
 -- Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 
-local factorial = loadfile('src/lib/math.lua')().factorial
+local factorial = loadlib('math').factorial
 
 return {
     solution = function()
