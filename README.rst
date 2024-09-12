@@ -45,6 +45,8 @@ Olivia's Project Euler Solutions
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Java
 .. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&label=Js%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=JavaScript
+.. |Lu-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Lua&logo=codecov&label=Lu%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Lua
 .. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&label=Py%20Cov
    :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Python
 .. |Rs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Rust&logo=codecov&label=Rs%20Cov
@@ -94,6 +96,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
    | Lua        | Lua 5+ [#]_                | 12     | |Luai| |br|       |
+   |            |                            |        | |Lu-Cov| |br|     |
    |            |                            |        | |LuaCheck|        |
    +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 80     | |Python| |br|     |

@@ -1,10 +1,16 @@
 Python Section
 ==============
 
-.. |Python Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml/badge.svg
+.. |Python| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python.yml?logo=github&label=Py%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python.yml
+.. |PythonLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/python-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/python-lint.yml
+.. |Py-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Python&logo=codecov&label=Py%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Python
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&label=CodeQL
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
 
-|Python Check|
+|Python| |Py-Cov| |PythonLint| |CodeQL|
 
 All problems are solved in type-hinted python3
 

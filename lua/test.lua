@@ -46,6 +46,10 @@ end
 local function check_problem(file_name, expected_answer, is_slow, problem_name)
     print("Starting: " .. file_name)
     local problem_func = load_problem("src/" .. file_name)
+    if is_slow and has_luacov
+    then
+        return
+    end
     local start_time = os.clock()
     local success, result = pcall(problem_func)
     local elapsed_time = os.clock() - start_time
@@ -61,7 +65,7 @@ local function check_problem(file_name, expected_answer, is_slow, problem_name)
         )
     end
 
-    if not is_slow and not has_luacov and elapsed_time > 60 then
+    if not is_slow and elapsed_time > 60 then
         error(
             "Problem " .. problem_name .. " took ~" .. string.format("%.3f", elapsed_time) ..
             "s, exceeding the expected time limit of 60s."
@@ -96,11 +100,8 @@ for file_name, config in pairs(problems) do
 end
 
 -- Slow testing loop
-if not has_luacov
-then
-    for file_name, config in pairs(problems) do
-        if config[2] then
-            check_problem(file_name, config[1], config[2], file_name:match("(%d+)"))
-        end
+for file_name, config in pairs(problems) do
+    if config[2] then
+        check_problem(file_name, config[1], config[2], file_name:match("(%d+)"))
     end
 end

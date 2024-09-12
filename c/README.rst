@@ -1,14 +1,18 @@
 C Section
 =========
 
-.. |C Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml/badge.svg
+.. |Ci| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/c.yml?logo=github&label=C%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c.yml
+.. |C-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/c-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/c-lint.yml
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&label=CodeQL
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
+.. |C-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=C&logo=codecov&label=C%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=C
 
-|C Check|
+|Ci| |C-Cov| |C-lint| |CodeQL|
 
-All problems are solved in C11, though most if not all of it is
-C99-compatible. It is tested on clang, gcc, pcc, tcc, and msvc (the Visual Studios
-compiler).
+All problems are solved in C99. It is tested on clang, gcc, pcc, tcc, and msvc (the Visual Studios compiler).
 
 Organization
 ------------

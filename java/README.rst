@@ -1,10 +1,16 @@
 Java Section
 ============
 
-.. |Java Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/java.yml/badge.svg
+.. |Javai| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/java.yml?logo=github&label=Java%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/java.yml
+.. |Java-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/java-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/java-lint.yml
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&label=CodeQL
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
+.. |Ja-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Java&logo=codecov&label=Java%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Java
 
-|Java Check|
+|Javai| |Ja-Cov| |Java-lint| |CodeQL|
 
 All problems are solved in Java 8+.
 

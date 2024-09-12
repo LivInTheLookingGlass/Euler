@@ -1,10 +1,14 @@
 Rust Section
 ============
 
-.. |Rust Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml/badge.svg
+.. |Rust| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/rust.yml?logo=github&label=Rs%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust.yml
+.. |RustClippy| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/rust-clippy.yml?logo=github&label=Clippy
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/rust-clippy.yml
+.. |Rs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Rust&logo=codecov&label=Rs%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Rust
 
-|Rust Check|
+|Rust| |Rs-Cov| |RustClippy|
 
 Organization
 ------------

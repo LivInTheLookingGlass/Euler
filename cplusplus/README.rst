@@ -1,10 +1,16 @@
 C++ Section
 ===========
 
-.. |C++ Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml/badge.svg
+.. |Cpi| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/cplusplus.yml?logo=github&label=Cpp%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus.yml
+.. |Cp-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/cplusplus-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/cplusplus-lint.yml
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&label=CodeQL
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
+.. |Cp-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Cpp&logo=codecov&label=Cpp%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Cpp
 
-|C++ Check|
+|Cpi| |Cp-Cov| |Cp-lint| |CodeQL|
 
 All problems are solved in C++98. It is tested on clang, g++, and msvc (the Visual Studios compiler).
 

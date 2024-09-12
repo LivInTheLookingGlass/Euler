@@ -1,10 +1,16 @@
 C# Section
 ==========
 
-.. |C# Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml/badge.svg
+.. |C#i| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp.yml?logo=github&label=C%23%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp.yml
+.. |C#-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/csharp-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp-lint.yml
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&label=CodeQL
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
+.. |Cs-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Csharp&logo=codecov&label=C%23%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Csharp
 
-|C# Check|
+|C#i| |Cs-Cov| |C#-lint| |CodeQL|
 
 All problems are solved in .NET 2+.
 

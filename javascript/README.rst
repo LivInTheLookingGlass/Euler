@@ -1,10 +1,16 @@
 JavaScript Section
 ==================
 
-.. |JavaScript Check| image:: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml/badge.svg
+.. |JavaScript| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/javascript.yml?logo=github&label=Js%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/javascript.yml
+.. |ESLint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/eslint.yml?logo=github&label=ESLint
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/eslint.yml
+.. |Js-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=JavaScript&logo=codecov&label=Js%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=JavaScript
+.. |CodeQL| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/codeql.yml?logo=github&label=CodeQL
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/codeql.yml
 
-|JavaScript Check|
+|JavaScript| |Js-Cov| |ESLint| |CodeQL|
 
 All problems are solved in ES6+ Javascript
 

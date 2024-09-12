@@ -5,8 +5,10 @@ Lua Section
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/lua.yml
 .. |LuaCheck| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/lua-lint.yml?logo=github&label=LuaCheck
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/lua-lint.yml
+.. |Lu-Cov| image:: https://img.shields.io/codecov/c/github/LivInTheLookingGlass/Euler?flag=Lua&logo=codecov&label=Lu%20Cov
+   :target: https://app.codecov.io/github/LivInTheLookingGlass/Euler?flags%5B0%5D=Lua
 
-|Luai| |LuaCheck|
+|Luai| |LuaCheck| |Lu-Cov|
 
 Organization
 ------------

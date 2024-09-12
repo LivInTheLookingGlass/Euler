@@ -27,6 +27,8 @@ jobs:
 
     - run: lua -v && make lu_test COV=true
 
-    - run: find ./lua -print | sort
-
-    - run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -F Lua
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: Lua
