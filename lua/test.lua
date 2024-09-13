@@ -5,20 +5,17 @@ function loadlib(...)
     local length = select("#", ...)
 
     local lib, err = loadfile("src/lib/" .. select(1, ...) .. ".lua")
-    if not lib
-    then
+    if not lib then
         error("Failed to load lib " .. libname .. ": " .. err)
     end
     lib = lib()
 
-    if length == 1
-    then
+    if length == 1 then
         return lib
     end
 
     local ret = {}
-    for i = 2,length,1
-    do
+    for i = 2,length do
         local fname = select(i, ...)
         ret[fname] = lib[fname]
     end
@@ -46,8 +43,7 @@ end
 local function check_problem(file_name, expected_answer, is_slow, problem_name)
     print("Starting: " .. file_name)
     local problem_func = load_problem("src/" .. file_name)
-    if is_slow and has_luacov
-    then
+    if is_slow and has_luacov then
         return
     end
     local start_time = os.clock()

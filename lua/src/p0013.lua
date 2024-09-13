@@ -213,25 +213,20 @@ local ten10 = 10000000000
 return {
     solution = function()
         local arr = { 0, 0, 0 }
-        for i = 1,100,1
-        do
-            for j = 1,3,1
-            do
+        for i = 1,100 do
+            for j = 1,3 do
                 arr[j] = arr[j] + numbers[i][j]
             end
 
-            for j = 2,1,-1
-            do
-                if arr[j] > ten18
-                then
+            for j = 2,1,-1 do
+                if arr[j] > ten18 then
                     arr[j - 1] = math.floor(arr[j - 1] + arr[j] / ten18)
                     arr[j] = arr[j] % ten18
                 end
             end
         end
 
-        while arr[1] > ten10
-        do
+        while arr[1] > ten10 do
             arr[1] = math.floor(arr[1] / 10)
         end
 

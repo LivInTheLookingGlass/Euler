@@ -19,17 +19,14 @@ return {
     solution = function()
         local answer = 0
 
-        for x = 10,99999,1
-        do
+        for x = 10,99999 do
             local xs = tostring(x)
             local sum = 0
-            for i = 1,#xs,1
-            do
+            for i = 1,#xs do
                 sum = sum + factorial(tonumber(xs:sub(i, i)))
             end
 
-            if sum == x
-            then
+            if sum == x then
                 answer = answer + x
             end
         end

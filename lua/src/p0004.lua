@@ -11,15 +11,12 @@ return {
     solution = function()
         local answer = 0
 
-        for v = 101,999,1
-        do
-            for u = 100,(v-1),1
-            do
+        for v = 101,999 do
+            for u = 100,(v-1) do
                 local p = u * v
                 local ps = tostring(p)
 
-                if ps == string.reverse(ps) and p > answer
-                then
+                if ps == string.reverse(ps) and p > answer then
                     answer = p
                 end
             end

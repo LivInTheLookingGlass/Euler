@@ -14,8 +14,7 @@ return {
         local f = fgen.next()
         local answer = 0
 
-        while f ~= nil
-        do
+        while f do
             answer = f
             f = fgen.next()
         end

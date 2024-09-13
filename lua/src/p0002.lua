@@ -18,12 +18,10 @@ return {
         local a = 1
         local b = 2
 
-        while b < 4000000
-        do
+        while b < 4000000 do
             answer = answer + b
 
-            for _ = 1,3,1
-            do
+            for _ = 1,3 do
                 a, b = b, a + b
             end
         end

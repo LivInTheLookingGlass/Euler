@@ -53,7 +53,7 @@ local function prime_factors(n)
             return nil
         end
 
-        while p and n % p ~= 0
+        while p and n % p
         do
             p = pgen.next()
         end

@@ -51,8 +51,7 @@ return {
     solution = function()
         local answer = 1
 
-        for i = 1,(1000 / 2),1
-        do
+        for i = 1,(1000 / 2) do
             local start = (2 * i - 1)^2 + 1
             answer = answer + range_entry(start, 1, (1 * 2 * i - 1))
             answer = answer + range_entry(start, 1, (2 * 2 * i - 1))

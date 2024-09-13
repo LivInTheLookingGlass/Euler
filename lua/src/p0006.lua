@@ -21,8 +21,7 @@ return {
         local sum = 1
         local sum_of_squares = 1
 
-        for i = 2,100,1
-        do
+        for i = 2,100 do
             sum = sum + i
             sum_of_squares = sum_of_squares + (i * i)
         end

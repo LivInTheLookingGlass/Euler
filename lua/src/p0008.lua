@@ -53,16 +53,13 @@ return {
                   .. "71636269561882670428252483600823257530420752963450")
         local answer = 0
 
-        for i = 1,(#str-13),1
-        do
+        for i = 1,(#str-13) do
             local product = 1
-            for j = i,(i+12),1
-            do
+            for j = i,(i+12) do
                 product = product * tonumber(str:sub(j, j))
             end
 
-            if product > answer
-            then
+            if product > answer then
                 answer = product
             end
         end

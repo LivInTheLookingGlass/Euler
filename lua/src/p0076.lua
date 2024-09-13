@@ -20,19 +20,16 @@ return {
         local sum = 100
         local counts = {}
 
-        for i = 2,100,1
-        do
+        for i = 2,100 do
             counts[i] = 0
         end
 
         counts[2] = 100
 
-        while counts[100] == 0
-        do
+        while counts[100] == 0 do
             counts[2] = counts[2] + 2
 
-            if sum >= 100
-            then
+            if sum >= 100 then
                 answer = answer + math.floor((100 + counts[2] - sum) / 2)
                 idx = 2
 
@@ -42,16 +39,14 @@ return {
                     counts[idx] = counts[idx] + idx
 
                     sum = counts[idx]
-                    for i = (idx+1),100,1
-                    do
+                    for i = (idx+1),100 do
                         sum = sum + counts[i]
                     end
                 until sum <= 100
             end
 
             sum = counts[2]
-            for i = 3,100,1
-            do
+            for i = 3,100 do
                 sum = sum + counts[i]
             end
         end

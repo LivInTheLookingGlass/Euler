@@ -16,32 +16,27 @@
 -- British usage.
 
 local function to_string_len(n)
-    if n >= 1000
-    then
+    if n >= 1000 then
         local thousands = to_string_len(math.floor(n / 1000 % 100)) + 8
 
-        if n % 1000 ~= 0
-        then
+        if n % 1000 then
             thousands = thousands + to_string_len(n % 1000)
         end
 
         return thousands
     end
 
-    if n >= 100
-    then
+    if n >= 100 then
         local hundreds = to_string_len(math.floor(n / 100 % 10)) + 7
 
-        if n % 100 ~= 0
-        then
+        if n % 100 then
             hundreds = hundreds + 3 + to_string_len(n % 100)
         end
 
         return hundreds
     end
 
-    if n >= 20
-    then
+    if n >= 20 then
         local tens_t = {
             [2] = 6,
             [3] = 6,
@@ -54,8 +49,7 @@ local function to_string_len(n)
         }
         local tens = tens_t[math.floor(n / 10)]
 
-        if n % 10 ~= 0
-        then
+        if n % 10 then
             tens = tens + to_string_len(n % 10)
         end
 
@@ -91,8 +85,7 @@ return {
     solution = function()
         local answer = 0
 
-        for x = 1,1000,1
-        do
+        for x = 1,1000 do
             answer = answer + to_string_len(x)
         end
 

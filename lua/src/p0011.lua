@@ -58,41 +58,33 @@ return {
         local answer = 0
         local tmp
 
-        for i = 1,20,1
-        do
-            for j = 1,17,1
-            do
+        for i = 1,20 do
+            for j = 1,17 do
                 -- horizontal section
                 tmp = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
-                if tmp > answer
-                then
+                if tmp > answer then
                     answer = tmp
                 end
 
                 -- vertical section
                 tmp = grid[j][i] * grid[j + 1][i] * grid[j + 2][i] * grid[j + 3][i];
-                if tmp > answer
-                then
+                if tmp > answer then
                     answer = tmp
                 end
             end
         end
 
-        for i = 1,17,1
-        do
-            for j = 1,17,1
-            do
+        for i = 1,17 do
+            for j = 1,17 do
                 -- right diagonal section
                 tmp = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
-                if tmp > answer
-                then
+                if tmp > answer then
                     answer = tmp
                 end
 
                 -- left diagonal section
                 tmp = grid[i][j + 3] * grid[i + 1][j + 2] * grid[i + 2][j + 1] * grid[i + 3][j];
-                if tmp > answer
-                then
+                if tmp > answer then
                     answer = tmp
                 end
             end
