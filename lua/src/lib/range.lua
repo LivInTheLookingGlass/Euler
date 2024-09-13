@@ -6,19 +6,15 @@ end
 
 local function range_entry4(start, stop, step, idx)
     local length = 0
-    if step > 0 and start < stop
-    then
+    if step > 0 and start < stop then
         length = math.floor(1 + (stop - 1 - start) / step)
-    elseif step < 0 and start > stop
-    then
+    elseif step < 0 and start > stop then
         length = math.floor(1 + (start - 1 - stop) / (-step))
     end
-    if idx < 0
-    then
+    if idx < 0 then
         idx = length + idx
     end
-    if idx < 0 or idx >= length
-    then
+    if idx < 0 or idx >= length then
         return nil, "length is 0, cannot fetch"
     end
     return range_entry3(start, step, idx)

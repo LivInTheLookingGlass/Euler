@@ -6,13 +6,10 @@ local function primes(stop)
     local function next_prime(cand)
         local steps = sieve[cand]
 
-        if steps
-        then
-            for _, step in ipairs(steps)
-            do
+        if steps then
+            for _, step in ipairs(steps) do
                 local value = cand + step
-                if sieve[value]
-                then
+                if sieve[value] then
                     table.insert(sieve[value], step)
                 else
                     sieve[value] = { step }
@@ -27,8 +24,7 @@ local function primes(stop)
     end
 
     local function next()
-        if stop and prime >= stop
-        then
+        if stop and prime >= stop then
             sieve = {}
             error("Tried to exceed given limit")
         end
@@ -48,23 +44,19 @@ local function prime_factors(n)
     local p = pgen.next()
 
     local function next()
-        if n == 1
-        then
+        if n == 1 then
             return nil
         end
 
-        while p and n % p
-        do
+        while p and n % p ~= 0 do
             p = pgen.next()
         end
 
-        if p == nil
-        then
+        if p == nil then
             return nil
         end
 
-        if n < 0
-        then
+        if n < 0 then
             n = -n
             return -1
         end

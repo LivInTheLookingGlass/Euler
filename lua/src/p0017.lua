@@ -19,7 +19,7 @@ local function to_string_len(n)
     if n >= 1000 then
         local thousands = to_string_len(math.floor(n / 1000 % 100)) + 8
 
-        if n % 1000 then
+        if n % 1000 ~= 0 then
             thousands = thousands + to_string_len(n % 1000)
         end
 
@@ -29,7 +29,7 @@ local function to_string_len(n)
     if n >= 100 then
         local hundreds = to_string_len(math.floor(n / 100 % 10)) + 7
 
-        if n % 100 then
+        if n % 100 ~= 0 then
             hundreds = hundreds + 3 + to_string_len(n % 100)
         end
 
@@ -49,7 +49,7 @@ local function to_string_len(n)
         }
         local tens = tens_t[math.floor(n / 10)]
 
-        if n % 10 then
+        if n % 10 ~= 0 then
             tens = tens + to_string_len(n % 10)
         end
 
