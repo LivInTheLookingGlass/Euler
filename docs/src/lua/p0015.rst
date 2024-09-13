@@ -20,4 +20,4 @@ Solution
    :language: Lua
    :linenos:
 
-.. tags:: large-numbers
+.. tags:: combinatorics

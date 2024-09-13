@@ -1,0 +1,18 @@
+Lua Implementation of Problem 14
+================================
+
+View source code :source:`lua/src/p0014.lua`
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 14
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0014.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: collatz, recursion, longest-path
