@@ -12,36 +12,25 @@ It can be verified that T285 = P165 = H143 = 40755.
 
 Find the next triangle number that is also pentagonal and hexagonal.
 """
-
-
-def T(n: int) -> int:
-    return n * (n + 1) // 2
-
-
-def P(n: int) -> int:
-    return n * (3 * n - 1) // 2
-
-
-def H(n: int) -> int:
-    return n * (2 * n - 1)
+from .lib.math import hexagonal, pentagonal, triangle
 
 
 def main() -> int:
     T_idx = 286
     P_idx = 166
     H_idx = 144
-    T_val = T(T_idx)
-    P_val = P(P_idx)
-    H_val = H(H_idx)
+    T_val = triangle(T_idx)
+    P_val = pentagonal(P_idx)
+    H_val = hexagonal(H_idx)
     while not (T_val == P_val == H_val):
         # print(P_val, T_val, H_val)
         while T_val < P_val or T_val < H_val:
             T_idx += 1
-            T_val = T(T_idx)
+            T_val = triangle(T_idx)
         while P_val < T_val or P_val < H_val:
             P_idx += 1
-            P_val = P(P_idx)
+            P_val = pentagonal(P_idx)
         while H_val < P_val or H_val < T_val:
             H_idx += 1
-            H_val = H(H_idx)
+            H_val = hexagonal(H_idx)
     return T_val

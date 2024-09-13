@@ -8,6 +8,8 @@ Includes
 
 - :external:py:func:`itertools.islice`
 - :external:py:func:`math.sqrt`
+- :py:func:`math.is_pentagonal`
+- :py:func:`math.pentagonal`
 
 Problem Solution
 ----------------

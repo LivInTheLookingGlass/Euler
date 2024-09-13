@@ -7,6 +7,7 @@ Includes
 --------
 
 - :external:py:func:`math.factorial`
+- :external:py:func:`math.sqrt`
 
 .. automodule:: python.src.lib.math
    :members:

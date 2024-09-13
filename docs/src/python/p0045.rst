@@ -3,6 +3,13 @@ Python Implementation of Problem 45
 
 View source code :source:`python/src/p0045.py`
 
+Includes
+--------
+
+- :py:func:`math.hexagonal`
+- :py:func:`math.pentagonal`
+- :py:func:`math.triangle`
+
 Problem Solution
 ----------------
 

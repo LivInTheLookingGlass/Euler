@@ -13,21 +13,8 @@ Find the pair of pentagonal numbers, Pj and Pk, for which their sum and differen
 is minimised; what is the value of D?
 """
 from itertools import islice
-from math import sqrt
 
-
-def pentagonal(n: int) -> int:
-    return n * (3 * n - 1) // 2
-
-
-def is_pentagonal(x: int) -> int:
-    root = sqrt(24 * x + 1)
-    if not root.is_integer():
-        return False
-    iroot = int(root)
-    if (1 + iroot) % 6:
-        return False
-    return (1 + iroot) // 6
+from .lib.math import is_pentagonal, pentagonal
 
 
 def main() -> int:

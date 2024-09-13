@@ -1,4 +1,4 @@
-from math import factorial
+from math import factorial, sqrt
 from typing import Iterable
 
 
@@ -43,3 +43,21 @@ def triangle(n: int) -> int:
 
 def quadratic(n: int, a: int, b: int) -> int:
     return (n + a) * n + b
+
+
+def pentagonal(n: int) -> int:
+    return n * (3 * n - 1) // 2
+
+
+def is_pentagonal(x: int) -> int:
+    root = sqrt(24 * x + 1)
+    if not root.is_integer():
+        return False
+    iroot = int(root)
+    if (1 + iroot) % 6:
+        return False
+    return (1 + iroot) // 6
+
+
+def hexagonal(n: int) -> int:
+    return n * (2 * n - 1)
