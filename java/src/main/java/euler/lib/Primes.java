@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public class Primes {
-
     private static class Cache {
         long lastCached;
         List<Long> primes;
@@ -107,26 +106,20 @@ public class Primes {
     }
 
     private static class PrimeGeneratorIterator implements Iterator<Long> {
-        private final List<Long> initialPrimes = List.of(2L, 3L, 5L, 7L);
+        private final List<Long> initialPrimes = List.of(2L, 3L, 5L);
         private final Map<Long, Long> sieve = new HashMap<>();
         private Iterator<Long> recursivePrimes;
         private long currentPrime;
         private long primeSquared;
         private long step = 2;
-        private long candidate = 9;
+        private long candidate = 2;
 
         PrimeGeneratorIterator() {
             initialPrimes.forEach(prime -> {
                 sieve.put(prime, step);
                 step = prime * 2;
             });
-            recursivePrimes = new PrimeIterator(null);
-            recursivePrimes.next();
-            currentPrime = recursivePrimes.next();
-            if (currentPrime != 3) {
-                throw new IllegalStateException("Unexpected prime value");
-            }
-            primeSquared = currentPrime * currentPrime;
+            recursivePrimes = null;
         }
 
         @Override
@@ -136,6 +129,24 @@ public class Primes {
 
         @Override
         public Long next() {
+            if (candidate <= 5) {
+                if (candidate == 2) {
+                    candidate = 3;
+                    return 2L;
+                }
+                if (candidate == 3) {
+                    candidate = 5;
+                    return 3L;
+                }
+                if (candidate == 5) {
+                    candidate = 7;
+                    recursivePrimes = new PrimeIterator(null);
+                    recursivePrimes.next();
+                    currentPrime = recursivePrimes.next();
+                    primeSquared = currentPrime * currentPrime;
+                    return 5L;
+                }
+            }
             while (true) {
                 if (sieve.containsKey(candidate)) {
                     step = sieve.remove(candidate);
@@ -151,9 +162,9 @@ public class Primes {
                     primeSquared = currentPrime * currentPrime;
                 }
                 long multiple = candidate;
-                while (sieve.containsKey(multiple)) {
+                do {
                     multiple += step;
-                }
+                } while (sieve.containsKey(multiple));
                 sieve.put(multiple, step);
                 candidate += 2;
             }
