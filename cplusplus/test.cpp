@@ -7,12 +7,12 @@
 #include "src/p0002.cpp"
 #include "src/p0003.cpp"
 #include "src/p0004.cpp"
-// #include "src/p0005.cpp"
+#include "src/p0005.cpp"
 #include "src/p0006.cpp"
 #include "src/p0007.cpp"
 #include "src/p0008.cpp"
 #include "src/p0009.cpp"
-// #include "src/p0010.cpp"
+#include "src/p0010.cpp"
 #include "src/p0011.cpp"
 // #include "src/p0012.cpp"
 #include "src/p0013.cpp"
@@ -39,7 +39,7 @@ ProblemRef answers[] = {
 	{   2, 	(void *(*)())p0002 },
 	{   3,	(void *(*)())p0003 },
 	{   4,	(void *(*)())p0004 },
-	// {   5,	(void *(*)())p0005 },
+	{   5,	(void *(*)())p0005 },
 	{   6,	(void *(*)())p0006 },
 	{   7,	(void *(*)())p0007 },
 	{   8,	(void *(*)())p0008 },

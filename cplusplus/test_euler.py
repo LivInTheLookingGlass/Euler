@@ -22,9 +22,7 @@ from src.lib.utils import get_answer  # noqa: E402  # isort:skip
 
 answers = {
     x: get_answer(x) for x in (
-        *range(1, 5),
-        *range(6, 10),
-        11,
+        *range(1, 12),
         *range(13, 18),
         *range(19, 21),
         22,

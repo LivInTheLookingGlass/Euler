@@ -1,0 +1,30 @@
+C++ Implementation of Problem 10
+================================
+
+View source code :source:`cplusplus/src/p0010.cpp`
+
+Includes
+--------
+
+- `"primes.hpp" <./lib/primes.html>`__
+- :external:c:type:`stdint`
+- :external:cpp:type:`iostream`
+
+Solution
+--------
+
+.. cpp:namespace-push:: p0010
+
+.. cpp:function:: uint64_t p0010()
+
+.. cpp:function:: int main(int argc, char const *argv[])
+
+   .. note:: 
+      
+      This function is only present in the Python test runner, or when compiling as a standalone program.
+
+.. literalinclude:: ../../../cplusplus/src/p0010.cpp
+   :language: C++
+   :linenos:
+
+.. tags:: cpp-iterator, prime-number

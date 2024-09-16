@@ -18,9 +18,9 @@ import euler.lib.Primes;
 public class p0003 implements IEuler {
     @Override
     public Object answer() {
-        return (short) Primes.primeFactors(600851475143L)
-                             .max(Comparator.naturalOrder())
-                             .get()
-                             .intValue();
+        return Primes.primeFactors(600851475143L)
+                     .max(Comparator.naturalOrder())
+                     .get()
+                     .shortValue();
     }
 }
