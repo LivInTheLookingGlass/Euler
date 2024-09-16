@@ -85,7 +85,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | Java       | Java 8+ in Corretto, |br|  | 18     | |Javai| |br|      |
+   | Java       | Java 8+ in Corretto, |br|  | 19     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
    |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
    |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |
@@ -95,7 +95,7 @@ Olivia's Project Euler Solutions
    |            | Browser [#]_               |        | |CodeQL| |br|     |
    |            |                            |        | |ESLint|          |
    +------------+----------------------------+--------+-------------------+
-   | Lua        | Lua 5+ [#]_                | 17     | |Luai| |br|       |
+   | Lua        | PUC-Rio Lua 5+ [#]_        | 17     | |Luai| |br|       |
    |            |                            |        | |Lu-Cov| |br|     |
    |            |                            |        | |LuaCheck|        |
    +------------+----------------------------+--------+-------------------+
