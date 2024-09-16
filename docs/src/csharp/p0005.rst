@@ -1,0 +1,18 @@
+C# Implementation of Problem 5
+==============================
+
+View source code :source:`csharp/Euler/p0005.cs`
+
+.. csharp:namespace:: Euler
+
+.. csharp:class:: p0005
+
+   .. csharp:inherits:: Euler.IEuler
+
+   .. csharp:method:: object Answer()
+
+.. literalinclude:: ../../../csharp/Euler/p0005.cs
+   :language: csharp
+   :linenos:
+
+.. tags:: csharp-iterator, divisibility, factorization, prime-number

@@ -80,12 +80,12 @@ Olivia's Project Euler Solutions
    |            | C++14+ in: |msvc| [1]_     |        | |CodeQL| |br|     |
    |            | |br| Browser [3]_          |        | |Cp-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | C |nbsp| # | .NET 2+                    | 21     | |C#i| |br|        |
+   | C |nbsp| # | .NET 2+                    | 22     | |C#i| |br|        |
    |            |                            |        | |Cs-Cov| |br|     |
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | Java       | Java 8+ in Corretto, |br|  | 21     | |Javai| |br|      |
+   | Java       | Java 8+ in Corretto, |br|  | 22     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
    |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
    |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |

@@ -18,7 +18,7 @@ namespace Euler
     {
         public object Answer()
         {
-            return (short)Enumerable.Max(Prime.PrimeFactors(600851475143));
+            return (short)Prime.PrimeFactors(600851475143).Max();
         }
     }
 }

@@ -16,11 +16,7 @@ namespace Euler
     {
         public object Answer()
         {
-            int i = 0;
-            foreach (long p in Prime.Primes<long>())
-                if (i++ == 10000)
-                    return (int)p;
-            return -1;
+            return Prime.Primes<int>().ElementAt(10000);
         }
     }
 }

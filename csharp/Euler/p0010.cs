@@ -15,7 +15,7 @@ namespace Euler
     {
         public object Answer()
         {
-            return Enumerable.Sum(Prime.Primes<long>(2000000));
+            return Prime.Primes<long>(2000000).Sum();
         }
     }
 }

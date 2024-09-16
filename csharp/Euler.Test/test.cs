@@ -16,6 +16,7 @@ namespace Tests
             yield return new object[] { typeof(p0002), false, Utilities.GetAnswer(2) };
             yield return new object[] { typeof(p0003), false, Utilities.GetAnswer(3) };
             yield return new object[] { typeof(p0004), false, Utilities.GetAnswer(4) };
+            yield return new object[] { typeof(p0005), false, Utilities.GetAnswer(5) };
             yield return new object[] { typeof(p0006), false, Utilities.GetAnswer(6) };
             yield return new object[] { typeof(p0007), false, Utilities.GetAnswer(7) };
             yield return new object[] { typeof(p0008), false, Utilities.GetAnswer(8) };
