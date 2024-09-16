@@ -16,7 +16,7 @@ Find the sum of all the primes below two million.
 
 uint64_t EMSCRIPTEN_KEEPALIVE p0010() {
     uint64_t tmp, answer = 0;
-    PrimeGenerator<uint64_t> pg = primes();
+    PrimeGenerator<uint64_t> pg = primes<uint64_t>();
     while ((tmp = pg.next()) < 2000000)
         answer += tmp;
     return answer;

@@ -17,9 +17,8 @@ What is the smallest positive number that is evenly divisible by all of the numb
 uint32_t EMSCRIPTEN_KEEPALIVE p0005() {
     uint32_t answer = 1;
     uint8_t factor_tracker[20] = {0}, local_factor_tracker[20] = {0};
-    PrimeFactors<uint8_t> pfc;
     for (uint8_t i = 2; i < 21; i++) {
-        pfc = prime_factors(i);
+        PrimeFactors<uint8_t> pfc = prime_factors<uint8_t>(i);
         while (pfc.has_next())
             local_factor_tracker[pfc.next()]++;
         for (uint8_t i = 2; i < 20; i++) {
