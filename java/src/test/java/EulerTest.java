@@ -22,6 +22,7 @@ public class EulerTest {
                 new Object[] { p0007.class, false, Utilities.getAnswer(7) },
                 new Object[] { p0008.class, false, Utilities.getAnswer(8) },
                 new Object[] { p0009.class, false, Utilities.getAnswer(9) },
+                new Object[] { p0010.class, false, Utilities.getAnswer(10) },
                 new Object[] { p0011.class, false, Utilities.getAnswer(11) },
                 new Object[] { p0013.class, false, Utilities.getAnswer(13) },
                 new Object[] { p0014.class, false, Utilities.getAnswer(14) },

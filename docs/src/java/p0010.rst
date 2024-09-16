@@ -1,0 +1,24 @@
+Java Implementation of Problem 10
+=================================
+
+View source code :source:`java/src/main/java/euler/p0010.java`
+
+Includes
+--------
+
+- `Primes.java <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. java:type:: public class p0010 implements IEuler
+
+   .. java:method:: Object answer()
+
+    :return: The answer to Project Euler problem 10
+
+.. literalinclude:: ../../../java/src/main/java/euler/p0010.java
+   :language: java
+   :linenos:
+
+.. tags:: prime-number, java-iterator

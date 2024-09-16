@@ -85,7 +85,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | Java       | Java 8+ in Corretto, |br|  | 19     | |Javai| |br|      |
+   | Java       | Java 8+ in Corretto, |br|  | 20     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
    |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
    |            | Semeru, Temurin, & Zulu    |        | |Java-lint|       |

@@ -3,6 +3,14 @@ Java Implementation of Problem 7
 
 View source code :source:`java/src/main/java/euler/p0007.java`
 
+Includes
+--------
+
+- `Primes.java <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
 .. java:type:: public class p0007 implements IEuler
 
    .. java:method:: Object answer()
