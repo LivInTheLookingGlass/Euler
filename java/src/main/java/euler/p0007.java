@@ -10,6 +10,8 @@ What is the 10 001st prime number?
 */
 package euler;
 
+import euler.lib.Primes;
+
 public class p0007 implements IEuler {
     @Override
     public Object answer() {
