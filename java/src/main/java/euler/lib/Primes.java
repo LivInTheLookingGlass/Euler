@@ -4,10 +4,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-public class PrimeGenerator {
+public class Primes {
 
     private static class Cache {
         long lastCached;
@@ -29,7 +31,7 @@ public class PrimeGenerator {
         return StreamSupport.stream(new PrimeIterator(limit).spliterator(), false);
     }
 
-    private static class PrimeIterator implements Iterator<Long> {
+    private static class PrimeIterator implements Iterator<Long>, Iterable<Long> {
         private final Long limit;
         private Iterator<Long> primeGenerator;
         private boolean exhausted = false; // Flag to indicate if we have exhausted all primes
@@ -78,6 +80,16 @@ public class PrimeGenerator {
                 // Reinitialize primeGenerator if needed
                 primeGenerator = new PrimeGeneratorIterator(null);
             }
+        }
+
+        @Override
+        public Spliterator<Long> spliterator() {
+            return Spliterators.spliteratorUnknownSize(this, Spliterator.ORDERED);
+        }
+
+        @Override
+        public Iterator<Long> iterator() {
+            return this;
         }
     }
 

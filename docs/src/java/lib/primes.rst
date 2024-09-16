@@ -3,7 +3,7 @@ Primes.java
 
 View source code :source:`java/src/main/java/euler/lib/Primes.java`
 
-.. java:type:: public class PrimeGenerator
+.. java:type:: public class Primes
 
     .. java:method:: public static Stream<Long> primes()
 

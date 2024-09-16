@@ -13,9 +13,9 @@ package euler;
 public class p0007 implements IEuler {
     @Override
     public Object answer() {
-        return PrimeGenerator.primes()
-                             .skip(10000)
-                             .findFirst()
-                             .orElseThrow(() -> new RuntimeException("Prime number not found"));
+        return Primes.primes()
+                     .skip(10000)
+                     .findFirst()
+                     .orElseThrow(() -> new RuntimeException("Prime number not found"));
     }
 }
