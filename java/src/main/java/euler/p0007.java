@@ -15,9 +15,9 @@ import euler.lib.Primes;
 public class p0007 implements IEuler {
     @Override
     public Object answer() {
-        return Primes.primes()
-                     .skip(10000)
-                     .findFirst()
-                     .orElseThrow(() -> new RuntimeException("Prime number not found"));
+        return (int) Primes.primes()
+                           .skip(10000)
+                           .findFirst()
+                           .orElseThrow(() -> new RuntimeException("Prime number not found"));
     }
 }
