@@ -1,3 +1,5 @@
+package euler.lib;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,12 +26,10 @@ public class Primes {
 
     private static final Cache CACHE = new Cache(0, new ArrayList<>());
 
-    // Generate an infinite stream of primes
     public static Stream<Long> primes() {
         return StreamSupport.stream(new PrimeSpliterator(null), false);
     }
 
-    // Generate a stream of primes up to a given limit
     public static Stream<Long> primesUntil(Long limit) {
         return StreamSupport.stream(new PrimeSpliterator(limit), false);
     }
@@ -69,7 +69,7 @@ public class Primes {
     private static class PrimeIterator implements Iterator<Long> {
         private final Long limit;
         private Iterator<Long> primeGenerator;
-        private boolean exhausted = false; // Flag to indicate if we have exhausted all primes
+        private boolean exhausted = false;
 
         PrimeIterator(Long limit) {
             this.limit = limit;
@@ -78,16 +78,9 @@ public class Primes {
 
         @Override
         public boolean hasNext() {
-            if (exhausted) {
+            if (exhausted || (limit != null && CACHE.lastCached >= limit)) {
                 return false;
             }
-
-            // Check if the limit has been reached with cached primes
-            if (limit != null && CACHE.lastCached >= limit) {
-                return false;
-            }
-
-            // Check if there are more primes to generate
             return primeGenerator.hasNext();
         }
 
@@ -95,25 +88,21 @@ public class Primes {
         public Long next() {
             if (limit != null && CACHE.lastCached >= limit) {
                 exhausted = true;
-                return null; // Indicate end of stream
+                return null;
             }
 
-            // Generate and yield new primes
-            while (true) {
-                if (primeGenerator.hasNext()) {
-                    long prime = primeGenerator.next();
-                    if (limit != null && prime >= limit) {
-                        exhausted = true;
-                        return null; // Indicate end of stream
-                    }
-                    CACHE.primes.add(prime);
-                    CACHE.lastCached = prime;
-                    return prime;
+            if (primeGenerator.hasNext()) {
+                long prime = primeGenerator.next();
+                if (limit != null && prime >= limit) {
+                    exhausted = true;
+                    return null;
                 }
-
-                // Reinitialize primeGenerator if needed
-                primeGenerator = new PrimeGeneratorIterator();
+                CACHE.primes.add(prime);
+                CACHE.lastCached = prime;
+                return prime;
             }
+
+            return null;
         }
     }
 
@@ -132,9 +121,8 @@ public class Primes {
                 step = prime * 2;
             });
             recursivePrimes = new PrimeIterator(null);
-            if (recursivePrimes.hasNext()) {
-                currentPrime = recursivePrimes.next();
-            }
+            recursivePrimes.next();
+            currentPrime = recursivePrimes.next();
             if (currentPrime != 3) {
                 throw new IllegalStateException("Unexpected prime value");
             }
