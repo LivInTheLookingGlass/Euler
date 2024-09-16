@@ -30,7 +30,7 @@ public class Primes {
         return StreamSupport.stream(new PrimeSpliterator(null), false);
     }
 
-    public static Stream<Long> primesUntil(Long limit) {
+    public static Stream<Long> primesUntil(long limit) {
         return StreamSupport.stream(new PrimeSpliterator(limit), false);
     }
 
@@ -169,6 +169,79 @@ public class Primes {
                 sieve.put(multiple, step);
                 candidate += 2;
             }
+        }
+    }
+
+    public static Stream<Long> primeFactors(long target) {
+        return StreamSupport.stream(new PrimeFactorSpliterator(target), false);
+    }
+
+    private static class PrimeFactorSpliterator implements Spliterator<Long> {
+        private final PrimeFactorIterator primeFactorIterator;
+
+        PrimeFactorSpliterator(Long limit) {
+            primeFactorIterator = new PrimeFactorIterator(limit);
+        }
+
+        @Override
+        public boolean tryAdvance(Consumer<? super Long> action) {
+            if (primeFactorIterator.hasNext()) {
+                action.accept(primeFactorIterator.next());
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public Spliterator<Long> trySplit() {
+            return null; // Sequential iteration only
+        }
+
+        @Override
+        public long estimateSize() {
+            return Long.MAX_VALUE; // Unknown size
+        }
+
+        @Override
+        public int characteristics() {
+            return ORDERED | SIZED | IMMUTABLE | NONNULL;
+        }
+    }
+
+    private static class PrimeFactorIterator implements Iterator<Long> {
+        private Long target;
+        private Long lastPrime;
+        private Iterator<Long> primeGenerator;
+
+        PrimeFactorIterator(Long target) {
+            this.target = target;
+            primeGenerator = new PrimeIterator(null);
+            lastPrime = primeGenerator.next();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return this.target != 1;
+        }
+
+        @Override
+        public Long next() {
+            if (target < 0L) {
+                target = -target;
+                return -1L;
+            }
+            if (target == 0L) {
+                target = 1L;
+                return 0L;
+            }
+            while (hasNext()) {
+                while (target % lastPrime != 0L && lastPrime < target) {
+                    lastPrime = primeGenerator.next();
+                }
+                target /= lastPrime;
+                return lastPrime;
+            }
+            return null;
         }
     }
 }

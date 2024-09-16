@@ -9,9 +9,13 @@ View source code :source:`java/src/main/java/euler/lib/Primes.java`
 
         :return: Iterates over the prime numbers
 
-    .. java:method:: public static Stream<Long> primesUntil(Long limit)
+    .. java:method:: public static Stream<Long> primesUntil(long limit)
 
         :return: Iterates over the prime numbers, up until a given limit
+
+    .. java:method:: public static Stream<Long> primeFactors(long target)
+
+        :return: Iterates over the prime factors of a number
 
 .. literalinclude:: ../../../../java/src/main/java/euler/lib/Primes.java
    :language: java

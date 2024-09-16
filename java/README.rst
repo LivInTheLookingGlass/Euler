@@ -83,6 +83,7 @@ Problems Solved
 
 -  ☒ `1 <./src/main/java/p0001.java>`__
 -  ☒ `2 <./src/main/java/p0002.java>`__
+-  ☒ `3 <./src/main/java/p0003.java>`__
 -  ☒ `4 <./src/main/java/p0004.java>`__
 -  ☒ `6 <./src/main/java/p0006.java>`__
 -  ☒ `7 <./src/main/java/p0007.java>`__

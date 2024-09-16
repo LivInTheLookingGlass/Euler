@@ -17,6 +17,7 @@ public class EulerTest {
         return Stream.of(new Object[] { p0000.class, false, 0 },
                 new Object[] { p0001.class, false, Utilities.getAnswer(1) },
                 new Object[] { p0002.class, false, Utilities.getAnswer(2) },
+                new Object[] { p0003.class, false, Utilities.getAnswer(3) },
                 new Object[] { p0004.class, false, Utilities.getAnswer(4) },
                 new Object[] { p0006.class, false, Utilities.getAnswer(6) },
                 new Object[] { p0007.class, false, Utilities.getAnswer(7) },
