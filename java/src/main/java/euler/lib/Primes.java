@@ -4,8 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -24,12 +22,14 @@ public class Primes {
 
     private static final Cache CACHE = new Cache(0, new ArrayList<>());
 
+    // Generate an infinite stream of primes
     public static Stream<Long> primes() {
-        return StreamSupport.stream(new PrimeIterator(null).spliterator(), false);
+        return StreamSupport.stream(new PrimeIterator(null), false);
     }
 
+    // Generate a stream of primes up to a given limit
     public static Stream<Long> primesUntil(Long limit) {
-        return StreamSupport.stream(new PrimeIterator(limit).spliterator(), false);
+        return StreamSupport.stream(new PrimeIterator(limit), false);
     }
 
     private static class PrimeIterator implements Iterator<Long>, Iterable<Long> {
@@ -39,8 +39,7 @@ public class Primes {
 
         PrimeIterator(Long limit) {
             this.limit = limit;
-            // Initialize primeGenerator with a recursive prime generator
-            primeGenerator = new PrimeGeneratorIterator(null);
+            primeGenerator = new PrimeGeneratorIterator();
         }
 
         @Override
@@ -79,13 +78,8 @@ public class Primes {
                 }
 
                 // Reinitialize primeGenerator if needed
-                primeGenerator = new PrimeGeneratorIterator(null);
+                primeGenerator = new PrimeGeneratorIterator();
             }
-        }
-
-        @Override
-        public Spliterator<Long> spliterator() {
-            return Spliterators.spliteratorUnknownSize(this, Spliterator.ORDERED);
         }
 
         @Override
@@ -103,13 +97,12 @@ public class Primes {
         private long step = 2;
         private long candidate = 9;
 
-        PrimeGeneratorIterator(Long stop) {
-            // Initialize with initial primes and state
+        PrimeGeneratorIterator() {
             initialPrimes.forEach(prime -> {
                 sieve.put(prime, step);
                 step = prime * 2;
             });
-            recursivePrimes = new PrimeGeneratorIterator(null);
+            recursivePrimes = new PrimeIterator();
             if (recursivePrimes.hasNext()) {
                 currentPrime = recursivePrimes.next();
             }
@@ -121,7 +114,7 @@ public class Primes {
 
         @Override
         public boolean hasNext() {
-            return true; // Infinite sequence
+            return true;
         }
 
         @Override
