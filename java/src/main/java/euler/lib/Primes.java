@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -24,15 +26,47 @@ public class Primes {
 
     // Generate an infinite stream of primes
     public static Stream<Long> primes() {
-        return StreamSupport.stream(new PrimeIterator(null), false);
+        return StreamSupport.stream(new PrimeSpliterator(null), false);
     }
 
     // Generate a stream of primes up to a given limit
     public static Stream<Long> primesUntil(Long limit) {
-        return StreamSupport.stream(new PrimeIterator(limit), false);
+        return StreamSupport.stream(new PrimeSpliterator(limit), false);
     }
 
-    private static class PrimeIterator implements Iterator<Long>, Iterable<Long> {
+    private static class PrimeSpliterator implements Spliterator<Long> {
+        private final PrimeIterator primeIterator;
+
+        PrimeSpliterator(Long limit) {
+            primeIterator = new PrimeIterator(limit);
+        }
+
+        @Override
+        public boolean tryAdvance(Consumer<? super Long> action) {
+            if (primeIterator.hasNext()) {
+                action.accept(primeIterator.next());
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public Spliterator<Long> trySplit() {
+            return null; // Sequential iteration only
+        }
+
+        @Override
+        public long estimateSize() {
+            return Long.MAX_VALUE; // Unknown size
+        }
+
+        @Override
+        public int characteristics() {
+            return ORDERED | SIZED | IMMUTABLE | NONNULL;
+        }
+    }
+
+    private static class PrimeIterator implements Iterator<Long> {
         private final Long limit;
         private Iterator<Long> primeGenerator;
         private boolean exhausted = false; // Flag to indicate if we have exhausted all primes
@@ -81,11 +115,6 @@ public class Primes {
                 primeGenerator = new PrimeGeneratorIterator();
             }
         }
-
-        @Override
-        public Iterator<Long> iterator() {
-            return this;
-        }
     }
 
     private static class PrimeGeneratorIterator implements Iterator<Long> {
@@ -102,7 +131,7 @@ public class Primes {
                 sieve.put(prime, step);
                 step = prime * 2;
             });
-            recursivePrimes = new PrimeIterator();
+            recursivePrimes = new PrimeIterator(null);
             if (recursivePrimes.hasNext()) {
                 currentPrime = recursivePrimes.next();
             }
