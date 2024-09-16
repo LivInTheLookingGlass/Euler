@@ -17,10 +17,12 @@ namespace Euler
         {
             int answer = 1;
             byte[] factorTracker = new byte[20], localFactorTracker = new byte[20];
-            for (byte i = 2; i < 21; i++) {
+            for (byte i = 2; i < 21; i++)
+            {
                 foreach (byte p in Prime.PrimeFactors(i))
                     localFactorTracker[p]++;
-                for (byte j = 2; j < 20; j++) {
+                for (byte j = 2; j < 20; j++)
+                {
                     factorTracker[j] = Math.Max(factorTracker[j], localFactorTracker[j]);
                     localFactorTracker[j] = 0;
                 }
