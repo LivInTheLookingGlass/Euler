@@ -31,7 +31,7 @@ return {
             end
         end
         for i = 2,19 do
-            for j = 1,factorTracker[i] do
+            for _ = 1,factorTracker[i] do
                 answer = answer * i
             end
         end
