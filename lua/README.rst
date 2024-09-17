@@ -63,6 +63,7 @@ Problems Solved
 -  ☒ `2 <./src/p0002.lua>`__
 -  ☒ `3 <./src/p0003.lua>`__
 -  ☒ `4 <./src/p0004.lua>`__
+-  ☒ `5 <./src/p0005.lua>`__
 -  ☒ `6 <./src/p0006.lua>`__
 -  ☒ `7 <./src/p0007.lua>`__
 -  ☒ `8 <./src/p0008.lua>`__
