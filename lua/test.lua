@@ -82,6 +82,7 @@ local problems = {
     ["p0007.lua"] = {104743, false},
     ["p0008.lua"] = {23514624000, false},
     ["p0009.lua"] = {31875000, false},
+    ["p0010.lua"] = {142913828922, false},
     ["p0011.lua"] = {70600674, false},
     ["p0013.lua"] = {5537376230, false},
     ["p0014.lua"] = {837799, false},

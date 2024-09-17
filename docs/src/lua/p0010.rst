@@ -1,0 +1,23 @@
+Lua Implementation of Problem 10
+================================
+
+View source code :source:`lua/src/p0010.lua`
+
+Includes
+--------
+
+- `primes.lua <./lib/primes.html>`__
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 10
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0010.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: prime-number, lua-iterator
