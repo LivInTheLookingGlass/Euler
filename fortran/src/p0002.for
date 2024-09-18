@@ -22,7 +22,7 @@ contains
     end function p0002
 end module Problem0002
 
-program test
+program test0002
     use Problem0002
     print *, p0002()
-end program test
+end program test0002

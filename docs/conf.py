@@ -81,11 +81,11 @@ python_display_short_literal_types = True
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_css_files = [
-    'https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css',
+    'https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.css',
     'style.css'
 ]
 html_js_files = [
-    'https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js',
+    'https://cdn.datatables.net/2.1.6/js/dataTables.js',
     'main.js',
 ]
 

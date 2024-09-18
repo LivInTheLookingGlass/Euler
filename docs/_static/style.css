@@ -2,6 +2,10 @@
     margin-bottom: 10px;
 }
 
-.dataTables_wrapper.no-footer div.dataTables_info {
+div.dt-container.dt-empty-footer div.dt-layout-row div.dt-layout-start {
     display: none;
+}
+
+table.compact thead th p {
+    margin: 0 !important;
 }

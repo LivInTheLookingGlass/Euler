@@ -19,7 +19,7 @@ contains
     end function p0001
 end module Problem0001
 
-program test
+program test0001
     use Problem0001
     print *, p0001()
-end program test
+end program test0001

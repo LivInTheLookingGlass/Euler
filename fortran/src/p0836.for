@@ -6,7 +6,7 @@ contains
     end function p0836
 end module Problem0836
 
-program test
+program test0836
     use Problem0836
     print *, p0836()
-end program test
+end program test0836

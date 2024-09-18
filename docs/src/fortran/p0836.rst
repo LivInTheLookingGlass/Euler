@@ -5,9 +5,11 @@ View source code :source:`fortran/src/p0836.for`
 
 .. f:module:: Problem0836
 
-.. f:function:: character(14) p0836()
+.. f:function:: character(14) Problem0836/p0836()
 
-.. f:program:: test
+.. f:currentmodule::
+
+.. f:program:: test0836
 
 .. literalinclude:: ../../../fortran/src/p0836.for
    :language: Fortran

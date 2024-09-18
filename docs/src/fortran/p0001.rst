@@ -5,9 +5,11 @@ View source code :source:`fortran/src/p0001.for`
 
 .. f:module:: Problem0001
 
-.. f:function:: integer p0001()
+.. f:function:: integer Problem0001/p0001()
 
-.. f:program:: test
+.. f:currentmodule::
+
+.. f:program:: test0001
 
 .. literalinclude:: ../../../fortran/src/p0001.for
    :language: Fortran
