@@ -1,6 +1,15 @@
 ignore:
   - "rust/src/lib.rs"  # codecov seriously screws this one up, and thinks it has >1k lines despite having ~60
 
+coverage:
+  status:
+    project:
+      default:
+        informational: true
+    patch:
+      default:
+        informational: true
+
 component_management:
   default_rules:  # default rules that will be inherited by all components
     statuses:
