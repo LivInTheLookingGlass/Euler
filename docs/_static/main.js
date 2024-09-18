@@ -1,7 +1,8 @@
 $(document).ready(function() {
     $('table.datatable').DataTable({
-        autoWidth: true,
+        autoWidth: false,
         paging: false,
+        responsive: true,
         scrollX: false,
         searching: false,
     });

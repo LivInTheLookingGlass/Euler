@@ -6,6 +6,31 @@ div.dt-container.dt-empty-footer div.dt-layout-row div.dt-layout-start {
     display: none;
 }
 
-table.compact thead th p {
+table.datatable thead th p {
     margin: 0 !important;
+}
+
+/* .wy-nav-content {
+    max-width: 1024px;
+} */
+
+.dataTables_wrapper {
+    display: flex; /* Use flexbox to control alignment */
+    justify-content: flex-start; /* Align to the left */
+}
+
+table.datatable {
+    width: auto;
+}
+
+table.compact {
+    float: left;
+}
+
+table.dataTable thead > tr > th span.dt-column-order {
+    right: 4px !important;
+}
+
+table.dataTable thead > tr > th, table.dataTable thead > tr > td {
+    padding-right: 20px !important;
 }
