@@ -26,11 +26,17 @@ local function primes(stop)
     local function next()
         if stop and prime >= stop then
             sieve = {}
-            error("Tried to exceed given limit")
+            return nil, "Tried to exceed given limit"
         end
 
         prime = next_prime(candidate)
         candidate = prime + 1
+
+        if stop and prime >= stop then
+            sieve = {}
+            return nil, "Tried to exceed given limit"
+        end
+
         return prime
     end
 

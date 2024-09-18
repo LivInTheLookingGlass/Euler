@@ -17,7 +17,7 @@ return {
         repeat
             answer = answer + tmp
             tmp = pg.next()
-        until tmp == nil
+        until not tmp
 
         return answer;
     end

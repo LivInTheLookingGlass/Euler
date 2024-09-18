@@ -11,13 +11,13 @@ local prime_factors = loadlib("primes").prime_factors
 return {
     solution = function()
         local fgen = prime_factors(600851475143)
-        local f = fgen.next()
+        local f
         local answer = 0
 
-        while f do
+        repeat
             answer = f
             f = fgen.next()
-        end
+        until not f
 
         return answer
     end
