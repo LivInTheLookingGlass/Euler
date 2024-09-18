@@ -1,0 +1,18 @@
+Fortran Implementation of Problem 9
+===================================
+
+View source code :source:`fortran/src/p0009.for`
+
+.. f:module:: Problem0009
+
+.. f:function:: integer Problem0009/p0009()
+
+.. f:currentmodule::
+
+.. f:program:: test0009
+
+.. literalinclude:: ../../../fortran/src/p0009.for
+   :language: Fortran
+   :linenos:
+
+.. tags:: pythagorean-triple

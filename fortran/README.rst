@@ -26,3 +26,6 @@ Problems Solved
 
 -  ☒ `1 <./src/p0001.for>`__
 -  ☒ `2 <./src/p0002.for>`__
+-  ☒ `6 <./src/p0006.for>`__
+-  ☒ `9 <./src/p0009.for>`__
+-  ☒ `836 <./src/p0836.for>`__

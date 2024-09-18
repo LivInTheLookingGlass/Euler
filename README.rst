@@ -85,7 +85,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | Fortran    | (In Progress)              |  3     | (In Progress)     |
+   | Fortran    | (In Progress)              |  5     | (In Progress)     |
    +------------+----------------------------+--------+-------------------+
    | Java       | Java 8+ in Corretto, |br|  | 22     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
