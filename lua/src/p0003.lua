@@ -11,8 +11,7 @@ local prime_factors = loadlib("primes").prime_factors
 return {
     solution = function()
         local fgen = prime_factors(600851475143)
-        local f
-        local answer = 0
+        local f, answer
 
         repeat
             answer = f
