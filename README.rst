@@ -85,6 +85,8 @@ Olivia's Project Euler Solutions
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
+   | Fortran    | (In Progress)              |  3     | (In Progress)     |
+   +------------+----------------------------+--------+-------------------+
    | Java       | Java 8+ in Corretto, |br|  | 22     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
    |            | Microsoft, Oracle, |br|    |        | |CodeQL| |br|     |
@@ -190,6 +192,7 @@ Makefile will direct recipes using prefixes
 -  ``make cp_*`` will go to the csharp Makefile
 -  ``make cs_*`` will go to the csharp Makefile
 -  ``make docs_*`` will go to the docs Makefile
+-  ``make fr_*`` will go to the fortran Makefile
 -  ``make ja_*`` will go to the java Makefile
 -  ``make js_*`` will go to the javascript Makefile
 -  ``make lu_*`` will go to the lua Makefile

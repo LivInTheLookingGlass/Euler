@@ -1,0 +1,16 @@
+Fortran Implementation of Problem 2
+===================================
+
+View source code :source:`fortran/src/p0002.for`
+
+.. f:module:: Problem0002
+
+.. f:function:: integer p0002()
+
+.. f:program:: test
+
+.. literalinclude:: ../../../fortran/src/p0002.for
+   :language: Fortran
+   :linenos:
+
+.. tags:: fibonacci-number, divisibility

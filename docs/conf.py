@@ -51,6 +51,7 @@ extensions = [
     # 'sphinx-compendia',
     # 'sphinx-navtree',
     'sphinxcontrib.luadomain',
+    'sphinxfortran.fortran_domain',
 ]
 
 try:
@@ -113,8 +114,8 @@ langcodes = [
     # ('da', 'dart'),           # sphinxcontrib-dartdomain
     # ('el', 'elixir'),
     # ('ev', 'eiffel'),
-    # ('fr', 'fortran'),
-    # ('fs', 'fsharp'),         # sphinx-fortran
+    ('fr', 'fortran'),          # sphinx-fortran
+    # ('fs', 'fsharp'),
     # ('go', 'go'),             # sphinxcontrib-golangdomain
     # ('hs', 'haskell'),
     ('ja', 'java'),             # javasphinx
@@ -122,7 +123,7 @@ langcodes = [
     # ('ju', 'julia'),
     # ('kt', 'kotlin'),
     # ('ls', 'lisp'),           # sphinxcontrib-cldomain
-    ('lu', 'lua'),            # sphinx-lua or sphinxcontrib-luadomain
+    ('lu', 'lua'),              # sphinx-lua or sphinxcontrib-luadomain
     # ('ma', 'matlab'),         # sphinxcontrib-matlabdomain
     # ('mk', 'makefile'),       # hacked together with sphinxcontrib-domaintools
     # ('oc', 'ocaml'),          # sphinxcontrib-ocaml

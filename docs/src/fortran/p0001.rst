@@ -1,0 +1,16 @@
+Fortran Implementation of Problem 1
+===================================
+
+View source code :source:`fortran/src/p0001.for`
+
+.. f:module:: Problem0001
+
+.. f:function:: integer p0001()
+
+.. f:program:: test
+
+.. literalinclude:: ../../../fortran/src/p0001.for
+   :language: Fortran
+   :linenos:
+
+.. tags:: divisibility

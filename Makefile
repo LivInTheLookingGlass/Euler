@@ -25,6 +25,9 @@ help: LICENSE
 	@echo "The following jobs are available under the cs_ prefix"
 	@$(MAKE) cs_help $(MFLAGS) --no-print-directory
 	@echo
+	@echo "The following jobs are available under the fr_ prefix"
+	@$(MAKE) fr_help $(MFLAGS) --no-print-directory
+	@echo
 	@echo "The following jobs are available under the ja_ prefix"
 	@$(MAKE) ja_help $(MFLAGS) --no-print-directory
 	@echo
@@ -46,7 +49,7 @@ html dirhtml singlehtml epub latex: LICENSE
 
 .PHONY: clean
 clean:
-	@$(MAKE) cs_clean cp_clean c_clean ja_clean js_clean py_clean rs_clean docs_clean $(MFLAGS) -j --no-print-directory
+	@$(MAKE) cs_clean cp_clean c_clean fr_clean ja_clean js_clean py_clean rs_clean docs_clean $(MFLAGS) -j --no-print-directory
 
 .PHONY: cs_%
 cs_%: LICENSE
@@ -63,6 +66,10 @@ c_%: LICENSE
 .PHONY: docs_%
 docs_%: LICENSE
 	@$(MAKE) -C docs $* $(MFLAGS) --no-print-directory
+
+.PHONY: fr_%
+fr_%: LICENSE
+	@$(MAKE) -C fortran $* $(MFLAGS) --no-print-directory
 
 .PHONY: ja_%
 ja_%: LICENSE
@@ -85,4 +92,4 @@ rs_%: LICENSE
 	@$(MAKE) -C rust $* $(MFLAGS) --no-print-directory
 
 %:
-	@$(MAKE) c_$* cp_$* cs_$* ja_$* js_$* lu_$* py_$* rs_$* $(MFLAGS) --no-print-directory
+	@$(MAKE) c_$* cp_$* cs_$* fr_$* ja_$* js_$* lu_$* py_$* rs_$* $(MFLAGS) --no-print-directory
