@@ -12,7 +12,7 @@ opt_args= -Wall -Werror -O1 -flto
 endif
 
 ifneq ($(COV),false)
-cov_args= -fprofile-arcs -ftest-coverage
+cov_args= --coverage
 else
 cov_args=
 endif
