@@ -1,6 +1,5 @@
 BLUE=\033[0;34m
 NC=\033[0m  # No Color
-FC?=flang-new
 COV?=false
 
 ifeq ($(FC),ifort)
