@@ -1,13 +1,13 @@
 Fortran Implementation of Problem 9
 ===================================
 
-View source code :source:`fortran/src/p0009.for`
+View source code :source:`fortran/src/p0009.f90`
 
 .. f:module:: Problem0009
 
 .. f:function:: integer Problem0009/p0009()
 
-.. literalinclude:: ../../../fortran/src/p0009.for
+.. literalinclude:: ../../../fortran/src/p0009.f90
    :language: Fortran
    :linenos:
 

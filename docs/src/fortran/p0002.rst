@@ -1,13 +1,13 @@
 Fortran Implementation of Problem 2
 ===================================
 
-View source code :source:`fortran/src/p0002.for`
+View source code :source:`fortran/src/p0002.f90`
 
 .. f:module:: Problem0002
 
 .. f:function:: integer Problem0002/p0002()
 
-.. literalinclude:: ../../../fortran/src/p0002.for
+.. literalinclude:: ../../../fortran/src/p0002.f90
    :language: Fortran
    :linenos:
 

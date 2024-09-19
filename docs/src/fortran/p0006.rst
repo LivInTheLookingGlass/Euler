@@ -1,13 +1,13 @@
 Fortran Implementation of Problem 6
 ===================================
 
-View source code :source:`fortran/src/p0006.for`
+View source code :source:`fortran/src/p0006.f90`
 
 .. f:module:: Problem0006
 
 .. f:function:: integer Problem0006/p0006()
 
-.. literalinclude:: ../../../fortran/src/p0006.for
+.. literalinclude:: ../../../fortran/src/p0006.f90
    :language: Fortran
    :linenos:
 

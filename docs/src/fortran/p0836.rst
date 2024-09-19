@@ -1,13 +1,13 @@
 Fortran Implementation of Problem 836
 =====================================
 
-View source code :source:`fortran/src/p0836.for`
+View source code :source:`fortran/src/p0836.f90`
 
 .. f:module:: Problem0836
 
 .. f:function:: character(14) Problem0836/p0836()
 
-.. literalinclude:: ../../../fortran/src/p0836.for
+.. literalinclude:: ../../../fortran/src/p0836.f90
    :language: Fortran
    :linenos:
 
