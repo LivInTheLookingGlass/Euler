@@ -41,7 +41,4 @@ jobs:
         compiler: ${{ matrix.toolchain.compiler }}
         version: ${{ matrix.toolchain.version }}
 
-    - run: |
-        ${{ env.FC }} ... # environment vars FC, CC, and CXX are set
-        ${{ steps.setup-fortran.outputs.fc }} ... # outputs work too
-        make fr_test
+    - run: make fr_test
