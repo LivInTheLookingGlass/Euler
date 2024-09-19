@@ -62,9 +62,10 @@ contains
         print *, "  Solution returned: ", answer
       end if
       tmp = second_count - first_count
-      tmp = (tmp + count_max) % count_max
-      time_elapsed = real(tmp)
-      time_elapsed = time_elapsed / real(count_rate)
+      if (tmp < 0) then
+        tmp = tmp + count_max
+      end if
+      time_elapsed = real(tmp) / real(count_rate)
       if (.NOT. long_runtime(i) .AND. time_elapsed > 60.0) then
         print *, "  Error: problem ", problem_ids(i), " timed out!"
         print *, "  Solution took    : ", time_elapsed, "s"
@@ -75,7 +76,7 @@ contains
 
   integer function select_function(problem_id)
     integer, intent(in) :: problem_id
-    character(len=*) :: str
+    character(len=14) :: str
 
     select case (problem_id)
       case (1)
