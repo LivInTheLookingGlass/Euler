@@ -62,7 +62,7 @@ contains
         print *, "  Solution returned: ", answer
       end if
       tmp = second_count - first_count
-      tmp = tmp % count_max
+      tmp = (tmp + count_max) % count_max
       time_elapsed = real(tmp)
       time_elapsed = time_elapsed / real(count_rate)
       if (.NOT. long_runtime(i) .AND. time_elapsed > 60.0) then
@@ -75,7 +75,7 @@ contains
 
   integer function select_function(problem_id)
     integer, intent(in) :: problem_id
-    character, dimension(:), allocatable :: str
+    character(len=*) :: str
 
     select case (problem_id)
       case (1)
@@ -87,14 +87,12 @@ contains
       case (9)
         select_function = p0009()
       case (836)
-        allocate(str(14))
         str = p0836()
         if ((str /= "aprilfoolsjoke")) then
           select_function = 0
         else
           select_function = -2
         end if
-        deallocate(str)
       case default
         print *, "Unknown problem ID!"
         select_function = -1
