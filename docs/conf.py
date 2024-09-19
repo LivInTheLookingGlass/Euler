@@ -144,7 +144,7 @@ langcodes = [
     # ('vb', 'visualbasic'),
 ]
 extlinks = {
-    'prob': ('https://projecteuler.net/problem=%s', '\u200BProblem #%s'),
+    'prob': ('https://projecteuler.net/problem=%s', '\u200BProb. #%s'),
     'source': ('https://github.com/LivInTheLookingGlass/Euler/blob/main/%s', 'here on GitHub!%.0s'),
     'live-test': ('/_static/test-%s.html', 'click here!%.0s'),
     'csref': ('https://learn.microsoft.com/en-us/dotnet/api/%s', '%s'),

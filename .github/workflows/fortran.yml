@@ -54,4 +54,11 @@ jobs:
         compiler: ${{ matrix.toolchain.compiler }}
         version: ${{ matrix.toolchain.version }}
 
-    - run: make fr_test
+    - run: make fr_test ${{ matrix.toolchain.compiler == 'gcc' && 'COV=true' || '' }}
+
+    - name: Upload coverage reports to Codecov
+      if: ${{ matrix.toolchain.compiler == 'gcc' }}
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: Fortran

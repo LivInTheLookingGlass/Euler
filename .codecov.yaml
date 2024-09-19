@@ -30,6 +30,10 @@ component_management:
       name: C#
       paths:
         - csharp/**
+    - component_id: module_fortran
+      name: Fortran
+      paths:
+        - fortran/**
     - component_id: module_java
       name: Java
       paths:

@@ -1,6 +1,19 @@
 BLUE=\033[0;34m
 NC=\033[0m  # No Color
 FC?=flang-new
+COV?=false
+
+ifneq ($(FC),ifort)
+opt_args= -Wall -Werror -O2 -march=native -flto
+else
+opt_args= -Wall -Werror -O2 -march=native -qwholeprogram
+endif
+
+ifneq ($(COV),false)
+cov_args= -fprofile-arcs -ftest-coverage
+else
+cov_args=
+endif
 
 .PHONY: help
 help:
@@ -10,13 +23,13 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	@$(FC) -c src/*.f90
-	@$(FC) *.o test.f90
-	@./a.out
+	@$(FC) $(opt_args) $(cov_args) -c src/*.f90
+	@$(FC) $(opt_args) $(cov_args) *.o test.f90 -o test_runner
+	@./test_runner
 
 test_%:
 	@$(MAKE) test $(MFLAGS)
 
 .PHONY: clean
 clean:
-	@rm *.o *.mod a.out
+	@rm *.o *.mod test_runner
