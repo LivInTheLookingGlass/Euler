@@ -245,7 +245,7 @@ def countfiles(lang):
 def setup(app):
     try:
         labels, sizes, counts = zip(*((lang, float(size), countfiles(lang)) for lang, size in linguist(basedir)))
-        print("\n".join(repr(zip(labels, sizes, counts))))
+        print("\n".join(repr(z) for z in zip(labels, sizes, counts)))
         size = max(10, len(labels))
         colormap = plt.get_cmap('tab10' if len(labels) <= 10 else 'tab20')
         colors = [colormap(idx / size) for idx, _ in enumerate(labels)]

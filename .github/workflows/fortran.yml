@@ -35,6 +35,8 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+    - uses: actions/checkout@v4
+
     - uses: fortran-lang/setup-fortran@v1
       id: setup-fortran
       with:
