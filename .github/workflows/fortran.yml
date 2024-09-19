@@ -20,12 +20,21 @@ jobs:
         os: [ubuntu-latest, macos-latest, macos-13]
         toolchain:
         - {compiler: gcc, version: 13}
-        - {compiler: intel-classic, version: '2021.10'}
+        - {compiler: intel-classic, version: '2021.12'}
+        - {compiler: lfortran, version: '0.33.0'}
         include:
+        - os: ubuntu-latest
+          toolchain: {compiler: lfortran, version: '0.31.0'}
+        - os: ubuntu-latest
+          toolchain: {compiler: nvidia-hpc, version: '20.11'}
         - os: ubuntu-latest
           toolchain: {compiler: nvidia-hpc, version: '23.11'}
         - os: ubuntu-latest
-          toolchain: {compiler: intel, version: '2023.2'}
+          toolchain: {compiler: intel-classic, version: '2021.1'}
+        - os: ubuntu-latest
+          toolchain: {compiler: intel, version: '2024.1'}
+        - os: ubuntu-latest
+          toolchain: {compiler: intel, version: '2021.1'}
         - os: ubuntu-latest
           toolchain: {compiler: gcc, version: 12}
         - os: ubuntu-latest

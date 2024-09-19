@@ -6,7 +6,6 @@ program test
   use Problem0836
 
   implicit none
-
   integer, dimension(:), allocatable :: problem_ids, answers
   logical, dimension(:), allocatable :: long_runtime
   integer :: num_problems
