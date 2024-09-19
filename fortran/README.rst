@@ -1,6 +1,11 @@
 Fortran Section
 ===============
 
+.. |Fri| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/fortran.yml?logo=github&label=Fr%20Tests
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/fortran.yml
+
+|Fri|
+
 All problems are solved in Fortran90, and should be compliant with later standards.
 
 Organization
