@@ -44,7 +44,7 @@ contains
     integer, dimension(:), intent(in) :: problem_ids
     integer, dimension(:), intent(in) :: answers
     logical, dimension(:), intent(in) :: long_runtime
-    integer :: i, answer, first_count, second_count, count_rate, count_max
+    integer :: i, answer, first_count, second_count, count_rate, count_max, tmp
     real :: time_elapsed
 
     ! Loop through each problem
@@ -61,7 +61,10 @@ contains
         print *, "  Expected Answer  : ", answers(i)
         print *, "  Solution returned: ", answer
       end if
-      time_elapsed = real((second_count - first_count) % count_max) / real(count_rate)
+      tmp = second_count - first_count
+      tmp = tmp % count_max
+      time_elapsed = real(tmp)
+      time_elapsed = time_elapsed / real(count_rate)
       if (.NOT. long_runtime(i) .AND. time_elapsed > 60.0) then
         print *, "  Error: problem ", problem_ids(i), " timed out!"
         print *, "  Solution took    : ", time_elapsed, "s"
@@ -86,7 +89,7 @@ contains
       case (836)
         allocate(str(14))
         str = p0836()
-        if (str /= "aprilfoolsjoke") then
+        if ((str /= "aprilfoolsjoke")) then
           select_function = 0
         else
           select_function = -2
