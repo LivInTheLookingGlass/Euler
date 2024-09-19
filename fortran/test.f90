@@ -9,7 +9,8 @@ program test
   integer, dimension(:), allocatable :: problem_ids, answers
   logical, dimension(:), allocatable :: long_runtime
   integer :: num_problems
-
+  
+  num_problems = 5
   allocate(problem_ids(num_problems), answers(num_problems), long_runtime(num_problems))
   problem_ids = (/ &
     001, &

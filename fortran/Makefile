@@ -3,10 +3,12 @@ NC=\033[0m  # No Color
 FC?=flang-new
 COV?=false
 
-ifneq ($(FC),ifort)
-opt_args= -Wall -Werror -O2 -march=native -flto
-else
+ifeq ($(FC),ifort)
 opt_args= -Wall -Werror -O2 -march=native -qwholeprogram
+else ifeq ($(FC),nvfortran)
+opt_args= -Wall -Werror -O2 -march=native
+else
+opt_args= -Wall -Werror -O2 -march=native -flto
 endif
 
 ifneq ($(COV),false)
