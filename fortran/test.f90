@@ -60,6 +60,7 @@ contains
         print *, "  Error: problem ", problem_ids(i), " failed!"
         print *, "  Expected Answer  : ", answers(i)
         print *, "  Solution returned: ", answer
+        stop 1
       end if
       tmp = second_count - first_count
       if (tmp < 0) then
@@ -69,6 +70,7 @@ contains
       if (.NOT. long_runtime(i) .AND. time_elapsed > 60.0) then
         print *, "  Error: problem ", problem_ids(i), " timed out!"
         print *, "  Solution took    : ", time_elapsed, "s"
+        stop 2
       end if
       print *, "  Completed        : ", problem_ids(i), "in ", time_elapsed, "s"
     end do
@@ -89,7 +91,7 @@ contains
         select_function = p0009()
       case (836)
         str = p0836()
-        if ((str /= "aprilfoolsjoke")) then
+        if ((str == "aprilfoolsjoke")) then
           select_function = 0
         else
           select_function = -2
