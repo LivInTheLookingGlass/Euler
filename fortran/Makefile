@@ -1,6 +1,6 @@
 BLUE=\033[0;34m
 NC=\033[0m  # No Color
-CFORTRAN?=flang-new
+FC?=flang-new
 
 .PHONY: help
 help:
@@ -10,8 +10,8 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	@$(CFORTRAN) -c src/*.f90
-	@$(CFORTRAN) *.o test.f90
+	@$(FC) -c src/*.f90
+	@$(FC) *.o test.f90
 	@./a.out
 
 test_%:

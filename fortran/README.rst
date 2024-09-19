@@ -1,6 +1,36 @@
 Fortran Section
 ===============
 
+All problems are solved in Fortran90, and should be compliant with later standards.
+
+Organization
+------------
+
+All Fortran files share a common prefix with their problem number. All shared
+functions are moved to header files in the include subfolder
+
+Makefile
+--------
+
+There are three main recipes in this Makefile
+
+test
+~~~~
+
+This recipe runs tests in a single thread and performs benchmarks on each.
+
+test\_\*
+~~~~~~~~
+
+This recipe currently redirects to ``test``, but in future versions may
+spawn a number of threads equal to the suffix given, with ``auto`` equalling
+the number of CPUs on the system.
+
+clean
+~~~~~
+
+This removes any build files, as well as the test runner executable
+
 Tests
 -----
 
