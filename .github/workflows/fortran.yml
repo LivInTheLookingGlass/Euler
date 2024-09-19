@@ -54,6 +54,9 @@ jobs:
         compiler: ${{ matrix.toolchain.compiler }}
         version: ${{ matrix.toolchain.version }}
 
+    - run: pip install coverage
+      if: ${{ matrix.toolchain.compiler == 'gcc' }}
+
     - run: make fr_test ${{ matrix.toolchain.compiler == 'gcc' && 'COV=true' || '' }}
 
     - name: Upload coverage reports to Codecov
