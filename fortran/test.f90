@@ -94,6 +94,7 @@ contains
         if ((str == "aprilfoolsjoke")) then
           select_function = 0
         else
+          print *, "  Solution returned: ", str
           select_function = -2
         end if
       case default

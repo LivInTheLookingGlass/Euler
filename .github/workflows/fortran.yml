@@ -17,13 +17,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, macos-13, 'ubuntu-20.04']
+        os: [ubuntu-latest, macos-latest, macos-13]
         toolchain:
         - {compiler: gcc, version: 13}
-        - {compiler: intel, version: '2023.2'}
         - {compiler: intel-classic, version: '2021.10'}
-        - {compiler: nvidia-hpc, version: '23.11'}
         include:
+        - os: ubuntu-latest
+          toolchain: {compiler: nvidia-hpc, version: '23.11'}
+        - os: ubuntu-latest
+          toolchain: {compiler: intel, version: '2023.2'}
         - os: ubuntu-latest
           toolchain: {compiler: gcc, version: 12}
         - os: ubuntu-latest
