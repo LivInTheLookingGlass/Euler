@@ -215,7 +215,7 @@ def countfiles(lang):
         'C': lambda _, filename: fnmatch(filename, '*.c') or fnmatch(filename, '*.h'),
         'C++': lambda _, filename: fnmatch(filename, '*.cpp') or fnmatch(filename, '*.h') or fnmatch(filename, '*.hpp'),
         'C#': lambda _, filename: fnmatch(filename, '*.cs'),
-        'Fortran': lambda _, filename: fnmatch(filename, '*.for'),
+        'Fortran': lambda _, filename: fnmatch(filename, '*.f90'),
         'Java': lambda _, filename: fnmatch(filename, '*.java'),
         'JavaScript': lambda _, filename: fnmatch(filename, '*.js'),
         'Lua': lambda _, filename: fnmatch(filename, '*.lua'),
