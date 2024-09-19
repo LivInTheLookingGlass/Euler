@@ -23,9 +23,9 @@ jobs:
       fail-fast: false
       matrix:
         toolchain:
-          - nightly  # currently = 1.81
-          - beta     # currently = 1.80
-          - stable   # currently = 1.79
+          - nightly  # currently = 1.83
+          - beta     # currently = 1.82
+          - stable   # currently = 1.81
         os:
           - ubuntu-latest
           - windows-latest
@@ -34,6 +34,10 @@ jobs:
             os: macos-13
           - toolchain: stable
             os: macos-latest
+          - toolchain: "1.80"
+            os: ubuntu-latest
+          - toolchain: "1.79"
+            os: ubuntu-latest
           - toolchain: "1.78"
             os: ubuntu-latest
           - toolchain: "1.77"
