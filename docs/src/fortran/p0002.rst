@@ -7,10 +7,6 @@ View source code :source:`fortran/src/p0002.for`
 
 .. f:function:: integer Problem0002/p0002()
 
-.. f:currentmodule::
-
-.. f:program:: test0002
-
 .. literalinclude:: ../../../fortran/src/p0002.for
    :language: Fortran
    :linenos:

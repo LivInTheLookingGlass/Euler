@@ -7,10 +7,6 @@ View source code :source:`fortran/src/p0836.for`
 
 .. f:function:: character(14) Problem0836/p0836()
 
-.. f:currentmodule::
-
-.. f:program:: test0836
-
 .. literalinclude:: ../../../fortran/src/p0836.for
    :language: Fortran
    :linenos:

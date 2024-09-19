@@ -16,21 +16,16 @@ contains
         integer :: i
         answer = 0
 
-        do i = 3, 1000, 3
+        do i = 3, 999, 3
             answer = answer + i
         end do
 
-        do i = 5, 1000, 5
+        do i = 5, 999, 5
             answer = answer + i
         end do
 
-        do i = 15, 1000, 15
+        do i = 15, 999, 15
             answer = answer - i
         end do
     end function p0001
 end module Problem0001
-
-program test0001
-    use Problem0001
-    print *, p0001()
-end program test0001

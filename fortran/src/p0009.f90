@@ -38,8 +38,3 @@ contains
         end do
     end function p0009
 end module Problem0009
-
-program test0009
-    use Problem0009
-    print *, p0009()
-end program test0009

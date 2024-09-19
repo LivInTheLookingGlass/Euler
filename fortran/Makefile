@@ -1,5 +1,6 @@
 BLUE=\033[0;34m
 NC=\033[0m  # No Color
+CFORTRAN?=flang-new
 
 .PHONY: help
 help:
@@ -9,11 +10,13 @@ help:
 
 .PHONY: test
 test: ../LICENSE
-	@echo "Feature in progress. Automated fortran testing is not yet supported."
+	@$(CFORTRAN) -c src/*.f90
+	@$(CFORTRAN) *.o test.f90
+	@./a.out
 
 test_%:
 	@$(MAKE) test $(MFLAGS)
 
 .PHONY: clean
 clean:
-	@echo
+	@rm *.o *.mod a.out

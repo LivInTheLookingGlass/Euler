@@ -35,8 +35,3 @@ contains
         answer = sum * sum - sum_of_squares
     end function p0006
 end module Problem0006
-
-program test0006
-    use Problem0006
-    print *, p0006()
-end program test0006
