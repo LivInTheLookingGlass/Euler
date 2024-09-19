@@ -8,7 +8,7 @@ opt_args= -Wall -Werror -O2 -march=native -qwholeprogram
 else ifeq ($(FC),nvfortran)
 opt_args= -Wall -Werror -O2 -march=native
 else
-opt_args= -Wall -Werror -O2 -march=native -flto
+opt_args= -Wall -Werror -O1 -flto
 endif
 
 ifneq ($(COV),false)
