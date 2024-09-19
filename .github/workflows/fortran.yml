@@ -43,6 +43,10 @@ jobs:
         exclude:
         - os: ubuntu-latest
           toolchain: {compiler: gcc, version: 13}
+        - os: macos-latest
+          toolchain: {compiler: gcc, version: 12}
+        - os: macos-latest
+          toolchain: {compiler: gcc, version: 11}
     runs-on: ${{ matrix.os }}
 
     steps:

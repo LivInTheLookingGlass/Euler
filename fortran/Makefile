@@ -1,19 +1,20 @@
 BLUE=\033[0;34m
 NC=\033[0m  # No Color
+FC?=flang-new
 COV?=false
 
 ifeq ($(FC),ifort)
-opt_args= -Wall -Werror -O2 -march=native -qwholeprogram
+opt_args= -Wall -Werror -march=native -qwholeprogram
 else ifeq ($(FC),nvfortran)
-opt_args= -Wall -Werror -O2 -march=native
+opt_args= -Wall -Werror -march=native
 else
-opt_args= -Wall -Werror -O1 -flto
+opt_args= -Wall -Werror -march=native -flto
 endif
 
 ifneq ($(COV),false)
-cov_args= --coverage
+cov_args= -fprofile-arcs -ftest-coverage -O0
 else
-cov_args=
+cov_args= -O2
 endif
 
 .PHONY: help
