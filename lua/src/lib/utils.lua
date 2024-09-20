@@ -23,7 +23,7 @@ local function get_answer(id)
             local type_ = row[2]
             local length = tonumber(row[3])
             local value = row[4]
-            
+
             if type_ == 'str' then
                 return value
             elseif type_ == 'int' then
