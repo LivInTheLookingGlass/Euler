@@ -71,27 +71,29 @@ local function check_problem(file_name, expected_answer, is_slow, problem_name)
     print("Problem " .. problem_name .. " passed (in ~" .. string.format("%.3f", elapsed_time) .. "s).")
 end
 
+local get_answer = loadlib("utils").get_answer
+
 -- Problems configuration: filename -> {expected_answer, is_slow}
 local problems = {
-    ["p0001.lua"] = {233168, false},
-    ["p0002.lua"] = {4613732, false},
-    ["p0003.lua"] = {6857, false},
-    ["p0004.lua"] = {906609, false},
-    ["p0005.lua"] = {232792560, false},
-    ["p0006.lua"] = {25164150, false},
-    ["p0007.lua"] = {104743, false},
-    ["p0008.lua"] = {23514624000, false},
-    ["p0009.lua"] = {31875000, false},
-    ["p0010.lua"] = {142913828922, false},
-    ["p0011.lua"] = {70600674, false},
-    ["p0013.lua"] = {5537376230, false},
-    ["p0014.lua"] = {837799, false},
-    ["p0015.lua"] = {137846528820, false},
-    ["p0017.lua"] = {21124, false},
-    ["p0028.lua"] = {669171001, false},
-    ["p0034.lua"] = {40730, false},
-    ["p0836.lua"] = {"aprilfoolsjoke", false},
-    ["p0076.lua"] = {190569291, true},
+    ["p0001.lua"] = {get_answer(1), false},
+    ["p0002.lua"] = {get_answer(2), false},
+    ["p0003.lua"] = {get_answer(3), false},
+    ["p0004.lua"] = {get_answer(4), false},
+    ["p0005.lua"] = {get_answer(5), false},
+    ["p0006.lua"] = {get_answer(6), false},
+    ["p0007.lua"] = {get_answer(7), false},
+    ["p0008.lua"] = {get_answer(8), false},
+    ["p0009.lua"] = {get_answer(9), false},
+    ["p0010.lua"] = {get_answer(10), false},
+    ["p0011.lua"] = {get_answer(11), false},
+    ["p0013.lua"] = {get_answer(13), false},
+    ["p0014.lua"] = {get_answer(14), false},
+    ["p0015.lua"] = {get_answer(15), false},
+    ["p0017.lua"] = {get_answer(17), false},
+    ["p0028.lua"] = {get_answer(28), false},
+    ["p0034.lua"] = {get_answer(34), false},
+    ["p0076.lua"] = {get_answer(76), true},
+    ["p0836.lua"] = {get_answer(836), false},
 }
 
 -- Fast testing loop
