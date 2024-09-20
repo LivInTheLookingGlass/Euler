@@ -1,5 +1,6 @@
 local function get_data_file(name, mode)
-    local file = io.open("../_data/" .. name, mode)
+    local filename = "../_data/" .. name
+    local file = io.open(filename, mode)
 
     if not file then
         print("Could not open file: " .. filename)
@@ -25,9 +26,9 @@ local function get_answer(id)
             
             if type_ == 'str' then
                 return value
-            else if type_ == 'int' then
+            elseif type_ == 'int' then
                 return tonumber(value)
-            else if type_ == 'uint' then
+            elseif type_ == 'uint' then
                 if length < 64 then
                     return tonumber(value)
                 end
@@ -39,6 +40,7 @@ local function get_answer(id)
             end
         end
     end
+    return nil, "Answer not found"
 end
 
 return {
