@@ -14,7 +14,9 @@ program test
     integer :: num_problems
     
     num_problems = 7
-    allocate(problem_ids(num_problems), answers(num_problems), long_runtime(num_problems))
+    allocate(problem_ids(num_problems))
+    allocate(answers(num_problems))
+    allocate(long_runtime(num_problems))
     problem_ids = (/ &
         001, &
         002, &
