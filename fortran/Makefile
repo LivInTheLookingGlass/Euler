@@ -9,15 +9,15 @@ OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
 
 ifeq ($(FC),ifort)
-opt_args= -Wall -Werror -march=native -qwholeprogram
+opt_args= -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
 else ifeq ($(FC),lfortran)
-opt_args=
+opt_args= -J$(BUILD_DIR)
 else ifeq ($(FC),nvfortran)
-opt_args= -Wall -Werror -march=native
+opt_args= -Wall -Werror -march=native -module $(BUILD_DIR)
 else ifneq (,$(findstring flang,$(FC)))
-opt_args= -Werror -march=native -flto
+opt_args= -Werror -march=native -flto -J$(BUILD_DIR)
 else
-opt_args= -Wall -Werror -march=native -flto
+opt_args= -Wall -Werror -march=native -flto -J$(BUILD_DIR)
 endif
 
 ifneq ($(COV),false)
@@ -36,12 +36,12 @@ help:
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90
 	@mkdir -p $(BUILD_DIR)
-	@$(FC) $(opt_args) $(cov_args) -c $< -o $@ -J$(BUILD_DIR)
+	@$(FC) $(opt_args) $(cov_args) -c $< -o $@
 
 .PHONY: test
 test: ../LICENSE
 	@$(MAKE) $(OBJ_FILES) $(MFLAGS) -j --no-print-directory
-	@$(FC) $(opt_args) $(cov_args) -J$(BUILD_DIR) build/*.o test.f90 -o test_runner
+	@$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o test.f90 -o test_runner
 	@./test_runner
 
 test_%:
