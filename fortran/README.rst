@@ -59,8 +59,10 @@ except for test plugins. At the moment there are no dependencies for this sectio
 Problems Solved
 ---------------
 
--  ☒ `1 <./src/p0001.for>`__
--  ☒ `2 <./src/p0002.for>`__
--  ☒ `6 <./src/p0006.for>`__
--  ☒ `9 <./src/p0009.for>`__
--  ☒ `836 <./src/p0836.for>`__
+-  ☒ `1 <./src/p0001.f90>`__
+-  ☒ `2 <./src/p0002.f90>`__
+-  ☒ `6 <./src/p0006.f90>`__
+-  ☒ `8 <./src/p0008.f90>`__
+-  ☒ `9 <./src/p0009.f90>`__
+-  ☒ `11 <./src/p0011.f90>`__
+-  ☒ `836 <./src/p0836.f90>`__

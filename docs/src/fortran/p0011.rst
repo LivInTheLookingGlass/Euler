@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 11
+====================================
+
+View source code :source:`fortran/src/p0011.f90`
+
+.. f:module:: Problem0011
+
+.. f:function:: integer Problem0011/p0011()
+
+.. literalinclude:: ../../../fortran/src/p0011.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: optimization

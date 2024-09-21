@@ -1,0 +1,12 @@
+Fortran Implementation of Problem 8
+===================================
+
+View source code :source:`fortran/src/p0008.f90`
+
+.. f:module:: Problem0008
+
+.. f:function:: integer Problem0008/p0008()
+
+.. literalinclude:: ../../../fortran/src/p0008.f90
+   :language: Fortran
+   :linenos:
