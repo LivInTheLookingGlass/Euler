@@ -7,12 +7,10 @@ module utils
         character(len=:), allocatable :: contents
         integer :: unit_number, iostat, file_size
 
-        filename = "../_data/" // filename
-
         ! Open the file in read mode
-        open(newunit=unit_number, file=filename, status='old', action='read', iostat=iostat)
+        open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
-            print *, "Error opening file: ", filename
+            print *, "Error opening file: ../_data/" // filename
             contents = ''
             return
         end if
