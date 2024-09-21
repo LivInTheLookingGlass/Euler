@@ -8,7 +8,7 @@ program test
     use Problem0836
 
     implicit none
-    integer(kind=2), dimension(:), allocatable :: problem_ids
+    integer(kind=4), dimension(:), allocatable :: problem_ids
     integer(kind=8), dimension(:), allocatable :: answers
     logical(kind=1), dimension(:), allocatable :: long_runtime
     integer :: num_problems
@@ -39,7 +39,7 @@ program test
         233168, &
         4613732, &
         25164150, &
-        23514624000, &
+        23514624000_8, &
         31875000, &
         70600674, &
         0 &
@@ -51,11 +51,11 @@ program test
 contains
 
     subroutine process_problems(problem_ids, answers, long_runtime)
-        integer(kind=2), dimension(:), intent(in) :: problem_ids
+        integer(kind=4), dimension(:), intent(in) :: problem_ids
         integer(kind=8), dimension(:), intent(in) :: answers
         logical(kind=1), dimension(:), intent(in) :: long_runtime
         integer(kind=8) :: answer
-        integer(kind=2) :: i
+        integer(kind=4) :: i
         integer :: first_count, second_count, count_rate, count_max, tmp
         real :: time_elapsed
 
