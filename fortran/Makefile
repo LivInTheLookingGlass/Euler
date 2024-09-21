@@ -4,7 +4,7 @@ FC?=flang-new
 COV?=false
 BUILD_DIR=build
 SRC_DIR=src
-SRC_FILES=$(wildcard $(SRC_DIR)/*.f90)
+SRC_FILES=$(wildcard $(SRC_DIR)/*.f90) $(wildcard $(SRC_DIR)/include/*.f90)
 OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
 
@@ -35,13 +35,13 @@ help:
 	@echo "  $(BLUE)clean$(NC)  	Clean up any stray files."
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90
-	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)/include
 	@$(FC) $(opt_args) $(cov_args) -c $< -o $@
 
 .PHONY: test
 test: ../LICENSE
 	@$(MAKE) $(OBJ_FILES) $(MFLAGS) -j --no-print-directory
-	@$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o test.f90 -o test_runner
+	@$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o $(BUILD_DIR)/include/*.o test.f90 -o test_runner
 	@./test_runner
 
 test_%:
