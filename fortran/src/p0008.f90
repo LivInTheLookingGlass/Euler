@@ -59,7 +59,7 @@ contains
                         "05886116467109405077541002256983155200055935729725" // &
                         "71636269561882670428252483600823257530420752963450")
         do i = 1, 1000
-            digits(i) = integer(ichar(plain_digits(i:i)) - ichar('0'), kind=1)
+            digits(i) = int(ichar(plain_digits(i:i)) - ichar('0'), kind=1)
         end do
         do i = 1, (1000 - 12)
             tmp = digits(i)
