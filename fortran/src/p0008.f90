@@ -33,7 +33,7 @@ module Problem0008
     implicit none
 contains
     integer(kind=8) function p0008() result(answer)
-        integer(kind=2) :: i, j
+        integer(kind=4) :: i, j
         integer(kind=8) :: tmp
         integer(kind=1), dimension(1000) :: digits
         character(len=1000) :: plain_digits
@@ -59,7 +59,7 @@ contains
                         "05886116467109405077541002256983155200055935729725" // &
                         "71636269561882670428252483600823257530420752963450")
         do i = 1, 1000
-            digits(i) = ichar(plain_digits(i:i)) - ichar('0')
+            digits(i) = integer(ichar(plain_digits(i:i)) - ichar('0'), kind=1)
         end do
         do i = 1, (1000 - 12)
             tmp = digits(i)
