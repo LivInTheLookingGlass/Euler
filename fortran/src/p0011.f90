@@ -30,7 +30,7 @@
 ! What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in
 ! the 20×20 grid?
 
-module Problem00011
+module Problem0011
     implicit none
 
 contains
@@ -88,4 +88,4 @@ contains
             end do
         end do
     end function p0011
-end module Problem00011
+end module Problem0011
