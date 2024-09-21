@@ -89,7 +89,7 @@ contains
     end subroutine process_problems
 
     integer(kind=8) function select_function(problem_id)
-        integer(kind=2), intent(in) :: problem_id
+        integer(kind=4), intent(in) :: problem_id
         character(len=14) :: str
 
         select case (problem_id)
