@@ -1,4 +1,5 @@
 program test
+    use utils
     use Problem0001
     use Problem0002
     use Problem0006
@@ -9,13 +10,11 @@ program test
 
     implicit none
     integer(kind=4), dimension(:), allocatable :: problem_ids
-    integer(kind=8), dimension(:), allocatable :: answers
     logical(kind=1), dimension(:), allocatable :: long_runtime
     integer :: num_problems
     
     num_problems = 7
     allocate(problem_ids(num_problems))
-    allocate(answers(num_problems))
     allocate(long_runtime(num_problems))
     problem_ids = (/ &
         001, &
@@ -35,26 +34,16 @@ program test
         .false., &
         .false. &
     /)
-    answers = (/ &
-        233168_8, &
-        4613732_8, &
-        25164150_8, &
-        23514624000_8, &
-        31875000_8, &
-        70600674_8, &
-        0_8 &
-    /)
 
-    call process_problems(problem_ids, answers, long_runtime)
-    deallocate(problem_ids, answers, long_runtime)
+    call process_problems(problem_ids, long_runtime)
+    deallocate(problem_ids, long_runtime)
 
 contains
 
-    subroutine process_problems(problem_ids, answers, long_runtime)
+    subroutine process_problems(problem_ids, long_runtime)
         integer(kind=4), dimension(:), intent(in) :: problem_ids
-        integer(kind=8), dimension(:), intent(in) :: answers
         logical(kind=1), dimension(:), intent(in) :: long_runtime
-        integer(kind=8) :: answer
+        type(Answer) :: expected, answer
         integer(kind=4) :: i
         integer :: first_count, second_count, count_rate, count_max, tmp
         real :: time_elapsed
@@ -65,15 +54,50 @@ contains
             if (long_runtime(i)) then
                 print *, "  This problem will take more than 60 seconds."
             end if
+            expected = get_answer(i)
             call system_clock(first_count, count_rate, count_max)
             answer = select_function(problem_ids(i))
             call system_clock(second_count, count_rate, count_max)
-            if (answers(i) /= answer) then
-                print *, "  Error: problem ", problem_ids(i), " failed!"
-                print *, "  Expected Answer  : ", answers(i)
-                print *, "  Solution returned: ", answer
-                stop 1
+            if (expected%type /= answer%type) then
+                print *, "  Error: type mismatch between expected answer and returned value"
+                select case (answer%type)
+                    case (int64t)
+                        print *, "  Returned: int (", answer%int_value, ")"
+                    case (stringt)
+                        print *, "  Returned: string (" // answer%string_value // ")"
+                    case (errort)
+                        print *, "  Returned: error"
+                end select
+                select case (expected%type)
+                    case (int64t)
+                        print *, "  Expected: int (", expected%int_value, ")"
+                    case (stringt)
+                        print *, "  Expected: string (" // expected%string_value // ")"
+                    case (errort)
+                        print *, "  Expected: error"
+                end select
+                stop 3
             end if
+            select case(expected%type)
+                case (int64t)
+                    if (expected%int_value /= answer) then
+                        print *, "  Error: problem ", problem_ids(i), " failed!"
+                        print *, "  Expected Answer  : ", expected%int_value
+                        print *, "  Solution returned: ", answer
+                        stop 1
+                    end if
+                case (stringt)
+                    if (expected%string_value /= answer) then
+                        print *, "  Error: problem ", problem_ids(i), " failed!"
+                        print *, "  Expected Answer  : ", expected%string_value
+                        print *, "  Solution returned: ", answer
+                        deallocate(answer, expected%string_value)
+                        stop 1
+                    end if
+                    deallocate(answer, expected%string_value)
+                case (errort)
+                    print *, "  Error retrieving answer!"
+            end select
             tmp = second_count - first_count
             if (tmp < 0) then
                 tmp = tmp + count_max
@@ -88,34 +112,35 @@ contains
         end do
     end subroutine process_problems
 
-    integer(kind=8) function select_function(problem_id)
+    type(Answer) function select_function(problem_id) result(answer)
         integer(kind=4), intent(in) :: problem_id
-        character(len=14) :: str
 
+        answer%type = int64t
         select case (problem_id)
             case (1)
-                select_function = p0001()
+                answer%int_value = p0001()
             case (2)
-                select_function = p0002()
+                answer%int_value = p0002()
             case (6)
-                select_function = p0006()
+                answer%int_value = p0006()
             case (8)
-                select_function = p0008()
+                answer%int_value = p0008()
             case (9)
-                select_function = p0009()
+                answer%int_value = p0009()
             case (11)
-                select_function = p0011()
+                answer%int_value = p0011()
             case (836)
-                str = p0836()
-                if ((str == "aprilfoolsjoke")) then
-                    select_function = 0
+                allocate(character(len=14), answer%string_value)
+                if (.not. allocated(answer%string_value)) then
+                    print *, "  Memory allocation failed for string_value. Returning error type"
+                    answer%type = errort
                 else
-                    print *, "  Solution returned: ", str
-                    select_function = -2
+                    answer%type = stringt
+                    answer%string_value = p0836()
                 end if
             case default
                 print *, "Unknown problem ID!"
-                select_function = -1
+                answer%type = errort
         end select
     end function select_function
 
