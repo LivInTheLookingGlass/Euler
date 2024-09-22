@@ -54,7 +54,7 @@ contains
             if (long_runtime(i)) then
                 print *, "  This problem will take more than 60 seconds."
             end if
-            expected = get_answer(i)
+            expected = get_answer(problem_ids(i))
             call system_clock(first_count, count_rate, count_max)
             answer = select_function(problem_ids(i))
             call system_clock(second_count, count_rate, count_max)
