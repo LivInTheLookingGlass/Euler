@@ -86,12 +86,12 @@ contains
                                 answer%int_value = i
                             end if
                         case ("str")
-                            allocate(character(len=len(val)) :: answer%string_value)
+                            allocate(character(len=len(trim(val))) :: answer%string_value)
                             if (.not. allocated(answer%string_value)) then
                                 print *, "Memory allocation failed for string_value. Returning error type"
                             else
                                 answer%type = stringt
-                                answer%string_value = val
+                                answer%string_value = trim(val)
                             end if
                         case default
                             print *, "Invalid value type. Returning error type"
@@ -129,11 +129,13 @@ contains
                         length_out = trim(line(last_pos + 1:))
                     case (4)
                         value_out = trim(line(last_pos + 1:))
-                        if (value_out(len(value_out):len(value_out)) == char(10)) then
-                            value_out = value_out(0:len(value_out) - 1)  ! strip \n
-                        end if
-                        if (value_out(len(value_out):len(value_out)) == char(13)) then
-                            value_out = value_out(0:len(value_out) - 1)  ! strip \r
+                        if (len_trim(value_out) > 0) then
+                            if (value_out(len_trim(value_out):len_trim(value_out)) == char(10)) then
+                                value_out = value_out(1:len_trim(value_out) - 1)  ! strip \n
+                            end if
+                            if (value_out(len_trim(value_out):len_trim(value_out)) == char(13)) then
+                                value_out = value_out(1:len_trim(value_out) - 1)  ! strip \r
+                            end if
                         end if
                 end select
                 return
