@@ -17,16 +17,19 @@ contains
         character(len=:), allocatable :: contents
         character(len=64) :: line
         integer :: unit_number, iostat, file_size
+        contents = ''
 
         open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
             print *, "Error opening file: ../_data/" // filename
-            contents = ''
             return
         end if
 
         inquire(unit=unit_number, size=file_size)
         if (file_size > 0) then
+            if (allocated(contents)) then
+                deallocate(contents)
+            end if
             allocate(character(len=file_size) :: contents)
             contents = ''
             do
@@ -37,8 +40,6 @@ contains
                 end if
                 contents = contents // trim(line) // char(10)
             end do
-        else
-            contents = ''
         end if
         close(unit_number)
     end function get_data_file

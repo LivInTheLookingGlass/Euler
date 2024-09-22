@@ -44,7 +44,7 @@ contains
         integer(kind=4), dimension(:), intent(in) :: problem_ids
         logical(kind=1), dimension(:), intent(in) :: long_runtime
         type(AnswerT) :: expected, answer
-        integer(kind=4) :: i, j
+        integer(kind=4) :: i
         integer :: first_count, second_count, count_rate, count_max, tmp
         real :: time_elapsed
 
@@ -91,21 +91,6 @@ contains
                         print *, "  Error: problem ", problem_ids(i), " failed!"
                         print *, "  Expected Answer  : ", expected%string_value
                         print *, "  Solution returned: ", answer%string_value
-                        do j = 1, len(expected%string_value)
-                            write(*, '(A, I3)', advance='no') "Character ", j, ": ", ichar(expected%string_value(j:j))
-                            if (j < len(expected%string_value)) then
-                                write(*, '(A, I3)', advance='no') ", "
-                            end if
-                        end do
-                        print *
-                        do j = 1, len(answer%string_value)
-                            write(*, '(A, I3)', advance='no') "Character ", j, ": ", ichar(answer%string_value(j:j))
-                            if (j < len(answer%string_value)) then
-                                write(*, '(A, I3)', advance='no') ", "
-                            end if
-                        end do
-                        print *
-                        deallocate(answer%string_value, expected%string_value)
                         stop 1
                     end if
                     deallocate(answer%string_value, expected%string_value)

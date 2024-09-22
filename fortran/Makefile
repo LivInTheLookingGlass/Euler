@@ -9,15 +9,15 @@ OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
 
 ifeq ($(FC),ifort)
-opt_args= -Wall -march=native -qwholeprogram -J$(BUILD_DIR)
+opt_args= -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
 else ifeq ($(FC),lfortran)
 opt_args= -J$(BUILD_DIR)
 else ifeq ($(FC),nvfortran)
-opt_args= -Wall -march=native -module $(BUILD_DIR)
+opt_args= -Wall -Werror -march=native -module $(BUILD_DIR)
 else ifneq (,$(findstring flang,$(FC)))
-opt_args= -march=native -flto -J$(BUILD_DIR)
+opt_args= -Werror -march=native -flto -J$(BUILD_DIR)
 else
-opt_args= -Wall -march=native -flto -J$(BUILD_DIR)
+opt_args= -Wall -Werror -march=native -flto -J$(BUILD_DIR)
 endif
 
 ifneq ($(COV),false)
