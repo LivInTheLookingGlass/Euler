@@ -5,11 +5,11 @@ module utils
     integer(kind=1), parameter :: int64t = 1
     integer(kind=1), parameter :: stringt = 2
 
-    type :: Answer
+    type :: AnswerT
         integer(kind=8) :: int_value
         character(len=:), allocatable :: string_value
         integer(kind=1) :: type
-    end type Answer
+    end type AnswerT
 
 contains
     function get_data_file(filename) result(contents)
@@ -34,7 +34,7 @@ contains
         close(unit_number)
     end function get_data_file
 
-    type(Answer) function get_answer(id) result(answer)
+    type(AnswerT) function get_answer(id) result(answer)
         integer(kind=4), intent(in) :: id
         integer(kind=4) :: ios, row_start, row_end, line_length
         integer(kind=8) :: i

@@ -21,9 +21,9 @@ View source code :source:`fortran/include/utils.f90`
 
     :p integer(kind=4) id:
     :returns answer:
-    :rtype answer: Answer
+    :rtype answer: AnswerT
 
-.. f:type:: Answer
+.. f:type:: AnswerT
 
     This stores the answer to a generic problem, storing multiple potential types. If the type field contains
     :f:var:`errort`, there was an error in generating the answer. If it is :f:var:`int64t`, it holds data of
@@ -41,7 +41,7 @@ View source code :source:`fortran/include/utils.f90`
 .. f:variable:: stringt
     :type: integer(kind=1)
 
-    Denotes the type of an :f:type:`Answer`
+    Denotes the type of an :f:type:`AnswerT`
 
 .. literalinclude:: ../../../../fortran/src/include/utils.f90
    :language: Fortran

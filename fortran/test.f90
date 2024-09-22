@@ -43,7 +43,7 @@ contains
     subroutine process_problems(problem_ids, long_runtime)
         integer(kind=4), dimension(:), intent(in) :: problem_ids
         logical(kind=1), dimension(:), intent(in) :: long_runtime
-        type(Answer) :: expected, answer
+        type(AnswerT) :: expected, answer
         integer(kind=4) :: i
         integer :: first_count, second_count, count_rate, count_max, tmp
         real :: time_elapsed
@@ -112,7 +112,7 @@ contains
         end do
     end subroutine process_problems
 
-    type(Answer) function select_function(problem_id) result(answer)
+    type(AnswerT) function select_function(problem_id) result(answer)
         integer(kind=4), intent(in) :: problem_id
 
         answer%type = int64t
