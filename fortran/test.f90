@@ -80,21 +80,21 @@ contains
             end if
             select case(expected%type)
                 case (int64t)
-                    if (expected%int_value /= answer) then
+                    if (expected%int_value /= answer%int_value) then
                         print *, "  Error: problem ", problem_ids(i), " failed!"
                         print *, "  Expected Answer  : ", expected%int_value
-                        print *, "  Solution returned: ", answer
+                        print *, "  Solution returned: ", answer%int_value
                         stop 1
                     end if
                 case (stringt)
-                    if (expected%string_value /= answer) then
+                    if (expected%string_value /= answer%string_value) then
                         print *, "  Error: problem ", problem_ids(i), " failed!"
                         print *, "  Expected Answer  : ", expected%string_value
-                        print *, "  Solution returned: ", answer
-                        deallocate(answer, expected%string_value)
+                        print *, "  Solution returned: ", answer%string_value
+                        deallocate(answer%string_value, expected%string_value)
                         stop 1
                     end if
-                    deallocate(answer, expected%string_value)
+                    deallocate(answer%string_value, expected%string_value)
                 case (errort)
                     print *, "  Error retrieving answer!"
             end select
