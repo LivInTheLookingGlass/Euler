@@ -6,7 +6,7 @@ BUILD_DIR=build
 SRC_DIR=src
 SRC_FILES=$(wildcard $(SRC_DIR)/*.f90) $(wildcard $(SRC_DIR)/include/*.f90)
 OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
-GCC_VERSION := $(shell $(CC) --version | grep -oP 'gcc \K[0-9.]+')
+GCC_VERSION := $(shell gcc --version | grep ^gcc | sed 's/^.* //g')
 GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
 
 $(info Detected GCC Version: $(GCC_VERSION))
