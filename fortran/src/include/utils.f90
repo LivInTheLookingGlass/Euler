@@ -86,17 +86,12 @@ contains
                                 answer%int_value = i
                             end if
                         case ("str")
-                            print *, "about to allocate", len(val), "bytes for the returned answer"
-                            allocate(character(len=len(val)) :: answer%string_value)
-                            print *, "checking allocation"
+                            allocate(character(len=len(trim(val))) :: answer%string_value)
                             if (.not. allocated(answer%string_value)) then
                                 print *, "Memory allocation failed for string_value. Returning error type"
                             else
-                                print *, "setting type"
                                 answer%type = stringt
-                                print *, "setting value"
-                                answer%string_value = val
-                                print *, "done"
+                                answer%string_value = trim(val)
                             end if
                         case default
                             print *, "Invalid value type. Returning error type"
