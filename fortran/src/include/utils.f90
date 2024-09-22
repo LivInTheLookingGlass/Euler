@@ -60,7 +60,6 @@ contains
         line_length = 1
         answer%type = errort
         answer%int_value = 0
-        answer%string_value = ''
         do while (line_length > 0)
             line_length = index(text(row_start:), char(10))  ! Find the next line
             row_end = row_start + line_length - 1
