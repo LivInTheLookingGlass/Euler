@@ -16,13 +16,11 @@ else ifeq ($(FC),nvfortran)
 else ifneq (,$(findstring flang,$(FC)))
     opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
 else ifeq ($(FC),gfortran)
+    opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
     GCC_VERSION := $(shell $(CC) --version | grep -oP 'gcc \K[0-9.]+')
     GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
-    GCC_MAJOR_CHECK := $(shell test $(GCC_MAJOR) -lt 12 && echo true)
-    ifeq ($(GCC_MAJOR_CHECK),true)
-        opt_args = -Wall -Werror -march=native -Wno-error=maybe-uninitialized -flto -J$(BUILD_DIR)
-    else
-        opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
+    ifneq ($(findstring $(GCC_MAJOR),8 9 10 11),)
+        opt_args += -Wno-error=maybe-uninitialized
     endif
 else
     opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
