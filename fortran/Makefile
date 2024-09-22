@@ -9,9 +9,6 @@ OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
 GCC_VERSION := $(shell gcc --version | grep ^gcc | sed 's/^.* //g')
 GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
 
-$(info Detected GCC Version: $(GCC_VERSION))
-$(info Major Version: $(GCC_MAJOR))
-
 ifeq ($(FC),ifort)
     opt_args = -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
 else ifeq ($(FC),lfortran)
