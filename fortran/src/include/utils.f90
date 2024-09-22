@@ -34,7 +34,8 @@ contains
         close(unit_number)
     end function get_data_file
 
-    type(AnswerT) function get_answer(id) result(answer)
+    function get_answer(id) result(answer)
+        type(AnswerT) :: answer
         integer(kind=4), intent(in) :: id
         integer(kind=4) :: ios, row_start, row_end, line_length
         integer(kind=8) :: i
@@ -61,7 +62,7 @@ contains
                 read(type_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
-                elseif (i == id_) then
+                elseif (i == id) then
                     select case (type_)
                         case ("int", "uint")
                             read(val, *, iostat=ios) i
