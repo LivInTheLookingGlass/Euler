@@ -73,17 +73,12 @@ contains
                                 answer%int_value = i
                             end if
                         case ("str")
-                            read(length, *, iostat=ios) i
-                            if (ios /= 0) then
-                                print *, "Invalid integer literal for string length. Returning error type"
+                            allocate(character(len=len(val)), answer%string_value)
+                            if (.not. allocated(answer%string_value)) then
+                                print *, "Memory allocation failed for string_value. Returning error type"
                             else
-                                allocate(character(len=i), answer%string_value)
-                                if (.not. allocated(answer%string_value)) then
-                                    print *, "Memory allocation failed for string_value. Returning error type"
-                                else
-                                    answer%type = stringt
-                                    answer%string_value = val
-                                end if
+                                answer%type = stringt
+                                answer%string_value = val
                             end if
                         case default
                             print *, "Invalid value type. Returning error type"
