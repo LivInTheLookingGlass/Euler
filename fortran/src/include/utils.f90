@@ -73,7 +73,6 @@ contains
                     row_start = row_start + line_length
                     cycle
                 end if
-                print *, id_, id
                 read(id_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
@@ -88,12 +87,17 @@ contains
                                 answer%int_value = i
                             end if
                         case ("str")
+                            print *, "about to allocate", len(val), "bytes for the returned answer"
                             allocate(character(len=len(val)) :: answer%string_value)
+                            print *, "checking allocation"
                             if (.not. allocated(answer%string_value)) then
                                 print *, "Memory allocation failed for string_value. Returning error type"
                             else
+                                print *, "setting type"
                                 answer%type = stringt
+                                print *, "setting value"
                                 answer%string_value = val
+                                print *, "done"
                             end if
                         case default
                             print *, "Invalid value type. Returning error type"
