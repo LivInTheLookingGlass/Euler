@@ -73,6 +73,7 @@ contains
                 call parse_line(text(row_start:row_end), id_, type_, length, val)  ! Parse values
                 print *, id_, type_, length, val
                 if (id_ == "ID") then
+                    row_start = row_start + line_length
                     cycle
                 end if
                 read(id_, *, iostat=ios) i
