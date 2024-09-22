@@ -17,11 +17,11 @@ contains
         character(len=:), allocatable :: contents
         integer :: unit_number, iostat, file_size
 
-        contents = ''
 
         open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
             print *, "Error opening file: ../_data/" // filename
+            contents = ''
             return
         end if
 
@@ -29,6 +29,8 @@ contains
         if (file_size > 0) then
             allocate(character(len=file_size) :: contents)
             read(unit_number, '(A)') contents
+        else
+            contents = ''
         end if
         close(unit_number)
     end function get_data_file
@@ -51,13 +53,16 @@ contains
         answer%type = errort
         answer%int_value = 0
         answer%string_value = ''
+        print *, text
         do while (line_length > 0)
             line_length = index(text(row_start:), char(10))  ! Find the next line
+            print *, line_length
             row_end = row_start + line_length - 2
             if (line_length > 0) then
                 if (text(row_end:row_end) == char(13)) then  ! if \r
                     row_end = row_end - 1
                 end if
+                print *, text(row_start:row_end)
                 call parse_line(text(row_start:row_end), id_, type_, length, val)  ! Parse values
                 print *, id_, type_, length, val
                 read(type_, *, iostat=ios) i
