@@ -29,8 +29,6 @@ contains
         if (file_size > 0) then
             allocate(character(len=file_size) :: contents)
             read(unit_number, '(A)') contents
-        else
-            contents = ''
         end if
         close(unit_number)
     end function get_data_file
@@ -45,6 +43,9 @@ contains
         character(len=4) :: id_, type_, length
 
         text = get_data_file("answers.tsv")
+        if (.not. allocated(text)) then
+            text = ''  ! Ensure text is defined if allocation failed
+        end if
         row_start = 1
         line_length = 1
         answer%type = errort
