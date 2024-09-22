@@ -27,7 +27,15 @@ contains
         inquire(unit=unit_number, size=file_size)
         if (file_size > 0) then
             allocate(character(len=file_size) :: contents)
-            read(unit_number, '(A)') contents
+            contents = ''
+            do
+                character(len=64) :: line
+                read(unit_number, '(A)', iostat=iostat) line
+                if (iostat /= 0) then
+                    stop -1
+                end if
+                contents = contents // trim(line) // char(10)
+            end do
         else
             contents = ''
         end if
@@ -43,7 +51,7 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
-        text = trim(get_data_file("answers.tsv"))
+        text = get_data_file("answers.tsv")
         if (.not. allocated(text)) then
             text = ''  ! Ensure text is defined if allocation failed
         end if
@@ -53,10 +61,10 @@ contains
         answer%int_value = 0
         answer%string_value = ''
         print *, text
-        do while (row_start < len(text))
+        do while (line_length > 0)
             line_length = index(text(row_start:), char(10))  ! Find the next line
             print *, line_length
-            row_end = row_start + line_length - 2
+            row_end = row_start + line_length - 1
             if (line_length > 0) then
                 if (text(row_end:row_end) == char(13)) then  ! if \r
                     row_end = row_end - 1
