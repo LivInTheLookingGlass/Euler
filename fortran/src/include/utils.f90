@@ -17,10 +17,11 @@ contains
         character(len=:), allocatable :: contents
         integer :: unit_number, iostat, file_size
 
+        contents = ''
+
         open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
             print *, "Error opening file: ../_data/" // filename
-            contents = ''
             return
         end if
 
@@ -28,8 +29,6 @@ contains
         if (file_size > 0) then
             allocate(character(len=file_size) :: contents)
             read(unit_number, '(A)') contents
-        else
-            contents = ''
         end if
         close(unit_number)
     end function get_data_file
@@ -40,7 +39,6 @@ contains
         integer(kind=4) :: ios, row_start, row_end, line_length
         integer(kind=8) :: i
         character(len=:), allocatable :: text
-        character(len=64) :: line
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
