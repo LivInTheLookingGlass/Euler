@@ -73,7 +73,7 @@ contains
                                 answer%int_value = i
                             end if
                         case ("str")
-                            allocate(character(len=len(val)), answer%string_value)
+                            allocate(character(len=len(val)) :: answer%string_value)
                             if (.not. allocated(answer%string_value)) then
                                 print *, "Memory allocation failed for string_value. Returning error type"
                             else

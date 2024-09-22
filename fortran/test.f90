@@ -130,7 +130,7 @@ contains
             case (11)
                 answer%int_value = p0011()
             case (836)
-                allocate(character(len=14), answer%string_value)
+                allocate(character(len=14) :: answer%string_value)
                 if (.not. allocated(answer%string_value)) then
                     print *, "  Memory allocation failed for string_value. Returning error type"
                     answer%type = errort
