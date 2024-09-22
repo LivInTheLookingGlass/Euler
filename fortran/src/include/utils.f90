@@ -29,6 +29,8 @@ contains
         if (file_size > 0) then
             allocate(character(len=file_size) :: contents)
             read(unit_number, '(A)') contents
+        else
+            contents = ''
         end if
         close(unit_number)
     end function get_data_file
