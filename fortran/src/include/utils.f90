@@ -73,7 +73,7 @@ contains
                 print *, text(row_start:row_end)
                 call parse_line(text(row_start:row_end), id_, type_, length, val)  ! Parse values
                 print *, id_, type_, length, val
-                read(type_, *, iostat=ios) i
+                read(id_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
                 elseif (i == id) then
