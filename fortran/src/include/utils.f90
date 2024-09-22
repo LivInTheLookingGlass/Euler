@@ -17,7 +17,6 @@ contains
         character(len=:), allocatable :: contents
         character(len=64) :: line
         integer :: unit_number, iostat, file_size
-        contents = ''
 
         open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
@@ -27,9 +26,6 @@ contains
 
         inquire(unit=unit_number, size=file_size)
         if (file_size > 0) then
-            if (allocated(contents)) then
-                deallocate(contents)
-            end if
             allocate(character(len=file_size) :: contents)
             contents = ''
             do
@@ -42,6 +38,9 @@ contains
             end do
         end if
         close(unit_number)
+        if (.not. allocated(contents)) then
+            contents = ''
+        end if
     end function get_data_file
 
     function get_answer(id) result(answer)
