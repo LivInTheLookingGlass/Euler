@@ -63,19 +63,17 @@ contains
         answer%string_value = ''
         do while (line_length > 0)
             line_length = index(text(row_start:), char(10))  ! Find the next line
-            print *, line_length
             row_end = row_start + line_length - 1
             if (line_length > 0) then
                 if (text(row_end:row_end) == char(13)) then  ! if \r
                     row_end = row_end - 1
                 end if
-                print *, text(row_start:row_end)
                 call parse_line(text(row_start:row_end), id_, type_, length, val)  ! Parse values
-                print *, id_, type_, length, val
                 if (id_ == "ID") then
                     row_start = row_start + line_length
                     cycle
                 end if
+                print *, id_, id
                 read(id_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
