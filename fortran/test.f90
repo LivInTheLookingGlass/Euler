@@ -91,6 +91,20 @@ contains
                         print *, "  Error: problem ", problem_ids(i), " failed!"
                         print *, "  Expected Answer  : ", expected%string_value
                         print *, "  Solution returned: ", answer%string_value
+                        do i = 1, len(expected%string_value)
+                            write(*, '(A, I3)', advance='no') "Character ", i, ": ", ichar(expected%string_value(i:i))
+                            if (i < len(expected%string_value)) then
+                                write(*, '(A, I3)', advance='no') ", "
+                            end if
+                        end do
+                        print *
+                        do i = 1, len(answer%string_value)
+                            write(*, '(A, I3)', advance='no') "Character ", i, ": ", ichar(answer%string_value(i:i))
+                            if (i < len(answer%string_value)) then
+                                write(*, '(A, I3)', advance='no') ", "
+                            end if
+                        end do
+                        print *
                         deallocate(answer%string_value, expected%string_value)
                         stop 1
                     end if
