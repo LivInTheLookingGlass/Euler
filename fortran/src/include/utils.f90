@@ -32,7 +32,8 @@ contains
             do
                 read(unit_number, '(A)', iostat=iostat) line
                 if (iostat /= 0) then
-                    stop -1
+                    close(unit_number)
+                    exit
                 end if
                 contents = contents // trim(line) // char(10)
             end do
