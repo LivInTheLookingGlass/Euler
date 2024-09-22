@@ -6,6 +6,11 @@ BUILD_DIR=build
 SRC_DIR=src
 SRC_FILES=$(wildcard $(SRC_DIR)/*.f90) $(wildcard $(SRC_DIR)/include/*.f90)
 OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
+GCC_VERSION := $(shell $(CC) --version | grep -oP 'gcc \K[0-9.]+')
+GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
+
+$(info Detected GCC Version: $(GCC_VERSION))
+$(info Major Version: $(GCC_MAJOR))
 
 ifeq ($(FC),ifort)
     opt_args = -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
@@ -17,8 +22,6 @@ else ifneq (,$(findstring flang,$(FC)))
     opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
 else ifeq ($(FC),gfortran)
     opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
-    GCC_VERSION := $(shell $(CC) --version | grep -oP 'gcc \K[0-9.]+')
-    GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
     ifneq ($(findstring $(GCC_MAJOR),8 9 10 11),)
         opt_args += -Wno-error=maybe-uninitialized
     endif
