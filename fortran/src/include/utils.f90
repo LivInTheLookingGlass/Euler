@@ -17,7 +17,6 @@ contains
         character(len=:), allocatable :: contents
         integer :: unit_number, iostat, file_size
 
-
         open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
             print *, "Error opening file: ../_data/" // filename
@@ -44,7 +43,7 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
-        text = get_data_file("answers.tsv")
+        text = trim(get_data_file("answers.tsv"))
         if (.not. allocated(text)) then
             text = ''  ! Ensure text is defined if allocation failed
         end if
@@ -54,7 +53,7 @@ contains
         answer%int_value = 0
         answer%string_value = ''
         print *, text
-        do while (line_length > 0)
+        do while (row_start < len(text))
             line_length = index(text(row_start:), char(10))  ! Find the next line
             print *, line_length
             row_end = row_start + line_length - 2
