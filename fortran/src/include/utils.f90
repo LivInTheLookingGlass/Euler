@@ -15,6 +15,7 @@ contains
     function get_data_file(filename) result(contents)
         character(len=*), intent(in) :: filename
         character(len=:), allocatable :: contents
+        character(len=64) :: line
         integer :: unit_number, iostat, file_size
 
         open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
@@ -29,7 +30,6 @@ contains
             allocate(character(len=file_size) :: contents)
             contents = ''
             do
-                character(len=64) :: line
                 read(unit_number, '(A)', iostat=iostat) line
                 if (iostat /= 0) then
                     stop -1
