@@ -7,25 +7,31 @@ SRC_DIR=src
 SRC_FILES=$(wildcard $(SRC_DIR)/*.f90) $(wildcard $(SRC_DIR)/include/*.f90)
 OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
-
 ifeq ($(FC),ifort)
-opt_args= -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
+    opt_args = -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
 else ifeq ($(FC),lfortran)
-opt_args= -J$(BUILD_DIR)
+    opt_args = -J$(BUILD_DIR)
 else ifeq ($(FC),nvfortran)
-opt_args= -Wall -Werror -march=native -module $(BUILD_DIR)
+    opt_args = -Wall -Werror -march=native -module $(BUILD_DIR)
 else ifneq (,$(findstring flang,$(FC)))
-opt_args= -Werror -march=native -flto -J$(BUILD_DIR)
+    opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
+else ifeq ($(FC),gfortran)
+    GCC_VERSION := $(shell gcc --version | awk '/^gcc/{print $$3}')
+    ifeq ($(shell echo $(GCC_VERSION) | awk '{print ($$1 < 12) ? "true" : "false"}'), true)
+        opt_args = -Wall -Werror -march=native -Wno-error=maybe-uninitialized -flto -J$(BUILD_DIR)
+    else
+        opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
+    endif
 else
-opt_args= -Wall -Werror -march=native -flto -J$(BUILD_DIR)
+    opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
 endif
 
 ifneq ($(COV),false)
-cov_args= -fprofile-arcs -ftest-coverage -O0
+    cov_args= -fprofile-arcs -ftest-coverage -O0
 else ifeq ($(FC),lfortran)
-cov_args=
+    cov_args=
 else
-cov_args= -O2
+    cov_args= -O2
 endif
 
 .PHONY: help
