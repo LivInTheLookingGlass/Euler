@@ -61,7 +61,6 @@ contains
         answer%type = errort
         answer%int_value = 0
         answer%string_value = ''
-        print *, text
         do while (line_length > 0)
             line_length = index(text(row_start:), char(10))  ! Find the next line
             print *, line_length
@@ -73,6 +72,9 @@ contains
                 print *, text(row_start:row_end)
                 call parse_line(text(row_start:row_end), id_, type_, length, val)  ! Parse values
                 print *, id_, type_, length, val
+                if (id_ == "ID") then
+                    cycle
+                end if
                 read(id_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
