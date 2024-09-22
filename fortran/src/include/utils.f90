@@ -1,6 +1,16 @@
 module utils
     implicit none
 
+    integer(kind=1), parameter :: errort = 0
+    integer(kind=1), parameter :: int64t = 1
+    integer(kind=1), parameter :: stringt = 2
+
+    type :: Answer
+        integer(kind=8) :: int_value
+        character(len=:), allocatable :: string_value
+        integer(kind=1) :: type
+    end type Answer
+
 contains
     function get_data_file(filename) result(contents)
         character(len=*), intent(in) :: filename
@@ -23,16 +33,6 @@ contains
         end if
         close(unit_number)
     end function get_data_file
-
-    integer(kind=1), parameter :: errort = 0
-    integer(kind=1), parameter :: int64t = 1
-    integer(kind=1), parameter :: stringt = 2
-
-    type :: Answer
-        integer(kind=8) :: int_value
-        character(len=:), allocatable :: string_value
-        integer(kind=1) :: type
-    end type Answer
 
     type(Answer) function get_answer(id) result(answer)
         integer(kind=4), intent(in) :: id
