@@ -4,42 +4,34 @@ USER_FLAG?=--user
 PIP?=$(PY) -m pip
 MYPY?=true
 COV?=false
+BLUE=\033[0;34m
+NC=\033[0m # No Color
+benchmark_flags=--benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
 
 ifneq ($(MYPY),true)
 LINT=less
 endif
 
-benchmark_flags=--benchmark-min-time=0.05 --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
-
 ifeq ($(LINT),false)
 pytest_args?= -vl
-else
-ifeq ($(LINT),true)
+else ifeq ($(LINT),true)
 pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --flake8 -k 'not test_problem and not test_is_prime and not test_groupwise'
-else
-ifeq ($(LINT),less)
+else ifeq ($(LINT),less)
 pytest_args?= -vl --isort
 else
 pytest_args?= -vl --mypy --mypy-ignore-missing-imports --isort --flake8
-endif
-endif
 endif
 
 ifeq ($(COV),true)
 pytest_args+= --cov
 endif
 
+PROXY_ARG=
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
-else
-ifneq ($(http_proxy), )
+else ifneq ($(http_proxy), )
 PROXY_ARG=--proxy=$(http_proxy)
-else
-PROXY_ARG=
 endif
-endif
-BLUE=\033[0;34m
-NC=\033[0m # No Color
 
 .PHONY: help
 help:
@@ -57,11 +49,10 @@ test_%: ../LICENSE dependencies
 	@$(PY) -m pytest $(pytest_args) -d -n$*
 
 .PHONY: dependencies
-ifeq ($(MYPY),true)
 dependencies:
+ifeq ($(MYPY),true)
 	@$(PIP) install -r requirements.txt $(USER_FLAG) $(PROXY_ARG)
 else
-dependencies:
 	@cat requirements.txt | grep -v "mypy" > .requirements.txt
 	@$(PIP) install -r .requirements.txt $(USER_FLAG) $(PROXY_ARG)
 endif

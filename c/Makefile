@@ -4,6 +4,7 @@ PIP?=$(PY) -m pip
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 O?=2
+COV?=false
 
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
@@ -15,11 +16,9 @@ PROXY_ARG=
 endif
 endif
 
-COV?=false
-ifneq ($(COV),false)
-pytest_args= -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose --cov
-else
 pytest_args= -vl --benchmark-sort=fullname --benchmark-group-by=fullfunc --benchmark-verbose
+ifneq ($(COV),false)
+pytest_args+= --cov
 endif
 
 .PHONY: help

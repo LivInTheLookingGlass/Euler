@@ -2,14 +2,13 @@ NOT_TERMUX?=$(shell command -v termux-setup-storage > /dev/null 2>&1 ; echo $$?)
 HAS_NPM?=$(shell command -v npm > /dev/null 2>&1 ; echo $$?)
 HAS_BUN?=$(shell command -v bun > /dev/null 2>&1 ; echo $$?)
 COV?=false
+BLUE=\033[0;34m
+NC=\033[0m # No Color
+MOCHA=npx mocha
 
 ifeq ($(COV),true)
 MOCHA=istanbul cover ./node_modules/mocha/bin/_mocha
-else
-MOCHA=npx mocha
 endif
-BLUE=\033[0;34m
-NC=\033[0m # No Color
 
 .PHONY: help
 help:

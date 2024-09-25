@@ -1,8 +1,3 @@
-# Minimal makefile for Sphinx documentation
-#
-
-# You can set these variables from the command line, and also
-# from the environment for the first two.
 SPHINXOPTS    ?= -j auto
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
@@ -10,17 +5,14 @@ BUILDDIR      = _build
 PY?=python3
 USER_FLAG?=--user
 PIP?=$(PY) -m pip
+PROXY_ARG=
+
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
-else
-ifneq ($(http_proxy), )
+else ifneq ($(http_proxy), )
 PROXY_ARG=--proxy=$(http_proxy)
-else
-PROXY_ARG=
-endif
 endif
 
-# Put it first so that "make" without argument is like "make help".
 .PHONY: help
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

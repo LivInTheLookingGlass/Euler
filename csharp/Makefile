@@ -2,10 +2,10 @@ NOT_TERMUX?=$(shell command -v termux-setup-storage > /dev/null 2>&1 ; echo $$?)
 BLUE=\033[0;34m
 NC=\033[0m # No Color
 COV?=false
+cov_args=
+
 ifeq ($(COV),true)
 cov_args= --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.IncludeTestAssembly=true
-else
-cov_args=
 endif
 
 .PHONY: help

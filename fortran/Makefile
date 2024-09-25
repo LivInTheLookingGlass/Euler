@@ -26,11 +26,10 @@ else
     opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
 endif
 
+cov_args=
 ifneq ($(COV),false)
     cov_args= -fprofile-arcs -ftest-coverage -O0
-else ifeq ($(FC),lfortran)
-    cov_args=
-else
+else ifneq ($(FC),lfortran)
     cov_args= -O2
 endif
 

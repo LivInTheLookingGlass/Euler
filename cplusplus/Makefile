@@ -4,15 +4,12 @@ PIP?=$(PY) -m pip
 BLUE=\033[0;34m
 NC=\033[0m  # No Color
 O?=2
+PROXY_ARG=
 
 ifneq ($(https_proxy), )
 PROXY_ARG=--proxy=$(https_proxy)
-else
-ifneq ($(http_proxy), )
+else ifneq ($(http_proxy), )
 PROXY_ARG=--proxy=$(http_proxy)
-else
-PROXY_ARG=
-endif
 endif
 
 .PHONY: help
