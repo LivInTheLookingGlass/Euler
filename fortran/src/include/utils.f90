@@ -118,7 +118,7 @@ contains
 
         deallocate(text)
         cache_inited = .true.
-        answer = get_answer(id)
+        answer = cached_answers(id)
     end function
 
     subroutine parse_line(line, id_out, type_out, length_out, value_out)
