@@ -222,12 +222,12 @@ contains
         arr = (/ 0, 0, 0 /)
         do i = 1, 100
             do j = 1, 3
-                arr(j) = arr(j) + numbers(i, j);
+                arr(j) = arr(j) + numbers(i, j)
             end do
             do j = 2, 1, -1
                 if (arr(j) > ten18) then
-                    arr(j - 1) = arr(j - 1) + arr(j) / ten18;
-                    arr(j) = arr(j) % ten18;
+                    arr(j - 1) = arr(j - 1) + arr(j) / ten18
+                    arr(j) = mod(arr(j), ten18)
                 end if
             end do
         end do
