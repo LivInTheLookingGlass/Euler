@@ -54,7 +54,7 @@ contains
         type(AnswerT) :: answer
         integer(kind=4), intent(in) :: id
         integer(kind=4) :: ios, row_start, row_end, line_length
-        integer(kind=8) :: i
+        integer(kind=8) :: i, j
         character(len=:), allocatable :: text
         character(len=32) :: val
         character(len=4) :: id_, type_, length
@@ -102,12 +102,12 @@ contains
                 end if
                 select case (type_)
                     case ("int", "uint")
-                        read(val, *, iostat=ios) i
+                        read(val, *, iostat=ios) j
                         if (ios /= 0) then
                             print *, "Invalid integer literal for value. Returning error type"
                         else
                             cached_answers(i)%type = int64t
-                            cached_answers(i)%int_value = i
+                            cached_answers(i)%int_value = j
                         end if
                     case ("str")
                         allocate(character(len=len(trim(val))) :: cached_answers(i)%string_value)
