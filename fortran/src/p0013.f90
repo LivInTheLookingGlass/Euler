@@ -224,7 +224,7 @@ contains
             do j = 1, 3
                 arr(j) = arr(j) + numbers(i, j)
             end do
-            do j = 2, 1, -1
+            do j = 3, 2, -1
                 if (arr(j) > ten18) then
                     arr(j - 1) = arr(j - 1) + arr(j) / ten18
                     arr(j) = mod(arr(j), ten18)
