@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 13
+====================================
+
+View source code :source:`fortran/src/p0013.f90`
+
+.. f:module:: Problem0013
+
+.. f:function:: integer Problem0013/p0013()
+
+.. literalinclude:: ../../../fortran/src/p0013.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: large-numbers

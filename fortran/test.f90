@@ -13,7 +13,7 @@ program test
     logical(kind=1), dimension(:), allocatable :: long_runtime
     integer :: num_problems
     
-    num_problems = 7
+    num_problems = 8
     allocate(problem_ids(num_problems))
     allocate(long_runtime(num_problems))
     if (.not. (allocated(problem_ids) .and. allocated(long_runtime))) then
@@ -27,9 +27,11 @@ program test
         008, &
         009, &
         011, &
+        013, &
         836 &
     /)
     long_runtime = (/ &
+        .false., &
         .false., &
         .false., &
         .false., &
