@@ -59,6 +59,12 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
+        if (id < 1 .or. id > size(cached_answers)) then
+            print *, "Error: ID is out of bounds."
+            answer%type = errort
+            return
+        end if
+
         if (cache_inited) then
             answer = cached_answers(id)
             return
