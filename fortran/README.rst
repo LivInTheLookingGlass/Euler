@@ -6,7 +6,7 @@ Fortran Section
 
 |Fri|
 
-All problems are solved in Fortran90, and should be compliant with later standards.
+All problems are solved in Fortran95, and should be compliant with later standards.
 
 Organization
 ------------
@@ -59,11 +59,11 @@ except for test plugins. At the moment there are no dependencies for this sectio
 Problems Solved
 ---------------
 
--  ☒ `1 <./src/p0001.f90>`__
--  ☒ `2 <./src/p0002.f90>`__
--  ☒ `6 <./src/p0006.f90>`__
--  ☒ `8 <./src/p0008.f90>`__
--  ☒ `9 <./src/p0009.f90>`__
--  ☒ `11 <./src/p0011.f90>`__
--  ☒ `13 <./src/p0013.f90>`__
--  ☒ `836 <./src/p0836.f90>`__
+-  ☒ `1 <./src/p0001.f95>`__
+-  ☒ `2 <./src/p0002.f95>`__
+-  ☒ `6 <./src/p0006.f95>`__
+-  ☒ `8 <./src/p0008.f95>`__
+-  ☒ `9 <./src/p0009.f95>`__
+-  ☒ `11 <./src/p0011.f95>`__
+-  ☒ `13 <./src/p0013.f95>`__
+-  ☒ `836 <./src/p0836.f95>`__
