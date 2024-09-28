@@ -70,9 +70,7 @@ contains
             return
         end if
 
-        print *, "Initializing cache array"
         do i=1, size(cached_answers)
-            print *, "  Item:", i
             cached_answers(i)%type = errort
         end do
 
@@ -82,7 +80,6 @@ contains
         end if
         row_start = 1
         line_length = 1
-        print *, "File loaded, beginning main loop"
         do while (line_length > 0)
             line_length = index(text(row_start:), char(10))  ! Find the next line
             row_end = row_start + line_length - 1
@@ -95,7 +92,6 @@ contains
                     row_start = row_start + line_length
                     cycle
                 end if
-                print *, "  Processing id:", id_
                 read(id_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
