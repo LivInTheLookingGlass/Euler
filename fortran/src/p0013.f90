@@ -110,7 +110,7 @@ module Problem0013
 contains
 
     integer(kind=8) function p0013() result(answer)
-        integer(kind=8), dimension(100, 3) :: numbers
+        integer(kind=8), dimension(3, 100) :: numbers
         integer(kind=8), dimension(3) :: arr
         integer(kind=8) :: ten18 = 1000000000000000000_8
         integer(kind=8) :: ten10 = 10000000000_8
