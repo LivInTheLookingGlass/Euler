@@ -114,6 +114,7 @@ contains
         integer(kind=8), dimension(3) :: arr
         integer(kind=8) :: ten18 = 1000000000000000000_8
         integer(kind=8) :: ten10 = 10000000000_8
+        integer(kind=8) :: tmp
         integer :: i, j
 
         ! Manually initialize the grid
@@ -224,10 +225,11 @@ contains
             do j = 1, 3
                 arr(j) = arr(j) + numbers(i, j)
             end do
-            do j = 3, 2, -1
+            do j = 2, 1, -1
                 if (arr(j) > ten18) then
-                    arr(j - 1) = arr(j - 1) + arr(j) / ten18
-                    arr(j) = mod(arr(j), ten18)
+                    tmp = arr(j) / ten18
+                    arr(j - 1) = arr(j - 1) + tmp
+                    arr(j) = arr(j) - tmp * ten18
                 end if
             end do
         end do
