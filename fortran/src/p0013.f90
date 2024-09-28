@@ -221,9 +221,9 @@ contains
 
         arr = (/ 0, 0, 0 /)
         do i = 1, 100
-            print *, "{", numbers(i, 1), ",", numbers(i, 2), ",", numbers(i, 3), "},"
+            print *, "{", numbers(1, i), ",", numbers(2, i), ",", numbers(3, i), "},"
             do j = 1, 3
-                arr(j) = arr(j) + numbers(i, j)
+                arr(j) = arr(j) + numbers(j, i)
             end do
             do j = 3, 2, -1
                 if (arr(j) > ten18) then
