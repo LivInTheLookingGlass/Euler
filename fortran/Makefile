@@ -43,10 +43,12 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90
 	@mkdir -p $(BUILD_DIR)/include
 	$(FC) $(opt_args) $(cov_args) -c $< -o $@
 
-.PHONY: test
-test: ../LICENSE
+test_runner: ../LICENSE
 	@$(MAKE) $(OBJ_FILES) $(MFLAGS) -j --no-print-directory
 	$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o $(BUILD_DIR)/include/*.o test.f90 -o test_runner
+
+.PHONY: test
+test: test_runner
 	@./test_runner
 
 test_%:
