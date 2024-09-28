@@ -221,7 +221,6 @@ contains
 
         arr = (/ 0, 0, 0 /)
         do i = 1, 100
-            print *, "{", numbers(1, i), ",", numbers(2, i), ",", numbers(3, i), "},"
             do j = 1, 3
                 arr(j) = arr(j) + numbers(j, i)
             end do
