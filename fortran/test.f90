@@ -134,6 +134,8 @@ contains
                 answer%int_value = p0009()
             case (11)
                 answer%int_value = p0011()
+            case (13)
+                answer%int_value = p0013()
             case (836)
                 allocate(character(len=14) :: answer%string_value)
                 if (.not. allocated(answer%string_value)) then
