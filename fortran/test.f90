@@ -16,6 +16,10 @@ program test
     num_problems = 7
     allocate(problem_ids(num_problems))
     allocate(long_runtime(num_problems))
+    if (.not. (allocated(problem_ids) .and. allocated(long_runtime))) then
+        print *, "Could not allocate problem list. Exiting."
+        stop -2
+    end if
     problem_ids = (/ &
         001, &
         002, &

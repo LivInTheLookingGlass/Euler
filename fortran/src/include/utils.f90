@@ -11,6 +11,9 @@ module utils
         integer(kind=1) :: type
     end type AnswerT
 
+    logical(kind=1) :: cache_inited = .false.
+    type(AnswerT), dimension(1024) :: cached_answers
+
 contains
     function get_data_file(filename) result(contents)
         character(len=*), intent(in) :: filename
@@ -27,6 +30,10 @@ contains
         inquire(unit=unit_number, size=file_size)
         if (file_size > 0) then
             allocate(character(len=file_size) :: contents)
+            if (.not. allocated(contents)) then
+                print *, "Failed to allocate memory for read. Exiting."
+                stop -3
+            end if
             contents = ''
             do
                 read(unit_number, '(A)', iostat=iostat) line
@@ -52,6 +59,15 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
+        if (cache_inited) then
+            answer = cached_answers(id)
+            return
+        end if
+
+        do i=1, size(cached_answers)
+            cached_answers(i)%type = errort
+        end do
+
         text = get_data_file("answers.tsv")
         if (.not. allocated(text)) then
             text = ''  ! Ensure text is defined if allocation failed
@@ -75,34 +91,34 @@ contains
                 read(id_, *, iostat=ios) i
                 if (ios /= 0) then
                     print *, "Invalid integer literal for id. Moving on without explicit error, but please debug this"
-                elseif (i == id) then
-                    select case (type_)
-                        case ("int", "uint")
-                            read(val, *, iostat=ios) i
-                            if (ios /= 0) then
-                                print *, "Invalid integer literal for value. Returning error type"
-                            else
-                                answer%type = int64t
-                                answer%int_value = i
-                            end if
-                        case ("str")
-                            allocate(character(len=len(trim(val))) :: answer%string_value)
-                            if (.not. allocated(answer%string_value)) then
-                                print *, "Memory allocation failed for string_value. Returning error type"
-                            else
-                                answer%type = stringt
-                                answer%string_value = trim(val)
-                            end if
-                        case default
-                            print *, "Invalid value type. Returning error type"
-                        end select
-                        return
                 end if
+                select case (type_)
+                    case ("int", "uint")
+                        read(val, *, iostat=ios) i
+                        if (ios /= 0) then
+                            print *, "Invalid integer literal for value. Returning error type"
+                        else
+                            cached_answers(i)%type = int64t
+                            cached_answers(i)%int_value = i
+                        end if
+                    case ("str")
+                        allocate(character(len=len(trim(val))) :: cached_answers(i)%string_value)
+                        if (.not. allocated(cached_answers(i)%string_value)) then
+                            print *, "Memory allocation failed for string_value. Returning error type"
+                        else
+                            cached_answers(i)%type = stringt
+                            cached_answers(i)%string_value = trim(val)
+                        end if
+                    case default
+                        print *, "Invalid value type. Returning error type"
+                    end select
                 row_start = row_start + line_length  ! Move to the next line
             end if
         end do
 
         deallocate(text)
+        cache_inited = .true.
+        answer = get_answer(id)
     end function
 
     subroutine parse_line(line, id_out, type_out, length_out, value_out)
