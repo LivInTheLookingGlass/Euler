@@ -13,6 +13,7 @@ contains
         logical :: is_palindrome
         character(len=8) :: string
 
+        answer = 0
         do i = 100, 999
             do j = 100, 999
                 prod = i * j
@@ -29,7 +30,7 @@ contains
                 end do
 
                 if (is_palindrome) then
-                    answer = answer + prod
+                    answer = max(answer, prod)
                 end if
             end do
         end do
