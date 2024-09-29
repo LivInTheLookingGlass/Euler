@@ -4,8 +4,12 @@ FC?=flang-new
 COV?=false
 BUILD_DIR=build
 SRC_DIR=src
+INCLUDE_DIR=$(SRC_DIR)/include
 SRC_FILES=$(wildcard $(SRC_DIR)/*.f90) $(wildcard $(SRC_DIR)/include/*.f90)
-OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES))
+INCLUDE_FILES=$(wildcard $(INCLUDE_DIR)/*.f90)
+INCLUDE_OBJS=$(patsubst $(INCLUDE_DIR)/%.f90, $(BUILD_DIR)/include/%.o, $(notdir $(INCLUDE_FILES)))
+OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES)) $(INCLUDE_OBJS)
+
 GCC_VERSION := $(shell gcc --version | grep ^gcc | sed 's/^.* //g')
 GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
 
@@ -39,16 +43,19 @@ help:
 	@echo "  $(BLUE)test_auto$(NC)	Run through all Fortran tests (parallel execution not implemented)."
 	@echo "  $(BLUE)clean$(NC)  	Clean up any stray files."
 
-$(BUILD_DIR)/include/constants.o: $(SRC_DIR)/include/constants.f90
+$(BUILD_DIR)/include/constants.o: $(INCLUDE_DIR)/constants.f90
 	@mkdir -p $(BUILD_DIR)/include
-	$(FC) $(opt_args) $(cov_args) -c $(SRC_DIR)/include/constants.f90 -o $(BUILD_DIR)/include/constants.o
+	@$(FC) $(opt_args) $(cov_args) -c $(INCLUDE_DIR)/constants.f90 -o $@
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90 $(BUILD_DIR)/include/constants.o
-	$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/include/constants.o -c $< -o $@
+$(BUILD_DIR)/include/%.o: $(INCLUDE_DIR)/%.f90 $(BUILD_DIR)/include/constants.o
+	@$(FC) $(opt_args) $(cov_args) -c $< -o $@
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90 $(INCLUDE_OBJS)
+	@$(FC) $(opt_args) $(cov_args) -c $< -o $@
 
 test_runner: ../LICENSE
-	@$(MAKE) $(OBJ_FILES) $(MFLAGS) -j --no-print-directory
-	$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o $(BUILD_DIR)/include/*.o test.f90 -o test_runner
+	@$(MAKE) $(OBJ_FILES) $(INCLUDE_OBJS) $(MFLAGS) -j --no-print-directory
+	@$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o $(BUILD_DIR)/include/*.o test.f90 -o test_runner
 
 .PHONY: test
 test: test_runner
