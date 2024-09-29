@@ -258,8 +258,18 @@ def setup(app):
         sizes, labels, colors = zip(
             *sorted(filter(lambda x: x[1] != "Makefile", zip(sizes, labels, colors)), reverse=True)
         )
+        total = sum(sizes)
+        smallest_size = min(sizes)
+
+        def custom_autopct(pct):
+            absolute = pct / 100.0 * total
+            if abs(absolute - smallest_size) < 1e-4:
+                return ("1x")
+            else:
+                return f"{absolute / smallest_size:.2f}x"
+
         _, ax = plt.subplots()
-        ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
+        ax.pie(sizes, labels=labels, colors=colors, autopct=custom_autopct, labeldistance=None, pctdistance=0.85)
         plt.legend(title='Languages', loc='right', bbox_to_anchor=(1,0.5), bbox_transform=plt.gcf().transFigure)
         plt.savefig('languages-normalized.svg', transparent=True, bbox_inches='tight')
     except Exception:
