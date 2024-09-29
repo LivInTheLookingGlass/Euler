@@ -17,7 +17,7 @@ contains
             do j = 100, 999
                 prod = i * j
                 is_palindrome = .true.
-                write(string, '(IO)') prod
+                write(string, '(I0)') prod
                 length = len(string)
 
                 do k = 1, length
