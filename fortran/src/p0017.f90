@@ -19,7 +19,7 @@ module Problem0017
     implicit none
 contains
     integer recursive function to_string_len(n) result(answer)
-        integer, intent(in) :: n, tmp
+        integer, intent(in) :: n
         if (n >= 1000) then
             answer = to_string_len(n / 1000 % 100) + 8
             if (n % 1000 /= 0) then
