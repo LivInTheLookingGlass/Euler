@@ -105,15 +105,16 @@
 ! 53503534226472524250874054075591789781264330331690
 
 module Problem0013
+    use constants
     implicit none
 
 contains
 
-    integer(kind=8) function p0013() result(answer)
-        integer(kind=8), dimension(3, 100) :: numbers
-        integer(kind=8), dimension(3) :: arr
-        integer(kind=8) :: ten18 = 1000000000000000000_8
-        integer(kind=8) :: ten10 = 10000000000_8
+    integer(i18t) function p0013() result(answer)
+        integer(i18t), dimension(3, 100) :: numbers
+        integer(i18t), dimension(3) :: arr
+        integer(i18t) :: ten18 = 1000000000000000000_8
+        integer(i18t) :: ten10 = 10000000000_8
         integer :: i, j
 
         ! Manually initialize the grid

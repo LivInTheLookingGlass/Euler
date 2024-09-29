@@ -16,10 +16,7 @@ module Problem0002
     implicit none
 contains
     integer function p0002() result(answer)
-        integer :: a
-        integer :: b
-        integer :: i
-        integer :: tmp
+        integer :: a, b, i, tmp
         answer = 0
         a = 1
         b = 2

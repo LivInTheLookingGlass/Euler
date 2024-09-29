@@ -2,6 +2,7 @@ module constants
     implicit none
 
     integer, parameter :: i1t = selected_int_kind(1)
+    integer, parameter :: i2t = selected_int_kind(2)
     integer, parameter :: i4t = selected_int_kind(4)
     integer, parameter :: i18t = selected_int_kind(18)
 

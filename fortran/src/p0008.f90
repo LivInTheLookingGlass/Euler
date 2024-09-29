@@ -30,12 +30,13 @@
 ! Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 
 module Problem0008
+    use constants
     implicit none
 contains
-    integer(kind=8) function p0008() result(answer)
-        integer(kind=4) :: i, j
-        integer(kind=8) :: tmp
-        integer(kind=1), dimension(1000) :: digits
+    integer(i18t) function p0008() result(answer)
+        integer :: i, j
+        integer(i18t) :: tmp
+        integer(i1t), dimension(1000) :: digits
         character(len=1000) :: plain_digits
         answer = 0
         plain_digits = ("73167176531330624919225119674426574742355349194934" // &

@@ -7,6 +7,8 @@ View source code :source:`fortran/include/constants.f90`
 
 .. f:variable:: i1t
     :type: integer
+.. f:variable:: i2t
+    :type: integer
 .. f:variable:: i4t
     :type: integer
 .. f:variable:: i18t

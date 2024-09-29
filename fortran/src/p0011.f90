@@ -31,13 +31,14 @@
 ! the 20×20 grid?
 
 module Problem0011
+    use constants
     implicit none
 
 contains
 
-    integer(kind=8) function p0011() result(answer)
-        integer(kind=2), dimension(20, 20) :: grid
-        integer(kind=8) :: tmp
+    integer(i18t) function p0011() result(answer)
+        integer(i2t), dimension(20, 20) :: grid
+        integer(i18t) :: tmp
         integer :: i, j
 
         ! Manually initialize the grid
