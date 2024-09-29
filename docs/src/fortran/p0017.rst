@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 17
+====================================
+
+View source code :source:`fortran/src/p0017.f90`
+
+.. f:module:: Problem0017
+
+.. f:function:: integer Problem0017/p0017()
+
+.. literalinclude:: ../../../fortran/src/p0017.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: word-problem, combinatorics

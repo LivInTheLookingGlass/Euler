@@ -8,6 +8,7 @@ program test
     use Problem0009
     use Problem0011
     use Problem0013
+    use Problem0017
     use Problem0836
 
     implicit none
@@ -15,7 +16,7 @@ program test
     logical, dimension(:), allocatable :: long_runtime
     integer :: num_problems
     
-    num_problems = 8
+    num_problems = 9
     allocate(problem_ids(num_problems))
     allocate(long_runtime(num_problems))
     if (.not. (allocated(problem_ids) .and. allocated(long_runtime))) then
@@ -30,9 +31,11 @@ program test
         009_i4t, &
         011_i4t, &
         013_i4t, &
+        017_i4t, &
         836_i4t &
     /)
     long_runtime = (/ &
+        .false., &
         .false., &
         .false., &
         .false., &
@@ -137,6 +140,8 @@ contains
                 answer%int_value = p0011()
             case (13)
                 answer%int_value = p0013()
+            case (17)
+                answer%int_value = p0017()
             case (836)
                 allocate(character(len=14) :: answer%string_value)
                 if (.not. allocated(answer%string_value)) then
