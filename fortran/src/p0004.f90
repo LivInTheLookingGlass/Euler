@@ -9,7 +9,7 @@ module Problem0004
     implicit none
 contains
     integer function p0004() result(answer)
-        integer :: i, j, k, prod, length
+        integer :: i, j, k, n, prod, length
         logical :: is_palindrome
         character(len=8) :: string
 
@@ -21,7 +21,8 @@ contains
                 length = len(string)
 
                 do k = 1, length
-                    if (string(k) /= string(length - k + 1)) then
+                    n = length - k + 1
+                    if (string(k:k) /= string(n:n)) then
                         is_palindrome = .false.
                         exit
                     end if
