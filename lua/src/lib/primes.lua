@@ -9,11 +9,8 @@ local function primes(stop)
         if steps then
             for _, step in ipairs(steps) do
                 local value = cand + step
-                if sieve[value] then
-                    table.insert(sieve[value], step)
-                else
-                    sieve[value] = { step }
-                end
+                sieve[value] = sieve[value] or {}
+                table.insert(sieve[value], step)
             end
             sieve[cand] = nil
             return next_prime(cand + 1)
