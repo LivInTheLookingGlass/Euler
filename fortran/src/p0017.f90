@@ -20,16 +20,19 @@ module Problem0017
 contains
     integer recursive function to_string_len(n) result(answer)
         integer, intent(in) :: n
+        integer :: tmp
         if (n >= 1000) then
-            answer = to_string_len(n / 1000 % 100) + 8
-            if (n % 1000 /= 0) then
-                answer = answer + to_string_len(n % 1000)
+            answer = to_string_len(mod(n / 1000, 100)) + 8
+            tmp = mod(n, 1000)
+            if (tmp /= 0) then
+                answer = answer + to_string_len(tmp)
             end if
 
         elseif (n >= 100) then
-            answer = to_string_len(n / 100 % 10) + 7
-            if (n % 100 /= 0) then
-                answer = answer + 3 + to_string_len(n % 100)
+            answer = to_string_len(mod(n / 100, 10)) + 7
+            tmp = mod(n, 100)
+            if (tmp /= 0) then
+                answer = answer + 3 + to_string_len(tmp)
             end if
 
         elseif (n >= 20) then
@@ -42,8 +45,9 @@ contains
                     answer = 7
             end select
 
-            if (n % 10 /= 0) then
-                answer = answer + to_string_len(n % 10)
+            tmp = mod(n, 10)
+            if (tmp /= 0) then
+                answer = answer + to_string_len(tmp)
             end if
 
         else
