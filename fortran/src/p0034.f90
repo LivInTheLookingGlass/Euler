@@ -59,7 +59,7 @@ contains
         answer = 0
         do i = 10, 99999
             tmp = 0
-            write(string, '(I0)') string
+            write(string, '(I0)') i
 
             do j = 1, len_trim(string)
                 tmp = tmp + factorial(ichar(string(j:j)) - ichar('0'))
