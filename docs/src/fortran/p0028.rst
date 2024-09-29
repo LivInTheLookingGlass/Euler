@@ -3,6 +3,14 @@ Fortran Implementation of Problem 28
 
 View source code :source:`fortran/src/p0028.f90`
 
+Includes
+--------
+
+- `ranges.f90 <./lib/ranges.html>`_
+
+Problem Solution
+----------------
+
 .. f:module:: Problem0028
 
 .. f:function:: integer Problem0028/p0028()

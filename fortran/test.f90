@@ -11,6 +11,7 @@ program test
     use Problem0013
     use Problem0017
     use Problem0028
+    use Problem0034
     use Problem0836
 
     implicit none
@@ -18,7 +19,7 @@ program test
     logical, dimension(:), allocatable :: long_runtime
     integer :: num_problems
     
-    num_problems = 10
+    num_problems = 12
     allocate(problem_ids(num_problems))
     allocate(long_runtime(num_problems))
     if (.not. (allocated(problem_ids) .and. allocated(long_runtime))) then
@@ -36,9 +37,11 @@ program test
         013_i4t, &
         017_i4t, &
         028_i4t, &
+        034_i4t, &
         836_i4t &
     /)
     long_runtime = (/ &
+        .false., &
         .false., &
         .false., &
         .false., &

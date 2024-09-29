@@ -1,0 +1,22 @@
+Fortran Implementation of Problem 34
+====================================
+
+View source code :source:`fortran/src/p0034.f90`
+
+Includes
+--------
+
+- `math.f90 <./lib/math.html>`_
+
+Problem Solution
+----------------
+
+.. f:module:: Problem0034
+
+.. f:function:: integer Problem0034/p0034()
+
+.. literalinclude:: ../../../fortran/src/p0034.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: factorial, digit-sum
