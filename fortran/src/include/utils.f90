@@ -4,7 +4,7 @@ module utils
     implicit none
 
     type :: AnswerT
-        integer(i19t) :: int_value
+        integer(i18t) :: int_value
         character(len=:), allocatable :: string_value
         integer(i1t) :: type
     end type AnswerT
@@ -51,7 +51,7 @@ contains
     function get_answer(id) result(answer)
         type(AnswerT) :: answer
         integer(i4t), intent(in) :: id
-        integer(i19t) :: i, j
+        integer(i18t) :: i, j
         integer :: ios, row_start, row_end, line_length
         character(len=:), allocatable :: text
         character(len=32) :: val

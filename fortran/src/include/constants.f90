@@ -3,7 +3,7 @@ module constants
 
     integer, parameter :: i1t = selected_int_kind(1)
     integer, parameter :: i4t = selected_int_kind(4)
-    integer, parameter :: i19t = selected_int_kind(19)
+    integer, parameter :: i18t = selected_int_kind(18)
 
     integer(i1t), parameter :: errort = 0
     integer(i1t), parameter :: int64t = 1

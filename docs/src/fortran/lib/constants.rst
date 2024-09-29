@@ -9,7 +9,7 @@ View source code :source:`fortran/include/constants.f90`
     :type: integer
 .. f:variable:: i4t
     :type: integer
-.. f:variable:: i19t
+.. f:variable:: i18t
     :type: integer
 
     A set of digit type constraints that denote how many decimal digits a number can support.

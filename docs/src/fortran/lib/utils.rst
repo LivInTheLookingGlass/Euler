@@ -27,9 +27,9 @@ View source code :source:`fortran/include/utils.f90`
 
     This stores the answer to a generic problem, storing multiple potential types. If the type field contains
     :f:var:`errort`, there was an error in generating the answer. If it is :f:var:`int64t`, it holds data of
-    type ``integer(i19t)``. If it is :f:var:`stringt`, it holds an allocatable character array.
+    type ``integer(i18t)``. If it is :f:var:`stringt`, it holds an allocatable character array.
 
-    :f integer(i19t) int_value:
+    :f integer(i18t) int_value:
     :f character(len=:) string_value:
     :fattrs string_value: allocatable
     :f integer(i1d) type:
