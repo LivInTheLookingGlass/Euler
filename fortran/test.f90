@@ -1,4 +1,5 @@
 program test
+    use constants
     use utils
     use Problem0001
     use Problem0002
@@ -10,8 +11,8 @@ program test
     use Problem0836
 
     implicit none
-    integer(kind=4), dimension(:), allocatable :: problem_ids
-    logical(kind=1), dimension(:), allocatable :: long_runtime
+    integer(i4t), dimension(:), allocatable :: problem_ids
+    logical, dimension(:), allocatable :: long_runtime
     integer :: num_problems
     
     num_problems = 8
@@ -48,11 +49,10 @@ program test
 contains
 
     subroutine process_problems(problem_ids, long_runtime)
-        integer(kind=4), dimension(:), intent(in) :: problem_ids
-        logical(kind=1), dimension(:), intent(in) :: long_runtime
+        integer(i4t), dimension(:), intent(in) :: problem_ids
+        logical, dimension(:), intent(in) :: long_runtime
         type(AnswerT) :: expected, answer
-        integer(kind=4) :: i
-        integer :: first_count, second_count, count_rate, count_max, tmp
+        integer :: i, first_count, second_count, count_rate, count_max, tmp
         real :: time_elapsed
 
         ! Loop through each problem
@@ -119,7 +119,7 @@ contains
     end subroutine process_problems
 
     type(AnswerT) function select_function(problem_id) result(answer)
-        integer(kind=4), intent(in) :: problem_id
+        integer(i4t), intent(in) :: problem_id
 
         answer%type = int64t
         select case (problem_id)

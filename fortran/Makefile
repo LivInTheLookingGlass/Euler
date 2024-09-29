@@ -39,9 +39,12 @@ help:
 	@echo "  $(BLUE)test_auto$(NC)	Run through all Fortran tests (parallel execution not implemented)."
 	@echo "  $(BLUE)clean$(NC)  	Clean up any stray files."
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90
+$(BUILD_DIR)/include/constants.o: $(SRC_DIR)/include/constants.f90
 	@mkdir -p $(BUILD_DIR)/include
-	$(FC) $(opt_args) $(cov_args) -c $< -o $@
+	$(FC) $(opt_args) $(cov_args) -c $(SRC_DIR)/include/constants.f90 -o $(BUILD_DIR)/include/constants.o
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.f90 $(BUILD_DIR)/include/constants.o
+	$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/include/constants.o -c $< -o $@
 
 test_runner: ../LICENSE
 	@$(MAKE) $(OBJ_FILES) $(MFLAGS) -j --no-print-directory

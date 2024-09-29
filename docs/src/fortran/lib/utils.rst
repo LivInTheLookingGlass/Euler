@@ -19,7 +19,7 @@ View source code :source:`fortran/include/utils.f90`
 
     Return the answer to a given problem, as represented in ``/_data/answers.tsv``
 
-    :p integer(kind=4) id:
+    :p integer(i4d) id:
     :returns answer:
     :rtype answer: AnswerT
 
@@ -27,21 +27,12 @@ View source code :source:`fortran/include/utils.f90`
 
     This stores the answer to a generic problem, storing multiple potential types. If the type field contains
     :f:var:`errort`, there was an error in generating the answer. If it is :f:var:`int64t`, it holds data of
-    type ``integer(kind=8)``. If it is :f:var:`stringt`, it holds an allocatable character array.
+    type ``integer(i19t)``. If it is :f:var:`stringt`, it holds an allocatable character array.
 
-    :f integer(kind=8) int_value:
+    :f integer(i19t) int_value:
     :f character(len=:) string_value:
     :fattrs string_value: allocatable
-    :f integer(kind=1) type:
-
-.. f:variable:: errort
-    :type: integer(kind=1)
-.. f:variable:: int64t
-    :type: integer(kind=1)
-.. f:variable:: stringt
-    :type: integer(kind=1)
-
-    Denotes the type of an :f:type:`AnswerT`
+    :f integer(i1d) type:
 
 .. literalinclude:: ../../../../fortran/src/include/utils.f90
    :language: Fortran

@@ -1,17 +1,15 @@
 module utils
+    use constants
+
     implicit none
 
-    integer(kind=1), parameter :: errort = 0
-    integer(kind=1), parameter :: int64t = 1
-    integer(kind=1), parameter :: stringt = 2
-
     type :: AnswerT
-        integer(kind=8) :: int_value
+        integer(i19t) :: int_value
         character(len=:), allocatable :: string_value
-        integer(kind=1) :: type
+        integer(i1t) :: type
     end type AnswerT
 
-    logical(kind=1) :: cache_inited = .false.
+    logical :: cache_inited = .false.
     type(AnswerT), dimension(1024) :: cached_answers
 
 contains
@@ -52,9 +50,9 @@ contains
 
     function get_answer(id) result(answer)
         type(AnswerT) :: answer
-        integer(kind=4), intent(in) :: id
-        integer(kind=4) :: ios, row_start, row_end, line_length
-        integer(kind=8) :: i, j
+        integer(i4t), intent(in) :: id
+        integer(i19t) :: i, j
+        integer :: ios, row_start, row_end, line_length
         character(len=:), allocatable :: text
         character(len=32) :: val
         character(len=4) :: id_, type_, length
