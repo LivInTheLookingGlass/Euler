@@ -7,7 +7,7 @@ SRC_DIR=src
 INCLUDE_DIR=$(SRC_DIR)/include
 SRC_FILES=$(wildcard $(SRC_DIR)/*.f90) $(wildcard $(SRC_DIR)/include/*.f90)
 INCLUDE_FILES=$(wildcard $(INCLUDE_DIR)/*.f90)
-INCLUDE_OBJS=$(patsubst $(INCLUDE_DIR)/%.f90, $(BUILD_DIR)/include/%.o, $(notdir $(INCLUDE_FILES)))
+INCLUDE_OBJS=$(patsubst $(INCLUDE_DIR)/%.f90, $(BUILD_DIR)/include/%.o, $(INCLUDE_FILES))
 OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES)) $(INCLUDE_OBJS)
 
 GCC_VERSION := $(shell gcc --version | grep ^gcc | sed 's/^.* //g')
