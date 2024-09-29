@@ -19,7 +19,7 @@ contains
                 prod = i * j
                 is_palindrome = .true.
                 write(string, '(I0)') prod
-                length = len(string)
+                length = len_trim(string)
 
                 do k = 1, length
                     n = length - k + 1
