@@ -11,6 +11,8 @@ View source code :source:`fortran/include/constants.f90`
     :type: integer
 .. f:variable:: i18t
     :type: integer
+.. f:variable:: imaxt
+    :type: integer
 
     A set of digit type constraints that denote how many decimal digits a number can support.
     They are given as ``i<len>t`` or ``r<len>_<exp>t``
