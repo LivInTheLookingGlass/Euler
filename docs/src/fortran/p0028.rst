@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 28
+====================================
+
+View source code :source:`fortran/src/p0028.f90`
+
+.. f:module:: Problem0028
+
+.. f:function:: integer Problem0028/p0028()
+
+.. literalinclude:: ../../../fortran/src/p0028.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: grid-pattern

@@ -10,6 +10,7 @@ program test
     use Problem0011
     use Problem0013
     use Problem0017
+    use Problem0028
     use Problem0836
 
     implicit none
@@ -34,9 +35,11 @@ program test
         011_i4t, &
         013_i4t, &
         017_i4t, &
+        028_i4t, &
         836_i4t &
     /)
     long_runtime = (/ &
+        .false., &
         .false., &
         .false., &
         .false., &
@@ -147,6 +150,8 @@ contains
                 answer%int_value = p0013()
             case (17)
                 answer%int_value = p0017()
+            case (28)
+                answer%int_value = p0028()
             case (836)
                 allocate(character(len=14) :: answer%string_value)
                 if (.not. allocated(answer%string_value)) then
