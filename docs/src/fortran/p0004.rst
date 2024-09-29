@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 4
+===================================
+
+View source code :source:`fortran/src/p0004.f90`
+
+.. f:module:: Problem0004
+
+.. f:function:: integer Problem0004/p0004()
+
+.. literalinclude:: ../../../fortran/src/p0004.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: palindrome

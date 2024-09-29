@@ -3,6 +3,7 @@ program test
     use utils
     use Problem0001
     use Problem0002
+    use Problem0004
     use Problem0006
     use Problem0008
     use Problem0009
@@ -16,7 +17,7 @@ program test
     logical, dimension(:), allocatable :: long_runtime
     integer :: num_problems
     
-    num_problems = 9
+    num_problems = 10
     allocate(problem_ids(num_problems))
     allocate(long_runtime(num_problems))
     if (.not. (allocated(problem_ids) .and. allocated(long_runtime))) then
@@ -26,6 +27,7 @@ program test
     problem_ids = (/ &
         001_i4t, &
         002_i4t, &
+        004_i4t, &
         006_i4t, &
         008_i4t, &
         009_i4t, &
@@ -35,6 +37,7 @@ program test
         836_i4t &
     /)
     long_runtime = (/ &
+        .false., &
         .false., &
         .false., &
         .false., &
@@ -130,6 +133,8 @@ contains
                 answer%int_value = p0001()
             case (2)
                 answer%int_value = p0002()
+            case (4)
+                answer%int_value = p0004()
             case (6)
                 answer%int_value = p0006()
             case (8)
