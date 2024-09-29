@@ -62,4 +62,4 @@ contains
             answer = answer + range_entry3(start, 1, (4 * 2 * i - 1))
         end do
     end function p0028
-end module Problem0017
+end module Problem0028
