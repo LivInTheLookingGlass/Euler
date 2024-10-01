@@ -18,6 +18,9 @@ contains
             length = 1 + (stop - 1 - start) / step
         elseif (step < 0 .and. start > stop) then
             length = 1 + (start - 1 - stop) / (-step)
+        else
+            answer = huge(kind(answer))  ! error
+            return
         end if
 
         if (l_idx < 0) then

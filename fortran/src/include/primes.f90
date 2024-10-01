@@ -56,9 +56,7 @@ contains
             deallocate(prime_sieve)
         end if
         allocate(prime_sieve(new_size))
-        do i = 1, new_size
-            prime_sieve(i) = -1
-        end do
+        prime_sieve = -1
         call clear_prime_bit(0_i18t)
         call clear_prime_bit(1_i18t)
         call sieve_up_to(new_n)
