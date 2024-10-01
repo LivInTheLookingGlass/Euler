@@ -32,7 +32,7 @@ endif
 
 cov_args=
 ifneq ($(COV),false)
-    cov_args= -fprofile-arcs -ftest-coverage -O0
+    cov_args= -fprofile-arcs -ftest-coverage -O1
 else ifneq ($(FC),lfortran)
     cov_args= -O2
 endif

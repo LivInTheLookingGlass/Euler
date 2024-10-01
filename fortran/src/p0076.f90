@@ -45,17 +45,15 @@ contains
     integer function p0076() result(answer)
         integer(i2t) :: idx, i, sum
         integer(i2t), dimension(100) :: counts
-        sum = 100
+        sum = 100_i2t
         answer = 0
-        do i = 1, 100
-            counts(i) = 0
-        end do
-        counts(2) = 100
+        counts = 0
+        counts(2) = 100_i2t
         do while (counts(100) == 0)
             counts(2) = counts(2) + 2_i2t
             if (sum >= 100) then
                 answer = answer + (100 + counts(2) - sum) / 2
-                idx = 2
+                idx = 2_i2t
                 do
                     counts(idx) = 0
                     idx = idx + 1_i2t
