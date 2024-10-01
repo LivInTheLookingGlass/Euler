@@ -21,6 +21,7 @@ contains
     integer recursive function to_string_len(n) result(answer)
         integer, intent(in) :: n
         integer :: tmp
+        answer = 0
         if (n >= 1000) then
             answer = to_string_len(mod(n / 1000, 100)) + 8
             tmp = mod(n, 1000)
