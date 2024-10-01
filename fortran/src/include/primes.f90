@@ -64,6 +64,9 @@ contains
         call initialize_sieve(max(new_n, 1024))
 
         new_size = (new_n / bits_per_int) + 1
+        if (allocated(is_prime)) then
+            deallocate(is_prime)
+        end if
         allocate(is_prime(new_size))
         is_prime = -1  ! All bits set to 1
         call clear_prime_bit(0)
