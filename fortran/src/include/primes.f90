@@ -11,7 +11,7 @@ contains
         integer, intent(in) :: n
         integer :: p, i, limit
 
-        limit = ceiling(sqrt(real(n)))
+        limit = ceil(sqrt(real(n)))
         do p = 2, limit
             if (get_prime_bit(p)) then
                 do i = p * p, n, p
@@ -52,12 +52,12 @@ contains
         end if
         allocate(is_prime(new_size))
         do i = 1, new_size
-            is_prime(i) = -1
+            is_prime(i) = 2**bits_per_int - 1
         end do
         call clear_prime_bit(0)
         call clear_prime_bit(1)
-        call sieve_up_to(new_n)
         current_n = new_n
+        call sieve_up_to(new_n)
     end subroutine expand_sieve
 
     ! Function to set a bit to 0
