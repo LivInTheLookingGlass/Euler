@@ -1,14 +1,16 @@
 module primes
+    use constants
+
     implicit none
-    integer, parameter :: bits_per_int = 32
-    integer, allocatable :: is_prime(:)
-    integer :: current_n = 0
+    integer, parameter :: bits_per_int = 64
+    integer(i18t), allocatable :: is_prime(:)
+    integer(i18t) :: current_n = 0
     logical :: initialized = .false.
 
 contains
 
     subroutine sieve_up_to(n)
-        integer, intent(in) :: n
+        integer(i18t), intent(in) :: n
         integer :: p, i
 
         do p = 2, n
@@ -20,9 +22,9 @@ contains
         end do
     end subroutine sieve_up_to
 
-    recursive integer function next_prime(last) result(ret)
-        integer, intent(in) :: last
-        integer :: next
+    recursive integer(i18t) function next_prime(last) result(ret)
+        integer(i18t), intent(in) :: last
+        integer(i18t) :: next
 
         do next = last + 1, current_n
             if (get_prime_bit(next)) then
@@ -36,8 +38,8 @@ contains
     end function next_prime
 
     subroutine expand_sieve(potential_n)
-        integer, intent(in), optional :: potential_n
-        integer :: new_size, new_n, i
+        integer(i18t), intent(in), optional :: potential_n
+        integer(i18t) :: new_size, new_n, i
 
         if (present(potential_n)) then
             new_n = max(potential_n, current_n)
@@ -65,7 +67,7 @@ contains
 
     ! Function to set a bit to 0
     subroutine clear_prime_bit(num)
-        integer, intent(in) :: num
+        integer(i18t), intent(in) :: num
         integer :: i, b
         i = (num / bits_per_int) + 1
         b = mod(num, bits_per_int)
@@ -75,7 +77,7 @@ contains
 
     ! Function to check if a bit is set
     logical function get_prime_bit(num) result(bit)
-        integer, intent(in) :: num
+        integer(i18t), intent(in) :: num
         bit = logical(btest(is_prime(num / bits_per_int + 1), mod(num, bits_per_int)))
     end function get_prime_bit
 
