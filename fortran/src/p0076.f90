@@ -51,7 +51,7 @@ contains
             counts(i) = 0
         end do
         counts(2) = 100
-        do while (.not. counts(100))
+        do while (counts(100) == 0)
             counts(2) = counts(2) + 2_i2t
             if (sum >= 100) then
                 answer = answer + (100 + counts(2) - sum) / 2
@@ -68,7 +68,7 @@ contains
                         exit
                     end if
                 end do
-                counts(2) = 100 - sum - mod(sum, 2)
+                counts(2) = 100_i2t - sum - mod(sum, 2_i2t)
             end if
             sum = counts(2)
             do i = 3, 99
