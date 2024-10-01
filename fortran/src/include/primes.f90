@@ -38,7 +38,7 @@ contains
 
     subroutine expand_sieve(potential_n)
         integer, intent(in), optional :: potential_n
-        integer :: new_size, new_n
+        integer :: new_size, new_n, i
 
         if (present(potential_n)) then
             new_n = max(potential_n, current_n)
@@ -51,7 +51,9 @@ contains
             deallocate(is_prime)
         end if
         allocate(is_prime(new_size))
-        is_prime = -1  ! All bits set to 1
+        do i = 1, new_size
+            is_prime(i) = -1
+        end do
         call clear_prime_bit(0)
         call clear_prime_bit(1)
         call sieve_up_to(new_n)
