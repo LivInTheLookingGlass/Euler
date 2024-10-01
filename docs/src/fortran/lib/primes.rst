@@ -7,16 +7,16 @@ View source code :source:`fortran/include/primes.f90`
 
 .. f:function:: next_prime(last)
 
-    :p integer last: The last prime you received (or 1)
+    :p integer(i18t) last: The last prime you received (or 1)
     :returns answer: The next prime in the sequence
-    :rtype answer: integer
+    :rtype answer: integer(i18t)
 
 .. f:subroutine:: expand_sieve(potential_n)
 
     A helper routine that lets you pre-initialize the cache of primes to a high number.
     Otherwise you incur a cost of ``O(n loglogn)`` each time ``n`` doubles.
 
-    :p integer potential_n: The size you wish to expand the sieve to
+    :p integer(i18t) potential_n: The size you wish to expand the sieve to
     :pattrs potential_n: optional
 
 .. literalinclude:: ../../../../fortran/src/include/primes.f90
