@@ -15,7 +15,7 @@ contains
         integer :: i
 
         answer = 1
-        expand_sieve(2**17)
+        call expand_sieve(2**17)
         do i = 1, 10001
             answer = next_prime(answer)
         end do
