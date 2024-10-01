@@ -7,22 +7,6 @@ module primes
 
 contains
 
-    subroutine initialize_sieve(n)
-        integer, intent(in) :: n
-        integer :: size
-        ! Calculate size of the bit array (integer array to hold bits)
-        if (.not. initialized) then
-            size = (n / bits_per_int) + 1
-            allocate(is_prime(size))
-            is_prime = -1  ! Initialize all bits to 1 (all numbers are initially prime)
-            call clear_prime_bit(0)
-            call clear_prime_bit(1)
-            current_n = n
-            initialized = .true.
-            call sieve_up_to(current_n)
-        end if
-    end subroutine initialize_sieve
-
     subroutine sieve_up_to(n)
         integer, intent(in) :: n
         integer :: p, i, limit
@@ -61,7 +45,6 @@ contains
         else
             new_n = current_n * 2
         end if
-        call initialize_sieve(max(new_n, 1024))
 
         new_size = (new_n / bits_per_int) + 1
         if (allocated(is_prime)) then
@@ -84,7 +67,7 @@ contains
     ! Function to check if a bit is set
     logical function get_prime_bit(num) result(bit)
         integer, intent(in) :: num
-        bit = btest(is_prime(num / bits_per_int), mod(num, bits_per_int)) .neqv. .false.
+        bit = logical(btest(is_prime(num / bits_per_int), mod(num, bits_per_int)))
     end function get_prime_bit
 
 end module primes
