@@ -9,10 +9,9 @@ contains
 
     subroutine sieve_up_to(n)
         integer, intent(in) :: n
-        integer :: p, i, limit
+        integer :: p, i
 
-        limit = ceiling(sqrt(real(n)))
-        do p = 2, limit
+        do p = 2, n
             if (get_prime_bit(p)) then
                 do i = p * p, n, p
                     call clear_prime_bit(i)
