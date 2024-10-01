@@ -59,8 +59,8 @@ contains
         do i = 1, new_size
             is_prime(i) = 2**bits_per_int - 1
         end do
-        call clear_prime_bit(0)
-        call clear_prime_bit(1)
+        call clear_prime_bit(0_i18t)
+        call clear_prime_bit(1_i18t)
         call sieve_up_to(new_n)
         current_n = new_n
     end subroutine expand_sieve
@@ -72,7 +72,7 @@ contains
         i = (num / bits_per_int) + 1
         b = mod(num, bits_per_int)
         print *, "Translating bit #", num, "to", i, b
-        is_prime(i) = iand(is_prime(i), ieor(-1, 2**b))
+        is_prime(i) = iand(is_prime(i), ieor(-1_i18t, 2**b))
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set

@@ -8,10 +8,11 @@
 ! What is the 10 001st prime number?
 
 module Problem0007
+    use constants
     use primes
     implicit none
 contains
-    integer function p0007() result(answer)
+    integer(i18t) function p0007() result(answer)
         integer :: i
 
         answer = 1
