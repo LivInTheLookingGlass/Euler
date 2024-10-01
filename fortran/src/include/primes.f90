@@ -45,6 +45,10 @@ contains
             new_n = current_n * 2
         end if
 
+        if (new_n <= current_n) then
+            return
+        endif
+
         new_size = (new_n / bits_per_int) + 1
         if (allocated(is_prime)) then
             deallocate(is_prime)
@@ -55,14 +59,18 @@ contains
         end do
         call clear_prime_bit(0)
         call clear_prime_bit(1)
-        current_n = new_n
         call sieve_up_to(new_n)
+        current_n = new_n
     end subroutine expand_sieve
 
     ! Function to set a bit to 0
     subroutine clear_prime_bit(num)
         integer, intent(in) :: num
-        is_prime(num / bits_per_int + 1) = iand(is_prime(num / bits_per_int + 1), ieor(-1, 2**(mod(num, bits_per_int))))
+        integer :: i, b
+        i = (num / bits_per_int) + 1
+        b = mod(num, bits_per_int)
+        print *, "Translating bit #", num, "to", i, b
+        is_prime(i) = iand(is_prime(i), ieor(-1, 2**b))
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set
