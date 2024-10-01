@@ -63,13 +63,13 @@ contains
     ! Function to set a bit to 0
     subroutine clear_prime_bit(num)
         integer, intent(in) :: num
-        is_prime(num / bits_per_int) = iand(is_prime(num / bits_per_int), ieor(-1, 2**(mod(num, bits_per_int))))
+        is_prime(num / bits_per_int + 1) = iand(is_prime(num / bits_per_int + 1), ieor(-1, 2**(mod(num, bits_per_int))))
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set
     logical function get_prime_bit(num) result(bit)
         integer, intent(in) :: num
-        bit = logical(btest(is_prime(num / bits_per_int), mod(num, bits_per_int)))
+        bit = logical(btest(is_prime(num / bits_per_int + 1), mod(num, bits_per_int)))
     end function get_prime_bit
 
 end module primes
