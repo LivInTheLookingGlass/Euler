@@ -62,7 +62,7 @@ contains
                     do i = 3, 99
                         sum = sum + counts(i)
                     end do
-                    if (sum > 100) then
+                    if (sum <= 100) then
                         exit
                     end if
                 end do
