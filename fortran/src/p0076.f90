@@ -51,24 +51,24 @@ contains
             counts(i) = 0
         end do
         counts(2) = 100
-        do while (not(counts(100)))
-            counts(2) = counts(2) + 2
+        do while (.not. counts(100))
+            counts(2) = counts(2) + 2_i2t
             if (sum >= 100) then
                 answer = answer + (100 + counts(2) - sum) / 2
                 idx = 2
                 do
                     counts(idx) = 0
-                    idx = idx + 1
+                    idx = idx + 1_i2t
                     counts(idx) = counts(idx) + idx
                     sum = counts(2)
                     do i = 3, 99
-                        sum += counts(i)
+                        sum = sum + counts(i)
                     end do
                     if (sum > 100) then
                         exit
                     end if
                 end do
-                counts(2) = 100 - sum - (sum % 2)
+                counts(2) = 100 - sum - mod(sum, 2)
             end if
             sum = counts(2)
             do i = 3, 99
