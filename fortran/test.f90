@@ -57,7 +57,7 @@ program test
         .false., &
         .false., &
         .false., &
-        .true., &
+        .false., &
         .false. &
     /)
 
