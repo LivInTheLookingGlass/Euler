@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 76
+====================================
+
+View source code :source:`fortran/src/p0076.f90`
+
+.. f:module:: Problem0076
+
+.. f:function:: integer Problem0076/p0076()
+
+.. literalinclude:: ../../../fortran/src/p0076.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: partition
