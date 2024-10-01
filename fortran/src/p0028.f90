@@ -55,7 +55,7 @@ contains
 
         answer = 1
         do i = 1, (1000 / 2)
-            start = (2 * i - 1) * (2 * i - 1) + 1
+            start = (2 * i - 1)**2 + 1
             answer = answer + range_entry3(start, 1, (1 * 2 * i - 1))
             answer = answer + range_entry3(start, 1, (2 * 2 * i - 1))
             answer = answer + range_entry3(start, 1, (3 * 2 * i - 1))

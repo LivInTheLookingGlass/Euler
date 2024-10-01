@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 7
+===================================
+
+View source code :source:`fortran/src/p0007.f90`
+
+.. f:module:: Problem0007
+
+.. f:function:: integer Problem0007/p0007()
+
+.. literalinclude:: ../../../fortran/src/p0007.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: prime-number, fortran-iterator
