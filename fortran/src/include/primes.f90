@@ -3,7 +3,7 @@ module primes
 
     implicit none
     integer, parameter :: bits_per_int = 64
-    integer(i18t), allocatable :: is_prime(:)
+    integer(i18t), allocatable :: prime_sieve(:)
     integer(i18t) :: current_n = 0
     logical :: initialized = .false.
 
@@ -52,12 +52,12 @@ contains
         endif
 
         new_size = (new_n / bits_per_int) + 1
-        if (allocated(is_prime)) then
-            deallocate(is_prime)
+        if (allocated(prime_sieve)) then
+            deallocate(prime_sieve)
         end if
-        allocate(is_prime(new_size))
+        allocate(prime_sieve(new_size))
         do i = 1, new_size
-            is_prime(i) = -1
+            prime_sieve(i) = -1
         end do
         call clear_prime_bit(0_i18t)
         call clear_prime_bit(1_i18t)
@@ -70,13 +70,13 @@ contains
         integer(i18t), intent(in) :: num
         integer(i18t) :: i
         i = (num / bits_per_int) + 1
-        is_prime(i) = iand(is_prime(i), ieor(-1_i18t, 2**mod(num, bits_per_int)))
+        prime_sieve(i) = iand(prime_sieve(i), ieor(-1_i18t, 2**mod(num, bits_per_int)))
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set
     logical function get_prime_bit(num) result(bit)
         integer(i18t), intent(in) :: num
-        bit = logical(btest(is_prime(num / bits_per_int + 1), mod(num, bits_per_int)))
+        bit = logical(btest(prime_sieve(num / bits_per_int + 1), mod(num, bits_per_int)))
     end function get_prime_bit
 
     subroutine prime_factor(num, factor)
@@ -101,7 +101,7 @@ contains
 
     integer(i18t) function is_composite(num) result(factor)
         integer(i18t), intent(in) :: num
-        integer(i18t) :: localnum, factor
+        integer(i18t) :: localnum
         localnum = num
         call prime_factor(localnum, factor)
         if (factor == num) then
