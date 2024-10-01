@@ -16,9 +16,8 @@ contains
 
         answer = 1
         call expand_sieve(2**17)
-        do i = 1, 10001
+        do i = 0, 10001
             answer = next_prime(answer)
-            print *, i, answer
         end do
     end function p0007
 end module Problem0007
