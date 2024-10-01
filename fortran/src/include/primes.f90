@@ -11,7 +11,7 @@ contains
         integer, intent(in) :: n
         integer :: p, i, limit
 
-        limit = int(sqrt(real(n)))
+        limit = ceiling(sqrt(real(n)))
         do p = 2, limit
             if (get_prime_bit(p)) then
                 do i = p * p, n, p
