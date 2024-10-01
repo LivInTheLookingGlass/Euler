@@ -79,4 +79,49 @@ contains
         bit = logical(btest(is_prime(num / bits_per_int + 1), mod(num, bits_per_int)))
     end function get_prime_bit
 
+    subroutine prime_factor(num, factor)
+        integer(i18t), intent(inout) :: num
+        integer(i18t), intent(out) :: factor
+        if (num < 0) then
+            factor = -1
+            num = -num
+        elseif (num <= 1) then
+            factor = num
+        else
+            factor = 2
+            do while (factor <= num)
+                if (mod(num, factor) == 0) then
+                    num = num / factor
+                    return
+                end if
+                factor = next_prime(factor)
+            end do
+        endif
+    end subroutine
+
+    integer(i18t) function is_composite(num) result(factor)
+        integer(i18t), intent(in) :: num
+        integer(i18t) :: localnum, factor
+        localnum = num
+        call prime_factor(localnum, factor)
+        if (factor == num) then
+            factor = 0
+        endif
+    end function
+
+    logical(i18t) function is_prime(num) result(ip)
+        integer(i18t), intent(in) :: num
+        integer(i18t) check
+        logical :: ip
+        localnum = num
+        if (num < 2) then
+            ip = .false.
+        elseif (num <= 3) then
+            ip = .true.
+        else
+            check = mod(num, 6)
+            ip = (check == 1 .or. check == 5) .and. is_composite(num) == 0
+        endif
+    end function
+
 end module primes
