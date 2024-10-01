@@ -109,11 +109,9 @@ contains
         endif
     end function
 
-    logical(i18t) function is_prime(num) result(ip)
+    logical function is_prime(num) result(ip)
         integer(i18t), intent(in) :: num
         integer(i18t) check
-        logical :: ip
-        localnum = num
         if (num < 2) then
             ip = .false.
         elseif (num <= 3) then
