@@ -11,7 +11,7 @@ contains
 
     subroutine sieve_up_to(n)
         integer(i18t), intent(in) :: n
-        integer :: p, i
+        integer(i18t) :: p, i
 
         do p = 2, n
             if (get_prime_bit(p)) then
@@ -68,7 +68,7 @@ contains
     ! Function to set a bit to 0
     subroutine clear_prime_bit(num)
         integer(i18t), intent(in) :: num
-        integer :: i, b
+        integer(i18t) :: i, b
         i = (num / bits_per_int) + 1
         b = mod(num, bits_per_int)
         print *, "Translating bit #", num, "to", i, b
