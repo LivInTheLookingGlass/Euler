@@ -57,7 +57,7 @@ contains
         end if
         allocate(is_prime(new_size))
         do i = 1, new_size
-            is_prime(i) = 2**bits_per_int - 1
+            is_prime(i) = -1
         end do
         call clear_prime_bit(0_i18t)
         call clear_prime_bit(1_i18t)
@@ -68,17 +68,15 @@ contains
     ! Function to set a bit to 0
     subroutine clear_prime_bit(num)
         integer(i18t), intent(in) :: num
-        integer :: i
-        i = int((num / bits_per_int) + 1)
+        integer(i18t) :: i
+        i = (num / bits_per_int) + 1
         is_prime(i) = iand(is_prime(i), ieor(-1_i18t, 2**mod(num, bits_per_int)))
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set
     logical function get_prime_bit(num) result(bit)
         integer(i18t), intent(in) :: num
-        integer :: i
-        i = int((num / bits_per_int) + 1)
-        bit = logical(btest(is_prime(i), mod(num, bits_per_int)))
+        bit = logical(btest(is_prime(num / bits_per_int + 1), mod(num, bits_per_int)))
     end function get_prime_bit
 
 end module primes
