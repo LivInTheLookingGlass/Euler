@@ -43,30 +43,28 @@ module Problem0076
 contains
 
     integer function p0076() result(answer)
-        integer(i2t) :: idx, i, sum
-        integer(i2t), dimension(100) :: counts
-        sum = 100_i2t
+        integer :: idx, i, sum
+        integer, dimension(100) :: counts
+        sum = 100
         answer = 0
         counts = 0
-        counts(2) = 100_i2t
+        counts(2) = 100
         do while (counts(100) == 0)
-            counts(2) = counts(2) + 2_i2t
+            counts(2) = counts(2) + 2
             if (sum >= 100) then
                 answer = answer + (100 + counts(2) - sum) / 2
-                idx = 2_i2t
-                do
+                idx = 2
+                sum = 101  ! because no do-while loops
+                do while (sum > 100)
                     counts(idx) = 0
-                    idx = idx + 1_i2t
+                    idx = idx + 1
                     counts(idx) = counts(idx) + idx
                     sum = counts(2)
                     do i = 3, 99
                         sum = sum + counts(i)
                     end do
-                    if (sum <= 100) then
-                        exit
-                    end if
                 end do
-                counts(2) = 100_i2t - sum - mod(sum, 2_i2t)
+                counts(2) = 100 - sum - mod(sum, 2)
             end if
             sum = counts(2)
             do i = 3, 99
