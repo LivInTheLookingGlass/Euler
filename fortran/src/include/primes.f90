@@ -54,7 +54,7 @@ contains
 
     subroutine expand_sieve(potential_n)
         integer, intent(in), optional :: potential_n
-        integer :: new_size, new_n, i
+        integer :: new_size, new_n
 
         if (present(potential_n)) then
             new_n = max(potential_n, current_n)
