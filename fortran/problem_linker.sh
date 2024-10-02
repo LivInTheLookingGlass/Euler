@@ -15,7 +15,9 @@ for file in "$SRC_DIR"/p[0-9][0-9][0-9][0-9].f90; do
         ((count++))
     fi
 done
-problem_ids_str=$(IFS=,; echo "${problem_ids[*]/%/_i4t}")
+problem_ids_str=$(printf '%s_i4t, &\n' "${problem_ids[@]}")
+# Remove the last ', &\n' for proper formatting
+problem_ids_str=${problem_ids_str%, &$'\n'}
 
 # Start writing to the output file
 cat <<EOF1 > $OUTPUT_FILE
