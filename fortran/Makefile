@@ -70,4 +70,4 @@ test_%:
 
 .PHONY: clean
 clean:
-	@rm -rf $(BUILD_DIR) test_runner
+	@rm -rf $(BUILD_DIR) test_runner problems.f90

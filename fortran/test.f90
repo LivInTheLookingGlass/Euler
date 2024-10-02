@@ -17,7 +17,7 @@ contains
         ! Loop through each problem
         do i = 1, size(problem_ids)
             print *, "Processing Problem ID: ", problem_ids(i)
-            if (is_slow(i)) then
+            if (is_slow(problem_ids(i))) then
                 print *, "  This problem will take more than 60 seconds."
             end if
             expected = get_answer(problem_ids(i))
@@ -68,7 +68,7 @@ contains
                 tmp = tmp + count_max
             end if
             time_elapsed = real(tmp) / real(count_rate)
-            if (.NOT. is_slow(i) .AND. time_elapsed > 60.0) then
+            if (.NOT. is_slow(problem_ids(i)) .AND. time_elapsed > 60.0) then
                 print *, "  Error: problem ", problem_ids(i), " timed out!"
                 print *, "  Solution took    : ", time_elapsed, "s"
                 stop 2

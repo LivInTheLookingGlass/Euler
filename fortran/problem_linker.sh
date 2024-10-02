@@ -17,7 +17,8 @@ for file in "$SRC_DIR"/p[0-9][0-9][0-9][0-9].f90; do
 done
 problem_ids_str=$(printf '%s_i4t, &\n' "${problem_ids[@]}")
 # Remove the last ', &\n' for proper formatting
-problem_ids_str=${problem_ids_str%, &$'\n'}
+length=${#problem_ids_str}
+problem_ids_str=${problem_ids_str:0:length - 3}
 
 # Start writing to the output file
 cat <<EOF1 > $OUTPUT_FILE
