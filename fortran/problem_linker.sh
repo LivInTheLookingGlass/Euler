@@ -21,6 +21,7 @@ problem_ids_str=$(IFS=,; echo "${problem_ids[*]}")
 cat <<EOF1 > $OUTPUT_FILE
 module problems
     use constants
+    use utils
 
 EOF1
 for problem_id in "${problem_ids[@]}"; do
