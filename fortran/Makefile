@@ -58,7 +58,8 @@ problems.f90:
 
 test_runner: ../LICENSE problems.f90
 	@$(MAKE) $(OBJ_FILES) $(INCLUDE_OBJS) $(MFLAGS) -j --no-print-directory
-	@$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o $(BUILD_DIR)/include/*.o problems.f90 test.f90 -o test_runner
+	@$(FC) $(opt_args) $(cov_args) -c problems.f90 -o $(BUILD_DIR)/problems.o
+	@$(FC) $(opt_args) $(cov_args) $(BUILD_DIR)/*.o $(BUILD_DIR)/include/*.o test.f90 -o test_runner
 
 .PHONY: test
 test: test_runner

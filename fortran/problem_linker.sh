@@ -15,7 +15,7 @@ for file in "$SRC_DIR"/p[0-9][0-9][0-9][0-9].f90; do
         ((count++))
     fi
 done
-problem_ids_str=$(IFS=,; echo "${problem_ids[*]}")
+problem_ids_str=$(IFS=,; echo "${problem_ids[*]/%/_i4t}")
 
 # Start writing to the output file
 cat <<EOF1 > $OUTPUT_FILE
@@ -46,7 +46,7 @@ for problem_id in "${problem_ids[@]}"; do
     if [[ " ${string_problems[@]} " =~ " ${problem_id} " ]]; then
         # Handle string case
         echo "            case ($problem_id)" >> $OUTPUT_FILE
-        echo "                allocate(character(len=p${problem_id}_len}) :: answer%string_value)" >> $OUTPUT_FILE
+        echo "                allocate(character(len=p${problem_id}_len) :: answer%string_value)" >> $OUTPUT_FILE
         echo "                if (.not. allocated(answer%string_value)) then" >> $OUTPUT_FILE
         echo "                    print *, '  Memory allocation failed for string_value. Returning error type'" >> $OUTPUT_FILE
         echo "                    answer%type = errort" >> $OUTPUT_FILE
