@@ -27,3 +27,4 @@ javascript/src/lib/fallbacks
 docs/languages*.svg
 docs/_tags
 docs/objects.inv
+fortran/problems.f90
