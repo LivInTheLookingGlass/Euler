@@ -16,7 +16,8 @@ module Problem0009
     implicit none
 contains
     pure integer function p0009() result(answer)
-        integer :: a, b, c = 3, a_square, b_square, c_square
+        integer :: a, b, c, a_square, b_square, c_square
+        c = 3
 
         do
             c_square = c * c

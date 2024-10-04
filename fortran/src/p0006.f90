@@ -20,8 +20,10 @@ module Problem0006
     implicit none
 contains
     pure integer function p0006() result(answer)
-        integer :: sum = 1, sum_of_squares = 1, i
+        integer :: sum, sum_of_squares, i
         answer = 0
+        sum = 1
+        sum_of_squares = 1
 
         do i = 2, 100
             sum = sum + i

@@ -121,16 +121,17 @@ contains
         answer = cached_answers(id)
     end function
 
-    subroutine parse_line(line, id_out, type_out, length_out, value_out)
+    pure subroutine parse_line(line, id_out, type_out, length_out, value_out)
         character(len=*), intent(in) :: line
         character(len=32), intent(out) :: value_out
         character(len=4), intent(out) :: id_out, type_out, length_out
-        integer :: pos, i, last_pos = 0
+        integer :: pos, i, last_pos
     
         id_out = ''
         type_out = ''
         length_out = ''
         value_out = ''
+        last_pos = 0
     
         do i = 1, 4
             pos = index(line(last_pos + 1:), char(9))  ! Find tab character

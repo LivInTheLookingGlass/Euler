@@ -42,11 +42,12 @@ module Problem0076
     implicit none
 contains
     pure integer function p0076() result(answer)
-        integer :: idx, i, sum = 100
+        integer :: idx, i, sum
         integer, dimension(100) :: counts
         answer = 0
         counts = 0
         counts(2) = 100
+        sum = 100
         do while (counts(100) == 0)
             counts(2) = counts(2) + 2
             if (sum >= 100) then
