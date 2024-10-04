@@ -52,6 +52,8 @@ contains
         endif
 
         new_size = (new_n / bits_per_int) + 1
+        ! recalculate n to fit boundaries
+        new_n = bits_per_int * (new_size - 1)
         if (allocated(prime_sieve)) then
             deallocate(prime_sieve)
         end if
