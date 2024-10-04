@@ -249,7 +249,12 @@ def setup(app):
         labels, sizes, counts = zip(*((lang, float(size), countfiles(lang)) for lang, size in linguist(basedir)))
         print("\n".join(repr(z) for z in zip(labels, sizes, counts)))
         size = max(10, len(labels))
-        colormap = plt.get_cmap('tab10' if len(labels) <= 10 else 'tab20')
+        colormap = plt.get_cmap(
+            'tab10' if size <= 10 else
+            'Paired' if size <= 12 else
+            'tab20' if size <= 20 else
+            'hsv'
+        )
         colors = [colormap(idx / size) for idx, _ in enumerate(labels)]
         _, ax = plt.subplots()
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', labeldistance=None, pctdistance=0.85)
