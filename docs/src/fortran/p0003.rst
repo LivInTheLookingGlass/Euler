@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 3
+===================================
+
+View source code :source:`fortran/src/p0003.f90`
+
+.. f:module:: Problem0003
+
+.. f:function:: integer Problem0003/p0003()
+
+.. literalinclude:: ../../../fortran/src/p0003.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: prime-number, factorization, fortran-iterator
