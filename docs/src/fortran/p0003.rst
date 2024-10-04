@@ -3,6 +3,14 @@ Fortran Implementation of Problem 3
 
 View source code :source:`fortran/src/p0003.f90`
 
+Includes
+--------
+
+- `primes.f90 <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
 .. f:module:: Problem0003
 
 .. f:function:: integer Problem0003/p0003()

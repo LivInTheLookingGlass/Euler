@@ -12,7 +12,7 @@ module Problem0003
     implicit none
 contains
     integer function p0003() result(answer)
-        integer(i18t) :: num = 600851475143
+        integer(i18t) :: num = 600851475143_i18t
         answer = 0
         do while (num > 1)
             call prime_factor(num, answer)
