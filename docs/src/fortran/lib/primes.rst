@@ -10,6 +10,7 @@ View source code :source:`fortran/include/primes.f90`
     :p integer(i18t) last: The last prime you received (or 1)
     :returns answer: The next prime in the sequence
     :rtype answer: integer(i18t)
+    :to: :f:subr:`expand_sieve`
 
 .. f:subroutine:: prime_factor(num, factor)
 
@@ -17,18 +18,21 @@ View source code :source:`fortran/include/primes.f90`
     :pattrs num: intent(inout)
     :p integer(i18t) factor: The factor produced
     :pattrs factor: intent(out)
+    :to: :f:func:`next_prime`, :f:subr:`expand_sieve`
 
 .. f:function:: is_composite(n)
 
     :p integer(i18t) n: The number you want to determine the compositeness of
     :returns answer: The first prime factor if composite, or 0 otherwise
     :rtype answer: integer(i18t)
+    :to: :f:subr:`prime_factor`
 
 .. f:function:: is_prime(n)
 
     :p integer(i18t) n: The number you want to determine the primality of
     :returns answer:
     :rtype answer: logical
+    :to: :f:subr:`prime_factor`
 
 .. f:subroutine:: expand_sieve(potential_n)
 
@@ -40,8 +44,9 @@ View source code :source:`fortran/include/primes.f90`
         If you call this with a value lower than the current size, there is *no cost*, and I highly
         encourage you to do so.
 
-    :p integer(i18t) potential_n: The size you wish to expand the sieve to
-    :pattrs potential_n: optional
+    :o integer(i18t) potential_n: The size you wish to expand the sieve to
+    :oattrs potential_n: optional
+    :from: :f:func:`next_prime`, :f:subr:`prime_factor`
 
 .. literalinclude:: ../../../../fortran/src/include/primes.f90
    :language: Fortran

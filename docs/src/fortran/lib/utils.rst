@@ -17,9 +17,10 @@ View source code :source:`fortran/include/utils.f90`
 
 .. f:function:: get_answer(id)
 
-    Return the answer to a given problem, as represented in ``/_data/answers.tsv``
+    Return the answer to a given problem, as represented in ``/_data/answers.tsv``. On first run, it will take
+    ``O(n)`` time, where ``n`` is the number of problems in the file. From there on out, it should be ``O(1)``.
 
-    :p integer(i4d) id:
+    :p integer(i4t) id:
     :returns answer:
     :rtype answer: AnswerT
 
@@ -29,10 +30,10 @@ View source code :source:`fortran/include/utils.f90`
     :f:var:`errort`, there was an error in generating the answer. If it is :f:var:`int64t`, it holds data of
     type ``integer(i18t)``. If it is :f:var:`stringt`, it holds an allocatable character array.
 
+    :f integer(i1t) type:
     :f integer(i18t) int_value:
     :f character(len=:) string_value:
     :fattrs string_value: allocatable
-    :f integer(i1d) type:
 
 .. literalinclude:: ../../../../fortran/src/include/utils.f90
    :language: Fortran

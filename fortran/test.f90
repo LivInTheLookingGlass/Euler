@@ -42,7 +42,7 @@ contains
                     case (errort)
                         print *, "  Expected: error"
                 end select
-                stop 3
+                stop ERROR_ANSWER_TYPE_MISMATCH
             end if
             select case(expected%type)
                 case (int64t)
@@ -50,14 +50,14 @@ contains
                         print *, "  Error: problem ", problem_ids(i), " failed!"
                         print *, "  Expected Answer  : ", expected%int_value
                         print *, "  Solution returned: ", answer%int_value
-                        stop 1
+                        stop ERROR_ANSWER_MISMATCH
                     end if
                 case (stringt)
                     if (expected%string_value /= answer%string_value) then
                         print *, "  Error: problem ", problem_ids(i), " failed!"
                         print *, "  Expected Answer  : ", expected%string_value
                         print *, "  Solution returned: ", answer%string_value
-                        stop 1
+                        stop ERROR_ANSWER_MISMATCH
                     end if
                     deallocate(answer%string_value, expected%string_value)
                 case (errort)
@@ -71,7 +71,7 @@ contains
             if (.NOT. is_slow(problem_ids(i)) .AND. time_elapsed > 60.0) then
                 print *, "  Error: problem ", problem_ids(i), " timed out!"
                 print *, "  Solution took    : ", time_elapsed, "s"
-                stop 2
+                stop ERROR_ANSWER_TIMEOUT
             end if
             print *, "  Completed        : ", problem_ids(i), "in ", time_elapsed, "s"
         end do

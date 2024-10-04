@@ -30,7 +30,7 @@ contains
             allocate(character(len=file_size) :: contents)
             if (.not. allocated(contents)) then
                 print *, "Failed to allocate memory for read. Exiting."
-                stop -3
+                stop ERROR_UTILS_ALLOCATE_FAILED
             end if
             contents = ''
             do

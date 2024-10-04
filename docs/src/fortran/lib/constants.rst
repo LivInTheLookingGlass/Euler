@@ -26,6 +26,19 @@ View source code :source:`fortran/include/constants.f90`
 
     Denotes the type of an :f:type:`AnswerT`
 
+.. f:variable:: ERROR_ANSWER_MISMATCH
+    :type: integer(i1t)
+.. f:variable:: ERROR_ANSWER_TIMEOUT
+    :type: integer(i1t)
+.. f:variable:: ERROR_ANSWER_TYPE_MISMATCH
+    :type: integer(i1t)
+.. f:variable:: ERROR_PRIME_ALLOCATE_FAILED
+    :type: integer(i1t)
+.. f:variable:: ERROR_UTILS_ALLOCATE_FAILED
+    :type: integer(i1t)
+
+    Denotes the exit codes of different failure modes, counting up from 1
+
 .. literalinclude:: ../../../../fortran/src/include/constants.f90
    :language: Fortran
    :linenos:

@@ -1,14 +1,23 @@
 module constants
     implicit none
 
+    ! kinds
     integer, parameter :: i1t = selected_int_kind(1)
     integer, parameter :: i2t = selected_int_kind(2)
     integer, parameter :: i4t = selected_int_kind(4)
     integer, parameter :: i18t = selected_int_kind(18)
 
+    ! type codes
     integer(i1t), parameter :: errort = 0
     integer(i1t), parameter :: int64t = 1
     integer(i1t), parameter :: stringt = 2
+
+    ! error codes
+    integer(i1t), parameter :: ERROR_ANSWER_MISMATCH = 1
+    integer(i1t), parameter :: ERROR_ANSWER_TIMEOUT = 2
+    integer(i1t), parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
+    integer(i1t), parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
+    integer(i1t), parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
 
 contains
 end module constants

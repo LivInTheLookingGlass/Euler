@@ -9,15 +9,15 @@ contains
         answer = start + (step * idx)
     end function
 
-    integer function range_entry4(start, stop, step, idx) result(answer)
-        integer, intent(in) :: start, stop, step, idx
+    integer function range_entry4(start, end, step, idx) result(answer)
+        integer, intent(in) :: start, end, step, idx
         integer :: length, l_idx
 
         l_idx = idx
-        if (step > 0 .and. start < stop) then
-            length = 1 + (stop - 1 - start) / step
-        elseif (step < 0 .and. start > stop) then
-            length = 1 + (start - 1 - stop) / (-step)
+        if (step > 0 .and. start < end) then
+            length = 1 + (end - 1 - start) / step
+        elseif (step < 0 .and. start > end) then
+            length = 1 + (start - 1 - end) / (-step)
         else
             answer = huge(kind(answer))  ! error
             return
