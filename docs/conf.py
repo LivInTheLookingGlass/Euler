@@ -223,6 +223,7 @@ def countfiles(lang):
         'Makefile': lambda _, filename: filename == 'Makefile',
         'Python': lambda root, filename: fnmatch(filename, '*.py'),
         'Rust': lambda _, filename: fnmatch(filename, '*.rs'),
+        'Shell': lambda _, filename: fnmatch(filename, '*.sh'),
     }
     exclude_patterns = {
         'Makefile': ['Unity', 'wasi-libc', 'node_modules'],
@@ -257,7 +258,7 @@ def setup(app):
 
         sizes = [size / count for size, count in zip(sizes, counts)]
         sizes, labels, colors = zip(
-            *sorted(filter(lambda x: x[1] != "Makefile", zip(sizes, labels, colors)), reverse=True)
+            *sorted(filter(lambda x: x[1] not in ("Makefile", "Shell"), zip(sizes, labels, colors)), reverse=True)
         )
         total = sum(sizes)
         smallest_size = min(sizes)
