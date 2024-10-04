@@ -18,7 +18,5 @@ module constants
     integer, parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
     integer, parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
     integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
-
-contains
 end module constants
 

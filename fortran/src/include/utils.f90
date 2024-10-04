@@ -10,7 +10,6 @@ module utils
 
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
-
 contains
     function get_data_file(filename) result(contents)
         character(len=*), intent(in) :: filename
@@ -124,9 +123,14 @@ contains
 
     subroutine parse_line(line, id_out, type_out, length_out, value_out)
         character(len=*), intent(in) :: line
-        character(len=32), intent(out) :: value_out = ''
-        character(len=4), intent(out) :: id_out = '', type_out = '', length_out = ''
+        character(len=32), intent(out) :: value_out
+        character(len=4), intent(out) :: id_out, type_out, length_out
         integer :: pos, i, last_pos = 0
+    
+        id_out = ''
+        type_out = ''
+        length_out = ''
+        value_out = ''
     
         do i = 1, 4
             pos = index(line(last_pos + 1:), char(9))  ! Find tab character
@@ -163,6 +167,4 @@ contains
             end if
         end do
     end subroutine parse_line
-    
 end module utils
-

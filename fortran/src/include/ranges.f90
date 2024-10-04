@@ -1,9 +1,7 @@
 module ranges
     use constants
     implicit none
-
 contains
-
     pure integer function range_entry3(start, step, idx) result(answer)
         integer, intent(in) :: start, step, idx
         answer = start + (step * idx)
@@ -34,6 +32,4 @@ contains
 
         answer = range_entry3(start, step, l_idx)
     end function
-
 end module ranges
-
