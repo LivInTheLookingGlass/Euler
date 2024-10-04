@@ -3,6 +3,8 @@ ranges.rs
 
 View source code :source:`rust/src/include/ranges.rs`
 
+This module directly ports some of the logic found in Python's :external:py:obj:`range`.
+
 Includes
 --------
 

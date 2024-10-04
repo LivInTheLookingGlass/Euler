@@ -3,6 +3,11 @@ ranges.f90
 
 View source code :source:`fortran/include/ranges.f90`
 
+.. note::
+    
+    This module directly ports some of the logic found in Python's :external:py:obj:`range`. Because of that,
+    these functions are 0-indexed.
+
 .. f:module:: ranges
 
 .. f:function:: range_entry3(start, step, idx)
