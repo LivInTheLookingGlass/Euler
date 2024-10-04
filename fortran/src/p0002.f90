@@ -15,7 +15,7 @@
 module Problem0002
     implicit none
 contains
-    integer function p0002() result(answer)
+    pure integer function p0002() result(answer)
         integer :: a = 1, b = 2, i, tmp
         answer = 0
 

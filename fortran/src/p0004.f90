@@ -8,7 +8,7 @@
 module Problem0004
     implicit none
 contains
-    integer function p0004() result(answer)
+    pure integer function p0004() result(answer)
         integer :: i, j, k, n, prod, length
         logical :: is_palindrome
         character(len=8) :: string

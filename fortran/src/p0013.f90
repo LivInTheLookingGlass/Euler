@@ -108,7 +108,7 @@ module Problem0013
     use constants
     implicit none
 contains
-    integer(i18t) function p0013() result(answer)
+    pure integer(i18t) function p0013() result(answer)
         integer(i18t), dimension(3, 100) :: numbers
         integer(i18t), dimension(3) :: arr = (/ 0, 0, 0 /)
         integer(i18t) :: ten18 = 1000000000000000000_8

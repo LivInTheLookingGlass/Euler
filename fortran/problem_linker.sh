@@ -72,7 +72,7 @@ cat <<EOF3 >> $OUTPUT_FILE
         end select
     end function run_problem
 
-    logical function is_slow(id)
+    pure logical function is_slow(id)
         integer(i4t), intent(in) :: id
         select case (id)
 EOF3

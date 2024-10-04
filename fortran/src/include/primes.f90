@@ -78,7 +78,7 @@ contains
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set
-    logical function get_prime_bit(num) result(bit)
+    pure logical function get_prime_bit(num) result(bit)
         integer(i18t), intent(in) :: num
         bit = logical(btest(prime_sieve(num / bits_per_int + 1), mod(num, bits_per_int)))
     end function get_prime_bit

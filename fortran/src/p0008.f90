@@ -33,7 +33,7 @@ module Problem0008
     use constants
     implicit none
 contains
-    integer(i18t) function p0008() result(answer)
+    pure integer(i18t) function p0008() result(answer)
         integer :: i, j
         integer(i18t) :: tmp
         integer(i1t), dimension(1000) :: digits

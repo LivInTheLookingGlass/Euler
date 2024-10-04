@@ -12,7 +12,7 @@
 module Problem0001
     implicit none
 contains
-    integer function p0001() result(answer)
+    pure integer function p0001() result(answer)
         integer :: i
         answer = 0
 

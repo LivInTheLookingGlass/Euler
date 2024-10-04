@@ -4,7 +4,7 @@ module math
 
 contains
 
-    integer(i18t) function factorial(n) result(answer)
+    pure integer(i18t) function factorial(n) result(answer)
         integer, intent(in) :: n
         integer :: i
         answer = 1

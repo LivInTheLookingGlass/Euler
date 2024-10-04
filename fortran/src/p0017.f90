@@ -18,7 +18,7 @@
 module Problem0017
     implicit none
 contains
-    integer recursive function to_string_len(n) result(answer)
+    pure integer recursive function to_string_len(n) result(answer)
         integer, intent(in) :: n
         integer :: tmp
         answer = 0
@@ -71,7 +71,7 @@ contains
         end if
     end function
 
-    integer function p0017() result(answer)
+    pure integer function p0017() result(answer)
         integer :: x
 
         answer = 0

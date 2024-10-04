@@ -41,7 +41,7 @@ module Problem0076
     use constants
     implicit none
 contains
-    integer function p0076() result(answer)
+    pure integer function p0076() result(answer)
         integer :: idx, i, sum = 100
         integer, dimension(100) :: counts
         answer = 0

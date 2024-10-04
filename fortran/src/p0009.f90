@@ -15,7 +15,7 @@
 module Problem0009
     implicit none
 contains
-    integer function p0009() result(answer)
+    pure integer function p0009() result(answer)
         integer :: a, b, c = 3, a_square, b_square, c_square
 
         do

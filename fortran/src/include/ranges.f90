@@ -4,12 +4,12 @@ module ranges
 
 contains
 
-    integer function range_entry3(start, step, idx) result(answer)
+    pure integer function range_entry3(start, step, idx) result(answer)
         integer, intent(in) :: start, step, idx
         answer = start + (step * idx)
     end function
 
-    integer function range_entry4(start, end, step, idx) result(answer)
+    pure integer function range_entry4(start, end, step, idx) result(answer)
         integer, intent(in) :: start, end, step, idx
         integer :: length, l_idx
 

@@ -34,7 +34,7 @@ module Problem0011
     use constants
     implicit none
 contains
-    integer(i18t) function p0011() result(answer)
+    pure integer(i18t) function p0011() result(answer)
         integer(i2t), dimension(20, 20) :: grid
         integer(i18t) :: tmp
         integer :: i, j

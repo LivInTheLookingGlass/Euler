@@ -49,7 +49,7 @@ module Problem0028
     use ranges
     implicit none
 contains
-    integer function p0028() result(answer)
+    pure integer function p0028() result(answer)
         integer :: i, start
 
         answer = 1

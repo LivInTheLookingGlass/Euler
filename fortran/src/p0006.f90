@@ -19,7 +19,7 @@
 module Problem0006
     implicit none
 contains
-    integer function p0006() result(answer)
+    pure integer function p0006() result(answer)
         integer :: sum = 1, sum_of_squares = 1, i
         answer = 0
 
