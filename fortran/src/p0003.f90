@@ -11,7 +11,7 @@ module Problem0003
     use primes
     implicit none
 contains
-    integer function p0003() result(answer)
+    integer(i18t) function p0003() result(answer)
         integer(i18t) :: num = 600851475143_i18t
         answer = 0
         do while (num > 1)
