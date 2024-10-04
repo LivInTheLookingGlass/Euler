@@ -87,7 +87,7 @@ contains
             factor = num
         else
             factor = 2
-            call expand_sieve(int(sqrt(num), i18t) + 1)
+            call expand_sieve(int(sqrt(real(num)), i18t) + 1)
             do while (factor <= num)
                 if (mod(num, factor) == 0) then
                     num = num / factor
