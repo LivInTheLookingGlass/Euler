@@ -2,10 +2,10 @@ module primes
     use constants
 
     implicit none
-    integer, parameter :: bits_per_int = 64
-    integer(i18t), allocatable :: prime_sieve(:)
-    integer(i18t) :: current_n = 0
-    logical :: initialized = .false.
+    integer, private, parameter :: bits_per_int = 64
+    integer(i18t), private, allocatable :: prime_sieve(:)
+    integer(i18t), private :: current_n = 0
+    logical, private :: initialized = .false.
 
 contains
 

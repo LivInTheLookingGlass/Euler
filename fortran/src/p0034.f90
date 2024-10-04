@@ -18,7 +18,6 @@ module Problem0034
     use math
     implicit none
 contains
-
     integer(i18t) function p0034() result(answer)
         integer :: i, j
         integer(i18t) tmp

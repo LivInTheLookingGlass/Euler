@@ -16,10 +16,8 @@ module Problem0002
     implicit none
 contains
     integer function p0002() result(answer)
-        integer :: a, b, i, tmp
+        integer :: a = 1, b = 2, i, tmp
         answer = 0
-        a = 1
-        b = 2
 
         do while (b < 4000000)
             answer = answer + b

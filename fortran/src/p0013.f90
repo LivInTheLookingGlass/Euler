@@ -107,12 +107,10 @@
 module Problem0013
     use constants
     implicit none
-
 contains
-
     integer(i18t) function p0013() result(answer)
         integer(i18t), dimension(3, 100) :: numbers
-        integer(i18t), dimension(3) :: arr
+        integer(i18t), dimension(3) :: arr = (/ 0, 0, 0 /)
         integer(i18t) :: ten18 = 1000000000000000000_8
         integer(i18t) :: ten10 = 10000000000_8
         integer :: i, j
@@ -220,7 +218,6 @@ contains
             20849603980134_8,   1723930671666823_8, 555245252804609722_8, &
             53503534226472_8, 524250874054075591_8, 789781264330331690_8 /
 
-        arr = (/ 0, 0, 0 /)
         do i = 1, 100
             do j = 1, 3
                 arr(j) = arr(j) + numbers(j, i)

@@ -1,6 +1,5 @@
 module utils
     use constants
-
     implicit none
 
     type :: AnswerT
@@ -9,8 +8,8 @@ module utils
         integer(i1t) :: type
     end type AnswerT
 
-    logical :: cache_inited = .false.
-    type(AnswerT), dimension(1024) :: cached_answers
+    logical, private :: cache_inited = .false.
+    type(AnswerT), private, dimension(1024) :: cached_answers
 
 contains
     function get_data_file(filename) result(contents)
@@ -125,15 +124,9 @@ contains
 
     subroutine parse_line(line, id_out, type_out, length_out, value_out)
         character(len=*), intent(in) :: line
-        character(len=32), intent(out) :: value_out
-        character(len=4), intent(out) :: id_out, type_out, length_out
-        integer :: pos, last_pos, i
-    
-        id_out = ''
-        type_out = ''
-        length_out = ''
-        value_out = ''
-        last_pos = 0
+        character(len=32), intent(out) :: value_out = ''
+        character(len=4), intent(out) :: id_out = '', type_out = '', length_out = ''
+        integer :: pos, i, last_pos = 0
     
         do i = 1, 4
             pos = index(line(last_pos + 1:), char(9))  ! Find tab character

@@ -39,7 +39,7 @@ This removes any build files, as well as the test runner executable
 Build
 -----
 
-This is the most complicated build process of my implementations. It has a five step build process, as outlined below
+This is the most complicated build process of my implementations. It has a six step build process, as outlined below
 
 .. mermaid::
 
@@ -57,13 +57,12 @@ This is the most complicated build process of my implementations. It has a five 
     p0001["p0001.f90"]
     p0002["p0002.f90"]
     p0003["p0003.f90"]
-    pxxxx["p.....f90"]
+    pxxxx["p____.f90"]
     p9999["p9999.f90"]
   end
 
   constants --> primes
   constants --> misc
-  constants --> src
   constants --> problems
   constants --> test
   constants --> p0001
@@ -71,7 +70,7 @@ This is the most complicated build process of my implementations. It has a five 
   constants --> p0003
   constants --> pxxxx
   constants --> p9999
-  primes -.-> p0003
+  primes --> p0003
   p0001 --> problems
   p0002 --> problems
   p0003 --> problems
@@ -82,7 +81,7 @@ This is the most complicated build process of my implementations. It has a five 
 1. Compile ``src/include/constants.f90``
 2. Then ``src/include/*.f90``, giving a reference to the above
 3. Then ``src/*.f90``, giving a reference to the above
-4. A file, ``problems.f90`` is generated which links the above with a pair of helper functions
+4. A file, ``problems.f90``, is generated which links the above with a pair of helper functions
 5. Then ``problems.f90`` is compiled, giving a reference to the above
 6. Finally, ``test.f90`` is compiled and ran
 
