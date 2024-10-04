@@ -13,11 +13,11 @@ module constants
     integer(i1t), parameter :: stringt = 2
 
     ! error codes
-    integer(i1t), parameter :: ERROR_ANSWER_MISMATCH = 1
-    integer(i1t), parameter :: ERROR_ANSWER_TIMEOUT = 2
-    integer(i1t), parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
-    integer(i1t), parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
-    integer(i1t), parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
+    integer, parameter :: ERROR_ANSWER_MISMATCH = 1
+    integer, parameter :: ERROR_ANSWER_TIMEOUT = 2
+    integer, parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
+    integer, parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
+    integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
 
 contains
 end module constants

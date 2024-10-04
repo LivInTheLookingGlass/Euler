@@ -58,7 +58,7 @@ contains
             deallocate(prime_sieve)
         end if
         allocate(prime_sieve(new_size))
-        if (.not. allocated(answer%string_value)) then
+        if (.not. allocated(prime_sieve)) then
             print *, "Memory allocation failed for prime sieve. Exiting."
             stop ERROR_PRIME_ALLOCATE_FAILED
         end if
