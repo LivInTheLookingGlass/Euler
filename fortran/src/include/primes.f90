@@ -42,7 +42,7 @@ contains
         integer(i18t) :: new_size, new_n
 
         if (present(potential_n)) then
-            new_n = max(potential_n, current_n)
+            new_n = potential_n
         else
             new_n = current_n * 2
         end if
