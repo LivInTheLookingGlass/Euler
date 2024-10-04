@@ -15,6 +15,7 @@ contains
         integer(i18t) :: num = 600851475143_i18t
         answer = 0
         do while (num > 1)
+            print *, num, answer
             call prime_factor(num, answer)
         end do
     end function p0003
