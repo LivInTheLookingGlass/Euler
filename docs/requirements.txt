@@ -13,3 +13,4 @@ sphinx-tags
 sphinx-mathjax-offline
 sphinxcontrib-luadomain
 sphinx-fortran
+sphinxcontrib-mermaid

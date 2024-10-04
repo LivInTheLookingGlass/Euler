@@ -52,6 +52,7 @@ extensions = [
     # 'sphinx-navtree',
     'sphinxcontrib.luadomain',
     'sphinxfortran.fortran_domain',
+    'sphinxcontrib.mermaid',
 ]
 
 try:
