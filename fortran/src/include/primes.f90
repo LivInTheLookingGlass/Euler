@@ -1,7 +1,7 @@
 module primes
     use constants
     implicit none
-    integer, private, parameter :: bits_per_int = 64
+    integer(i18t), private, parameter :: bits_per_int = 64
     integer(i18t), private, allocatable :: prime_sieve(:)
     integer(i18t), private :: current_n = 0
 contains
