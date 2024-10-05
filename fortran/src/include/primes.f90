@@ -70,13 +70,13 @@ contains
         integer(i18t), intent(in) :: num
         integer(i18t) :: i
         i = (num / bits_per_int) + 1
-        prime_sieve(i) = iand(prime_sieve(i), ieor(-1_i18t, 2**mod(num, bits_per_int)))
+        prime_sieve(i) = iand(prime_sieve(i), ieor(-1_i18t, 2**int(mod(num, bits_per_int), kind(prime_sieve(1)))))
     end subroutine clear_prime_bit
 
     ! Function to check if a bit is set
     pure logical function get_prime_bit(num) result(bit)
         integer(i18t), intent(in) :: num
-        bit = logical(btest(prime_sieve(num / bits_per_int + 1), mod(num, bits_per_int)))
+        bit = logical(btest(prime_sieve(num / bits_per_int + 1), int(mod(num, bits_per_int), kind(prime_sieve(1)))))
     end function get_prime_bit
 
     subroutine prime_factor(num, factor)
@@ -118,7 +118,7 @@ contains
         elseif (num <= 3) then
             ip = .true.
         else
-            check = mod(num, 6)
+            check = mod(num, 6_i18t)
             ip = (check == 1 .or. check == 5) .and. is_composite(num) == 0
         endif
     end function

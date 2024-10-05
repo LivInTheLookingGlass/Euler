@@ -8,6 +8,7 @@ module utils
         integer(i1t) :: type
     end type AnswerT
 
+    integer, private :: prev_unit = 13
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
@@ -17,7 +18,9 @@ contains
         character(len=64) :: line
         integer :: unit_number, iostat, file_size
 
-        open(newunit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
+        prev_unit = prev_unit + 1
+        unit_number = prev_unit
+        open(unit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
         if (iostat /= 0) then
             print *, "Error opening file: ../_data/" // filename
             return
