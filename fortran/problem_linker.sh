@@ -49,14 +49,8 @@ for problem_id in "${problem_ids[@]}"; do
     if [[ " ${string_problems[@]} " =~ " ${problem_id} " ]]; then
         # Handle string case
         echo "            case ($problem_id)" >> $OUTPUT_FILE
-        echo "                allocate(character(len=p${problem_id}_len) :: answer%string_value)" >> $OUTPUT_FILE
-        echo "                if (.not. allocated(answer%string_value)) then" >> $OUTPUT_FILE
-        echo "                    print *, '  Memory allocation failed for string_value. Returning error type'" >> $OUTPUT_FILE
-        echo "                    answer%type = errort" >> $OUTPUT_FILE
-        echo "                else" >> $OUTPUT_FILE
-        echo "                    answer%type = stringt" >> $OUTPUT_FILE
-        echo "                    answer%string_value = p$problem_id()" >> $OUTPUT_FILE
-        echo "                end if" >> $OUTPUT_FILE
+        echo "                answer%type = stringt" >> $OUTPUT_FILE
+        echo "                answer%string_value = p$problem_id()" >> $OUTPUT_FILE
     else
         # Handle integer case
         echo "            case ($problem_id)" >> $OUTPUT_FILE

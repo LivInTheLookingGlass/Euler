@@ -15,9 +15,8 @@
 
 module Problem0836
     implicit none
-    integer, parameter :: p0836_len = 14
 contains
-    pure character(p0836_len) function p0836()
+    pure character(14) function p0836()
         p0836 = 'aprilfoolsjoke'
     end function p0836
 end module Problem0836
