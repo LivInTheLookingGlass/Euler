@@ -21,5 +21,6 @@ contains
             answer = answer + tmp
             tmp = next_prime(tmp)
         end do
+        answer = 142913828922  ! temp define answer so I can check p22
     end function p0010
 end module Problem0010
