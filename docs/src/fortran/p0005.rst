@@ -1,0 +1,22 @@
+Fortran Implementation of Problem 5
+===================================
+
+View source code :source:`fortran/src/p0005.f90`
+
+Includes
+--------
+
+- `primes.f90 <./lib/primes.html>`_
+
+Problem Solution
+----------------
+
+.. f:module:: Problem0005
+
+.. f:function:: integer Problem0005/p0005()
+
+.. literalinclude:: ../../../fortran/src/p0005.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: fortran-iterator, divisibility, factorization, prime-number

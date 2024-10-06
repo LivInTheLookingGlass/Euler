@@ -17,6 +17,9 @@ module constants
     integer, parameter :: ERROR_ANSWER_TIMEOUT = 2
     integer, parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
     integer, parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
-    integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
+
+    ! file/string sizes
+    integer, parameter :: ANSWERS_TSV_SIZE = 2**11
+    integer, parameter :: ANSWERT_STR_SIZE = 16
 end module constants
 

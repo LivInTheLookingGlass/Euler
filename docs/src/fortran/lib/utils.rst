@@ -5,15 +5,15 @@ View source code :source:`fortran/include/utils.f90`
 
 .. f:module:: utils
 
-.. f:function:: get_data_file(filename)
+.. f:subroutine:: get_data_file(filename, contents)
 
     Given the name of a file in ``/_data`` (where ``/`` is the repository root), this function returns
     the entirety of its contents, or an empty string if there is an error.
 
     :p character(len=*) filename:
-    :returns contents:
-    :rtype contents: character(len=:)
-    :rattrs contents: allocatable
+    :pattrs filename: intent(in)
+    :p character(len=*) contents:
+    :pattrs contents: intent(out)
 
 .. f:function:: get_answer(id)
 
@@ -28,12 +28,12 @@ View source code :source:`fortran/include/utils.f90`
 
     This stores the answer to a generic problem, storing multiple potential types. If the type field contains
     :f:var:`errort`, there was an error in generating the answer. If it is :f:var:`int64t`, it holds data of
-    type ``integer(i18t)``. If it is :f:var:`stringt`, it holds an allocatable character array.
+    type ``integer(i18t)``. If it is :f:var:`stringt`, it holds a character array.
 
     :f integer(i1t) type:
     :f integer(i18t) int_value:
-    :f character(len=:) string_value:
-    :fattrs string_value: allocatable
+    :f string_value:
+    :ftype string_value: character(len=:f:var:`ANSWERT_STR_LEN`)
 
 .. literalinclude:: ../../../../fortran/src/include/utils.f90
    :language: Fortran
