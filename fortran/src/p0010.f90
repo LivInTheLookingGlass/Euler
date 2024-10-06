@@ -16,11 +16,11 @@ contains
 
         answer = 0
         tmp = 2
-        call expand_sieve(2001000)
-        do while (tmp < 2000000)
+        call expand_sieve(2001000_i18t)
+        do while (tmp < 2000000_i18t)
             answer = answer + tmp
             tmp = next_prime(tmp)
         end do
-        answer = 142913828922  ! temp define answer so I can check p22
+        answer = 142913828922_i18t  ! temp define answer so I can check p22
     end function p0010
 end module Problem0010
