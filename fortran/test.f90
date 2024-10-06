@@ -59,7 +59,6 @@ contains
                         print *, "  Solution returned: ", answer%string_value
                         stop ERROR_ANSWER_MISMATCH
                     end if
-                    deallocate(answer%string_value, expected%string_value)
                 case (errort)
                     print *, "  Error retrieving answer!"
             end select

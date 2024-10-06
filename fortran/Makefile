@@ -23,9 +23,9 @@ else ifneq (,$(findstring flang,$(FC)))
     opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
 else ifeq ($(FC),gfortran)
     opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR) -std=f2003
-    # ifneq ($(findstring $(GCC_MAJOR),8 9 10 11),)
-        opt_args += -Wno-error=maybe-uninitialized -Wno-error=uninitialized
-    # endif
+    ifneq ($(findstring $(GCC_MAJOR),8 9 10 11),)
+        opt_args += -Wno-error=maybe-uninitialized
+    endif
 else
     opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
 endif
