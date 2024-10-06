@@ -12,9 +12,9 @@ module utils
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
-    subroutine get_data_file(filename, contents)
+    function get_data_file(filename) result(contents)
         character(len=*), intent(in) :: filename
-        character(len=*), intent(inout) :: contents
+        character(len=:), allocatable :: contents
         character(len=64) :: line
         integer :: unit_number, iostat, file_size
 
@@ -28,6 +28,11 @@ contains
 
         inquire(unit=unit_number, size=file_size)
         if (file_size > 0) then
+            allocate(character(len=file_size) :: contents)
+            if (.not. allocated(contents)) then
+                print *, "Failed to allocate memory for read. Exiting."
+                stop ERROR_UTILS_ALLOCATE_FAILED
+            end if
             contents = ''
             do
                 read(unit_number, '(A)', iostat=iostat) line
@@ -35,13 +40,14 @@ contains
                     close(unit_number)
                     exit
                 end if
-                print *, trim(line)
                 contents = contents // trim(line) // char(10)
             end do
         end if
         close(unit_number)
-        print *, contents
-    end subroutine get_data_file
+        if (.not. allocated(contents)) then
+            contents = ''
+        end if
+    end function get_data_file
 
     type(AnswerT) function get_answer(id) result(answer)
         integer(i4t), intent(in) :: id
@@ -62,7 +68,7 @@ contains
     subroutine init_answer_cache()
         integer(i18t) :: i, j
         integer :: ios, row_start, row_end, line_length
-        character(len=ANSWERS_TSV_SIZE) :: text
+        character(len=:), allocatable :: text
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
@@ -70,8 +76,10 @@ contains
             cached_answers(i)%type = errort
         end do
 
-        call get_data_file("answers.tsv", text)
-        print *, text
+        text = get_data_file("answers.tsv")
+        if (.not. allocated(text)) then
+            text = ''  ! Ensure text is defined if allocation failed
+        end if
         row_start = 1
         line_length = 1
         do while (line_length > 0)
@@ -109,6 +117,7 @@ contains
             end if
         end do
 
+        deallocate(text)
         cache_inited = .true.
     end subroutine
 

@@ -5,15 +5,15 @@ View source code :source:`fortran/include/utils.f90`
 
 .. f:module:: utils
 
-.. f:subroutine:: get_data_file(filename, contents)
+.. f:function:: get_data_file(filename)
 
     Given the name of a file in ``/_data`` (where ``/`` is the repository root), this function returns
     the entirety of its contents, or an empty string if there is an error.
 
     :p character(len=*) filename:
-    :pattrs filename: intent(in)
-    :p character(len=*) contents:
-    :pattrs contents: intent(out)
+    :returns contents:
+    :rtype contents: character(len=:)
+    :rattrs contents: allocatable
 
 .. f:function:: get_answer(id)
 

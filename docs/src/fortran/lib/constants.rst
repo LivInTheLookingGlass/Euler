@@ -34,6 +34,8 @@ View source code :source:`fortran/include/constants.f90`
     :type: integer
 .. f:variable:: ERROR_PRIME_ALLOCATE_FAILED
     :type: integer
+.. f:variable:: ERROR_UTILS_ALLOCATE_FAILED
+    :type: integer
 
     Denotes the exit codes of different failure modes, counting up from 1
 
@@ -42,7 +44,7 @@ View source code :source:`fortran/include/constants.f90`
 .. f:variable:: ANSWERT_STR_SIZE
     :type: integer
 
-    Denotes the exit codes of different failure modes, counting up from 1
+    Denotes the size of certain variables
 
 .. literalinclude:: ../../../../fortran/src/include/constants.f90
    :language: Fortran
