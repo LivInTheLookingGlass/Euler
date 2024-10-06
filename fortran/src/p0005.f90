@@ -16,19 +16,20 @@ module Problem0005
 contains
     integer function p0005() result(answer)
         integer(i2t), dimension(20) :: factor_tracker, local_factor_tracker
-        integer :: i, j, k
+        integer(i18t) :: p, q
+        integer :: i, j
         answer = 1
         factor_tracker = 0
         local_factor_tracker = 0
         do i = 2, 20
-            j = i
-            do while (j > 1)
-                call prime_factor(j, k)
-                local_factor_tracker(k) = local_factor_tracker(k) + 1
+            q = i
+            do while (q > 1)
+                call prime_factor(q, p)
+                local_factor_tracker(p) = local_factor_tracker(p) + 1
             end do
-            do i = 2, 19
-                factor_tracker(i) = max(factor_tracker(i), local_factor_tracker(i))
-                local_factor_tracker(i) = 0
+            do j = 2, 19
+                factor_tracker(j) = max(factor_tracker(j), local_factor_tracker(j))
+                local_factor_tracker(j) = 0
             end do
         end do
         do i = 2, 19
