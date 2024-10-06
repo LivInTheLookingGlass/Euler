@@ -45,9 +45,7 @@ contains
         type(AnswerT) :: answer
         integer(i4t), intent(in) :: id
 
-        answer%type = errort
-        answer%int_value = 0
-        answer%string_value = ''
+        answer = AnswerT(0, '', errort)
 
         if (id < 1 .or. id > size(cached_answers)) then
             print *, "Error: ID is out of bounds."
@@ -68,9 +66,7 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
-        cached_answers%type = errort
-        cached_answers%int_value = 0
-        cached_answers%string_value = ''
+        cached_answers = AnswerT(0, '', errort)
 
         call get_data_file("answers.tsv", text)
         row_start = 1
