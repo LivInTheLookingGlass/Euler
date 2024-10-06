@@ -13,7 +13,7 @@ module utils
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
     integer function open_data_file(name) result(unit)
-        character(len=32), intent(in) :: name
+        character(len=DATA_MAX_NAME_SIZE), intent(in) :: name
         integer :: ios
 
         unit = prev_unit + 1
@@ -42,7 +42,7 @@ contains
     end function
 
     subroutine init_answer_cache()
-        character(len=32), parameter ::file_name = "answers.tsv"
+        character(len=DATA_MAX_NAME_SIZE), parameter ::file_name = "answers.tsv"
         character(len=64) :: line
         character(len=32) :: val
         character(len=4) :: id_, type_, length

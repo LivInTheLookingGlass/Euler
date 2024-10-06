@@ -5,6 +5,14 @@ View source code :source:`fortran/include/utils.f90`
 
 .. f:module:: utils
 
+.. f:function:: open_data_file(name)
+
+    Return the unit number for a newly-opened file in ``/_data/``, where ``/`` is the repository root.
+
+    :p character(len=DATA_MAX_NAME_SIZE) id:
+    :returns unit:
+    :rtype unit: integer
+
 .. f:function:: get_answer(id)
 
     Return the answer to a given problem, as represented in ``/_data/answers.tsv``, where ``/`` is the repository root.

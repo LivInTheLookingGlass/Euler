@@ -20,6 +20,7 @@ module constants
     integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
 
     ! file/string sizes
+    integer, parameter :: DATA_MAX_NAME_SIZE = 32
     integer, parameter :: ANSWERT_STR_SIZE = 16
 end module constants
 

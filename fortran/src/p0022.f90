@@ -22,6 +22,7 @@ module Problem0022
     integer, parameter :: longest_name = 11
 contains
     integer(i18t) function p0022() result(answer)
+        character(len=DATA_MAX_NAME_SIZE), parameter :: file_name = "p0022_names.txt"
         character(len=longest_name), dimension(name_count) :: names
         character(len=1) current_char
         integer(i18t) score
@@ -30,14 +31,14 @@ contains
         i = 1
         answer = 0
         names = ''
-        unit = open_data_file("p0022_names.txt")
+        unit = open_data_file(file_name)
         do
             read(unit, '(A1)', IOSTAT=ios) current_char
             if (ios /= 0) then
                 exit
             end if
 
-            select case current_char
+            select case (current_char)
                 case (',')
                     i = i + 1
                 case ('"')
