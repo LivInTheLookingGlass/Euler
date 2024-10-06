@@ -66,7 +66,9 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
-        cached_answers = AnswerT(0, '', errort)
+        do i=1, size(cached_answers)
+            cached_answers(i) = AnswerT(0, '', errort)
+        end do
 
         call get_data_file("answers.tsv", text)
         row_start = 1
