@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 10
+====================================
+
+View source code :source:`fortran/src/p0010.f90`
+
+.. f:module:: Problem0010
+
+.. f:function:: integer Problem0010/p0010()
+
+.. literalinclude:: ../../../fortran/src/p0010.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: prime-number, fortran-iterator

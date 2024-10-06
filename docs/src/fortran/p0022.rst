@@ -1,0 +1,22 @@
+Fortran Implementation of Problem 22
+====================================
+
+View source code :source:`fortran/src/p0022.f90`
+
+Includes
+--------
+
+- `utils.f90 <./lib/utils.html>`_
+
+Problem Solution
+----------------
+
+.. f:module:: Problem0022
+
+.. f:function:: integer Problem0022/p0022()
+
+.. literalinclude:: ../../../fortran/src/p0022.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: word-problem, sorting, file-io
