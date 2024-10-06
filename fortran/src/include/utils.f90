@@ -42,6 +42,7 @@ contains
     end function
 
     subroutine init_answer_cache()
+        character(len=32), parameter ::file_name = "answers.tsv"
         character(len=64) :: line
         character(len=32) :: val
         character(len=4) :: id_, type_, length
@@ -49,7 +50,7 @@ contains
         integer :: ios, line_length, unit_number
 
         cached_answers = AnswerT(0, '', errort)
-        unit_number = open_data_file("answers.tsv")
+        unit_number = open_data_file(file_name)
         line_length = 1
         do while (line_length > 0)
             line = ''
