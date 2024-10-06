@@ -52,11 +52,6 @@ contains
     function get_answer(id) result(answer)
         type(AnswerT) :: answer
         integer(i4t), intent(in) :: id
-        integer(i18t) :: i, j
-        integer :: ios, row_start, row_end, line_length
-        character(len=:), allocatable :: text
-        character(len=32) :: val
-        character(len=4) :: id_, type_, length
 
         if (id < 1 .or. id > size(cached_answers)) then
             print *, "Error: ID is out of bounds."
@@ -64,10 +59,19 @@ contains
             return
         end if
 
-        if (cache_inited) then
-            answer = cached_answers(id)
-            return
+        if (.not. cache_inited) then
+            call init_answer_cache()
         end if
+
+        answer = cached_answers(id)
+    end function
+
+    subroutine init_answer_cache()
+        integer(i18t) :: i, j
+        integer :: ios, row_start, row_end, line_length
+        character(len=:), allocatable :: text
+        character(len=32) :: val
+        character(len=4) :: id_, type_, length
 
         do i=1, size(cached_answers)
             cached_answers(i)%type = errort
@@ -116,8 +120,7 @@ contains
 
         deallocate(text)
         cache_inited = .true.
-        answer = cached_answers(id)
-    end function
+    end subroutine
 
     pure subroutine parse_line(line, id_out, type_out, length_out, value_out)
         character(len=*), intent(in) :: line
