@@ -52,7 +52,7 @@ contains
         do i = 1, name_count
             score = 0
             do j = 1, len(names(i))
-                score = score + ichar(names(i)(j)) - ichar('A') + 1
+                score = score + ichar(names(i)(j:j)) - ichar('A') + 1
             end do
             answer = answer + score * i
         end do
