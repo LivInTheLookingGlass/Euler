@@ -25,7 +25,7 @@ contains
             q = i
             do while (q > 1)
                 call prime_factor(q, p)
-                local_factor_tracker(p) = local_factor_tracker(p) + 1
+                local_factor_tracker(p) = local_factor_tracker(p) + 1_i2t
             end do
             do j = 2, 19
                 factor_tracker(j) = max(factor_tracker(j), local_factor_tracker(j))
