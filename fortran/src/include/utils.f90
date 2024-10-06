@@ -4,7 +4,7 @@ module utils
 
     type :: AnswerT
         integer(i18t) :: int_value
-        character(len=ANSWERT_STR_SIZE), allocatable :: string_value
+        character(len=ANSWERT_STR_SIZE) :: string_value
         integer(i1t) :: type
     end type AnswerT
 
