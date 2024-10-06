@@ -15,7 +15,8 @@ contains
         integer(i18t) :: tmp
 
         answer = 0
-        tmp = 0
+        tmp = 2
+        call expand_sieve(2001000)
         do while (tmp < 2000000)
             answer = answer + tmp
             tmp = next_prime(tmp)
