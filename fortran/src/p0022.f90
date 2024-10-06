@@ -44,7 +44,7 @@ contains
                 case ('"')
                     continue
                 case default
-                    names(i) = names(i) // current_char
+                    names(i) = trim(names(i) // current_char)
             end select
         end do
         close(unit)
@@ -52,7 +52,7 @@ contains
         do i = 1, name_count
             score = 0
             do j = 1, len(names(i))
-                score = score + (ichar(names(i)(j)) .and. 63)
+                score = score + ichar(names(i)(j)) - ichar('A') + 1
             end do
             answer = answer + score * i
         end do
