@@ -17,8 +17,8 @@ contains
         answer = 0
         tmp = 0
         do while (tmp < 2000000)
-            tmp = next_prime(tmp)
             answer = answer + tmp
+            tmp = next_prime(tmp)
         end do
     end function p0010
 end module Problem0010
