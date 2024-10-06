@@ -69,6 +69,7 @@ contains
         end do
 
         call get_data_file("answers.tsv", text)
+        print *, text
         row_start = 1
         line_length = 1
         do while (line_length > 0)
