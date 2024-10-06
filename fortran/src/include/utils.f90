@@ -12,6 +12,19 @@ module utils
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
+    integer function open_data_file(name) result(unit)
+        character(len=32), intent(in) :: name
+        integer :: ios
+
+        unit = prev_unit + 1
+        prev_unit = unit
+        open(unit=unit, file=("../_data/" // name), status='old', action='read', iostat=ios)
+        if (ios /= 0) then
+            print *, "Error opening file: ../_data/" // name
+            return
+        end if
+    end function
+
     type(AnswerT) function get_answer(id) result(answer)
         integer(i4t), intent(in) :: id
 
@@ -36,17 +49,7 @@ contains
         integer :: ios, line_length, unit_number
 
         cached_answers = AnswerT(0, '', errort)
-        do i=1, size(cached_answers)
-        end do
-
-        unit_number = prev_unit + 1
-        prev_unit = unit_number
-        open(unit=unit_number, file=("../_data/answers.tsv"), status='old', action='read', iostat=ios)
-        if (ios /= 0) then
-            print *, "Error opening file: ../_data/answers.tsv"
-            return
-        end if
-
+        unit_number = open_data_file("answers.tsv")
         line_length = 1
         do while (line_length > 0)
             line = ''
