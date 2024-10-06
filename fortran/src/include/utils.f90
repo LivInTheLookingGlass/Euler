@@ -12,9 +12,9 @@ module utils
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
-    subroutine get_data_file(filename, contents)
+    function get_data_file(filename) result(contents)
         character(len=*), intent(in) :: filename
-        character(len=*), intent(inout) :: contents
+        character(len=:), allocatable :: contents
         character(len=64) :: line
         integer :: unit_number, iostat, file_size
 
@@ -28,6 +28,11 @@ contains
 
         inquire(unit=unit_number, size=file_size)
         if (file_size > 0) then
+            allocate(character(len=file_size) :: contents)
+            if (.not. allocated(contents)) then
+                print *, "Failed to allocate memory for read. Exiting."
+                stop ERROR_UTILS_ALLOCATE_FAILED
+            end if
             contents = ''
             do
                 read(unit_number, '(A)', iostat=iostat) line
@@ -39,38 +44,39 @@ contains
             end do
         end if
         close(unit_number)
-    end subroutine get_data_file
+        if (.not. allocated(contents)) then
+            contents = ''
+        end if
+    end function get_data_file
 
     function get_answer(id) result(answer)
         type(AnswerT) :: answer
         integer(i4t), intent(in) :: id
-
-        answer = AnswerT(0, '', errort)
-
-        if (id < 1 .or. id > size(cached_answers)) then
-            print *, "Error: ID is out of bounds."
-            return
-        end if
-
-        if (.not. cache_inited) then
-            call init_answers_cache()
-        end if
-
-        answer = cached_answers(id)
-    end function
-
-    subroutine init_answers_cache()
         integer(i18t) :: i, j
         integer :: ios, row_start, row_end, line_length
-        character(len=ANSWERS_TSV_SIZE) :: text
+        character(len=:), allocatable :: text
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
+        if (id < 1 .or. id > size(cached_answers)) then
+            print *, "Error: ID is out of bounds."
+            answer%type = errort
+            return
+        end if
+
+        if (cache_inited) then
+            answer = cached_answers(id)
+            return
+        end if
+
         do i=1, size(cached_answers)
-            cached_answers(i) = AnswerT(0, '', errort)
+            cached_answers(i)%type = errort
         end do
 
-        call get_data_file("answers.tsv", text)
+        text = get_data_file("answers.tsv")
+        if (.not. allocated(text)) then
+            text = ''  ! Ensure text is defined if allocation failed
+        end if
         row_start = 1
         line_length = 1
         do while (line_length > 0)
@@ -108,8 +114,10 @@ contains
             end if
         end do
 
+        deallocate(text)
         cache_inited = .true.
-    end subroutine
+        answer = cached_answers(id)
+    end function
 
     pure subroutine parse_line(line, id_out, type_out, length_out, value_out)
         character(len=*), intent(in) :: line
