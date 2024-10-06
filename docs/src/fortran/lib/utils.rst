@@ -24,7 +24,7 @@ View source code :source:`fortran/include/utils.f90`
     :f integer(i1t) type:
     :f integer(i18t) int_value:
     :f string_value:
-    :ftype string_value: character(len=ANSWERT_STR_LEN)
+    :ftype string_value: character(len=:f:var:`ANSWERT_STR_LEN`)
 
 .. literalinclude:: ../../../../fortran/src/include/utils.f90
    :language: Fortran

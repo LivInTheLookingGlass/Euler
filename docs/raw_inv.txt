@@ -13,7 +13,6 @@ direct c:type 1 https://en.wikipedia.org/wiki/Direct.h <direct.h>
 windows c:type 1 https://en.wikipedia.org/wiki/Windows.h <windows.h>
 libgen c:type 1 https://man7.org/linux/man-pages/man0/libgen.h.0p.html <libgen.h>
 unistd c:type 1 https://man7.org/linux/man-pages/man0/unistd.h.0p.html <unistd.h>
-
 cerrno cpp:type 1 https://en.cppreference.com/w/cpp/header/cerrno <cerrno>
 iostream cpp:type 1 https://en.cppreference.com/w/cpp/header/iostream <iostream>
 stdexcept cpp:type 1 https://en.cppreference.com/w/cpp/header/stdexcept <stdexcept>
@@ -24,7 +23,6 @@ fstream cpp:type 1 https://en.cppreference.com/w/cpp/header/fstream <fstream>
 vector cpp:type 1 https://en.cppreference.com/w/cpp/header/vector <vector>
 map cpp:type 1 https://en.cppreference.com/w/cpp/header/map <map>
 limits cpp:type 1 https://en.cppreference.com/w/cpp/header/limits <limits>
-
 itertools::Itertools rust:trait 1 https://docs.rs/itertools/latest/itertools/trait.Itertools.html itertools::Itertools
 num_traits::NumAssign rust:trait 1 https://docs.rs/num-traits/latest/num_traits/trait.NumAssign.html num_traits::NumAssign
 num_traits::One rust:trait 1 https://docs.rs/num-traits/latest/num_traits/identities/trait.One.html num_traits::One
