@@ -50,9 +50,12 @@ contains
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
+        answer%type = errort
+        answer%int_value = 0
+        answer%string_value = ''
+
         if (id < 1 .or. id > size(cached_answers)) then
             print *, "Error: ID is out of bounds."
-            answer%type = errort
             return
         end if
 
@@ -63,6 +66,8 @@ contains
 
         do i=1, size(cached_answers)
             cached_answers(i)%type = errort
+            cached_answers(i)%int_value = 0
+            cached_answers(i)%string_value = ''
         end do
 
         call get_data_file("answers.tsv", text)
