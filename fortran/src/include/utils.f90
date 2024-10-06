@@ -44,11 +44,6 @@ contains
     function get_answer(id) result(answer)
         type(AnswerT) :: answer
         integer(i4t), intent(in) :: id
-        integer(i18t) :: i, j
-        integer :: ios, row_start, row_end, line_length
-        character(len=ANSWERS_TSV_SIZE) :: text
-        character(len=32) :: val
-        character(len=4) :: id_, type_, length
 
         answer%type = errort
         answer%int_value = 0
@@ -59,16 +54,23 @@ contains
             return
         end if
 
-        if (cache_inited) then
-            answer = cached_answers(id)
-            return
+        if (.not. cache_inited) then
+            call init_answers_cache()
         end if
 
-        do i=1, size(cached_answers)
-            cached_answers(i)%type = errort
-            cached_answers(i)%int_value = 0
-            cached_answers(i)%string_value = ''
-        end do
+        answer = cached_answers(id)
+    end function
+
+    subroutine init_answers_cache()
+        integer(i18t) :: i, j
+        integer :: ios, row_start, row_end, line_length
+        character(len=ANSWERS_TSV_SIZE) :: text
+        character(len=32) :: val
+        character(len=4) :: id_, type_, length
+
+        cached_answers%type = errort
+        cached_answers%int_value = 0
+        cached_answers%string_value = ''
 
         call get_data_file("answers.tsv", text)
         row_start = 1
@@ -109,8 +111,7 @@ contains
         end do
 
         cache_inited = .true.
-        answer = cached_answers(id)
-    end function
+    end subroutine
 
     pure subroutine parse_line(line, id_out, type_out, length_out, value_out)
         character(len=*), intent(in) :: line
