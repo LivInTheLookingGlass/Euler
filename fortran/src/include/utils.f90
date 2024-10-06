@@ -12,43 +12,6 @@ module utils
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
-    function get_data_file(filename) result(contents)
-        character(len=*), intent(in) :: filename
-        character(len=:), allocatable :: contents
-        character(len=64) :: line
-        integer :: unit_number, iostat, file_size
-
-        prev_unit = prev_unit + 1
-        unit_number = prev_unit
-        open(unit=unit_number, file=("../_data/" // filename), status='old', action='read', iostat=iostat)
-        if (iostat /= 0) then
-            print *, "Error opening file: ../_data/" // filename
-            return
-        end if
-
-        inquire(unit=unit_number, size=file_size)
-        if (file_size > 0) then
-            allocate(character(len=file_size) :: contents)
-            if (.not. allocated(contents)) then
-                print *, "Failed to allocate memory for read. Exiting."
-                stop ERROR_UTILS_ALLOCATE_FAILED
-            end if
-            contents = ''
-            do
-                read(unit_number, '(A)', iostat=iostat) line
-                if (iostat /= 0) then
-                    close(unit_number)
-                    exit
-                end if
-                contents = contents // trim(line) // char(10)
-            end do
-        end if
-        close(unit_number)
-        if (.not. allocated(contents)) then
-            contents = ''
-        end if
-    end function get_data_file
-
     type(AnswerT) function get_answer(id) result(answer)
         integer(i4t), intent(in) :: id
 
@@ -67,8 +30,8 @@ contains
 
     subroutine init_answer_cache()
         integer(i18t) :: i, j
-        integer :: ios, row_start, row_end, line_length
-        character(len=:), allocatable :: text
+        integer :: ios, line_length, unit_number, file_size
+        character(len=64) :: line
         character(len=32) :: val
         character(len=4) :: id_, type_, length
 
@@ -76,22 +39,28 @@ contains
             cached_answers(i)%type = errort
         end do
 
-        text = get_data_file("answers.tsv")
-        if (.not. allocated(text)) then
-            text = ''  ! Ensure text is defined if allocation failed
+        unit_number = prev_unit + 1
+        prev_unit = unit_number
+        open(unit=unit_number, file=("../_data/answers.tsv"), status='old', action='read', iostat=ios)
+        if (ios /= 0) then
+            print *, "Error opening file: ../_data/answers.tsv"
+            return
         end if
-        row_start = 1
+
         line_length = 1
         do while (line_length > 0)
-            line_length = index(text(row_start:), char(10))  ! Find the next line
-            row_end = row_start + line_length - 1
+            line = ''
+            read(unit_number, '(A)', iostat=ios) line
+            if (ios /= 0) then
+                close(unit_number)
+                exit
+            end if
+
+            line = trim(line)
+            line_length = len(line)
             if (line_length > 0) then
-                if (text(row_end:row_end) == char(13)) then  ! if \r
-                    row_end = row_end - 1
-                end if
-                call parse_line(text(row_start:row_end), id_, type_, length, val)  ! Parse values
+                call parse_line(line, id_, type_, length, val)  ! Parse values
                 if (id_ == "ID") then
-                    row_start = row_start + line_length
                     cycle
                 end if
                 read(id_, *, iostat=ios) i
@@ -112,12 +81,10 @@ contains
                         cached_answers(i)%string_value = trim(val)
                     case default
                         print *, "Invalid value type. Returning error type"
-                    end select
-                row_start = row_start + line_length  ! Move to the next line
+                end select
             end if
         end do
 
-        deallocate(text)
         cache_inited = .true.
     end subroutine
 
