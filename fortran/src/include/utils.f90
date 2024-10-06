@@ -17,7 +17,7 @@ contains
 
         if (id < 1 .or. id > size(cached_answers)) then
             print *, "Error: ID is out of bounds."
-            answer%type = errort
+            answer = AnswerT(0, '', errort)
             return
         end if
 
@@ -29,14 +29,14 @@ contains
     end function
 
     subroutine init_answer_cache()
-        integer(i18t) :: i, j
-        integer :: ios, line_length, unit_number, file_size
         character(len=64) :: line
         character(len=32) :: val
         character(len=4) :: id_, type_, length
+        integer(i18t) :: i, j
+        integer :: ios, line_length, unit_number
 
+        cached_answers = AnswerT(0, '', errort)
         do i=1, size(cached_answers)
-            cached_answers(i)%type = errort
         end do
 
         unit_number = prev_unit + 1
