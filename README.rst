@@ -60,7 +60,7 @@ Olivia's Project Euler Solutions
 .. |gcc| replace:: ``gcc``
 .. |clang| replace:: ``clang``
 .. |flang| replace:: ``flang``
-.. |ifx| replace:: ``ifx`` / ``ifort``
+.. |ifx| replace:: ``ifx``, & ``ifort``
 .. |msvc| replace:: ``msvc``
 .. |nvf| replace:: ``nvfortran``
 .. |pcc| replace:: ``pcc``
@@ -91,7 +91,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
    | Fortran    | Fortran 95+ in |gcc|, |br| | 16     | |Fri|             |
-   |            | |flang|, |nvf|, |ifx|      |        |                   |
+   |            | |flang|, |nvf|, |br| |ifx| |        |                   |
    +------------+----------------------------+--------+-------------------+
    | Java       | Java 8+ in Corretto, |br|  | 22     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
