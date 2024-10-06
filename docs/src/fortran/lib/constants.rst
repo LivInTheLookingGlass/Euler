@@ -39,8 +39,6 @@ View source code :source:`fortran/include/constants.f90`
 
     Denotes the exit codes of different failure modes, counting up from 1
 
-.. f:variable:: ANSWERS_TSV_SIZE
-    :type: integer
 .. f:variable:: ANSWERT_STR_SIZE
     :type: integer
 
