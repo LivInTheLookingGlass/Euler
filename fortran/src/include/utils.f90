@@ -35,10 +35,12 @@ contains
                     close(unit_number)
                     exit
                 end if
+                print *, trim(line)
                 contents = contents // trim(line) // char(10)
             end do
         end if
         close(unit_number)
+        print *, contents
     end subroutine get_data_file
 
     type(AnswerT) function get_answer(id) result(answer)

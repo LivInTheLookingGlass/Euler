@@ -20,7 +20,7 @@ module constants
     integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
 
     ! file/string sizes
-    integer, parameter :: ANSWERS_TSV_SIZE = 2**11
+    integer, parameter :: ANSWERS_TSV_SIZE = 2048
     integer, parameter :: ANSWERT_STR_SIZE = 16
 end module constants
 
