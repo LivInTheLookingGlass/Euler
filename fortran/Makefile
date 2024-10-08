@@ -13,12 +13,12 @@ OBJ_FILES=$(patsubst $(SRC_DIR)/%.f90, $(BUILD_DIR)/%.o, $(SRC_FILES)) $(INCLUDE
 GCC_VERSION := $(shell gcc --version | grep ^gcc | sed 's/^.* //g')
 GCC_MAJOR := $(shell echo $(GCC_VERSION) | cut -d. -f1)
 
-ifeq ($(FC),ifort)
-    opt_args = -Wall -Werror -march=native -qwholeprogram -J$(BUILD_DIR)
+ifeq ($(filter ifx ifort,$(FC)), $(FC))
+    opt_args = -warn all -stand f95 -module $(BUILD_DIR)
 else ifeq ($(FC),lfortran)
     opt_args = -J$(BUILD_DIR)
 else ifeq ($(FC),nvfortran)
-    opt_args = -Wall -Werror -march=native -module $(BUILD_DIR)
+    opt_args = -Wall -Werror -march=native -module $(BUILD_DIR) -std=f95
 else ifneq (,$(findstring flang,$(FC)))
     opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
 else ifeq ($(FC),gfortran)
