@@ -26,6 +26,8 @@ contains
         integer, dimension(collatz_cache_size) :: collatz_len_cache
         integer(i18t) :: test
         integer :: tmp, length = 2
+        collatz_len_cache = 0
+        collatz_len_cache(1) = 1
         answer = 2
         do test = 3, 999999
             call collatz_len(tmp, test, collatz_len_cache)
