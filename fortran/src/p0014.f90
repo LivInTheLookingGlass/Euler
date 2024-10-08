@@ -47,9 +47,11 @@ contains
         integer(i18t), intent(in) :: n
         integer, intent(out) :: answer
         integer, intent(inout), dimension(:) :: collatz_len_cache
-        if (n < collatz_cache_size .and. collatz_len_cache(int(n)) /= 0) then
-            answer = collatz_len_cache(int(n))
-            return
+        if (n < collatz_cache_size) then
+            if (collatz_len_cache(int(n)) /= 0) then
+                answer = collatz_len_cache(int(n))
+                return
+            end if
         end if
         answer = 0
         if (mod(n, 2_i18t) == 1) then
