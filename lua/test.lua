@@ -85,6 +85,7 @@ end
 
 local more_problems = {
     ["p0017.lua"] = {get_answer(17), false},
+    ["p0022.lua"] = {get_answer(22), false},
     ["p0028.lua"] = {get_answer(28), false},
     ["p0034.lua"] = {get_answer(34), false},
     ["p0076.lua"] = {get_answer(76), true},

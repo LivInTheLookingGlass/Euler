@@ -1,0 +1,23 @@
+Lua Implementation of Problem 22
+================================
+
+View source code :source:`lua/src/p0022.lua`
+
+Includes
+--------
+
+- `utils.lua <./lib/utils.html>`__
+
+Solution
+--------
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 22
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0022.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: word-problem, sorting, file-io
