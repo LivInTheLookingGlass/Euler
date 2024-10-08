@@ -40,7 +40,7 @@ module Problem0022
             read(unit, '(A)', IOSTAT=ios) contents
             if (ios == -1) then
                 exit
-            elseif (ios /= 0)
+            elseif (ios /= 0) then
                 stop ERROR_FILE_READ_FAILED
             end if
         end do
