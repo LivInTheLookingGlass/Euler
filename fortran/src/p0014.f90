@@ -47,7 +47,7 @@ contains
             return
         end if
         answer = 0
-        if (mod(n, 2) == 1) then
+        if (mod(n, 2_i18t) == 1) then
             call collatz_len(answer, (3 * n + 1) / 2, collatz_len_cache)
             answer = answer + 2
         else
