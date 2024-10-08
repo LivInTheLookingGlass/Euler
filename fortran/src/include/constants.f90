@@ -18,6 +18,7 @@ module constants
     integer, parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
     integer, parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
     integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
+    integer, parameter :: ERROR_FILE_READ_FAILED = 6
 
     ! file/string sizes
     integer, parameter :: DATA_MAX_NAME_SIZE = 32

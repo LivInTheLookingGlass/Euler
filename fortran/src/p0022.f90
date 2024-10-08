@@ -36,10 +36,14 @@ module Problem0022
         answer = 0
         names = ''
         unit = open_data_file(file_name)
-        read(unit, '(A)', IOSTAT=ios) contents
-        if (ios /= 0) then
-            stop -1
-        end if
+        do
+            read(unit, '(A)', IOSTAT=ios) contents
+            if (ios == -1) then
+                exit
+            elseif (ios /= 0)
+                stop ERROR_FILE_READ_FAILED
+            end if
+        end do
         close(unit)
         do j = 1, len_trim(contents)
             select case (contents(j:j))
