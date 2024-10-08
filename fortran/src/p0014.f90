@@ -23,7 +23,7 @@ module Problem0014
     integer, parameter :: collatz_cache_size = 1000000
 contains
     integer(i18t) function p0014() result(answer)
-        integer, dimension(collatz_cache_size), allocatable :: collatz_len_cache
+        integer, allocatable :: collatz_len_cache(:)
         integer(i18t) :: test
         integer :: tmp, length = 2
         allocate(collatz_len_cache(collatz_cache_size))
