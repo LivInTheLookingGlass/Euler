@@ -40,12 +40,13 @@ contains
 
     recursive subroutine collatz_len(answer, n, collatz_len_cache)
         integer(i18t), intent(in) :: n
-        integer, intent(out) :: answer = 0
+        integer, intent(out) :: answer
         integer, intent(inout), dimension(:) :: collatz_len_cache
         if (n < collatz_cache_size .and. collatz_len_cache(int(n)) /= 0) then
             answer = collatz_len_cache(int(n))
             return
         end if
+        answer = 0
         if (mod(n, 2) == 1) then
             call collatz_len(answer, (3 * n + 1) / 2, collatz_len_cache)
             answer = answer + 2
