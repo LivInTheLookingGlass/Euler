@@ -18,7 +18,7 @@ ifeq ($(filter ifx ifort,$(FC)), $(FC))
 else ifeq ($(FC),lfortran)
     opt_args = -J$(BUILD_DIR)
 else ifeq ($(FC),nvfortran)
-    opt_args = -Wall -Werror -march=native -module $(BUILD_DIR) -std=f95
+    opt_args = -Wall -Werror -march=native -module $(BUILD_DIR)
 else ifneq (,$(findstring flang,$(FC)))
     opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
 else ifeq ($(FC),gfortran)
