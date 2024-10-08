@@ -23,9 +23,14 @@ module Problem0014
     integer, parameter :: collatz_cache_size = 1000000
 contains
     integer(i18t) function p0014() result(answer)
-        integer, dimension(collatz_cache_size) :: collatz_len_cache
+        integer, dimension(collatz_cache_size), allocatable :: collatz_len_cache
         integer(i18t) :: test
         integer :: tmp, length = 2
+        allocate(collatz_len_cache(collatz_cache_size))
+        if (.not. allocated(collatz_len_cache)) then
+            print *, "Allocation of collatz length cache failed. Stopping run."
+            stop ERROR_PROB_ALLOCATE_FAILED
+        end if
         collatz_len_cache = 0
         collatz_len_cache(1) = 1
         answer = 2
