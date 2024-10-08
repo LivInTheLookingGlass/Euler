@@ -25,9 +25,9 @@ contains
         character(len=DATA_MAX_NAME_SIZE), parameter :: file_name = "p0022_names.txt"
         character(len=longest_name), dimension(name_count) :: names
         character(len=longest_name) :: temp
-        character current_char
-        integer(i18t) score
-        integer ios, unit, i, j, k
+        character(len=1) :: current_char
+        integer(i18t) :: score
+        integer :: ios, unit, i, j, k
 
         i = 1
         j = 1
