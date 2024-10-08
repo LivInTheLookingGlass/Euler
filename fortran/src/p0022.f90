@@ -24,16 +24,19 @@ contains
     integer(i18t) function p0022() result(answer)
         character(len=DATA_MAX_NAME_SIZE), parameter :: file_name = "p0022_names.txt"
         character(len=longest_name), dimension(name_count) :: names
-        character(len=1) current_char
+        character current_char
         integer(i18t) score
-        integer ios, unit, i, j
+        integer ios, unit, i, j, k
 
         i = 1
+        j = 1
+        k = 1
         answer = 0
         names = ''
-        unit = open_data_file(file_name)
+        unit = open_data_file(file_name, .true., 1)
         do
-            read(unit, '(A1)', IOSTAT=ios) current_char
+            read(unit, rec=j, IOSTAT=ios) current_char
+            j = j + 1
             if (ios /= 0) then
                 exit
             end if
@@ -41,17 +44,18 @@ contains
             select case (current_char)
                 case (',')
                     i = i + 1
+                    k = 1
                 case ('"')
-                    continue
                 case default
-                    names(i) = trim(names(i) // current_char)
+                    names(i)(k:k) = current_char
+                    k = k + 1
             end select
         end do
         close(unit)
         call p0022_sort(names)
         do i = 1, name_count
             score = 0
-            do j = 1, len(names(i))
+            do j = 1, len_trim(names(i))
                 score = score + ichar(names(i)(j:j)) - ichar('A') + 1
             end do
             answer = answer + score * i

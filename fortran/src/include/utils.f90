@@ -12,13 +12,19 @@ module utils
     logical, private :: cache_inited = .false.
     type(AnswerT), private, dimension(1024) :: cached_answers
 contains
-    integer function open_data_file(name) result(unit)
+    integer function open_data_file(name, direct, recl) result(unit)
         character(len=DATA_MAX_NAME_SIZE), intent(in) :: name
+        logical, intent(in), optional :: direct
+        integer, intent(in), optional :: recl
         integer :: ios
 
         unit = prev_unit + 1
         prev_unit = unit
-        open(unit=unit, file=("../_data/" // name), status='old', action='read', iostat=ios)
+        if (present(direct) .and. present(recl) .and. direct) then
+            open(unit=unit, file=("../_data/" // name), status='old', action='read', iostat=ios, access='direct', recl=recl)
+        else
+            open(unit=unit, file=("../_data/" // name), status='old', action='read', iostat=ios)
+        end if
         if (ios /= 0) then
             print *, "Error opening file: ../_data/" // name
             return
