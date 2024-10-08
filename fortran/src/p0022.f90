@@ -18,14 +18,15 @@ module Problem0022
     use constants
     use utils
     implicit none
-    integer, parameter :: name_count = 5163
-    integer, parameter :: longest_name = 11
-contains
+    contains
     integer(i18t) function p0022() result(answer)
+        integer, parameter :: file_size = 2**15 + 2**14
+        integer, parameter :: name_count = 5163
+        integer, parameter :: longest_name = 11
         character(len=DATA_MAX_NAME_SIZE), parameter :: file_name = "p0022_names.txt"
+        character(len=file_size) :: contents
         character(len=longest_name), dimension(name_count) :: names
         character(len=longest_name) :: temp
-        character(len=1) :: current_char
         integer(i18t) :: score
         integer :: ios, unit, i, j, k
 
@@ -34,29 +35,24 @@ contains
         k = 1
         answer = 0
         names = ''
-        unit = open_data_file(file_name, .true., 1)
-        do
-            read(unit, rec=j, IOSTAT=ios) current_char
-            j = j + 1
-            if (ios /= 0) then
-                exit
-            end if
-            print *, current_char
-
-            select case (current_char)
+        unit = open_data_file(file_name)
+        read(unit, '(A)', IOSTAT=ios) contents
+        if (ios /= 0) then
+            stop -1
+        end if
+        close(unit)
+        do j = 1, len_trim(contents)
+            select case (contents(j:j))
                 case (',')
                     i = i + 1
                     k = 1
                 case ('"')
                     cycle
                 case default
-                    names(i)(k:k) = current_char
+                    names(i)(k:k) = contents(j:j)
                     k = k + 1
             end select
         end do
-! do i=1, size(names)
-! print *, names(i)
-! end do
         close(unit)
         do i = 1, size(names)
             do j = 1, size(names) - i
@@ -67,11 +63,7 @@ contains
                 end if
             end do
         end do
-! do i=1, size(names)
-! print *, names(i)
-! end do
-        close(unit)
-        do i = 1, name_count
+        do i = 1, size(names)
             score = 0
             do j = 1, len_trim(names(i))
                 score = score + ichar(names(i)(j:j)) - ichar('A') + 1
