@@ -22,9 +22,12 @@ else ifeq ($(FC),nvfortran)
 else ifneq (,$(findstring flang,$(FC)))
     opt_args = -Werror -march=native -flto -J$(BUILD_DIR)
 else ifeq ($(FC),gfortran)
-    opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR) -std=f95 -ffree-line-length-300 -pedantic -fcheck=all -fsanitize=undefined
+    opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR) -std=f95 -ffree-line-length-300 -pedantic -fcheck=all
     ifneq ($(findstring $(GCC_MAJOR),8 9 10 11),)
         opt_args += -Wno-error=maybe-uninitialized
+    endif
+    ifneq ($(shell uname), Darwin)
+        opt_args += -fsanitize=undefined
     endif
 else
     opt_args = -Wall -Werror -march=native -flto -J$(BUILD_DIR)
