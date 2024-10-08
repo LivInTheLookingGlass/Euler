@@ -41,6 +41,7 @@ contains
             if (ios /= 0) then
                 exit
             end if
+            print *, current_char
 
             select case (current_char)
                 case (',')
@@ -53,9 +54,9 @@ contains
                     k = k + 1
             end select
         end do
-do i=1, size(names)
-print *, names(i)
-end do
+! do i=1, size(names)
+! print *, names(i)
+! end do
         close(unit)
         do i = 1, size(names)
             do j = 1, size(names) - i
@@ -66,9 +67,9 @@ end do
                 end if
             end do
         end do
-do i=1, size(names)
-print *, names(i)
-end do
+! do i=1, size(names)
+! print *, names(i)
+! end do
         close(unit)
         do i = 1, name_count
             score = 0
