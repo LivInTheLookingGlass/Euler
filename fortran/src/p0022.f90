@@ -47,6 +47,7 @@ contains
                     i = i + 1
                     k = 1
                 case ('"')
+                    cycle
                 case default
                     names(i)(k:k) = current_char
                     k = k + 1
