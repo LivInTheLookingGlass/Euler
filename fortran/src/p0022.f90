@@ -24,6 +24,7 @@ contains
     integer(i18t) function p0022() result(answer)
         character(len=DATA_MAX_NAME_SIZE), parameter :: file_name = "p0022_names.txt"
         character(len=longest_name), dimension(name_count) :: names
+        character(len=longest_name) :: temp
         character current_char
         integer(i18t) score
         integer ios, unit, i, j, k
@@ -51,23 +52,10 @@ contains
                     k = k + 1
             end select
         end do
+do i=1, size(names)
+print *, names(i)
+end do
         close(unit)
-        call p0022_sort(names)
-        do i = 1, name_count
-            score = 0
-            do j = 1, len_trim(names(i))
-                score = score + ichar(names(i)(j:j)) - ichar('A') + 1
-            end do
-            answer = answer + score * i
-        end do
-    end function p0022
-
-    subroutine p0022_sort(names)
-        character(len=longest_name), dimension(name_count), intent(inout) :: names
-        character(len=longest_name) :: temp
-        integer i, j
-
-        ! bubble sort, because we don't need anything fancier for this program
         do i = 1, size(names)
             do j = 1, size(names) - i
                 if (names(j) > names(j + 1)) then
@@ -77,5 +65,16 @@ contains
                 end if
             end do
         end do
-    end subroutine
+do i=1, size(names)
+print *, names(i)
+end do
+        close(unit)
+        do i = 1, name_count
+            score = 0
+            do j = 1, len_trim(names(i))
+                score = score + ichar(names(i)(j:j)) - ichar('A') + 1
+            end do
+            answer = answer + score * i
+        end do
+    end function p0022
 end module Problem0022
