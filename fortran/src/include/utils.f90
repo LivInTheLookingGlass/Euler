@@ -8,9 +8,9 @@ module utils
         integer(i1t) :: type
     end type AnswerT
 
-    integer, private :: prev_unit = 13
-    logical, private :: cache_inited = .false.
-    type(AnswerT), private, dimension(1024) :: cached_answers
+    integer :: prev_unit = 13
+    logical :: cache_inited = .false.
+    type(AnswerT), dimension(1024) :: cached_answers
 contains
     integer function open_data_file(name, direct, recl) result(unit)
         character(len=DATA_MAX_NAME_SIZE), intent(in) :: name

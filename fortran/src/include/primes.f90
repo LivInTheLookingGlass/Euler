@@ -1,9 +1,9 @@
 module primes
     use constants
     implicit none
-    integer(i18t), private, parameter :: bits_per_int = 64
-    integer(i18t), private, allocatable :: prime_sieve(:)
-    integer(i18t), private :: current_n = 0
+    integer(i18t), parameter :: bits_per_int = 64
+    integer(i18t), allocatable :: prime_sieve(:)
+    integer(i18t) :: current_n = 0
 contains
     subroutine sieve_up_to(n)
         integer(i18t), intent(in) :: n

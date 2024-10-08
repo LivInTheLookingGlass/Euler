@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 14
+====================================
+
+View source code :source:`fortran/src/p0014.f90`
+
+.. f:module:: Problem0014
+
+.. f:function:: integer Problem0014/p0014()
+
+.. literalinclude:: ../../../fortran/src/p0014.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: collatz, recursion, longest-path
