@@ -20,7 +20,7 @@
 module Problem0014
     use constants
     implicit none
-    integer, parameter :: collatz_cache_size = 1000000
+    integer, parameter :: collatz_cache_size = 2**20
 contains
     integer(i18t) function p0014() result(answer)
         integer, allocatable :: collatz_len_cache(:)
@@ -41,6 +41,7 @@ contains
                 length = tmp
             end if
         end do
+        deallocate(collatz_len_cache)
     end function p0014
 
     recursive subroutine collatz_len(answer, n, collatz_len_cache)
