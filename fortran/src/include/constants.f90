@@ -16,13 +16,12 @@ module constants
     integer, parameter :: ERROR_ANSWER_MISMATCH = 1
     integer, parameter :: ERROR_ANSWER_TIMEOUT = 2
     integer, parameter :: ERROR_ANSWER_TYPE_MISMATCH = 3
-    integer, parameter :: ERROR_PRIME_ALLOCATE_FAILED = 4
-    integer, parameter :: ERROR_UTILS_ALLOCATE_FAILED = 5
-    integer, parameter :: ERROR_FILE_READ_FAILED = 6
-    integer, parameter :: ERROR_PROB_ALLOCATE_FAILED = 7
+    integer, parameter :: ERROR_ALLOCATE_FAILED = 4
+    integer, parameter :: ERROR_FILE_READ_FAILED = 5
 
     ! file/string sizes
     integer, parameter :: DATA_MAX_NAME_SIZE = 32
     integer, parameter :: ANSWERT_STR_SIZE = 16
+    integer, parameter :: MAX_FACTORIAL_64 = 20
 end module constants
 

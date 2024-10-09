@@ -32,13 +32,9 @@ View source code :source:`fortran/include/constants.f90`
     :type: integer
 .. f:variable:: ERROR_ANSWER_TYPE_MISMATCH
     :type: integer
-.. f:variable:: ERROR_PRIME_ALLOCATE_FAILED
-    :type: integer
-.. f:variable:: ERROR_UTILS_ALLOCATE_FAILED
+.. f:variable:: ERROR_ALLOCATE_FAILED
     :type: integer
 .. f:variable:: ERROR_FILE_READ_FAILED
-    :type: integer
-.. f:variable:: ERROR_PROB_ALLOCATE_FAILED
     :type: integer
 
     Denotes the exit codes of different failure modes, counting up from 1

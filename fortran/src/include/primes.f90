@@ -56,7 +56,7 @@ contains
         allocate(prime_sieve(new_size))
         if (.not. allocated(prime_sieve)) then
             print *, "Memory allocation failed for prime sieve. Exiting."
-            stop ERROR_PRIME_ALLOCATE_FAILED
+            stop ERROR_ALLOCATE_FAILED
         end if
         prime_sieve = -1
         call clear_prime_bit(0_i18t)

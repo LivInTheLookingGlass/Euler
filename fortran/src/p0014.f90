@@ -29,7 +29,7 @@ contains
         allocate(collatz_len_cache(collatz_cache_size))
         if (.not. allocated(collatz_len_cache)) then
             print *, "Allocation of collatz length cache failed. Stopping run."
-            stop ERROR_PROB_ALLOCATE_FAILED
+            stop ERROR_ALLOCATE_FAILED
         end if
         collatz_len_cache = 0
         collatz_len_cache(1) = 1

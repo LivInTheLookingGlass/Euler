@@ -1,0 +1,22 @@
+Fortran Implementation of Problem 15
+====================================
+
+View source code :source:`fortran/src/p0015.f90`
+
+Includes
+--------
+
+- `math.f90 <./lib/math.html>`_
+
+Problem Solution
+----------------
+
+.. f:module:: Problem0015
+
+.. f:function:: integer Problem0015/p0015()
+
+.. literalinclude:: ../../../fortran/src/p0015.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: combinatorics
