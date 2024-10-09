@@ -15,7 +15,6 @@ contains
         integer(i18t), dimension(18) :: numbers
         integer(i18t) :: power
         integer :: i, j
-        integer :: i
 
         numbers = 0
         numbers(1) = 1
@@ -34,7 +33,7 @@ contains
         power = 1
         do i = 1, 18
             do j = 1, size(numbers)
-                answer = answer + mod((numbers(j) / power), 10)
+                answer = answer + mod((numbers(j) / power), 10_i18t)
             end do
             power = power * 10
         end do
