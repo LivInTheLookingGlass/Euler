@@ -11,7 +11,7 @@ contains
         end do
     end function
 
-    pure integer(i18t) function n_choose_r(n, r) result(answer)
+    integer(i18t) function n_choose_r(n, r) result(answer)
         integer, intent(in) :: n, r
         if (n <= MAX_FACTORIAL_64) then
             answer = factorial(n) / factorial(r) / factorial(n-r)  ! fast path if small enough
@@ -45,9 +45,9 @@ contains
         do i = n, 2, -1  ! this loop reduces to prime factors only
             do j = 2, i - 1
                 if (mod(i, j) == 0) then
-                    factors(j) += factors(i)
-                    factors(i / j) += factors(i)
-                    factors(i) = 0;
+                    factors(j) = factors(j) + factors(i)
+                    factors(i / j) = factors(i / j) + factors(i)
+                    factors(i) = 0
                     exit
                 end if
             end do
