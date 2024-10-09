@@ -90,7 +90,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | Fortran    | Fortran 95+ in |gcc|, |br| | 20     | |Fri|             |
+   | Fortran    | Fortran 95+ in |gcc|, |br| | 21     | |Fri|             |
    |            | |flang|, |nvf|, |br| |ifx| |        |                   |
    +------------+----------------------------+--------+-------------------+
    | Java       | Java 8+ in Corretto, |br|  | 22     | |Javai| |br|      |
