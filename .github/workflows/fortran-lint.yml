@@ -1,0 +1,23 @@
+name: Fortran-lint
+
+on:
+  push:
+    paths:
+      - 'fortran/**'
+      - '!fortran/README.rst'
+  schedule:
+  - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flint:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - run: brew install f90lint
+
+    - run: f90lint fortran/{,src/,src/include/}*.f90

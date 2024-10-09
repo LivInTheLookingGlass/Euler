@@ -3,8 +3,10 @@ Fortran Section
 
 .. |Fri| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/fortran.yml?logo=github&label=Fr%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/fortran.yml
+.. |Fr-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/fortran-lint.yml?logo=github&label=Linting
+   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/fortran-lint.yml
 
-|Fri|
+|Fri| |Fr-lint|
 
 All problems are solved in Fortran95, and should be compliant with later standards.
 
@@ -121,6 +123,7 @@ Problems Solved
 -  ☒ `11 <./src/p0011.f90>`__
 -  ☒ `13 <./src/p0013.f90>`__
 -  ☒ `14 <./src/p0014.f90>`__
+-  ☒ `15 <./src/p0015.f90>`__
 -  ☒ `17 <./src/p0017.f90>`__
 -  ☒ `28 <./src/p0028.f90>`__
 -  ☒ `34 <./src/p0034.f90>`__

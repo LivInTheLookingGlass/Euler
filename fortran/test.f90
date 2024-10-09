@@ -16,7 +16,7 @@ contains
 
         ! Loop through each problem
         do i = 1, size(problem_ids)
-            print *, "Processing Problem ID: ", problem_ids(i)
+            print *, "Processing Problem ID:", problem_ids(i)
             if (is_slow(problem_ids(i))) then
                 print *, "  This problem will take more than 60 seconds."
             end if
@@ -47,16 +47,16 @@ contains
             select case(expected%type)
                 case (int64t)
                     if (expected%int_value /= answer%int_value) then
-                        print *, "  Error: problem ", problem_ids(i), " failed!"
-                        print *, "  Expected Answer  : ", expected%int_value
-                        print *, "  Solution returned: ", answer%int_value
+                        print *, "  Error: problem", problem_ids(i), "failed!"
+                        print *, "  Expected Answer  :", expected%int_value
+                        print *, "  Solution returned:", answer%int_value
                         stop ERROR_ANSWER_MISMATCH
                     end if
                 case (stringt)
                     if (expected%string_value /= answer%string_value) then
-                        print *, "  Error: problem ", problem_ids(i), " failed!"
-                        print *, "  Expected Answer  : ", expected%string_value
-                        print *, "  Solution returned: ", answer%string_value
+                        print *, "  Error: problem", problem_ids(i), "failed!"
+                        print *, "  Expected Answer  :", expected%string_value
+                        print *, "  Solution returned:", answer%string_value
                         stop ERROR_ANSWER_MISMATCH
                     end if
                 case (errort)
@@ -68,11 +68,11 @@ contains
             end if
             time_elapsed = real(tmp) / real(count_rate)
             if (.NOT. is_slow(problem_ids(i)) .AND. time_elapsed > 60.0) then
-                print *, "  Error: problem ", problem_ids(i), " timed out!"
+                print *, "  Error: problem", problem_ids(i), "timed out!"
                 print *, "  Solution took    : ", time_elapsed, "s"
                 stop ERROR_ANSWER_TIMEOUT
             end if
-            print *, "  Completed        : ", problem_ids(i), "in ", time_elapsed, "s"
+            print *, "  Completed        :", problem_ids(i), "in", time_elapsed, "s"
         end do
     end subroutine process_problems
 
