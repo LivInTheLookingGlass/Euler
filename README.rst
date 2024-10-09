@@ -15,8 +15,6 @@ Olivia's Project Euler Solutions
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/csharp-lint.yml
 .. |Fri| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/fortran.yml?logo=github&label=Fr%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/fortran.yml
-.. |Fr-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/fortran-lint.yml?logo=github&label=Linting
-   :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/fortran-lint.yml
 .. |Javai| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/java.yml?logo=github&label=Java%20Tests
    :target: https://github.com/LivInTheLookingGlass/Euler/actions/workflows/java.yml
 .. |Java-lint| image:: https://img.shields.io/github/actions/workflow/status/LivInTheLookingGlass/Euler/java-lint.yml?logo=github&label=Linting
@@ -92,8 +90,8 @@ Olivia's Project Euler Solutions
    |            |                            |        | |CodeQL| |br|     |
    |            |                            |        | |C#-lint|         |
    +------------+----------------------------+--------+-------------------+
-   | Fortran    | Fortran 95+ in |gcc|, |br| | 20     | |Fri| |br|        |
-   |            | |flang|, |nvf|, |br| |ifx| |        | |Fr-lint|         |
+   | Fortran    | Fortran 95+ in |gcc|, |br| | 20     | |Fri|             |
+   |            | |flang|, |nvf|, |br| |ifx| |        |                   |
    +------------+----------------------------+--------+-------------------+
    | Java       | Java 8+ in Corretto, |br|  | 22     | |Javai| |br|      |
    |            | Dragonwell, Liberica, |br| |        | |Ja-Cov| |br|     |
