@@ -20,7 +20,8 @@ contains
         end if
     end function
 
-    pure integer(i18t) function n_choose_r_slow(n, r) result(answer)
+    integer(i18t) function n_choose_r_slow(n, r) result(answer)
+        integer, intent(in) :: n, r
         integer(i2t), allocatable :: factors(:)
         integer(i18t) :: tmp
         integer :: i, j
