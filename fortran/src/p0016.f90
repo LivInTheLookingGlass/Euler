@@ -24,7 +24,7 @@ contains
             end do
             do j = 1, size(numbers) - 1
                 if (numbers(j) > ten17) then
-                    numbers(j + 1) = numbers(j + 1) + numbers(j) / ten17;
+                    numbers(j + 1) = numbers(j + 1) + numbers(j) / ten17
                     numbers(j) = mod(numbers(j), ten17)
                 end if
             end do

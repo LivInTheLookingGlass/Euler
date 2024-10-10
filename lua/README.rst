@@ -73,6 +73,7 @@ Problems Solved
 -  ☒ `13 <./src/p0013.lua>`__
 -  ☒ `14 <./src/p0014.lua>`__
 -  ☒ `15 <./src/p0015.lua>`__
+-  ☒ `16 <./src/p0016.lua>`__
 -  ☒ `17 <./src/p0017.lua>`__
 -  ☒ `22 <./src/p0022.lua>`__
 -  ☒ `28 <./src/p0028.lua>`__

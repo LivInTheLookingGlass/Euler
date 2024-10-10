@@ -1,0 +1,15 @@
+Lua Implementation of Problem 16
+================================
+
+View source code :source:`lua/src/p0016.lua`
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 16
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0016.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: large-numbers, digit-sum, power
