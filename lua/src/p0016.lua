@@ -13,20 +13,20 @@ return {
         local power = 1
         local answer = 0
 
-        for i = 1,1000 do
-            for j = 1,#numbers do
-                numbers[j] = numbers[j] * 2
+        for _ = 1,1000 do
+            for i = 1,#numbers do
+                numbers[i] = numbers[i] * 2
             end
-            for j = 1,(#numbers - 1) do
-                if (numbers[j] > ten15) then
-                    numbers[j + 1] = numbers[j + 1] + math.floor(numbers[j] / ten15)
-                    numbers[j] = numbers[j] % ten15
+            for i = 1,(#numbers - 1) do
+                if (numbers[i] > ten15) then
+                    numbers[i + 1] = numbers[i + 1] + math.floor(numbers[i] / ten15)
+                    numbers[i] = numbers[i] % ten15
                 end
             end
         end
-        for i = 1, 18 do
-            for j = 1,#numbers do
-                answer = answer + math.floor(numbers[j] / power) % 10
+        for _ = 1, 18 do
+            for i = 1,#numbers do
+                answer = answer + math.floor(numbers[i] / power) % 10
             end
             power = power * 10
         end
