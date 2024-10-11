@@ -28,3 +28,4 @@ docs/languages*.svg
 docs/_tags
 docs/objects.inv
 fortran/problems.f90
+styles/**
