@@ -13,7 +13,7 @@ module Problem0020
     use constants
     implicit none
 contains
-    pure integer function p0020() result(answer)
+    pure integer(i18t) function p0020() result(answer)
         integer(i18t), dimension(10) :: numbers
         integer(i18t) :: power
         integer :: i, j

@@ -26,7 +26,7 @@ return {
                 end
             end
         end
-        for i = 1,16 do
+        for _ = 1,16 do
             for j = 1,#numbers do
                 answer = answer + math.floor(numbers[j] / power) % 10
             end
