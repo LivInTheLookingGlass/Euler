@@ -1,0 +1,22 @@
+Fortran Implementation of Problem 20
+====================================
+
+View source code :source:`fortran/src/p0020.f90`
+
+Includes
+--------
+
+- `utils.f90 <./lib/utils.html>`_
+
+Problem Solution
+----------------
+
+.. f:module:: Problem0020
+
+.. f:function:: integer Problem0020/p0020()
+
+.. literalinclude:: ../../../fortran/src/p0020.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: large-numbers, digit-sum, factorial

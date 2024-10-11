@@ -22,6 +22,9 @@ module constants
     ! file/string sizes
     integer, parameter :: DATA_MAX_NAME_SIZE = 32
     integer, parameter :: ANSWERT_STR_SIZE = 16
+
+    ! misc
     integer, parameter :: MAX_FACTORIAL_64 = 20
+    integer(i18t), parameter :: ten17 = 100000000000000000_i18t
 end module constants
 

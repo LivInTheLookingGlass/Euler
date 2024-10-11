@@ -75,6 +75,7 @@ Problems Solved
 -  ☒ `15 <./src/p0015.lua>`__
 -  ☒ `16 <./src/p0016.lua>`__
 -  ☒ `17 <./src/p0017.lua>`__
+-  ☒ `20 <./src/p0020.lua>`__
 -  ☒ `22 <./src/p0022.lua>`__
 -  ☒ `28 <./src/p0028.lua>`__
 -  ☒ `34 <./src/p0034.lua>`__

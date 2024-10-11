@@ -1,0 +1,15 @@
+Lua Implementation of Problem 20
+================================
+
+View source code :source:`lua/src/p0020.lua`
+
+.. lua:function:: solution()
+
+    :return: The solution to problem 20
+    :rtype: number
+
+.. literalinclude:: ../../../lua/src/p0020.lua
+   :language: Lua
+   :linenos:
+
+.. tags:: large-numbers, digit-sum, factorial

@@ -9,7 +9,6 @@
 module Problem0016
     use constants
     implicit none
-    integer(i18t), parameter :: ten17 = 100000000000000000_i18t
 contains
     pure integer(i18t) function p0016() result(answer)
         integer(i18t), dimension(18) :: numbers
