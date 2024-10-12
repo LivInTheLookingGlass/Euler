@@ -25,6 +25,7 @@ module constants
 
     ! misc
     integer, parameter :: MAX_FACTORIAL_64 = 20
+    integer(i18t), parameter :: ten16 = 10000000000000000_i18t
     integer(i18t), parameter :: ten17 = 100000000000000000_i18t
 end module constants
 

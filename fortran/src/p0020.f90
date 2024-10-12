@@ -20,15 +20,16 @@ contains
         
         power = 1
         answer = 0
-        numbers = (/ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 /)
+        numbers = 0
+        numbers(1) = 1
         do i = 2, 100
             do j = 1, size(numbers)
                 numbers(j) = numbers(j) * i
             end do
             do j = 1, size(numbers) - 1
-                if (numbers(j) > ten17) then
-                    numbers(j + 1) = numbers(j + 1) + numbers(j) / ten17
-                    numbers(j) = mod(numbers(j), ten17)
+                if (numbers(j) > ten16) then
+                    numbers(j + 1) = numbers(j + 1) + numbers(j) / ten16
+                    numbers(j) = mod(numbers(j), ten16)
                 end if
             end do
         end do
