@@ -1,0 +1,14 @@
+Fortran Implementation of Problem 19
+====================================
+
+View source code :source:`fortran/src/p0019.f90`
+
+.. f:module:: Problem0019
+
+.. f:function:: integer Problem0019/p0019()
+
+.. literalinclude:: ../../../fortran/src/p0019.f90
+   :language: Fortran
+   :linenos:
+
+.. tags:: calendar, combinatorics

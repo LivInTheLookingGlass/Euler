@@ -84,6 +84,8 @@ for i = 13, 17 do
 end
 
 local more_problems = {
+    ["p0019.lua"] = {get_answer(19), false},
+    ["p0020.lua"] = {get_answer(20), false},
     ["p0022.lua"] = {get_answer(22), false},
     ["p0028.lua"] = {get_answer(28), false},
     ["p0034.lua"] = {get_answer(34), false},
