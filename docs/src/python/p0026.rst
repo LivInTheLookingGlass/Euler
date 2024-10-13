@@ -1,0 +1,14 @@
+Python Implementation of Problem 26
+===================================
+
+View source code :source:`python/src/p0026.py`
+
+.. automodule:: python.src.p0026
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0026.py
+   :language: python
+   :linenos:
+
+.. tags:: fraction, recurring-decimal, decimal-representation

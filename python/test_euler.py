@@ -19,8 +19,7 @@ from src.lib.utils import get_answer  # noqa: E402  # isort:skip
 
 answers: Dict[int, Union[int, str]] = {
     x: get_answer(x) for x in (
-        *range(1, 26),
-        *range(27, 51),
+        *range(1, 51),
         52,
         53,
         *range(55, 61),
