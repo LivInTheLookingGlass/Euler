@@ -1,0 +1,25 @@
+Python Implementation of Problem 51
+===================================
+
+View source code :source:`python/src/p0051.py`
+
+Includes
+--------
+
+- :py:func:`~python.src.lib.primes.is_prime`
+- :external:py:func:`itertools.combinations`
+- :external:py:func:`itertools.count`
+- :external:py:func:`itertools.product`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0051
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0051.py
+   :language: python
+   :linenos:
+
+.. tags:: prime-number, digit-manipulation
