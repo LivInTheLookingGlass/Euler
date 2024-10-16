@@ -1,0 +1,24 @@
+Python Implementation of Problem 54
+===================================
+
+View source code :source:`python/src/p0054.py`
+
+Includes
+--------
+
+- :py:func:`~python.src.lib.utils.get_data_file`
+- :external:py:class:`collections.Counter`
+- :external:py:func:`statistics.multimode`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0054
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0054.py
+   :language: python
+   :linenos:
+
+.. tags:: game

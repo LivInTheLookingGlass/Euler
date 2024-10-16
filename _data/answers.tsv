@@ -52,6 +52,7 @@ ID	type	size	answer
 51	int	32 	121313
 52	int	32	142857
 53	int	16	4075
+54	int	16	376
 55	uint	8	249
 56	int	16	972
 57	uint	8	153
