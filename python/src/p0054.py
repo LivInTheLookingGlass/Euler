@@ -55,9 +55,10 @@ numerals = {
     'Q': 12,
     'K': 13,
     'A': 14,
-} | {
-    str(x): x for x in range(2, 10)
 }
+numerals.update({
+    str(x): x for x in range(2, 10)
+})
 
 HandType = Sequence[Tuple[int, str]]
 
