@@ -1,0 +1,24 @@
+Python Implementation of Problem 77
+===================================
+
+View source code :source:`python/src/p0077.py`
+
+Includes
+--------
+
+- :py:func:`~python.src.lib.utils.get_data_file`
+- :external:py:class:`collections.defaultdict`
+- :external:py:func:`functools.reduce`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0077
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0077.py
+   :language: python
+   :linenos:
+
+.. tags:: permutation, pattern-matching

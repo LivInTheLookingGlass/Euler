@@ -41,7 +41,6 @@ assume that all hands are valid (no invalid characters or repeated cards), each 
 and in each hand there is a clear winner.
 
 How many hands does Player 1 win?
-
 """
 from collections import Counter
 from statistics import multimode
