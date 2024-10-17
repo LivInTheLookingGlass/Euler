@@ -1,7 +1,7 @@
-Python Implementation of Problem 77
+Python Implementation of Problem 79
 ===================================
 
-View source code :source:`python/src/p0077.py`
+View source code :source:`python/src/p0079.py`
 
 Includes
 --------
@@ -13,11 +13,11 @@ Includes
 Problem Solution
 ----------------
 
-.. automodule:: python.src.p0077
+.. automodule:: python.src.p0079
    :members:
    :undoc-members:
 
-.. literalinclude:: ../../../python/src/p0077.py
+.. literalinclude:: ../../../python/src/p0079.py
    :language: python
    :linenos:
 
