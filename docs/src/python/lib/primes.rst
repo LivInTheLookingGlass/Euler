@@ -6,6 +6,8 @@ View source code :source:`python/src/lib/primes.py`
 Includes
 --------
 
+- :external:py:class:`fractions.Fraction`
+- :external:py:func:`functools.reduce`
 - :external:py:func:`itertools.count`
 - :external:py:func:`itertools.filterfalse`
 - :external:py:func:`itertools.takewhile`

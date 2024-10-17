@@ -1,0 +1,24 @@
+Python Implementation of Problem 72
+===================================
+
+View source code :source:`python/src/p0072.py`
+
+Includes
+--------
+
+- :py:func:`~python.src.lib.primes.totient`
+- :external:py:func:`itertools.chain`
+- :external:py:func:`functools.reduce`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0072
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0072.py
+   :language: python
+   :linenos:
+
+.. tags:: fraction, gcd, stern-brocot-tree, coprime-numbers, totient-function

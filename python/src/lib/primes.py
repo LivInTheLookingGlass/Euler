@@ -1,3 +1,5 @@
+from fractions import Fraction
+from functools import reduce
 from itertools import count, filterfalse, takewhile
 from math import ceil, sqrt
 from pathlib import Path
@@ -138,3 +140,13 @@ def primes_and_negatives(*args: int) -> Iterator[int]:
     for p in primes(*args):
         yield p
         yield -p
+
+
+def fast_totient(n: int) -> int:
+    """A shortcut method to calculate Euler's totient function which assumes n has *distinct* prime factors."""
+    return reduce(lambda x, y: x * (y - 1), prime_factors(n), 1)
+
+
+def totient(n: int) -> int:
+    """Calculates Euler's totient function in the general case."""
+    return int(n * reduce(lambda x, y: x * (1 - Fraction(1, y)), set(prime_factors(n)), 1))

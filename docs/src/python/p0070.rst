@@ -6,6 +6,7 @@ View source code :source:`python/src/p0070.py`
 Includes
 --------
 
+- :py:func:`~python.src.lib.primes.fast_totient`
 - :external:py:func:`itertools.chain`
 - :external:py:func:`functools.reduce`
 

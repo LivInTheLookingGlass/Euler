@@ -15,14 +15,9 @@ Interestingly, $\\phi(87109)=79180$, and it can be seen that $87109$ is a permut
 Find the value of $n$, $1 \\lt n \\lt 10^7$, for which $\\phi(n)$ is a permutation of $n$ and the ratio $n/\\phi(n)$
 produces a minimum.
 """
-from functools import reduce
 from itertools import chain
 
-from .lib.primes import prime_factors
-
-
-def totient(n: int) -> int:
-    return reduce(lambda x, y: x * (y - 1), prime_factors(n), 1)
+from .lib.primes import fast_totient
 
 
 def main() -> int:
@@ -42,7 +37,7 @@ def main() -> int:
       range(6 + 17, stop, 30),  # 6k - 1, x ≡ 4 (mod 5)
       range(6 + 19, stop, 30)   # 6k + 1, x ≡ 4 (mod 5)
     )):
-        t = totient(x)
+        t = fast_totient(x)
         strx = str(x)
         strt = str(t)
         if not all(strx.count(d) == strt.count(d) for d in set(strx)):
