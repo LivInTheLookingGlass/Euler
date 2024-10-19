@@ -3,7 +3,7 @@ from functools import reduce
 from itertools import count, filterfalse, takewhile
 from math import ceil, sqrt
 from pathlib import Path
-from typing import Callable, Collection, Dict, Iterator, Optional
+from typing import Callable, Collection, Dict, Iterable, Iterator, Optional
 
 from sortedcontainers import SortedSet
 from umsgpack import load
@@ -142,11 +142,21 @@ def primes_and_negatives(*args: int) -> Iterator[int]:
         yield -p
 
 
-def fast_totient(n: int) -> int:
+def fast_totient(n: int, factors: Optional[Iterable[int]] = None) -> int:
     """A shortcut method to calculate Euler's totient function which assumes n has *distinct* prime factors."""
-    return reduce(lambda x, y: x * (y - 1), prime_factors(n), 1)
+    return reduce(lambda x, y: x * (y - 1), factors or prime_factors(n), 1)
+
+
+def _reduce_factors(x: Fraction, y: int) -> Fraction:
+    return x * Fraction(y - 1, y)
 
 
 def totient(n: int) -> int:
     """Calculates Euler's totient function in the general case."""
-    return int(n * reduce(lambda x, y: x * (1 - Fraction(1, y)), set(prime_factors(n)), 1))
+    total_factors = tuple(prime_factors(n))
+    unique_factors = set(total_factors)
+    if len(total_factors) == len(unique_factors):
+        return fast_totient(n, unique_factors)
+
+    fractional = reduce(_reduce_factors, unique_factors, Fraction(1, 1))
+    return int(n * fractional)
