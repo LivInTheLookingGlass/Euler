@@ -3,7 +3,10 @@ from typing import Iterable
 
 
 def from_digits(digs: Iterable[int], base: int = 10) -> int:
-    """Reconstruct a number from a series of digits."""
+    """Reconstruct a number from a series of digits.
+    
+    Runs in :math:`O(n)` operations, where :math:`n` is the number of digits. This means that it will take
+    :math:`O(\\log(m))` where :math:`m` is the original number."""
     ret: int = 0
     for dig in digs:
         ret = ret * base + dig
@@ -16,7 +19,10 @@ def lattice_paths(height: int, width: int) -> int:
 
 
 def mul_inv(a: int, b: int) -> int:
-    """Multiplicative inverse for modulo numbers"""
+    """Multiplicative inverse for modulo numbers
+    
+    Runs in :math:`O(\\log(\\min(a, b)))` time. Given that this is typically used in the context of modulus math, we
+    can usually assume :math:`a < b`, simplifying this to :math:`O(\\log(a))` time."""
     if b == 1:
         return 1
     b0: int = b
@@ -32,7 +38,11 @@ def mul_inv(a: int, b: int) -> int:
 
 
 def n_choose_r(n: int, r: int) -> int:
-    """Enumerate the number of ways to pick r elements from a collection of size n."""
+    """Enumerate the number of ways to pick r elements from a collection of size n.
+    
+    Runs in :math:`O(n)` multiplications. Because of how Python works, numbers less than :math:`2^{64}` will multiply
+    in constant time. Larger numbers, however, will multiply in :math:`O(n^{1.585})`, giving an overall time complexity
+    of :math:`O(n^{2.585})`."""
     return factorial(n) // factorial(r) // factorial(n - r)
 
 
