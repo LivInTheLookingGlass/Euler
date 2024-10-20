@@ -2,21 +2,11 @@ from fractions import Fraction
 from functools import reduce
 from itertools import count, filterfalse, takewhile
 from math import ceil, sqrt
-from pathlib import Path
 from typing import Callable, Collection, Dict, Iterable, Iterator, Optional
 
 from sortedcontainers import SortedSet
-from umsgpack import load
 
-cache_filename = 'primes_cache.mpack'
-
-try:
-    with Path(__file__).parent.joinpath(cache_filename).open('rb') as f:
-        cache = SortedSet(load(f))
-except Exception:  # pragma: no cover
-    cache = SortedSet([
-        2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
-    ])
+cache = SortedSet([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61])
 last_cached: int = cache[-1]
 
 
@@ -158,7 +148,7 @@ def fast_totient(n: int, factors: Optional[Iterable[int]] = None) -> int:
     """A shortcut method to calculate Euler's totient function which assumes n has *distinct* prime factors.
 
     It runs exactly 1 multiplication and 1 subtraction per prime factor, giving a worst case of
-    :math:`O(\\sqrt{n} \\cdot \\log(n)^{1.585 \\cdot 2} \\cdot \\log(\\log(n)))`."""
+    :math:`O(\\sqrt{n} \\cdot \\log(n)^{3.17} \\cdot \\log(\\log(n)))`."""
     return reduce(lambda x, y: x * (y - 1), factors or prime_factors(n), 1)
 
 
