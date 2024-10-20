@@ -27,6 +27,7 @@ answers: Dict[int, Union[int, str]] = {
         *range(76, 78),
         79,
         81,
+        85,
         87,
         89,
         92,

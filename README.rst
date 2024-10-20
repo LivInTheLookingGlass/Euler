@@ -107,7 +107,7 @@ Olivia's Project Euler Solutions
    |            |                            |        | |Lu-Cov| |br|     |
    |            |                            |        | |LuaCheck|        |
    +------------+----------------------------+--------+-------------------+
-   | Python     | CPython 3.6+ |br|          | 85     | |Python| |br|     |
+   | Python     | CPython 3.6+ |br|          | 86     | |Python| |br|     |
    |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
    |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
    |            | Browser [#]_               |        | |PythonLint|      |

@@ -1,0 +1,23 @@
+Python Implementation of Problem 85
+===================================
+
+View source code :source:`python/src/p0085.py`
+
+Includes
+--------
+
+- :external:py:func:`math.ceil`
+- :external:py:func:`math.sqrt`
+
+Problem Solution
+----------------
+
+.. automodule:: python.src.p0085
+   :members:
+   :undoc-members:
+
+.. literalinclude:: ../../../python/src/p0085.py
+   :language: python
+   :linenos:
+
+.. tags:: geometry, packing, combinatorics

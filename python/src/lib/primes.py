@@ -77,6 +77,11 @@ def modified_eratosthenes() -> Iterator[int]:
 def prime_factors(num: int) -> Iterator[int]:
     """Iterates over the prime factors of a number.
 
+    .. note::
+
+        For the purposes of this function, :math:`-1` is included as a factor for negative numbers, and :math:`0` is
+        yielded as a special case. In general, prime factors are strictly positive integers greater than 1.
+
     It takes :math:`O(m \\cdot \\log(m)^{1.585} \\cdot \\log(\\log(m)))` time to generate the needed primes, where
     :math:`m = \\sqrt{n}`, so :math:`O(\\sqrt{n} \\cdot \\log(\\sqrt{n})^{1.585} \\cdot \\log(\\log(\\sqrt{n})))`,
     which simplifies to :math:`O(\\sqrt{n} \\cdot \\log(n)^{1.585} \\cdot \\log(\\log(n)))` operations."""
@@ -115,7 +120,7 @@ def is_prime(
     :math:`O(\\log(n)^{1.585} \\cdot \\log(\\log(n)))`. If count is :math:`c` and ``distinct=False``, it runs in
     :math:`O(c \\cdot \\log(n)^{1.585} \\cdot \\log(\\log(n)))`. Otherwise, it runs in
     :math:`O(\\sqrt{n} \\cdot \\log(n)^{1.585} \\cdot \\log(\\log(n)))` time."""
-    if num in (0, 1):
+    if num < 2:
         return False
     factors = iter(prime_factors(num))
     if count == 1:
@@ -145,7 +150,7 @@ def primes_and_negatives(*args: int) -> Iterator[int]:
 
 
 def fast_totient(n: int, factors: Optional[Iterable[int]] = None) -> int:
-    """A shortcut method to calculate Euler's totient function which assumes n has *distinct* prime factors.
+    """A faster method to calculate Euler's totient function when n has *distinct* prime factors.
 
     It runs exactly 1 multiplication and 1 subtraction per prime factor, giving a worst case of
     :math:`O(\\sqrt{n} \\cdot \\log(n)^{3.17} \\cdot \\log(\\log(n)))`."""
@@ -159,12 +164,15 @@ def _reduce_factors(x: Fraction, y: int) -> Fraction:
 def totient(n: int) -> int:
     """Calculates Euler's totient function in the general case.
 
+    This function computes the number of integers less than n that are coprime to n. It handles the general case,
+    including repeated prime factors.
+
     Takes :math:`O(\\log(n))` fraction multiplications, each of which is dominated by two GCDs, which run at
     :math:`O(\\log(\\min(a, b))^2)`. Given that the max factor is :math:`\\sqrt{n}`, we can simplify this to a worst
     case of :math:`O(\\log(n) \\cdot \\log(\\sqrt{n}))^2 = O(\\log(n) \\cdot \\tfrac{1}{2} \\log(n)^2) = O(\\log(n)^3)`.
 
     Computing the prime factors themselves takes :math:`O(\\sqrt{n} \\cdot \\log(n)^{1.585} \\cdot \\log(\\log(n)))`
-    when the cache is not initialized, but on all future runs will take :math:`O(\\log(n))` time.
+    when the global prime cache is not initialized, but on all future runs will take :math:`O(\\log(n))` time.
 
     This combines to give us :math:`O(\\sqrt{n} \\cdot \\log(n)^{4.585} \\cdot \\log(\\log(n)))` time when the cache is
     stale, and :math:`O(\\log(n)^4)` time on future runs."""
