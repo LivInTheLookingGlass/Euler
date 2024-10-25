@@ -30,6 +30,9 @@ Code Size By Language (Normalized by File Count)
 
 .. image:: ./languages-normalized.svg
 
+Note that this is slightly misleading, as the documentation for Python and JavaScript are largely in the code files,
+whereas the other languages have most of their documentation in the docs folder.
+
 Problems Solved
 ---------------
 
