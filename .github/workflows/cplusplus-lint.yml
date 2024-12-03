@@ -5,6 +5,7 @@ on:
     paths:
       - 'cplusplus/**'
       - '!cplusplus/README.rst'
+      - '.github/workflows/cplusplus-lint.yml'
   schedule:
   - cron: "0 0 1 * *"
 

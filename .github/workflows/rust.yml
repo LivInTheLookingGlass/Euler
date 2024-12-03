@@ -5,6 +5,7 @@ on:
     paths:
       - 'rust/**'
       - '!rust/README.rst'
+      - '.github/workflows/rust.yml'
   schedule:
   - cron: "0 0 1 * *"
 
@@ -78,8 +79,8 @@ jobs:
         if: ${{ matrix.toolchain == 'nightly' }}
         env:
           CARGO_INCREMENTAL: '0'
-          RUSTFLAGS: '-Zprofile -Ccodegen-units=1 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
-          RUSTDOCFLAGS: '-Zprofile -Ccodegen-units=1 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
+          RUSTFLAGS: '-Ccodegen-units=1 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
+          RUSTDOCFLAGS: '-Ccodegen-units=1 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
           RUST_BACKTRACE: 1
 
       - name: rust-grcov

@@ -5,6 +5,7 @@ on:
     paths:
       - 'csharp/**'
       - '!csharp/README.rst'
+      - '.github/workflows/csharp-lint.yml'
   schedule:
   - cron: "0 0 1 * *"
 

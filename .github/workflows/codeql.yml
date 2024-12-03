@@ -25,6 +25,7 @@ on:
       - 'javascript/**'
       - 'python/**'
       - '!*/README.rst'
+      - '.github/workflows/codeql.yml'
   pull_request:
   schedule:
     - cron: '29 10 * * 4'

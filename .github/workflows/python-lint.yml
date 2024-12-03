@@ -5,6 +5,7 @@ on:
     paths:
       - 'python/**'
       - '!python/README.rst'
+      - '.github/workflows/python-lint.yml'
   schedule:
   - cron: "0 0 1 * *"
 

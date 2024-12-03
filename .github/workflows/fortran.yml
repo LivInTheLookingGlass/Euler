@@ -5,6 +5,7 @@ on:
     paths:
       - 'fortran/**'
       - '!fortran/README.rst'
+      - '.github/workflows/fortran.yml'
   schedule:
   - cron: "0 0 1 * *"
 

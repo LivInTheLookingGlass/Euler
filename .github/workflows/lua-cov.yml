@@ -5,6 +5,7 @@ on:
     paths:
     - 'lua/**'
     - '!lua/README.rst'
+    - '.github/workflows/lua-cov.yml'
   schedule:
   - cron: "0 0 1 * *"
 

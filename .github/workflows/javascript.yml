@@ -5,6 +5,7 @@ on:
     paths:
       - 'javascript/**'
       - '!javascript/README.rst'
+      - '.github/workflows/javascript.yml'
   schedule:
   - cron: "0 0 1 * *"
 

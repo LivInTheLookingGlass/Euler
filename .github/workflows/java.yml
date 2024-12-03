@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'java/**'
+      - '!java/README.rst'
+      - '.github/workflows/java.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
