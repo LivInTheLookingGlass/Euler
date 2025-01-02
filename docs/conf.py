@@ -22,7 +22,7 @@ sys_path.insert(0, basedir + sep + 'python')
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 project = 'Euler'
-copyright = '2024, Olivia Appleton-Crocker'
+copyright = '2025, Olivia Appleton-Crocker'
 author = 'Olivia Appleton-Crocker'
 rst_prolog = """
 .. meta::
