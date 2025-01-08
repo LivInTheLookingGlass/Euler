@@ -24,15 +24,15 @@ from .lib.primes import primes
 def main() -> int:
     primes_at_1000 = primes(10000)
     consume(takewhile((1000).__gt__, primes_at_1000))
-    primes_at_1000, pgen_1 = tee(primes_at_1000)
+    _, pgen_1 = tee(primes_at_1000)
     for p1 in pgen_1:
         if p1 == 1487:
             continue
-        pgen_1, pgen_2 = tee(pgen_1)
+        _, pgen_2 = tee(pgen_1)
         for p2 in pgen_2:
             if p2 > 10000 - p1 // 2:
                 break
-            pgen_2, pgen_3 = tee(pgen_2)
+            _, pgen_3 = tee(pgen_2)
             for p3 in pgen_3:
                 dp1p2 = p1 - p2
                 dp2p3 = p2 - p3
