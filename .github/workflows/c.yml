@@ -1,6 +1,7 @@
 name: C
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'c/**'
