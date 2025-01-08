@@ -15,7 +15,8 @@ for i in range(1, 10000):
         module = import_module(f'.{name}', __name__)
         setattr(modules[__name__], name, module)
         __all__.append(name)
-        problems[i] = module.main
+        if hasattr(module, 'main'):
+            problems[i] = module.main
         if getattr(module, 'is_slow', False):
             slow.add(i)
     except ImportError:
