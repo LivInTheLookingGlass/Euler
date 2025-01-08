@@ -80,7 +80,7 @@ jobs:
         if: ${{ matrix.toolchain == 'stable' }}
         uses: taiki-e/install-action@cargo-llvm-cov
       - if: ${{ matrix.toolchain == 'stable' }}
-        run: cargo llvm-cov --all-features --exclude register_derive_impl --workspace --no-fail-fast --lcov --output-path lcov.info
+        run: cd rust && cargo llvm-cov --all-features --exclude register_derive_impl --workspace --no-fail-fast --lcov --output-path lcov.info
         env:
           NODE_COVERALLS_DEBUG: true
       - name: rust-grcov
