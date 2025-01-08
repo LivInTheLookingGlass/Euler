@@ -66,23 +66,23 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: ${{ matrix.toolchain }}
+          components: llvm-tools-preview
 
       - run: rustup default ${{ matrix.toolchain }}
 
       - run: cd rust && cargo test
-        if: ${{ matrix.toolchain != 'nightly' }}
+        if: ${{ matrix.toolchain != 'stable' }}
         env:
           RUSTFLAGS: '-Copt-level=2'
           RUST_BACKTRACE: 1
 
-      - run: cd rust && cargo test
-        if: ${{ matrix.toolchain == 'nightly' }}
+      - name: Install cargo-llvm-cov
+        if: ${{ matrix.toolchain == 'stable' }}
+        uses: taiki-e/install-action@cargo-llvm-cov
+      - if: ${{ matrix.toolchain == 'stable' }}
+        run: cargo llvm-cov --all-features --exclude register_derive_impl --workspace --no-fail-fast --lcov --output-path lcov.info
         env:
-          CARGO_INCREMENTAL: '0'
-          RUSTFLAGS: '-Ccodegen-units=1 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
-          RUSTDOCFLAGS: '-Ccodegen-units=1 -Clink-dead-code -Coverflow-checks=off -Cpanic=abort -Zpanic_abort_tests -Copt-level=1'
-          RUST_BACKTRACE: 1
-
+          NODE_COVERALLS_DEBUG: true
       - name: rust-grcov
         if: ${{ matrix.toolchain == 'nightly' }}
         run: cargo install grcov && grcov rust --path-mapping rust/mapping.json -t cobertura -o .
