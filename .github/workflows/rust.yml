@@ -84,11 +84,11 @@ jobs:
         env:
           NODE_COVERALLS_DEBUG: true
       - name: rust-grcov
-        if: ${{ matrix.toolchain == 'nightly' }}
+        if: ${{ matrix.toolchain == 'stable' }}
         run: cargo install grcov && grcov rust --path-mapping rust/mapping.json -t cobertura -o .
 
       - name: Upload coverage reports to Codecov
-        if: ${{ matrix.toolchain == 'nightly' }}
+        if: ${{ matrix.toolchain == 'stable' }}
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
