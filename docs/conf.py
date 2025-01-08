@@ -26,7 +26,12 @@ copyright = '2025, Olivia Appleton-Crocker'
 author = 'Olivia Appleton-Crocker'
 rst_prolog = """
 .. meta::
-  :fediverse:creator: @LivInTheLookingGlass@tech.lgbt
+    :fediverse:creator: https://tech.lgbt/@LivInTheLookingGlass
+
+.. raw:: html
+
+    <a rel="me" href="https://tech.lgbt/@LivInTheLookingGlass" role="none"
+     style="display: none; visibility: hidden; pointer-events: none; animation: none; transition: none"></a>
 """
 
 # -- General configuration ---------------------------------------------------
