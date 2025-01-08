@@ -30,7 +30,7 @@
 #         cols = tuple(tuple(rows[idx][col] for idx in range(n2)) for col in range(n2))
 #         squares = tuple(
 #             tuple(
-#                 tuple(rows[row * n + (idx // n)][col * n + (idx % n)] for idx in range(n2 * n2)) 
+#                 tuple(rows[row * n + (idx // n)][col * n + (idx % n)] for idx in range(n2 * n2))
 #                 for col in range(n)
 #             ) for row in range(n)
 #         )

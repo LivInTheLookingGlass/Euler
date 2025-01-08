@@ -34,9 +34,11 @@ def main() -> int:
                 break
             pgen_2, pgen_3 = tee(pgen_2)
             for p3 in pgen_3:
-                if p1 - p2 < p2 - p3:
+                dp1p2 = p1 - p2
+                dp2p3 = p2 - p3
+                if dp1p2 < dp2p3:
                     continue
-                elif p1 - p2 > p2 - p3:
+                elif dp1p2 > dp2p3:
                     break
                 elif set(digits(p1)) == set(digits(p2)) == set(digits(p3)):
                     return p1 * 10**8 + p2 * 10**4 + p3
