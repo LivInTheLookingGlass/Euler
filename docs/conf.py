@@ -253,7 +253,15 @@ def countfiles(lang):
     return count
 
 
+def build_finished(app: Sphinx, exception: Optional[Exception]):
+    if app.builder.name == 'html':
+        source = Path(__file__).parent.joinpath('robots.txt')
+        dest_path = Path(app.outdir, 'robots.txt')
+        copy(source, dest_path)
+
+
 def setup(app):
+    app.connect('build-finished', build_finished)
     try:
         labels, sizes, counts = zip(*((lang, float(size), countfiles(lang)) for lang, size in linguist(basedir)))
         print("\n".join(repr(z) for z in zip(labels, sizes, counts)))
