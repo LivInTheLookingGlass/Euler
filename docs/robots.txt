@@ -51,5 +51,6 @@ DisallowAITraining: /
 # and may not be supported by all AI crawlers.
 User-Agent: *
 DisallowAITraining: /
+Allow: /
 Sitemap: https://oliviaappleton.com/sitemap.xml
 
