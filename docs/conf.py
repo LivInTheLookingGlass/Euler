@@ -32,6 +32,9 @@ rst_prolog = """
 
     <a rel="me" href="https://tech.lgbt/@LivInTheLookingGlass" role="none"
      style="display: none; visibility: hidden; pointer-events: none; animation: none; transition: none"></a>
+    <script data-goatcounter="https://livinthelookingglass.goatcounter.com/count"  
+     data-goatcounter-settings='{"path": location.hostname + location.pathname}'  
+     async src="//gc.zgo.at/count.js"></script>
 """
 
 # -- General configuration ---------------------------------------------------
