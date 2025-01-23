@@ -37,9 +37,9 @@ rst_prolog = """
             path: function() {
                 let p = location.pathname;
                 if (p == '/') {
-                    p = '/index.html'
+                    p = '/index.html';
                 }
-                return location.host + p
+                return location.host + p;
             }
         }
     </script>
