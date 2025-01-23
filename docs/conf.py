@@ -3,9 +3,12 @@ from os import environ, path, sep, walk
 from pathlib import Path
 from zlib import compress
 from subprocess import check_call
+from shutil import copy
 from sys import path as sys_path
+from typing import Optional
 
 from sphinxcontrib.domaintools import custom_domain
+from sphinx.application import Sphinx
 try:
     from ghlinguist import linguist
     import matplotlib.pyplot as plt
