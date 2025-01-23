@@ -49,7 +49,7 @@ jobs:
 
     - uses: actions-rs/toolchain@v1
       with:
-        toolchain: stable
+        toolchain: 1.83
         default: true
         target: wasm32-unknown-unknown
 
