@@ -24,9 +24,6 @@ features = [ "std" ]
 [dev-dependencies]
 rstest = { version = "0.21.0", default-features = false }
 
-[target.'cfg(any(target_arch="wasm32",target_arch="wasm64"))']
-rustflags = ["-C", "target-feature=+bulk-memory"]
-
 [target.'cfg(any(target_arch="wasm32",target_arch="wasm64"))'.dependencies]
 js-sys = "0.3"
 wasm-bindgen = { version = "0.2", default-features = false }
