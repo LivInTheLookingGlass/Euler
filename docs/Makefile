@@ -44,7 +44,7 @@ _static/dist/cp-lib.js:
 
 _static/dist/rust.js:
 	@mkdir -p _static/dist
-	@cd ../rust && wasm-pack build --target web --out-dir ../docs/_static/dist/
+	@cd ../rust && wasm-pack build --target web --out-dir ../docs/_static/dist/ -- --features bulk-memory
 
 _static/dist/python.tar.gz:
 	@$(MAKE) -C ../python webpack $(MFLAGS)
