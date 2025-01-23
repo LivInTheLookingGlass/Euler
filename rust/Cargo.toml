@@ -9,7 +9,6 @@ version = "0.1.0"
 edition = "2021"
 rust-version = "1.69"
 license = "GPL-3.0"
-wasm-opt = false
 
 [dependencies]
 itertools = "0.13.0"
@@ -28,6 +27,7 @@ rstest = { version = "0.21.0", default-features = false }
 [target.'cfg(any(target_arch="wasm32",target_arch="wasm64"))'.dependencies]
 js-sys = "0.3"
 wasm-bindgen = { version = "0.2", default-features = false }
+wasm-opt = false
 
 [lib]
 crate-type = ["cdylib"]  # Necessary for WebAssembly builds
