@@ -9,6 +9,7 @@ version = "0.1.0"
 edition = "2021"
 rust-version = "1.69"
 license = "GPL-3.0"
+wasm-opt = false
 
 [dependencies]
 itertools = "0.13.0"

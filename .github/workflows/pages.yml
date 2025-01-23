@@ -67,8 +67,6 @@ jobs:
 
     - name: Build sphinx docs
       run: make docs_dependencies html
-      env:
-        RUSTFLAGS: '-C target-feature=+atomics,+bulk-memory,+mutable-globals'
 
     - uses: actions/upload-pages-artifact@v3.0.1
       with:
