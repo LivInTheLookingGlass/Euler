@@ -68,7 +68,7 @@ jobs:
     - name: Build sphinx docs
       run: make docs_dependencies html
 
-    - uses: actions/upload-pages-artifact@v3
+    - uses: actions/upload-pages-artifact@v4
       with:
         path: docs/_build/html/
 
