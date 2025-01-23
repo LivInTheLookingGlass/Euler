@@ -34,7 +34,13 @@ rst_prolog = """
      style="display: none; visibility: hidden; pointer-events: none; animation: none; transition: none"></a>
     <script>
         window.goatcounter = {
-            path: function(p) { return location.host + p }
+            path: function() {
+                let p = location.pathname;
+                if (p == '/') {
+                    p = '/index.html'
+                }
+                return location.host + p
+            }
         }
     </script>
     <script data-goatcounter="https://livinthelookingglass.goatcounter.com/count"
