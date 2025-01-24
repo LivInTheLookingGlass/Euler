@@ -9,7 +9,19 @@
 	<body>
 		<!-- A container element for the visual Mocha results -->
 		<div id="mocha"></div>
-		<!-- Mocha setup and initiation code -->
+<script>
+        window.goatcounter = {
+            path: function() {
+                let p = location.pathname;
+                if (p == '/') {
+                    p = '/index.html';
+                }
+                return '/euler' + p;
+            }
+        }
+    </script>
+    <script data-goatcounter="https://livinthelookingglass.goatcounter.com/count"
+     async src="//gc.zgo.at/count.js"></script>		<!-- Mocha setup and initiation code -->
 		<script type="module">
 			import init, { get_problems, run_problem, get_js_answer } from './dist/rust.js';
 			mocha.setup('bdd');
