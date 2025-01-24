@@ -42,7 +42,7 @@ rst_prolog = """
                 if (p == '/') {
                     p = '/index.html';
                 }
-                return location.host + p;
+                return '/euler' + p;
             }
         }
     </script>
