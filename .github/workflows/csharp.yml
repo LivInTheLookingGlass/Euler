@@ -49,7 +49,7 @@ jobs:
         make cs_test COV=true
         mv csharp/Euler.Test/TestResults/*/coverage.cobertura.xml ./
       env:
-        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: false
+        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
 
 #    - name: Setup upterm session
 #      uses: lhotari/action-upterm@v1
