@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         net_version: [2, 3, 5, 6, 7, 8, 9]
-        os: [ubuntu-latest]
+        os: [ubuntu-22.04]
         include:
         - net_version: 6
           os: macos-latest
@@ -41,15 +41,11 @@ jobs:
 
     - name: Dependencies
       run: make cs_dependencies
-      env:
-        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
 
     - name: Run Tests
       run: |
         make cs_test COV=true
         mv csharp/Euler.Test/TestResults/*/coverage.cobertura.xml ./
-      env:
-        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
 
 #    - name: Setup upterm session
 #      uses: lhotari/action-upterm@v1
