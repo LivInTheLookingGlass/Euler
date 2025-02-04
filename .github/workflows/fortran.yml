@@ -27,7 +27,7 @@ jobs:
         include:
         - os: ubuntu-latest
           toolchain: {compiler: nvidia-hpc, version: '20.11'}
-        - os: ubuntu-latest
+        - os: ubuntu-22.04
           toolchain: {compiler: nvidia-hpc, version: '23.11'}
         - os: ubuntu-latest
           toolchain: {compiler: intel-classic, version: '2021.1'}

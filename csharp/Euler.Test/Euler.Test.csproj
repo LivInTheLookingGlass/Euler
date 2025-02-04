@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <DefineConstants>$(DefineConstants);RELEASE;TRACE</DefineConstants>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
