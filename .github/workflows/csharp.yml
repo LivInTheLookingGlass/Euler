@@ -42,7 +42,7 @@ jobs:
     - name: Dependencies
       run: make cs_dependencies
       env:
-        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: false
+        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
 
     - name: Run Tests
       run: |
