@@ -12,7 +12,8 @@ languages such as Python, C, and Rust. This collection highlights:
 - **Optimized Algorithms:** Many problems are solved with advanced techniques, showcasing my focus on efficiency.
 
 This repository not only displays my technical skills but also my dedication to continuous learning and
-problem-solving. Explore it to see how I approach and solve programming challenges.
+problem-solving. Explore it to see how I approach and solve programming challenges. For more info about me, please see
+`my homepage <https://oliviaappleton.com/>`__.
 
 This repository includes solutions in the following languages:
 
