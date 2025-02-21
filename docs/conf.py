@@ -29,11 +29,11 @@ copyright = '2025, Olivia Appleton-Crocker'
 author = 'Olivia Appleton-Crocker'
 rst_prolog = """
 .. meta::
-    :fediverse:creator: @LivInTheLookingGlass@tech.lgbt
+    :fediverse:creator: @LivInTheLookingGlass@transfem.social
 
 .. raw:: html
 
-    <a rel="me" href="https://tech.lgbt/@LivInTheLookingGlass" role="none"
+    <a rel="me" href="https://transfem.social/@LivInTheLookingGlass" role="none"
      style="display: none; visibility: hidden; pointer-events: none; animation: none; transition: none"></a>
     <script>
         window.goatcounter = {
