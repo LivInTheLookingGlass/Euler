@@ -37,10 +37,10 @@ jobs:
           version: 3.13
         - os: macos-latest
           version: 3.14
-        - os: ubuntu-latest
-          version: graalpy-23.1
-        - os: ubuntu-latest
-          version: graalpy-24.0
+        # - os: ubuntu-latest
+        #   version: graalpy-23.1
+        # - os: ubuntu-latest
+        #   version: graalpy-24.0
         - os: ubuntu-latest
           version: pypy3.6
         - os: ubuntu-latest
