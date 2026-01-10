@@ -80,7 +80,7 @@ jobs:
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
-      run: make c_test
+      run: make c_test COMPILER_OVERRIDE=${{ matrix.compiler }}
 
     - name: Run tests (macos)
       if: ${{ contains(matrix.os, 'macos') }}
