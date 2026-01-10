@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, 'ubuntu-20.04']
+        os: [macos-latest, 'ubuntu-20.04']
         compiler: ['all']
         include:
           - os: ubuntu-latest
@@ -30,6 +30,8 @@ jobs:
             compiler: tcc
           - os: ubuntu-latest
             compiler: pcc
+          - os: windows-latest
+            compiler: clang
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -78,7 +80,7 @@ jobs:
 
     - name: Run tests (windows)
       if: ${{ contains(matrix.os, 'windows') }}
-      run: make c_test_auto
+      run: make c_test
 
     - name: Run tests (macos)
       if: ${{ contains(matrix.os, 'macos') }}
