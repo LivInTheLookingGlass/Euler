@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, macos-13, 'ubuntu-20.04']
+        os: [windows-latest, macos-latest, 'ubuntu-20.04']
         compiler: ['all']
         include:
           - os: ubuntu-latest
