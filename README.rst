@@ -109,8 +109,8 @@ Olivia's Project Euler Solutions
    +------------+----------------------------+--------+-------------------+
    | Python     | CPython 3.6+ |br|          | 86     | |Python| |br|     |
    |            | Pypy 3.6+ |br|             |        | |Py-Cov| |br|     |
-   |            | GraalPy 23.1+ |br|         |        | |CodeQL| |br|     |
-   |            | Browser [#]_               |        | |PythonLint|      |
+   |            | Browser [#]_               |        | |CodeQL| |br|     |
+   |            |                            |        | |PythonLint|      |
    +------------+----------------------------+--------+-------------------+
    | Rust       | Rust 1.69+ |br|            | 44     | |Rust| |br|       |
    |            | Browser [#]_               |        | |Rs-Cov| |br|     |
