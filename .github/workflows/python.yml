@@ -1,6 +1,7 @@
 name: Py
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'python/**'
