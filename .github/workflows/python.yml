@@ -27,8 +27,6 @@ jobs:
         - os: ubuntu-latest
           version: 3.7
         include:
-        - os: ubuntu-22.04
-          version: 3.6
         - os: macos-latest
           version: 3.11
         - os: macos-latest
