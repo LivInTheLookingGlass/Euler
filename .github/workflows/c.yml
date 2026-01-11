@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, 'ubuntu-20.04']
+        os: [macos-latest, 'ubuntu-22.04']
         compiler: ['all']
         include:
           - os: ubuntu-latest
